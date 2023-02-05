@@ -1,0 +1,10 @@
+{
+    "name": "taixu-engine",
+    "version": "0.1",
+    "dependencies": [
+        "fmt",
+        "glm",
+        "glfw3",
+        "vulkan"
+    ]
+}
