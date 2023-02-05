@@ -1,6 +1,7 @@
 # Self Define
 
 3rdparty/vcpkg
+3rdparty/vcpkg_installed
 build
 
 # Created by https://www.toptal.com/developers/gitignore/api/cmake,visualstudio,visualstudiocode,c++,c,jetbrains,clion
