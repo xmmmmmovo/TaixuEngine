@@ -6,12 +6,10 @@ set(CMAKE_C_STANDARD 11)
 
 # set vcpkg for cmake
 if (NOT DEFINED ENV{VCPKG_ROOT})
-    set(ENV{VCPKG_ROOT} ${PROJECT_SOURCE_DIR}/3rdparty/vcpkg)
-endif()
+    set(ENV{VCPKG_ROOT} "./3rdparty/vcpkg")
+endif ()
 
-if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)        
-    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
-endif()
+set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 
 # for project properties
 set(ENGINE_VERSION 0.01)
@@ -24,6 +22,10 @@ project(
         LANGUAGES CXX C
 )
 
-set(CMAKE_CXX_STANDARD 17)
+# add cmake file
+include(cmake/CPM.cmake)
+
+# compile config
+set(USE_CCACHE OFF)
 
 add_subdirectory(engine)
