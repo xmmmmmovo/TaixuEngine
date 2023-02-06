@@ -12,7 +12,7 @@ if (lua_ADDED)
     add_library(lua STATIC ${lua_sources})
 
     target_include_directories(lua
-    PUBLIC
+        PUBLIC
         $<BUILD_INTERFACE:${lua_SOURCE_DIR}>
     )
 endif()

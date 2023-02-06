@@ -13,6 +13,9 @@ include(../3rdparty/FindGroupSourcesByFolder.cmake)
 # add imgui
 include(../3rdparty/Findimgui.cmake)
 
+# add stb
+include(../3rdparty/FindStb.cmake)
+
 # enables CCACHE support through the USE_CCACHE flag possible values are: YES, NO or equivalent
 if (USE_CCACHE)
     include(../3rdparty/FindCCache.cmake)
