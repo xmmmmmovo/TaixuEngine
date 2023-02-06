@@ -28,7 +28,7 @@ project(
         LANGUAGES CXX C
 )
 
-# add cmake file
+# add cmake package manager
 include(cmake/CPM.cmake)
 
 add_subdirectory(engine)

@@ -1,5 +1,5 @@
 if (NOT glfw3_ADDED)
-    # GLM
+    # Glfw3
     CPMAddPackage(
             NAME glfw3
             GITHUB_REPOSITORY glfw/glfw

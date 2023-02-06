@@ -4,7 +4,8 @@
         "**/node_modules": true,
         "**/bower_components": true,
         "**/*.code-search": true,
-        "**/build": true
+        "**/build": true,
+        "**/3rdparty": true
     },
     "files.associations": {
         "*.tsx": "typescriptreact",
