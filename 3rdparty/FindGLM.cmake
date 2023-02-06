@@ -1,8 +1,6 @@
-if (NOT glm_ADDED)
-    # GLM
-    CPMAddPackage(
-            NAME glm
-            GITHUB_REPOSITORY g-truc/glm
-            GIT_TAG 0.9.9.7
-    )
-endif ()
+# GLM
+CPMAddPackage(
+        NAME glm
+        GITHUB_REPOSITORY g-truc/glm
+        GIT_TAG 0.9.9.7
+)

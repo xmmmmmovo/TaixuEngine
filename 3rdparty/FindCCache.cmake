@@ -1,7 +1,5 @@
-if (NOT CCache_ADDED)
-    CPMAddPackage(
-            NAME Ccache
-            GITHUB_REPOSITORY TheLartians/Ccache.cmake
-            GIT_TAG 1.2.3
-    )
-endif ()
+CPMAddPackage(
+        NAME Ccache
+        GITHUB_REPOSITORY TheLartians/Ccache.cmake
+        GIT_TAG 1.2.3
+)
