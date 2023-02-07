@@ -1,5 +1,14 @@
 {
-    "cmake.configureSettings": {
-        "CMAKE_TOOLCHAIN_FILE": "../3rdparty/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/build": true,
+        "**/3rdparty": true
+    },
+    "files.associations": {
+        "*.tsx": "typescriptreact",
+        "iostream": "cpp"
     }
 }
