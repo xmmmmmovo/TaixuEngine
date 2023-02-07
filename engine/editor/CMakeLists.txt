@@ -1,6 +1,6 @@
 file(GLOB_RECURSE EDITOR_SOURCES "*.hpp" "*.cpp")
 
-add_executable(editor ${EDITOR_SOURCES})
-GroupSourcesByFolder(editor)
+add_executable(TaixuEngineEditor ${EDITOR_SOURCES})
+GroupSourcesByFolder(TaixuEngineEditor)
 
-target_link_libraries(editor Vulkan::Vulkan glm glfw imgui)
+target_link_libraries(TaixuEngineEditor Vulkan::Vulkan glm glfw imgui)

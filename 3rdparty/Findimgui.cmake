@@ -17,7 +17,7 @@ if(imgui_ADDED)
     add_library(imgui STATIC ${imgui_sources} ${imgui_impl})
 
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${imgui_SOURCE_DIR}>)
-    target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${vulkan_include}>)
+    target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${Vulkan_INCLUDE_DIR}>)
     target_link_libraries(imgui PUBLIC glfw ${VULKAN_LIB})
 
     set_target_properties(imgui PROPERTIES LINKER_LANGUAGE CXX)

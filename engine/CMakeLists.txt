@@ -1,3 +1,17 @@
+
+set(ENGINE_ASSET_DIR "/assets")
+
+# accelerate the msvc project
+if(MSVC)
+    add_compile_options("/MP")
+    set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT TaixuEngineEditor)
+endif()
+
+# add glsl validator
+set(glslangValidator_executable ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
+
+# ------ third-party -------
+
 # add Vulkan
 find_package(Vulkan REQUIRED)
 
@@ -16,9 +30,17 @@ include(../3rdparty/Findimgui.cmake)
 # add stb
 include(../3rdparty/FindStb.cmake)
 
-# enables CCACHE support through the USE_CCACHE flag possible values are: YES, NO or equivalent
-if (USE_CCACHE)
-    include(../3rdparty/FindCCache.cmake)
-endif ()
+# add fmt
+include(../3rdparty/Findfmt.cmake)
 
+# add spdlog
+include(../3rdparty/FindSpdlog.cmake)
+
+# ------- sub-directories --------
+
+# shaders
+add_subdirectory(shaders)
+
+# editor and runtime
 add_subdirectory(editor)
+add_subdirectory(runtime)
