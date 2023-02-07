@@ -31,4 +31,8 @@ project(
 # add cmake package manager
 include(cmake/CPM.cmake)
 
+set(TAIXUENGINE_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+set(CMAKE_INSTALL_PREFIX "${TAIXUENGINE_ROOT_DIR}/bin")
+set(BINARY_ROOT_DIR "${CMAKE_INSTALL_PREFIX}/")
+
 add_subdirectory(engine)

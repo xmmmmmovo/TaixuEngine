@@ -1,6 +1,25 @@
-file(GLOB_RECURSE EDITOR_SOURCES "*.hpp" "*.cpp")
+set(TARGET_NAME TaixuEngineEditor)
 
-add_executable(TaixuEngineEditor ${EDITOR_SOURCES})
-GroupSourcesByFolder(TaixuEngineEditor)
+file(GLOB_RECURSE EDITOR_HEADERS CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
+file(GLOB_RECURSE EDITOR_SOURCES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 
-target_link_libraries(TaixuEngineEditor Vulkan::Vulkan glm glfw imgui)
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${EDITOR_HEADERS} ${EDITOR_SOURCES})
+
+add_executable(${TARGET_NAME} ${EDITOR_HEADERS} ${EDITOR_SOURCES})
+GroupSourcesByFolder(${TARGET_NAME})
+
+set_target_properties(${TARGET_NAME} PROPERTIES CXX_STANDARD 17 OUTPUT_NAME ${TARGET_NAME})
+set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "Engine")
+
+target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/WX->")
+
+target_link_libraries(${TARGET_NAME} Vulkan::Vulkan glm glfw imgui)
+
+add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
+COMMAND ${CMAKE_COMMAND} -E make_directory "${BINARY_ROOT_DIR}"
+COMMAND ${CMAKE_COMMAND} -E copy "${ENGINE_ROOT_DIR}/${TARGET_NAME}.yaml" "${BINARY_ROOT_DIR}"
+COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/res" "${BINARY_ROOT_DIR}/res"
+COMMAND ${CMAKE_COMMAND} -E copy_directory "$<TARGET_FILE_DIR:${TARGET_NAME}>/" "${BINARY_ROOT_DIR}"
+COMMAND ${CMAKE_COMMAND} -E remove_directory "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
+COMMAND ${CMAKE_COMMAND} -E copy_directory "${ENGINE_ROOT_DIR}/${ENGINE_ASSET_DIR}" "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
+)

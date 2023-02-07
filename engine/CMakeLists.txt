@@ -1,14 +1,11 @@
-
-set(ENGINE_ASSET_DIR "/assets")
+set(ENGINE_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(ENGINE_ASSET_DIR "assets")
 
 # accelerate the msvc project
 if(MSVC)
     add_compile_options("/MP")
     set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT TaixuEngineEditor)
 endif()
-
-# add glsl validator
-set(glslangValidator_executable ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
 
 # ------ third-party -------
 
@@ -39,6 +36,9 @@ include(../3rdparty/FindSpdlog.cmake)
 # ------- sub-directories --------
 
 # shaders
+# add glsl validator
+set(glslangValidator_executable ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
+set(SHADER_COMPILE_TARGET TaixuShaderCompile)
 add_subdirectory(shaders)
 
 # editor and runtime
