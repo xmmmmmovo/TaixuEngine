@@ -10,15 +10,15 @@ endif()
 # ------ third-party -------
 
 # add Vulkan
-find_package(Vulkan REQUIRED)
+include(../3rdparty/FindVolk.cmake)
 
-#add glfw3
+# add glfw3
 include(../3rdparty/FindGlfw3.cmake)
 
 # add glm
 include(../3rdparty/FindGLM.cmake)
 
-#add GroupSourcesByFolder
+# add GroupSourcesByFolder
 include(../3rdparty/FindGroupSourcesByFolder.cmake)
 
 # add imgui
