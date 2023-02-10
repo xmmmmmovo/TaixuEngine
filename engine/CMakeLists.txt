@@ -10,7 +10,11 @@ endif()
 # ------ third-party -------
 
 # add Vulkan
-include(../3rdparty/FindVolk.cmake)
+# include(../3rdparty/FindVolk.cmake)
+include(../3rdparty/FindGlad.cmake)
+
+# add freetype
+include(../3rdparty/FindFreetype.cmake)
 
 # add glfw3
 include(../3rdparty/FindGlfw3.cmake)

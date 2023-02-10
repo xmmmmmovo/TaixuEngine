@@ -6,8 +6,9 @@ CPMAddPackage(
 )
 
 if(stb_ADDED)
-    FILE(GLOB stb_sources CONFIGURE_DEPENDS ${stb_SOURCE_DIR}/*.h)
-    add_library(stb INTERFACE ${stb_sources})
+    FILE(GLOB stb_headers CONFIGURE_DEPENDS ${stb_SOURCE_DIR}/*.h)
+    FILE(GLOB stb_sources ${PROJECT_SOURCE_DIR}/3rdparty/stb/*.cpp)
+    add_library(stb INTERFACE ${stb_headers} ${stb_sources})
     target_include_directories(stb
         INTERFACE
         $<BUILD_INTERFACE:${stb_SOURCE_DIR}>

@@ -1,0 +1,6 @@
+if(APPLE)
+    find_package(Freetype REQUIRED)
+    set(FREETYPE_LIBS ${FREETYPE_LIBRARIES})
+else()
+    set(FREETYPE_LIBS freetype)
+endif(APPLE)
