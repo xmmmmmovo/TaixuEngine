@@ -6,10 +6,26 @@
 #include <vector>
 
 // render use
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 const uint32_t WIDTH  = 800;
 const uint32_t HEIGHT = 600;
+
+// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
+// ---------------------------------------------------------------------------------------------------------
+void processInput(GLFWwindow *window) {
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+}
+
+// glfw: whenever the window size changed (by OS or user resize) this callback function executes
+// ---------------------------------------------------------------------------------------------
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+    // make sure the viewport matches the new window dimensions; note that width and
+    // height will be significantly larger than specified on retina displays.
+    glViewport(0, 0, width, height);
+}
 
 class HelloTriangleApplication {
 public:
@@ -24,29 +40,59 @@ private:
 
 private:
     void initWindow() {
+        // glfw: initialize and configure
+        // ------------------------------
         glfwInit();
-        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+#ifdef __APPLE__
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+        // glfw window creation
+        // --------------------
+        this->window =
+                glfwCreateWindow(WIDTH, HEIGHT, "LearnOpenGL", NULL, NULL);
+        if (window == NULL) {
+            std::cout << "Failed to create GLFW window" << std::endl;
+            glfwTerminate();
+            return;
+        }
+        glfwMakeContextCurrent(window);
+        glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+        // glad: load all OpenGL function pointers
+        // ---------------------------------------
+        if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+            std::cout << "Failed to initialize GLAD" << std::endl;
+            return;
+        }
     }
 
     void mainLoop() {
-        while (!glfwWindowShouldClose(window)) { glfwPollEvents(); }
+        while (!glfwWindowShouldClose(window)) {// input
+            // -----
+            processInput(window);
+
+            // render
+            // ------
+            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT);
+
+            // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+            // -------------------------------------------------------------------------------
+            glfwSwapBuffers(window);
+            glfwPollEvents();
+        }
     }
 
-    void cleanup() {
-        glfwDestroyWindow(window);
-        glfwTerminate();
-    }
+    void cleanup() { glfwTerminate(); }
 };
 
 int main() {
     HelloTriangleApplication app;
-    try {
-        app.run();
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << std::endl;
-        return EXIT_FAILURE;
-    }
+    app.run();
 
     return EXIT_SUCCESS;
 }
