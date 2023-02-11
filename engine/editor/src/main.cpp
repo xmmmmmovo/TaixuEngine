@@ -9,8 +9,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-const uint32_t WIDTH  = 800;
-const uint32_t HEIGHT = 600;
+const uint32_t WIDTH  = 1366;
+const uint32_t HEIGHT = 768;
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
 // ---------------------------------------------------------------------------------------------------------

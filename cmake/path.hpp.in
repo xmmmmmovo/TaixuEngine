@@ -1,0 +1,6 @@
+#ifdef TAIXU_PATH_HPP_IN
+#define TAIXU_PATH_HPP_IN
+
+#define ROOT_DIR "@CMAKE_SOURCE_DIR@/"
+
+#endif

@@ -1,5 +1,6 @@
 set(ENGINE_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(ENGINE_ASSET_DIR "assets")
+set(ENGINE_SHADER_DIR "shaders")
 
 # accelerate the msvc project
 if(MSVC)
@@ -37,7 +38,13 @@ include(../3rdparty/Findfmt.cmake)
 # add spdlog
 include(../3rdparty/FindSpdlog.cmake)
 
+# add assimp
+include(../3rdparty/FindAssimp.cmake)
+
 # ------- sub-directories --------
+
+# for SPIR_V
+set(SPIR_V_ENABLE OFF)
 
 # shaders
 # add glsl validator
