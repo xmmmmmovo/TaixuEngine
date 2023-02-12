@@ -26,7 +26,7 @@ public:
     ~MainWindow() override;
 
 private:
-    GLFWwindow *window{nullptr};
+    //window *window{nullptr};
 
     // components
     std::unique_ptr<RenderComponent>  renderComponent{nullptr};

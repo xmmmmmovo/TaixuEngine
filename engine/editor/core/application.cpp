@@ -24,6 +24,7 @@ void Application::initialize() {
     this->window = std::make_shared<MainWindow>(
             MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE);
     this->window->init();
+    spdlog::debug("app init!");
 }
 
 void Application::run() { this->window->render(); }
