@@ -2,6 +2,7 @@
 #include <iostream>
 #include <ostream>
 #include <vector>
+#include <cmath>
 
 // render use
 #include "core/application.hpp"
