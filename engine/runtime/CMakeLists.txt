@@ -1,4 +1,4 @@
-set(TARGET_NAME TaixuEngineRuntime)
+set(TARGET_NAME TaixuRuntime)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,3 +19,9 @@ if(SPIR_V_ENABLE)
     ${TARGET_NAME}
     PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/shaders/generated/cpp>)
 endif(SPIR_V_ENABLE)
+
+target_include_directories(
+  ${TARGET_NAME}
+  PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/runtime>
+  $<INSTALL_INTERFACE:include/${TARGET_NAME}>
+)

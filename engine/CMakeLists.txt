@@ -46,6 +46,8 @@ include(../3rdparty/FindAssimp.cmake)
 # for SPIR_V
 set(SPIR_V_ENABLE OFF)
 
+configure_file(../cmake/path.hpp.in ${ENGINE_ROOT_DIR}/runtime/core/base/path.hpp)
+
 # shaders
 # add glsl validator
 set(glslangValidator_executable ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
