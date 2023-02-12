@@ -6,6 +6,7 @@
 #include <vector>
 
 // render use
+#include "core/base/path.hpp"
 #include "graphics/shader.hpp"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -75,8 +76,8 @@ private:
             return;
         }
 
-        program = new taixu::cg::ShaderProgram("./shaders/vert.vert",
-                                               "./shaders/frag.frag");
+        program = new taixu::cg::ShaderProgram(SHADER_DIR "vert.vert",
+                                               SHADER_DIR "frag.frag");
 
         // set up vertex data (and buffer(s)) and configure vertex attributes
         // ------------------------------------------------------------------
