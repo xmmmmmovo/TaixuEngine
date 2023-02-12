@@ -1,0 +1,1 @@
+cloc . --exclude-dir=target,.idea,build,cmake-build-debug,cmake-build-release,bin,vcpkg,glad
