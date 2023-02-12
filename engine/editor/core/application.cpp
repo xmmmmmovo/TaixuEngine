@@ -7,6 +7,9 @@
 // <> headers
 #include <spdlog/spdlog.h>
 
+// "" headers
+#include "ui/main_window.hpp"
+
 namespace taixu::editor {
 
 void initSpdlog() {
@@ -18,8 +21,11 @@ void initApplicationArgs() {}
 void Application::initialize() {
     initSpdlog();
     initApplicationArgs();
+    this->window = std::make_shared<MainWindow>(
+            MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE);
+    this->window->init();
 }
 
-void Application::run() {}
+void Application::run() { this->window->render(); }
 
 }// namespace taixu::editor

@@ -5,6 +5,11 @@
 #ifndef TAIXUENGINE_APPLICATION_HPP
 #define TAIXUENGINE_APPLICATION_HPP
 
+#include <memory>
+
+// "" include headers
+#include "gui/window.hpp"
+
 namespace taixu::editor {
 
 /**
@@ -21,10 +26,22 @@ public:
     Application &operator=(const Application &) = delete;
 
     static Application &getInstance() {
+        // thread safe create instance
         static Application instance;
         return instance;
     }
 
+    /*
+ *    For User to use
+ * */
+private:
+    std::shared_ptr<interface::IWindow> window{nullptr};
+
+    static constexpr int32_t          MAIN_WINDOW_WIDTH  = 1366;
+    static constexpr int32_t          MAIN_WINDOW_HEIGHT = 768;
+    static constexpr std::string_view MAIN_WINDOW_TITLE  = "TaixuEngineEditor";
+
+public:
     void initialize();
     void run();
 };
