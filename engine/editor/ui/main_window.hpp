@@ -5,6 +5,8 @@
 #ifndef TAIXUENGINE_MAIN_WINDOW_HPP
 #define TAIXUENGINE_MAIN_WINDOW_HPP
 
+#include<memory>
+
 #include <imgui.h>
 #include <imgui_internal.h>
 
