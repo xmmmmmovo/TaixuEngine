@@ -5,7 +5,7 @@
 #ifndef TAIXUENGINE_MAIN_WINDOW_HPP
 #define TAIXUENGINE_MAIN_WINDOW_HPP
 
-#include<memory>
+#include <memory>
 
 #include <imgui.h>
 #include <imgui_internal.h>
@@ -13,30 +13,37 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+// "" headers
 #include "components/control_component.hpp"
 #include "components/render_component.hpp"
-#include "gui/window.hpp"
+#include "gui/glfw_window.hpp"
+#include "gui/surface/imgui_surface.hpp"
 
 namespace taixu::editor {
 
-class MainWindow : public interface::IWindow {
-public:
-    void init() override;
-    void render() override;
-    ~MainWindow() override;
+class MainWindow : public gui::TX_GLFWwindow {
+    using super = gui::TX_GLFWwindow;
 
 private:
-    //window *window{nullptr};
-
     // components
-    std::unique_ptr<RenderComponent>  renderComponent{nullptr};
-    std::unique_ptr<ControlComponent> controlComponent{nullptr};
+    std::unique_ptr<RenderComponent>   renderComponent{};
+    std::unique_ptr<ControlComponent>  controlComponent{};
+    std::unique_ptr<gui::ImguiSurface> imguiSurface{};
 
 public:
-    MainWindow() = default;
-    MainWindow(std::int32_t const &width, std::int32_t const &height,
-               std::string_view const &title)
-        : interface::IWindow(width, height, title) {}
+    MainWindow() {
+        this->imguiSurface     = std::make_unique<gui::ImguiSurface>();
+        this->renderComponent  = std::make_unique<RenderComponent>();
+        this->controlComponent = std::make_unique<ControlComponent>();
+    }
+
+    explicit MainWindow(gui::IWindowContext const &context)
+        : gui::TX_GLFWwindow(context) {
+    };
+
+    void init() override;
+    void update() override;
+    void destroy() override;
 };
 
 }// namespace taixu::editor

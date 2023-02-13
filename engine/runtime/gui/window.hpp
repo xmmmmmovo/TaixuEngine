@@ -5,29 +5,27 @@
 #ifndef TAIXUENGINE_WINDOW_HPP
 #define TAIXUENGINE_WINDOW_HPP
 
-#include <cstdint>
-#include <string>
+#include "window_context.hpp"
 
-namespace taixu::interface {
+namespace taixu::gui {
 
 class IWindow {
 protected:
-    std::int32_t width{0};
-    std::int32_t height{0};
+    IWindowContext context{};
 
-    std::string_view title;
+protected:
+    IWindow() = default;
 
 public:
-    virtual void init()   = 0;
-    virtual void render() = 0;
+    virtual void init()    = 0;
+    virtual void update()  = 0;
+    virtual void destroy() = 0;
+    virtual ~IWindow()     = default;
 
-    IWindow() = default;
-    IWindow(std::int32_t const &width, std::int32_t const &height,
-            std::string_view const &title)
-        : width(width), height(height), title(title) {}
-    virtual ~IWindow() = default;
+    IWindow(const IWindow &)            = delete;
+    IWindow &operator=(const IWindow &) = delete;
 };
 
-}// namespace taixu::interface
+}// namespace taixu::gui
 
 #endif//TAIXUENGINE_WINDOW_HPP

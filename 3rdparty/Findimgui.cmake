@@ -1,9 +1,9 @@
 # imgui
 CPMAddPackage(
-        NAME imgui
-        GIT_REPOSITORY https://github.com/ocornut/imgui
-        GIT_TAG 345184330b438cb0aafcd6ff8ac1d3820f19b808
-        DOWNLOAD_ONLY YES
+    NAME imgui
+    GIT_REPOSITORY https://github.com/ocornut/imgui
+    GIT_TAG 345184330b438cb0aafcd6ff8ac1d3820f19b808
+    DOWNLOAD_ONLY YES
 )
 
 if (imgui_ADDED)

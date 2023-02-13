@@ -11,7 +11,7 @@ namespace taixu::editor {
 class RenderComponent : public IComponent {
 public:
     void init() override;
-    void render() override;
+    void update() override;
 };
 
 }

@@ -3,101 +3,61 @@
 //
 
 #include "main_window.hpp"
-#include <backends/imgui_impl_opengl3.h>
 #include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
 #include <iostream>
 #include <spdlog/spdlog.h>
 
 
 namespace taixu::editor {
 
-// settings
-const unsigned int SCR_WIDTH  = 800;
-const unsigned int SCR_HEIGHT = 600;
+// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
+// ---------------------------------------------------------------------------------------------------------
+void processInput(GLFWwindow *window) {
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+}
 
-// timing
-float deltaTime = 0.0f;// time between current frame and last frame
-float lastFrame = 0.0f;
-
+// glfw: whenever the window size changed (by OS or user resize) this callback function executes
+// ---------------------------------------------------------------------------------------------
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+    // make sure the viewport matches the new window dimensions; note that width and
+    // height will be significantly larger than specified on retina displays.
+    glViewport(0, 0, width, height);
+}
 
 void MainWindow::init() {
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
-
-    // glfw window creation
-    // --------------------
-    GLFWwindow *window =
-            glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
-    if (window == NULL) {
-        std::cout << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();
-        return;
-    }
-    glfwMakeContextCurrent(window);
-
-    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
-        std::cout << "Failed to initialize GLAD" << std::endl;
-        return;
-    }
-
-    // configure global opengl state
-    // -----------------------------
-    glEnable(GL_DEPTH_TEST);
-
-
     ///////////////////////////
     spdlog::info("Main window start init!");
+    super::init();
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    super::setIsVsync(true);
 
+    this->imguiSurface     = std::make_unique<gui::ImguiSurface>();
+    this->renderComponent  = std::make_unique<RenderComponent>();
+    this->controlComponent = std::make_unique<ControlComponent>();
 
+    imguiSurface->init(window);
+    controlComponent->init();
+    renderComponent->init();
     spdlog::info("Main window start finished!");
-    // Setup Dear ImGui context
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO &io = ImGui::GetIO();(void) io;
+}
 
-    // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
-    //ImGui::StyleColorsLight();
-    const char *glsl_version = "#version 410";
-
-    // Setup Platform/Renderer backends
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init(glsl_version);
-    ////////////////
+void MainWindow::update() {
     while (!glfwWindowShouldClose(window)) {
-        // render
-        // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-        //Ôö¼Ó
-        // Start the Dear ImGui frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-
-        bool show_demo_window = true;
-        ImGui::ShowDemoWindow(&show_demo_window);
-
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-        // -------------------------------------------------------------------------------
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+        glClear(GL_COLOR_BUFFER_BIT);
+        imguiSurface->pre_update();
+        renderComponent->update();
+        controlComponent->update();
+        imguiSurface->update();
+        super::update();
+        processInput(window);
     }
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }
-void MainWindow::render() {}
-MainWindow::~MainWindow() {
+void MainWindow::destroy() {
+    imguiSurface->destroy();
+    super::destroy();
+}
 
-    //     glfwDestroyWindow(window);
-}
 }// namespace taixu::editor

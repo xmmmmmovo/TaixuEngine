@@ -18,3 +18,5 @@ include(../cmake/CPM.cmake)
 # ---- Add Tests ----
 
 enable_testing()
+
+add_test(test_all)

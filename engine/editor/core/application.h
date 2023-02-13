@@ -2,8 +2,8 @@
 // Created by xmmmmmovo on 2023/2/12.
 //
 
-#ifndef TAIXUENGINE_APPLICATION_HPP
-#define TAIXUENGINE_APPLICATION_HPP
+#ifndef TAIXUENGINE_APPLICATION_H
+#define TAIXUENGINE_APPLICATION_H
 
 #include <memory>
 
@@ -35,7 +35,7 @@ public:
  *    For User to use
  * */
 private:
-    std::shared_ptr<interface::IWindow> window{nullptr};
+    std::shared_ptr<gui::IWindow> window{nullptr};
 
     static constexpr int32_t          MAIN_WINDOW_WIDTH  = 1366;
     static constexpr int32_t          MAIN_WINDOW_HEIGHT = 768;
@@ -44,8 +44,9 @@ private:
 public:
     void initialize();
     void run();
+    void destroy();
 };
 
 }// namespace taixu::editor
 
-#endif//TAIXUENGINE_APPLICATION_HPP
+#endif//TAIXUENGINE_APPLICATION_H
