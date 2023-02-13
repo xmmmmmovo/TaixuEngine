@@ -5,6 +5,7 @@ set(ENGINE_SHADER_DIR "shaders")
 # accelerate the msvc project
 if(MSVC)
     add_compile_options("/MP")
+    add_compile_options("/utf-8")
     set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT TaixuEngineEditor)
 endif()
 
