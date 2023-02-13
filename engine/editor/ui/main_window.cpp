@@ -32,16 +32,32 @@ void MainWindow::init() {
     super::init();
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     super::setIsVsync(true);
+
+    this->imguiSurface     = std::make_unique<gui::ImguiSurface>();
+    this->renderComponent  = std::make_unique<RenderComponent>();
+    this->controlComponent = std::make_unique<ControlComponent>();
+
+    imguiSurface->init(window);
+    controlComponent->init();
+    renderComponent->init();
     spdlog::info("Main window start finished!");
 }
 
 void MainWindow::update() {
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        imguiSurface->pre_update();
+        renderComponent->update();
+        controlComponent->update();
+        imguiSurface->update();
         super::update();
+        processInput(window);
     }
+}
+void MainWindow::destroy() {
+    imguiSurface->destroy();
+    super::destroy();
 }
 
 }// namespace taixu::editor

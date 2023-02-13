@@ -5,12 +5,17 @@
 #ifndef TAIXUENGINE_COMPONENT_HPP
 #define TAIXUENGINE_COMPONENT_HPP
 
+#include <imgui.h>
+
 namespace taixu::editor {
 
 class IComponent {
+protected:
+    IComponent() = default;
+
 public:
     virtual void init()   = 0;
-    virtual void render() = 0;
+    virtual void update() = 0;
 };
 
 }// namespace taixu::editor

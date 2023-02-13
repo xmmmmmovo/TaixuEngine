@@ -14,7 +14,7 @@ class ImguiSurface {
 public:
     void init(GLFWwindow *window);
 
-    void create_layout();
+    void pre_update();
 
     void update();
 

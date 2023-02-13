@@ -6,5 +6,11 @@
 
 namespace taixu::editor {
 void RenderComponent::init() {}
-void RenderComponent::render() {}
+void RenderComponent::update() {
+    ImGui::Begin("Scene");
+
+    ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
+
+    ImGui::End();
 }
+}// namespace taixu::editor
