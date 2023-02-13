@@ -32,11 +32,7 @@ void MainWindow::init() {
     super::init();
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     super::setIsVsync(true);
-
-    this->imguiSurface     = std::make_unique<gui::ImguiSurface>();
-    this->renderComponent  = std::make_unique<RenderComponent>();
-    this->controlComponent = std::make_unique<ControlComponent>();
-
+    
     imguiSurface->init(window);
     controlComponent->init();
     renderComponent->init();
