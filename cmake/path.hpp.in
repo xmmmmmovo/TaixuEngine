@@ -1,9 +1,13 @@
 #ifndef TAIXU_PATH_HPP_IN
 #define TAIXU_PATH_HPP_IN
 
-#define ROOT_DIR   "@CMAKE_SOURCE_DIR@/"
+#ifdef DEBUG
+#define ROOT_DIR "@CMAKE_SOURCE_DIR@/"
 #define SHADER_DIR "@CMAKE_SOURCE_DIR@/bin/shaders/"
-
+#else
+#define ROOT_DIR
+#define SHADER_DIR
+#endif
 #define concat_const_char_str(first, second) first second
 
 #endif
