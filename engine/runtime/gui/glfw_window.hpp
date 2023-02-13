@@ -11,22 +11,26 @@
 
 // "" headers
 #include "window.hpp"
-#include "window_prop.hpp"
 
 namespace taixu::gui {
 
-class TX_GLFWwindow : IWindow {
-public:
-    TX_GLFWwindow();
+class TX_GLFWwindow : public IWindow {
+private:
+    GLFWwindow *window{nullptr};
+    bool        initialized{false};
 
 private:
+    static void errorCallBack(int error, const char *description);
+
+public:
+    TX_GLFWwindow(IWindowContext const &context_) {
+        context = context_;
+    }
+    ~TX_GLFWwindow() override { this->destroy(); }
+
     void init() override;
     void render() override;
     void destroy() override;
-
-private:
-    GLFWwindow *window{nullptr};
-    IWindowProp prop{};
 };
 
 }// namespace taixu::gui

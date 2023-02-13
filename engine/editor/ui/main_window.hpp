@@ -16,14 +16,12 @@
 // "" headers
 #include "components/control_component.hpp"
 #include "components/render_component.hpp"
-#include "gui/window.hpp"
+#include "gui/glfw_window.hpp"
 
 namespace taixu::editor {
 
-class MainWindow : public gui::IWindow {
+class MainWindow : public gui::TX_GLFWwindow {
 public:
-    void init() override;
-    void render() override;
     ~MainWindow() override;
 
 private:
