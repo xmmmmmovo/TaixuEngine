@@ -31,14 +31,13 @@ private:
     std::unique_ptr<gui::ImguiSurface> imguiSurface{};
 
 public:
-    MainWindow() {
-        this->imguiSurface     = std::make_unique<gui::ImguiSurface>();
-        this->renderComponent  = std::make_unique<RenderComponent>();
-        this->controlComponent = std::make_unique<ControlComponent>();
-    }
+    MainWindow() : MainWindow(gui::IWindowContext{}) {}
 
     explicit MainWindow(gui::IWindowContext const &context)
         : gui::TX_GLFWwindow(context) {
+        this->imguiSurface     = std::make_unique<gui::ImguiSurface>();
+        this->renderComponent  = std::make_unique<RenderComponent>();
+        this->controlComponent = std::make_unique<ControlComponent>();
     };
 
     void init() override;
