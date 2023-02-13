@@ -44,6 +44,7 @@ private:
 public:
     void initialize();
     void run();
+    void destroy();
 };
 
 }// namespace taixu::editor

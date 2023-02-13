@@ -21,8 +21,7 @@
 namespace taixu::editor {
 
 class MainWindow : public gui::TX_GLFWwindow {
-public:
-    ~MainWindow() override;
+    using super = gui::TX_GLFWwindow;
 
 private:
     // components
@@ -31,6 +30,11 @@ private:
 
 public:
     MainWindow() = default;
+    explicit MainWindow(gui::IWindowContext const &context)
+        : gui::TX_GLFWwindow(context){};
+
+    void init() override;
+    void update() override;
 };
 
 }// namespace taixu::editor

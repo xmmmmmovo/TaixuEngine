@@ -21,11 +21,13 @@ void initApplicationArgs() {}
 void Application::initialize() {
     initSpdlog();
     initApplicationArgs();
-    this->window = std::make_shared<MainWindow>();
+    this->window = std::make_shared<MainWindow>(gui::IWindowContext{
+            MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE});
     this->window->init();
-    spdlog::debug("app init!");
 }
 
-void Application::run() { this->window->render(); }
+void Application::run() { this->window->update(); }
+
+void Application::destroy() { this->window->destroy(); }
 
 }// namespace taixu::editor

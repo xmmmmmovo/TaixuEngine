@@ -10,7 +10,7 @@
 namespace taixu::gui {
 
 /**
- * @brief 仅在父类使用为Prop 在子类使用为Context
+ * @brief 仅在父类使用为Prop 在所有类中使用为Context
  */
 struct IWindowContext {
     std::int32_t width{0};
@@ -18,8 +18,9 @@ struct IWindowContext {
 
     std::string_view title{};
     explicit IWindowContext() = default;
-    explicit IWindowContext(std::int32_t const &width, std::int32_t const &height,
-                         std::string_view const &title)
+    explicit IWindowContext(std::int32_t const     &width,
+                            std::int32_t const     &height,
+                            std::string_view const &title)
         : width(width), height(height), title(title) {}
 };
 

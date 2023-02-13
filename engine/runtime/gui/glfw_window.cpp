@@ -30,8 +30,6 @@ void TX_GLFWwindow::init() {
     }
     glfwMakeContextCurrent(window);
 
-    // turn off if you are using complex shader
-    glfwSwapInterval(1);
     // glad: load all OpenGL function pointers
     // ---------------------------------------
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
@@ -40,11 +38,29 @@ void TX_GLFWwindow::init() {
     }
     glfwSetWindowUserPointer(window, &context);
 }
-void TX_GLFWwindow::render() {}
-void TX_GLFWwindow::destroy() {}
+
+void TX_GLFWwindow::update() {
+    glfwPollEvents();
+    glfwSwapBuffers(window);
+}
+
+void TX_GLFWwindow::destroy() { glfwDestroyWindow(window); }
 
 void TX_GLFWwindow::errorCallBack(int error, const char *description) {
     spdlog::error("GLFW Error: {}", description);
+}
+
+bool TX_GLFWwindow::getIsVsync() const { return isVsync; }
+
+void TX_GLFWwindow::setIsVsync(bool enable) {
+    if (enable) {
+        // turn off if you are using complex shader
+        glfwSwapInterval(1);
+    } else {
+        glfwSwapInterval(0);
+    }
+
+    isVsync = enable;
 }
 
 }// namespace taixu::gui
