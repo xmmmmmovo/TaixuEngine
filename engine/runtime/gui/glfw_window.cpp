@@ -37,6 +37,10 @@ void TX_GLFWwindow::init() {
         exit(1);
     }
     glfwSetWindowUserPointer(window, &context);
+
+    // configure global opengl state
+    // -----------------------------
+    glEnable(GL_DEPTH_TEST);
 }
 
 void TX_GLFWwindow::update() {
