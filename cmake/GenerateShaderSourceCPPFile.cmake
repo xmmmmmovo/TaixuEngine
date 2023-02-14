@@ -17,7 +17,7 @@ function(embed_resource resource_file_name source_file_name variable_name)
     if(EXISTS "${resource_file_name}")
         file(READ "${resource_file_name}" char_content)
 
-        string(REPLACE "\n" "\\n" output ${char_content})
+        string(REPLACE "\n" "\\n" output "${char_content}")
 
         set(array_definition "static constexpr char ${variable_name}[] =\"${output}\";")
 
