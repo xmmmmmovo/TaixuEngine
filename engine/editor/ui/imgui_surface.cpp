@@ -5,6 +5,7 @@
 #include <backends/imgui_impl_glfw.h>
 #include <backends/imgui_impl_opengl3.h>
 #include <imgui.h>
+#include <imgui_internal.h>
 
 #include "imgui_surface.hpp"
 
@@ -67,11 +68,13 @@ void ImguiSurface::pre_update() {
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
     // Create the docking environment
-    ImGuiWindowFlags windowFlags =
-            ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoTitleBar |
+    ImGuiDockNodeFlags dock_flags = ImGuiDockNodeFlags_DockSpace;
+    ImGuiWindowFlags   windowFlags =
+            ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar |
             ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
-            ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus |
-            ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground;
+            ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBackground |
+            ImGuiConfigFlags_NoMouseCursorChange |
+            ImGuiWindowFlags_NoBringToFrontOnFocus;
 
     ImGuiViewport *viewport = ImGui::GetMainViewport();
     ImGui::SetNextWindowPos(viewport->Pos);
@@ -84,10 +87,11 @@ void ImguiSurface::pre_update() {
     ImGui::Begin("InvisibleWindow", nullptr, windowFlags);
     ImGui::PopStyleVar(3);
 
-    ImGuiID dockSpaceId = ImGui::GetID("InvisibleWindowDockSpace");
+    ImGuiID dockSpaceId = ImGui::GetID("TaixuEditorDock");
 
-    ImGui::DockSpace(dockSpaceId, ImVec2(0.0f, 0.0f),
-                     ImGuiDockNodeFlags_PassthruCentralNode);
+    if (ImGui::DockBuilderGetNode(dockSpaceId) == nullptr) {}
+
+    ImGui::DockSpace(dockSpaceId, ImVec2(0.0f, 0.0f));
     ImGui::End();
 }
 

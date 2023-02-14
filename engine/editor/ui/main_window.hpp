@@ -17,7 +17,7 @@
 #include "components/control_component.hpp"
 #include "components/render_component.hpp"
 #include "gui/glfw_window.hpp"
-#include "gui/surface/imgui_surface.hpp"
+#include "imgui_surface.hpp"
 
 namespace taixu::editor {
 
