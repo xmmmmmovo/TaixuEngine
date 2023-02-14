@@ -13,7 +13,7 @@ namespace taixu::cg {
 
 class Shader {
 public:
-    explicit Shader(std::string_view const &file_path);
+    explicit Shader(char const *content);
     // do not copy
     Shader(const Shader &)            = delete;
     Shader &operator=(const Shader &) = delete;
@@ -30,23 +30,22 @@ public:
 
 protected:
     unsigned int _id;
-    std::string  _source;
+    char const  *_source;
 };
 
 class VertexShader : public Shader {
 public:
-    explicit VertexShader(std::string_view const &file_path);
+    explicit VertexShader(char const *content);
 };
 
 class FragmentShader : public Shader {
 public:
-    explicit FragmentShader(std::string_view const &file_path);
+    explicit FragmentShader(char const *content);
 };
 
 class ShaderProgram {
 public:
-    ShaderProgram(std::string_view const &vertex_shader,
-                  std::string_view const &fragment_shader)
+    ShaderProgram(char const *vertex_shader, char const *fragment_shader)
         : _id{0} {
         VertexShader   vertex{vertex_shader};
         FragmentShader fragment{fragment_shader};

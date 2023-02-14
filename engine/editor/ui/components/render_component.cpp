@@ -4,8 +4,21 @@
 
 #include "render_component.hpp"
 
+// 暂时先这么写，只是测试用，以后会改
+#include "frag_frag.h"
+#include "graphics/render/shader.hpp"
+#include "vert_vert.h"
+
 namespace taixu::editor {
-void RenderComponent::init() {}
+
+// 暂时先这么写，只是测试用，以后会改
+// 暂时先这么写，只是测试用，以后会改
+// 暂时先这么写，只是测试用，以后会改
+
+void RenderComponent::init() {
+    auto shaderProgram = cg::ShaderProgram(VERT_VERT, FRAG_FRAG);
+}
+
 void RenderComponent::update() {
     ImGui::Begin("Scene");
 

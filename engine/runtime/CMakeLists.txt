@@ -11,17 +11,15 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_F
 add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 
 target_link_libraries(${TARGET_NAME} glm glfw ${OGLLIB} ${FREETYPE_LIBS}
-  glad imgui stb spdlog::spdlog assimp)
+        glad imgui stb spdlog::spdlog assimp)
 
-if(SPIR_V_ENABLE)
-  add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET})
-  target_include_directories(
-    ${TARGET_NAME}
-    PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/shaders/generated/cpp>)
-endif(SPIR_V_ENABLE)
+add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET})
+target_include_directories(
+        ${TARGET_NAME}
+        PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/shaders/generated/cpp>)
 
 target_include_directories(
-  ${TARGET_NAME}
-  PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/runtime>
-  $<INSTALL_INTERFACE:include/${TARGET_NAME}>
+        ${TARGET_NAME}
+        PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/runtime>
+        $<INSTALL_INTERFACE:include/${TARGET_NAME}>
 )

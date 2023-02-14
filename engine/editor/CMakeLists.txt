@@ -12,9 +12,7 @@ GroupSourcesByFolder(${TARGET_NAME})
 
 set_target_properties(${TARGET_NAME} PROPERTIES CXX_STANDARD 17 OUTPUT_NAME ${TARGET_NAME})
 
-if (SPIR_V_ENABLE)
-    set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "EngineShader")
-endif ()
+set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "EngineShader")
 
 target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/WX->")
 
@@ -27,7 +25,4 @@ add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory "$<TARGET_FILE_DIR:${TARGET_NAME}>/" "${BINARY_ROOT_DIR}"
         COMMAND ${CMAKE_COMMAND} -E remove_directory "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
         COMMAND ${CMAKE_COMMAND} -E copy_directory "${ENGINE_ROOT_DIR}/${ENGINE_ASSET_DIR}" "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
-
-        # TODO: remove after SPIRV on
-        COMMAND ${CMAKE_COMMAND} -E copy_directory "${ENGINE_ROOT_DIR}/shaders/glsl" "${BINARY_ROOT_DIR}/${ENGINE_SHADER_DIR}"
         )
