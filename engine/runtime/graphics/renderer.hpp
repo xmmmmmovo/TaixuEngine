@@ -64,6 +64,7 @@ public:
     void tick(float delta_time=0.03333);
     void clear();
     
+    void         resize(float width, float height);
     unsigned int getRenderResult(){return bufferTexId;};
 
 
@@ -72,7 +73,7 @@ public:
 
     unsigned int                    VBO, VAO;
     unsigned int                    fbo, bufferTexId, rbo;
-    glm::vec2                          size = {1366, 768};
+    glm::vec2                          size = {1366, 550};
 
 };
 

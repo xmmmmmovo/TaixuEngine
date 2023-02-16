@@ -15,33 +15,32 @@ void Renderer::initialize() {
 
     spdlog::info(render_context->getSwapContext()->getData()->model->vertices[0]);
 
-    
+
     shaderProgram = new cg::ShaderProgram(VERT_VERT, FRAG_FRAG);
 
     glGenVertexArrays(1, &VAO);
+
     glGenBuffers(1, &VBO);
     // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
     glBindVertexArray(VAO);
-
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+    //Bind vertices data of mesh to Buffer
     glBufferData(GL_ARRAY_BUFFER,
                  sizeof(render_context->getSwapContext()
                                 ->getData()
                                 ->model->vertices),
             &render_context->getSwapContext()->getData()->model->vertices[0],
                  GL_STATIC_DRAW);
-
+    //allocate memory
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
                           (void *) 0);
     glEnableVertexAttribArray(0);
-
     // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-    // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-    // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
     glBindVertexArray(0);
 
+    //Generate a texture image to store rendering results
     glGenFramebuffers(1, &fbo);
     glBindFramebuffer(GL_FRAMEBUFFER, fbo);
     glGenTextures(1, &bufferTexId);
@@ -68,9 +67,11 @@ void Renderer::initialize() {
     glDrawBuffers(bufferTexId, buffers);
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    
 }
 void Renderer::tick(float delta_time) 
 {
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
     glBindFramebuffer(GL_FRAMEBUFFER, bufferTexId);
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -83,4 +84,9 @@ void Renderer::tick(float delta_time)
 
 }
 void Renderer::clear() {}
+void Renderer::resize(float width, float height) 
+{
+    size.x = width;
+    size.y = height;
+}
 }// namespace taixu::cg
