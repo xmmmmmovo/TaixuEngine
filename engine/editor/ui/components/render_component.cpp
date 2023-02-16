@@ -16,17 +16,17 @@ namespace taixu::editor {
 // 暂时先这么写，只是测试用，以后会改
 // 暂时先这么写，只是测试用，以后会改
 
-//cg::ShaderProgram *shaderProgram;
+cg::ShaderProgram *shaderProgram;
 // set up vertex data (and buffer(s)) and configure vertex attributes
 // ------------------------------------------------------------------
-//float              vertices[] = {
-//        -0.5f, -0.5f, 0.0f,// left
-//        0.5f,  -0.5f, 0.0f,// right
-//        0.0f,  0.5f,  0.0f // top
-//};
-//unsigned int VBO, VAO;
-//unsigned int fbo, bufferTexId, rbo;
-//ImVec2       size = {1366, 768};
+float              vertices[] = {
+        -0.5f, -0.5f, 0.0f,// left
+        0.5f,  -0.5f, 0.0f,// right
+        0.0f,  0.5f,  0.0f // top
+};
+unsigned int VBO, VAO;
+unsigned int fbo, bufferTexId, rbo;
+ImVec2       size = {1366, 768};
 
 void RenderComponent::init() {
     m_renderer = std::make_shared<cg::Renderer>();
@@ -90,18 +90,21 @@ void RenderComponent::update() {
     //glDrawArrays(GL_TRIANGLES, 0, 3);
 
     //glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    m_renderer->tick();
+    //
 
     ImGui::Begin("Scene");
 
     ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
     ImVec2 size               = {viewportPanelSize.x, viewportPanelSize.y};
+
+    m_renderer->resize(size.x, size.y);
+    m_renderer->tick();
     // Because I use the texture from OpenGL, I need to invert the V from the UV.
     ImGui::Image(reinterpret_cast<void *>(m_renderer->getRenderResult()), size,
                  ImVec2(0, 1),
                  ImVec2(1, 0));
-    //ImGui::Image(reinterpret_cast<void *>(bufferTexId), size,
-                 //ImVec2(0, 1), ImVec2(1, 0));
+    /*ImGui::Image(reinterpret_cast<void *>(bufferTexId), size,
+                 ImVec2(0, 1), ImVec2(1, 0));*/
     ImGui::End();
 }
 }// namespace taixu::editor
