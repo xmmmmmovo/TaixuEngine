@@ -6,7 +6,6 @@
 #define TAIXUENGINE_RENDERER_HPP
 
 namespace taixu::cg {
-
 }
 
 #endif//TAIXUENGINE_RENDERER_HPP
