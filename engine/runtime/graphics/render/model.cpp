@@ -1,16 +1,18 @@
 #include "model.h"
 
-void taixu::cg::loadModel(string const &path) {
+namespace taixu::cg {
+
+void Model::loadModel(std::string const &path) {
     // read file via ASSIMP
     Assimp::Importer importer;
     const aiScene   *scene = importer.ReadFile(
-              path, aiProcess_Triangulate | aiProcess_GenSmoothNormals |
-                            aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
+            path, aiProcess_Triangulate | aiProcess_GenSmoothNormals |
+                          aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
     // check for errors
     if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE ||
         !scene->mRootNode)// if is Not Zero
     {
-        cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << endl;
+        std::cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << std::endl;
         return;
     }
     // retrieve the directory path of the filepath
@@ -21,7 +23,7 @@ void taixu::cg::loadModel(string const &path) {
 }
 
 // processes a node in a recursive fashion. Processes each individual mesh located at the node and repeats this process on its children nodes (if any).
-void taixu::cg::processNode(aiNode *node, const aiScene *scene) {
+void Model::processNode(aiNode *node, const aiScene *scene) {
     // process each mesh located at the current node
     for (unsigned int i = 0; i < node->mNumMeshes; i++) {
         // the node object only contains indices to index the actual objects in the scene.
@@ -34,11 +36,12 @@ void taixu::cg::processNode(aiNode *node, const aiScene *scene) {
         processNode(node->mChildren[i], scene);
     }
 }
-Mesh taixu::cg::processMesh(aiMesh *mesh, const aiScene *scene) {
+
+Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene) {
     // data to fill
-    vector<Vertex>       vertices;
-    vector<unsigned int> indices;
-    vector<Texture>      textures;
+    std::vector<Vertex>       vertices;
+    std::vector<unsigned int> indices;
+    std::vector<Texture>      textures;
 
     // walk through each of the mesh's vertices
     for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
@@ -99,11 +102,11 @@ Mesh taixu::cg::processMesh(aiMesh *mesh, const aiScene *scene) {
     // normal: texture_normalN
 
     // 1. diffuse maps
-    vector<Texture> diffuseMaps = loadMaterialTextures(
+    std::vector<Texture> diffuseMaps = loadMaterialTextures(
             material, aiTextureType_DIFFUSE, "texture_diffuse");
     textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
     // 2. specular maps
-    vector<Texture> specularMaps = loadMaterialTextures(
+    std::vector<Texture> specularMaps = loadMaterialTextures(
             material, aiTextureType_SPECULAR, "texture_specular");
     textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
     // 3. normal maps
@@ -119,12 +122,11 @@ Mesh taixu::cg::processMesh(aiMesh *mesh, const aiScene *scene) {
     return Mesh(vertices, indices, textures);
 }
 
-  // checks all material textures of a given type and loads the textures if they're not loaded yet.
+// checks all material textures of a given type and loads the textures if they're not loaded yet.
 // the required info is returned as a Texture struct.
-vector<Texture> taixu::cg::loadMaterialTextures(aiMaterial   *mat,
-                                                aiTextureType type,
-                                     string typeName) {
-    vector<Texture> textures;
+std::vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type,
+                                            std::string typeName) {
+    std::vector<Texture> textures;
     for (unsigned int i = 0; i < mat->GetTextureCount(type); i++) {
         aiString str;
         mat->GetTexture(type, i, &str);
@@ -139,7 +141,7 @@ vector<Texture> taixu::cg::loadMaterialTextures(aiMaterial   *mat,
         }
         if (!skip) {// if texture hasn't been loaded already, load it
             Texture texture;
-            texture.id   = TextureFromFile(str.C_Str(), this->directory);
+            texture.id   = TextureFromFile(str.C_Str(), this->directory, false);
             texture.type = typeName;
             texture.path = str.C_Str();
             textures.push_back(texture);
@@ -149,13 +151,10 @@ vector<Texture> taixu::cg::loadMaterialTextures(aiMaterial   *mat,
     }
     return textures;
 }
-}
-;
 
-unsigned int taixu::cg::TextureFromFile(const char   *path,
-                                        const string &directory,
-                             bool gamma) {
-    string filename = string(path);
+unsigned int Model::TextureFromFile(const char *path, const std::string &directory,
+                                    bool gamma) {
+    std::string filename = std::string(path);
     filename        = directory + '/' + filename;
 
     unsigned int textureID;
@@ -191,6 +190,5 @@ unsigned int taixu::cg::TextureFromFile(const char   *path,
 
     return textureID;
 }
-#endif
 
-
+}// namespace taixu::cg
