@@ -13,7 +13,7 @@ void Renderer::initialize() {
 
     render_context->initialize();
 
-    spdlog::info(render_context->getSwapContext()->getData()->model->vertices[0]);
+    spdlog::info(render_context->getSwapContext()->getData()->model->vertices[7]);
 
 
     shaderProgram = new cg::ShaderProgram(VERT_VERT, FRAG_FRAG);
@@ -27,11 +27,10 @@ void Renderer::initialize() {
 
     //Bind vertices data of mesh to Buffer
     glBufferData(GL_ARRAY_BUFFER,
-                 sizeof(render_context->getSwapContext()
-                                ->getData()
-                                ->model->vertices),
+            render_context->getSwapContext()->getData()->model->vertices.size() *
+                    sizeof(float),
             &render_context->getSwapContext()->getData()->model->vertices[0],
-                 GL_STATIC_DRAW);
+                 GL_DYNAMIC_DRAW);
     //allocate memory
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
                           (void *) 0);
@@ -71,8 +70,10 @@ void Renderer::initialize() {
 }
 void Renderer::tick(float delta_time) 
 {
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    //glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, size.x, size.y);
     glBindFramebuffer(GL_FRAMEBUFFER, bufferTexId);
+   
+    //glBufferData(GL_FRAMEBUFFER,)
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     shaderProgram->use();
