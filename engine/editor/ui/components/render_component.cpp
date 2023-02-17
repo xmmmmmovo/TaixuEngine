@@ -90,21 +90,23 @@ void RenderComponent::update() {
     //glDrawArrays(GL_TRIANGLES, 0, 3);
 
     //glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    //
+    m_renderer->tick();
 
     ImGui::Begin("Scene");
 
     ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
     ImVec2 size               = {viewportPanelSize.x, viewportPanelSize.y};
+    //size              = {viewportPanelSize.x, viewportPanelSize.y};
 
-    m_renderer->resize(size.x, size.y);
-    m_renderer->tick();
+    //ImGuiViewport *main_viewport = ImGui::GetMainViewport();
+    //ImVec2               size = {main_viewport->Size.x, main_viewport->Size.y};
+    //m_renderer->resize(size.x, size.y);
     // Because I use the texture from OpenGL, I need to invert the V from the UV.
     ImGui::Image(reinterpret_cast<void *>(m_renderer->getRenderResult()), size,
                  ImVec2(0, 1),
                  ImVec2(1, 0));
-    /*ImGui::Image(reinterpret_cast<void *>(bufferTexId), size,
-                 ImVec2(0, 1), ImVec2(1, 0));*/
+    //ImGui::Image(reinterpret_cast<void *>(bufferTexId), size,
+                 //ImVec2(0, 1), ImVec2(1, 0));
     ImGui::End();
 }
 }// namespace taixu::editor
