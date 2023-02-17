@@ -97,6 +97,8 @@ void ImguiSurface::pre_update() {
     if (ImGui::DockBuilderGetNode(dockSpaceId) == nullptr) {
         spdlog::debug("dock reinit!");
         ImGui::DockBuilderRemoveNode(dockSpaceId);
+
+        ImGui::DockBuilderAddNode(dockSpaceId, dock_flags);
     }
 
     ImGui::DockSpace(dockSpaceId, ImVec2(0.0f, 0.0f));
