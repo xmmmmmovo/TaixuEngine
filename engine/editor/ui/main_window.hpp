@@ -14,8 +14,10 @@
 #include <GLFW/glfw3.h>
 
 // "" headers
+#include "components/control_component.hpp"
+#include "components/render_component.hpp"
 #include "gui/glfw_window.hpp"
-#include "imgui_surface.hpp"
+#include "gui/surface/imgui_surface.hpp"
 
 namespace taixu::editor {
 
@@ -23,14 +25,19 @@ class MainWindow : public gui::TX_GLFWwindow {
     using super = gui::TX_GLFWwindow;
 
 private:
-    std::unique_ptr<ImguiSurface> imguiSurface{};
+    // components
+    std::unique_ptr<RenderComponent>   renderComponent{};
+    std::unique_ptr<ControlComponent>  controlComponent{};
+    std::unique_ptr<gui::ImguiSurface> imguiSurface{};
 
 public:
     MainWindow() : MainWindow(gui::IWindowContext{}) {}
 
     explicit MainWindow(gui::IWindowContext const &context)
         : gui::TX_GLFWwindow(context) {
-        this->imguiSurface     = std::make_unique<ImguiSurface>();
+        this->imguiSurface     = std::make_unique<gui::ImguiSurface>();
+        this->renderComponent  = std::make_unique<RenderComponent>();
+        this->controlComponent = std::make_unique<ControlComponent>();
     };
 
     void init() override;
