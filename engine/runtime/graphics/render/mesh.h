@@ -3,14 +3,13 @@
 #include <glad/glad.h>// holds all OpenGL type declarations
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <learnopengl/shader.h>
 #include <string>
+#include <utility>
 #include <vector>
 
-
 #define MAX_BONE_INFLUENCE 4
+
 namespace taixu::cg {
-using namespace std;
 
 struct Vertex {
     // position
@@ -31,26 +30,23 @@ struct Vertex {
 
 struct Texture {
     unsigned int id;
-    string       type;
-    string       path;
+    std::string  type;
+    std::string  path;
 };
 
 class Mesh {
 public:
     // mesh Data
-    vector<Vertex>       vertices;
-    vector<unsigned int> indices;
-    vector<Texture>      textures;
+    std::vector<Vertex>       vertices;
+    std::vector<unsigned int> indices;
+    std::vector<Texture>      textures;
 
-    Mesh(vector<Vertex> vertices, vector<unsigned int> indices,
-         vector<Texture> textures) {
-        this->vertices = vertices;
-        this->indices  = indices;
-        this->textures = textures;
-
-        // now that we have all the required data, set the vertex buffers and its attribute pointers.
-        setupMesh();
+    Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices,
+         std::vector<Texture> textures) {
+        this->vertices = std::move(vertices);
+        this->indices  = std::move(indices);
+        this->textures = std::move(textures);
     }
-}
+};
 
 }// namespace taixu::cg
