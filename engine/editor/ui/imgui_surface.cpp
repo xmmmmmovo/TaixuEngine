@@ -62,12 +62,12 @@ void ImguiSurface::init(GLFWwindow *window) {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(core::OPENGL_VERSION.data());
 
-    menuComponent->init();
-    controlComponent->init();
-    renderComponent->init();
+    menu_component->init();
+    control_component->init();
+    render_component->init();
 }
 
-void ImguiSurface::pre_update() {
+void ImguiSurface::preUpdate() {
     // Start the Dear ImGui frame
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
@@ -104,9 +104,9 @@ void ImguiSurface::pre_update() {
     ImGui::DockSpace(dockSpaceId, ImVec2(0.0f, 0.0f));
     ImGui::End();
 
-    menuComponent->update();
-    controlComponent->update();
-    renderComponent->update();
+    menu_component->update();
+    control_component->update();
+    render_component->update();
 }
 
 void ImguiSurface::update() {
