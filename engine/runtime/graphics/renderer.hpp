@@ -67,7 +67,11 @@ public:
 
 
     std::shared_ptr<Render_Context> render_context;
-    cg::ShaderProgram              *shaderProgram;
+    cg::ShaderProgram                  *shaderProgram;
+
+    unsigned int                    VBO, VAO;
+    unsigned int                    fbo, bufferTexId, rbo;
+    glm::vec2                          size = {1366, 768};
 
     unsigned int VBO, VAO;
     unsigned int fbo, bufferTexId, rbo;
