@@ -72,10 +72,6 @@ public:
     unsigned int                    VBO, VAO;
     unsigned int                    fbo, bufferTexId, rbo;
     glm::vec2                          size = {1366, 768};
-
-    unsigned int VBO, VAO;
-    unsigned int fbo, bufferTexId, rbo;
-    glm::vec2    size = {1366, 768};
 };
 
 
