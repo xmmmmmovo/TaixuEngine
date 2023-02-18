@@ -1,4 +1,4 @@
-BasedOnStyle: Google
+BasedOnStyle: LLVM
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignOperands: true
@@ -17,7 +17,7 @@ BreakBeforeBraces: Custom
 BraceWrapping:
   AfterCaseLabel: false
   AfterClass: false
-  AfterControlStatement: Never
+  AfterControlStatement: false
   AfterEnum: false
   AfterFunction: false
   AfterNamespace: false
@@ -67,4 +67,4 @@ AlignTrailingComments: true
 ColumnLimit: 80
 IncludeCategories: # headers sort，<>,"" sort by alphabeat
   - Regex: "glad"
-    Priority: 0
+    Priority: 1
