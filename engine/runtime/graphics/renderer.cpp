@@ -13,9 +13,14 @@ void Renderer::initialize() {
 
     render_context->initialize();
 
-    spdlog::info(render_context->getSwapContext()->getData()->model->vertices[7]);
+    /*spdlog::info(render_context->getSwapContext()
+                         ->getData()
+                         ->cube->meshes[0]
+                         .vertices[0].Position.x);*/
 
-
+    /*spdlog::info(render_context->getSwapContext()
+                         ->getData()
+                         ->model->vertices[0]);*/
     shaderProgram = new cg::ShaderProgram(VERT_VERT, FRAG_FRAG);
 
     glGenVertexArrays(1, &VAO);
@@ -27,13 +32,20 @@ void Renderer::initialize() {
 
     //Bind vertices data of mesh to Buffer
     glBufferData(GL_ARRAY_BUFFER,
-            render_context->getSwapContext()->getData()->model->vertices.size() *
+            render_context->getSwapContext()
+                            ->getData()
+                            ->model->meshes[0].vertices
+                            .size() *
                     sizeof(float),
-            &render_context->getSwapContext()->getData()->model->vertices[0],
+                 &render_context->getSwapContext()
+                          ->getData()
+                          ->model->meshes[0]
+                          .vertices[0],
                  GL_DYNAMIC_DRAW);
     //allocate memory
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
                           (void *) 0);
+
     glEnableVertexAttribArray(0);
     // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
     glBindBuffer(GL_ARRAY_BUFFER, 0);

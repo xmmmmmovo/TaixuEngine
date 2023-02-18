@@ -6,14 +6,13 @@
 #define TAIXUENGINE_RENDERER_HPP
 
 #include "graphics/render/shader.hpp"
+#include "graphics/render/model.h"
 #include <memory>
 #include <vector>
 
 
 namespace taixu::cg {
-struct Model {
-    std::vector<float> vertices;
-};
+
 class Render_Data {
 
     friend class Renderer;
@@ -22,17 +21,22 @@ public:
     explicit Render_Data() = default;
     ~Render_Data(){};
     void initialize() {
-        model           = std::make_shared<Model>();
-        model->vertices = {
-                -0.5f, -0.5f, 0.0f,// left
-                0.5f,  -0.5f, 0.0f,// right
-                0.0f,  0.5f,  0.0f // top};
-        };
+        model = std::make_shared<Model>(
+                std::string("D:/SourseCode/Obj/cube.obj"));
+        cube  = new Model(std::string("D:/SourseCode/Obj/cube.obj"));
+        //model->loadModel("D:/SourseCode/Obj/cube.obj");
+        //model->vertices = {
+        //        -0.5f, -0.5f, 0.0f,// left
+        //        0.5f,  -0.5f, 0.0f,// right
+        //        0.0f,  0.5f,  0.0f // top};
+        //};
+        
     }
     Render_Data *getData() { return this; };
 
 protected:
     std::shared_ptr<Model> model;
+    Model                 *cube;
 };
 
 class Render_Context {
