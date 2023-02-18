@@ -20,6 +20,8 @@ public:
         m_renderer->initialize();
     }
 
+    void preUpdate() {}
+
     void update() override {
         ImGui::Begin(name);
 
