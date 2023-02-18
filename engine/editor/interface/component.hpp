@@ -9,12 +9,12 @@
 
 namespace taixu::editor {
 
-class IComponent {
+class IUIComponent {
 protected:
     char const *name{nullptr};
 
 protected:
-    IComponent() = default;
+    IUIComponent() = default;
 
 public:
     virtual void init() = 0;

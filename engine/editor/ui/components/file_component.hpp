@@ -1,14 +1,14 @@
 //
-// Created by xmmmmmovo on 2023/2/12.
+// Created by xmmmmmovo on 2023/2/18.
 //
 
-#ifndef TAIXUENGINE_CONTROL_COMPONENT_HPP
-#define TAIXUENGINE_CONTROL_COMPONENT_HPP
+#ifndef TAIXUENGINE_FILE_COMPONENT_HPP
+#define TAIXUENGINE_FILE_COMPONENT_HPP
 
 #include "interface/component.hpp"
 
 namespace taixu::editor {
-class WorldObjectComponent : public IComponent {
+class FileComponent : public IUIComponent {
 public:
     void init() override {}
     void update() override {
@@ -43,4 +43,4 @@ public:
 };
 }// namespace taixu::editor
 
-#endif//TAIXUENGINE_CONTROL_COMPONENT_HPP
+#endif//TAIXUENGINE_FILE_COMPONENT_HPP

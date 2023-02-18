@@ -9,7 +9,7 @@
 
 namespace taixu::editor {
 
-class MenuComponent : public IComponent {
+class MenuComponent : public IUIComponent {
 public:
     void init() override {}
     void update() override {

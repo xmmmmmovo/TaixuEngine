@@ -10,7 +10,7 @@
 
 namespace taixu::editor {
 
-class RenderComponent : public IComponent {
+class RenderComponent : public IUIComponent {
 private:
     std::shared_ptr<cg::Renderer> m_renderer;
 

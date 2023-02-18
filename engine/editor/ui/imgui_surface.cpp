@@ -134,6 +134,8 @@ void ImguiSurface::preUpdate() {
 
     world_object_component->update();
     render_component->update();
+    detail_component->update();
+    file_component->update();
 }
 
 void ImguiSurface::update() {
