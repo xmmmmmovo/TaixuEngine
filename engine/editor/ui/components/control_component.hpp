@@ -8,11 +8,11 @@
 #include "interface/component.hpp"
 
 namespace taixu::editor {
-class ControlComponent : public IComponent {
+class WorldObjectComponent : public IComponent {
 public:
     void init() override {}
     void update() override {
-        ImGui::Begin("Properties");
+        ImGui::Begin(name);
         if (ImGui::CollapsingHeader("Mesh", ImGuiTreeNodeFlags_DefaultOpen)) {
 
             if (ImGui::Button("Open...")) {}

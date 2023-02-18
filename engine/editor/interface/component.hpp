@@ -11,11 +11,16 @@ namespace taixu::editor {
 
 class IComponent {
 protected:
+    char const *name{nullptr};
+
+protected:
     IComponent() = default;
 
 public:
-    virtual void init()   = 0;
-    virtual void update() = 0;
+    virtual void init() = 0;
+    virtual void update()         = 0;
+
+    void setName(char const *cname) { this->name = cname; }
 };
 
 }// namespace taixu::editor
