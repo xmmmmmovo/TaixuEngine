@@ -59,7 +59,7 @@ public:
     }
 
     glm::mat4 getViewMatrix();
-
+    glm::mat4 getProjectionMatrix();
         // processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
     void ProcessKeyboard(Camera_Movement direction, float deltaTime) {
         float velocity = MovementSpeed * deltaTime;
@@ -97,8 +97,13 @@ public:
 
 private:
 // calculates the front vector from the Camera's (updated) Euler Angles
+    glm::mat4 ProjectionMatrix;
+    float initialFoV = 45.0f;
     void updateCameraVectors() {
     // calculate the new Front vector
+    float FoV = initialFoV;
+    ProjectionMatrix =glm::perspective(glm::radians(FoV), 4.0f / 3.0f, 0.1f, 500.0f);
+
     glm::vec3 front;
     front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
     front.y = sin(glm::radians(Pitch));
