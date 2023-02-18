@@ -4,16 +4,17 @@
 
 #include "renderer.hpp"
 
-#include "vert_vert.h"
 #include "frag_frag.h"
+#include "vert_vert.h"
 
 namespace taixu::cg {
-void Renderer::initialize() { 
+void Renderer::initialize() {
     render_context = std::make_shared<Render_Context>();
 
     render_context->initialize();
 
-    spdlog::info(render_context->getSwapContext()->getData()->model->vertices[7]);
+    spdlog::info(
+            render_context->getSwapContext()->getData()->model->vertices[7]);
 
 
     shaderProgram = new cg::ShaderProgram(VERT_VERT, FRAG_FRAG);
@@ -26,11 +27,14 @@ void Renderer::initialize() {
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
     //Bind vertices data of mesh to Buffer
-    glBufferData(GL_ARRAY_BUFFER,
-            render_context->getSwapContext()->getData()->model->vertices.size() *
+    glBufferData(
+            GL_ARRAY_BUFFER,
+            render_context->getSwapContext()
+                            ->getData()
+                            ->model->vertices.size() *
                     sizeof(float),
             &render_context->getSwapContext()->getData()->model->vertices[0],
-                 GL_DYNAMIC_DRAW);
+            GL_DYNAMIC_DRAW);
     //allocate memory
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
                           (void *) 0);
@@ -39,6 +43,7 @@ void Renderer::initialize() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
+    GLuint id{0};
     //Generate a texture image to store rendering results
     glGenFramebuffers(1, &fbo);
     glBindFramebuffer(GL_FRAMEBUFFER, fbo);
@@ -66,13 +71,11 @@ void Renderer::initialize() {
     glDrawBuffers(bufferTexId, buffers);
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    
 }
-void Renderer::tick(float delta_time) 
-{
+void Renderer::tick(float delta_time) {
     //glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, size.x, size.y);
     glBindFramebuffer(GL_FRAMEBUFFER, bufferTexId);
-   
+
     //glBufferData(GL_FRAMEBUFFER,)
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -82,11 +85,9 @@ void Renderer::tick(float delta_time)
     glDrawArrays(GL_TRIANGLES, 0, 3);
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
 }
 void Renderer::clear() {}
-void Renderer::resize(float width, float height) 
-{
+void Renderer::resize(float width, float height) {
     size.x = width;
     size.y = height;
 }

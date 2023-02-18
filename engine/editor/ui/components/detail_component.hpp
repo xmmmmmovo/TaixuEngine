@@ -14,7 +14,6 @@ public:
     void update() override {
         ImGui::Begin(name);
         if (ImGui::CollapsingHeader("Mesh", ImGuiTreeNodeFlags_DefaultOpen)) {
-
             if (ImGui::Button("Open...")) {}
             ImGui::SameLine(0, 5.0f);
             ImGui::Text("aa");
