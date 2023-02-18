@@ -5,8 +5,9 @@
 #ifndef TAIXUENGINE_IMGUI_SURFACE_HPP
 #define TAIXUENGINE_IMGUI_SURFACE_HPP
 
-#include <GLFW/glfw3.h>
 #include <glad/glad.h>
+
+#include <GLFW/glfw3.h>
 
 #include "components/control_component.hpp"
 #include "components/menu_component.hpp"
