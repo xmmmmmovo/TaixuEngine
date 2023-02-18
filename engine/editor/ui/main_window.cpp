@@ -3,9 +3,7 @@
 //
 
 #include "main_window.hpp"
-#include <backends/imgui_impl_glfw.h>
-#include <backends/imgui_impl_opengl3.h>
-#include <iostream>
+
 #include <spdlog/spdlog.h>
 
 
@@ -33,8 +31,6 @@ void MainWindow::init() {
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     super::setIsVsync(true);
     imguiSurface->init(window);
-    controlComponent->init();
-    renderComponent->init();
     spdlog::info("Main window start finished!");
 }
 
@@ -42,9 +38,7 @@ void MainWindow::update() {
     while (!glfwWindowShouldClose(window)) {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        imguiSurface->pre_update();
-        controlComponent->update();
-        renderComponent->update();
+        imguiSurface->preUpdate();
         imguiSurface->update();
         super::update();
         processInput(window);

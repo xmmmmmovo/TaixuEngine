@@ -6,12 +6,13 @@
 #include <backends/imgui_impl_opengl3.h>
 #include <imgui.h>
 #include <imgui_internal.h>
+#include <spdlog/spdlog.h>
 
 #include "imgui_surface.hpp"
 
 #include "core/base/macro.hpp"
 
-namespace taixu::gui {
+namespace taixu::editor {
 void ImguiSurface::init(GLFWwindow *window) {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -60,9 +61,13 @@ void ImguiSurface::init(GLFWwindow *window) {
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(core::OPENGL_VERSION.data());
+
+    menu_component->init();
+    control_component->init();
+    render_component->init();
 }
 
-void ImguiSurface::pre_update() {
+void ImguiSurface::preUpdate() {
     // Start the Dear ImGui frame
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
@@ -89,10 +94,19 @@ void ImguiSurface::pre_update() {
 
     ImGuiID dockSpaceId = ImGui::GetID("TaixuEditorDock");
 
-    if (ImGui::DockBuilderGetNode(dockSpaceId) == nullptr) {}
+    if (ImGui::DockBuilderGetNode(dockSpaceId) == nullptr) {
+        spdlog::debug("dock reinit!");
+        ImGui::DockBuilderRemoveNode(dockSpaceId);
+
+        ImGui::DockBuilderAddNode(dockSpaceId, dock_flags);
+    }
 
     ImGui::DockSpace(dockSpaceId, ImVec2(0.0f, 0.0f));
     ImGui::End();
+
+    menu_component->update();
+    control_component->update();
+    render_component->update();
 }
 
 void ImguiSurface::update() {
@@ -115,4 +129,4 @@ void ImguiSurface::destroy() {
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
 }
-}// namespace taixu::gui
+}// namespace taixu::editor

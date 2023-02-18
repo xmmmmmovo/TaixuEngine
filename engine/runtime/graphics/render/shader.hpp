@@ -1,7 +1,7 @@
 #ifndef ENGINE_RUNTIME_GRAPHICS_SHADER
 #define ENGINE_RUNTIME_GRAPHICS_SHADER
 
-#include "glad/glad.h"
+#include <glad/glad.h>
 #include "glm/glm.hpp"
 #include "spdlog/spdlog.h"
 #include <fstream>
