@@ -2,12 +2,14 @@
 #define ENGINE_RUNTIME_GRAPHICS_SHADER
 
 #include <glad/glad.h>
-#include "glm/glm.hpp"
-#include "spdlog/spdlog.h"
+
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
+
+#include "glm/glm.hpp"
+#include "spdlog/spdlog.h"
 
 namespace taixu::cg {
 
@@ -55,10 +57,10 @@ public:
         glAttachShader(_id, fragment.get_id());
         glLinkProgram(_id);
 
-        int  success{};
-        char log_info[512];
+        int success{};
         glGetProgramiv(_id, GL_LINK_STATUS, &success);
         if (!success) {
+            char log_info[512];
             glGetProgramInfoLog(_id, 512, nullptr, log_info);
             spdlog::error("ERROR:SHADER::PROGRAM::LINK_FAILED\n{}", log_info);
         }

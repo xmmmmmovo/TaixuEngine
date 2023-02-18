@@ -9,13 +9,18 @@
 
 namespace taixu::editor {
 
-class IComponent {
+class IUIComponent {
 protected:
-    IComponent() = default;
+    char const *name{nullptr};
+
+protected:
+    IUIComponent() = default;
 
 public:
-    virtual void init()   = 0;
-    virtual void update() = 0;
+    virtual void init() = 0;
+    virtual void update()         = 0;
+
+    void setName(char const *cname) { this->name = cname; }
 };
 
 }// namespace taixu::editor

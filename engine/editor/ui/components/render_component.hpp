@@ -10,15 +10,18 @@
 
 namespace taixu::editor {
 
-class RenderComponent : public IComponent {
+class RenderComponent : public IUIComponent {
+private:
+    std::shared_ptr<cg::Renderer> m_renderer;
+
 public:
     void init() override {
         m_renderer = std::make_shared<cg::Renderer>();
         m_renderer->initialize();
     }
-    
+
     void update() override {
-        ImGui::Begin("Scene");
+        ImGui::Begin(name);
 
         ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
         ImVec2 size              = {viewportPanelSize.x, viewportPanelSize.y};
@@ -30,9 +33,6 @@ public:
                      size, ImVec2(0, 1), ImVec2(1, 0));
         ImGui::End();
     }
-
-private:
-    std::shared_ptr<cg::Renderer> m_renderer;
 };
 
 }// namespace taixu::editor

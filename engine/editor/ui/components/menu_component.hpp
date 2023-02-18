@@ -9,13 +9,18 @@
 
 namespace taixu::editor {
 
-class MenuComponent : public IComponent {
+class MenuComponent : public IUIComponent {
 public:
     void init() override {}
     void update() override {
-        ImGui::Begin("Menu");
-
-        ImGui::End();
+        if (ImGui::BeginMenuBar()) {
+            if (ImGui::BeginMenu("Menu")) {
+                if (ImGui::MenuItem("open")) {}
+                if (ImGui::MenuItem("save as")) {}
+                ImGui::EndMenu();
+            }
+            ImGui::EndMenuBar();
+        }
     }
 };
 
