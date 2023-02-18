@@ -2,16 +2,17 @@
 // Created by xmmmmmovo on 2023/2/13.
 //
 
+#include "imgui_surface.hpp"
+
 #include <backends/imgui_impl_glfw.h>
 #include <backends/imgui_impl_opengl3.h>
 #include <imgui.h>
 #include <imgui_internal.h>
-
-#include "imgui_surface.hpp"
+#include <spdlog/spdlog.h>
 
 #include "core/base/macro.hpp"
 
-namespace taixu::gui {
+namespace taixu::editor {
 void ImguiSurface::init(GLFWwindow *window) {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -60,16 +61,20 @@ void ImguiSurface::init(GLFWwindow *window) {
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(core::OPENGL_VERSION.data());
+
+    menu_component->init();
+    world_object_component->init();
+    render_component->init();
 }
 
-void ImguiSurface::pre_update() {
+void ImguiSurface::preUpdate() {
     // Start the Dear ImGui frame
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
     // Create the docking environment
     ImGuiDockNodeFlags dock_flags = ImGuiDockNodeFlags_DockSpace;
-    ImGuiWindowFlags   windowFlags =
+    ImGuiWindowFlags   window_flags =
             ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar |
             ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
             ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBackground |
@@ -84,15 +89,53 @@ void ImguiSurface::pre_update() {
     ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
     ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
-    ImGui::Begin("InvisibleWindow", nullptr, windowFlags);
+
+    ImGui::Begin("Editor Menu", nullptr, window_flags);
     ImGui::PopStyleVar(3);
 
-    ImGuiID dockSpaceId = ImGui::GetID("TaixuEditorDock");
+    ImGuiID dock_space_id = ImGui::GetID(DOCK_SPACE_NAME);
 
-    if (ImGui::DockBuilderGetNode(dockSpaceId) == nullptr) {}
+    if (ImGui::DockBuilderGetNode(dock_space_id) == nullptr) {
+        ImGui::DockBuilderRemoveNode(dock_space_id);
 
-    ImGui::DockSpace(dockSpaceId, ImVec2(0.0f, 0.0f));
+        ImGui::DockBuilderAddNode(dock_space_id, dock_flags);
+        ImGui::DockBuilderSetNodePos(
+                dock_space_id,
+                ImVec2(viewport->WorkPos.x, viewport->WorkPos.y + 18.0f));
+        //        ImGui::DockBuilderSetNodeSize(
+        //                dock_space_id, ImVec2(m_io->m_width, m_io->m_height - 18.0f));
+
+        ImGuiID center = dock_space_id;
+        ImGuiID left;
+        ImGuiID right = ImGui::DockBuilderSplitNode(center, ImGuiDir_Right,
+                                                    0.25f, nullptr, &left);
+
+        ImGuiID left_other;
+        ImGuiID left_file_content = ImGui::DockBuilderSplitNode(
+                left, ImGuiDir_Down, 0.30f, nullptr, &left_other);
+
+        ImGuiID left_game_engine;
+        ImGuiID left_asset = ImGui::DockBuilderSplitNode(
+                left_other, ImGuiDir_Left, 0.30f, nullptr, &left_game_engine);
+
+        ImGui::DockBuilderDockWindow(WORLD_OBJ_COMPONENT_NAME, left_asset);
+        ImGui::DockBuilderDockWindow(DETAILS_COMPONENT_NAME, right);
+        ImGui::DockBuilderDockWindow(FILE_COMPONENT_NAME, left_file_content);
+        ImGui::DockBuilderDockWindow(RENDER_COMPONENT_NAME, left_game_engine);
+
+        ImGui::DockBuilderFinish(dock_space_id);
+    }
+
+    ImGui::DockSpace(dock_space_id, ImVec2(0.0f, 0.0f));
+
+    menu_component->update();
+
     ImGui::End();
+
+    world_object_component->update();
+    render_component->update();
+    detail_component->update();
+    file_component->update();
 }
 
 void ImguiSurface::update() {
@@ -115,4 +158,4 @@ void ImguiSurface::destroy() {
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
 }
-}// namespace taixu::gui
+}// namespace taixu::editor
