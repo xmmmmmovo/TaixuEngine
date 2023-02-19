@@ -5,6 +5,8 @@
 #ifndef TAIXUENGINE_TOOLBAR_COMPONENT_HPP
 #define TAIXUENGINE_TOOLBAR_COMPONENT_HPP
 
+#include <IconsFontAwesome6.h>
+
 #include "interface/component.hpp"
 
 namespace taixu::editor {
@@ -35,7 +37,9 @@ public:
         ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) -
                              (size * 0.5f));
 
-        if (ImGui::Button("aaa")) {}
+        if (ImGui::Button(u8"中文！")) {}
+        ImGui::SameLine();
+        if (ImGui::Button(ICON_FA_PLAY "Play")) {}
 
         ImGui::PopStyleVar(2);
         ImGui::PopStyleColor(3);
