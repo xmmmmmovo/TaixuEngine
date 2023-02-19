@@ -16,7 +16,7 @@ endif()
 include(../3rdparty/FindGlad.cmake)
 
 # add freetype
-include(../3rdparty/FindFreetype.cmake)
+# include(../3rdparty/FindFreetype.cmake)
 
 # add glfw3
 include(../3rdparty/FindGlfw3.cmake)

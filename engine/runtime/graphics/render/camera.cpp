@@ -1,5 +1,4 @@
 #include "camera.hpp"
-/**/ #include "camera.hpp"
 
 namespace taixu::cg {
     glm::mat4 Camera::getViewMatrix() {

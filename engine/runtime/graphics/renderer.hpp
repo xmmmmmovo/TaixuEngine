@@ -8,7 +8,7 @@
 #include <memory>
 #include <vector>
 
-#include "graphics/camera.hpp"
+#include "graphics/render/camera.hpp"
 #include "graphics/render/model.h"
 #include "graphics/render/shader.hpp"
 
@@ -44,6 +44,7 @@ public:
         render_data = std::make_shared<Render_Data>();
         render_data->initialize();
     };
+
     void bindBuffer(unsigned int  vertex_arry_object,
                     unsigned int &element_buffer_id,
                     unsigned int &vertex_buffer_id, Mesh mesh) {
