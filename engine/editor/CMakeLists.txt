@@ -18,11 +18,30 @@ target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:
 
 target_link_libraries(${TARGET_NAME} TaixuRuntime)
 
-add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory "${BINARY_ROOT_DIR}"
-        COMMAND ${CMAKE_COMMAND} -E copy "${ENGINE_ROOT_DIR}/${TARGET_NAME}.yaml" "${BINARY_ROOT_DIR}"
-        COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/res" "${BINARY_ROOT_DIR}/res"
-        COMMAND ${CMAKE_COMMAND} -E copy_directory "$<TARGET_FILE_DIR:${TARGET_NAME}>/" "${BINARY_ROOT_DIR}"
-        COMMAND ${CMAKE_COMMAND} -E remove_directory "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
-        COMMAND ${CMAKE_COMMAND} -E copy_directory "${ENGINE_ROOT_DIR}/${ENGINE_ASSET_DIR}" "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
-        )
+set(TARGET_IMGUIINI_FILE "${CMAKE_CURRENT_BINARY_DIR}/imgui.ini")
+set(TARGET_ASSETS_DIR "${CMAKE_CURRENT_BINARY_DIR}/assets")
+set(TARGET_RES_DIR "${CMAKE_CURRENT_BINARY_DIR}/res")
+if ((NOT EXISTS "${TARGET_IMGUIINI_FILE}") OR ("imgui.ini" IS_NEWER_THAN "${TARGET_IMGUIINI_FILE}"))
+    file(COPY imgui.ini DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+endif ()
+
+if ((NOT EXISTS "${TARGET_ASSETS_DIR}") OR ("../assets" IS_NEWER_THAN "${TARGET_ASSETS_DIR}"))
+    file(COPY "../assets" DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+endif ()
+
+if ((NOT EXISTS "${TARGET_RES_DIR}") OR ("res" IS_NEWER_THAN "${TARGET_RES_DIR}"))
+    file(COPY res DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+endif ()
+
+if (${CMAKE_BUILD_TYPE})
+    if (${CMAKE_BUILD_TYPE} NOT STREQUAL "Debug")
+        add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E make_directory "${BINARY_ROOT_DIR}"
+                COMMAND ${CMAKE_COMMAND} -E copy "${ENGINE_ROOT_DIR}/${TARGET_NAME}.yaml" "${BINARY_ROOT_DIR}"
+                COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/res" "${BINARY_ROOT_DIR}/res"
+                COMMAND ${CMAKE_COMMAND} -E copy_directory "$<TARGET_FILE_DIR:${TARGET_NAME}>/" "${BINARY_ROOT_DIR}"
+                COMMAND ${CMAKE_COMMAND} -E remove_directory "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
+                COMMAND ${CMAKE_COMMAND} -E copy_directory "${ENGINE_ROOT_DIR}/${ENGINE_ASSET_DIR}" "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
+                )
+    endif ()
+endif ()

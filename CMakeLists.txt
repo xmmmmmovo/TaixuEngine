@@ -11,14 +11,14 @@ set(USE_VCPKG OFF)
 # for project properties
 set(ENGINE_VERSION 0.01)
 
-if(USE_VCPKG)
+if (USE_VCPKG)
     # set vcpkg for cmake
     if (NOT DEFINED ENV{VCPKG_ROOT})
         set(ENV{VCPKG_ROOT} "./3rdparty/vcpkg")
     endif ()
 
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
-endif()
+endif ()
 
 project(
         TaixuEngine

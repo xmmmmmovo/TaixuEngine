@@ -2,12 +2,13 @@
 // Created by xmmmmmovo on 2023/2/12.
 //
 
-#ifndef TAIXUENGINE_APPLICATION_H
-#define TAIXUENGINE_APPLICATION_H
+#ifndef TAIXUENGINE_APPLICATION_HPP
+#define TAIXUENGINE_APPLICATION_HPP
 
 #include <memory>
 
 // "" include headers
+#include "application_context.hpp"
 #include "gui/window.hpp"
 
 namespace taixu::editor {
@@ -35,7 +36,8 @@ public:
  *    For User to use
  * */
 private:
-    std::shared_ptr<gui::IWindow> window{nullptr};
+    std::shared_ptr<gui::IWindow>       window{nullptr};
+    std::shared_ptr<ApplicationContext> context{};
 
     static constexpr int32_t          MAIN_WINDOW_WIDTH  = 1366;
     static constexpr int32_t          MAIN_WINDOW_HEIGHT = 768;
@@ -45,8 +47,10 @@ public:
     void initialize();
     void run();
     void destroy();
+
+    std::shared_ptr<ApplicationContext> getContext();
 };
 
 }// namespace taixu::editor
 
-#endif//TAIXUENGINE_APPLICATION_H
+#endif//TAIXUENGINE_APPLICATION_HPP

@@ -14,7 +14,6 @@ void Renderer::initialize() {
     render_context->initialize();
 
     first_person_camera = std::make_shared<Camera>();
-
     shaderProgram = new cg::ShaderProgram(VERT_VERT, FRAG_FRAG);
 
     glGenVertexArrays(1, &VAO);

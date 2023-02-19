@@ -12,7 +12,6 @@ class DetailComponent : public IUIComponent {
 public:
     void init() override {}
     void update() override {
-        ImGui::Begin(name);
         if (ImGui::CollapsingHeader("Mesh", ImGuiTreeNodeFlags_DefaultOpen)) {
             if (ImGui::Button("Open...")) {}
             ImGui::SameLine(0, 5.0f);
@@ -31,13 +30,10 @@ public:
         }
 
         if (ImGui::CollapsingHeader("Light")) {
-
             ImGui::Separator();
             ImGui::Text("Position");
             ImGui::Separator();
         }
-
-        ImGui::End();
     }
 };
 }// namespace taixu::editor

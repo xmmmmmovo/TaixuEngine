@@ -23,8 +23,6 @@ public:
     void preUpdate() {}
 
     void update() override {
-        ImGui::Begin(name);
-
         ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
         ImVec2 size              = {viewportPanelSize.x, viewportPanelSize.y};
 
@@ -33,7 +31,6 @@ public:
         // Because I use the texture from OpenGL, I need to invert the V from the UV.
         ImGui::Image(reinterpret_cast<void *>(m_renderer->getRenderResult()),
                      size, ImVec2(0, 1), ImVec2(1, 0));
-        ImGui::End();
     }
 };
 

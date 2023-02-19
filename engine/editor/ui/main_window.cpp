@@ -30,7 +30,7 @@ void MainWindow::init() {
     super::init();
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     super::setIsVsync(true);
-    imguiSurface->init(window);
+    imgui_surface->init(window);
     spdlog::info("Main window start finished!");
 }
 
@@ -39,13 +39,13 @@ void MainWindow::update() {
         processInput(window);
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        imguiSurface->preUpdate();
-        imguiSurface->update();
+        imgui_surface->preUpdate();
+        imgui_surface->update();
         super::update();
     }
 }
 void MainWindow::destroy() {
-    imguiSurface->destroy();
+    imgui_surface->destroy();
     super::destroy();
 }
 
