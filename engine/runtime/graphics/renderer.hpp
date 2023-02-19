@@ -5,11 +5,12 @@
 #ifndef TAIXUENGINE_RENDERER_HPP
 #define TAIXUENGINE_RENDERER_HPP
 
-#include "graphics/render/shader.hpp"
-#include "graphics/render/model.h"
-#include "graphics/camera.hpp"
 #include <memory>
 #include <vector>
+
+#include "graphics/camera.hpp"
+#include "graphics/render/model.h"
+#include "graphics/render/shader.hpp"
 
 
 namespace taixu::cg {
@@ -24,21 +25,12 @@ public:
     ~Render_Data(){};
     void initialize() {
         model = std::make_shared<Model>(
-                std::string("D:/SourseCode/Obj/cube.obj"));
-        //cube  = new Model(std::string("D:/SourseCode/Obj/cube.obj"));
-        //model->loadModel("D:/SourseCode/Obj/cube.obj");
-        //model->vertices = {
-        //        -0.5f, -0.5f, 0.0f,// left
-        //        0.5f,  -0.5f, 0.0f,// right
-        //        0.0f,  0.5f,  0.0f // top};
-        //};
-        
+                std::string("assets/model/cube_flat.obj"));
     }
     Render_Data *getData() { return this; };
 
 protected:
     std::shared_ptr<Model> model;
-    //Model                 *cube;
 };
 
 class Render_Context {
@@ -52,25 +44,23 @@ public:
         render_data = std::make_shared<Render_Data>();
         render_data->initialize();
     };
-    void         bindBuffer(unsigned int vertex_arry_object,unsigned int &element_buffer_id,unsigned int &vertex_buffer_id,Mesh mesh) 
-    {
+    void bindBuffer(unsigned int  vertex_arry_object,
+                    unsigned int &element_buffer_id,
+                    unsigned int &vertex_buffer_id, Mesh mesh) {
         glBindVertexArray(vertex_arry_object);
         glGenBuffers(1, &vertex_buffer_id);
         glGenBuffers(1, &element_buffer_id);
         // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
         //Bind vertices data of mesh
         glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_id);
-        glBufferData(GL_ARRAY_BUFFER,
-                     mesh.vertices.size() *
-                             sizeof(Vertex),
-                     &mesh.vertices[0],
-                     GL_DYNAMIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, mesh.vertices.size() * sizeof(Vertex),
+                     &mesh.vertices[0], GL_DYNAMIC_DRAW);
         //Bind indices data of mesh
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_id);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,
                      mesh.indices.size() * sizeof(unsigned int),
                      &mesh.indices[0], GL_DYNAMIC_DRAW);
-         // vertex Positions
+        // vertex Positions
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex),
                               (void *) 0);
@@ -121,14 +111,14 @@ public:
 
     std::shared_ptr<Camera> first_person_camera;
 
-    glm::vec3               lightPos = glm::vec3(0, -0.5, -0.5);
+    glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 
     std::shared_ptr<Render_Context> render_context;
-    cg::ShaderProgram                  *shaderProgram;
+    cg::ShaderProgram              *shaderProgram;
 
-    unsigned int                    VBO, EBO, VAO;
-    unsigned int                    fbo, bufferTexId, rbo;
-    glm::vec2                          size = {1366, 768};
+    unsigned int VBO, EBO, VAO;
+    unsigned int fbo, bufferTexId, rbo;
+    glm::vec2    size = {1366, 768};
 };
 
 

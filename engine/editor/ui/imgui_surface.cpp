@@ -18,14 +18,22 @@ void ImguiSurface::init(GLFWwindow *window) {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO &io = ImGui::GetIO();
-    io.Fonts->AddFontDefault();
+    // io.Fonts->AddFontDefault();
+
+    // add source hans font
+    // Default + Selection of 2500 Ideographs used by Simplified Chinese
+    auto font = io.Fonts->AddFontFromFileTTF(
+            "res/fonts/SourceHanSansCN-Bold.otf", 16.0f, nullptr,
+            io.Fonts->GetGlyphRangesChineseSimplifiedCommon());
+    io.FontDefault = font;
+
     // merge in icons from Font Awesome
     static const ImWchar icons_ranges[] = {ICON_MIN_FA, ICON_MAX_16_FA, 0};
     ImFontConfig         icons_config;
     icons_config.MergeMode  = true;
     icons_config.PixelSnapH = true;
-    io.Fonts->AddFontFromFileTTF("res/fonts/fa-solid-900.ttf", 16.0f, &icons_config,
-                                 icons_ranges);
+    io.Fonts->AddFontFromFileTTF("res/fonts/fa-solid-900.ttf", 16.0f,
+                                 &icons_config, icons_ranges);
     // use FONT_ICON_FILE_NAME_FAR if you want regular instead of solid
 
     io.ConfigFlags |=
