@@ -13,33 +13,20 @@ void Renderer::initialize() {
 
     render_context->initialize();
 
+    first_person_camera = std::make_shared<Camera>();
     shaderProgram = new cg::ShaderProgram(VERT_VERT, FRAG_FRAG);
 
     glGenVertexArrays(1, &VAO);
 
-    glGenBuffers(1, &VBO);
-    // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-    glBindVertexArray(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
-    //Bind vertices data of mesh to Buffer
-    glBufferData(
-            GL_ARRAY_BUFFER,
-            render_context->getSwapContext()
-                            ->getData()
-                            ->model->vertices.size() *
-                    sizeof(float),
-            &render_context->getSwapContext()->getData()->model->vertices[0],
-            GL_DYNAMIC_DRAW);
-    //allocate memory
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
-                          (void *) 0);
-    glEnableVertexAttribArray(0);
+
+    //Bind buffer for each Mesh
+    render_context->bindBuffer(VAO,VBO,EBO,render_context->getSwapContext()->getData()->model->meshes[0]);
+
     // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
-    GLuint id{0};
     //Generate a texture image to store rendering results
     glGenFramebuffers(1, &fbo);
     glBindFramebuffer(GL_FRAMEBUFFER, fbo);
@@ -75,11 +62,29 @@ void Renderer::tick(float delta_time) {
     //glBufferData(GL_FRAMEBUFFER,)
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glm::mat4 ProjectionMatrix   = first_person_camera->getProjectionMatrix();
+    glm::mat4 ViewMatrix         = first_person_camera->getViewMatrix();
+    glm::mat4 ModelMatrix        = glm::mat4(1.0);
+    glm::mat4 ModelViewMatrix    = ViewMatrix * ModelMatrix;
+    glm::mat3 ModelView3x3Matrix = glm::mat3(ModelViewMatrix);
+    glm::mat4 MVP                = ProjectionMatrix * ViewMatrix * ModelMatrix;
     shaderProgram->use();
+
+    shaderProgram->set_uniform("MVP", MVP);
+    shaderProgram->set_uniform("V", ViewMatrix);
+    shaderProgram->set_uniform("M", ModelMatrix);
+    shaderProgram->set_uniform("MV3x3", ModelView3x3Matrix);
+
+    shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
+
     glBindVertexArray(
             VAO);// seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
-    glDrawArrays(GL_TRIANGLES, 0, 3);
-
+    //Draw as meshes
+    glDrawElements(GL_TRIANGLES,
+                   static_cast<unsigned int>(render_context->getSwapContext()
+                                                     ->model->meshes[0].indices.size()),
+                   GL_UNSIGNED_INT, 0);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 void Renderer::clear() {}
