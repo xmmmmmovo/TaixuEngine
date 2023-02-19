@@ -18,7 +18,7 @@ void ImguiSurface::init(GLFWwindow *window) {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO &io = ImGui::GetIO();
-    // io.Fonts->AddFontDefault();
+    io.Fonts->AddFontDefault();
 
     // add source hans font
     // Default + Selection of 2500 Ideographs used by Simplified Chinese

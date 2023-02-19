@@ -12,7 +12,8 @@ void Model::loadModel(std::string const &path) {
     if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE ||
         !scene->mRootNode)// if is Not Zero
     {
-        std::cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << std::endl;
+        std::cout << "ERROR::ASSIMP:: " << importer.GetErrorString()
+                  << std::endl;
         return;
     }
     // retrieve the directory path of the filepath
@@ -124,8 +125,9 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene) {
 
 // checks all material textures of a given type and loads the textures if they're not loaded yet.
 // the required info is returned as a Texture struct.
-std::vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type,
-                                            std::string typeName) {
+std::vector<Texture> Model::loadMaterialTextures(aiMaterial   *mat,
+                                                 aiTextureType type,
+                                                 std::string   typeName) {
     std::vector<Texture> textures;
     for (unsigned int i = 0; i < mat->GetTextureCount(type); i++) {
         aiString str;
@@ -152,10 +154,10 @@ std::vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType 
     return textures;
 }
 
-unsigned int Model::TextureFromFile(const char *path, const std::string &directory,
-                                    bool gamma) {
+unsigned int Model::TextureFromFile(const char        *path,
+                                    const std::string &directory, bool gamma) {
     std::string filename = std::string(path);
-    filename        = directory + '/' + filename;
+    filename             = directory + '/' + filename;
 
     unsigned int textureID;
     glGenTextures(1, &textureID);
