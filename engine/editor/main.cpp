@@ -1,7 +1,7 @@
 #include <cstdlib>
 
 // render use
-#include "core/application.h"
+#include "core/application.hpp"
 
 int main() {
     decltype(auto) app = taixu::editor::Application::getInstance();

@@ -13,10 +13,6 @@ void Renderer::initialize() {
 
     render_context->initialize();
 
-    spdlog::info(
-            render_context->getSwapContext()->getData()->model->vertices[7]);
-
-
     shaderProgram = new cg::ShaderProgram(VERT_VERT, FRAG_FRAG);
 
     glGenVertexArrays(1, &VAO);

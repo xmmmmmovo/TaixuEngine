@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 2023/2/12.
 //
 
-#include "application.h"
+#include "application.hpp"
 
 // <> headers
 #include <spdlog/spdlog.h>
@@ -29,5 +29,9 @@ void Application::initialize() {
 void Application::run() { this->window->update(); }
 
 void Application::destroy() { this->window->destroy(); }
+
+std::shared_ptr<ApplicationContext> Application::getContext() {
+    return context;
+}
 
 }// namespace taixu::editor
