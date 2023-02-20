@@ -3,7 +3,7 @@
 
 #include <string_view>
 
-namespace taixu::core {
+namespace taixu {
 constexpr char         OPENGL_VERSION[]     = "#version 410";
 constexpr std::int32_t OPENGL_MAJOR_VERSION = 4;
 constexpr std::int32_t OPENGL_MINOR_VERSION = 1;
