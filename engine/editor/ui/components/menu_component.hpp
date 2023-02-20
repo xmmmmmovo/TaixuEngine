@@ -6,6 +6,7 @@
 #define TAIXUENGINE_MENU_COMPONENT_HPP
 
 #include <ImGuiFileDialog.h>
+#include <imgui.h>
 
 #include "core/application.hpp"
 #include "interface/component.hpp"
@@ -21,8 +22,9 @@ public:
     void init() override {}
     void update() override {
         if (ImGui::MenuItem("open project")) {
-            ImGuiFileDialog::Instance()->OpenDialog(
-                    "ChooseFileDlgKey", "Choose File", ".cpp,.h,.hpp", ".");
+            ImGuiFileDialog::Instance()->OpenModal(
+                    "ChooseFileDlgKey", "Choose File", ".cpp,.h,.hpp", ".", 1,
+                    nullptr, ImGuiFileDialogFlags_Default);
         }
         if (ImGui::MenuItem("save project")) {}
         if (ImGui::MenuItem("save as project")) {}
