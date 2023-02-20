@@ -16,6 +16,8 @@ if (imgui_ADDED)
             ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3_loader.h)
 
     file(GLOB imgui_ext_sources CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/3rdparty/imgui/*.cpp)
+    
+    include_directories(${PROJECT_SOURCE_DIR}/3rdparty/imgui)
 
     add_library(imgui STATIC ${imgui_sources} ${imgui_impl} ${imgui_ext_sources})
 

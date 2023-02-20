@@ -177,6 +177,17 @@ void ImguiSurface::update() {
     }
 }
 
+void ImguiSurface::Input_callback(std::string input) { 
+    render_component->processInput(input);
+}
+
+void ImguiSurface::Input_callback(glm::vec2 mouse_pos) {
+    render_component->processInput(mouse_pos);
+}
+void ImguiSurface::Input_callback(float scroll_yoffset) {
+    render_component->processInput(scroll_yoffset);
+}
+
 void ImguiSurface::destroy() {
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();

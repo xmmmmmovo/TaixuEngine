@@ -62,7 +62,9 @@ public:
 
         this->context = Application::getInstance().getContext();
     }
-
+    void Input_callback(std::string input);
+    void Input_callback(glm::vec2 mouse_pos);
+    void Input_callback(float scroll_yoffset);
     void init(GLFWwindow *window);
 
     void preUpdate();

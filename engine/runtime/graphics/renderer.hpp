@@ -25,7 +25,7 @@ public:
     ~Render_Data(){};
     void initialize() {
         model = std::make_shared<Model>(
-                std::string("assets/model/cube_flat.obj"));
+                std::string("assets/model/cube.obj"));
     }
     Render_Data *getData() { return this; };
 
@@ -102,12 +102,17 @@ class Renderer {
 public:
     explicit Renderer() = default;
     ~Renderer(){};
-
+    const float delta_time=0.03333;
     void initialize();
     void tick(float delta_time = 0.03333);
     void clear();
 
     void         resize(float width, float height);
+    void         processInput(std::string input);
+    void         processInput(glm::vec2 mouse_pos);
+    bool         first_mouse=true;
+    float        last_x,last_y;
+    void         processInput(float scroll_yoffset);
     unsigned int getRenderResult() { return bufferTexId; };
 
     std::shared_ptr<Camera> first_person_camera;

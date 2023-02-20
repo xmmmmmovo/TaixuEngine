@@ -1912,14 +1912,8 @@ namespace IGFD
 				}
 
 				size_t len = 0;
-#ifdef _MSC_VER
-				struct tm _tm;
-				errno_t err = localtime_s(&_tm, &statInfos.st_mtime);
-				if (!err) len = strftime(timebuf, 99, DateTimeFormat, &_tm);
-#else // _MSC_VER
 				struct tm* _tm = localtime(&statInfos.st_mtime);
 				if (_tm) len = strftime(timebuf, 99, DateTimeFormat, _tm);
-#endif // _MSC_VER
 				if (len)
 				{
 					vInfos->fileModifDate = std::string(timebuf, len);
