@@ -9,6 +9,7 @@ file(GLOB_RECURSE SOURCE_FILES "*.cpp")
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_FILES})
 
 add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
+GroupSourcesByFolder(${TARGET_NAME})
 
 target_link_libraries(${TARGET_NAME} glm glfw ${OGLLIB} ${FREETYPE_LIBS}
         glad imgui stb spdlog::spdlog assimp yaml-cpp)

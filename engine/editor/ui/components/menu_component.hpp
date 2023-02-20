@@ -7,6 +7,7 @@
 
 #include <ImGuiFileDialog.h>
 #include <imgui.h>
+#include <spdlog/spdlog.h>
 
 #include "core/application.hpp"
 #include "interface/component.hpp"
@@ -22,9 +23,10 @@ public:
     void init() override {}
     void update() override {
         if (ImGui::MenuItem("open project")) {
-            ImGuiFileDialog::Instance()->OpenModal(
-                    "ChooseFileDlgKey", "Choose File", ".cpp,.h,.hpp", ".", 1,
-                    nullptr, ImGuiFileDialogFlags_Default);
+            // TODO: Just debug for this path, remove after decided
+            ImGuiFileDialog::Instance()->OpenModal("ChooseDirDlgKey",
+                                                   "Choose a Directory",
+                                                   nullptr, "../../../tests");
         }
         if (ImGui::MenuItem("save project")) {}
         if (ImGui::MenuItem("save as project")) {}
@@ -39,14 +41,13 @@ public:
 
     void processFileDialog() {
         // display
-        if (ImGuiFileDialog::Instance()->Display("ChooseFileDlgKey")) {
+        if (ImGuiFileDialog::Instance()->Display("ChooseDirDlgKey")) {
             // action if OK
             if (ImGuiFileDialog::Instance()->IsOk()) {
-                std::string filePathName =
-                        ImGuiFileDialog::Instance()->GetFilePathName();
                 std::string filePath =
                         ImGuiFileDialog::Instance()->GetCurrentPath();
                 // action
+                spdlog::debug(filePath);
             }
 
             // close
