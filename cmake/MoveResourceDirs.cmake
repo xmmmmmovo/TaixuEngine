@@ -6,6 +6,8 @@ set(IMGUIINI_FILE ${ENGINE_ROOT_DIR}/editor/imgui.ini)
 set(ASSETS_DIR ${ENGINE_ROOT_DIR}/assets)
 set(RES_DIR ${ENGINE_ROOT_DIR}/editor/res)
 
+message("copy start")
+
 if ((NOT EXISTS ${TARGET_IMGUIINI_FILE}) OR (${IMGUIINI_FILE} IS_NEWER_THAN ${TARGET_IMGUIINI_FILE}))
     message("Move imgui.ini...")
     file(COPY ${IMGUIINI_FILE} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

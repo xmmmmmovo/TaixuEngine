@@ -51,6 +51,7 @@ void MainWindow::init() {
     ///////////////////////////
     spdlog::info("Main window start init!");
     super::init();
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     super::setIsVsync(true);
     imgui_surface->init(window);
     spdlog::info("Main window start finished!");
@@ -58,6 +59,7 @@ void MainWindow::init() {
 
 void MainWindow::update() {
     while (!glfwWindowShouldClose(window)) {
+        processInput(window);
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         imgui_surface->preUpdate();
