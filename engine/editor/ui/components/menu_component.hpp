@@ -24,9 +24,9 @@ public:
     void update() override {
         if (ImGui::MenuItem("open project")) {
             // TODO: Just debug for this path, remove after decided
-            ImGuiFileDialog::Instance()->OpenModal("ChooseDirDlgKey",
-                                                   "Choose a Directory",
-                                                   nullptr, "../../../tests");
+            ImGuiFileDialog::Instance()->OpenDialog(
+                    "ChooseDirDlgKey", "Choose a Directory", nullptr,
+                    "../../../tests", 1, nullptr, ImGuiFileDialogFlags_Modal);
         }
         if (ImGui::MenuItem("save project")) {}
         if (ImGui::MenuItem("save as project")) {}
