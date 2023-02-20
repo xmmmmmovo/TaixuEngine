@@ -11,8 +11,8 @@ void TX_GLFWwindow::init() {
     if (window != nullptr) { return; }
     if (!initialized) {
         glfwInit();
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, core::OPENGL_MAJOR_VERSION);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, core::OPENGL_MINOR_VERSION);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPENGL_MAJOR_VERSION);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, OPENGL_MINOR_VERSION);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
         glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 #ifdef __APPLE__

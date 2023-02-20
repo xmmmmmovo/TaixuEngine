@@ -1,1 +1,3 @@
-**/3rdparty/** linguist-vendored
+**/3rdparty/glad/** linguist-vendored
+**/3rdparty/imgui/** linguist-vendored
+**/3rdparty/stb/** linguist-vendored

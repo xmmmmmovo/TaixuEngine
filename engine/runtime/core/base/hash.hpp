@@ -4,7 +4,7 @@
 #include <cstddef>
 #include <functional>
 
-namespace taixu::core {
+namespace taixu {
 
 template<typename T>
 inline void hash_combine(std::size_t &seed, const T &v) {

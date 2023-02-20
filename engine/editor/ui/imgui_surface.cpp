@@ -77,7 +77,7 @@ void ImguiSurface::init(GLFWwindow *window) {
     }
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init(core::OPENGL_VERSION);
+    ImGui_ImplOpenGL3_Init(OPENGL_VERSION);
 
     menu_component->init();
 
