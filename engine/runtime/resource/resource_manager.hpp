@@ -7,7 +7,7 @@
 
 #include <cstdint>
 
-namespace taixu::assets {
+namespace taixu::resource {
 constexpr std::uint8_t INVALID_GUID = 0;
 
 }

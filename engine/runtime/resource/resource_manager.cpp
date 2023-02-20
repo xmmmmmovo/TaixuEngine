@@ -4,4 +4,4 @@
 
 #include "resource_manager.hpp"
 
-namespace taixu::assets {}
+namespace taixu::resource {}
