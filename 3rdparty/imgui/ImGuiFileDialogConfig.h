@@ -28,7 +28,7 @@
 
 //#define USE_EXPLORATION_BY_KEYS
 // this mapping by default is for GLFW but you can use another
-//#include <GLFW/glfw3.h> 
+//#include <GLFW/glfw3.h>
 // Up key for explore to the top
 //#define IGFD_KEY_UP ImGuiKey_UpArrow
 // Down key for explore to the bottom
@@ -55,26 +55,26 @@
 //#define resetButtonString "R"
 //#define drivesButtonString "Drives"
 //#define editPathButtonString "E"
-//#define searchString "Search"
-//#define dirEntryString "[DIR] "
+#define searchString "Search"
+#define dirEntryString "[DIR] "
 //#define linkEntryString "[LINK] "
-//#define fileEntryString "[FILE] "
-//#define fileNameString "File Name : "
+#define fileEntryString "[FILE] "
+#define fileNameString "File Name : "
 //#define dirNameString "Directory Path :"
 //#define buttonResetSearchString "Reset search"
 //#define buttonDriveString "Drives"
 //#define buttonEditPathString "Edit path\nYou can also right click on path buttons"
 //#define buttonResetPathString "Reset to current directory"
 //#define buttonCreateDirString "Create Directory"
-//#define OverWriteDialogTitleString "The file Already Exist !"
-//#define OverWriteDialogMessageString "Would you like to OverWrite it ?"
-//#define OverWriteDialogConfirmButtonString "Confirm"
-//#define OverWriteDialogCancelButtonString "Cancel"
+#define OverWriteDialogTitleString "The file Already Exist !"
+#define OverWriteDialogMessageString "Would you like to OverWrite it ?"
+#define OverWriteDialogConfirmButtonString "Confirm"
+#define OverWriteDialogCancelButtonString "Cancel"
 
 //Validation buttons
-//#define okButtonString " OK"
+#define okButtonString " OK"
 //#define okButtonWidth 0.0f
-//#define cancelButtonString " Cancel"
+#define cancelButtonString " Cancel"
 //#define cancelButtonWidth 0.0f
 //alignement [0:1], 0.0 is left, 0.5 middle, 1.0 right, and other ratios
 //#define okCancelButtonAlignement 0.0f
@@ -84,7 +84,7 @@
 // see strftime functionin <ctime> for customize
 // "%Y/%m/%d %H:%M" give 2021:01:22 11:47
 // "%Y/%m/%d %i:%M%p" give 2021:01:22 11:45PM
-//#define DateTimeFormat "%Y/%m/%d %i:%M%p"
+#define DateTimeFormat "%Y/%m/%d %i:%M%p"
 
 // theses icons will appear in table headers
 //#define USE_CUSTOM_SORTING_ICON

@@ -10,11 +10,11 @@
 
 namespace taixu::editor {
 
-enum EditorState { EDITORMODE, PLAYMODE };
+enum EditorState { EDITORMODE, PLAYMODE, IDLEMODE };
 
 struct ApplicationContext {
 public:
-    EditorState      state{EditorState::EDITORMODE};
+    EditorState      state{EditorState::IDLEMODE};
     std::string_view project_path{};
 };
 }// namespace taixu::editor
