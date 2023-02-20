@@ -1,0 +1,13 @@
+# rapidjson
+CPMAddPackage(
+        NAME rapidjson
+        GITHUB_REPOSITORY Tencent/rapidjson
+        GIT_TAG 012be8528783cdbf4b7a9e64f78bd8f056b97e24
+        OPTIONS
+        "RAPIDJSON_BUILD_DOC OFF"
+        "RAPIDJSON_BUILD_EXAMPLES OFF"
+        "RAPIDJSON_BUILD_TESTS OFF"
+        "RAPIDJSON_BUILD_THIRDPARTY_GTEST OFF"
+        "RAPIDJSON_BUILD_CXX11 OFF"
+        "RAPIDJSON_BUILD_CXX17 ON"
+)

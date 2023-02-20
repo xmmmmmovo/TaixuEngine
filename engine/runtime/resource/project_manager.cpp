@@ -4,4 +4,8 @@
 
 #include "project_manager.hpp"
 
-namespace taixu::resource{}
+namespace taixu::resource {
+
+struct Project {};
+
+}// namespace taixu::resource
