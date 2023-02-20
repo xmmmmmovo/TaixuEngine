@@ -4,4 +4,6 @@
 
 #include "config_manager.hpp"
 
-namespace taixu::assets {}
+namespace taixu::resource {
+
+}

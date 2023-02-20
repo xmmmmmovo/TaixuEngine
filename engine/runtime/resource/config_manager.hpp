@@ -5,6 +5,6 @@
 #ifndef TAIXUENGINE_CONFIG_MANAGER_HPP
 #define TAIXUENGINE_CONFIG_MANAGER_HPP
 
-namespace taixu::assets {}
+namespace taixu::resource {}
 
 #endif//TAIXUENGINE_CONFIG_MANAGER_HPP

@@ -23,7 +23,7 @@ void ImguiSurface::init(GLFWwindow *window) {
     // add source hans font
     // Default + Selection of 2500 Ideographs used by Simplified Chinese
     auto font = io.Fonts->AddFontFromFileTTF(
-            "res/fonts/SourceHanSansCN-Bold.otf", 16.0f, nullptr,
+            "res/fonts/SourceHanSansCN-Bold.otf", 18.0f, nullptr,
             io.Fonts->GetGlyphRangesChineseSimplifiedCommon());
     io.FontDefault = font;
 
@@ -129,6 +129,9 @@ void ImguiSurface::preUpdate() {
     }
 
     ImGui::End();
+
+    menu_component->processFileDialog();
+
     addWidget(WORLD_OBJ_COMPONENT_NAME,
               INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
                       world_object_component->update));
