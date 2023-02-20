@@ -9,6 +9,17 @@ if (MSVC)
     set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT TaixuEngineEditor)
 endif ()
 
+# enables CCACHE support through the USE_CCACHE flag possible values are: YES, NO or equivalent
+if (USE_CCACHE)
+    CPMAddPackage(
+            NAME ccache
+            GITHUB_REPOSITORY "TheLartians/Ccache.cmake"
+            VERSION 1.2.4
+            OPTIONS
+            "USE_CCACHE ${USE_CCACHE}"
+    )
+endif ()
+
 # ------ third-party -------
 
 # add Vulkan
@@ -45,8 +56,8 @@ include(../3rdparty/FindAssimp.cmake)
 # add yaml
 include(../3rdparty/FindYamlCpp.cmake)
 
-# add rapidjson
-include(../3rdparty/FindRapidJson.cmake)
+# add jsoncpp
+#include(../3rdparty/FindJsoncpp.cmake)
 
 # ------- sub-directories --------
 
