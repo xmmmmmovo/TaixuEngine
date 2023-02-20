@@ -129,6 +129,9 @@ void ImguiSurface::preUpdate() {
     }
 
     ImGui::End();
+
+    menu_component->processFileDialog();
+
     addWidget(WORLD_OBJ_COMPONENT_NAME,
               INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
                       world_object_component->update));

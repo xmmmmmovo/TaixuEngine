@@ -27,11 +27,11 @@ include(../3rdparty/FindGLM.cmake)
 # add GroupSourcesByFolder
 include(../3rdparty/FindGroupSourcesByFolder.cmake)
 
-# add imgui
-include(../3rdparty/Findimgui.cmake)
-
 # add stb
 include(../3rdparty/FindStb.cmake)
+
+# add imgui
+include(../3rdparty/Findimgui.cmake)
 
 # add fmt
 include(../3rdparty/Findfmt.cmake)

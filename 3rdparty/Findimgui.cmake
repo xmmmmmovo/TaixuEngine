@@ -1,9 +1,9 @@
 # imgui
 CPMAddPackage(
-    NAME imgui
-    GIT_REPOSITORY https://github.com/ocornut/imgui
-    GIT_TAG 345184330b438cb0aafcd6ff8ac1d3820f19b808
-    DOWNLOAD_ONLY YES
+        NAME imgui
+        GIT_REPOSITORY https://github.com/ocornut/imgui
+        GIT_TAG 345184330b438cb0aafcd6ff8ac1d3820f19b808
+        DOWNLOAD_ONLY YES
 )
 
 if (imgui_ADDED)
@@ -15,7 +15,9 @@ if (imgui_ADDED)
             ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.h
             ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3_loader.h)
 
-    add_library(imgui STATIC ${imgui_sources} ${imgui_impl})
+    file(GLOB imgui_ext_sources CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/3rdparty/imgui/*.cpp)
+
+    add_library(imgui STATIC ${imgui_sources} ${imgui_impl} ${imgui_ext_sources})
 
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${imgui_SOURCE_DIR}>)
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/3rdparty/imgui>)
