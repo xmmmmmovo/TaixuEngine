@@ -5,4 +5,7 @@ CPMAddPackage(
         GIT_TAG yaml-cpp-0.7.0
         OPTIONS
         "YAML_CPP_FORMAT_SOURCE OFF"
+        "YAML_CPP_BUILD_TESTS Off"
+        "YAML_CPP_BUILD_CONTRIB Off"
+        "YAML_CPP_BUILD_TOOLS Off"
 )
