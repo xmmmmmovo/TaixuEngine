@@ -3,11 +3,11 @@ set(ENGINE_ASSET_DIR "assets")
 set(ENGINE_SHADER_DIR "shaders")
 
 # accelerate the msvc project
-if(MSVC)
+if (MSVC)
     add_compile_options("/MP")
     add_compile_options("/utf-8")
     set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT TaixuEngineEditor)
-endif()
+endif ()
 
 # ------ third-party -------
 
@@ -41,6 +41,12 @@ include(../3rdparty/FindSpdlog.cmake)
 
 # add assimp
 include(../3rdparty/FindAssimp.cmake)
+
+# add yaml
+include(../3rdparty/FindYamlCpp.cmake)
+
+# add rapidjson
+include(../3rdparty/FindRapidJson.cmake)
 
 # ------- sub-directories --------
 
