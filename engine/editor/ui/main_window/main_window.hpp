@@ -5,18 +5,18 @@
 #ifndef TAIXUENGINE_MAIN_WINDOW_HPP
 #define TAIXUENGINE_MAIN_WINDOW_HPP
 
-#include <glad/glad.h>
-
-#include <GLFW/glfw3.h>
-#include <imgui.h>
-#include <imgui_internal.h>
+#include "glad/glad.h"
 
 #include <memory>
+
+#include "GLFW/glfw3.h"
+#include "imgui.h"
+#include "imgui_internal.h"
 
 // "" headers
 #include "graphics/renderer.hpp"
 #include "gui/glfw_window.hpp"
-#include "imgui_surface.hpp"
+#include "ui/imgui_surface.hpp"
 
 namespace taixu::editor {
 
@@ -25,6 +25,9 @@ class MainWindow : public gui::TX_GLFWwindow {
 
 private:
     std::unique_ptr<ImguiSurface> imgui_surface{};
+
+private:
+    void bindCallbacks();
 
 public:
     MainWindow() : MainWindow(gui::IWindowContext{}) {}

@@ -15,10 +15,6 @@
 namespace taixu::editor {
 
 class MenuComponent : public IUIComponent {
-private:
-    std::shared_ptr<ApplicationContext> context{
-            Application::getInstance().getContext()};
-
 public:
     void init() override {}
     void update() override {

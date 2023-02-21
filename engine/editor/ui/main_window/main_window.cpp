@@ -4,7 +4,7 @@
 
 #include "main_window.hpp"
 
-#include <spdlog/spdlog.h>
+#include "spdlog/spdlog.h"
 
 
 namespace taixu::editor {
@@ -52,9 +52,14 @@ void MainWindow::update() {
         super::update();
     }
 }
+
 void MainWindow::destroy() {
     imgui_surface->destroy();
     super::destroy();
+}
+
+void MainWindow::bindCallbacks() {
+
 }
 
 }// namespace taixu::editor
