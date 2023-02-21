@@ -38,8 +38,6 @@ public:
     void update() override;
     void destroy() override;
     void processInput(GLFWwindow *window);
-    void mouse_callback(GLFWwindow *window, double xposIn, double yposIn);
-    void scroll_callback(GLFWwindow *window, double xoffset, double yoffset);
 };
 
 }// namespace taixu::editor

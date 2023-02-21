@@ -24,21 +24,6 @@ void  MainWindow::processInput(GLFWwindow *window) {
         imgui_surface->Input_callback("RIGHT");
 }
 
-void MainWindow::mouse_callback(GLFWwindow* window, double xposIn,
-                                double yposIn) {
-    float xpos = static_cast<float>(xposIn);
-    float ypos = static_cast<float>(yposIn);
-    glm::vec2 mouse_pos(xposIn, yposIn);
-    imgui_surface->Input_callback(mouse_pos);
-    
-}
-
-// glfw: whenever the mouse scroll wheel scrolls, this callback is called
-// ----------------------------------------------------------------------
-void MainWindow::scroll_callback(GLFWwindow* window, double xoffset,
-                                 double yoffset) {
-    imgui_surface->Input_callback(static_cast<float>(yoffset));
-}
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
 // ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
