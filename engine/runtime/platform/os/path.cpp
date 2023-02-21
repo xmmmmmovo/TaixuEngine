@@ -4,7 +4,7 @@
 
 #include "path.hpp"
 
-namespace taixu::platform {
+namespace taixu {
 
 std::filesystem::path getRelativePath(const std::filesystem::path& directory,
                                       const std::filesystem::path& file_path) {

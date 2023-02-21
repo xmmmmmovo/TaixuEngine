@@ -4,7 +4,7 @@
 
 #include "file_service.hpp"
 
-namespace taixu::platform {
+namespace taixu {
 std::vector<std::filesystem::path> getFiles(
         const std::filesystem::path& directory) {
     std::vector<std::filesystem::path> files;

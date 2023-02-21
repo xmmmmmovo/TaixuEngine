@@ -8,7 +8,7 @@
 #include <filesystem>
 #include <vector>
 
-namespace taixu::platform {
+namespace taixu {
 
 std::vector<std::filesystem::path> getFiles(
         const std::filesystem::path& directory);
