@@ -12,7 +12,7 @@ add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 GroupSourcesByFolder(${TARGET_NAME})
 
 target_link_libraries(${TARGET_NAME} glm glfw ${OGLLIB} ${FREETYPE_LIBS}
-        glad imgui stb spdlog::spdlog assimp yaml-cpp)
+        glad imgui stb spdlog::spdlog assimp nlohmann_json::nlohmann_json)
 
 add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET})
 target_include_directories(

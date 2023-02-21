@@ -53,11 +53,8 @@ include(../3rdparty/FindSpdlog.cmake)
 # add assimp
 include(../3rdparty/FindAssimp.cmake)
 
-# add yaml
-include(../3rdparty/FindYamlCpp.cmake)
-
 # add jsoncpp
-#include(../3rdparty/FindJsoncpp.cmake)
+include(../3rdparty/FindJsoncpp.cmake)
 
 # ------- sub-directories --------
 

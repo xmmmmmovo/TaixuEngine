@@ -12,29 +12,37 @@ class FileComponent : public IUIComponent {
 public:
     void init() override {}
     void update() override {
-        if (ImGui::CollapsingHeader("Mesh", ImGuiTreeNodeFlags_DefaultOpen)) {
-
-            if (ImGui::Button("Open...")) {}
-            ImGui::SameLine(0, 5.0f);
-            ImGui::Text("aa");
+        // Child 1: no border, enable horizontal scrollbar
+        {
+            ImGuiWindowFlags window_flags =
+                    ImGuiWindowFlags_HorizontalScrollbar;
+            ImGui::BeginChild(
+                    "ChildL",
+                    ImVec2(ImGui::GetWindowContentRegionWidth() * 0.2f, 0),
+                    false, window_flags);
+            for (int i = 0; i < 100; i++)
+                ImGui::Text("%04d: scrollable region", i);
+            ImGui::EndChild();
         }
 
-        if (ImGui::CollapsingHeader("Material")) {
-            float color[3] = {1.0f, 2.0f, 3.0f};
-            float f1       = 0.0f;
-            float f2       = 0.0f;
-            ImGui::ColorPicker3("Color", color,
-                                ImGuiColorEditFlags_PickerHueWheel |
-                                        ImGuiColorEditFlags_DisplayRGB);
-            ImGui::SliderFloat("Roughness", &f1, 0.0f, 1.0f);
-            ImGui::SliderFloat("Metallic", &f2, 0.0f, 1.0f);
-        }
+        ImGui::SameLine();
 
-        if (ImGui::CollapsingHeader("Light")) {
-
-            ImGui::Separator();
-            ImGui::Text("Position");
-            ImGui::Separator();
+        // Child 2: rounded border
+        {
+            ImGuiWindowFlags window_flags = ImGuiWindowFlags_None;
+            ImGui::PushStyleVar(ImGuiStyleVar_ChildRounding, 5.0f);
+            ImGui::BeginChild("ChildR", ImVec2(0, 0), true, window_flags);
+            if (ImGui::BeginTable("split", 2,
+                                  ImGuiTableFlags_Resizable |
+                                          ImGuiTableFlags_NoSavedSettings)) {
+                for (int i = 0; i < 100; i++) {
+                    ImGui::TableNextColumn();
+                    ImGui::Button("111", ImVec2(-FLT_MIN, 0.0f));
+                }
+                ImGui::EndTable();
+            }
+            ImGui::EndChild();
+            ImGui::PopStyleVar();
         }
     }
 };

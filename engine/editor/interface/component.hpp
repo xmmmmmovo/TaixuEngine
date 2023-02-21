@@ -14,8 +14,8 @@ protected:
     IUIComponent() = default;
 
 public:
-    virtual void init() = 0;
-    virtual void update()         = 0;
+    virtual void init()   = 0;
+    virtual void update() = 0;
 };
 
 }// namespace taixu::editor

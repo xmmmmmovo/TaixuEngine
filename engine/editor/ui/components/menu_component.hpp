@@ -26,7 +26,7 @@ public:
             // TODO: Just debug for this path, remove after decided
             ImGuiFileDialog::Instance()->OpenDialog(
                     "ChooseDirDlgKey", "Choose a Directory", nullptr,
-                    "../../../tests", 1, nullptr, ImGuiFileDialogFlags_Modal);
+                    "../tests", 1, nullptr, ImGuiFileDialogFlags_Modal);
         }
         if (ImGui::MenuItem("save project")) {}
         if (ImGui::MenuItem("save as project")) {}
