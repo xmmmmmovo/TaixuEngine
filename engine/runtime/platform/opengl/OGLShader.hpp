@@ -7,6 +7,8 @@
 
 namespace taixu {
 
-}
+class OGLShaderProgram {};
+
+}// namespace taixu
 
 #endif//TAIXUENGINE_OGLSHADER_HPP

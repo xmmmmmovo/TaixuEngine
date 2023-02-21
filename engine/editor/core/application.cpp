@@ -8,7 +8,7 @@
 #include <spdlog/spdlog.h>
 
 // "" headers
-#include "ui/main_window.hpp"
+#include "ui/main_window/main_window.hpp"
 
 namespace taixu::editor {
 
