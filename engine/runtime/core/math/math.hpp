@@ -3,7 +3,7 @@
 
 #include <limits>
 
-namespace taixu::core {
+namespace taixu {
 
 static const float epsilonFloat = std::numeric_limits<float>::epsilon();
 

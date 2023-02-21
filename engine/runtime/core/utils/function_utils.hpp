@@ -7,6 +7,6 @@
 
 #define INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(func) [this]() { func(); }
 
-namespace taixu::core {}// namespace taixu::core
+namespace taixu {}// namespace taixu
 
 #endif//TAIXUENGINE_FUNCTION_UTILS_HPP
