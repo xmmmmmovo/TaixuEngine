@@ -22,9 +22,9 @@ jobs:
           path: "**/cpm_modules"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
 
-#      - name: Install dependencies
-#        run: |
-#          sudo apt-get install -y doxygen graphviz
+      #      - name: Install dependencies
+      #        run: |
+      #          sudo apt-get install -y doxygen graphviz
 
       - uses: awalsh128/cache-apt-pkgs-action@latest
         name: Install deps

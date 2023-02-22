@@ -18,8 +18,6 @@ target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:
 
 target_link_libraries(${TARGET_NAME} TaixuRuntime)
 
-message(${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-
 if ("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
     set(OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR})
 else ()
@@ -35,7 +33,7 @@ if (${CMAKE_BUILD_TYPE})
         add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
                 COMMAND ${CMAKE_COMMAND} -E make_directory "${BINARY_ROOT_DIR}"
                 COMMAND ${CMAKE_COMMAND} -E copy "${ENGINE_ROOT_DIR}/${TARGET_NAME}.json" "${BINARY_ROOT_DIR}"
-                COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/" "${BINARY_ROOT_DIR}"
+                COMMAND ${CMAKE_COMMAND} -E copy_directory "${OUTPUT_DIR}/" "${BINARY_ROOT_DIR}"
                 COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/res" "${BINARY_ROOT_DIR}/res"
                 COMMAND ${CMAKE_COMMAND} -E remove_directory "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
                 COMMAND ${CMAKE_COMMAND} -E copy_directory "${ENGINE_ROOT_DIR}/${ENGINE_ASSET_DIR}" "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
