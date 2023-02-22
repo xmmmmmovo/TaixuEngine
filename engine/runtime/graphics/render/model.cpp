@@ -1,6 +1,6 @@
-#include "model.h"
+#include "model.hpp"
 
-namespace taixu::cg {
+namespace taixu {
 
 void Model::loadModel(std::string const &path) {
     // read file via ASSIMP
@@ -193,4 +193,4 @@ unsigned int Model::TextureFromFile(const char        *path,
     return textureID;
 }
 
-}// namespace taixu::cg
+}// namespace taixu

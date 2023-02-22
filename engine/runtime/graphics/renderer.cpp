@@ -7,14 +7,14 @@
 #include "frag_frag.h"
 #include "vert_vert.h"
 
-namespace taixu::cg {
+namespace taixu {
 void Renderer::initialize() {
     render_context = std::make_shared<Render_Context>();
 
     render_context->initialize();
 
     first_person_camera = std::make_shared<Camera>();
-    shaderProgram = new cg::ShaderProgram(VERT_VERT, FRAG_FRAG);
+    shaderProgram = new ShaderProgram(VERT_VERT, FRAG_FRAG);
 
     glGenVertexArrays(1, &VAO);
 
@@ -96,16 +96,16 @@ void Renderer::processInput(std::string input) {
 
     if (input == "FORWARD") 
         first_person_camera->ProcessKeyboard(
-                taixu::cg::Camera_Movement::FORWARD, delta_time);
+                taixu::Camera_Movement::FORWARD, delta_time);
     if (input == "BACKWARD")
         first_person_camera->ProcessKeyboard(
-                taixu::cg::Camera_Movement::BACKWARD, delta_time);
+                taixu::Camera_Movement::BACKWARD, delta_time);
     if (input == "LEFT")
         first_person_camera->ProcessKeyboard(
-            taixu::cg::Camera_Movement::LEFT,delta_time);
+            taixu::Camera_Movement::LEFT,delta_time);
     if (input == "RIGHT")
         first_person_camera->ProcessKeyboard(
-            taixu::cg::Camera_Movement::RIGHT,delta_time);
+            taixu::Camera_Movement::RIGHT,delta_time);
 }
 void Renderer::processInput(glm::vec2 mouse_pos) 
 {

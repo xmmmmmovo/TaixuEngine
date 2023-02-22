@@ -7,7 +7,7 @@
 
 #include "window_context.hpp"
 
-namespace taixu::gui {
+namespace taixu {
 
 class IWindow {
 protected:

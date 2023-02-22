@@ -12,7 +12,7 @@
 // "" headers
 #include "window.hpp"
 
-namespace taixu::gui {
+namespace taixu {
 
 class TX_GLFWwindow : public IWindow {
 protected:

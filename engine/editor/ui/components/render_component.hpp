@@ -12,12 +12,12 @@ namespace taixu::editor {
 
 class RenderComponent : public IUIComponent {
 private:
-    std::shared_ptr<cg::Renderer> m_renderer;
+    std::shared_ptr<Renderer> m_renderer;
 
 public:
     const float delta_time = 0.03333;
     void init() override {
-        m_renderer = std::make_shared<cg::Renderer>();
+        m_renderer = std::make_shared<Renderer>();
         m_renderer->initialize();
     }
 

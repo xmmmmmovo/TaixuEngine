@@ -9,7 +9,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
-namespace taixu::cg {
+namespace taixu {
 
 enum Camera_Movement { FORWARD, BACKWARD, LEFT, RIGHT };
 
@@ -124,6 +124,6 @@ private:
     }
 };
 
-}// namespace taixu::cg
+}// namespace taixu
 
 #endif//TAIXUENGINE_CAMERA_HPP

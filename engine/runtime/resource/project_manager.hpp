@@ -5,14 +5,12 @@
 #ifndef TAIXUENGINE_PROJECT_MANAGER_HPP
 #define TAIXUENGINE_PROJECT_MANAGER_HPP
 
-namespace taixu::resource {
+namespace taixu {
 
 struct Project;
 
-class ProjectManager {
+class ProjectManager {};
 
-};
-
-}// namespace taixu::resource
+}// namespace taixu
 
 #endif//TAIXUENGINE_PROJECT_MANAGER_HPP

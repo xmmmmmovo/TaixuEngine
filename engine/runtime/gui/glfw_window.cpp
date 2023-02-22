@@ -3,9 +3,10 @@
 //
 
 #include "glfw_window.hpp"
+
 #include "core/base/macro.hpp"
 
-namespace taixu::gui {
+namespace taixu {
 
 void TX_GLFWwindow::init() {
     if (window != nullptr) { return; }
@@ -67,4 +68,4 @@ void TX_GLFWwindow::setIsVsync(bool enable) {
     isVsync = enable;
 }
 
-}// namespace taixu::gui
+}// namespace taixu

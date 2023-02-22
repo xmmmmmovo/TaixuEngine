@@ -9,11 +9,11 @@
 #include <vector>
 
 #include "graphics/render/camera.hpp"
-#include "graphics/render/model.h"
+#include "graphics/render/model.hpp"
 #include "graphics/render/shader.hpp"
 
 
-namespace taixu::cg {
+namespace taixu {
 
 class Render_Data {
 
@@ -120,7 +120,7 @@ public:
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 
     std::shared_ptr<Render_Context> render_context;
-    cg::ShaderProgram              *shaderProgram;
+    ShaderProgram              *shaderProgram;
 
     unsigned int VBO, EBO, VAO;
     unsigned int fbo, bufferTexId, rbo;

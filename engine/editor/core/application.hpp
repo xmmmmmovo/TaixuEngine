@@ -23,7 +23,7 @@ class Application : public PublicSingleton<Application> {
       For User to use
     */
 private:
-    std::shared_ptr<gui::IWindow>       window{nullptr};
+    std::shared_ptr<IWindow>       window{nullptr};
     std::shared_ptr<ApplicationContext> context{};
 
     static constexpr int32_t          MAIN_WINDOW_WIDTH  = 1366;
