@@ -36,3 +36,5 @@ set(CMAKE_INSTALL_PREFIX "${TAIXUENGINE_ROOT_DIR}/bin")
 set(BINARY_ROOT_DIR "${CMAKE_INSTALL_PREFIX}/")
 
 add_subdirectory(engine)
+add_subdirectory(docs)
+add_subdirectory(tests)
