@@ -10,6 +10,7 @@ std::vector<std::filesystem::path> getFiles(
     std::vector<std::filesystem::path> files;
     auto                               recursive_iter =
             std::filesystem::recursive_directory_iterator{directory};
+    // TODO: this may cause mem explosion, Need to be optimized!
     std::copy_if(begin(recursive_iter), end(recursive_iter),
                  std::back_inserter(files),
                  [](std::filesystem::directory_entry const& directory_entry) {
@@ -17,4 +18,4 @@ std::vector<std::filesystem::path> getFiles(
                  });
     return files;
 }
-}// namespace taixu::platform
+}// namespace taixu
