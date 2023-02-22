@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(TaixuEngineTests LANGUAGE CXX)
+project(TaixuEngineTests LANGUAGES CXX)
 
 # ---- Options ----
 
@@ -9,14 +9,15 @@ option(TEST_INSTALLED_VERSION "Test the version found by find_package" OFF)
 
 # --- Import tools ----
 
-include(../3rdparty/FindTools.cmake)
+include(../cmake/FindTools.cmake)
 
 # ---- Dependencies ----
 
 include(../cmake/CPM.cmake)
 
+# ---- Add Options ----
+
+
 # ---- Add Tests ----
 
 enable_testing()
-
-add_test(test_all)
