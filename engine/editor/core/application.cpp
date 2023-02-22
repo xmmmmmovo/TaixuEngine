@@ -21,7 +21,7 @@ void initApplicationArgs() {}
 void Application::initialize() {
     initSpdlog();
     initApplicationArgs();
-    this->window = std::make_shared<MainWindow>(gui::IWindowContext{
+    this->window = std::make_shared<MainWindow>(IWindowContext{
             MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE});
     this->window->init();
 }

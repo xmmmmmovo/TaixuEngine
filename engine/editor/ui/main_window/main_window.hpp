@@ -20,8 +20,8 @@
 
 namespace taixu::editor {
 
-class MainWindow : public gui::TX_GLFWwindow {
-    using super = gui::TX_GLFWwindow;
+class MainWindow : public TX_GLFWwindow {
+    using super = TX_GLFWwindow;
 
 private:
     std::unique_ptr<ImguiSurface> imgui_surface{};
@@ -30,10 +30,10 @@ private:
     void bindCallbacks();
 
 public:
-    MainWindow() : MainWindow(gui::IWindowContext{}) {}
+    MainWindow() : MainWindow(IWindowContext{}) {}
 
-    explicit MainWindow(gui::IWindowContext const &context)
-        : gui::TX_GLFWwindow(context) {
+    explicit MainWindow(IWindowContext const &context)
+        : TX_GLFWwindow(context) {
         this->imgui_surface = std::make_unique<ImguiSurface>();
     };
 

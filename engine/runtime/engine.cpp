@@ -1,4 +1,3 @@
 #include "engine.h"
 
-namespace taixu::engine {
-}
+namespace taixu {}

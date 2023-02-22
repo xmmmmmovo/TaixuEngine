@@ -11,7 +11,7 @@
 #include "glm/glm.hpp"
 #include "spdlog/spdlog.h"
 
-namespace taixu::cg {
+namespace taixu {
 
 class Shader {
 public:

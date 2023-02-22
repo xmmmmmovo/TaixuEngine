@@ -4,4 +4,4 @@
 
 #include "texture.hpp"
 
-namespace taixu::cg {}
+namespace taixu {}

@@ -1,7 +1,7 @@
 #include "shader.hpp"
 #include <ostream>
 
-namespace taixu::cg {
+namespace taixu {
 
 Shader::Shader(char const *content) : _id{0}, _source(content) {}
 

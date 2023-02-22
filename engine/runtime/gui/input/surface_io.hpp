@@ -5,6 +5,6 @@
 #ifndef TAIXUENGINE_SURFACE_IO_HPP
 #define TAIXUENGINE_SURFACE_IO_HPP
 
-namespace taixu::gui {}
+namespace taixu {}
 
 #endif//TAIXUENGINE_SURFACE_IO_HPP

@@ -2,22 +2,23 @@
 
 #include <glad/glad.h>
 
-#include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 #include <stb_image.h>
 
-#include "mesh.h"
+#include <assimp/Importer.hpp>
 #include <fstream>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 #include <map>
 #include <sstream>
 #include <string>
 #include <vector>
 
-namespace taixu::cg {
+#include "mesh.hpp"
+
+namespace taixu {
 class Model {
 public:
     // model data
@@ -33,7 +34,7 @@ public:
 
 private:
     // loads a model with supported ASSIMP extensions from file and stores the resulting meshes in the meshes vector.
-    
+
     void                 processNode(aiNode *node, const aiScene *scene);
     Mesh                 processMesh(aiMesh *mesh, const aiScene *scene);
     std::vector<Texture> loadMaterialTextures(aiMaterial   *mat,
@@ -44,4 +45,4 @@ private:
                                  bool gamma);
 };
 
-}// namespace taixu::cg
+}// namespace taixu

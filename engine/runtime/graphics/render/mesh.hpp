@@ -10,7 +10,7 @@
 
 #define MAX_BONE_INFLUENCE 4
 
-namespace taixu::cg {
+namespace taixu {
 
 struct Vertex {
     // position
@@ -50,4 +50,4 @@ public:
     }
 };
 
-}// namespace taixu::cg
+}// namespace taixu

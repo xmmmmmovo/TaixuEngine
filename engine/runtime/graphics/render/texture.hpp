@@ -5,6 +5,6 @@
 #ifndef TAIXUENGINE_TEXTURE_HPP
 #define TAIXUENGINE_TEXTURE_HPP
 
-namespace taixu::cg {}
+namespace taixu {}
 
 #endif//TAIXUENGINE_TEXTURE_HPP

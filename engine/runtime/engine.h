@@ -1,8 +1,6 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-namespace taixu::engine{
-
-}
+namespace taixu {}
 
 #endif// ENGINE_H
