@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>taixu::cg::Vertex struct | TaixuEngine</title>
+  <title>taixu::TX_GLFWwindow class | TaixuEngine</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -49,8 +49,8 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacetaixu_1_1cg.html">cg</a>::<wbr/></span>Vertex <span class="m-thin">struct</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="mesh_8h.html">&lt;engine/runtime/graphics/render/mesh.h&gt;</a></div>
+          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span>TX_GLFWwindow <span class="m-thin">class</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="glfw__window_8hpp.html">&lt;engine/runtime/gui/glfw_window.hpp&gt;</a></div>
         </h1>
         <p><span></span></p>
         <nav class="m-block m-default">
@@ -59,40 +59,88 @@
             <li>
               Reference
               <ul>
-                <li><a href="#pub-attribs">Public variables</a></li>
+                <li><a href="#base-classes">Base classes</a></li>
+                <li><a href="#derived-classes">Derived classes</a></li>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+                <li><a href="#pro-attribs">Protected variables</a></li>
               </ul>
             </li>
           </ul>
         </nav>
-        <section id="pub-attribs">
-          <h2><a href="#pub-attribs">Public variables</a></h2>
+        <section id="base-classes">
+          <h2><a href="#base-classes">Base classes</a></h2>
           <dl class="m-doc">
-            <dt id="a0e025144589a6e054fd908846577c816">
-              glm::vec3 <a href="#a0e025144589a6e054fd908846577c816" class="m-doc-self">Position</a>
+            <dt>
+              class <a href="classtaixu_1_1IWindow.html" class="m-doc">IWindow</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a02365cb7942b18bbe5f5724458ce79e8">
-              glm::vec3 <a href="#a02365cb7942b18bbe5f5724458ce79e8" class="m-doc-self">Normal</a>
+          </dl>
+        </section>
+        <section id="derived-classes">
+          <h2><a href="#derived-classes">Derived classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              class <a href="classtaixu_1_1editor_1_1MainWindow.html" class="m-doc">MainWindow</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="ab44ba3a07973a716770c4d43f588b3af">
-              glm::vec2 <a href="#ab44ba3a07973a716770c4d43f588b3af" class="m-doc-self">TexCoords</a>
+          </dl>
+        </section>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
+          <dl class="m-doc">
+            <dt id="a317777ca60081c15ed141d8d2d210be7">
+              <span class="m-doc-wrap-bumper"><a href="#a317777ca60081c15ed141d8d2d210be7" class="m-doc-self">TX_GLFWwindow</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a7396a9522a7a258ff610ddc9f0352ba9">
-              glm::vec3 <a href="#a7396a9522a7a258ff610ddc9f0352ba9" class="m-doc-self">Tangent</a>
+            <dt id="af2fc54694f6f68fedc1135b7f119234d">
+              <span class="m-doc-wrap-bumper"><a href="#af2fc54694f6f68fedc1135b7f119234d" class="m-doc-self">TX_GLFWwindow</a>(</span><span class="m-doc-wrap"><a href="structtaixu_1_1IWindowContext.html" class="m-doc">IWindowContext</a> const&amp; context_)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="ac417d67b3bc726883a58de704732801d">
-              glm::vec3 <a href="#ac417d67b3bc726883a58de704732801d" class="m-doc-self">Bitangent</a>
+            <dt id="af7402a3c9aafcb1a455c583cfb7b0cf0">
+              <span class="m-doc-wrap-bumper"><a href="#af7402a3c9aafcb1a455c583cfb7b0cf0" class="m-doc-self">~TX_GLFWwindow</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-warning">override</span></span>
             </dt>
             <dd><span></span></dd>
-            <dt id="aaf481a69a140c2de4082b434f56a9380">
-              int <a href="#aaf481a69a140c2de4082b434f56a9380" class="m-doc-self">m_BoneIDs</a>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt id="ade436c37d6f424352973ecca6136924a">
+              <span class="m-doc-wrap-bumper">void <a href="#ade436c37d6f424352973ecca6136924a" class="m-doc-self">init</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">override</span></span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a4292464961776dc9e213f456e9013393">
-              float <a href="#a4292464961776dc9e213f456e9013393" class="m-doc-self">m_Weights</a>
+            <dt id="aa2249980054bd8af63119d8c0bee203a">
+              <span class="m-doc-wrap-bumper">void <a href="#aa2249980054bd8af63119d8c0bee203a" class="m-doc-self">update</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">override</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8d3b7487f45e5617f9551a9234837a2e">
+              <span class="m-doc-wrap-bumper">void <a href="#a8d3b7487f45e5617f9551a9234837a2e" class="m-doc-self">destroy</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">override</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8dde1805bc52423dc32d9681482c8f54">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8dde1805bc52423dc32d9681482c8f54" class="m-doc-self">getIsVsync</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa17e010df6d2db6f91f94e867b013ae">
+              <span class="m-doc-wrap-bumper">void <a href="#aaa17e010df6d2db6f91f94e867b013ae" class="m-doc-self">setIsVsync</a>(</span><span class="m-doc-wrap">bool isVsync)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="pro-attribs">
+          <h2><a href="#pro-attribs">Protected variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a0e294af28c76161457f0e89443b2cbe5">
+              GLFWwindow* <a href="#a0e294af28c76161457f0e89443b2cbe5" class="m-doc-self">window</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa163c62956c4a1a94e035047839e30d6">
+              bool <a href="#aa163c62956c4a1a94e035047839e30d6" class="m-doc-self">initialized</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a2a7cd22a26b8d04d5cf6860ee4aa6816">
+              bool <a href="#a2a7cd22a26b8d04d5cf6860ee4aa6816" class="m-doc-self">isVsync</a>
             </dt>
             <dd><span></span></dd>
           </dl>

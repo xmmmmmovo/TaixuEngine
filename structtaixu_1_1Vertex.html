@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>taixu::cg::Shader class | TaixuEngine</title>
+  <title>taixu::Vertex struct | TaixuEngine</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -49,8 +49,8 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacetaixu_1_1cg.html">cg</a>::<wbr/></span>Shader <span class="m-thin">class</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="shader_8hpp.html">&lt;engine/runtime/graphics/render/shader.hpp&gt;</a></div>
+          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span>Vertex <span class="m-thin">struct</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="mesh_8hpp.html">&lt;engine/runtime/graphics/render/mesh.hpp&gt;</a></div>
         </h1>
         <p><span></span></p>
         <nav class="m-block m-default">
@@ -59,74 +59,40 @@
             <li>
               Reference
               <ul>
-                <li><a href="#derived-classes">Derived classes</a></li>
-                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
-                <li><a href="#pub-methods">Public functions</a></li>
-                <li><a href="#pro-attribs">Protected variables</a></li>
+                <li><a href="#pub-attribs">Public variables</a></li>
               </ul>
             </li>
           </ul>
         </nav>
-        <section id="derived-classes">
-          <h2><a href="#derived-classes">Derived classes</a></h2>
+        <section id="pub-attribs">
+          <h2><a href="#pub-attribs">Public variables</a></h2>
           <dl class="m-doc">
-            <dt>
-              class <a href="classtaixu_1_1cg_1_1FragmentShader.html" class="m-doc">FragmentShader</a>
+            <dt id="aff5bda9c4017a014cfb8e2b497131ee3">
+              glm::vec3 <a href="#aff5bda9c4017a014cfb8e2b497131ee3" class="m-doc-self">Position</a>
             </dt>
             <dd><span></span></dd>
-            <dt>
-              class <a href="classtaixu_1_1cg_1_1VertexShader.html" class="m-doc">VertexShader</a>
+            <dt id="a5a8033d0a560619fabe0ff6f415dc36e">
+              glm::vec3 <a href="#a5a8033d0a560619fabe0ff6f415dc36e" class="m-doc-self">Normal</a>
             </dt>
             <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="typeless-methods">
-          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
-          <dl class="m-doc">
-            <dt id="ab57a45f824d754f130d228443d2d18ef">
-              <span class="m-doc-wrap-bumper"><a href="#ab57a45f824d754f130d228443d2d18ef" class="m-doc-self">Shader</a>(</span><span class="m-doc-wrap">char const* content) <span class="m-label m-flat m-info">explicit</span> </span>
+            <dt id="a676a90f257281927ab683adcc99f0af8">
+              glm::vec2 <a href="#a676a90f257281927ab683adcc99f0af8" class="m-doc-self">TexCoords</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a3cbd8450d3ee1fc9400fe4795aa7c655">
-              <span class="m-doc-wrap-bumper"><a href="#a3cbd8450d3ee1fc9400fe4795aa7c655" class="m-doc-self">Shader</a>(</span><span class="m-doc-wrap">const <a href="classtaixu_1_1cg_1_1Shader.html" class="m-doc">Shader</a>&amp;) <span class="m-label m-flat m-danger">deleted</span></span>
+            <dt id="a1fddaa4480c14e3cab71f71170858d10">
+              glm::vec3 <a href="#a1fddaa4480c14e3cab71f71170858d10" class="m-doc-self">Tangent</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a636aaf9a4ff605d99068d1bb6fc3f603">
-              <span class="m-doc-wrap-bumper"><a href="#a636aaf9a4ff605d99068d1bb6fc3f603" class="m-doc-self">Shader</a>(</span><span class="m-doc-wrap"><a href="classtaixu_1_1cg_1_1Shader.html" class="m-doc">Shader</a>&amp;&amp; other) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="a9e66c37ccc69b3a04e28881bcccb98d3">
+              glm::vec3 <a href="#a9e66c37ccc69b3a04e28881bcccb98d3" class="m-doc-self">Bitangent</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a3eafbecd995cb4f136e9bb027bcdc455">
-              <span class="m-doc-wrap-bumper"><a href="#a3eafbecd995cb4f136e9bb027bcdc455" class="m-doc-self">~Shader</a>(</span><span class="m-doc-wrap">)</span>
+            <dt id="aaaf857f6e56f44916041b1f3a3ce43bd">
+              int <a href="#aaaf857f6e56f44916041b1f3a3ce43bd" class="m-doc-self">m_BoneIDs</a>
             </dt>
             <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="pub-methods">
-          <h2><a href="#pub-methods">Public functions</a></h2>
-          <dl class="m-doc">
-            <dt id="ae79ee288b281d75ed88056a104232457">
-              <span class="m-doc-wrap-bumper">auto <a href="#ae79ee288b281d75ed88056a104232457" class="m-doc-self">operator=</a>(</span><span class="m-doc-wrap">const <a href="classtaixu_1_1cg_1_1Shader.html" class="m-doc">Shader</a>&amp;) -&gt; <a href="classtaixu_1_1cg_1_1Shader.html" class="m-doc">Shader</a>&amp; <span class="m-label m-flat m-danger">deleted</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aca3db7c2247c407a16f5b6ff9577274c">
-              <span class="m-doc-wrap-bumper">auto <a href="#aca3db7c2247c407a16f5b6ff9577274c" class="m-doc-self">operator=</a>(</span><span class="m-doc-wrap"><a href="classtaixu_1_1cg_1_1Shader.html" class="m-doc">Shader</a>&amp;&amp; other) -&gt; <a href="classtaixu_1_1cg_1_1Shader.html" class="m-doc">Shader</a>&amp; <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a16869007a7fe097e43e26642da1cc82b">
-              <span class="m-doc-wrap-bumper">auto <a href="#a16869007a7fe097e43e26642da1cc82b" class="m-doc-self">get_id</a>(</span><span class="m-doc-wrap">) const -&gt; unsigned <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="pro-attribs">
-          <h2><a href="#pro-attribs">Protected variables</a></h2>
-          <dl class="m-doc">
-            <dt id="a4c4de1718e42c1502f1287fc4fcb9e28">
-              unsigned int <a href="#a4c4de1718e42c1502f1287fc4fcb9e28" class="m-doc-self">_id</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a6731613bf0191242917694917573e9a2">
-              char const * <a href="#a6731613bf0191242917694917573e9a2" class="m-doc-self">_source</a>
+            <dt id="affeb258ec2c3db8a29dedb6f9d16bb03">
+              float <a href="#affeb258ec2c3db8a29dedb6f9d16bb03" class="m-doc-self">m_Weights</a>
             </dt>
             <dd><span></span></dd>
           </dl>

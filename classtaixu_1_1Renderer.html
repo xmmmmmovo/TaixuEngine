@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>taixu::cg::ShaderProgram class | TaixuEngine</title>
+  <title>taixu::Renderer class | TaixuEngine</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -49,8 +49,8 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacetaixu_1_1cg.html">cg</a>::<wbr/></span>ShaderProgram <span class="m-thin">class</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="shader_8hpp.html">&lt;engine/runtime/graphics/render/shader.hpp&gt;</a></div>
+          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span>Renderer <span class="m-thin">class</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="renderer_8hpp.html">&lt;engine/runtime/graphics/renderer.hpp&gt;</a></div>
         </h1>
         <p><span></span></p>
         <nav class="m-block m-default">
@@ -61,6 +61,7 @@
               <ul>
                 <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
                 <li><a href="#pub-methods">Public functions</a></li>
+                <li><a href="#pub-attribs">Public variables</a></li>
               </ul>
             </li>
           </ul>
@@ -68,13 +69,12 @@
         <section id="typeless-methods">
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
-            <dt id="ac2f499e14728e2ea6572ddc3b6c35019">
-              <span class="m-doc-wrap-bumper"><a href="#ac2f499e14728e2ea6572ddc3b6c35019" class="m-doc-self">ShaderProgram</a>(</span><span class="m-doc-wrap">char const* vertex_shader,
-              char const* fragment_shader)</span>
+            <dt id="a27f15475a877fba0ea86a37cba3484c0">
+              <span class="m-doc-wrap-bumper"><a href="#a27f15475a877fba0ea86a37cba3484c0" class="m-doc-self">Renderer</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a58e9fa57272aa379111e80a2b5793f28">
-              <span class="m-doc-wrap-bumper"><a href="#a58e9fa57272aa379111e80a2b5793f28" class="m-doc-self">~ShaderProgram</a>(</span><span class="m-doc-wrap">)</span>
+            <dt id="a9259b0b1dcb20d1977e23aabe73505f0">
+              <span class="m-doc-wrap-bumper"><a href="#a9259b0b1dcb20d1977e23aabe73505f0" class="m-doc-self">~Renderer</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -82,74 +82,102 @@
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
-            <dt id="a5da1ae3278b8e39c64d9c93745bc44ce">
-              <span class="m-doc-wrap-bumper">void <a href="#a5da1ae3278b8e39c64d9c93745bc44ce" class="m-doc-self">use</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="ad237ed0ecd02fcff4a8ef5d058303be6">
+              <span class="m-doc-wrap-bumper">void <a href="#ad237ed0ecd02fcff4a8ef5d058303be6" class="m-doc-self">initialize</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a262e05bb4d6277cd5543c13fc906e01a">
-              <span class="m-doc-wrap-bumper">void <a href="#a262e05bb4d6277cd5543c13fc906e01a" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">std::string_view name,
-              bool value) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="af86768669acc423911cc0ac7c25838c3">
+              <span class="m-doc-wrap-bumper">void <a href="#af86768669acc423911cc0ac7c25838c3" class="m-doc-self">tick</a>(</span><span class="m-doc-wrap">float delta_time = 0.03333)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a0b63a0b7c497e7c02e29a44b41f7c29a">
-              <span class="m-doc-wrap-bumper">void <a href="#a0b63a0b7c497e7c02e29a44b41f7c29a" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">std::string_view name,
-              int value) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="ab76b504112462972a232e38a2dfe93e6">
+              <span class="m-doc-wrap-bumper">void <a href="#ab76b504112462972a232e38a2dfe93e6" class="m-doc-self">clear</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a15e9cbd8118c83ae1548a702ca3d79ec">
-              <span class="m-doc-wrap-bumper">void <a href="#a15e9cbd8118c83ae1548a702ca3d79ec" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">std::string_view name,
-              float value) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="a361a8db07f4eb74ad8b69d840d35f6f6">
+              <span class="m-doc-wrap-bumper">void <a href="#a361a8db07f4eb74ad8b69d840d35f6f6" class="m-doc-self">resize</a>(</span><span class="m-doc-wrap">float width,
+              float height)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a5d97111f490347f1d6bea269654a1c94">
-              <span class="m-doc-wrap-bumper">void <a href="#a5d97111f490347f1d6bea269654a1c94" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::vec2&amp; value) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="a6bd3554e8d84dac44e39be417212c5d6">
+              <span class="m-doc-wrap-bumper">void <a href="#a6bd3554e8d84dac44e39be417212c5d6" class="m-doc-self">processInput</a>(</span><span class="m-doc-wrap">std::string input)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="aa34de63e0fecdbf834f54481b4c6bc2d">
-              <span class="m-doc-wrap-bumper">void <a href="#aa34de63e0fecdbf834f54481b4c6bc2d" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              float x,
-              float y) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="ae6e36003da84c4ce5358ab1abc126583">
+              <span class="m-doc-wrap-bumper">void <a href="#ae6e36003da84c4ce5358ab1abc126583" class="m-doc-self">processInput</a>(</span><span class="m-doc-wrap">glm::vec2 mouse_pos)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a196059deb95d88c9a0b6c165c81bf55e">
-              <span class="m-doc-wrap-bumper">void <a href="#a196059deb95d88c9a0b6c165c81bf55e" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::vec3&amp; value) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="a74f4cad047d966433d0c3886ea84bf3f">
+              <span class="m-doc-wrap-bumper">void <a href="#a74f4cad047d966433d0c3886ea84bf3f" class="m-doc-self">processInput</a>(</span><span class="m-doc-wrap">float scroll_yoffset)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="ad4bcd24824d4a59b6ce4b70db46741e6">
-              <span class="m-doc-wrap-bumper">void <a href="#ad4bcd24824d4a59b6ce4b70db46741e6" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              float x,
-              float y,
-              float z) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="aefe9e95bceafd58f8ca6255c7e696d9d">
+              <span class="m-doc-wrap-bumper">auto <a href="#aefe9e95bceafd58f8ca6255c7e696d9d" class="m-doc-self">getRenderResult</a>(</span><span class="m-doc-wrap">) -&gt; unsigned int</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a7e658690723342ad503a365ec829a684">
-              <span class="m-doc-wrap-bumper">void <a href="#a7e658690723342ad503a365ec829a684" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::vec4&amp; value) const <span class="m-label m-flat m-success">noexcept</span></span>
+          </dl>
+        </section>
+        <section id="pub-attribs">
+          <h2><a href="#pub-attribs">Public variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a5b2900bff96891ac40edde2b28c2d3b6">
+              const float <a href="#a5b2900bff96891ac40edde2b28c2d3b6" class="m-doc-self">delta_time</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a6f0f24f9a1c30b9e84c4ede70e3cdc78">
-              <span class="m-doc-wrap-bumper">void <a href="#a6f0f24f9a1c30b9e84c4ede70e3cdc78" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              float x,
-              float y,
-              float z,
-              float w) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="ae5550cb52fa323f1bf47ffba7380aeea">
+              bool <a href="#ae5550cb52fa323f1bf47ffba7380aeea" class="m-doc-self">first_mouse</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a91e8640bf01fdad54d8d106b45619f03">
-              <span class="m-doc-wrap-bumper">void <a href="#a91e8640bf01fdad54d8d106b45619f03" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::mat2&amp; mat) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="a5fe26d2a693ab0a9be879ca7ad4b74c9">
+              float <a href="#a5fe26d2a693ab0a9be879ca7ad4b74c9" class="m-doc-self">last_x</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a9b96001d031d5fd6dd8b8d05fb03ad5a">
-              <span class="m-doc-wrap-bumper">void <a href="#a9b96001d031d5fd6dd8b8d05fb03ad5a" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::mat3&amp; mat) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="a976c45b60d6c5eeeecf1ec6eedbe9f8b">
+              float <a href="#a976c45b60d6c5eeeecf1ec6eedbe9f8b" class="m-doc-self">last_y</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="aa556b3e5e3d514070f37dc56a566ac19">
-              <span class="m-doc-wrap-bumper">void <a href="#aa556b3e5e3d514070f37dc56a566ac19" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::mat4&amp; mat) const <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="acb0ee1bae6cc7b649546a585fb5daa54">
+              std::shared_ptr&lt;<a href="classtaixu_1_1Camera.html" class="m-doc">Camera</a>&gt; <a href="#acb0ee1bae6cc7b649546a585fb5daa54" class="m-doc-self">first_person_camera</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aac16855f0a625fa33cb40afe77493103">
+              glm::vec3 <a href="#aac16855f0a625fa33cb40afe77493103" class="m-doc-self">lightPos</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af671aaf3271f16586b639e37280553a7">
+              std::shared_ptr&lt;<a href="classtaixu_1_1Render__Context.html" class="m-doc">Render_<wbr />Context</a>&gt; <a href="#af671aaf3271f16586b639e37280553a7" class="m-doc-self">render_context</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aec4f6bdb6f592191ffa1fe10ea7c65b9">
+              <a href="classtaixu_1_1ShaderProgram.html" class="m-doc">ShaderProgram</a>* <a href="#aec4f6bdb6f592191ffa1fe10ea7c65b9" class="m-doc-self">shaderProgram</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6c4745066321f3dc0b3db3afc12e5a11">
+              unsigned int <a href="#a6c4745066321f3dc0b3db3afc12e5a11" class="m-doc-self">VBO</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a299717d6059b6dd3b13ea3608a23424c">
+              unsigned int <a href="#a299717d6059b6dd3b13ea3608a23424c" class="m-doc-self">EBO</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aaa020371bf148b5df54b3e5e835a8152">
+              unsigned int <a href="#aaa020371bf148b5df54b3e5e835a8152" class="m-doc-self">VAO</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5e59f7a331a7cadb41eb6ca9eca17e05">
+              unsigned int <a href="#a5e59f7a331a7cadb41eb6ca9eca17e05" class="m-doc-self">fbo</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a05aed569ce10ef5b1ab54a8e297f4bf4">
+              unsigned int <a href="#a05aed569ce10ef5b1ab54a8e297f4bf4" class="m-doc-self">bufferTexId</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad6dc54116dfbc8750aad0b2d4b8d4464">
+              unsigned int <a href="#ad6dc54116dfbc8750aad0b2d4b8d4464" class="m-doc-self">rbo</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a607e4b394cc8393c5f5e7151c0228269">
+              glm::vec2 <a href="#a607e4b394cc8393c5f5e7151c0228269" class="m-doc-self">size</a>
             </dt>
             <dd><span></span></dd>
           </dl>

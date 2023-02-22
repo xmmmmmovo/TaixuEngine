@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>taixu::cg::Render_Data class | TaixuEngine</title>
+  <title>taixu::ShaderProgram class | TaixuEngine</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -49,8 +49,8 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacetaixu_1_1cg.html">cg</a>::<wbr/></span>Render_Data <span class="m-thin">class</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="renderer_8hpp.html">&lt;engine/runtime/graphics/renderer.hpp&gt;</a></div>
+          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span>ShaderProgram <span class="m-thin">class</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="shader_8hpp.html">&lt;engine/runtime/graphics/render/shader.hpp&gt;</a></div>
         </h1>
         <p><span></span></p>
         <nav class="m-block m-default">
@@ -61,7 +61,6 @@
               <ul>
                 <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
                 <li><a href="#pub-methods">Public functions</a></li>
-                <li><a href="#pro-attribs">Protected variables</a></li>
               </ul>
             </li>
           </ul>
@@ -69,12 +68,13 @@
         <section id="typeless-methods">
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
-            <dt id="a332d45815395deb432676751d6d539c6">
-              <span class="m-doc-wrap-bumper"><a href="#a332d45815395deb432676751d6d539c6" class="m-doc-self">Render_Data</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-info">explicit</span> </span>
+            <dt id="a0c8c243e81e748eec4b82c974c71a3cb">
+              <span class="m-doc-wrap-bumper"><a href="#a0c8c243e81e748eec4b82c974c71a3cb" class="m-doc-self">ShaderProgram</a>(</span><span class="m-doc-wrap">char const* vertex_shader,
+              char const* fragment_shader)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a10823824be23f7aab5ad125ed2e188b3">
-              <span class="m-doc-wrap-bumper"><a href="#a10823824be23f7aab5ad125ed2e188b3" class="m-doc-self">~Render_Data</a>(</span><span class="m-doc-wrap">)</span>
+            <dt id="a64126946cfcc1bf2ee1895368f8f677a">
+              <span class="m-doc-wrap-bumper"><a href="#a64126946cfcc1bf2ee1895368f8f677a" class="m-doc-self">~ShaderProgram</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -82,21 +82,74 @@
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
-            <dt id="adbccd21641e125f09fc9847a3873e23c">
-              <span class="m-doc-wrap-bumper">void <a href="#adbccd21641e125f09fc9847a3873e23c" class="m-doc-self">initialize</a>(</span><span class="m-doc-wrap">)</span>
+            <dt id="ab0e665344f7cf18acd6d307dff1ee2cb">
+              <span class="m-doc-wrap-bumper">void <a href="#ab0e665344f7cf18acd6d307dff1ee2cb" class="m-doc-self">use</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a382e2a0ad3b766f39eebe58d51c10290">
-              <span class="m-doc-wrap-bumper">auto <a href="#a382e2a0ad3b766f39eebe58d51c10290" class="m-doc-self">getData</a>(</span><span class="m-doc-wrap">) -&gt; <a href="classtaixu_1_1cg_1_1Render__Data.html" class="m-doc">Render_<wbr />Data</a>*</span>
+            <dt id="a2f2099785e7e5f6d423acb987bc7d8ec">
+              <span class="m-doc-wrap-bumper">void <a href="#a2f2099785e7e5f6d423acb987bc7d8ec" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">std::string_view name,
+              bool value) const <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="pro-attribs">
-          <h2><a href="#pro-attribs">Protected variables</a></h2>
-          <dl class="m-doc">
-            <dt id="a92843085761f09f38719660f4c53b1eb">
-              std::shared_ptr&lt;<a href="classtaixu_1_1cg_1_1Model.html" class="m-doc">Model</a>&gt; <a href="#a92843085761f09f38719660f4c53b1eb" class="m-doc-self">model</a>
+            <dt id="acbf40a2b661e7614581f4883f5aff313">
+              <span class="m-doc-wrap-bumper">void <a href="#acbf40a2b661e7614581f4883f5aff313" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">std::string_view name,
+              int value) const <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6149c5901f6827739eeb2f16fb368242">
+              <span class="m-doc-wrap-bumper">void <a href="#a6149c5901f6827739eeb2f16fb368242" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">std::string_view name,
+              float value) const <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a076078652bbd6b41ddf5cc8828393974">
+              <span class="m-doc-wrap-bumper">void <a href="#a076078652bbd6b41ddf5cc8828393974" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
+              const glm::vec2&amp; value) const <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3363152a563736fd51bc2bfd9069d30f">
+              <span class="m-doc-wrap-bumper">void <a href="#a3363152a563736fd51bc2bfd9069d30f" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
+              float x,
+              float y) const <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a40ae870843330eeda07b1cba853460ba">
+              <span class="m-doc-wrap-bumper">void <a href="#a40ae870843330eeda07b1cba853460ba" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
+              const glm::vec3&amp; value) const <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="adcbb2f110c76c40a226f6743d0527141">
+              <span class="m-doc-wrap-bumper">void <a href="#adcbb2f110c76c40a226f6743d0527141" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
+              float x,
+              float y,
+              float z) const <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a089e23e9c28fe2a930032115ad8a76b2">
+              <span class="m-doc-wrap-bumper">void <a href="#a089e23e9c28fe2a930032115ad8a76b2" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
+              const glm::vec4&amp; value) const <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8073985af6584059d34349faaccc27d9">
+              <span class="m-doc-wrap-bumper">void <a href="#a8073985af6584059d34349faaccc27d9" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
+              float x,
+              float y,
+              float z,
+              float w) const <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a152fb084af982c621df64ec0874fa511">
+              <span class="m-doc-wrap-bumper">void <a href="#a152fb084af982c621df64ec0874fa511" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
+              const glm::mat2&amp; mat) const <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aafa2cd6dae7feacddbc2e5bff7bbeaab">
+              <span class="m-doc-wrap-bumper">void <a href="#aafa2cd6dae7feacddbc2e5bff7bbeaab" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
+              const glm::mat3&amp; mat) const <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae22a61f5f7e7d020685aa50c3063eebc">
+              <span class="m-doc-wrap-bumper">void <a href="#ae22a61f5f7e7d020685aa50c3063eebc" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
+              const glm::mat4&amp; mat) const <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd><span></span></dd>
           </dl>

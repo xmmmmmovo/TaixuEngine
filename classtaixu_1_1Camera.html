@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>taixu::cg::Renderer class | TaixuEngine</title>
+  <title>taixu::Camera class | TaixuEngine</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -49,8 +49,8 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacetaixu_1_1cg.html">cg</a>::<wbr/></span>Renderer <span class="m-thin">class</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="renderer_8hpp.html">&lt;engine/runtime/graphics/renderer.hpp&gt;</a></div>
+          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span>Camera <span class="m-thin">class</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="camera_8hpp.html">&lt;engine/runtime/graphics/render/camera.hpp&gt;</a></div>
         </h1>
         <p><span></span></p>
         <nav class="m-block m-default">
@@ -69,12 +69,22 @@
         <section id="typeless-methods">
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
-            <dt id="a1078c832932fea26acb59e585a7d9f51">
-              <span class="m-doc-wrap-bumper"><a href="#a1078c832932fea26acb59e585a7d9f51" class="m-doc-self">Renderer</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-info">explicit</span> </span>
+            <dt id="acf806b27296bc7d28ea24eb3b5ac9157">
+              <span class="m-doc-wrap-bumper"><a href="#acf806b27296bc7d28ea24eb3b5ac9157" class="m-doc-self">Camera</a>(</span><span class="m-doc-wrap">glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
+              glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f),
+              float yaw = <a href="namespacetaixu.html#a8ccf3d88a9eb0705b6554df8ca676eb2" class="m-doc">YAW</a>,
+              float pitch = <a href="namespacetaixu.html#a7a8d641662fc344da5ee7f4617890a88" class="m-doc">PITCH</a>)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="ad74d8d6e2d118f2a282fa55f8fa7d46f">
-              <span class="m-doc-wrap-bumper"><a href="#ad74d8d6e2d118f2a282fa55f8fa7d46f" class="m-doc-self">~Renderer</a>(</span><span class="m-doc-wrap">)</span>
+            <dt id="ac295acf077962893189009f3b20d8b16">
+              <span class="m-doc-wrap-bumper"><a href="#ac295acf077962893189009f3b20d8b16" class="m-doc-self">Camera</a>(</span><span class="m-doc-wrap">float posX,
+              float posY,
+              float posZ,
+              float upX,
+              float upY,
+              float upZ,
+              float yaw,
+              float pitch)</span>
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -82,37 +92,27 @@
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
-            <dt id="a3853f9516bbe5fad8f8a9f346821b23c">
-              <span class="m-doc-wrap-bumper">void <a href="#a3853f9516bbe5fad8f8a9f346821b23c" class="m-doc-self">initialize</a>(</span><span class="m-doc-wrap">)</span>
+            <dt id="acbee426b341e00be120f724662f23f2c">
+              <span class="m-doc-wrap-bumper">auto <a href="#acbee426b341e00be120f724662f23f2c" class="m-doc-self">getViewMatrix</a>(</span><span class="m-doc-wrap">) -&gt; glm::mat4</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a3393f6d133dd9a912d0a7a48eb5cc7d5">
-              <span class="m-doc-wrap-bumper">void <a href="#a3393f6d133dd9a912d0a7a48eb5cc7d5" class="m-doc-self">tick</a>(</span><span class="m-doc-wrap">float delta_time = 0.03333)</span>
+            <dt id="a30ccbbc55766cdee9f97c4bd93ad2ee1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a30ccbbc55766cdee9f97c4bd93ad2ee1" class="m-doc-self">getProjectionMatrix</a>(</span><span class="m-doc-wrap">) -&gt; glm::mat4</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a1b9a6ae97c47766bc27d1e53a45f7169">
-              <span class="m-doc-wrap-bumper">void <a href="#a1b9a6ae97c47766bc27d1e53a45f7169" class="m-doc-self">clear</a>(</span><span class="m-doc-wrap">)</span>
+            <dt id="a59c8ff357c588498fcf6c72ce896568b">
+              <span class="m-doc-wrap-bumper">void <a href="#a59c8ff357c588498fcf6c72ce896568b" class="m-doc-self">ProcessKeyboard</a>(</span><span class="m-doc-wrap"><a href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1d" class="m-doc">Camera_<wbr />Movement</a> direction,
+              float deltaTime)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a80628c83a5c0f0fca7122b9b001bb477">
-              <span class="m-doc-wrap-bumper">void <a href="#a80628c83a5c0f0fca7122b9b001bb477" class="m-doc-self">resize</a>(</span><span class="m-doc-wrap">float width,
-              float height)</span>
+            <dt id="a4c884aaa0de46050c78c607cb3e3fc5b">
+              <span class="m-doc-wrap-bumper">void <a href="#a4c884aaa0de46050c78c607cb3e3fc5b" class="m-doc-self">ProcessMouseMovement</a>(</span><span class="m-doc-wrap">float xoffset,
+              float yoffset,
+              GLboolean constrainPitch = true)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a397923b013f119cc65c2f31fcc323ae6">
-              <span class="m-doc-wrap-bumper">void <a href="#a397923b013f119cc65c2f31fcc323ae6" class="m-doc-self">processInput</a>(</span><span class="m-doc-wrap">std::string input)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="adca2bf896309ca88f212f77e874689b7">
-              <span class="m-doc-wrap-bumper">void <a href="#adca2bf896309ca88f212f77e874689b7" class="m-doc-self">processInput</a>(</span><span class="m-doc-wrap">glm::vec2 mouse_pos)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="acce118ce05c9db25686c7b269dc2868e">
-              <span class="m-doc-wrap-bumper">void <a href="#acce118ce05c9db25686c7b269dc2868e" class="m-doc-self">processInput</a>(</span><span class="m-doc-wrap">float scroll_yoffset)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a8125d219f72569a9ce1343d6fc8e4818">
-              <span class="m-doc-wrap-bumper">auto <a href="#a8125d219f72569a9ce1343d6fc8e4818" class="m-doc-self">getRenderResult</a>(</span><span class="m-doc-wrap">) -&gt; unsigned int</span>
+            <dt id="af4f128e069221ad589ef2c8d1ab8ec3e">
+              <span class="m-doc-wrap-bumper">void <a href="#af4f128e069221ad589ef2c8d1ab8ec3e" class="m-doc-self">ProcessMouseScroll</a>(</span><span class="m-doc-wrap">float yoffset)</span>
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -120,64 +120,44 @@
         <section id="pub-attribs">
           <h2><a href="#pub-attribs">Public variables</a></h2>
           <dl class="m-doc">
-            <dt id="a744b822c6cdd6428883dd0ff9619f293">
-              const float <a href="#a744b822c6cdd6428883dd0ff9619f293" class="m-doc-self">delta_time</a>
+            <dt id="a116e3229e83e4bde55bf8e9b5a6c23c4">
+              glm::vec3 <a href="#a116e3229e83e4bde55bf8e9b5a6c23c4" class="m-doc-self">Position</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="af7e3e32dff1a181ba6461b2371f2f2b0">
-              bool <a href="#af7e3e32dff1a181ba6461b2371f2f2b0" class="m-doc-self">first_mouse</a>
+            <dt id="ad93bb0b65c5e54d1f3783f43c691bf47">
+              glm::vec3 <a href="#ad93bb0b65c5e54d1f3783f43c691bf47" class="m-doc-self">Front</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a16b833b66f9960e93b14c8f0d0bc8398">
-              float <a href="#a16b833b66f9960e93b14c8f0d0bc8398" class="m-doc-self">last_x</a>
+            <dt id="aa1f92c9c1152e8cfe4c56efac8bf4da1">
+              glm::vec3 <a href="#aa1f92c9c1152e8cfe4c56efac8bf4da1" class="m-doc-self">Up</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a8e5eaf1581f654af6a1f2f878e53a9e6">
-              float <a href="#a8e5eaf1581f654af6a1f2f878e53a9e6" class="m-doc-self">last_y</a>
+            <dt id="a3e625ca489109fe11f92953608135e25">
+              glm::vec3 <a href="#a3e625ca489109fe11f92953608135e25" class="m-doc-self">Right</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="aaf4c8267c5f136aa30f9985a9f5a1901">
-              std::shared_ptr&lt;<a href="classtaixu_1_1cg_1_1Camera.html" class="m-doc">Camera</a>&gt; <a href="#aaf4c8267c5f136aa30f9985a9f5a1901" class="m-doc-self">first_person_camera</a>
+            <dt id="a2764b3748f463919a559946dd3812954">
+              glm::vec3 <a href="#a2764b3748f463919a559946dd3812954" class="m-doc-self">WorldUp</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="ad737687135ff2f5312176c83633b4caa">
-              glm::vec3 <a href="#ad737687135ff2f5312176c83633b4caa" class="m-doc-self">lightPos</a>
+            <dt id="a8c86b21d8f7cf1d03a223dd535f2a28c">
+              float <a href="#a8c86b21d8f7cf1d03a223dd535f2a28c" class="m-doc-self">Yaw</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="af347e8569dea1f00efed90e3372355c8">
-              std::shared_ptr&lt;<a href="classtaixu_1_1cg_1_1Render__Context.html" class="m-doc">Render_<wbr />Context</a>&gt; <a href="#af347e8569dea1f00efed90e3372355c8" class="m-doc-self">render_context</a>
+            <dt id="a2498189f8f0359a10edb1441c18422e6">
+              float <a href="#a2498189f8f0359a10edb1441c18422e6" class="m-doc-self">Pitch</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a5cdd179ea78b7f9142ff775040371eed">
-              <a href="classtaixu_1_1cg_1_1ShaderProgram.html" class="m-doc">cg::<wbr />ShaderProgram</a>* <a href="#a5cdd179ea78b7f9142ff775040371eed" class="m-doc-self">shaderProgram</a>
+            <dt id="aa9b6474df8fc71aad1e05333c60500ea">
+              float <a href="#aa9b6474df8fc71aad1e05333c60500ea" class="m-doc-self">MovementSpeed</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a1a879f57f8ab6dc31e8371a7a3e85360">
-              unsigned int <a href="#a1a879f57f8ab6dc31e8371a7a3e85360" class="m-doc-self">VBO</a>
+            <dt id="a17612cb0eaba0af22e968902d6641bd8">
+              float <a href="#a17612cb0eaba0af22e968902d6641bd8" class="m-doc-self">MouseSensitivity</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a6a724e6895f2e2ff8450f724a1b51565">
-              unsigned int <a href="#a6a724e6895f2e2ff8450f724a1b51565" class="m-doc-self">EBO</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a03a913a026dd01de95d27433be8b8aac">
-              unsigned int <a href="#a03a913a026dd01de95d27433be8b8aac" class="m-doc-self">VAO</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a2acb874e601c8cafd057eeed5300530e">
-              unsigned int <a href="#a2acb874e601c8cafd057eeed5300530e" class="m-doc-self">fbo</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ac13b0bd6c232e5e59274939a77cf0f5a">
-              unsigned int <a href="#ac13b0bd6c232e5e59274939a77cf0f5a" class="m-doc-self">bufferTexId</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ab6c29a60f076e067a6b22df3cb274fea">
-              unsigned int <a href="#ab6c29a60f076e067a6b22df3cb274fea" class="m-doc-self">rbo</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="adb3ac24ac8917b3a6d8af929c1946b43">
-              glm::vec2 <a href="#adb3ac24ac8917b3a6d8af929c1946b43" class="m-doc-self">size</a>
+            <dt id="aa9ff2daedee30f9a6f940b5d16520231">
+              float <a href="#aa9ff2daedee30f9a6f940b5d16520231" class="m-doc-self">Zoom</a>
             </dt>
             <dd><span></span></dd>
           </dl>

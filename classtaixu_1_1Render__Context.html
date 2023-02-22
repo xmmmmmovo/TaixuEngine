@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>taixu::gui::IWindowContext struct | TaixuEngine</title>
+  <title>taixu::Render_Context class | TaixuEngine</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -49,10 +49,10 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacetaixu_1_1gui.html">gui</a>::<wbr/></span>IWindowContext <span class="m-thin">struct</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="window__context_8hpp.html">&lt;engine/runtime/gui/window_context.hpp&gt;</a></div>
+          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span>Render_Context <span class="m-thin">class</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="renderer_8hpp.html">&lt;engine/runtime/graphics/renderer.hpp&gt;</a></div>
         </h1>
-        <p>仅在父类使用为Prop 在所有类中使用为Context</p>
+        <p><span></span></p>
         <nav class="m-block m-default">
           <h3>Contents</h3>
           <ul>
@@ -60,7 +60,8 @@
               Reference
               <ul>
                 <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
-                <li><a href="#pub-attribs">Public variables</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+                <li><a href="#pro-attribs">Protected variables</a></li>
               </ul>
             </li>
           </ul>
@@ -68,31 +69,41 @@
         <section id="typeless-methods">
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
-            <dt id="a33f252a0e3aee30f09d6e13932e75c88">
-              <span class="m-doc-wrap-bumper"><a href="#a33f252a0e3aee30f09d6e13932e75c88" class="m-doc-self">IWindowContext</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-info">explicit</span> </span>
+            <dt id="ad36d4b646feefbc361c61b6f264af3be">
+              <span class="m-doc-wrap-bumper"><a href="#ad36d4b646feefbc361c61b6f264af3be" class="m-doc-self">Render_Context</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a9e2d3a809175ed44120467da5b37611e">
-              <span class="m-doc-wrap-bumper"><a href="#a9e2d3a809175ed44120467da5b37611e" class="m-doc-self">IWindowContext</a>(</span><span class="m-doc-wrap">std::int32_t const&amp; width,
-              std::int32_t const&amp; height,
-              std::string_view const&amp; title) <span class="m-label m-flat m-info">explicit</span> </span>
+            <dt id="ab5b7c1cbb4613f6b23fc53b038d8a7d0">
+              <span class="m-doc-wrap-bumper"><a href="#ab5b7c1cbb4613f6b23fc53b038d8a7d0" class="m-doc-self">~Render_Context</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd><span></span></dd>
           </dl>
         </section>
-        <section id="pub-attribs">
-          <h2><a href="#pub-attribs">Public variables</a></h2>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
-            <dt id="a0c22dbc545df35a26f10156175e87a98">
-              std::int32_t <a href="#a0c22dbc545df35a26f10156175e87a98" class="m-doc-self">width</a>
+            <dt id="a867bc5a04439166cdc7ea41e31076d1a">
+              <span class="m-doc-wrap-bumper">void <a href="#a867bc5a04439166cdc7ea41e31076d1a" class="m-doc-self">initialize</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a84a64866f8c5fbdf668b616fb5c4d4aa">
-              std::int32_t <a href="#a84a64866f8c5fbdf668b616fb5c4d4aa" class="m-doc-self">height</a>
+            <dt id="ade54fcf8875db6d104c77ca93d45548e">
+              <span class="m-doc-wrap-bumper">void <a href="#ade54fcf8875db6d104c77ca93d45548e" class="m-doc-self">bindBuffer</a>(</span><span class="m-doc-wrap">unsigned int vertex_arry_object,
+              unsigned int&amp; element_buffer_id,
+              unsigned int&amp; vertex_buffer_id,
+              <a href="classtaixu_1_1Mesh.html" class="m-doc">Mesh</a> mesh)</span>
             </dt>
             <dd><span></span></dd>
-            <dt id="aca03aa838757cf73980bfad387afeb93">
-              std::string_view <a href="#aca03aa838757cf73980bfad387afeb93" class="m-doc-self">title</a>
+            <dt id="a2f2c6e48a051be57c6a9b399a7a16c62">
+              <span class="m-doc-wrap-bumper">auto <a href="#a2f2c6e48a051be57c6a9b399a7a16c62" class="m-doc-self">getSwapContext</a>(</span><span class="m-doc-wrap">) -&gt; <a href="classtaixu_1_1Render__Data.html" class="m-doc">Render_<wbr />Data</a>*</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="pro-attribs">
+          <h2><a href="#pro-attribs">Protected variables</a></h2>
+          <dl class="m-doc">
+            <dt id="af9bd38b5de418c3e2f6af25fdbdad1e8">
+              std::shared_ptr&lt;<a href="classtaixu_1_1Render__Data.html" class="m-doc">Render_<wbr />Data</a>&gt; <a href="#af9bd38b5de418c3e2f6af25fdbdad1e8" class="m-doc-self">render_data</a>
             </dt>
             <dd><span></span></dd>
           </dl>
