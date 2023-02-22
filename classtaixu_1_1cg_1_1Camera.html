@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>taixu::cg::Camera class | TaixuEngine</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">TaixuEngine</a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li>
+              <a href="pages.html">Pages</a>
+              <ol>
+                <li><a href="about.html">About</a></li>
+              </ol>
+            </li>
+            <li><a href="namespaces.html">Namespaces</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacetaixu_1_1cg.html">cg</a>::<wbr/></span>Camera <span class="m-thin">class</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="camera_8hpp.html">&lt;engine/runtime/graphics/render/camera.hpp&gt;</a></div>
+        </h1>
+        <p><span></span></p>
+        <nav class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+                <li><a href="#pub-attribs">Public variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
+          <dl class="m-doc">
+            <dt id="aaa3147e7fb3ad1852d1de1ab5032574f">
+              <span class="m-doc-wrap-bumper"><a href="#aaa3147e7fb3ad1852d1de1ab5032574f" class="m-doc-self">Camera</a>(</span><span class="m-doc-wrap">glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
+              glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f),
+              float yaw = <a href="namespacetaixu_1_1cg.html#afbd424f551922bbc0b352746d7643432" class="m-doc">YAW</a>,
+              float pitch = <a href="namespacetaixu_1_1cg.html#a49a0dc6acff904c25a2dd1a7d28ec33d" class="m-doc">PITCH</a>)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae68ca340d662a236cff516af2fca5976">
+              <span class="m-doc-wrap-bumper"><a href="#ae68ca340d662a236cff516af2fca5976" class="m-doc-self">Camera</a>(</span><span class="m-doc-wrap">float posX,
+              float posY,
+              float posZ,
+              float upX,
+              float upY,
+              float upZ,
+              float yaw,
+              float pitch)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt id="aad7b1bce7fa59b7f4cd9a05ec075fda2">
+              <span class="m-doc-wrap-bumper">auto <a href="#aad7b1bce7fa59b7f4cd9a05ec075fda2" class="m-doc-self">getViewMatrix</a>(</span><span class="m-doc-wrap">) -&gt; glm::mat4</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a5607096b2be0377819c28eafcf59df94">
+              <span class="m-doc-wrap-bumper">auto <a href="#a5607096b2be0377819c28eafcf59df94" class="m-doc-self">getProjectionMatrix</a>(</span><span class="m-doc-wrap">) -&gt; glm::mat4</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8dbae6d888d94e3f3301d55aebb28554">
+              <span class="m-doc-wrap-bumper">void <a href="#a8dbae6d888d94e3f3301d55aebb28554" class="m-doc-self">ProcessKeyboard</a>(</span><span class="m-doc-wrap"><a href="namespacetaixu_1_1cg.html#ab32a1a95d0e722046b954aa1053ba198" class="m-doc">Camera_<wbr />Movement</a> direction,
+              float deltaTime)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a20e516b23d4b41e014130b5429728106">
+              <span class="m-doc-wrap-bumper">void <a href="#a20e516b23d4b41e014130b5429728106" class="m-doc-self">ProcessMouseMovement</a>(</span><span class="m-doc-wrap">float xoffset,
+              float yoffset,
+              GLboolean constrainPitch = true)</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a8274581f70d202d9d5e285e131a82127">
+              <span class="m-doc-wrap-bumper">void <a href="#a8274581f70d202d9d5e285e131a82127" class="m-doc-self">ProcessMouseScroll</a>(</span><span class="m-doc-wrap">float yoffset)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="pub-attribs">
+          <h2><a href="#pub-attribs">Public variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a7542747005e7de238cc1affe6c38419f">
+              glm::vec3 <a href="#a7542747005e7de238cc1affe6c38419f" class="m-doc-self">Position</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1afc15fa7ab92d7ef6fbb1a7555540c0">
+              glm::vec3 <a href="#a1afc15fa7ab92d7ef6fbb1a7555540c0" class="m-doc-self">Front</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac3226d1760d49e1dd368684962539cb0">
+              glm::vec3 <a href="#ac3226d1760d49e1dd368684962539cb0" class="m-doc-self">Up</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a3a1887e104029c0c60722ac35e078972">
+              glm::vec3 <a href="#a3a1887e104029c0c60722ac35e078972" class="m-doc-self">Right</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a08599bc35642444c954f5e507bbc70ca">
+              glm::vec3 <a href="#a08599bc35642444c954f5e507bbc70ca" class="m-doc-self">WorldUp</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae18e3926b09326ca1d6ce6a17444dee4">
+              float <a href="#ae18e3926b09326ca1d6ce6a17444dee4" class="m-doc-self">Yaw</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab9d82c968f2bd67ae7910734d7c37664">
+              float <a href="#ab9d82c968f2bd67ae7910734d7c37664" class="m-doc-self">Pitch</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab2452da37333a9009400cdaedeb501e4">
+              float <a href="#ab2452da37333a9009400cdaedeb501e4" class="m-doc-self">MovementSpeed</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac74be30f9de3334f1835ca19897a6bce">
+              float <a href="#ac74be30f9de3334f1835ca19897a6bce" class="m-doc-self">MouseSensitivity</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0108314b83b2e5e910fa7951f1448287">
+              float <a href="#a0108314b83b2e5e910fa7951f1448287" class="m-doc-self">Zoom</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script>
+<script src="searchdata-v2.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>TaixuEngine. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
