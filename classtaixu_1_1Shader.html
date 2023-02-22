@@ -1,184 +1,345 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8" />
-  <title>taixu::Shader class | TaixuEngine</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
-  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
-  <link rel="icon" href="favicon-dark.png" type="image/png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TaixuEngine: taixu::Shader Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<header><nav id="navigation">
-  <div class="m-container">
-    <div class="m-row">
-      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">TaixuEngine</a>
-      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
-        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
-        </svg></a>
-        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
-        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
-      </div>
-      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
-        <div class="m-row">
-          <ol class="m-col-t-6 m-col-m-none">
-            <li>
-              <a href="pages.html">Pages</a>
-              <ol>
-                <li><a href="about.html">About</a></li>
-              </ol>
-            </li>
-            <li><a href="namespaces.html">Namespaces</a></li>
-          </ol>
-          <ol class="m-col-t-6 m-col-m-none" start="3">
-            <li><a href="annotated.html">Classes</a></li>
-            <li><a href="files.html">Files</a></li>
-            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-              <use href="#m-doc-search-icon-path" />
-            </svg></a></li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav></header>
-<main><article>
-  <div class="m-container m-container-inflatable">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <h1>
-          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span>Shader <span class="m-thin">class</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="shader_8hpp.html">&lt;engine/runtime/graphics/render/shader.hpp&gt;</a></div>
-        </h1>
-        <p><span></span></p>
-        <nav class="m-block m-default">
-          <h3>Contents</h3>
-          <ul>
-            <li>
-              Reference
-              <ul>
-                <li><a href="#derived-classes">Derived classes</a></li>
-                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
-                <li><a href="#pub-methods">Public functions</a></li>
-                <li><a href="#pro-attribs">Protected variables</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <section id="derived-classes">
-          <h2><a href="#derived-classes">Derived classes</a></h2>
-          <dl class="m-doc">
-            <dt>
-              class <a href="classtaixu_1_1FragmentShader.html" class="m-doc">FragmentShader</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt>
-              class <a href="classtaixu_1_1VertexShader.html" class="m-doc">VertexShader</a>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="typeless-methods">
-          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
-          <dl class="m-doc">
-            <dt id="ae80fce5b43c9c8c3042770704a285068">
-              <span class="m-doc-wrap-bumper"><a href="#ae80fce5b43c9c8c3042770704a285068" class="m-doc-self">Shader</a>(</span><span class="m-doc-wrap">char const* content) <span class="m-label m-flat m-info">explicit</span> </span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ae706d9e4244c700101d67e834d31da71">
-              <span class="m-doc-wrap-bumper"><a href="#ae706d9e4244c700101d67e834d31da71" class="m-doc-self">Shader</a>(</span><span class="m-doc-wrap">const <a href="classtaixu_1_1Shader.html" class="m-doc">Shader</a>&amp;) <span class="m-label m-flat m-danger">deleted</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a22a606978d25989a802670c40647e70b">
-              <span class="m-doc-wrap-bumper"><a href="#a22a606978d25989a802670c40647e70b" class="m-doc-self">Shader</a>(</span><span class="m-doc-wrap"><a href="classtaixu_1_1Shader.html" class="m-doc">Shader</a>&amp;&amp; other) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="acfe4ec64f1611a4e2fed5d99586f1857">
-              <span class="m-doc-wrap-bumper"><a href="#acfe4ec64f1611a4e2fed5d99586f1857" class="m-doc-self">~Shader</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="pub-methods">
-          <h2><a href="#pub-methods">Public functions</a></h2>
-          <dl class="m-doc">
-            <dt id="ac38ad6622895c7e9d43cd2ec69c54cbf">
-              <span class="m-doc-wrap-bumper">auto <a href="#ac38ad6622895c7e9d43cd2ec69c54cbf" class="m-doc-self">operator=</a>(</span><span class="m-doc-wrap">const <a href="classtaixu_1_1Shader.html" class="m-doc">Shader</a>&amp;) -&gt; <a href="classtaixu_1_1Shader.html" class="m-doc">Shader</a>&amp; <span class="m-label m-flat m-danger">deleted</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aa94e690c748902969fa48a99717c8772">
-              <span class="m-doc-wrap-bumper">auto <a href="#aa94e690c748902969fa48a99717c8772" class="m-doc-self">operator=</a>(</span><span class="m-doc-wrap"><a href="classtaixu_1_1Shader.html" class="m-doc">Shader</a>&amp;&amp; other) -&gt; <a href="classtaixu_1_1Shader.html" class="m-doc">Shader</a>&amp; <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a08f56e472d142746433b4f44004cca82">
-              <span class="m-doc-wrap-bumper">auto <a href="#a08f56e472d142746433b4f44004cca82" class="m-doc-self">get_id</a>(</span><span class="m-doc-wrap">) const -&gt; unsigned <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="pro-attribs">
-          <h2><a href="#pro-attribs">Protected variables</a></h2>
-          <dl class="m-doc">
-            <dt id="ad26cd3016fd8005417e36db589e9cd40">
-              unsigned int <a href="#ad26cd3016fd8005417e36db589e9cd40" class="m-doc-self">_id</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a33fc76a03fa4670f3f0adb0e14191c6d">
-              char const * <a href="#a33fc76a03fa4670f3f0adb0e14191c6d" class="m-doc-self">_source</a>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-      </div>
-    </div>
-  </div>
-</article></main>
-<div class="m-doc-search" id="search">
-  <a href="#!" onclick="return hideSearch()"></a>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-m-8 m-push-m-2">
-        <div class="m-doc-search-header m-text m-small">
-          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
-          <div id="search-symbolcount">&hellip;</div>
-        </div>
-        <div class="m-doc-search-content">
-          <form>
-            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
-          </form>
-          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
-          <div id="search-help" class="m-text m-dim m-text-center">
-            <p class="m-noindent">Search for symbols, directories, files, pages or
-            modules. You can omit any prefix from the symbol or file path; adding a
-            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
-            directory.</p>
-            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
-            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
-            <span class="m-label m-dim">Enter</span> to go.
-            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
-            copy a link to the result using <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
-          </div>
-          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
-          <ul id="search-results"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TaixuEngine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
 </div>
-<script src="search-v2.js"></script>
-<script src="searchdata-v2.js" async="async"></script>
-<footer><nav>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <p>TaixuEngine. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
-      </div>
-    </div>
-  </div>
-</nav></footer>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacetaixu.html">taixu</a></li><li class="navelem"><a class="el" href="classtaixu_1_1Shader.html">Shader</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="classtaixu_1_1Shader-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">taixu::Shader Class Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="shader_8hpp_source.html">shader.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for taixu::Shader:</div>
+<div class="dyncontent">
+<div class="center"><img src="classtaixu_1_1Shader__inherit__graph.png" border="0" usemap="#ataixu_1_1Shader_inherit__map" alt="Inheritance graph"/></div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ae80fce5b43c9c8c3042770704a285068"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Shader.html#ae80fce5b43c9c8c3042770704a285068">Shader</a> (char const *content)</td></tr>
+<tr class="separator:ae80fce5b43c9c8c3042770704a285068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae706d9e4244c700101d67e834d31da71"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Shader.html#ae706d9e4244c700101d67e834d31da71">Shader</a> (const <a class="el" href="classtaixu_1_1Shader.html">Shader</a> &amp;)=delete</td></tr>
+<tr class="separator:ae706d9e4244c700101d67e834d31da71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac38ad6622895c7e9d43cd2ec69c54cbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1Shader.html">Shader</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Shader.html#ac38ad6622895c7e9d43cd2ec69c54cbf">operator=</a> (const <a class="el" href="classtaixu_1_1Shader.html">Shader</a> &amp;)=delete</td></tr>
+<tr class="separator:ac38ad6622895c7e9d43cd2ec69c54cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22a606978d25989a802670c40647e70b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Shader.html#a22a606978d25989a802670c40647e70b">Shader</a> (<a class="el" href="classtaixu_1_1Shader.html">Shader</a> &amp;&amp;other) noexcept=default</td></tr>
+<tr class="separator:a22a606978d25989a802670c40647e70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa94e690c748902969fa48a99717c8772"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1Shader.html">Shader</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Shader.html#aa94e690c748902969fa48a99717c8772">operator=</a> (<a class="el" href="classtaixu_1_1Shader.html">Shader</a> &amp;&amp;other) noexcept=default</td></tr>
+<tr class="separator:aa94e690c748902969fa48a99717c8772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfe4ec64f1611a4e2fed5d99586f1857"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Shader.html#acfe4ec64f1611a4e2fed5d99586f1857">~Shader</a> ()</td></tr>
+<tr class="separator:acfe4ec64f1611a4e2fed5d99586f1857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08f56e472d142746433b4f44004cca82"><td class="memItemLeft" align="right" valign="top">constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Shader.html#a08f56e472d142746433b4f44004cca82">get_id</a> () const noexcept</td></tr>
+<tr class="separator:a08f56e472d142746433b4f44004cca82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ad26cd3016fd8005417e36db589e9cd40"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Shader.html#ad26cd3016fd8005417e36db589e9cd40">_id</a></td></tr>
+<tr class="separator:ad26cd3016fd8005417e36db589e9cd40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33fc76a03fa4670f3f0adb0e14191c6d"><td class="memItemLeft" align="right" valign="top">char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Shader.html#a33fc76a03fa4670f3f0adb0e14191c6d">_source</a></td></tr>
+<tr class="separator:a33fc76a03fa4670f3f0adb0e14191c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae80fce5b43c9c8c3042770704a285068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae80fce5b43c9c8c3042770704a285068">&#9670;&nbsp;</a></span>Shader() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">taixu::Shader::Shader </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>content</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae706d9e4244c700101d67e834d31da71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae706d9e4244c700101d67e834d31da71">&#9670;&nbsp;</a></span>Shader() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">taixu::Shader::Shader </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtaixu_1_1Shader.html">Shader</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22a606978d25989a802670c40647e70b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22a606978d25989a802670c40647e70b">&#9670;&nbsp;</a></span>Shader() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">taixu::Shader::Shader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtaixu_1_1Shader.html">Shader</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfe4ec64f1611a4e2fed5d99586f1857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfe4ec64f1611a4e2fed5d99586f1857">&#9670;&nbsp;</a></span>~Shader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">taixu::Shader::~Shader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a08f56e472d142746433b4f44004cca82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08f56e472d142746433b4f44004cca82">&#9670;&nbsp;</a></span>get_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned taixu::Shader::get_id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac38ad6622895c7e9d43cd2ec69c54cbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac38ad6622895c7e9d43cd2ec69c54cbf">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtaixu_1_1Shader.html">Shader</a>&amp; taixu::Shader::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtaixu_1_1Shader.html">Shader</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa94e690c748902969fa48a99717c8772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa94e690c748902969fa48a99717c8772">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtaixu_1_1Shader.html">Shader</a>&amp; taixu::Shader::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtaixu_1_1Shader.html">Shader</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad26cd3016fd8005417e36db589e9cd40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad26cd3016fd8005417e36db589e9cd40">&#9670;&nbsp;</a></span>_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int taixu::Shader::_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33fc76a03fa4670f3f0adb0e14191c6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33fc76a03fa4670f3f0adb0e14191c6d">&#9670;&nbsp;</a></span>_source</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char const* taixu::Shader::_source</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>engine/runtime/graphics/render/<a class="el" href="shader_8hpp_source.html">shader.hpp</a></li>
+<li>engine/runtime/graphics/render/<a class="el" href="shader_8cpp.html">shader.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>

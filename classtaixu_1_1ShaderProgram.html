@@ -1,207 +1,676 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8" />
-  <title>taixu::ShaderProgram class | TaixuEngine</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
-  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
-  <link rel="icon" href="favicon-dark.png" type="image/png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TaixuEngine: taixu::ShaderProgram Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<header><nav id="navigation">
-  <div class="m-container">
-    <div class="m-row">
-      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">TaixuEngine</a>
-      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
-        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
-        </svg></a>
-        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
-        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
-      </div>
-      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
-        <div class="m-row">
-          <ol class="m-col-t-6 m-col-m-none">
-            <li>
-              <a href="pages.html">Pages</a>
-              <ol>
-                <li><a href="about.html">About</a></li>
-              </ol>
-            </li>
-            <li><a href="namespaces.html">Namespaces</a></li>
-          </ol>
-          <ol class="m-col-t-6 m-col-m-none" start="3">
-            <li><a href="annotated.html">Classes</a></li>
-            <li><a href="files.html">Files</a></li>
-            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-              <use href="#m-doc-search-icon-path" />
-            </svg></a></li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav></header>
-<main><article>
-  <div class="m-container m-container-inflatable">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <h1>
-          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span>ShaderProgram <span class="m-thin">class</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="shader_8hpp.html">&lt;engine/runtime/graphics/render/shader.hpp&gt;</a></div>
-        </h1>
-        <p><span></span></p>
-        <nav class="m-block m-default">
-          <h3>Contents</h3>
-          <ul>
-            <li>
-              Reference
-              <ul>
-                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
-                <li><a href="#pub-methods">Public functions</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <section id="typeless-methods">
-          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
-          <dl class="m-doc">
-            <dt id="a0c8c243e81e748eec4b82c974c71a3cb">
-              <span class="m-doc-wrap-bumper"><a href="#a0c8c243e81e748eec4b82c974c71a3cb" class="m-doc-self">ShaderProgram</a>(</span><span class="m-doc-wrap">char const* vertex_shader,
-              char const* fragment_shader)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a64126946cfcc1bf2ee1895368f8f677a">
-              <span class="m-doc-wrap-bumper"><a href="#a64126946cfcc1bf2ee1895368f8f677a" class="m-doc-self">~ShaderProgram</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="pub-methods">
-          <h2><a href="#pub-methods">Public functions</a></h2>
-          <dl class="m-doc">
-            <dt id="ab0e665344f7cf18acd6d307dff1ee2cb">
-              <span class="m-doc-wrap-bumper">void <a href="#ab0e665344f7cf18acd6d307dff1ee2cb" class="m-doc-self">use</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a2f2099785e7e5f6d423acb987bc7d8ec">
-              <span class="m-doc-wrap-bumper">void <a href="#a2f2099785e7e5f6d423acb987bc7d8ec" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">std::string_view name,
-              bool value) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="acbf40a2b661e7614581f4883f5aff313">
-              <span class="m-doc-wrap-bumper">void <a href="#acbf40a2b661e7614581f4883f5aff313" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">std::string_view name,
-              int value) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a6149c5901f6827739eeb2f16fb368242">
-              <span class="m-doc-wrap-bumper">void <a href="#a6149c5901f6827739eeb2f16fb368242" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">std::string_view name,
-              float value) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a076078652bbd6b41ddf5cc8828393974">
-              <span class="m-doc-wrap-bumper">void <a href="#a076078652bbd6b41ddf5cc8828393974" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::vec2&amp; value) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a3363152a563736fd51bc2bfd9069d30f">
-              <span class="m-doc-wrap-bumper">void <a href="#a3363152a563736fd51bc2bfd9069d30f" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              float x,
-              float y) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a40ae870843330eeda07b1cba853460ba">
-              <span class="m-doc-wrap-bumper">void <a href="#a40ae870843330eeda07b1cba853460ba" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::vec3&amp; value) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="adcbb2f110c76c40a226f6743d0527141">
-              <span class="m-doc-wrap-bumper">void <a href="#adcbb2f110c76c40a226f6743d0527141" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              float x,
-              float y,
-              float z) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a089e23e9c28fe2a930032115ad8a76b2">
-              <span class="m-doc-wrap-bumper">void <a href="#a089e23e9c28fe2a930032115ad8a76b2" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::vec4&amp; value) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a8073985af6584059d34349faaccc27d9">
-              <span class="m-doc-wrap-bumper">void <a href="#a8073985af6584059d34349faaccc27d9" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              float x,
-              float y,
-              float z,
-              float w) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a152fb084af982c621df64ec0874fa511">
-              <span class="m-doc-wrap-bumper">void <a href="#a152fb084af982c621df64ec0874fa511" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::mat2&amp; mat) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aafa2cd6dae7feacddbc2e5bff7bbeaab">
-              <span class="m-doc-wrap-bumper">void <a href="#aafa2cd6dae7feacddbc2e5bff7bbeaab" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::mat3&amp; mat) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ae22a61f5f7e7d020685aa50c3063eebc">
-              <span class="m-doc-wrap-bumper">void <a href="#ae22a61f5f7e7d020685aa50c3063eebc" class="m-doc-self">set_uniform</a>(</span><span class="m-doc-wrap">const std::string_view name,
-              const glm::mat4&amp; mat) const <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-      </div>
-    </div>
-  </div>
-</article></main>
-<div class="m-doc-search" id="search">
-  <a href="#!" onclick="return hideSearch()"></a>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-m-8 m-push-m-2">
-        <div class="m-doc-search-header m-text m-small">
-          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
-          <div id="search-symbolcount">&hellip;</div>
-        </div>
-        <div class="m-doc-search-content">
-          <form>
-            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
-          </form>
-          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
-          <div id="search-help" class="m-text m-dim m-text-center">
-            <p class="m-noindent">Search for symbols, directories, files, pages or
-            modules. You can omit any prefix from the symbol or file path; adding a
-            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
-            directory.</p>
-            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
-            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
-            <span class="m-label m-dim">Enter</span> to go.
-            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
-            copy a link to the result using <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
-          </div>
-          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
-          <ul id="search-results"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TaixuEngine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
 </div>
-<script src="search-v2.js"></script>
-<script src="searchdata-v2.js" async="async"></script>
-<footer><nav>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <p>TaixuEngine. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
-      </div>
-    </div>
-  </div>
-</nav></footer>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacetaixu.html">taixu</a></li><li class="navelem"><a class="el" href="classtaixu_1_1ShaderProgram.html">ShaderProgram</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classtaixu_1_1ShaderProgram-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">taixu::ShaderProgram Class Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="shader_8hpp_source.html">shader.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0c8c243e81e748eec4b82c974c71a3cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#a0c8c243e81e748eec4b82c974c71a3cb">ShaderProgram</a> (char const *vertex_shader, char const *fragment_shader)</td></tr>
+<tr class="separator:a0c8c243e81e748eec4b82c974c71a3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64126946cfcc1bf2ee1895368f8f677a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#a64126946cfcc1bf2ee1895368f8f677a">~ShaderProgram</a> ()</td></tr>
+<tr class="separator:a64126946cfcc1bf2ee1895368f8f677a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e665344f7cf18acd6d307dff1ee2cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#ab0e665344f7cf18acd6d307dff1ee2cb">use</a> () const noexcept</td></tr>
+<tr class="separator:ab0e665344f7cf18acd6d307dff1ee2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f2099785e7e5f6d423acb987bc7d8ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#a2f2099785e7e5f6d423acb987bc7d8ec">set_uniform</a> (std::string_view name, bool value) const noexcept</td></tr>
+<tr class="separator:a2f2099785e7e5f6d423acb987bc7d8ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf40a2b661e7614581f4883f5aff313"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#acbf40a2b661e7614581f4883f5aff313">set_uniform</a> (std::string_view name, int value) const noexcept</td></tr>
+<tr class="separator:acbf40a2b661e7614581f4883f5aff313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6149c5901f6827739eeb2f16fb368242"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#a6149c5901f6827739eeb2f16fb368242">set_uniform</a> (std::string_view name, float value) const noexcept</td></tr>
+<tr class="separator:a6149c5901f6827739eeb2f16fb368242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a076078652bbd6b41ddf5cc8828393974"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#a076078652bbd6b41ddf5cc8828393974">set_uniform</a> (const std::string_view name, const glm::vec2 &amp;value) const noexcept</td></tr>
+<tr class="separator:a076078652bbd6b41ddf5cc8828393974"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3363152a563736fd51bc2bfd9069d30f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#a3363152a563736fd51bc2bfd9069d30f">set_uniform</a> (const std::string_view name, float x, float y) const noexcept</td></tr>
+<tr class="separator:a3363152a563736fd51bc2bfd9069d30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40ae870843330eeda07b1cba853460ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#a40ae870843330eeda07b1cba853460ba">set_uniform</a> (const std::string_view name, const glm::vec3 &amp;value) const noexcept</td></tr>
+<tr class="separator:a40ae870843330eeda07b1cba853460ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcbb2f110c76c40a226f6743d0527141"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#adcbb2f110c76c40a226f6743d0527141">set_uniform</a> (const std::string_view name, float x, float y, float z) const noexcept</td></tr>
+<tr class="separator:adcbb2f110c76c40a226f6743d0527141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089e23e9c28fe2a930032115ad8a76b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#a089e23e9c28fe2a930032115ad8a76b2">set_uniform</a> (const std::string_view name, const glm::vec4 &amp;value) const noexcept</td></tr>
+<tr class="separator:a089e23e9c28fe2a930032115ad8a76b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8073985af6584059d34349faaccc27d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#a8073985af6584059d34349faaccc27d9">set_uniform</a> (const std::string_view name, float x, float y, float z, float w) const noexcept</td></tr>
+<tr class="separator:a8073985af6584059d34349faaccc27d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152fb084af982c621df64ec0874fa511"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#a152fb084af982c621df64ec0874fa511">set_uniform</a> (const std::string_view name, const glm::mat2 &amp;mat) const noexcept</td></tr>
+<tr class="separator:a152fb084af982c621df64ec0874fa511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafa2cd6dae7feacddbc2e5bff7bbeaab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#aafa2cd6dae7feacddbc2e5bff7bbeaab">set_uniform</a> (const std::string_view name, const glm::mat3 &amp;mat) const noexcept</td></tr>
+<tr class="separator:aafa2cd6dae7feacddbc2e5bff7bbeaab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae22a61f5f7e7d020685aa50c3063eebc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html#ae22a61f5f7e7d020685aa50c3063eebc">set_uniform</a> (const std::string_view name, const glm::mat4 &amp;mat) const noexcept</td></tr>
+<tr class="separator:ae22a61f5f7e7d020685aa50c3063eebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0c8c243e81e748eec4b82c974c71a3cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c8c243e81e748eec4b82c974c71a3cb">&#9670;&nbsp;</a></span>ShaderProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">taixu::ShaderProgram::ShaderProgram </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>vertex_shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>fragment_shader</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64126946cfcc1bf2ee1895368f8f677a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64126946cfcc1bf2ee1895368f8f677a">&#9670;&nbsp;</a></span>~ShaderProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">taixu::ShaderProgram::~ShaderProgram </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a152fb084af982c621df64ec0874fa511"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a152fb084af982c621df64ec0874fa511">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[1/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::mat2 &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aafa2cd6dae7feacddbc2e5bff7bbeaab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafa2cd6dae7feacddbc2e5bff7bbeaab">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[2/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::mat3 &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae22a61f5f7e7d020685aa50c3063eebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae22a61f5f7e7d020685aa50c3063eebc">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[3/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::mat4 &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a076078652bbd6b41ddf5cc8828393974"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a076078652bbd6b41ddf5cc8828393974">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[4/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::vec2 &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40ae870843330eeda07b1cba853460ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40ae870843330eeda07b1cba853460ba">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[5/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::vec3 &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a089e23e9c28fe2a930032115ad8a76b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a089e23e9c28fe2a930032115ad8a76b2">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[6/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::vec4 &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3363152a563736fd51bc2bfd9069d30f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3363152a563736fd51bc2bfd9069d30f">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[7/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adcbb2f110c76c40a226f6743d0527141"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcbb2f110c76c40a226f6743d0527141">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[8/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8073985af6584059d34349faaccc27d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8073985af6584059d34349faaccc27d9">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[9/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f2099785e7e5f6d423acb987bc7d8ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f2099785e7e5f6d423acb987bc7d8ec">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[10/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6149c5901f6827739eeb2f16fb368242"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6149c5901f6827739eeb2f16fb368242">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[11/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acbf40a2b661e7614581f4883f5aff313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbf40a2b661e7614581f4883f5aff313">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[12/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::set_uniform </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0e665344f7cf18acd6d307dff1ee2cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0e665344f7cf18acd6d307dff1ee2cb">&#9670;&nbsp;</a></span>use()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::ShaderProgram::use </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>engine/runtime/graphics/render/<a class="el" href="shader_8hpp_source.html">shader.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>

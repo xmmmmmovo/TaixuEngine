@@ -1,215 +1,530 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8" />
-  <title>taixu::Camera class | TaixuEngine</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
-  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
-  <link rel="icon" href="favicon-dark.png" type="image/png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TaixuEngine: taixu::Camera Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<header><nav id="navigation">
-  <div class="m-container">
-    <div class="m-row">
-      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">TaixuEngine</a>
-      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
-        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
-        </svg></a>
-        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
-        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
-      </div>
-      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
-        <div class="m-row">
-          <ol class="m-col-t-6 m-col-m-none">
-            <li>
-              <a href="pages.html">Pages</a>
-              <ol>
-                <li><a href="about.html">About</a></li>
-              </ol>
-            </li>
-            <li><a href="namespaces.html">Namespaces</a></li>
-          </ol>
-          <ol class="m-col-t-6 m-col-m-none" start="3">
-            <li><a href="annotated.html">Classes</a></li>
-            <li><a href="files.html">Files</a></li>
-            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-              <use href="#m-doc-search-icon-path" />
-            </svg></a></li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav></header>
-<main><article>
-  <div class="m-container m-container-inflatable">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <h1>
-          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span>Camera <span class="m-thin">class</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="camera_8hpp.html">&lt;engine/runtime/graphics/render/camera.hpp&gt;</a></div>
-        </h1>
-        <p><span></span></p>
-        <nav class="m-block m-default">
-          <h3>Contents</h3>
-          <ul>
-            <li>
-              Reference
-              <ul>
-                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
-                <li><a href="#pub-methods">Public functions</a></li>
-                <li><a href="#pub-attribs">Public variables</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <section id="typeless-methods">
-          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
-          <dl class="m-doc">
-            <dt id="acf806b27296bc7d28ea24eb3b5ac9157">
-              <span class="m-doc-wrap-bumper"><a href="#acf806b27296bc7d28ea24eb3b5ac9157" class="m-doc-self">Camera</a>(</span><span class="m-doc-wrap">glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
-              glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f),
-              float yaw = <a href="namespacetaixu.html#a8ccf3d88a9eb0705b6554df8ca676eb2" class="m-doc">YAW</a>,
-              float pitch = <a href="namespacetaixu.html#a7a8d641662fc344da5ee7f4617890a88" class="m-doc">PITCH</a>)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ac295acf077962893189009f3b20d8b16">
-              <span class="m-doc-wrap-bumper"><a href="#ac295acf077962893189009f3b20d8b16" class="m-doc-self">Camera</a>(</span><span class="m-doc-wrap">float posX,
-              float posY,
-              float posZ,
-              float upX,
-              float upY,
-              float upZ,
-              float yaw,
-              float pitch)</span>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="pub-methods">
-          <h2><a href="#pub-methods">Public functions</a></h2>
-          <dl class="m-doc">
-            <dt id="acbee426b341e00be120f724662f23f2c">
-              <span class="m-doc-wrap-bumper">auto <a href="#acbee426b341e00be120f724662f23f2c" class="m-doc-self">getViewMatrix</a>(</span><span class="m-doc-wrap">) -&gt; glm::mat4</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a30ccbbc55766cdee9f97c4bd93ad2ee1">
-              <span class="m-doc-wrap-bumper">auto <a href="#a30ccbbc55766cdee9f97c4bd93ad2ee1" class="m-doc-self">getProjectionMatrix</a>(</span><span class="m-doc-wrap">) -&gt; glm::mat4</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a59c8ff357c588498fcf6c72ce896568b">
-              <span class="m-doc-wrap-bumper">void <a href="#a59c8ff357c588498fcf6c72ce896568b" class="m-doc-self">ProcessKeyboard</a>(</span><span class="m-doc-wrap"><a href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1d" class="m-doc">Camera_<wbr />Movement</a> direction,
-              float deltaTime)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a4c884aaa0de46050c78c607cb3e3fc5b">
-              <span class="m-doc-wrap-bumper">void <a href="#a4c884aaa0de46050c78c607cb3e3fc5b" class="m-doc-self">ProcessMouseMovement</a>(</span><span class="m-doc-wrap">float xoffset,
-              float yoffset,
-              GLboolean constrainPitch = true)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="af4f128e069221ad589ef2c8d1ab8ec3e">
-              <span class="m-doc-wrap-bumper">void <a href="#af4f128e069221ad589ef2c8d1ab8ec3e" class="m-doc-self">ProcessMouseScroll</a>(</span><span class="m-doc-wrap">float yoffset)</span>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="pub-attribs">
-          <h2><a href="#pub-attribs">Public variables</a></h2>
-          <dl class="m-doc">
-            <dt id="a116e3229e83e4bde55bf8e9b5a6c23c4">
-              glm::vec3 <a href="#a116e3229e83e4bde55bf8e9b5a6c23c4" class="m-doc-self">Position</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ad93bb0b65c5e54d1f3783f43c691bf47">
-              glm::vec3 <a href="#ad93bb0b65c5e54d1f3783f43c691bf47" class="m-doc-self">Front</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aa1f92c9c1152e8cfe4c56efac8bf4da1">
-              glm::vec3 <a href="#aa1f92c9c1152e8cfe4c56efac8bf4da1" class="m-doc-self">Up</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a3e625ca489109fe11f92953608135e25">
-              glm::vec3 <a href="#a3e625ca489109fe11f92953608135e25" class="m-doc-self">Right</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a2764b3748f463919a559946dd3812954">
-              glm::vec3 <a href="#a2764b3748f463919a559946dd3812954" class="m-doc-self">WorldUp</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a8c86b21d8f7cf1d03a223dd535f2a28c">
-              float <a href="#a8c86b21d8f7cf1d03a223dd535f2a28c" class="m-doc-self">Yaw</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a2498189f8f0359a10edb1441c18422e6">
-              float <a href="#a2498189f8f0359a10edb1441c18422e6" class="m-doc-self">Pitch</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aa9b6474df8fc71aad1e05333c60500ea">
-              float <a href="#aa9b6474df8fc71aad1e05333c60500ea" class="m-doc-self">MovementSpeed</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a17612cb0eaba0af22e968902d6641bd8">
-              float <a href="#a17612cb0eaba0af22e968902d6641bd8" class="m-doc-self">MouseSensitivity</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aa9ff2daedee30f9a6f940b5d16520231">
-              float <a href="#aa9ff2daedee30f9a6f940b5d16520231" class="m-doc-self">Zoom</a>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-      </div>
-    </div>
-  </div>
-</article></main>
-<div class="m-doc-search" id="search">
-  <a href="#!" onclick="return hideSearch()"></a>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-m-8 m-push-m-2">
-        <div class="m-doc-search-header m-text m-small">
-          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
-          <div id="search-symbolcount">&hellip;</div>
-        </div>
-        <div class="m-doc-search-content">
-          <form>
-            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
-          </form>
-          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
-          <div id="search-help" class="m-text m-dim m-text-center">
-            <p class="m-noindent">Search for symbols, directories, files, pages or
-            modules. You can omit any prefix from the symbol or file path; adding a
-            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
-            directory.</p>
-            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
-            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
-            <span class="m-label m-dim">Enter</span> to go.
-            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
-            copy a link to the result using <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
-          </div>
-          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
-          <ul id="search-results"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TaixuEngine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
 </div>
-<script src="search-v2.js"></script>
-<script src="searchdata-v2.js" async="async"></script>
-<footer><nav>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <p>TaixuEngine. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
-      </div>
-    </div>
-  </div>
-</nav></footer>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacetaixu.html">taixu</a></li><li class="navelem"><a class="el" href="classtaixu_1_1Camera.html">Camera</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="classtaixu_1_1Camera-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">taixu::Camera Class Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="camera_8hpp_source.html">camera.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:acf806b27296bc7d28ea24eb3b5ac9157"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#acf806b27296bc7d28ea24eb3b5ac9157">Camera</a> (glm::vec3 position=glm::vec3(0.0f, 0.0f, 5.5f), glm::vec3 up=glm::vec3(0.0f, 1.0f, 0.0f), float yaw=<a class="el" href="namespacetaixu.html#a8ccf3d88a9eb0705b6554df8ca676eb2">YAW</a>, float pitch=<a class="el" href="namespacetaixu.html#a7a8d641662fc344da5ee7f4617890a88">PITCH</a>)</td></tr>
+<tr class="separator:acf806b27296bc7d28ea24eb3b5ac9157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac295acf077962893189009f3b20d8b16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#ac295acf077962893189009f3b20d8b16">Camera</a> (float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch)</td></tr>
+<tr class="separator:ac295acf077962893189009f3b20d8b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbee426b341e00be120f724662f23f2c"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#acbee426b341e00be120f724662f23f2c">getViewMatrix</a> ()</td></tr>
+<tr class="separator:acbee426b341e00be120f724662f23f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30ccbbc55766cdee9f97c4bd93ad2ee1"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#a30ccbbc55766cdee9f97c4bd93ad2ee1">getProjectionMatrix</a> ()</td></tr>
+<tr class="separator:a30ccbbc55766cdee9f97c4bd93ad2ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c8ff357c588498fcf6c72ce896568b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#a59c8ff357c588498fcf6c72ce896568b">ProcessKeyboard</a> (<a class="el" href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1d">Camera_Movement</a> direction, float deltaTime)</td></tr>
+<tr class="separator:a59c8ff357c588498fcf6c72ce896568b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c884aaa0de46050c78c607cb3e3fc5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#a4c884aaa0de46050c78c607cb3e3fc5b">ProcessMouseMovement</a> (float xoffset, float yoffset, GLboolean constrainPitch=true)</td></tr>
+<tr class="separator:a4c884aaa0de46050c78c607cb3e3fc5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4f128e069221ad589ef2c8d1ab8ec3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#af4f128e069221ad589ef2c8d1ab8ec3e">ProcessMouseScroll</a> (float yoffset)</td></tr>
+<tr class="separator:af4f128e069221ad589ef2c8d1ab8ec3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a116e3229e83e4bde55bf8e9b5a6c23c4"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#a116e3229e83e4bde55bf8e9b5a6c23c4">Position</a></td></tr>
+<tr class="separator:a116e3229e83e4bde55bf8e9b5a6c23c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad93bb0b65c5e54d1f3783f43c691bf47"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#ad93bb0b65c5e54d1f3783f43c691bf47">Front</a></td></tr>
+<tr class="separator:ad93bb0b65c5e54d1f3783f43c691bf47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1f92c9c1152e8cfe4c56efac8bf4da1"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#aa1f92c9c1152e8cfe4c56efac8bf4da1">Up</a></td></tr>
+<tr class="separator:aa1f92c9c1152e8cfe4c56efac8bf4da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e625ca489109fe11f92953608135e25"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#a3e625ca489109fe11f92953608135e25">Right</a></td></tr>
+<tr class="separator:a3e625ca489109fe11f92953608135e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2764b3748f463919a559946dd3812954"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#a2764b3748f463919a559946dd3812954">WorldUp</a></td></tr>
+<tr class="separator:a2764b3748f463919a559946dd3812954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c86b21d8f7cf1d03a223dd535f2a28c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#a8c86b21d8f7cf1d03a223dd535f2a28c">Yaw</a></td></tr>
+<tr class="separator:a8c86b21d8f7cf1d03a223dd535f2a28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2498189f8f0359a10edb1441c18422e6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#a2498189f8f0359a10edb1441c18422e6">Pitch</a></td></tr>
+<tr class="separator:a2498189f8f0359a10edb1441c18422e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9b6474df8fc71aad1e05333c60500ea"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#aa9b6474df8fc71aad1e05333c60500ea">MovementSpeed</a></td></tr>
+<tr class="separator:aa9b6474df8fc71aad1e05333c60500ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17612cb0eaba0af22e968902d6641bd8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#a17612cb0eaba0af22e968902d6641bd8">MouseSensitivity</a></td></tr>
+<tr class="separator:a17612cb0eaba0af22e968902d6641bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9ff2daedee30f9a6f940b5d16520231"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#aa9ff2daedee30f9a6f940b5d16520231">Zoom</a></td></tr>
+<tr class="separator:aa9ff2daedee30f9a6f940b5d16520231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acf806b27296bc7d28ea24eb3b5ac9157"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf806b27296bc7d28ea24eb3b5ac9157">&#9670;&nbsp;</a></span>Camera() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">taixu::Camera::Camera </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>position</em> = <code>glm::vec3(0.0f,&#160;0.0f,&#160;5.5f)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>up</em> = <code>glm::vec3(0.0f,&#160;1.0f,&#160;0.0f)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>yaw</em> = <code><a class="el" href="namespacetaixu.html#a8ccf3d88a9eb0705b6554df8ca676eb2">YAW</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>pitch</em> = <code><a class="el" href="namespacetaixu.html#a7a8d641662fc344da5ee7f4617890a88">PITCH</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac295acf077962893189009f3b20d8b16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac295acf077962893189009f3b20d8b16">&#9670;&nbsp;</a></span>Camera() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">taixu::Camera::Camera </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>posX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>posY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>posZ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>upX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>upY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>upZ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>yaw</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>pitch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a30ccbbc55766cdee9f97c4bd93ad2ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30ccbbc55766cdee9f97c4bd93ad2ee1">&#9670;&nbsp;</a></span>getProjectionMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 taixu::Camera::getProjectionMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acbee426b341e00be120f724662f23f2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbee426b341e00be120f724662f23f2c">&#9670;&nbsp;</a></span>getViewMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 taixu::Camera::getViewMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59c8ff357c588498fcf6c72ce896568b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59c8ff357c588498fcf6c72ce896568b">&#9670;&nbsp;</a></span>ProcessKeyboard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Camera::ProcessKeyboard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1d">Camera_Movement</a>&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c884aaa0de46050c78c607cb3e3fc5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c884aaa0de46050c78c607cb3e3fc5b">&#9670;&nbsp;</a></span>ProcessMouseMovement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Camera::ProcessMouseMovement </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>xoffset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>yoffset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLboolean&#160;</td>
+          <td class="paramname"><em>constrainPitch</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4f128e069221ad589ef2c8d1ab8ec3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4f128e069221ad589ef2c8d1ab8ec3e">&#9670;&nbsp;</a></span>ProcessMouseScroll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Camera::ProcessMouseScroll </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>yoffset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad93bb0b65c5e54d1f3783f43c691bf47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad93bb0b65c5e54d1f3783f43c691bf47">&#9670;&nbsp;</a></span>Front</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 taixu::Camera::Front</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17612cb0eaba0af22e968902d6641bd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17612cb0eaba0af22e968902d6641bd8">&#9670;&nbsp;</a></span>MouseSensitivity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float taixu::Camera::MouseSensitivity</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9b6474df8fc71aad1e05333c60500ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9b6474df8fc71aad1e05333c60500ea">&#9670;&nbsp;</a></span>MovementSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float taixu::Camera::MovementSpeed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2498189f8f0359a10edb1441c18422e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2498189f8f0359a10edb1441c18422e6">&#9670;&nbsp;</a></span>Pitch</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float taixu::Camera::Pitch</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a116e3229e83e4bde55bf8e9b5a6c23c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a116e3229e83e4bde55bf8e9b5a6c23c4">&#9670;&nbsp;</a></span>Position</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 taixu::Camera::Position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e625ca489109fe11f92953608135e25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e625ca489109fe11f92953608135e25">&#9670;&nbsp;</a></span>Right</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 taixu::Camera::Right</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1f92c9c1152e8cfe4c56efac8bf4da1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1f92c9c1152e8cfe4c56efac8bf4da1">&#9670;&nbsp;</a></span>Up</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 taixu::Camera::Up</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2764b3748f463919a559946dd3812954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2764b3748f463919a559946dd3812954">&#9670;&nbsp;</a></span>WorldUp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 taixu::Camera::WorldUp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c86b21d8f7cf1d03a223dd535f2a28c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c86b21d8f7cf1d03a223dd535f2a28c">&#9670;&nbsp;</a></span>Yaw</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float taixu::Camera::Yaw</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9ff2daedee30f9a6f940b5d16520231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9ff2daedee30f9a6f940b5d16520231">&#9670;&nbsp;</a></span>Zoom</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float taixu::Camera::Zoom</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>engine/runtime/graphics/render/<a class="el" href="camera_8hpp_source.html">camera.hpp</a></li>
+<li>engine/runtime/graphics/render/<a class="el" href="camera_8cpp.html">camera.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>

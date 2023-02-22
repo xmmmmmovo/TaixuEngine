@@ -1,235 +1,572 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8" />
-  <title>taixu::Renderer class | TaixuEngine</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
-  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
-  <link rel="icon" href="favicon-dark.png" type="image/png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TaixuEngine: taixu::Renderer Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<header><nav id="navigation">
-  <div class="m-container">
-    <div class="m-row">
-      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">TaixuEngine</a>
-      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
-        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
-        </svg></a>
-        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
-        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
-      </div>
-      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
-        <div class="m-row">
-          <ol class="m-col-t-6 m-col-m-none">
-            <li>
-              <a href="pages.html">Pages</a>
-              <ol>
-                <li><a href="about.html">About</a></li>
-              </ol>
-            </li>
-            <li><a href="namespaces.html">Namespaces</a></li>
-          </ol>
-          <ol class="m-col-t-6 m-col-m-none" start="3">
-            <li><a href="annotated.html">Classes</a></li>
-            <li><a href="files.html">Files</a></li>
-            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-              <use href="#m-doc-search-icon-path" />
-            </svg></a></li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav></header>
-<main><article>
-  <div class="m-container m-container-inflatable">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <h1>
-          <span class="m-breadcrumb"><a href="namespacetaixu.html">taixu</a>::<wbr/></span>Renderer <span class="m-thin">class</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="renderer_8hpp.html">&lt;engine/runtime/graphics/renderer.hpp&gt;</a></div>
-        </h1>
-        <p><span></span></p>
-        <nav class="m-block m-default">
-          <h3>Contents</h3>
-          <ul>
-            <li>
-              Reference
-              <ul>
-                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
-                <li><a href="#pub-methods">Public functions</a></li>
-                <li><a href="#pub-attribs">Public variables</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <section id="typeless-methods">
-          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
-          <dl class="m-doc">
-            <dt id="a27f15475a877fba0ea86a37cba3484c0">
-              <span class="m-doc-wrap-bumper"><a href="#a27f15475a877fba0ea86a37cba3484c0" class="m-doc-self">Renderer</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-info">explicit</span> </span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a9259b0b1dcb20d1977e23aabe73505f0">
-              <span class="m-doc-wrap-bumper"><a href="#a9259b0b1dcb20d1977e23aabe73505f0" class="m-doc-self">~Renderer</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="pub-methods">
-          <h2><a href="#pub-methods">Public functions</a></h2>
-          <dl class="m-doc">
-            <dt id="ad237ed0ecd02fcff4a8ef5d058303be6">
-              <span class="m-doc-wrap-bumper">void <a href="#ad237ed0ecd02fcff4a8ef5d058303be6" class="m-doc-self">initialize</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="af86768669acc423911cc0ac7c25838c3">
-              <span class="m-doc-wrap-bumper">void <a href="#af86768669acc423911cc0ac7c25838c3" class="m-doc-self">tick</a>(</span><span class="m-doc-wrap">float delta_time = 0.03333)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ab76b504112462972a232e38a2dfe93e6">
-              <span class="m-doc-wrap-bumper">void <a href="#ab76b504112462972a232e38a2dfe93e6" class="m-doc-self">clear</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a361a8db07f4eb74ad8b69d840d35f6f6">
-              <span class="m-doc-wrap-bumper">void <a href="#a361a8db07f4eb74ad8b69d840d35f6f6" class="m-doc-self">resize</a>(</span><span class="m-doc-wrap">float width,
-              float height)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a6bd3554e8d84dac44e39be417212c5d6">
-              <span class="m-doc-wrap-bumper">void <a href="#a6bd3554e8d84dac44e39be417212c5d6" class="m-doc-self">processInput</a>(</span><span class="m-doc-wrap">std::string input)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ae6e36003da84c4ce5358ab1abc126583">
-              <span class="m-doc-wrap-bumper">void <a href="#ae6e36003da84c4ce5358ab1abc126583" class="m-doc-self">processInput</a>(</span><span class="m-doc-wrap">glm::vec2 mouse_pos)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a74f4cad047d966433d0c3886ea84bf3f">
-              <span class="m-doc-wrap-bumper">void <a href="#a74f4cad047d966433d0c3886ea84bf3f" class="m-doc-self">processInput</a>(</span><span class="m-doc-wrap">float scroll_yoffset)</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aefe9e95bceafd58f8ca6255c7e696d9d">
-              <span class="m-doc-wrap-bumper">auto <a href="#aefe9e95bceafd58f8ca6255c7e696d9d" class="m-doc-self">getRenderResult</a>(</span><span class="m-doc-wrap">) -&gt; unsigned int</span>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-        <section id="pub-attribs">
-          <h2><a href="#pub-attribs">Public variables</a></h2>
-          <dl class="m-doc">
-            <dt id="a5b2900bff96891ac40edde2b28c2d3b6">
-              const float <a href="#a5b2900bff96891ac40edde2b28c2d3b6" class="m-doc-self">delta_time</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ae5550cb52fa323f1bf47ffba7380aeea">
-              bool <a href="#ae5550cb52fa323f1bf47ffba7380aeea" class="m-doc-self">first_mouse</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a5fe26d2a693ab0a9be879ca7ad4b74c9">
-              float <a href="#a5fe26d2a693ab0a9be879ca7ad4b74c9" class="m-doc-self">last_x</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a976c45b60d6c5eeeecf1ec6eedbe9f8b">
-              float <a href="#a976c45b60d6c5eeeecf1ec6eedbe9f8b" class="m-doc-self">last_y</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="acb0ee1bae6cc7b649546a585fb5daa54">
-              std::shared_ptr&lt;<a href="classtaixu_1_1Camera.html" class="m-doc">Camera</a>&gt; <a href="#acb0ee1bae6cc7b649546a585fb5daa54" class="m-doc-self">first_person_camera</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aac16855f0a625fa33cb40afe77493103">
-              glm::vec3 <a href="#aac16855f0a625fa33cb40afe77493103" class="m-doc-self">lightPos</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="af671aaf3271f16586b639e37280553a7">
-              std::shared_ptr&lt;<a href="classtaixu_1_1Render__Context.html" class="m-doc">Render_<wbr />Context</a>&gt; <a href="#af671aaf3271f16586b639e37280553a7" class="m-doc-self">render_context</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aec4f6bdb6f592191ffa1fe10ea7c65b9">
-              <a href="classtaixu_1_1ShaderProgram.html" class="m-doc">ShaderProgram</a>* <a href="#aec4f6bdb6f592191ffa1fe10ea7c65b9" class="m-doc-self">shaderProgram</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a6c4745066321f3dc0b3db3afc12e5a11">
-              unsigned int <a href="#a6c4745066321f3dc0b3db3afc12e5a11" class="m-doc-self">VBO</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a299717d6059b6dd3b13ea3608a23424c">
-              unsigned int <a href="#a299717d6059b6dd3b13ea3608a23424c" class="m-doc-self">EBO</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aaa020371bf148b5df54b3e5e835a8152">
-              unsigned int <a href="#aaa020371bf148b5df54b3e5e835a8152" class="m-doc-self">VAO</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a5e59f7a331a7cadb41eb6ca9eca17e05">
-              unsigned int <a href="#a5e59f7a331a7cadb41eb6ca9eca17e05" class="m-doc-self">fbo</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a05aed569ce10ef5b1ab54a8e297f4bf4">
-              unsigned int <a href="#a05aed569ce10ef5b1ab54a8e297f4bf4" class="m-doc-self">bufferTexId</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ad6dc54116dfbc8750aad0b2d4b8d4464">
-              unsigned int <a href="#ad6dc54116dfbc8750aad0b2d4b8d4464" class="m-doc-self">rbo</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a607e4b394cc8393c5f5e7151c0228269">
-              glm::vec2 <a href="#a607e4b394cc8393c5f5e7151c0228269" class="m-doc-self">size</a>
-            </dt>
-            <dd><span></span></dd>
-          </dl>
-        </section>
-      </div>
-    </div>
-  </div>
-</article></main>
-<div class="m-doc-search" id="search">
-  <a href="#!" onclick="return hideSearch()"></a>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-m-8 m-push-m-2">
-        <div class="m-doc-search-header m-text m-small">
-          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
-          <div id="search-symbolcount">&hellip;</div>
-        </div>
-        <div class="m-doc-search-content">
-          <form>
-            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
-          </form>
-          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
-          <div id="search-help" class="m-text m-dim m-text-center">
-            <p class="m-noindent">Search for symbols, directories, files, pages or
-            modules. You can omit any prefix from the symbol or file path; adding a
-            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
-            directory.</p>
-            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
-            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
-            <span class="m-label m-dim">Enter</span> to go.
-            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
-            copy a link to the result using <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
-          </div>
-          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
-          <ul id="search-results"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TaixuEngine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
 </div>
-<script src="search-v2.js"></script>
-<script src="searchdata-v2.js" async="async"></script>
-<footer><nav>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <p>TaixuEngine. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
-      </div>
-    </div>
-  </div>
-</nav></footer>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacetaixu.html">taixu</a></li><li class="navelem"><a class="el" href="classtaixu_1_1Renderer.html">Renderer</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="classtaixu_1_1Renderer-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">taixu::Renderer Class Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="renderer_8hpp_source.html">renderer.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for taixu::Renderer:</div>
+<div class="dyncontent">
+<div class="center"><img src="classtaixu_1_1Renderer__coll__graph.png" border="0" usemap="#ataixu_1_1Renderer_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a27f15475a877fba0ea86a37cba3484c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a27f15475a877fba0ea86a37cba3484c0">Renderer</a> ()=default</td></tr>
+<tr class="separator:a27f15475a877fba0ea86a37cba3484c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9259b0b1dcb20d1977e23aabe73505f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a9259b0b1dcb20d1977e23aabe73505f0">~Renderer</a> ()</td></tr>
+<tr class="separator:a9259b0b1dcb20d1977e23aabe73505f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad237ed0ecd02fcff4a8ef5d058303be6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#ad237ed0ecd02fcff4a8ef5d058303be6">initialize</a> ()</td></tr>
+<tr class="separator:ad237ed0ecd02fcff4a8ef5d058303be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af86768669acc423911cc0ac7c25838c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#af86768669acc423911cc0ac7c25838c3">tick</a> (float <a class="el" href="classtaixu_1_1Renderer.html#a5b2900bff96891ac40edde2b28c2d3b6">delta_time</a>=0.03333)</td></tr>
+<tr class="separator:af86768669acc423911cc0ac7c25838c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab76b504112462972a232e38a2dfe93e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#ab76b504112462972a232e38a2dfe93e6">clear</a> ()</td></tr>
+<tr class="separator:ab76b504112462972a232e38a2dfe93e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a361a8db07f4eb74ad8b69d840d35f6f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a361a8db07f4eb74ad8b69d840d35f6f6">resize</a> (float width, float height)</td></tr>
+<tr class="separator:a361a8db07f4eb74ad8b69d840d35f6f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bd3554e8d84dac44e39be417212c5d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a6bd3554e8d84dac44e39be417212c5d6">processInput</a> (std::string input)</td></tr>
+<tr class="separator:a6bd3554e8d84dac44e39be417212c5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6e36003da84c4ce5358ab1abc126583"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#ae6e36003da84c4ce5358ab1abc126583">processInput</a> (glm::vec2 mouse_pos)</td></tr>
+<tr class="separator:ae6e36003da84c4ce5358ab1abc126583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74f4cad047d966433d0c3886ea84bf3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a74f4cad047d966433d0c3886ea84bf3f">processInput</a> (float scroll_yoffset)</td></tr>
+<tr class="separator:a74f4cad047d966433d0c3886ea84bf3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefe9e95bceafd58f8ca6255c7e696d9d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#aefe9e95bceafd58f8ca6255c7e696d9d">getRenderResult</a> ()</td></tr>
+<tr class="separator:aefe9e95bceafd58f8ca6255c7e696d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a5b2900bff96891ac40edde2b28c2d3b6"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a5b2900bff96891ac40edde2b28c2d3b6">delta_time</a> =0.03333</td></tr>
+<tr class="separator:a5b2900bff96891ac40edde2b28c2d3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5550cb52fa323f1bf47ffba7380aeea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#ae5550cb52fa323f1bf47ffba7380aeea">first_mouse</a> =true</td></tr>
+<tr class="separator:ae5550cb52fa323f1bf47ffba7380aeea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe26d2a693ab0a9be879ca7ad4b74c9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a5fe26d2a693ab0a9be879ca7ad4b74c9">last_x</a></td></tr>
+<tr class="separator:a5fe26d2a693ab0a9be879ca7ad4b74c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a976c45b60d6c5eeeecf1ec6eedbe9f8b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a976c45b60d6c5eeeecf1ec6eedbe9f8b">last_y</a></td></tr>
+<tr class="separator:a976c45b60d6c5eeeecf1ec6eedbe9f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0ee1bae6cc7b649546a585fb5daa54"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#acb0ee1bae6cc7b649546a585fb5daa54">first_person_camera</a></td></tr>
+<tr class="separator:acb0ee1bae6cc7b649546a585fb5daa54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac16855f0a625fa33cb40afe77493103"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#aac16855f0a625fa33cb40afe77493103">lightPos</a> = glm::vec3(0, -0.5, -0.5)</td></tr>
+<tr class="separator:aac16855f0a625fa33cb40afe77493103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af671aaf3271f16586b639e37280553a7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Render__Context.html">Render_Context</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#af671aaf3271f16586b639e37280553a7">render_context</a></td></tr>
+<tr class="separator:af671aaf3271f16586b639e37280553a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec4f6bdb6f592191ffa1fe10ea7c65b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1ShaderProgram.html">ShaderProgram</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#aec4f6bdb6f592191ffa1fe10ea7c65b9">shaderProgram</a></td></tr>
+<tr class="separator:aec4f6bdb6f592191ffa1fe10ea7c65b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c4745066321f3dc0b3db3afc12e5a11"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a6c4745066321f3dc0b3db3afc12e5a11">VBO</a></td></tr>
+<tr class="separator:a6c4745066321f3dc0b3db3afc12e5a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a299717d6059b6dd3b13ea3608a23424c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a299717d6059b6dd3b13ea3608a23424c">EBO</a></td></tr>
+<tr class="separator:a299717d6059b6dd3b13ea3608a23424c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa020371bf148b5df54b3e5e835a8152"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#aaa020371bf148b5df54b3e5e835a8152">VAO</a></td></tr>
+<tr class="separator:aaa020371bf148b5df54b3e5e835a8152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e59f7a331a7cadb41eb6ca9eca17e05"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a5e59f7a331a7cadb41eb6ca9eca17e05">fbo</a></td></tr>
+<tr class="separator:a5e59f7a331a7cadb41eb6ca9eca17e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05aed569ce10ef5b1ab54a8e297f4bf4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a05aed569ce10ef5b1ab54a8e297f4bf4">bufferTexId</a></td></tr>
+<tr class="separator:a05aed569ce10ef5b1ab54a8e297f4bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6dc54116dfbc8750aad0b2d4b8d4464"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#ad6dc54116dfbc8750aad0b2d4b8d4464">rbo</a></td></tr>
+<tr class="separator:ad6dc54116dfbc8750aad0b2d4b8d4464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a607e4b394cc8393c5f5e7151c0228269"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a607e4b394cc8393c5f5e7151c0228269">size</a> = {1366, 768}</td></tr>
+<tr class="separator:a607e4b394cc8393c5f5e7151c0228269"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a27f15475a877fba0ea86a37cba3484c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27f15475a877fba0ea86a37cba3484c0">&#9670;&nbsp;</a></span>Renderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">taixu::Renderer::Renderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9259b0b1dcb20d1977e23aabe73505f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9259b0b1dcb20d1977e23aabe73505f0">&#9670;&nbsp;</a></span>~Renderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">taixu::Renderer::~Renderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab76b504112462972a232e38a2dfe93e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab76b504112462972a232e38a2dfe93e6">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Renderer::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefe9e95bceafd58f8ca6255c7e696d9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefe9e95bceafd58f8ca6255c7e696d9d">&#9670;&nbsp;</a></span>getRenderResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int taixu::Renderer::getRenderResult </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad237ed0ecd02fcff4a8ef5d058303be6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad237ed0ecd02fcff4a8ef5d058303be6">&#9670;&nbsp;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Renderer::initialize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a74f4cad047d966433d0c3886ea84bf3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74f4cad047d966433d0c3886ea84bf3f">&#9670;&nbsp;</a></span>processInput() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Renderer::processInput </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scroll_yoffset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6e36003da84c4ce5358ab1abc126583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6e36003da84c4ce5358ab1abc126583">&#9670;&nbsp;</a></span>processInput() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Renderer::processInput </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>mouse_pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6bd3554e8d84dac44e39be417212c5d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bd3554e8d84dac44e39be417212c5d6">&#9670;&nbsp;</a></span>processInput() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Renderer::processInput </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a361a8db07f4eb74ad8b69d840d35f6f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a361a8db07f4eb74ad8b69d840d35f6f6">&#9670;&nbsp;</a></span>resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Renderer::resize </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af86768669acc423911cc0ac7c25838c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af86768669acc423911cc0ac7c25838c3">&#9670;&nbsp;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Renderer::tick </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>delta_time</em> = <code>0.03333</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a05aed569ce10ef5b1ab54a8e297f4bf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05aed569ce10ef5b1ab54a8e297f4bf4">&#9670;&nbsp;</a></span>bufferTexId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int taixu::Renderer::bufferTexId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b2900bff96891ac40edde2b28c2d3b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b2900bff96891ac40edde2b28c2d3b6">&#9670;&nbsp;</a></span>delta_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float taixu::Renderer::delta_time =0.03333</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a299717d6059b6dd3b13ea3608a23424c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a299717d6059b6dd3b13ea3608a23424c">&#9670;&nbsp;</a></span>EBO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int taixu::Renderer::EBO</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e59f7a331a7cadb41eb6ca9eca17e05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e59f7a331a7cadb41eb6ca9eca17e05">&#9670;&nbsp;</a></span>fbo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int taixu::Renderer::fbo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5550cb52fa323f1bf47ffba7380aeea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5550cb52fa323f1bf47ffba7380aeea">&#9670;&nbsp;</a></span>first_mouse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool taixu::Renderer::first_mouse =true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb0ee1bae6cc7b649546a585fb5daa54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb0ee1bae6cc7b649546a585fb5daa54">&#9670;&nbsp;</a></span>first_person_camera</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1Camera.html">Camera</a>&gt; taixu::Renderer::first_person_camera</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5fe26d2a693ab0a9be879ca7ad4b74c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fe26d2a693ab0a9be879ca7ad4b74c9">&#9670;&nbsp;</a></span>last_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float taixu::Renderer::last_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a976c45b60d6c5eeeecf1ec6eedbe9f8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a976c45b60d6c5eeeecf1ec6eedbe9f8b">&#9670;&nbsp;</a></span>last_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float taixu::Renderer::last_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac16855f0a625fa33cb40afe77493103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac16855f0a625fa33cb40afe77493103">&#9670;&nbsp;</a></span>lightPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 taixu::Renderer::lightPos = glm::vec3(0, -0.5, -0.5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6dc54116dfbc8750aad0b2d4b8d4464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6dc54116dfbc8750aad0b2d4b8d4464">&#9670;&nbsp;</a></span>rbo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int taixu::Renderer::rbo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af671aaf3271f16586b639e37280553a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af671aaf3271f16586b639e37280553a7">&#9670;&nbsp;</a></span>render_context</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1Render__Context.html">Render_Context</a>&gt; taixu::Renderer::render_context</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec4f6bdb6f592191ffa1fe10ea7c65b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec4f6bdb6f592191ffa1fe10ea7c65b9">&#9670;&nbsp;</a></span>shaderProgram</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtaixu_1_1ShaderProgram.html">ShaderProgram</a>* taixu::Renderer::shaderProgram</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a607e4b394cc8393c5f5e7151c0228269"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a607e4b394cc8393c5f5e7151c0228269">&#9670;&nbsp;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 taixu::Renderer::size = {1366, 768}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa020371bf148b5df54b3e5e835a8152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa020371bf148b5df54b3e5e835a8152">&#9670;&nbsp;</a></span>VAO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int taixu::Renderer::VAO</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c4745066321f3dc0b3db3afc12e5a11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c4745066321f3dc0b3db3afc12e5a11">&#9670;&nbsp;</a></span>VBO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int taixu::Renderer::VBO</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>engine/runtime/graphics/<a class="el" href="renderer_8hpp_source.html">renderer.hpp</a></li>
+<li>engine/runtime/graphics/<a class="el" href="renderer_8cpp.html">renderer.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>
