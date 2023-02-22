@@ -43,7 +43,5 @@ jobs:
       - name: Publish
         uses: peaceiris/actions-gh-pages@v3
         with:
-          # TODO: remove after engine open
-          external_repository: TaixuEngineGroup/TaixuEngine-docs
           github_token: ${{ secrets.TAIXU_GITHUB_TOKEN }}
           publish_dir: ./build/doxygen/html
