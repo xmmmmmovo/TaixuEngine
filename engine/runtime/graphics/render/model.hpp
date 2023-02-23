@@ -17,9 +17,9 @@
 #include <vector>
 
 #include "mesh.hpp"
-
+#include "texture.hpp"
 namespace taixu {
-class Model {
+class Model_Data {
 public:
     // model data
     std::vector<Texture>
@@ -27,7 +27,7 @@ public:
     std::vector<Mesh> meshes;
     std::string       directory;
     bool              gammaCorrection;
-    Model(std::string const &path, bool gamma = false) { loadModel(path); }
+    Model_Data(std::string const &path, bool gamma = false) { loadModel(path); }
     void loadModel(std::string const &path);
     // draws the model, and thus all its meshes
     void Draw() {}
@@ -41,8 +41,8 @@ private:
                                               aiTextureType type,
                                               std::string   typeName);
 
-    unsigned int TextureFromFile(const char *path, const std::string &directory,
-                                 bool gamma);
+    //unsigned int TextureFromFile(const char *path, const std::string &directory,
+                                 //bool gamma);
 };
 
 }// namespace taixu
