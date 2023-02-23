@@ -1,5 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="5,5,124,32"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1TX__GLFWwindow.html" title=" " alt="" coords="172,5,347,32"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1editor_1_1MainWindow.html" title=" " alt="" coords="395,5,588,32"/>
+<area shape="rect" id="node1" href="$classtaixu_1_1IShader.html" title=" " alt="" coords="5,5,117,32"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1OGLShader.html" title=" " alt="" coords="165,5,300,32"/>
 </map>

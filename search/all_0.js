@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_5fid_0',['_id',['../classtaixu_1_1Shader.html#ad26cd3016fd8005417e36db589e9cd40',1,'taixu::Shader::_id()'],['../classtaixu_1_1ShaderProgram.html#ae02f8d7eaaa55c73a4f6c941b487e29d',1,'taixu::ShaderProgram::_id()']]],
-  ['_5fsource_1',['_source',['../classtaixu_1_1Shader.html#a33fc76a03fa4670f3f0adb0e14191c6d',1,'taixu::Shader']]]
+  ['_5fid_0',['_id',['../classtaixu_1_1IShader.html#af150c49c49b4a38f0713bf3eba7b27dd',1,'taixu::IShader::_id()'],['../classtaixu_1_1IShaderProgram.html#ae6b42b1f9fbab65cb27198e0c8ae989b',1,'taixu::IShaderProgram::_id()']]],
+  ['_5fshader_5ftype_1',['_shader_type',['../classtaixu_1_1OGLShader.html#adda5aa7e5ab91e387a983df7902faf5b',1,'taixu::OGLShader']]],
+  ['_5fsource_2',['_source',['../classtaixu_1_1OGLShader.html#a8ad4a7664389b6aedfce3ef8cfabde4e',1,'taixu::OGLShader']]]
 ];

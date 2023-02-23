@@ -94,13 +94,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Model.html">Model</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Shader.html">Shader</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IShader.html">IShader</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1VertexShader.html">VertexShader</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1FragmentShader.html">FragmentShader</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ShaderProgram.html">ShaderProgram</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IShaderProgram.html">IShaderProgram</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Render__Data.html">Render_Data</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,6 +110,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1IWindowContext.html">IWindowContext</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">仅在父类使用为Prop 在所有类中使用为Context  <a href="structtaixu_1_1IWindowContext.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLShader.html">OGLShader</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLShaderProgram.html">OGLShaderProgram</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,6 +128,10 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1dafc42e2051bd9f9d5f64d34b04719f8c9">RIGHT</a>
  }</td></tr>
 <tr class="separator:a0acd751b16c6daf9d8f69707c889db1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e161627201589eb79d6ce2083cd46e3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">ShaderTypeEnum</a> { <a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a4c4c8525ed098cb4d0e1926439f4be9a">VERTEX</a>
+, <a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3adbb27117159e4b13c34d9ec1832f3208">FRAGMENT</a>
+ }</td></tr>
+<tr class="separator:a8e161627201589eb79d6ce2083cd46e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -139,6 +141,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a285c0ff61bfb0bcdf4d2cc4453376d95"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Ts&gt; </td></tr>
 <tr class="memitem:a285c0ff61bfb0bcdf4d2cc4453376d95"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a285c0ff61bfb0bcdf4d2cc4453376d95">hash_combine</a> (std::size_t &amp;seed, const T &amp;v, Ts... rest)</td></tr>
 <tr class="separator:a285c0ff61bfb0bcdf4d2cc4453376d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaed3ec10be035d59d94c20d504c9aae"><td class="memItemLeft" align="right" valign="top">GLenum&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#acaed3ec10be035d59d94c20d504c9aae">mapToShaderTypeGLenum</a> (<a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">ShaderTypeEnum</a> type)</td></tr>
+<tr class="separator:acaed3ec10be035d59d94c20d504c9aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a205aa55ac5fab58c5ad92706605d58fc"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a205aa55ac5fab58c5ad92706605d58fc">mapToShaderTypeString</a> (<a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">ShaderTypeEnum</a> type)</td></tr>
+<tr class="separator:a205aa55ac5fab58c5ad92706605d58fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5e35a634a47a2237dffad3adc8f9ca8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::filesystem::path &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ae5e35a634a47a2237dffad3adc8f9ca8">getFiles</a> (const std::filesystem::path &amp;directory)</td></tr>
 <tr class="separator:ae5e35a634a47a2237dffad3adc8f9ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a881dac0713ceac8c69161afa6b6faedc"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a881dac0713ceac8c69161afa6b6faedc">getRelativePath</a> (const std::filesystem::path &amp;directory, const std::filesystem::path &amp;file_path)</td></tr>
@@ -186,6 +192,24 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a0acd751b16c6daf9d8f69707c889db1da82dcadb1fd643a52bb803bd046a25854"></a>BACKWARD&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a0acd751b16c6daf9d8f69707c889db1da7fa23dd7112c7a118528d60a04674f77"></a>LEFT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a0acd751b16c6daf9d8f69707c889db1dafc42e2051bd9f9d5f64d34b04719f8c9"></a>RIGHT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a8e161627201589eb79d6ce2083cd46e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e161627201589eb79d6ce2083cd46e3">&#9670;&nbsp;</a></span>ShaderTypeEnum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">taixu::ShaderTypeEnum</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8e161627201589eb79d6ce2083cd46e3a4c4c8525ed098cb4d0e1926439f4be9a"></a>VERTEX&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8e161627201589eb79d6ce2083cd46e3adbb27117159e4b13c34d9ec1832f3208"></a>FRAGMENT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -369,6 +393,42 @@ template&lt;typename T , typename... Ts&gt; </div>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acaed3ec10be035d59d94c20d504c9aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaed3ec10be035d59d94c20d504c9aae">&#9670;&nbsp;</a></span>mapToShaderTypeGLenum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLenum taixu::mapToShaderTypeGLenum </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">ShaderTypeEnum</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a205aa55ac5fab58c5ad92706605d58fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a205aa55ac5fab58c5ad92706605d58fc">&#9670;&nbsp;</a></span>mapToShaderTypeString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string_view taixu::mapToShaderTypeString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">ShaderTypeEnum</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
