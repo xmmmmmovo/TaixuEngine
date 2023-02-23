@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 2023/2/18.
 //
 
-#include "resource_manager.hpp"
+#include "asset_manager.hpp"
 
 namespace taixu::resource {
 std::atomic<std::uint8_t> GUID_Generator::next_id{0};
