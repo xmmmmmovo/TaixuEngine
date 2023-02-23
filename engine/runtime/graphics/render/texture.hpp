@@ -5,16 +5,21 @@
 #ifndef TAIXUENGINE_TEXTURE_HPP
 #define TAIXUENGINE_TEXTURE_HPP
 
+#include <cstdint>
+
+#include "core/base/noncopyable.hpp"
+
 namespace taixu {
 
-class Texture {
-protected:
-    Texture() = default;
-
+class ITexture : private noncopyable {
 public:
-    virtual ~Texture() = default;
+    virtual int getWidth() const     = 0;
+    virtual int getHeight() const    = 0;
+    virtual uint32_t getTextureID() const = 0;
 
+    virtual void bind(uint32_t slot = 0) const = 0;
 
+    virtual bool operator==(const ITexture& other) const = 0;
 };
 
 }// namespace taixu
