@@ -1,4 +1,5 @@
 <map id="taixu::IWindow" name="taixu::IWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="31,95,150,121"/>
-<area shape="rect" id="node2" href="$structtaixu_1_1IWindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="5,5,176,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="110,95,229,121"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node3" href="$structtaixu_1_1IWindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="176,5,347,32"/>
 </map>

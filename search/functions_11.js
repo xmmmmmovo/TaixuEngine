@@ -1,14 +1,6 @@
 var searchData=
 [
-  ['_7eeditorstyle_421',['~EditorStyle',['../structtaixu_1_1editor_1_1EditorStyle.html#a5b55a9fe894cd6e95f80fef25e8ec420',1,'taixu::editor::EditorStyle']]],
-  ['_7eishader_422',['~IShader',['../classtaixu_1_1IShader.html#a146d1b2c7d2b641272619170fa926313',1,'taixu::IShader']]],
-  ['_7eishaderprogram_423',['~IShaderProgram',['../classtaixu_1_1IShaderProgram.html#adb64c9a5cf94dcde1cbbdbdd1e980c05',1,'taixu::IShaderProgram']]],
-  ['_7eiwindow_424',['~IWindow',['../classtaixu_1_1IWindow.html#afc1829d69c7e2bda8aa9417490822f4d',1,'taixu::IWindow']]],
-  ['_7eoglshader_425',['~OGLShader',['../classtaixu_1_1OGLShader.html#ad53a253d016c70fe75d581823fb0631b',1,'taixu::OGLShader']]],
-  ['_7eoglshaderprogram_426',['~OGLShaderProgram',['../classtaixu_1_1OGLShaderProgram.html#a8ce6dde7554a4843a8b9c97121f7adba',1,'taixu::OGLShaderProgram']]],
-  ['_7epublicsingleton_427',['~PublicSingleton',['../classtaixu_1_1PublicSingleton.html#a7a7b9adabc24268c8108c6ef9aabc3ed',1,'taixu::PublicSingleton']]],
-  ['_7erender_5fcontext_428',['~Render_Context',['../classtaixu_1_1Render__Context.html#ab5b7c1cbb4613f6b23fc53b038d8a7d0',1,'taixu::Render_Context']]],
-  ['_7erender_5fdata_429',['~Render_Data',['../classtaixu_1_1Render__Data.html#a7ddfe8391bd7c37cd85dacf68ebee52f',1,'taixu::Render_Data']]],
-  ['_7erenderer_430',['~Renderer',['../classtaixu_1_1Renderer.html#a9259b0b1dcb20d1977e23aabe73505f0',1,'taixu::Renderer']]],
-  ['_7etx_5fglfwwindow_431',['~TX_GLFWwindow',['../classtaixu_1_1TX__GLFWwindow.html#af7402a3c9aafcb1a455c583cfb7b0cf0',1,'taixu::TX_GLFWwindow']]]
+  ['update_441',['update',['../classtaixu_1_1editor_1_1IUIComponent.html#a258856ab95998fbd61d9eaaa210f3a8e',1,'taixu::editor::IUIComponent::update()'],['../classtaixu_1_1editor_1_1ConsoleComponent.html#ad7505f84d16fee5de88075b960f7c56c',1,'taixu::editor::ConsoleComponent::update()'],['../classtaixu_1_1editor_1_1DetailComponent.html#a4e51cd7d0c6ebd1c692eaa779f9259e9',1,'taixu::editor::DetailComponent::update()'],['../classtaixu_1_1editor_1_1FileComponent.html#a815be96b2e1adffe63ed42ae944914a2',1,'taixu::editor::FileComponent::update()'],['../classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0',1,'taixu::editor::HierarchyComponent::update()'],['../classtaixu_1_1editor_1_1MenuComponent.html#a41f1ce59b7bfd524f89944a947f580e0',1,'taixu::editor::MenuComponent::update()'],['../classtaixu_1_1editor_1_1RenderComponent.html#a1f74a3948f129b57c8ac61cfd35d8be4',1,'taixu::editor::RenderComponent::update()'],['../classtaixu_1_1editor_1_1ToolbarComponent.html#add3bf1f2a1e97cbd6566c54020e181fd',1,'taixu::editor::ToolbarComponent::update()'],['../classtaixu_1_1editor_1_1ImguiSurface.html#a62ae0b8ae5be91d4a470b4962c636daf',1,'taixu::editor::ImguiSurface::update()'],['../classtaixu_1_1editor_1_1MainWindow.html#a5406a9373a7766a833ff41f07b171cc9',1,'taixu::editor::MainWindow::update()'],['../classtaixu_1_1TX__GLFWwindow.html#aa2249980054bd8af63119d8c0bee203a',1,'taixu::TX_GLFWwindow::update()'],['../classtaixu_1_1IWindow.html#a736dd34f059a092551908b52a638e2c2',1,'taixu::IWindow::update()']]],
+  ['updatecameravectors_442',['updateCameraVectors',['../classtaixu_1_1Camera.html#a8a14835e16374be6d77d0f8823a17f74',1,'taixu::Camera']]],
+  ['use_443',['use',['../classtaixu_1_1IShaderProgram.html#a25eb4b742ce5725b9e86ee86483105f2',1,'taixu::IShaderProgram::use()'],['../classtaixu_1_1OGLShaderProgram.html#aee5bd4467e1d6bafc11a52f5455fa9e6',1,'taixu::OGLShaderProgram::use()']]]
 ];
