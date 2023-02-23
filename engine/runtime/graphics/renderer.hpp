@@ -11,6 +11,7 @@
 #include "graphics/render/camera.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/render/shader.hpp"
+#include "platform/opengl/OGLShader.hpp"
 
 
 namespace taixu {
@@ -24,8 +25,7 @@ public:
     explicit Render_Data() = default;
     ~Render_Data(){};
     void initialize() {
-        model = std::make_shared<Model>(
-                std::string("assets/model/cube.obj"));
+        model = std::make_shared<Model>(std::string("assets/model/cube.obj"));
     }
     Render_Data *getData() { return this; };
 
@@ -102,16 +102,16 @@ class Renderer {
 public:
     explicit Renderer() = default;
     ~Renderer(){};
-    const float delta_time=0.03333;
-    void initialize();
-    void tick(float delta_time = 0.03333);
-    void clear();
+    const float delta_time = 0.03333;
+    void        initialize();
+    void        tick(float delta_time = 0.03333);
+    void        clear();
 
     void         resize(float width, float height);
     void         processInput(std::string input);
     void         processInput(glm::vec2 mouse_pos);
-    bool         first_mouse=true;
-    float        last_x,last_y;
+    bool         first_mouse = true;
+    float        last_x, last_y;
     void         processInput(float scroll_yoffset);
     unsigned int getRenderResult() { return bufferTexId; };
 
@@ -120,7 +120,7 @@ public:
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 
     std::shared_ptr<Render_Context> render_context;
-    ShaderProgram              *shaderProgram;
+    IShaderProgram                 *shaderProgram;
 
     unsigned int VBO, EBO, VAO;
     unsigned int fbo, bufferTexId, rbo;
@@ -128,6 +128,6 @@ public:
 };
 
 
-}// namespace taixu::cg
+}// namespace taixu
 
 #endif//TAIXUENGINE_RENDERER_HPP
