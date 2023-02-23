@@ -8,4 +8,6 @@ namespace taixu {
 
 struct Project {};
 
+void ProjectManager::openProject(std::string const& path) {}
+
 }// namespace taixu
