@@ -68,6 +68,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtaixu_1_1editor_1_1RenderComponent-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">taixu::editor::RenderComponent Class Reference</div>  </div>
@@ -81,7 +82,7 @@ Inheritance diagram for taixu::editor::RenderComponent:</div>
 <div class="center"><img src="classtaixu_1_1editor_1_1RenderComponent__inherit__graph.png" border="0" usemap="#ataixu_1_1editor_1_1RenderComponent_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1editor_1_1RenderComponent_inherit__map" id="ataixu_1_1editor_1_1RenderComponent_inherit__map">
 <area shape="rect" title=" " alt="" coords="5,80,236,107"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title=" " alt="" coords="19,5,222,32"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="19,5,222,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -90,17 +91,19 @@ Collaboration diagram for taixu::editor::RenderComponent:</div>
 <div class="center"><img src="classtaixu_1_1editor_1_1RenderComponent__coll__graph.png" border="0" usemap="#ataixu_1_1editor_1_1RenderComponent_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1editor_1_1RenderComponent_coll__map" id="ataixu_1_1editor_1_1RenderComponent_coll__map">
 <area shape="rect" title=" " alt="" coords="5,80,236,107"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title=" " alt="" coords="19,5,222,32"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="19,5,222,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac6c302ceea1ba0cfc42f0be05dfc7383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#ac6c302ceea1ba0cfc42f0be05dfc7383">init</a> () override</td></tr>
+<tr class="memdesc:ac6c302ceea1ba0cfc42f0be05dfc7383"><td class="mdescLeft">&#160;</td><td class="mdescRight">init function, init some function after imgui inited.  <a href="classtaixu_1_1editor_1_1RenderComponent.html#ac6c302ceea1ba0cfc42f0be05dfc7383">More...</a><br /></td></tr>
 <tr class="separator:ac6c302ceea1ba0cfc42f0be05dfc7383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac75aa6b486edf34638bb0600a5d91132"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#ac75aa6b486edf34638bb0600a5d91132">preUpdate</a> ()</td></tr>
 <tr class="separator:ac75aa6b486edf34638bb0600a5d91132"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f74a3948f129b57c8ac61cfd35d8be4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#a1f74a3948f129b57c8ac61cfd35d8be4">update</a> () override</td></tr>
+<tr class="memdesc:a1f74a3948f129b57c8ac61cfd35d8be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">render update  <a href="classtaixu_1_1editor_1_1RenderComponent.html#a1f74a3948f129b57c8ac61cfd35d8be4">More...</a><br /></td></tr>
 <tr class="separator:a1f74a3948f129b57c8ac61cfd35d8be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab06b4ec570ccea566c5656daa73e21bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#ab06b4ec570ccea566c5656daa73e21bd">processInput</a> (std::string input)</td></tr>
 <tr class="separator:ab06b4ec570ccea566c5656daa73e21bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,10 +117,16 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a80dd170be8d7ca15d609190a48bd4456"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#a80dd170be8d7ca15d609190a48bd4456">delta_time</a> = 0.03333</td></tr>
 <tr class="separator:a80dd170be8d7ca15d609190a48bd4456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a1252df7be0dbb415a2dc8db3f27b38b9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Renderer.html">Renderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#a1252df7be0dbb415a2dc8db3f27b38b9">m_renderer</a></td></tr>
+<tr class="separator:a1252df7be0dbb415a2dc8db3f27b38b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classtaixu_1_1editor_1_1IUIComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classtaixu_1_1editor_1_1IUIComponent')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classtaixu_1_1editor_1_1IUIComponent.html">taixu::editor::IUIComponent</a></td></tr>
 <tr class="memitem:a7dc0ab6bae4263c713182a712d327a2e inherit pro_methods_classtaixu_1_1editor_1_1IUIComponent"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1IUIComponent.html#a7dc0ab6bae4263c713182a712d327a2e">IUIComponent</a> ()=default</td></tr>
+<tr class="memdesc:a7dc0ab6bae4263c713182a712d327a2e inherit pro_methods_classtaixu_1_1editor_1_1IUIComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">hide constructor because this is interface  <a href="classtaixu_1_1editor_1_1IUIComponent.html#a7dc0ab6bae4263c713182a712d327a2e">More...</a><br /></td></tr>
 <tr class="separator:a7dc0ab6bae4263c713182a712d327a2e inherit pro_methods_classtaixu_1_1editor_1_1IUIComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -143,6 +152,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>init function, init some function after imgui inited. </p>
 
 <p>Implements <a class="el" href="classtaixu_1_1editor_1_1IUIComponent.html#a0822cb899598358d9c01a5c095846d86">taixu::editor::IUIComponent</a>.</p>
 
@@ -274,6 +285,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>render update </p>
+
 <p>Implements <a class="el" href="classtaixu_1_1editor_1_1IUIComponent.html#a258856ab95998fbd61d9eaaa210f3a8e">taixu::editor::IUIComponent</a>.</p>
 
 </div>
@@ -289,6 +302,28 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">const float taixu::editor::RenderComponent::delta_time = 0.03333</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1252df7be0dbb415a2dc8db3f27b38b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1252df7be0dbb415a2dc8db3f27b38b9">&#9670;&nbsp;</a></span>m_renderer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1Renderer.html">Renderer</a>&gt; taixu::editor::RenderComponent::m_renderer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

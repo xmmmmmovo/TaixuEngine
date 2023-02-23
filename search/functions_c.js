@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['render_5fcontext_356',['Render_Context',['../classtaixu_1_1Render__Context.html#ad36d4b646feefbc361c61b6f264af3be',1,'taixu::Render_Context']]],
-  ['render_5fdata_357',['Render_Data',['../classtaixu_1_1Render__Data.html#a70807289e5556b9a32886bc5bfbdbf32',1,'taixu::Render_Data']]],
-  ['renderer_358',['Renderer',['../classtaixu_1_1Renderer.html#a27f15475a877fba0ea86a37cba3484c0',1,'taixu::Renderer']]],
-  ['resize_359',['resize',['../classtaixu_1_1Renderer.html#a361a8db07f4eb74ad8b69d840d35f6f6',1,'taixu::Renderer']]],
-  ['run_360',['run',['../classtaixu_1_1editor_1_1Application.html#a5b244b17cb7895f24c21ae3594e7df82',1,'taixu::editor::Application']]]
+  ['preupdate_388',['preUpdate',['../classtaixu_1_1editor_1_1ImguiSurface.html#ad2f302335ba3ad00d55cef259f852de9',1,'taixu::editor::ImguiSurface::preUpdate()'],['../classtaixu_1_1editor_1_1RenderComponent.html#ac75aa6b486edf34638bb0600a5d91132',1,'taixu::editor::RenderComponent::preUpdate()']]],
+  ['processfiledialog_389',['processFileDialog',['../classtaixu_1_1editor_1_1MenuComponent.html#a09b58726c02794f73a73f41c87766c14',1,'taixu::editor::MenuComponent']]],
+  ['processinput_390',['processInput',['../classtaixu_1_1Renderer.html#ae6e36003da84c4ce5358ab1abc126583',1,'taixu::Renderer::processInput(glm::vec2 mouse_pos)'],['../classtaixu_1_1Renderer.html#a74f4cad047d966433d0c3886ea84bf3f',1,'taixu::Renderer::processInput(float scroll_yoffset)'],['../classtaixu_1_1Renderer.html#a6bd3554e8d84dac44e39be417212c5d6',1,'taixu::Renderer::processInput(std::string input)'],['../classtaixu_1_1editor_1_1MainWindow.html#ae3b991d5f6fadca5421b9f4f9e8d815f',1,'taixu::editor::MainWindow::processInput()'],['../classtaixu_1_1editor_1_1RenderComponent.html#ab84717ad28a2824b5c6309688c904b66',1,'taixu::editor::RenderComponent::processInput(float scroll_yoffset)'],['../classtaixu_1_1editor_1_1RenderComponent.html#a82a28dc713aa81e132c58bd333d15a43',1,'taixu::editor::RenderComponent::processInput(glm::vec2 mouse_pos)'],['../classtaixu_1_1editor_1_1RenderComponent.html#ab06b4ec570ccea566c5656daa73e21bd',1,'taixu::editor::RenderComponent::processInput(std::string input)']]],
+  ['processkeyboard_391',['ProcessKeyboard',['../classtaixu_1_1Camera.html#a59c8ff357c588498fcf6c72ce896568b',1,'taixu::Camera']]],
+  ['processmesh_392',['processMesh',['../classtaixu_1_1Model.html#aeda30bebb6efe3ebc506f65ec22a0acc',1,'taixu::Model']]],
+  ['processmousemovement_393',['ProcessMouseMovement',['../classtaixu_1_1Camera.html#a4c884aaa0de46050c78c607cb3e3fc5b',1,'taixu::Camera']]],
+  ['processmousescroll_394',['ProcessMouseScroll',['../classtaixu_1_1Camera.html#af4f128e069221ad589ef2c8d1ab8ec3e',1,'taixu::Camera']]],
+  ['processnode_395',['processNode',['../classtaixu_1_1Model.html#a88172c84e8669f45d1d9c7fd24409261',1,'taixu::Model']]],
+  ['publicsingleton_396',['PublicSingleton',['../classtaixu_1_1PublicSingleton.html#a57d5fa9ef0ef1dbcc430c6c38a5be7f6',1,'taixu::PublicSingleton::PublicSingleton()=default'],['../classtaixu_1_1PublicSingleton.html#ae8398d5c55d9caef4a29889180de6d86',1,'taixu::PublicSingleton::PublicSingleton(const PublicSingleton &amp;)=delete']]]
 ];

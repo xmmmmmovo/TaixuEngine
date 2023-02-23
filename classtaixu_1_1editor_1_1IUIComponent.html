@@ -74,13 +74,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>UI component interface.  
+ <a href="classtaixu_1_1editor_1_1IUIComponent.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="component_8hpp_source.html">component.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for taixu::editor::IUIComponent:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1editor_1_1IUIComponent__inherit__graph.png" border="0" usemap="#ataixu_1_1editor_1_1IUIComponent_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1editor_1_1IUIComponent_inherit__map" id="ataixu_1_1editor_1_1IUIComponent_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,165,208,192"/>
+<area shape="rect" title="UI component interface." alt="" coords="5,165,208,192"/>
 <area shape="rect" href="classtaixu_1_1editor_1_1ConsoleComponent.html" title=" " alt="" coords="256,5,492,32"/>
 <area shape="rect" href="classtaixu_1_1editor_1_1DetailComponent.html" title=" " alt="" coords="263,56,485,83"/>
 <area shape="rect" href="classtaixu_1_1editor_1_1FileComponent.html" title=" " alt="" coords="271,107,477,133"/>
@@ -94,16 +97,21 @@ Inheritance diagram for taixu::editor::IUIComponent:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0822cb899598358d9c01a5c095846d86"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1IUIComponent.html#a0822cb899598358d9c01a5c095846d86">init</a> ()=0</td></tr>
+<tr class="memdesc:a0822cb899598358d9c01a5c095846d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">init function, init some function after imgui inited.  <a href="classtaixu_1_1editor_1_1IUIComponent.html#a0822cb899598358d9c01a5c095846d86">More...</a><br /></td></tr>
 <tr class="separator:a0822cb899598358d9c01a5c095846d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a258856ab95998fbd61d9eaaa210f3a8e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1IUIComponent.html#a258856ab95998fbd61d9eaaa210f3a8e">update</a> ()=0</td></tr>
+<tr class="memdesc:a258856ab95998fbd61d9eaaa210f3a8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">render update  <a href="classtaixu_1_1editor_1_1IUIComponent.html#a258856ab95998fbd61d9eaaa210f3a8e">More...</a><br /></td></tr>
 <tr class="separator:a258856ab95998fbd61d9eaaa210f3a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a7dc0ab6bae4263c713182a712d327a2e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1IUIComponent.html#a7dc0ab6bae4263c713182a712d327a2e">IUIComponent</a> ()=default</td></tr>
+<tr class="memdesc:a7dc0ab6bae4263c713182a712d327a2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">hide constructor because this is interface  <a href="classtaixu_1_1editor_1_1IUIComponent.html#a7dc0ab6bae4263c713182a712d327a2e">More...</a><br /></td></tr>
 <tr class="separator:a7dc0ab6bae4263c713182a712d327a2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>UI component interface. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7dc0ab6bae4263c713182a712d327a2e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7dc0ab6bae4263c713182a712d327a2e">&#9670;&nbsp;</a></span>IUIComponent()</h2>
 
@@ -126,6 +134,8 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>hide constructor because this is interface </p>
 
 </div>
 </div>
@@ -153,6 +163,8 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>init function, init some function after imgui inited. </p>
+
 <p>Implemented in <a class="el" href="classtaixu_1_1editor_1_1ToolbarComponent.html#a4a0aec8edb023718fbf39558e04e1ad1">taixu::editor::ToolbarComponent</a>, <a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#ac6c302ceea1ba0cfc42f0be05dfc7383">taixu::editor::RenderComponent</a>, <a class="el" href="classtaixu_1_1editor_1_1MenuComponent.html#a712858a0dcfc68c024a54b482ec7e029">taixu::editor::MenuComponent</a>, <a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a53ebfda2630237fe5ed1e2b0b8d03715">taixu::editor::HierarchyComponent</a>, <a class="el" href="classtaixu_1_1editor_1_1FileComponent.html#aaf27b99245f8aecc89420510ad85a2e4">taixu::editor::FileComponent</a>, <a class="el" href="classtaixu_1_1editor_1_1DetailComponent.html#a48632f1c67ee52748ae1dc2ac02b5ccc">taixu::editor::DetailComponent</a>, and <a class="el" href="classtaixu_1_1editor_1_1ConsoleComponent.html#a443f3f1b3a57db7a8a68d5b2d87e91e5">taixu::editor::ConsoleComponent</a>.</p>
 
 </div>
@@ -179,6 +191,8 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>render update </p>
 
 <p>Implemented in <a class="el" href="classtaixu_1_1editor_1_1ToolbarComponent.html#add3bf1f2a1e97cbd6566c54020e181fd">taixu::editor::ToolbarComponent</a>, <a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#a1f74a3948f129b57c8ac61cfd35d8be4">taixu::editor::RenderComponent</a>, <a class="el" href="classtaixu_1_1editor_1_1MenuComponent.html#a41f1ce59b7bfd524f89944a947f580e0">taixu::editor::MenuComponent</a>, <a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">taixu::editor::HierarchyComponent</a>, <a class="el" href="classtaixu_1_1editor_1_1FileComponent.html#a815be96b2e1adffe63ed42ae944914a2">taixu::editor::FileComponent</a>, <a class="el" href="classtaixu_1_1editor_1_1DetailComponent.html#a4e51cd7d0c6ebd1c692eaa779f9259e9">taixu::editor::DetailComponent</a>, and <a class="el" href="classtaixu_1_1editor_1_1ConsoleComponent.html#ad7505f84d16fee5de88075b960f7c56c">taixu::editor::ConsoleComponent</a>.</p>
 

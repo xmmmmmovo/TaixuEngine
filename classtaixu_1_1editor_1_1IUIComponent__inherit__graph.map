@@ -1,5 +1,5 @@
 <map id="taixu::editor::IUIComponent" name="taixu::editor::IUIComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="5,165,208,192"/>
+<area shape="rect" id="node1" title="UI component interface." alt="" coords="5,165,208,192"/>
 <area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1ConsoleComponent.html" title=" " alt="" coords="256,5,492,32"/>
 <area shape="rect" id="node3" href="$classtaixu_1_1editor_1_1DetailComponent.html" title=" " alt="" coords="263,56,485,83"/>
 <area shape="rect" id="node4" href="$classtaixu_1_1editor_1_1FileComponent.html" title=" " alt="" coords="271,107,477,133"/>

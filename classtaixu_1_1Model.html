@@ -68,6 +68,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classtaixu_1_1Model-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">taixu::Model Class Reference</div>  </div>
@@ -95,6 +96,17 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a30cec5015209b70e0196c66fb63f4c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a094fe094acc1cbc62958dbc83ba40c4b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Model.html#a094fe094acc1cbc62958dbc83ba40c4b">gammaCorrection</a></td></tr>
 <tr class="separator:a094fe094acc1cbc62958dbc83ba40c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a88172c84e8669f45d1d9c7fd24409261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Model.html#a88172c84e8669f45d1d9c7fd24409261">processNode</a> (aiNode *node, const aiScene *scene)</td></tr>
+<tr class="separator:a88172c84e8669f45d1d9c7fd24409261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeda30bebb6efe3ebc506f65ec22a0acc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1Mesh.html">Mesh</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Model.html#aeda30bebb6efe3ebc506f65ec22a0acc">processMesh</a> (aiMesh *mesh, const aiScene *scene)</td></tr>
+<tr class="separator:aeda30bebb6efe3ebc506f65ec22a0acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19784e35065916978e2a48820c07d103"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structtaixu_1_1Texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Model.html#a19784e35065916978e2a48820c07d103">loadMaterialTextures</a> (aiMaterial *mat, aiTextureType type, std::string typeName)</td></tr>
+<tr class="separator:a19784e35065916978e2a48820c07d103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31035a30562eff38c9a0d5eaaa4991da"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Model.html#a31035a30562eff38c9a0d5eaaa4991da">TextureFromFile</a> (const char *path, const std::string &amp;<a class="el" href="classtaixu_1_1Model.html#a30cec5015209b70e0196c66fb63f4c5a">directory</a>, bool gamma)</td></tr>
+<tr class="separator:a31035a30562eff38c9a0d5eaaa4991da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa2d84901ebca51d0f9809eeec0b338de"></a>
@@ -159,6 +171,48 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a19784e35065916978e2a48820c07d103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19784e35065916978e2a48820c07d103">&#9670;&nbsp;</a></span>loadMaterialTextures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structtaixu_1_1Texture.html">Texture</a> &gt; taixu::Model::loadMaterialTextures </td>
+          <td>(</td>
+          <td class="paramtype">aiMaterial *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">aiTextureType&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>typeName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="adb9ab491da69fc7351b84b0d0fb3f7f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb9ab491da69fc7351b84b0d0fb3f7f5">&#9670;&nbsp;</a></span>loadModel()</h2>
 
@@ -173,6 +227,120 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeda30bebb6efe3ebc506f65ec22a0acc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeda30bebb6efe3ebc506f65ec22a0acc">&#9670;&nbsp;</a></span>processMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtaixu_1_1Mesh.html">Mesh</a> taixu::Model::processMesh </td>
+          <td>(</td>
+          <td class="paramtype">aiMesh *&#160;</td>
+          <td class="paramname"><em>mesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const aiScene *&#160;</td>
+          <td class="paramname"><em>scene</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88172c84e8669f45d1d9c7fd24409261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88172c84e8669f45d1d9c7fd24409261">&#9670;&nbsp;</a></span>processNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Model::processNode </td>
+          <td>(</td>
+          <td class="paramtype">aiNode *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const aiScene *&#160;</td>
+          <td class="paramname"><em>scene</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a31035a30562eff38c9a0d5eaaa4991da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31035a30562eff38c9a0d5eaaa4991da">&#9670;&nbsp;</a></span>TextureFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int taixu::Model::TextureFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>directory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>gamma</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

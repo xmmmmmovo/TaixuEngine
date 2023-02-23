@@ -68,6 +68,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtaixu_1_1Camera-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">taixu::Camera Class Reference</div>  </div>
@@ -115,6 +117,18 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a17612cb0eaba0af22e968902d6641bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9ff2daedee30f9a6f940b5d16520231"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#aa9ff2daedee30f9a6f940b5d16520231">Zoom</a></td></tr>
 <tr class="separator:aa9ff2daedee30f9a6f940b5d16520231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a8a14835e16374be6d77d0f8823a17f74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#a8a14835e16374be6d77d0f8823a17f74">updateCameraVectors</a> ()</td></tr>
+<tr class="separator:a8a14835e16374be6d77d0f8823a17f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae7e708bf710ba59e888115acba0ce532"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#ae7e708bf710ba59e888115acba0ce532">ProjectionMatrix</a></td></tr>
+<tr class="separator:ae7e708bf710ba59e888115acba0ce532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe464e1d34782c43a283940336dbffd3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html#abe464e1d34782c43a283940336dbffd3">initialFoV</a> = 45.0f</td></tr>
+<tr class="separator:abe464e1d34782c43a283940336dbffd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acf806b27296bc7d28ea24eb3b5ac9157"></a>
@@ -376,6 +390,31 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a8a14835e16374be6d77d0f8823a17f74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a14835e16374be6d77d0f8823a17f74">&#9670;&nbsp;</a></span>updateCameraVectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Camera::updateCameraVectors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="ad93bb0b65c5e54d1f3783f43c691bf47"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad93bb0b65c5e54d1f3783f43c691bf47">&#9670;&nbsp;</a></span>Front</h2>
@@ -387,6 +426,28 @@ Public Attributes</h2></td></tr>
           <td class="memname">glm::vec3 taixu::Camera::Front</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe464e1d34782c43a283940336dbffd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe464e1d34782c43a283940336dbffd3">&#9670;&nbsp;</a></span>initialFoV</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float taixu::Camera::initialFoV = 45.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -443,6 +504,28 @@ Public Attributes</h2></td></tr>
           <td class="memname">glm::vec3 taixu::Camera::Position</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7e708bf710ba59e888115acba0ce532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7e708bf710ba59e888115acba0ce532">&#9670;&nbsp;</a></span>ProjectionMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 taixu::Camera::ProjectionMatrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

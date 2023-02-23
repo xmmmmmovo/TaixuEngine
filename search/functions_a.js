@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['operator_3d_348',['operator=',['../classtaixu_1_1PublicSingleton.html#a7993429861f011c538fd830902b5489f',1,'taixu::PublicSingleton::operator=()'],['../classtaixu_1_1Shader.html#ac38ad6622895c7e9d43cd2ec69c54cbf',1,'taixu::Shader::operator=(const Shader &amp;)=delete'],['../classtaixu_1_1Shader.html#aa94e690c748902969fa48a99717c8772',1,'taixu::Shader::operator=(Shader &amp;&amp;other) noexcept=default'],['../classtaixu_1_1IWindow.html#a55752bce6fa98cd95ea1fe187e0ebae3',1,'taixu::IWindow::operator=()']]]
+  ['main_383',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['mainwindow_384',['MainWindow',['../classtaixu_1_1editor_1_1MainWindow.html#afce6776ad8b553762dace13c47e03fe9',1,'taixu::editor::MainWindow::MainWindow()'],['../classtaixu_1_1editor_1_1MainWindow.html#a4b1baac511a45075956d010413552c12',1,'taixu::editor::MainWindow::MainWindow(IWindowContext const &amp;context)']]],
+  ['mesh_385',['Mesh',['../classtaixu_1_1Mesh.html#aeb9b71d8095614179133c35a90923657',1,'taixu::Mesh']]],
+  ['model_386',['Model',['../classtaixu_1_1Model.html#aa2d84901ebca51d0f9809eeec0b338de',1,'taixu::Model']]]
 ];

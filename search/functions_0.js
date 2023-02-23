@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bindbuffer_311',['bindBuffer',['../classtaixu_1_1Render__Context.html#ade54fcf8875db6d104c77ca93d45548e',1,'taixu::Render_Context']]]
+  ['addwidget_346',['addWidget',['../classtaixu_1_1editor_1_1ImguiSurface.html#ab9a0d96e88f70b74c1f40fa98d0a06b2',1,'taixu::editor::ImguiSurface']]]
 ];
