@@ -7,12 +7,14 @@
 
 #include <imgui.h>
 
+#include "core/base/noncopyable.hpp"
+
 namespace taixu::editor {
 
 /**
  * @brief UI component interface
  */
-class IUIComponent {
+class IUIComponent: private noncopyable{
 protected:
     /**
      * @brief hide constructor because this is interface
