@@ -9,6 +9,10 @@
 
 namespace taixu {
 
+/**
+ * @brief public extend singleton class
+ * @tparam T Type for singleton instance
+ */
 template<typename T>
 class PublicSingleton {
 protected:
@@ -16,10 +20,15 @@ protected:
     ~PublicSingleton() noexcept = default;
 
 public:
+    /**
+     * @brief get instance, thread safe.
+     * @return static instance ref.
+     */
     static T& getInstance() noexcept(std::is_nothrow_constructible<T>::value) {
         static T instance;
         return instance;
     }
+
     PublicSingleton(const PublicSingleton&)            = delete;
     PublicSingleton& operator=(const PublicSingleton&) = delete;
 };

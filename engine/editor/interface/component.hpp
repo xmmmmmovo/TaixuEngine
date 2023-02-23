@@ -9,12 +9,24 @@
 
 namespace taixu::editor {
 
+/**
+ * @brief UI component interface
+ */
 class IUIComponent {
 protected:
+    /**
+     * @brief hide constructor because this is interface
+     */
     IUIComponent() = default;
 
 public:
+    /**
+     * @brief init function, init some function after imgui inited.
+     */
     virtual void init()   = 0;
+    /**
+     * @brief render update
+     */
     virtual void update() = 0;
 };
 
