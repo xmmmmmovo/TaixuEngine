@@ -5,6 +5,18 @@
 #ifndef TAIXUENGINE_TEXTURE_HPP
 #define TAIXUENGINE_TEXTURE_HPP
 
-namespace taixu {}
+namespace taixu {
+
+class Texture {
+protected:
+    Texture() = default;
+
+public:
+    virtual ~Texture() = default;
+
+
+};
+
+}// namespace taixu
 
 #endif//TAIXUENGINE_TEXTURE_HPP
