@@ -19,6 +19,9 @@
 
 namespace taixu::editor {
 
+/**
+ * @brief Imgui render surface.
+ */
 class ImguiSurface {
 private:
     // names
@@ -45,8 +48,16 @@ private:
     std::shared_ptr<ApplicationContext> context{};
 
 private:
+    /**
+     * @brief add widget to the surface
+     * @param name the component name
+     * @param update update function, most from component->update();
+     * @param flags window flags
+     * @see https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags---Enumerations/
+     * @param open open pointer, to judge whether window opened
+     */
     void addWidget(char const *name, const std::function<void()> &update,
-                   ImGuiWindowFlags const flags = 0, bool *open = nullptr);
+                   ImGuiWindowFlags flags = 0, bool *open = nullptr);
 
 public:
     ImguiSurface() {

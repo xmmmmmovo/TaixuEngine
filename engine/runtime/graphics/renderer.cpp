@@ -14,14 +14,19 @@ void Renderer::initialize() {
     render_context->initialize();
 
     first_person_camera = std::make_shared<Camera>();
-    shaderProgram = new ShaderProgram(VERT_VERT, FRAG_FRAG);
+    shaderProgram       = new OGLShaderProgram(VERT_VERT, FRAG_FRAG);
 
     glGenVertexArrays(1, &VAO);
 
 
-
     //Bind buffer for each Mesh
+<<<<<<< HEAD
     render_context->bindMesh(VAO,VBO,EBO,render_context->getSwapContext()->getData()->model->meshes[0]);
+=======
+    render_context->bindBuffer(
+            VAO, VBO, EBO,
+            render_context->getSwapContext()->getData()->model->meshes[0]);
+>>>>>>> 04fbcae85263f988753ae2161a58e98d91b2e6c5
 
     // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -83,7 +88,8 @@ void Renderer::tick(float delta_time) {
     //Draw as meshes
     glDrawElements(GL_TRIANGLES,
                    static_cast<unsigned int>(render_context->getSwapContext()
-                                                     ->model->meshes[0].indices.size()),
+                                                     ->model->meshes[0]
+                                                     .indices.size()),
                    GL_UNSIGNED_INT, 0);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
@@ -92,41 +98,40 @@ void Renderer::resize(float width, float height) {
     size.x = width;
     size.y = height;
 }
-void Renderer::processInput(std::string input) { 
+void Renderer::processInput(std::string input) {
 
-    if (input == "FORWARD") 
-        first_person_camera->ProcessKeyboard(
-                taixu::Camera_Movement::FORWARD, delta_time);
+    if (input == "FORWARD")
+        first_person_camera->ProcessKeyboard(taixu::Camera_Movement::FORWARD,
+                                             delta_time);
     if (input == "BACKWARD")
-        first_person_camera->ProcessKeyboard(
-                taixu::Camera_Movement::BACKWARD, delta_time);
+        first_person_camera->ProcessKeyboard(taixu::Camera_Movement::BACKWARD,
+                                             delta_time);
     if (input == "LEFT")
-        first_person_camera->ProcessKeyboard(
-            taixu::Camera_Movement::LEFT,delta_time);
+        first_person_camera->ProcessKeyboard(taixu::Camera_Movement::LEFT,
+                                             delta_time);
     if (input == "RIGHT")
-        first_person_camera->ProcessKeyboard(
-            taixu::Camera_Movement::RIGHT,delta_time);
+        first_person_camera->ProcessKeyboard(taixu::Camera_Movement::RIGHT,
+                                             delta_time);
 }
-void Renderer::processInput(glm::vec2 mouse_pos) 
-{
+void Renderer::processInput(glm::vec2 mouse_pos) {
 
     if (first_mouse) {
         last_x      = mouse_pos.x;
-        last_y       = mouse_pos.y;
+        last_y      = mouse_pos.y;
         first_mouse = false;
     }
 
     float xoffset = mouse_pos.x - last_x;
     float yoffset =
-            last_y - mouse_pos.y;// reversed since y-coordinates go from bottom to top
+            last_y -
+            mouse_pos.y;// reversed since y-coordinates go from bottom to top
 
     last_x = mouse_pos.x;
     last_y = mouse_pos.y;
 
     first_person_camera->ProcessMouseMovement(xoffset, yoffset);
 }
-void Renderer::processInput(float scroll_yoffset) 
-{
+void Renderer::processInput(float scroll_yoffset) {
     first_person_camera->ProcessMouseScroll(scroll_yoffset);
 }
-}// namespace taixu::cg
+}// namespace taixu

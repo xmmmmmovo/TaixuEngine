@@ -9,25 +9,23 @@
 #include <assimp/Importer.hpp>
 #include <stb_image.h>
 
-#include"graphics/render/mesh.hpp"
-namespace taixu 
-{
-class Texture_Data
-{
-public:
-    unsigned int id;
-    std::string  type;
-    std::string  path;
-    std::string  name;
-    //for call of model 
-    unsigned int TextureFromFile(const char        *path,
-                                          const std::string &directory,
-                                          bool               gamma);
-    //TODO::if we know the definite path
-    unsigned int TextureFromFile(std::string file_path,bool gamma);
+#include <cstdint>
 
+#include "core/base/noncopyable.hpp"
+
+namespace taixu {
+
+class ITexture : private noncopyable {
+public:
+    virtual int getWidth() const     = 0;
+    virtual int getHeight() const    = 0;
+    virtual uint32_t getTextureID() const = 0;
+
+    virtual void bind(uint32_t slot = 0) const = 0;
+
+    virtual bool operator==(const ITexture& other) const = 0;
 };
 
-}
+}// namespace taixu
 
 #endif//TAIXUENGINE_TEXTURE_HPP

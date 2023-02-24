@@ -5,27 +5,21 @@
 #ifndef TAIXUENGINE_WINDOW_HPP
 #define TAIXUENGINE_WINDOW_HPP
 
+#include "core/base/noncopyable.hpp"
 #include "window_context.hpp"
 
 namespace taixu {
 
-class IWindow {
+class IWindow : private noncopyable {
 protected:
     IWindowContext context{};
-
-protected:
-    IWindow() = default;
 
 public:
     virtual void init()    = 0;
     virtual void update()  = 0;
     virtual void destroy() = 0;
-    virtual ~IWindow()     = default;
-
-    IWindow(const IWindow &)            = delete;
-    IWindow &operator=(const IWindow &) = delete;
 };
 
-}// namespace taixu::gui
+}// namespace taixu
 
 #endif//TAIXUENGINE_WINDOW_HPP
