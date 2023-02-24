@@ -11,7 +11,7 @@
 #include "graphics/render/camera.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/render/shader.hpp"
-
+#include "graphics/render/texture.hpp"
 
 namespace taixu {
 
@@ -89,6 +89,16 @@ public:
         glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex),
                               (void *) offsetof(Vertex, m_Weights));
         glBindVertexArray(0);
+    }
+
+    void bindTexture(ShaderProgram *shaderProgram,Texture_Data texture_data) 
+    {
+        glActiveTexture(GL_TEXTURE);
+        glBindTexture(GL_TEXTURE_2D, texture_data.id);
+        //GUID for each render_data
+        shaderProgram->set_uniform(texture_data.name, (int)texture_data.id);
+    
+    
     }
     Render_Data *getSwapContext() { return render_data->getData(); };
 

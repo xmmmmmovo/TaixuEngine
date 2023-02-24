@@ -18,6 +18,7 @@ public:
     unsigned int id;
     std::string  type;
     std::string  path;
+    std::string  name;
     //for call of model 
     unsigned int TextureFromFile(const char        *path,
                                           const std::string &directory,

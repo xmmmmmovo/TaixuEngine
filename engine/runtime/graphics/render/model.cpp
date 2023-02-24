@@ -144,8 +144,8 @@ std::vector<Texture> Model_Data::loadMaterialTextures(aiMaterial   *mat,
         if (!skip) {// if texture hasn't been loaded already, load it
             Texture texture;
             Texture_Data texture_data;
-            texture.id   = texture_data.TextureFromFile(str.C_Str(),
-                                                       this->directory, false);
+            texture_data.TextureFromFile(str.C_Str(),this->directory, false);
+            texture.id   = resource::GUID_Generator::generate_new_guid();
             texture.type = typeName;
             texture.path = str.C_Str();
             textures.push_back(texture);

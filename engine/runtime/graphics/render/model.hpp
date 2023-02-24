@@ -18,6 +18,7 @@
 
 #include "mesh.hpp"
 #include "texture.hpp"
+#include "resource/asset_manager.hpp"
 namespace taixu {
 class Model_Data {
 public:
