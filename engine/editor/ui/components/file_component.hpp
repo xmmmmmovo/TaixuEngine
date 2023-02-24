@@ -17,10 +17,13 @@ private:
     static ImGuiWindowFlags constexpr window_flags =
             ImGuiWindowFlags_HorizontalScrollbar;
 
+    std::filesystem::path m_CurrentDirectory;
+    Ref<Texture2D> m_DirectoryIcon;
+    Ref<Texture2D> m_FileIcon;
+
 public:
     void init() override {}
     void update() override {
-        // Child 1: no border, enable horizontal scrollbar
         {
             ImGui::BeginChild(
                     "FileTree",
@@ -30,25 +33,59 @@ public:
                 ImGui::Text("%04d: scrollable region", i);
             ImGui::EndChild();
         }
-
-        ImGui::SameLine();
-
+        // Child 1: no border, enable horizontal scrollbar
+        
+            ImGui::SameLine();
         // Child 2: rounded border
         {
-            ImGui::PushStyleVar(ImGuiStyleVar_ChildRounding, 5.0f);
-            ImGui::BeginChild("FilePreview", ImVec2(0, 0), true);
-            if (ImGui::BeginTable("split", 2,
+            ImGui::BeginChild("ChildR", ImVec2(0, 260), false, window_flags);
+            static float padding       = 16.0f;
+            static float thumbnailSize = 128.0f;
+            float        cellSize      = thumbnailSize + padding;
+
+            float panelWidth  = ImGui::GetContentRegionAvail().x;
+            int   columnCount = (int) (panelWidth / cellSize);
+            if (columnCount < 1) columnCount = 1;
+            if (ImGui::BeginTable("split", columnCount,
                                   ImGuiTableFlags_Resizable |
                                           ImGuiTableFlags_NoSavedSettings)) {
                 for (int i = 0; i < 100; i++) {
+                    char buf[32];
+                    sprintf(buf, "%03d", i);
                     ImGui::TableNextColumn();
-                    ImGui::Button("111", ImVec2(-FLT_MIN, 0.0f));
+                    ImGui::Button(buf, {thumbnailSize,thumbnailSize});
+                    ImGui::Text("nuo");
                 }
                 ImGui::EndTable();
             }
+
+            ImGui::Columns(1);
+
+            ImGui::SliderFloat("Thumbnail Size", &thumbnailSize, 16, 512);
+            ImGui::SliderFloat("Padding", &padding, 0, 32);
             ImGui::EndChild();
-            ImGui::PopStyleVar();
+            
         }
+        /*ImGui::Begin("Content Browser");
+        static float padding       = 16.0f;
+        static float thumbnailSize = 128.0f;
+        float        cellSize      = thumbnailSize + padding;
+
+        float panelWidth  = ImGui::GetContentRegionAvail().x;
+        int   columnCount = (int) (panelWidth / cellSize);
+        if (columnCount < 1) columnCount = 1;
+
+        ImGui::Columns(columnCount, 0, false);
+        ImGui::Button("chennuo", {thumbnailSize, thumbnailSize});
+        ImGui::Text("chennuo");
+
+        ImGui::Columns(1);
+
+        ImGui::SliderFloat("Thumbnail Size", &thumbnailSize, 16, 512);
+        ImGui::SliderFloat("Padding", &padding, 0, 32);
+
+        ImGui::End;*/
+        
     }
 };
 }// namespace taixu::editor
