@@ -5,7 +5,18 @@
 
 namespace taixu {
 
-enum ShaderTypeEnum { VERTEX, FRAGMENT };
+/**
+ * @brief shader type
+ * @see https://registry.khronos.org/OpenGL-Refpages/gl4/html/glCreateShader.xhtml
+ */
+enum ShaderTypeEnum {
+    VERTEX,
+    FRAGMENT,
+    COMPUTE,
+    TESS_CONTROL,
+    TESS_EVALUATION,
+    GEOMETRY
+};
 
 class IShader : private noncopyable {
 protected:

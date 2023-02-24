@@ -20,12 +20,17 @@ std::vector<std::string> getPathSegments(
     return segments;
 }
 
-std::tuple<std::string, std::string, std::string> getFileExtensions(
+std::vector<std::string> getFileExtensions(
         const std::filesystem::path& file_path) {
-    return std::make_tuple(
-            file_path.extension().generic_string(),
-            file_path.stem().extension().generic_string(),
-            file_path.stem().stem().extension().generic_string());
+    std::vector<std::string> res(1);
+    for (auto p = file_path; !p.extension().empty(); p = p.stem()) {
+        res.emplace_back(p.extension().generic_string());
+    }
+    return res;
+}
+
+std::string getLastExtension(const std::filesystem::path& file_path) {
+    return file_path.extension().generic_string();
 }
 
 std::string getFilePureName(const std::string& file_full_name) {
@@ -38,4 +43,4 @@ std::string getFilePureName(const std::string& file_full_name) {
     return file_pure_name;
 }
 
-}// namespace taixu::platform
+}// namespace taixu
