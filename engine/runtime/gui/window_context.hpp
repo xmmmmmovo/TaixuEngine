@@ -21,9 +21,11 @@ struct IWindowContext {
     explicit IWindowContext(std::int32_t const     &width,
                             std::int32_t const     &height,
                             std::string_view const &title)
-        : width(width), height(height), title(title) {}
+        : width(width),
+          height(height),
+          title(title) {}
 };
 
-}// namespace taixu::gui
+}// namespace taixu
 
 #endif//TAIXUENGINE_WINDOW_CONTEXT_HPP

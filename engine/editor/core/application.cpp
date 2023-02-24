@@ -12,10 +12,16 @@
 
 namespace taixu::editor {
 
+/**
+ * @brief init spdlog config
+ */
 void initSpdlog() {
     spdlog::set_level(spdlog::level::debug);// Set global log level to debug
 }
 
+/**
+ * @brief init arguments parser
+ */
 void initApplicationArgs() {}
 
 void Application::initialize() {

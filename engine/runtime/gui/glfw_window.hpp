@@ -6,6 +6,7 @@
 #define TAIXUENGINE_GLFW_WINDOW_HPP
 
 #include <glad/glad.h>
+
 #include <GLFW/glfw3.h>
 #include <spdlog/spdlog.h>
 
@@ -25,17 +26,19 @@ private:
 
 public:
     TX_GLFWwindow() = default;
-    TX_GLFWwindow(IWindowContext const &context_) { context = context_; }
+    explicit TX_GLFWwindow(IWindowContext const &context_) {
+        context = context_;
+    }
     ~TX_GLFWwindow() override = default;
 
     void init() override;
     void update() override;
     void destroy() override;
 
-    bool getIsVsync() const;
+    [[nodiscard]] bool getIsVsync() const;
     void setIsVsync(bool isVsync);
 };
 
-}// namespace taixu::gui
+}// namespace taixu
 
 #endif//TAIXUENGINE_GLFW_WINDOW_HPP

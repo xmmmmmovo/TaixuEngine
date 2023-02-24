@@ -35,9 +35,6 @@ include(../3rdparty/FindGlfw3.cmake)
 # add glm
 include(../3rdparty/FindGLM.cmake)
 
-# add GroupSourcesByFolder
-include(../3rdparty/FindGroupSourcesByFolder.cmake)
-
 # add stb
 include(../3rdparty/FindStb.cmake)
 

@@ -9,6 +9,11 @@
 
 namespace taixu::editor {
 
+/**
+ * This class encapsulate the imgui c style api.
+ *
+ * @brief unfinished style class
+ */
 struct EditorStyle {
     EditorStyle() = default;
     EditorStyle(ImGuiCol idx, ImVec4 color, bool predicate = true)
