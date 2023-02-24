@@ -1,5 +1,5 @@
 <map id="taixu::ITexture" name="taixu::ITexture">
 <area shape="rect" id="node1" title=" " alt="" coords="21,80,136,107"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1OGLTexture.html" title=" " alt="" coords="10,155,147,181"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1OGLTexture.html" title="OpenGL texture." alt="" coords="10,155,147,181"/>
 <area shape="rect" id="node2" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="5,5,152,32"/>
 </map>

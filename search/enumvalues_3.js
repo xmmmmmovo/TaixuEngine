@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['idlemode_555',['IDLEMODE',['../namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8aa78978d393ef5f2a4795d11e724620928',1,'taixu::editor']]]
+  ['forward_562',['FORWARD',['../namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da50c2fc57053018385350b70d55712937',1,'taixu']]],
+  ['fragment_563',['FRAGMENT',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3adbb27117159e4b13c34d9ec1832f3208',1,'taixu']]]
 ];

@@ -88,19 +88,22 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;std::vector&lt;std::string&gt; <a class="code" href="namespacetaixu.html#ac6b2bea29adb7f251249e2af52aaf6ca">getPathSegments</a>(</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;std::tuple&lt;std::string, std::string, std::string&gt; <a class="code" href="namespacetaixu.html#a14a15de34946b4b88c9a587c396f39a1">getFileExtensions</a>(</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;std::string <a class="code" href="namespacetaixu.html#ab19eaf5d7295e86921308f915322a9fe">getFilePureName</a>(<span class="keyword">const</span> std::string&amp;);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}<span class="comment">// namespace taixu::platform</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;std::vector&lt;std::string&gt; <a class="code" href="namespacetaixu.html#aa3edf7c7d843186ca8ee41ab8b2a371b">getFileExtensions</a>(</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_PATH_HPP</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;std::string <a class="code" href="namespacetaixu.html#aa957f205abdf6df8a3ee560d0da743d0">getLastExtension</a>(<span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;std::string <a class="code" href="namespacetaixu.html#ab19eaf5d7295e86921308f915322a9fe">getFilePureName</a>(<span class="keyword">const</span> std::string&amp;);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_PATH_HPP</span></div>
 <div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:13</div></div>
-<div class="ttc" id="anamespacetaixu_html_a14a15de34946b4b88c9a587c396f39a1"><div class="ttname"><a href="namespacetaixu.html#a14a15de34946b4b88c9a587c396f39a1">taixu::getFileExtensions</a></div><div class="ttdeci">std::tuple&lt; std::string, std::string, std::string &gt; getFileExtensions(const std::filesystem::path &amp;file_path)</div><div class="ttdef"><b>Definition:</b> path.cpp:23</div></div>
 <div class="ttc" id="anamespacetaixu_html_a881dac0713ceac8c69161afa6b6faedc"><div class="ttname"><a href="namespacetaixu.html#a881dac0713ceac8c69161afa6b6faedc">taixu::getRelativePath</a></div><div class="ttdeci">std::filesystem::path getRelativePath(const std::filesystem::path &amp;directory, const std::filesystem::path &amp;file_path)</div><div class="ttdef"><b>Definition:</b> path.cpp:9</div></div>
-<div class="ttc" id="anamespacetaixu_html_ab19eaf5d7295e86921308f915322a9fe"><div class="ttname"><a href="namespacetaixu.html#ab19eaf5d7295e86921308f915322a9fe">taixu::getFilePureName</a></div><div class="ttdeci">std::string getFilePureName(const std::string &amp;file_full_name)</div><div class="ttdef"><b>Definition:</b> path.cpp:31</div></div>
+<div class="ttc" id="anamespacetaixu_html_aa3edf7c7d843186ca8ee41ab8b2a371b"><div class="ttname"><a href="namespacetaixu.html#aa3edf7c7d843186ca8ee41ab8b2a371b">taixu::getFileExtensions</a></div><div class="ttdeci">std::vector&lt; std::string &gt; getFileExtensions(const std::filesystem::path &amp;file_path)</div><div class="ttdef"><b>Definition:</b> path.cpp:23</div></div>
+<div class="ttc" id="anamespacetaixu_html_aa957f205abdf6df8a3ee560d0da743d0"><div class="ttname"><a href="namespacetaixu.html#aa957f205abdf6df8a3ee560d0da743d0">taixu::getLastExtension</a></div><div class="ttdeci">std::string getLastExtension(const std::filesystem::path &amp;file_path)</div><div class="ttdoc">get last extension</div><div class="ttdef"><b>Definition:</b> path.cpp:32</div></div>
+<div class="ttc" id="anamespacetaixu_html_ab19eaf5d7295e86921308f915322a9fe"><div class="ttname"><a href="namespacetaixu.html#ab19eaf5d7295e86921308f915322a9fe">taixu::getFilePureName</a></div><div class="ttdeci">std::string getFilePureName(const std::string &amp;file_full_name)</div><div class="ttdef"><b>Definition:</b> path.cpp:36</div></div>
 <div class="ttc" id="anamespacetaixu_html_ac6b2bea29adb7f251249e2af52aaf6ca"><div class="ttname"><a href="namespacetaixu.html#ac6b2bea29adb7f251249e2af52aaf6ca">taixu::getPathSegments</a></div><div class="ttdeci">std::vector&lt; std::string &gt; getPathSegments(const std::filesystem::path &amp;file_path)</div><div class="ttdef"><b>Definition:</b> path.cpp:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

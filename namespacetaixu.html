@@ -121,6 +121,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLShaderProgram.html">OGLShaderProgram</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLTexture.html">OGLTexture</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL texture.  <a href="classtaixu_1_1OGLTexture.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1Project.html">Project</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,9 +136,17 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1dafc42e2051bd9f9d5f64d34b04719f8c9">RIGHT</a>
  }</td></tr>
 <tr class="separator:a0acd751b16c6daf9d8f69707c889db1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e161627201589eb79d6ce2083cd46e3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">ShaderTypeEnum</a> { <a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a4c4c8525ed098cb4d0e1926439f4be9a">VERTEX</a>
+<tr class="memitem:a8e161627201589eb79d6ce2083cd46e3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">ShaderTypeEnum</a> { <br />
+&#160;&#160;<a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a4c4c8525ed098cb4d0e1926439f4be9a">VERTEX</a>
 , <a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3adbb27117159e4b13c34d9ec1832f3208">FRAGMENT</a>
+, <a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3ab86be59142ebc7ff1f2c1720426f5802">COMPUTE</a>
+, <a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3ac2cd45b0319c9527058f3cfaa8fcb244">TESS_CONTROL</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a68b8d5b7b162d6652d5ff874f296828d">TESS_EVALUATION</a>
+, <a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a1bf9d54e1b266cacdd0b937e462f9adc">GEOMETRY</a>
+<br />
  }</td></tr>
+<tr class="memdesc:a8e161627201589eb79d6ce2083cd46e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">shader type  <a href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">More...</a><br /></td></tr>
 <tr class="separator:a8e161627201589eb79d6ce2083cd46e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -152,14 +161,19 @@ Functions</h2></td></tr>
 <tr class="separator:acaed3ec10be035d59d94c20d504c9aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a205aa55ac5fab58c5ad92706605d58fc"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a205aa55ac5fab58c5ad92706605d58fc">mapToShaderTypeString</a> (<a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">ShaderTypeEnum</a> type)</td></tr>
 <tr class="separator:a205aa55ac5fab58c5ad92706605d58fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b059f197588dff329e7188f511d10e"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a50b059f197588dff329e7188f511d10e">mapImageToGLReadType</a> (std::string const &amp;ext)</td></tr>
+<tr class="separator:a50b059f197588dff329e7188f511d10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5e35a634a47a2237dffad3adc8f9ca8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::filesystem::path &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ae5e35a634a47a2237dffad3adc8f9ca8">getFiles</a> (const std::filesystem::path &amp;directory)</td></tr>
 <tr class="separator:ae5e35a634a47a2237dffad3adc8f9ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a881dac0713ceac8c69161afa6b6faedc"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a881dac0713ceac8c69161afa6b6faedc">getRelativePath</a> (const std::filesystem::path &amp;directory, const std::filesystem::path &amp;file_path)</td></tr>
 <tr class="separator:a881dac0713ceac8c69161afa6b6faedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6b2bea29adb7f251249e2af52aaf6ca"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ac6b2bea29adb7f251249e2af52aaf6ca">getPathSegments</a> (const std::filesystem::path &amp;file_path)</td></tr>
 <tr class="separator:ac6b2bea29adb7f251249e2af52aaf6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14a15de34946b4b88c9a587c396f39a1"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; std::string, std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a14a15de34946b4b88c9a587c396f39a1">getFileExtensions</a> (const std::filesystem::path &amp;file_path)</td></tr>
-<tr class="separator:a14a15de34946b4b88c9a587c396f39a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3edf7c7d843186ca8ee41ab8b2a371b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa3edf7c7d843186ca8ee41ab8b2a371b">getFileExtensions</a> (const std::filesystem::path &amp;file_path)</td></tr>
+<tr class="separator:aa3edf7c7d843186ca8ee41ab8b2a371b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa957f205abdf6df8a3ee560d0da743d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa957f205abdf6df8a3ee560d0da743d0">getLastExtension</a> (const std::filesystem::path &amp;file_path)</td></tr>
+<tr class="memdesc:aa957f205abdf6df8a3ee560d0da743d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">get last extension  <a href="namespacetaixu.html#aa957f205abdf6df8a3ee560d0da743d0">More...</a><br /></td></tr>
+<tr class="separator:aa957f205abdf6df8a3ee560d0da743d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab19eaf5d7295e86921308f915322a9fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ab19eaf5d7295e86921308f915322a9fe">getFilePureName</a> (const std::string &amp;file_full_name)</td></tr>
 <tr class="separator:ab19eaf5d7295e86921308f915322a9fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -214,22 +228,29 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>shader type </p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://registry.khronos.org/OpenGL-Refpages/gl4/html/glCreateShader.xhtml">https://registry.khronos.org/OpenGL-Refpages/gl4/html/glCreateShader.xhtml</a> </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8e161627201589eb79d6ce2083cd46e3a4c4c8525ed098cb4d0e1926439f4be9a"></a>VERTEX&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8e161627201589eb79d6ce2083cd46e3adbb27117159e4b13c34d9ec1832f3208"></a>FRAGMENT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8e161627201589eb79d6ce2083cd46e3ab86be59142ebc7ff1f2c1720426f5802"></a>COMPUTE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8e161627201589eb79d6ce2083cd46e3ac2cd45b0319c9527058f3cfaa8fcb244"></a>TESS_CONTROL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8e161627201589eb79d6ce2083cd46e3a68b8d5b7b162d6652d5ff874f296828d"></a>TESS_EVALUATION&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8e161627201589eb79d6ce2083cd46e3a1bf9d54e1b266cacdd0b937e462f9adc"></a>GEOMETRY&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a14a15de34946b4b88c9a587c396f39a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14a15de34946b4b88c9a587c396f39a1">&#9670;&nbsp;</a></span>getFileExtensions()</h2>
+<a id="aa3edf7c7d843186ca8ee41ab8b2a371b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3edf7c7d843186ca8ee41ab8b2a371b">&#9670;&nbsp;</a></span>getFileExtensions()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::tuple&lt; std::string, std::string, std::string &gt; taixu::getFileExtensions </td>
+          <td class="memname">std::vector&lt; std::string &gt; taixu::getFileExtensions </td>
           <td>(</td>
           <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
           <td class="paramname"><em>file_path</em></td><td>)</td>
@@ -237,6 +258,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -273,6 +301,34 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa957f205abdf6df8a3ee560d0da743d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa957f205abdf6df8a3ee560d0da743d0">&#9670;&nbsp;</a></span>getLastExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string taixu::getLastExtension </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
+          <td class="paramname"><em>file_path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get last extension </p>
+<p>like: shader.goo.foo.bar -&gt; output: .bar</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -400,6 +456,24 @@ template&lt;typename T , typename... Ts&gt; </div>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50b059f197588dff329e7188f511d10e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50b059f197588dff329e7188f511d10e">&#9670;&nbsp;</a></span>mapImageToGLReadType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLint taixu::mapImageToGLReadType </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>ext</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

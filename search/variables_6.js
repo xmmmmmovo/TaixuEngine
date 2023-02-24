@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gammacorrection_473',['gammaCorrection',['../classtaixu_1_1Model.html#a094fe094acc1cbc62958dbc83ba40c4b',1,'taixu::Model']]]
+  ['gammacorrection_481',['gammaCorrection',['../classtaixu_1_1Model.html#a094fe094acc1cbc62958dbc83ba40c4b',1,'taixu::Model']]]
 ];
