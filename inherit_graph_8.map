@@ -1,20 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="5,107,152,133"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1IShader.html" title=" " alt="" coords="245,5,357,32"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1IShaderProgram.html" title=" " alt="" coords="218,56,385,83"/>
-<area shape="rect" id="node6" href="$classtaixu_1_1ITexture.html" title=" " alt="" coords="244,107,359,133"/>
-<area shape="rect" id="node8" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="242,157,361,184"/>
-<area shape="rect" id="node11" href="$classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="200,339,403,365"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1OGLShader.html" title=" " alt="" coords="501,5,636,32"/>
-<area shape="rect" id="node5" href="$classtaixu_1_1OGLShaderProgram.html" title=" " alt="" coords="473,56,664,83"/>
-<area shape="rect" id="node7" href="$classtaixu_1_1OGLTexture.html" title="OpenGL texture." alt="" coords="500,107,637,133"/>
-<area shape="rect" id="node9" href="$classtaixu_1_1TX__GLFWwindow.html" title=" " alt="" coords="481,157,656,184"/>
-<area shape="rect" id="node10" href="$classtaixu_1_1editor_1_1MainWindow.html" title=" " alt="" coords="735,157,928,184"/>
-<area shape="rect" id="node12" href="$classtaixu_1_1editor_1_1ConsoleComponent.html" title=" " alt="" coords="451,208,687,235"/>
-<area shape="rect" id="node13" href="$classtaixu_1_1editor_1_1DetailComponent.html" title=" " alt="" coords="457,259,680,285"/>
-<area shape="rect" id="node14" href="$classtaixu_1_1editor_1_1FileComponent.html" title=" " alt="" coords="465,309,672,336"/>
-<area shape="rect" id="node15" href="$classtaixu_1_1editor_1_1HierarchyComponent.html" title=" " alt="" coords="483,361,655,402"/>
-<area shape="rect" id="node16" href="$classtaixu_1_1editor_1_1MenuComponent.html" title=" " alt="" coords="459,427,679,453"/>
-<area shape="rect" id="node17" href="$classtaixu_1_1editor_1_1RenderComponent.html" title=" " alt="" coords="453,477,684,504"/>
-<area shape="rect" id="node18" href="$classtaixu_1_1editor_1_1ToolbarComponent.html" title=" " alt="" coords="453,528,684,555"/>
+<area shape="rect" id="node1" href="$structtaixu_1_1IWindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="5,5,176,32"/>
 </map>

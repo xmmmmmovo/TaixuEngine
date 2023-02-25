@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['height_484',['height',['../structtaixu_1_1IWindowContext.html#a2ca31679b941debb5682ceb5d45d31e6',1,'taixu::IWindowContext::height()'],['../classtaixu_1_1OGLTexture.html#a87c74858626fd5abef84d02e63ab7185',1,'taixu::OGLTexture::height()']]]
+  ['gammacorrection_510',['gammaCorrection',['../classtaixu_1_1Model.html#a094fe094acc1cbc62958dbc83ba40c4b',1,'taixu::Model']]],
+  ['guid_511',['guid',['../structtaixu_1_1Asset.html#a6b4d04eb01b3fe964fd59fc52d166cdf',1,'taixu::Asset']]]
 ];

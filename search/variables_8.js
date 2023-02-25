@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['id_485',['id',['../structtaixu_1_1Texture.html#ac37a547f85029f0e3d9dba84acb714ac',1,'taixu::Texture']]],
-  ['imgui_5fsurface_486',['imgui_surface',['../classtaixu_1_1editor_1_1MainWindow.html#ad77da853b24e6d4bf57532979c423631',1,'taixu::editor::MainWindow']]],
-  ['indices_487',['indices',['../classtaixu_1_1Mesh.html#a0c04127e8b723c7566ec9e5ab119d4f8',1,'taixu::Mesh']]],
-  ['initialfov_488',['initialFoV',['../classtaixu_1_1Camera.html#abe464e1d34782c43a283940336dbffd3',1,'taixu::Camera']]],
-  ['initialized_489',['initialized',['../classtaixu_1_1TX__GLFWwindow.html#aa163c62956c4a1a94e035047839e30d6',1,'taixu::TX_GLFWwindow']]],
-  ['invalid_5fguid_490',['INVALID_GUID',['../namespacetaixu_1_1resource.html#a9ccc467cb0da6cf31c4c6fd79a3886af',1,'taixu::resource']]],
-  ['isvsync_491',['isVsync',['../classtaixu_1_1TX__GLFWwindow.html#a2a7cd22a26b8d04d5cf6860ee4aa6816',1,'taixu::TX_GLFWwindow']]]
+  ['height_512',['height',['../structtaixu_1_1IWindowContext.html#a2ca31679b941debb5682ceb5d45d31e6',1,'taixu::IWindowContext::height()'],['../classtaixu_1_1OGLTexture.html#a87c74858626fd5abef84d02e63ab7185',1,'taixu::OGLTexture::height()']]]
 ];

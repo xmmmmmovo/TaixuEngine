@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['width_258',['width',['../structtaixu_1_1IWindowContext.html#a5324ee269443b460b696da6703878920',1,'taixu::IWindowContext::width()'],['../classtaixu_1_1OGLTexture.html#a6eb0d0b093e7f90b045bfde89a1484d6',1,'taixu::OGLTexture::width()']]],
-  ['window_259',['window',['../classtaixu_1_1editor_1_1Application.html#a5bbb50e052e62f6e1103648ed94f0acb',1,'taixu::editor::Application::window()'],['../classtaixu_1_1TX__GLFWwindow.html#a0e294af28c76161457f0e89443b2cbe5',1,'taixu::TX_GLFWwindow::window()']]],
-  ['window_2ehpp_260',['window.hpp',['../window_8hpp.html',1,'']]],
-  ['window_5fcontext_2ehpp_261',['window_context.hpp',['../window__context_8hpp.html',1,'']]],
-  ['window_5fflags_262',['window_flags',['../classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb',1,'taixu::editor::FileComponent']]],
-  ['world_5fobj_5fcomponent_5fname_263',['WORLD_OBJ_COMPONENT_NAME',['../classtaixu_1_1editor_1_1ImguiSurface.html#a2a1cb42914192bd5e9d50a15432c2a0b',1,'taixu::editor::ImguiSurface']]],
-  ['world_5fobject_5fcomponent_264',['world_object_component',['../classtaixu_1_1editor_1_1ImguiSurface.html#ad631011009584fd5257ced71684872a7',1,'taixu::editor::ImguiSurface']]],
-  ['worldup_265',['WorldUp',['../classtaixu_1_1Camera.html#a2764b3748f463919a559946dd3812954',1,'taixu::Camera']]]
+  ['vao_269',['VAO',['../classtaixu_1_1Renderer.html#aaa020371bf148b5df54b3e5e835a8152',1,'taixu::Renderer']]],
+  ['vbo_270',['VBO',['../classtaixu_1_1Renderer.html#a6c4745066321f3dc0b3db3afc12e5a11',1,'taixu::Renderer']]],
+  ['vertex_271',['Vertex',['../structtaixu_1_1Vertex.html',1,'taixu']]],
+  ['vertex_272',['VERTEX',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a4c4c8525ed098cb4d0e1926439f4be9a',1,'taixu']]],
+  ['vertices_273',['vertices',['../classtaixu_1_1Mesh.html#a27cbb5d1db46048f20abae0458470396',1,'taixu::Mesh']]]
 ];

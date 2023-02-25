@@ -1,15 +1,7 @@
 var searchData=
 [
-  ['m_5fboneids_495',['m_BoneIDs',['../structtaixu_1_1Vertex.html#aaaf857f6e56f44916041b1f3a3ce43bd',1,'taixu::Vertex']]],
-  ['m_5frenderer_496',['m_renderer',['../classtaixu_1_1editor_1_1RenderComponent.html#a1252df7be0dbb415a2dc8db3f27b38b9',1,'taixu::editor::RenderComponent']]],
-  ['m_5fweights_497',['m_Weights',['../structtaixu_1_1Vertex.html#affeb258ec2c3db8a29dedb6f9d16bb03',1,'taixu::Vertex']]],
-  ['main_5fwindow_5fheight_498',['MAIN_WINDOW_HEIGHT',['../classtaixu_1_1editor_1_1Application.html#ae1e2825c7308fbe30e73309c8c91cbde',1,'taixu::editor::Application']]],
-  ['main_5fwindow_5ftitle_499',['MAIN_WINDOW_TITLE',['../classtaixu_1_1editor_1_1Application.html#a3292aa46be4a02d6511e66e5e7fae415',1,'taixu::editor::Application']]],
-  ['main_5fwindow_5fwidth_500',['MAIN_WINDOW_WIDTH',['../classtaixu_1_1editor_1_1Application.html#a5bdb475582676b75f279552621719589',1,'taixu::editor::Application']]],
-  ['menu_5fcomponent_501',['menu_component',['../classtaixu_1_1editor_1_1ImguiSurface.html#a9b7637b0e73941a69750c9aeb3b05bc9',1,'taixu::editor::ImguiSurface']]],
-  ['meshes_502',['meshes',['../classtaixu_1_1Model.html#a5d2a45e5d989030b5f6b7864054836d3',1,'taixu::Model']]],
-  ['model_503',['model',['../classtaixu_1_1Render__Data.html#aba2b08e68461d21a6644c41a815fe5ec',1,'taixu::Render_Data']]],
-  ['mousesensitivity_504',['MouseSensitivity',['../classtaixu_1_1Camera.html#a17612cb0eaba0af22e968902d6641bd8',1,'taixu::Camera']]],
-  ['movementspeed_505',['MovementSpeed',['../classtaixu_1_1Camera.html#aa9b6474df8fc71aad1e05333c60500ea',1,'taixu::Camera']]],
-  ['mset_506',['mSet',['../structtaixu_1_1editor_1_1EditorStyle.html#a39a8619038274e57aff69ed4bd7f80da',1,'taixu::editor::EditorStyle']]]
+  ['last_5fx_520',['last_x',['../classtaixu_1_1Renderer.html#a5fe26d2a693ab0a9be879ca7ad4b74c9',1,'taixu::Renderer']]],
+  ['last_5fy_521',['last_y',['../classtaixu_1_1Renderer.html#a976c45b60d6c5eeeecf1ec6eedbe9f8b',1,'taixu::Renderer']]],
+  ['lightpos_522',['lightPos',['../classtaixu_1_1Renderer.html#aac16855f0a625fa33cb40afe77493103',1,'taixu::Renderer']]],
+  ['location_523',['location',['../structtaixu_1_1Asset.html#a25291886a89269ab739dbc02c7da613f',1,'taixu::Asset']]]
 ];

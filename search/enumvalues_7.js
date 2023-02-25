@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['playmode_569',['PLAYMODE',['../namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8aa5e0dba7dc9350a59eeee94e4df59001c',1,'taixu::editor']]]
+  ['model_602',['Model',['../namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba4ce415de7871d86f4a819a8776174405',1,'taixu']]]
 ];

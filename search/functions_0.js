@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['addwidget_376',['addWidget',['../classtaixu_1_1editor_1_1ImguiSurface.html#ab9a0d96e88f70b74c1f40fa98d0a06b2',1,'taixu::editor::ImguiSurface']]]
+  ['addwidget_395',['addWidget',['../classtaixu_1_1editor_1_1ImguiSurface.html#ab9a0d96e88f70b74c1f40fa98d0a06b2',1,'taixu::editor::ImguiSurface']]],
+  ['asset_5fmanager_396',['Asset_Manager',['../classtaixu_1_1Asset__Manager.html#ad852b85b2f8bcb58ab1d9c48f5f93bc7',1,'taixu::Asset_Manager']]]
 ];

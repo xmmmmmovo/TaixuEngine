@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['zoom_268',['Zoom',['../classtaixu_1_1Camera.html#aa9ff2daedee30f9a6f940b5d16520231',1,'taixu::Camera']]],
-  ['zoom_269',['ZOOM',['../namespacetaixu.html#a61f94a8962e0d8de24f8f245c50b8996',1,'taixu']]]
+  ['yaw_283',['Yaw',['../classtaixu_1_1Camera.html#a8c86b21d8f7cf1d03a223dd535f2a28c',1,'taixu::Camera']]],
+  ['yaw_284',['YAW',['../namespacetaixu.html#a8ccf3d88a9eb0705b6554df8ca676eb2',1,'taixu']]]
 ];

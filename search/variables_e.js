@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['rbo_518',['rbo',['../classtaixu_1_1Renderer.html#ad6dc54116dfbc8750aad0b2d4b8d4464',1,'taixu::Renderer']]],
-  ['render_5fcomponent_519',['render_component',['../classtaixu_1_1editor_1_1ImguiSurface.html#a8a96d84f1de77f63a2a0094f20fd052c',1,'taixu::editor::ImguiSurface']]],
-  ['render_5fcomponent_5fname_520',['RENDER_COMPONENT_NAME',['../classtaixu_1_1editor_1_1ImguiSurface.html#ac40d8914ab6db5b0980d576032cd5a01',1,'taixu::editor::ImguiSurface']]],
-  ['render_5fcontext_521',['render_context',['../classtaixu_1_1Renderer.html#af671aaf3271f16586b639e37280553a7',1,'taixu::Renderer']]],
-  ['render_5fdata_522',['render_data',['../classtaixu_1_1Render__Context.html#af9bd38b5de418c3e2f6af25fdbdad1e8',1,'taixu::Render_Context']]],
-  ['right_523',['Right',['../classtaixu_1_1Camera.html#a3e625ca489109fe11f92953608135e25',1,'taixu::Camera']]],
-  ['root_5fpath_524',['root_path',['../classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b',1,'taixu::editor::FileComponent']]]
+  ['path_543',['path',['../structtaixu_1_1Texture.html#a5b3b2cc41de2a7e5b75d703b801918fe',1,'taixu::Texture']]],
+  ['pitch_544',['Pitch',['../classtaixu_1_1Camera.html#a2498189f8f0359a10edb1441c18422e6',1,'taixu::Camera']]],
+  ['pitch_545',['PITCH',['../namespacetaixu.html#a7a8d641662fc344da5ee7f4617890a88',1,'taixu']]],
+  ['position_546',['Position',['../classtaixu_1_1Camera.html#a116e3229e83e4bde55bf8e9b5a6c23c4',1,'taixu::Camera::Position()'],['../structtaixu_1_1Vertex.html#aff5bda9c4017a014cfb8e2b497131ee3',1,'taixu::Vertex::Position()']]],
+  ['project_5fpath_547',['project_path',['../structtaixu_1_1editor_1_1ApplicationContext.html#a2939dae37bb54ca5787c0a4dfac23462',1,'taixu::editor::ApplicationContext::project_path()'],['../structtaixu_1_1editor_1_1MainWindowContext.html#ad841e06b41ef8939736c79db300d0558',1,'taixu::editor::MainWindowContext::project_path()']]],
+  ['projectionmatrix_548',['ProjectionMatrix',['../classtaixu_1_1Camera.html#ae7e708bf710ba59e888115acba0ce532',1,'taixu::Camera']]]
 ];

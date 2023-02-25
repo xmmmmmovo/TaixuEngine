@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['up_541',['Up',['../classtaixu_1_1Camera.html#aa1f92c9c1152e8cfe4c56efac8bf4da1',1,'taixu::Camera']]],
-  ['useful_5fobj_5fcomponent_542',['useful_obj_component',['../classtaixu_1_1editor_1_1ImguiSurface.html#a77ffa78278b01521fc03003e4a5c3314',1,'taixu::editor::ImguiSurface']]],
-  ['useful_5fobj_5fcomponent_5fname_543',['USEFUL_OBJ_COMPONENT_NAME',['../classtaixu_1_1editor_1_1ImguiSurface.html#a90e1871ec36ada7fa1aa5542c563394c',1,'taixu::editor::ImguiSurface']]]
+  ['tangent_563',['Tangent',['../structtaixu_1_1Vertex.html#a1fddaa4480c14e3cab71f71170858d10',1,'taixu::Vertex']]],
+  ['texcoords_564',['TexCoords',['../structtaixu_1_1Vertex.html#a676a90f257281927ab683adcc99f0af8',1,'taixu::Vertex']]],
+  ['texture_5fid_565',['texture_id',['../classtaixu_1_1OGLTexture.html#ac5a87bf72a816f94b24774e310eb31ee',1,'taixu::OGLTexture']]],
+  ['textures_566',['textures',['../classtaixu_1_1Mesh.html#a47f979168d500ed29c21a8fb6e8691af',1,'taixu::Mesh']]],
+  ['textures_5floaded_567',['textures_loaded',['../classtaixu_1_1Model.html#a35fd04739f581a2651c088c884e70f2f',1,'taixu::Model']]],
+  ['title_568',['title',['../structtaixu_1_1IWindowContext.html#a26d6bc31c0bc42fc2fa90df0221eba80',1,'taixu::IWindowContext']]],
+  ['tool_5fbar_5fcomponent_569',['tool_bar_component',['../classtaixu_1_1editor_1_1ImguiSurface.html#a01fda027638173b1612195c22eeac0cb',1,'taixu::editor::ImguiSurface']]],
+  ['toolbar_5fcomponent_5fname_570',['TOOLBAR_COMPONENT_NAME',['../classtaixu_1_1editor_1_1ImguiSurface.html#ab49350bea42cac2d542c5ce8886e26eb',1,'taixu::editor::ImguiSurface']]],
+  ['type_571',['type',['../structtaixu_1_1Texture.html#a686324ae413af0b3efd75003251a4c4b',1,'taixu::Texture::type()'],['../structtaixu_1_1Asset.html#acf4cc5aa438489d5df63761ce5a43d02',1,'taixu::Asset::type()']]]
 ];

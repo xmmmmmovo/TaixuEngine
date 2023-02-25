@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bitangent_466',['Bitangent',['../structtaixu_1_1Vertex.html#a9e66c37ccc69b3a04e28881bcccb98d3',1,'taixu::Vertex']]],
-  ['buffertexid_467',['bufferTexId',['../classtaixu_1_1Renderer.html#a05aed569ce10ef5b1ab54a8e297f4bf4',1,'taixu::Renderer']]]
+  ['asset_5ffile_5fpath_491',['asset_file_path',['../classtaixu_1_1Asset__Manager.html#a2306ad78335f66b090906db81e024fc2',1,'taixu::Asset_Manager']]],
+  ['asset_5flist_492',['asset_list',['../classtaixu_1_1Asset__Manager.html#ae84abc64f39ea8ea155ea6890fb81f1b',1,'taixu::Asset_Manager']]]
 ];

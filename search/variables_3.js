@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['delta_5ftime_470',['delta_time',['../classtaixu_1_1editor_1_1RenderComponent.html#a80dd170be8d7ca15d609190a48bd4456',1,'taixu::editor::RenderComponent::delta_time()'],['../classtaixu_1_1Renderer.html#a5b2900bff96891ac40edde2b28c2d3b6',1,'taixu::Renderer::delta_time()']]],
-  ['detail_5fcomponent_471',['detail_component',['../classtaixu_1_1editor_1_1ImguiSurface.html#ad07032d7a854552a3416a0b369578a9d',1,'taixu::editor::ImguiSurface']]],
-  ['details_5fcomponent_5fname_472',['DETAILS_COMPONENT_NAME',['../classtaixu_1_1editor_1_1ImguiSurface.html#aa45889ebf6c8f4122f36cf3640e0a256',1,'taixu::editor::ImguiSurface']]],
-  ['directory_473',['directory',['../classtaixu_1_1Model.html#a30cec5015209b70e0196c66fb63f4c5a',1,'taixu::Model']]],
-  ['dock_5fspace_5fname_474',['DOCK_SPACE_NAME',['../classtaixu_1_1editor_1_1ImguiSurface.html#ac82a127d47dbd59e09cca2a02cd659fb',1,'taixu::editor::ImguiSurface']]]
+  ['context_495',['context',['../classtaixu_1_1editor_1_1Application.html#a50a4dfef20527a1a4476d8a360180a5c',1,'taixu::editor::Application::context()'],['../classtaixu_1_1editor_1_1ImguiSurface.html#a9d743dbb08eba998d2dc906dd68836e1',1,'taixu::editor::ImguiSurface::context()'],['../classtaixu_1_1IWindow.html#ae17802fea8a0357d19030d56c3f0aca1',1,'taixu::IWindow::context()']]],
+  ['current_5fpath_496',['current_path',['../classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9',1,'taixu::editor::FileComponent']]]
 ];

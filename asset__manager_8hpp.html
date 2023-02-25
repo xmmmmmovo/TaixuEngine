@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/resource/resource_manager.hpp File Reference</title>
+<title>TaixuEngine: engine/runtime/resource/asset_manager.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,45 +66,75 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">resource_manager.hpp File Reference</div>  </div>
+<div class="title">asset_manager.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
+<code>#include &lt;nlohmann/json.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for resource_manager.hpp:</div>
+Include dependency graph for asset_manager.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="resource__manager_8hpp__incl.png" border="0" usemap="#aengine_2runtime_2resource_2resource__manager_8hpp" alt=""/></div>
-<map name="aengine_2runtime_2resource_2resource__manager_8hpp" id="aengine_2runtime_2resource_2resource__manager_8hpp">
-<area shape="rect" title=" " alt="" coords="5,5,187,47"/>
-<area shape="rect" title=" " alt="" coords="63,95,129,121"/>
+<div class="center"><img src="asset__manager_8hpp__incl.png" border="0" usemap="#aengine_2runtime_2resource_2asset__manager_8hpp" alt=""/></div>
+<map name="aengine_2runtime_2resource_2asset__manager_8hpp" id="aengine_2runtime_2resource_2asset__manager_8hpp">
+<area shape="rect" title=" " alt="" coords="265,5,447,47"/>
+<area shape="rect" title=" " alt="" coords="5,95,72,121"/>
+<area shape="rect" title=" " alt="" coords="96,95,155,121"/>
+<area shape="rect" title=" " alt="" coords="179,95,256,121"/>
+<area shape="rect" title=" " alt="" coords="280,95,347,121"/>
+<area shape="rect" title=" " alt="" coords="371,95,429,121"/>
+<area shape="rect" title=" " alt="" coords="454,95,527,121"/>
+<area shape="rect" title=" " alt="" coords="551,95,675,121"/>
+<area shape="rect" title=" " alt="" coords="700,95,847,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="resource__manager_8hpp__dep__incl.png" border="0" usemap="#aengine_2runtime_2resource_2resource__manager_8hppdep" alt=""/></div>
-<map name="aengine_2runtime_2resource_2resource__manager_8hppdep" id="aengine_2runtime_2resource_2resource__manager_8hppdep">
+<div class="center"><img src="asset__manager_8hpp__dep__incl.png" border="0" usemap="#aengine_2runtime_2resource_2asset__manager_8hppdep" alt=""/></div>
+<map name="aengine_2runtime_2resource_2asset__manager_8hppdep" id="aengine_2runtime_2resource_2asset__manager_8hppdep">
 <area shape="rect" title=" " alt="" coords="5,5,187,47"/>
-<area shape="rect" href="resource__manager_8cpp.html" title=" " alt="" coords="5,95,187,136"/>
+<area shape="rect" href="asset__manager_8cpp.html" title=" " alt="" coords="5,95,187,136"/>
 </map>
 </div>
 </div>
-<p><a href="resource__manager_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="asset__manager_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1GUID__Generator.html">taixu::GUID_Generator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1Asset.html">taixu::Asset</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Asset__Manager.html">taixu::Asset_Manager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacetaixu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html">taixu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacetaixu_1_1resource"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1resource.html">taixu::resource</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:af3f42d835f57506d65a0964f16d2e5eb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb">taixu::AssetType</a> { <a class="el" href="namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba4ce415de7871d86f4a819a8776174405">taixu::Model</a>
+, <a class="el" href="namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5ebab069e7dee38ef1bd934c12da381a13d4">taixu::Texture</a>
+ }</td></tr>
+<tr class="separator:af3f42d835f57506d65a0964f16d2e5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a9ccc467cb0da6cf31c4c6fd79a3886af"><td class="memItemLeft" align="right" valign="top">constexpr std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1resource.html#a9ccc467cb0da6cf31c4c6fd79a3886af">taixu::resource::INVALID_GUID</a> = 0</td></tr>
-<tr class="separator:a9ccc467cb0da6cf31c4c6fd79a3886af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae915e42a97457bba37098bd5d36c633b"><td class="memItemLeft" align="right" valign="top">constexpr std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ae915e42a97457bba37098bd5d36c633b">taixu::INVALID_GUID</a> = std::numeric_limits&lt;std::uint8_t&gt;::max()</td></tr>
+<tr class="separator:ae915e42a97457bba37098bd5d36c633b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
