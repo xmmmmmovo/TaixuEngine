@@ -5,40 +5,38 @@
 #ifndef TAIXUENGINE_RESOURCE_MANAGER_HPP
 #define TAIXUENGINE_RESOURCE_MANAGER_HPP
 
+#include <spdlog/spdlog.h>
+
+#include <atomic>
 #include <cstdint>
-#include<string>
-#include<memory>
-#include<atomic>
-#include<limits>
-#include < fstream >
-#include <spdlog/spdlog.h>
-#include<nlohmann/json.hpp>
-#include <spdlog/spdlog.h>
+#include <fstream>
+#include <limits>
+#include <memory>
+#include <nlohmann/json.hpp>
+#include <string>
 
 
 namespace taixu {
 constexpr std::uint8_t INVALID_GUID = std::numeric_limits<std::uint8_t>::max();
-enum AssetType {Model,Texture};
-class GUID_Generator 
-{
+enum AssetType { Model, Texture };
+class GUID_Generator {
 public:
-    static std::uint8_t       generate_new_guid();
+    static std::uint8_t generate_new_guid();
+
 private:
     static std::atomic<std::uint8_t> next_id;
 };
-struct Asset 
-{
+struct Asset {
     std::uint8_t guid;
-    std::string name;
-    std::string type;
-    std::string location;
+    std::string  name;
+    std::string  type;
+    std::string  location;
 };
-class Asset_Manager 
-{
+class Asset_Manager {
 public:
-    Asset_Manager()=default;
+    Asset_Manager() = default;
     std::vector<std::shared_ptr<Asset>> asset_list;
-    using Json=nlohmann::json;
+    using Json                  = nlohmann::json;
     std::string asset_file_path = "INVALID";
 
     void from_json(const Json& j, std::shared_ptr<Asset> asset) {
@@ -51,33 +49,28 @@ public:
                  {"name", asset->name},
                  {"location", asset->location}};
     }
-    
-    void loadAsset(std::string file_path) 
-	{
-        std::ifstream f(file_path);
-        if (!f.is_open()) 
-        {
-            spdlog::debug("Unable to load Asset configure file");
-        } 
-        else
-            asset_file_path = file_path;
-        Json data =Json::parse(f);
 
-        for (auto i : data["assets"].items()) 
-        {
+    void loadAsset(std::string file_path) {
+        std::ifstream f(file_path);
+        if (!f.is_open()) {
+            spdlog::debug("Unable to load Asset configure file");
+        } else
+            asset_file_path = file_path;
+        Json data = Json::parse(f);
+
+        for (auto i : data["assets"].items()) {
             std::shared_ptr<Asset> new_asset = std::make_shared<Asset>();
             std::uint8_t new_guid = GUID_Generator::generate_new_guid();
             new_asset->guid       = new_guid;
-            Json j          = i.value();
+            Json j                = i.value();
             from_json(j, new_asset);
             asset_list.push_back(new_asset);
         }
         //int a = 0;
-	}
+    }
     void writeAsset();
     void loadAsset(std::string file_path, AssetType asset_type);
-	
 };
-}
+}// namespace taixu
 
 #endif//TAIXUENGINE_RESOURCE_MANAGER_HPP
