@@ -1,0 +1,10 @@
+//
+// Created by xmmmmmovo on 2023/2/25.
+//
+
+#ifndef TAIXUENGINE_OGLVERTEXBUFFER_HPP
+#define TAIXUENGINE_OGLVERTEXBUFFER_HPP
+
+namespace taixu{}
+
+#endif//TAIXUENGINE_OGLVERTEXBUFFER_HPP
