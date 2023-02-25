@@ -6,6 +6,7 @@
 
 #include "spdlog/spdlog.h"
 
+#include "resource/project_manager.hpp"
 
 namespace taixu::editor {
 
@@ -38,8 +39,19 @@ void MainWindow::init() {
     super::init();
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     super::setIsVsync(true);
+    //std::cout << "fsdfd" << std::endl;
+    ProjectManager manager;
+    //manager.createProject(std::string("ds"), std::string("df4"));
+    //Project* sds = manager.openingProject;
+    /*if (sds == NULL) { std::cout << "fail" << std::endl; }*/
+    //std::cout << sds->name << std::endl;
+
     imgui_surface->init(window);
     spdlog::info("Main window start finished!");
+
+    //spdlog::info(sds->name);
+
+
 }
 
 void MainWindow::update() {

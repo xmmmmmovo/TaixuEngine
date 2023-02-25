@@ -1,0 +1,13 @@
+{
+  "name": "My Project",
+  "asset": {
+    "textures": [
+      "C:/Textures/texture1.png",
+      "C:/Textures/texture2.png"
+    ],
+    "models": [
+      "C:/Models/model1.obj",
+      "C:/Models/model2.obj"
+    ]
+  }
+}

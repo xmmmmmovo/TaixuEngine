@@ -1,0 +1,32 @@
+[
+    {
+      "id": 0,
+      "name": "Project 1",
+      "asset": {
+        "textures": [
+          "textures/texture1.png",
+          "textures/texture2.png"
+        ],
+        "models": [
+          "models/model1.obj",
+          "models/model2.obj"
+        ]
+      },
+      "path": "path/to/project1"
+    },
+    {
+      "id": 1,
+      "name": "Project 2",
+      "asset": {
+        "textures": [
+          "textures/texture3.png",
+          "textures/texture4.png"
+        ],
+        "models": [
+          "models/model3.obj",
+          "models/model4.obj"
+        ]
+      },
+      "path": "path/to/project2"
+    }
+  ]
