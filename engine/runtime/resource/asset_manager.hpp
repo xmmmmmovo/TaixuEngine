@@ -13,8 +13,7 @@
 #include < fstream >
 #include <spdlog/spdlog.h>
 #include<nlohmann/json.hpp>
-#include"graphics/render/model.hpp"
-#include"graphics/render/texture.hpp"
+#include <spdlog/spdlog.h>
 
 
 namespace taixu {
@@ -64,14 +63,6 @@ public:
             asset_file_path = file_path;
         Json data =Json::parse(f);
 
-
-        ////从字符串中读取数据
-        //if (reader.parse(str, root)) {
-        //    string name = root["name"].asString();
-        //    int    age  = root["nomen"].asInt();
-        //    string sex  = root["sex"].asString();
-        //    cout << name + "," << age << "," << sex << endl;
-        //}
         for (auto i : data["assets"].items()) 
         {
             std::shared_ptr<Asset> new_asset = std::make_shared<Asset>();

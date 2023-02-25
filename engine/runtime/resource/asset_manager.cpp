@@ -5,6 +5,7 @@
 #include "asset_manager.hpp"
 
 namespace taixu {
+
 std::atomic<std::uint8_t> GUID_Generator::next_id{0};
 
 std::uint8_t GUID_Generator::generate_new_guid() 
