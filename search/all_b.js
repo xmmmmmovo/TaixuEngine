@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['m_5fboneids_116',['m_BoneIDs',['../structtaixu_1_1Vertex.html#aaaf857f6e56f44916041b1f3a3ce43bd',1,'taixu::Vertex']]],
-  ['m_5fcurrentdirectory_117',['m_CurrentDirectory',['../classtaixu_1_1editor_1_1FileComponent.html#a37ba695dde219d61fa3d96f2a1dd3b25',1,'taixu::editor::FileComponent']]],
+  ['m_5fboneids_117',['m_BoneIDs',['../structtaixu_1_1Vertex.html#aaaf857f6e56f44916041b1f3a3ce43bd',1,'taixu::Vertex']]],
   ['m_5frenderer_118',['m_renderer',['../classtaixu_1_1editor_1_1RenderComponent.html#a1252df7be0dbb415a2dc8db3f27b38b9',1,'taixu::editor::RenderComponent']]],
   ['m_5fweights_119',['m_Weights',['../structtaixu_1_1Vertex.html#affeb258ec2c3db8a29dedb6f9d16bb03',1,'taixu::Vertex']]],
   ['macro_2ehpp_120',['macro.hpp',['../macro_8hpp.html',1,'']]],
@@ -13,7 +12,7 @@ var searchData=
   ['main_5fwindow_5fheight_126',['MAIN_WINDOW_HEIGHT',['../classtaixu_1_1editor_1_1Application.html#ae1e2825c7308fbe30e73309c8c91cbde',1,'taixu::editor::Application']]],
   ['main_5fwindow_5ftitle_127',['MAIN_WINDOW_TITLE',['../classtaixu_1_1editor_1_1Application.html#a3292aa46be4a02d6511e66e5e7fae415',1,'taixu::editor::Application']]],
   ['main_5fwindow_5fwidth_128',['MAIN_WINDOW_WIDTH',['../classtaixu_1_1editor_1_1Application.html#a5bdb475582676b75f279552621719589',1,'taixu::editor::Application']]],
-  ['mainwindow_129',['MainWindow',['../classtaixu_1_1editor_1_1MainWindow.html#afce6776ad8b553762dace13c47e03fe9',1,'taixu::editor::MainWindow::MainWindow()'],['../classtaixu_1_1editor_1_1MainWindow.html#a4b1baac511a45075956d010413552c12',1,'taixu::editor::MainWindow::MainWindow(IWindowContext const &amp;context)'],['../classtaixu_1_1editor_1_1MainWindow.html',1,'taixu::editor::MainWindow']]],
+  ['mainwindow_129',['MainWindow',['../classtaixu_1_1editor_1_1MainWindow.html#a4b1baac511a45075956d010413552c12',1,'taixu::editor::MainWindow::MainWindow(IWindowContext const &amp;context)'],['../classtaixu_1_1editor_1_1MainWindow.html#afce6776ad8b553762dace13c47e03fe9',1,'taixu::editor::MainWindow::MainWindow()'],['../classtaixu_1_1editor_1_1MainWindow.html',1,'taixu::editor::MainWindow']]],
   ['mainwindowcontext_130',['MainWindowContext',['../structtaixu_1_1editor_1_1MainWindowContext.html',1,'taixu::editor']]],
   ['mapimagetoglreadtype_131',['mapImageToGLReadType',['../namespacetaixu.html#a50b059f197588dff329e7188f511d10e',1,'taixu']]],
   ['maptoshadertypeglenum_132',['mapToShaderTypeGLenum',['../namespacetaixu.html#acaed3ec10be035d59d94c20d504c9aae',1,'taixu']]],
