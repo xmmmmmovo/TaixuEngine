@@ -4,7 +4,7 @@
 
 #include "asset_manager.hpp"
 
-namespace taixu::resource {
+namespace taixu {
 std::atomic<std::uint8_t> GUID_Generator::next_id{0};
 
 std::uint8_t GUID_Generator::generate_new_guid() 
@@ -14,8 +14,25 @@ std::uint8_t GUID_Generator::generate_new_guid()
     if (next_id >= INVALID_GUID) { spdlog::debug("GUID is overflow"); }
     return new_id;
 }
-void Asset_Manager::loadAsset(std::string file_path, AssetType asset_type) 
-{
+
+void Asset_Manager::writeAsset() {
+    if (asset_file_path != "INVALID")
+    {
+        std::ofstream o(asset_file_path);
+        Json write;
+        for (auto count : asset_list) 
+        {   
+            Json j;
+            to_json(j, count);
+            write+=j;
+        }
+        Json assets{{"assets", write}};
+        o << std::setw(4) << assets;
+        o.close();
+    }
+}
+
+void Asset_Manager::loadAsset(std::string file_path, AssetType asset_type) {
     std::shared_ptr<Asset> new_asset = std::make_shared<Asset>();
     new_asset->guid                  = GUID_Generator::generate_new_guid();
     new_asset->name     = file_path.substr(file_path.find_last_of('/') + 1);
