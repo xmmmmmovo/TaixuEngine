@@ -1,4 +1,4 @@
 <map id="taixu::editor::IUIComponent" name="taixu::editor::IUIComponent">
-<area shape="rect" id="node1" title="UI component interface." alt="" coords="5,80,208,107"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="33,5,180,32"/>
+<area shape="rect" id="node1" title="UI component interface." alt="" coords="5,204,208,311"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="33,5,180,156"/>
 </map>

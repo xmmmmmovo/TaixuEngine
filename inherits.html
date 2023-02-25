@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -125,77 +145,88 @@ $(function() {
 </td></tr>
 <tr><td><img src="inherit_graph_11.png" border="0" usemap="#ataixu_1_1noncopyable" alt=""/>
 <map name="ataixu_1_1noncopyable" id="ataixu_1_1noncopyable">
-<area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="5,107,152,133"/>
-<area shape="rect" href="classtaixu_1_1IShader.html" title=" " alt="" coords="245,5,357,32"/>
-<area shape="rect" href="classtaixu_1_1IShaderProgram.html" title=" " alt="" coords="218,56,385,83"/>
-<area shape="rect" href="classtaixu_1_1ITexture.html" title=" " alt="" coords="244,107,359,133"/>
-<area shape="rect" href="classtaixu_1_1IWindow.html" title=" " alt="" coords="242,157,361,184"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="200,339,403,365"/>
-<area shape="rect" href="classtaixu_1_1OGLShader.html" title=" " alt="" coords="501,5,636,32"/>
-<area shape="rect" href="classtaixu_1_1OGLShaderProgram.html" title=" " alt="" coords="473,56,664,83"/>
-<area shape="rect" href="classtaixu_1_1OGLTexture.html" title="OpenGL texture." alt="" coords="500,107,637,133"/>
-<area shape="rect" href="classtaixu_1_1TX__GLFWwindow.html" title=" " alt="" coords="481,157,656,184"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1MainWindow.html" title=" " alt="" coords="735,157,928,184"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1ConsoleComponent.html" title=" " alt="" coords="451,208,687,235"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1DetailComponent.html" title=" " alt="" coords="457,259,680,285"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1FileComponent.html" title=" " alt="" coords="465,309,672,336"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1HierarchyComponent.html" title=" " alt="" coords="483,361,655,402"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1MenuComponent.html" title=" " alt="" coords="459,427,679,453"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1RenderComponent.html" title=" " alt="" coords="453,477,684,504"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1ToolbarComponent.html" title=" " alt="" coords="453,528,684,555"/>
+<area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="5,183,152,209"/>
+<area shape="rect" href="classtaixu_1_1IElementBuffer.html" title=" " alt="" coords="221,5,381,32"/>
+<area shape="rect" href="classtaixu_1_1IShader.html" title=" " alt="" coords="245,56,357,83"/>
+<area shape="rect" href="classtaixu_1_1IShaderProgram.html" title=" " alt="" coords="218,107,385,133"/>
+<area shape="rect" href="classtaixu_1_1ITexture.html" title=" " alt="" coords="244,157,359,184"/>
+<area shape="rect" href="classtaixu_1_1IVertexArray.html" title=" " alt="" coords="229,208,373,235"/>
+<area shape="rect" href="classtaixu_1_1IVertexBuffer.html" title=" " alt="" coords="227,259,375,285"/>
+<area shape="rect" href="classtaixu_1_1IWindow.html" title=" " alt="" coords="242,309,361,336"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="200,440,403,467"/>
+<area shape="rect" href="classtaixu_1_1OGLShader.html" title=" " alt="" coords="501,56,636,83"/>
+<area shape="rect" href="classtaixu_1_1OGLShaderProgram.html" title=" " alt="" coords="473,107,664,133"/>
+<area shape="rect" href="classtaixu_1_1OGLTexture.html" title="OpenGL texture." alt="" coords="500,157,637,184"/>
+<area shape="rect" href="classtaixu_1_1TX__GLFWwindow.html" title=" " alt="" coords="481,259,656,285"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1MainWindow.html" title=" " alt="" coords="735,259,928,285"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1ConsoleComponent.html" title=" " alt="" coords="451,309,687,336"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1DetailComponent.html" title=" " alt="" coords="457,360,680,387"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1FileComponent.html" title=" " alt="" coords="465,411,672,437"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1HierarchyComponent.html" title=" " alt="" coords="483,462,655,503"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1MenuComponent.html" title=" " alt="" coords="459,528,679,555"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1RenderComponent.html" title=" " alt="" coords="453,579,684,605"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1ToolbarComponent.html" title=" " alt="" coords="453,629,684,656"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_12.png" border="0" usemap="#ataixu_1_1Project" alt=""/>
+<tr><td><img src="inherit_graph_12.png" border="0" usemap="#ataixu_1_1OGLVertexArray" alt=""/>
+<map name="ataixu_1_1OGLVertexArray" id="ataixu_1_1OGLVertexArray">
+<area shape="rect" href="classtaixu_1_1OGLVertexArray.html" title=" " alt="" coords="5,5,172,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_13.png" border="0" usemap="#ataixu_1_1Project" alt=""/>
 <map name="ataixu_1_1Project" id="ataixu_1_1Project">
 <area shape="rect" href="structtaixu_1_1Project.html" title=" " alt="" coords="5,5,113,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_13.png" border="0" usemap="#ataixu_1_1ProjectManager" alt=""/>
+<tr><td><img src="inherit_graph_14.png" border="0" usemap="#ataixu_1_1ProjectManager" alt=""/>
 <map name="ataixu_1_1ProjectManager" id="ataixu_1_1ProjectManager">
 <area shape="rect" href="classtaixu_1_1ProjectManager.html" title=" " alt="" coords="5,5,171,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_14.png" border="0" usemap="#ataixu_1_1PublicSingleton_3_01Application_01_4" alt=""/>
+<tr><td><img src="inherit_graph_15.png" border="0" usemap="#ataixu_1_1PublicSingleton_3_01Application_01_4" alt=""/>
 <map name="ataixu_1_1PublicSingleton_3_01Application_01_4" id="ataixu_1_1PublicSingleton_3_01Application_01_4">
 <area shape="rect" href="classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="5,5,168,47"/>
 <area shape="rect" href="classtaixu_1_1editor_1_1Application.html" title="Application for the whole editor use Singleton pattern." alt="" coords="216,13,399,39"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_15.png" border="0" usemap="#ataixu_1_1PublicSingleton_3_01T_01_4" alt=""/>
+<tr><td><img src="inherit_graph_16.png" border="0" usemap="#ataixu_1_1PublicSingleton_3_01T_01_4" alt=""/>
 <map name="ataixu_1_1PublicSingleton_3_01T_01_4" id="ataixu_1_1PublicSingleton_3_01T_01_4">
 <area shape="rect" href="classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="5,5,207,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_16.png" border="0" usemap="#ataixu_1_1Render__Context" alt=""/>
+<tr><td><img src="inherit_graph_17.png" border="0" usemap="#ataixu_1_1Render__Context" alt=""/>
 <map name="ataixu_1_1Render__Context" id="ataixu_1_1Render__Context">
 <area shape="rect" href="classtaixu_1_1Render__Context.html" title=" " alt="" coords="5,5,172,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_17.png" border="0" usemap="#ataixu_1_1Render__Data" alt=""/>
+<tr><td><img src="inherit_graph_18.png" border="0" usemap="#ataixu_1_1Render__Data" alt=""/>
 <map name="ataixu_1_1Render__Data" id="ataixu_1_1Render__Data">
 <area shape="rect" href="classtaixu_1_1Render__Data.html" title=" " alt="" coords="5,5,152,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_18.png" border="0" usemap="#ataixu_1_1Renderer" alt=""/>
+<tr><td><img src="inherit_graph_19.png" border="0" usemap="#ataixu_1_1Renderer" alt=""/>
 <map name="ataixu_1_1Renderer" id="ataixu_1_1Renderer">
 <area shape="rect" href="classtaixu_1_1Renderer.html" title=" " alt="" coords="5,5,128,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_19.png" border="0" usemap="#ataixu_1_1Texture" alt=""/>
+<tr><td><img src="inherit_graph_20.png" border="0" usemap="#ataixu_1_1Texture" alt=""/>
 <map name="ataixu_1_1Texture" id="ataixu_1_1Texture">
 <area shape="rect" href="structtaixu_1_1Texture.html" title=" " alt="" coords="5,5,116,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_20.png" border="0" usemap="#ataixu_1_1Vertex" alt=""/>
+<tr><td><img src="inherit_graph_21.png" border="0" usemap="#ataixu_1_1Vertex" alt=""/>
 <map name="ataixu_1_1Vertex" id="ataixu_1_1Vertex">
 <area shape="rect" href="structtaixu_1_1Vertex.html" title=" " alt="" coords="5,5,111,32"/>
 </map>
 </td></tr>
 </table>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>
