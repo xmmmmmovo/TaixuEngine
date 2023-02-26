@@ -5,8 +5,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 11)
 
 # compile config
-set(USE_CCACHE OFF)
-set(USE_VCPKG OFF)
+option(USE_CCACHE "ccache accelerate the compile" OFF)
+option(USE_VCPKG "vcpkg manager" OFF)
+option(USE_PCH "pre compile" ON)
 
 # for project properties
 set(ENGINE_VERSION 0.01)
