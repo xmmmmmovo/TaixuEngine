@@ -1,13 +1,16 @@
 //
 // Created by xmmmmmovo on 2023/2/23.
 //
-#include "resource/asset_manager.hpp"
-
 #include <catch2/catch_test_macros.hpp>
+#include <cstdint>
 
-TEST_CASE("asset_manager") { 
-	
-	taixu::Asset_Manager manager{};
-    manager.loadAsset("assets/asset.json");
-    manager.writeAsset();
+uint32_t factorial(uint32_t number) {
+    return number <= 1 ? number : factorial(number - 1) * number;
+}
+
+TEST_CASE("base",  "[factorial]") {
+    REQUIRE(factorial(1) == 1);
+    REQUIRE(factorial(2) == 2);
+    REQUIRE(factorial(3) == 6);
+    REQUIRE(factorial(10) == 3'628'800);
 }
