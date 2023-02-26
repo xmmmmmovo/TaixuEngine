@@ -1,11 +1,11 @@
 <map id="engine/runtime/resource/asset_manager.hpp" name="engine/runtime/resource/asset_manager.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="265,5,447,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,72,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="96,95,155,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="179,95,256,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="280,95,347,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="371,95,429,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="454,95,527,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="551,95,675,121"/>
-<area shape="rect" id="node9" title=" " alt="" coords="700,95,847,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="327,5,509,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,129,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="154,95,221,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="245,95,311,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="336,95,409,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="434,95,493,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="517,95,594,121"/>
+<area shape="rect" id="node8" title=" " alt="" coords="618,95,765,121"/>
+<area shape="rect" id="node9" title=" " alt="" coords="789,95,847,121"/>
 </map>
