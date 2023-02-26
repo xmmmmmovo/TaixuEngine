@@ -27,8 +27,10 @@ var namespacetaixu =
     [ "GUID_Generator", "classtaixu_1_1GUID__Generator.html", null ],
     [ "Asset", "structtaixu_1_1Asset.html", "structtaixu_1_1Asset" ],
     [ "Asset_Manager", "classtaixu_1_1Asset__Manager.html", "classtaixu_1_1Asset__Manager" ],
+    [ "IJsonable", "classtaixu_1_1IJsonable.html", "classtaixu_1_1IJsonable" ],
     [ "Project", "structtaixu_1_1Project.html", null ],
     [ "ProjectManager", "classtaixu_1_1ProjectManager.html", null ],
+    [ "json", "namespacetaixu.html#af876a3b1f89f874d9460dd06234888f6", null ],
     [ "AssetType", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb", [
       [ "Model", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba4ce415de7871d86f4a819a8776174405", null ],
       [ "Texture", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5ebab069e7dee38ef1bd934c12da381a13d4", null ]
@@ -47,6 +49,8 @@ var namespacetaixu =
       [ "TESS_EVALUATION", "namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a68b8d5b7b162d6652d5ff874f296828d", null ],
       [ "GEOMETRY", "namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a1bf9d54e1b266cacdd0b937e462f9adc", null ]
     ] ],
+    [ "dumpJsonFile", "namespacetaixu.html#aba1e7e691591cbdce96817b46b67f908", null ],
+    [ "dumpJsonString", "namespacetaixu.html#a5349f140eb4c79dfc226e770f1bd141a", null ],
     [ "getFileExtensions", "namespacetaixu.html#aa3edf7c7d843186ca8ee41ab8b2a371b", null ],
     [ "getFilePureName", "namespacetaixu.html#ab19eaf5d7295e86921308f915322a9fe", null ],
     [ "getFiles", "namespacetaixu.html#ae5e35a634a47a2237dffad3adc8f9ca8", null ],
@@ -55,6 +59,8 @@ var namespacetaixu =
     [ "getRelativePath", "namespacetaixu.html#a881dac0713ceac8c69161afa6b6faedc", null ],
     [ "hash_combine", "namespacetaixu.html#a79e52b8516b7cf547f949ef72d6c3ad3", null ],
     [ "hash_combine", "namespacetaixu.html#a285c0ff61bfb0bcdf4d2cc4453376d95", null ],
+    [ "loadJsonFile", "namespacetaixu.html#a9ec62596cd7787865c89c0f695466f98", null ],
+    [ "loadJsonString", "namespacetaixu.html#a8c1ac98086e37a29b5d2e001e2469272", null ],
     [ "mapImageToGLReadType", "namespacetaixu.html#a50b059f197588dff329e7188f511d10e", null ],
     [ "mapToShaderTypeGLenum", "namespacetaixu.html#acaed3ec10be035d59d94c20d504c9aae", null ],
     [ "mapToShaderTypeString", "namespacetaixu.html#a205aa55ac5fab58c5ad92706605d58fc", null ],

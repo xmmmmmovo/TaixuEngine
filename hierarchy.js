@@ -13,6 +13,7 @@ var hierarchy =
     [ "taixu::Model", "classtaixu_1_1Model.html", null ],
     [ "taixu::noncopyable", "classtaixu_1_1noncopyable.html", [
       [ "taixu::IElementBuffer", "classtaixu_1_1IElementBuffer.html", null ],
+      [ "taixu::IJsonable< T >", "classtaixu_1_1IJsonable.html", null ],
       [ "taixu::IShader", "classtaixu_1_1IShader.html", [
         [ "taixu::OGLShader", "classtaixu_1_1OGLShader.html", null ]
       ] ],

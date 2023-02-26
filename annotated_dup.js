@@ -43,6 +43,7 @@ var annotated_dup =
       [ "GUID_Generator", "classtaixu_1_1GUID__Generator.html", null ],
       [ "Asset", "structtaixu_1_1Asset.html", "structtaixu_1_1Asset" ],
       [ "Asset_Manager", "classtaixu_1_1Asset__Manager.html", "classtaixu_1_1Asset__Manager" ],
+      [ "IJsonable", "classtaixu_1_1IJsonable.html", "classtaixu_1_1IJsonable" ],
       [ "Project", "structtaixu_1_1Project.html", null ],
       [ "ProjectManager", "classtaixu_1_1ProjectManager.html", null ]
     ] ]

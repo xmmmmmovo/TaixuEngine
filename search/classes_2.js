@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['detailcomponent_318',['DetailComponent',['../classtaixu_1_1editor_1_1DetailComponent.html',1,'taixu::editor']]]
+  ['detailcomponent_329',['DetailComponent',['../classtaixu_1_1editor_1_1DetailComponent.html',1,'taixu::editor']]]
 ];

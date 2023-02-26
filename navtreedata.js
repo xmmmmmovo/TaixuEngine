@@ -34,6 +34,7 @@ var NAVTREE =
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ],
         [ "Enumerator", "namespacemembers_eval.html", null ]
       ] ]
@@ -64,8 +65,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "OGLElementBuffer_8cpp.html",
-"classtaixu_1_1editor_1_1DetailComponent.html#a4e51cd7d0c6ebd1c692eaa779f9259e9",
-"namespacetaixu_1_1editor.html#ab1cd451c09dd24b5a651973d01688f75"
+"classtaixu_1_1editor_1_1ConsoleComponent.html#ad7505f84d16fee5de88075b960f7c56c",
+"namespacetaixu.html#ae915e42a97457bba37098bd5d36c633b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
