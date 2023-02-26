@@ -53,6 +53,9 @@ include(../3rdparty/FindAssimp.cmake)
 # add jsoncpp
 include(../3rdparty/FindJsoncpp.cmake)
 
+# add refl cpp
+include(../3rdparty/FindReflCpp.cmake)
+
 # ------- sub-directories --------
 
 # for SPIR_V
