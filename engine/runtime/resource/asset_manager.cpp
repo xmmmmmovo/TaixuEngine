@@ -39,9 +39,9 @@ void Asset_Manager::loadAsset(std::string file_path, AssetType asset_type) {
     new_asset->name     = file_path.substr(file_path.find_last_of('/') + 1);
     new_asset->location = file_path;
         
-    if (asset_type == Model) 
+    if (asset_type == MODEL) 
         new_asset->type = "Model";
-     else if (asset_type==Texture)
+     else if (asset_type==TEXTURE)
         new_asset->type = "Texture";
 
         asset_list.push_back(new_asset);

@@ -11,8 +11,8 @@
 #include "graphics/render/camera.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/render/shader.hpp"
+#include "graphics/render/texture.hpp"
 #include "platform/opengl/OGLShader.hpp"
-
 
 namespace taixu {
 
@@ -25,12 +25,12 @@ public:
     explicit Render_Data() = default;
     ~Render_Data(){};
     void initialize() {
-        model = std::make_shared<Model>(std::string("assets/model/cube.obj"));
+        model = std::make_shared<Model_Data>(
+                std::string("assets/model/cube.obj"));
     }
     Render_Data *getData() { return this; };
-
-protected:
-    std::shared_ptr<Model> model;
+    //std::vector<Model>
+    std::shared_ptr<Model_Data> model;
 };
 
 class Render_Context {
@@ -43,9 +43,10 @@ public:
     void initialize() {
         render_data = std::make_shared<Render_Data>();
         render_data->initialize();
+        
     };
 
-    void bindBuffer(unsigned int  vertex_arry_object,
+    void bindMesh(unsigned int  vertex_arry_object,
                     unsigned int &element_buffer_id,
                     unsigned int &vertex_buffer_id, Mesh mesh) {
         glBindVertexArray(vertex_arry_object);
@@ -91,6 +92,7 @@ public:
                               (void *) offsetof(Vertex, m_Weights));
         glBindVertexArray(0);
     }
+
     Render_Data *getSwapContext() { return render_data->getData(); };
 
 protected:

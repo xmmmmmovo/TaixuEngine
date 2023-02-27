@@ -18,7 +18,7 @@
 
 namespace taixu {
 constexpr std::uint8_t INVALID_GUID = std::numeric_limits<std::uint8_t>::max();
-enum AssetType { Model, Texture };
+enum AssetType { MODEL, TEXTURE };
 class GUID_Generator {
 public:
     static std::uint8_t generate_new_guid();

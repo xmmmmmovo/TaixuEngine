@@ -20,9 +20,9 @@ void Renderer::initialize() {
 
 
     //Bind buffer for each Mesh
-    render_context->bindBuffer(
-            VAO, VBO, EBO,
-            render_context->getSwapContext()->getData()->model->meshes[0]);
+
+    render_context->bindMesh(VAO,VBO,EBO,render_context->getSwapContext()->getData()->model->meshes[0]);
+
 
     // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
     glBindBuffer(GL_ARRAY_BUFFER, 0);

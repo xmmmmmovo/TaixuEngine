@@ -4,6 +4,10 @@
 
 #ifndef TAIXUENGINE_TEXTURE_HPP
 #define TAIXUENGINE_TEXTURE_HPP
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
+#include <assimp/Importer.hpp>
+#include <stb_image.h>
 
 #include <cstdint>
 
