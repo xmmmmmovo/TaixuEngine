@@ -4,8 +4,11 @@
 
 #include "glfw_window.hpp"
 
+#include "gui/event/applicationEvent.h"
+#include "gui/event/event.h"
+#include "gui/event/keyEvent.h"
+#include "gui/event/mouseEvent.h"
 #include "core/base/macro.hpp"
-
 namespace taixu {
 
 void TX_GLFWwindow::init() {
@@ -42,6 +45,70 @@ void TX_GLFWwindow::init() {
     // configure global opengl state
     // -----------------------------
     glEnable(GL_DEPTH_TEST);
+
+    //Set GLFW callbacks
+    glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode,
+                                    int action, int mods) {
+        WindowData& data = *(WindowData*) glfwGetWindowUserPointer(window);
+
+        switch (action) {
+            case GLFW_PRESS: {
+                event::KeyPressEvent event(key, 0);
+                data.EventCallback(event);
+                break;
+            }
+            case GLFW_RELEASE: {
+                event::KeyReleasedEvent event(key);
+                data.EventCallback(event);
+                break;
+            }
+            case GLFW_REPEAT: {
+                event::KeyPressEvent event(key, true);
+                data.EventCallback(event);
+                break;
+            }
+        }
+    });
+
+    glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode) {
+        WindowData& data = *(WindowData*) glfwGetWindowUserPointer(window);
+
+        event::KeyTypedEvent event(1);
+        data.EventCallback(event);
+    });
+
+    glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button,
+                                            int action, int mods) {
+        WindowData& data = *(WindowData*) glfwGetWindowUserPointer(window);
+
+        switch (action) {
+            case GLFW_PRESS: {
+                event::MouseButtonPressedEvent event(button);
+                data.EventCallback(event);
+                break;
+            }
+            case GLFW_RELEASE: {
+                event::MouseButtonPressedEvent event(button);
+                data.EventCallback(event);
+                break;
+            }
+        }
+    });
+
+    glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset,
+                                       double yOffset) {
+        WindowData& data = *(WindowData*) glfwGetWindowUserPointer(window);
+
+        event::MouseScrolledEvent event((float) xOffset, (float) yOffset);
+        data.EventCallback(event);
+    });
+    glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos,
+                                          double yPos) {
+        WindowData& data = *(WindowData*) glfwGetWindowUserPointer(window);
+
+        event::MouseMovedEvent event((float) xPos, (float) yPos);
+        data.EventCallback(event);
+    });
 }
 
 void TX_GLFWwindow::update() {
@@ -51,7 +118,7 @@ void TX_GLFWwindow::update() {
 
 void TX_GLFWwindow::destroy() { glfwDestroyWindow(window); }
 
-void TX_GLFWwindow::errorCallBack(int error, const char *description) {
+void TX_GLFWwindow::errorCallBack(int error, const char* description) {
     spdlog::error("GLFW Error: {}", description);
 }
 

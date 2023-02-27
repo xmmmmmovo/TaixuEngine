@@ -17,18 +17,35 @@
 #include "graphics/renderer.hpp"
 #include "gui/glfw_window.hpp"
 #include "ui/imgui_surface.hpp"
-
 namespace taixu::editor {
 
 class MainWindow : public TX_GLFWwindow {
     using super = TX_GLFWwindow;
+    using EventCallbackFn = std::function<void(event::Event&)>;
 
 private:
     std::unique_ptr<ImguiSurface> imgui_surface{};
 
 private:
     void bindCallbacks();
+    /////////////////////
+    GLFWwindow* m_Window;
+    struct WindowData
+    {
+        std::string Title;
+        unsigned int Width, Height;
+        bool VSync;
 
+        EventCallbackFn EventCallback;
+        /*
+         * EventCallbackFn
+         * ->
+         * using EventCallbackFn = std::function<void(Event&)>;
+         * in Window.h #28 line
+         *
+         * */
+    };
+    //////////////////////
 public:
     MainWindow() : MainWindow(IWindowContext{}) {}
 

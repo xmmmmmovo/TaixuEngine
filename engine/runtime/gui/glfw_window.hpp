@@ -8,10 +8,11 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <spdlog/spdlog.h>
+#include "gui/event/event.h"
 
 // "" headers
 #include "window.hpp"
-
+using EventCallbackFn = std::function<void(taixu::event::Event&)>;
 namespace taixu {
 
 class TX_GLFWwindow : public IWindow {
@@ -22,6 +23,16 @@ protected:
 
 private:
     static void errorCallBack(int error, const char *description);
+    GLFWwindow* m_Window;
+
+    struct WindowData
+    {
+        std::string Title;
+        unsigned int Width, Height;
+        bool VSync;
+
+        EventCallbackFn EventCallback;
+    };
 
 public:
     TX_GLFWwindow() = default;

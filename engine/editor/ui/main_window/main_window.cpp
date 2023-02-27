@@ -3,7 +3,6 @@
 //
 
 #include "main_window.hpp"
-
 #include "spdlog/spdlog.h"
 
 
@@ -33,13 +32,17 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
 }
 
 void MainWindow::init() {
-    ///////////////////////////
     spdlog::info("Main window start init!");
     super::init();
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     super::setIsVsync(true);
     imgui_surface->init(window);
     spdlog::info("Main window start finished!");
+
+
+
+
+
 }
 
 void MainWindow::update() {
