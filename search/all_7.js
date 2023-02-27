@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gammacorrection_75',['gammaCorrection',['../classtaixu_1_1Model.html#a094fe094acc1cbc62958dbc83ba40c4b',1,'taixu::Model']]],
+  ['gammacorrection_75',['gammaCorrection',['../classtaixu_1_1Model__Data.html#a3aa7860b18b5844466f353edbf258115',1,'taixu::Model_Data']]],
   ['generate_5fnew_5fguid_76',['generate_new_guid',['../classtaixu_1_1GUID__Generator.html#a4559a7695a5c3d089b8267e0dff4314c',1,'taixu::GUID_Generator']]],
   ['geometry_77',['GEOMETRY',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a1bf9d54e1b266cacdd0b937e462f9adc',1,'taixu']]],
   ['get_5fid_78',['get_id',['../classtaixu_1_1IShader.html#a56805a9b6ffca57123aaec9af2f1ab09',1,'taixu::IShader']]],

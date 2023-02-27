@@ -10,7 +10,7 @@ var dir_793f305715bfd7d4f2a17b8a173f6235 =
     [ "mesh.hpp", "mesh_8hpp.html", "mesh_8hpp" ],
     [ "model.cpp", "model_8cpp.html", null ],
     [ "model.hpp", "model_8hpp.html", [
-      [ "Model", "classtaixu_1_1Model.html", "classtaixu_1_1Model" ]
+      [ "Model_Data", "classtaixu_1_1Model__Data.html", "classtaixu_1_1Model__Data" ]
     ] ],
     [ "shader.hpp", "shader_8hpp.html", "shader_8hpp" ],
     [ "texture.hpp", "texture_8hpp.html", [

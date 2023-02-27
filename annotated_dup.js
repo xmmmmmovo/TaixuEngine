@@ -24,7 +24,7 @@ var annotated_dup =
       [ "Vertex", "structtaixu_1_1Vertex.html", "structtaixu_1_1Vertex" ],
       [ "Texture", "structtaixu_1_1Texture.html", "structtaixu_1_1Texture" ],
       [ "Mesh", "classtaixu_1_1Mesh.html", "classtaixu_1_1Mesh" ],
-      [ "Model", "classtaixu_1_1Model.html", "classtaixu_1_1Model" ],
+      [ "Model_Data", "classtaixu_1_1Model__Data.html", "classtaixu_1_1Model__Data" ],
       [ "IShader", "classtaixu_1_1IShader.html", "classtaixu_1_1IShader" ],
       [ "IShaderProgram", "classtaixu_1_1IShaderProgram.html", "classtaixu_1_1IShaderProgram" ],
       [ "ITexture", "classtaixu_1_1ITexture.html", "classtaixu_1_1ITexture" ],

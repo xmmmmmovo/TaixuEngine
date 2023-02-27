@@ -91,28 +91,32 @@ $(document).ready(function(){initNavTree('texture_8hpp_source.html',''); initRes
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_TEXTURE_HPP</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_TEXTURE_HPP</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8hpp.html">core/base/noncopyable.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;assimp/postprocess.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;assimp/scene.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;assimp/Importer.hpp&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stb_image.h&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1ITexture.html">ITexture</a> : <span class="keyword">private</span> <a class="code" href="classtaixu_1_1noncopyable.html">noncopyable</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html#a37c23a1d7c1650cf05ca1853d56c288c">   16</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span>      <a class="code" href="classtaixu_1_1ITexture.html#a37c23a1d7c1650cf05ca1853d56c288c">getWidth</a>() <span class="keyword">const</span>     = 0;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html#a824e6e4753d885c75af3f7a2031e05db">   17</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span>      <a class="code" href="classtaixu_1_1ITexture.html#a824e6e4753d885c75af3f7a2031e05db">getHeight</a>() <span class="keyword">const</span>    = 0;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html#ad302b3f33eee4ab261872a918ea405ae">   18</a></span>&#160;    <span class="keyword">virtual</span> uint32_t <a class="code" href="classtaixu_1_1ITexture.html#ad302b3f33eee4ab261872a918ea405ae">getTextureID</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html#a161251c2dce5102153453cd2551a4ae3">   20</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1ITexture.html#a161251c2dce5102153453cd2551a4ae3">bind</a>(uint32_t slot = 0) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html#af30888fbaa30ee4c2d08660f48288324">   22</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtaixu_1_1ITexture.html#af30888fbaa30ee4c2d08660f48288324">operator==</a>(<span class="keyword">const</span> <a class="code" href="classtaixu_1_1ITexture.html">ITexture</a>&amp; other) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_TEXTURE_HPP</span></div>
-<div class="ttc" id="aclasstaixu_1_1ITexture_html"><div class="ttname"><a href="classtaixu_1_1ITexture.html">taixu::ITexture</a></div><div class="ttdef"><b>Definition:</b> texture.hpp:14</div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8hpp.html">core/base/noncopyable.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1ITexture.html">ITexture</a> : <span class="keyword">private</span> <a class="code" href="classtaixu_1_1noncopyable.html">noncopyable</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html#a37c23a1d7c1650cf05ca1853d56c288c">   20</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span>      <a class="code" href="classtaixu_1_1ITexture.html#a37c23a1d7c1650cf05ca1853d56c288c">getWidth</a>() <span class="keyword">const</span>     = 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html#a824e6e4753d885c75af3f7a2031e05db">   21</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span>      <a class="code" href="classtaixu_1_1ITexture.html#a824e6e4753d885c75af3f7a2031e05db">getHeight</a>() <span class="keyword">const</span>    = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html#ad302b3f33eee4ab261872a918ea405ae">   22</a></span>&#160;    <span class="keyword">virtual</span> uint32_t <a class="code" href="classtaixu_1_1ITexture.html#ad302b3f33eee4ab261872a918ea405ae">getTextureID</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html#a161251c2dce5102153453cd2551a4ae3">   24</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1ITexture.html#a161251c2dce5102153453cd2551a4ae3">bind</a>(uint32_t slot = 0) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classtaixu_1_1ITexture.html#af30888fbaa30ee4c2d08660f48288324">   26</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtaixu_1_1ITexture.html#af30888fbaa30ee4c2d08660f48288324">operator==</a>(<span class="keyword">const</span> <a class="code" href="classtaixu_1_1ITexture.html">ITexture</a>&amp; other) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_TEXTURE_HPP</span></div>
+<div class="ttc" id="aclasstaixu_1_1ITexture_html"><div class="ttname"><a href="classtaixu_1_1ITexture.html">taixu::ITexture</a></div><div class="ttdef"><b>Definition:</b> texture.hpp:18</div></div>
 <div class="ttc" id="aclasstaixu_1_1ITexture_html_a161251c2dce5102153453cd2551a4ae3"><div class="ttname"><a href="classtaixu_1_1ITexture.html#a161251c2dce5102153453cd2551a4ae3">taixu::ITexture::bind</a></div><div class="ttdeci">virtual void bind(uint32_t slot=0) const =0</div></div>
 <div class="ttc" id="aclasstaixu_1_1ITexture_html_a37c23a1d7c1650cf05ca1853d56c288c"><div class="ttname"><a href="classtaixu_1_1ITexture.html#a37c23a1d7c1650cf05ca1853d56c288c">taixu::ITexture::getWidth</a></div><div class="ttdeci">virtual int getWidth() const =0</div></div>
 <div class="ttc" id="aclasstaixu_1_1ITexture_html_a824e6e4753d885c75af3f7a2031e05db"><div class="ttname"><a href="classtaixu_1_1ITexture.html#a824e6e4753d885c75af3f7a2031e05db">taixu::ITexture::getHeight</a></div><div class="ttdeci">virtual int getHeight() const =0</div></div>

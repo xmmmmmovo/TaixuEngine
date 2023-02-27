@@ -8,7 +8,7 @@ var namespacetaixu =
     [ "Vertex", "structtaixu_1_1Vertex.html", "structtaixu_1_1Vertex" ],
     [ "Texture", "structtaixu_1_1Texture.html", "structtaixu_1_1Texture" ],
     [ "Mesh", "classtaixu_1_1Mesh.html", "classtaixu_1_1Mesh" ],
-    [ "Model", "classtaixu_1_1Model.html", "classtaixu_1_1Model" ],
+    [ "Model_Data", "classtaixu_1_1Model__Data.html", "classtaixu_1_1Model__Data" ],
     [ "IShader", "classtaixu_1_1IShader.html", "classtaixu_1_1IShader" ],
     [ "IShaderProgram", "classtaixu_1_1IShaderProgram.html", "classtaixu_1_1IShaderProgram" ],
     [ "ITexture", "classtaixu_1_1ITexture.html", "classtaixu_1_1ITexture" ],
@@ -32,8 +32,8 @@ var namespacetaixu =
     [ "ProjectManager", "classtaixu_1_1ProjectManager.html", null ],
     [ "json", "namespacetaixu.html#af876a3b1f89f874d9460dd06234888f6", null ],
     [ "AssetType", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb", [
-      [ "Model", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba4ce415de7871d86f4a819a8776174405", null ],
-      [ "Texture", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5ebab069e7dee38ef1bd934c12da381a13d4", null ]
+      [ "MODEL", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba639a04ebc1a05ddf601b9c88883a944b", null ],
+      [ "TEXTURE", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba85ba69aa0747e7bcca4b4add8ec638eb", null ]
     ] ],
     [ "Camera_Movement", "namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1d", [
       [ "FORWARD", "namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da50c2fc57053018385350b70d55712937", null ],

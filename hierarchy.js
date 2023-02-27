@@ -10,7 +10,7 @@ var hierarchy =
     [ "taixu::IWindowContext", "structtaixu_1_1IWindowContext.html", null ],
     [ "taixu::editor::MainWindowContext", "structtaixu_1_1editor_1_1MainWindowContext.html", null ],
     [ "taixu::Mesh", "classtaixu_1_1Mesh.html", null ],
-    [ "taixu::Model", "classtaixu_1_1Model.html", null ],
+    [ "taixu::Model_Data", "classtaixu_1_1Model__Data.html", null ],
     [ "taixu::noncopyable", "classtaixu_1_1noncopyable.html", [
       [ "taixu::IElementBuffer", "classtaixu_1_1IElementBuffer.html", null ],
       [ "taixu::IJsonable< T >", "classtaixu_1_1IJsonable.html", null ],
