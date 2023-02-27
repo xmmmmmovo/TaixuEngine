@@ -6,3 +6,13 @@
 #define TAIXUENGINE_FRAMEBUFFER_HPP
 
 #endif//TAIXUENGINE_FRAMEBUFFER_HPP
+namespace taixu {
+class IFrameBuffer {
+    
+    virtual void allocate() = 0;
+    virtual void bind() = 0;
+    virtual void getRenderResult() = 0;
+};
+
+
+}
