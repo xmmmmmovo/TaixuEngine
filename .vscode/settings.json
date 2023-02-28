@@ -10,5 +10,6 @@
     "files.associations": {
         "*.tsx": "typescriptreact",
         "iostream": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": true
 }
