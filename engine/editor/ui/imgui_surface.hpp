@@ -54,9 +54,11 @@ private:
      * @param update update function, most from component->update();
      * @param flags window flags
      * @see https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags---Enumerations/
+     * @see tests/benchmarks/function_transfer_benchmark.hpp
      * @param open open pointer, to judge whether window opened
      */
-    void addWidget(char const *name, const std::function<void()> &update,
+    template<class Func>
+    void addWidget(char const *name, Func &&update,
                    ImGuiWindowFlags flags = 0, bool *open = nullptr);
 
 public:
