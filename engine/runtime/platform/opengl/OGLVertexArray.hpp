@@ -13,7 +13,10 @@ namespace taixu {
 
 class OGLVertexArray : public IVertexArray {
 private:
-    BufferLayout layout{};
+    BufferLayout                    layout{};
+    std::uint32_t                   VAO{0};
+    std::unique_ptr<IVertexBuffer>  VBO{};
+    std::unique_ptr<IElementBuffer> EBO{};
 
 public:
     OGLVertexArray();

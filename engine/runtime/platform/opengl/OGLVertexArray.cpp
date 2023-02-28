@@ -8,9 +8,13 @@ namespace taixu {
 
 OGLVertexArray::OGLVertexArray() {}
 
-void OGLVertexArray::bind() {}
+void OGLVertexArray::bind() {
+    glBindVertexArray(VAO);// Bind VAO
+}
 
-void OGLVertexArray::unbind() {}
+void OGLVertexArray::unbind() {
+    glBindVertexArray(0);// Unbined VAO
+}
 
 void OGLVertexArray::setVBO(const IVertexBuffer& buffer) {}
 
