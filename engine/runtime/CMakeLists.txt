@@ -4,15 +4,18 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB_RECURSE HEADER_FILES "*.h" "*.hpp")
-file(GLOB_RECURSE SOURCE_FILES "*.cpp")
+file(GLOB_RECURSE SOURCE_FILES "*.cpp" "*.inc")
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_FILES})
 
 add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
-GroupSourcesByFolder(${TARGET_NAME})
+
+if (USE_PCH)
+    target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch.hpp)
+endif ()
 
 target_link_libraries(${TARGET_NAME} glm glfw ${OGLLIB} ${FREETYPE_LIBS}
-        glad imgui stb spdlog::spdlog assimp nlohmann_json::nlohmann_json)
+        glad imgui stb spdlog::spdlog assimp nlohmann_json::nlohmann_json refl-cpp::refl-cpp)
 
 add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET})
 target_include_directories(

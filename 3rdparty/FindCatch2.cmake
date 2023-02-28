@@ -2,5 +2,7 @@
 CPMAddPackage(
         NAME catch2
         GITHUB_REPOSITORY catchorg/Catch2
-        GIT_TAG 3.3.1
+        VERSION 3.2.1
+        OPTIONS
+        "CATCH_INSTALL_DOCS OFF"
 )

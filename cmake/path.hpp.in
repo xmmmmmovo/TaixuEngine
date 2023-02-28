@@ -1,0 +1,6 @@
+#ifndef TAIXU_PATH_HPP_IN
+#define TAIXU_PATH_HPP_IN
+
+constexpr char path[] = "@CMAKE_SOURCE_DIR@";
+
+#endif

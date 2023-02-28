@@ -11,9 +11,12 @@
 #include "graphics/render/camera.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/render/shader.hpp"
-
+#include "graphics/render/texture.hpp"
+#include "platform/opengl/OGLShader.hpp"
 
 namespace taixu {
+
+constexpr float delta_time = 0.03333;
 
 class Render_Data {
 
@@ -24,13 +27,12 @@ public:
     explicit Render_Data() = default;
     ~Render_Data(){};
     void initialize() {
-        model = std::make_shared<Model>(
+        model = std::make_shared<Model_Data>(
                 std::string("assets/model/cube.obj"));
     }
     Render_Data *getData() { return this; };
-
-protected:
-    std::shared_ptr<Model> model;
+    //std::vector<Model>
+    std::shared_ptr<Model_Data> model;
 };
 
 class Render_Context {
@@ -43,9 +45,10 @@ public:
     void initialize() {
         render_data = std::make_shared<Render_Data>();
         render_data->initialize();
+        
     };
 
-    void bindBuffer(unsigned int  vertex_arry_object,
+    void bindMesh(unsigned int  vertex_arry_object,
                     unsigned int &element_buffer_id,
                     unsigned int &vertex_buffer_id, Mesh mesh) {
         glBindVertexArray(vertex_arry_object);
@@ -91,6 +94,7 @@ public:
                               (void *) offsetof(Vertex, m_Weights));
         glBindVertexArray(0);
     }
+
     Render_Data *getSwapContext() { return render_data->getData(); };
 
 protected:
@@ -102,7 +106,6 @@ class Renderer {
 public:
     explicit Renderer() = default;
     ~Renderer(){};
-    const float delta_time=0.03333;
     void initialize();
     void tick(float delta_time = 0.03333);
     void clear();
@@ -110,8 +113,8 @@ public:
     void         resize(float width, float height);
     void         processInput(std::string input);
     void         processInput(glm::vec2 mouse_pos);
-    bool         first_mouse=true;
-    float        last_x,last_y;
+    bool         first_mouse = true;
+    float        last_x, last_y;
     void         processInput(float scroll_yoffset);
     unsigned int getRenderResult() { return bufferTexId; };
 
@@ -120,7 +123,7 @@ public:
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 
     std::shared_ptr<Render_Context> render_context;
-    ShaderProgram              *shaderProgram;
+    IShaderProgram                 *shaderProgram;
 
     unsigned int VBO, EBO, VAO;
     unsigned int fbo, bufferTexId, rbo;
@@ -128,6 +131,6 @@ public:
 };
 
 
-}// namespace taixu::cg
+}// namespace taixu
 
 #endif//TAIXUENGINE_RENDERER_HPP
