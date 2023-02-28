@@ -4,9 +4,16 @@
 
 #include "OGLVertexArray.hpp"
 
-namespace taixu{
-
+namespace taixu {
 
 OGLVertexArray::OGLVertexArray() {}
 
-}
+void OGLVertexArray::bind() {}
+
+void OGLVertexArray::unbind() {}
+
+void OGLVertexArray::setVBO(const IVertexBuffer& buffer) {}
+
+void OGLVertexArray::setEBO(const IElementBuffer& ebo) {}
+
+}// namespace taixu

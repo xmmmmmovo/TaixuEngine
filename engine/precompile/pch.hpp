@@ -25,4 +25,7 @@
 #include <type_traits>
 #include <vector>
 
+// glm
+#include <glm/glm.hpp>
+
 #endif//TAIXUENGINE_PCH_HPP

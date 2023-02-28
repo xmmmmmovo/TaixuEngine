@@ -5,6 +5,27 @@
 #ifndef TAIXUENGINE_OGLVERTEXBUFFER_HPP
 #define TAIXUENGINE_OGLVERTEXBUFFER_HPP
 
-namespace taixu{}
+#include <glm/glm.hpp>
+
+#include "graphics/render/vertex_buffer.hpp"
+
+namespace taixu {
+
+class OGLVertexBuffer : public IVertexBuffer {
+private:
+    unsigned int VBO{0};
+
+public:
+    OGLVertexBuffer();
+
+    void bind() override;
+    void unbind() override;
+
+    void setData(float* data, GLsizeiptr size,
+                 GLenum usage = GL_STATIC_DRAW) override;
+    ~OGLVertexBuffer() override;
+};
+
+}// namespace taixu
 
 #endif//TAIXUENGINE_OGLVERTEXBUFFER_HPP

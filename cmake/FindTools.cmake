@@ -52,7 +52,7 @@ if (USE_SANITIZER OR USE_STATIC_ANALYZER)
                     )
         endif ()
 
-        include(${cmake-scripts_SOURCE_DIR}/FindTools.cmake)
+        include(${cmake-scripts_SOURCE_DIR}/tools.cmake)
 
         clang_tidy(${CLANG_TIDY_ARGS})
         include_what_you_use(${IWYU_ARGS})

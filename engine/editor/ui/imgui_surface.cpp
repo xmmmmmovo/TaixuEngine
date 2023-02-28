@@ -149,11 +149,10 @@ void ImguiSurface::preUpdate() {
               INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(tool_bar_component->update),
               ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoScrollbar |
                       ImGuiWindowFlags_NoScrollWithMouse);
-
 }
 
-void ImguiSurface::addWidget(const char                  *name,
-                             const std::function<void()> &update,
+template<typename Func>
+void ImguiSurface::addWidget(const char *name, Func &&update,
                              ImGuiWindowFlags const flags, bool *open) {
     if (!ImGui::Begin(name, open, flags)) {
         ImGui::End();
@@ -178,7 +177,7 @@ void ImguiSurface::update() {
     }
 }
 
-void ImguiSurface::Input_callback(std::string input) { 
+void ImguiSurface::Input_callback(std::string input) {
     render_component->processInput(input);
 }
 

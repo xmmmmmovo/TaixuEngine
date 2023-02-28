@@ -11,10 +11,17 @@
 
 namespace taixu {
 
-class OGLVertexArray {
+class OGLVertexArray : public IVertexArray {
 private:
+    BufferLayout layout{};
+
 public:
     OGLVertexArray();
+
+    void bind() override;
+    void unbind() override;
+    void setVBO(const IVertexBuffer& buffer) override;
+    void setEBO(const IElementBuffer& ebo) override;
 };
 
 }// namespace taixu
