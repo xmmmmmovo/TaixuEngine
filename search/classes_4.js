@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['editorstyle_368',['EditorStyle',['../structtaixu_1_1editor_1_1EditorStyle.html',1,'taixu::editor']]]
+  ['editorstyle_372',['EditorStyle',['../structtaixu_1_1editor_1_1EditorStyle.html',1,'taixu::editor']]]
 ];

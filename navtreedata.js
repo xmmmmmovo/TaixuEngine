@@ -56,6 +56,7 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -66,7 +67,7 @@ var NAVTREEINDEX =
 [
 "OGLElementBuffer_8cpp.html",
 "classtaixu_1_1Renderer.html",
-"mesh_8hpp_source.html"
+"menu__component_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
