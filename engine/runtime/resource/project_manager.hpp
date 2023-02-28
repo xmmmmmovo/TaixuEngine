@@ -1,17 +1,18 @@
 //
 // Created by xmmmmmovo on 2023/2/19.
 //
-#include "core/base/macro.hpp"
-#include "graphics/render/model.hpp"
-#include "graphics/render/mesh.hpp"
-
-#include <string>
-#include <vector>
-#include <memory>
-#include <nlohmann/json.hpp>
-
 #ifndef TAIXUENGINE_PROJECT_MANAGER_HPP
 #define TAIXUENGINE_PROJECT_MANAGER_HPP
+
+#include <memory>
+#include <nlohmann/json.hpp>
+#include <string>
+#include <vector>
+
+#include "core/base/macro.hpp"
+#include "graphics/render/mesh.hpp"
+#include "graphics/render/model.hpp"
+
 
 namespace taixu {
 
@@ -41,11 +42,12 @@ public:
 class ProjectManager {
 public:
     // current openingProject;
-    
+
     // load project json file
     ProjectManager() {
         openingProject = nullptr;
-        loadProjects();}
+        loadProjects();
+    }
     status openProject(std::string const &path);
     void   createProject(std::string const &path, std::string const &name);
     void   deleteProject() { printf("delete"); };
@@ -61,19 +63,18 @@ public:
     //const Project getCurrentOpenedProject() { return projectData[openedPid]; }
 
 
-
 private:
-    //current opening project 
+    //current opening project
     Project *openingProject;
     //TODO: Implement asset class in the future
     class assetManager;
     // object that store current opened obejct
-    unsigned int openedPid;
-    // vector store the current recorded project 
+    unsigned int                          openedPid;
+    // vector store the current recorded project
     std::vector<std::shared_ptr<Project>> projectData;
     // record the project that has been loaded before
-    void   saveProjectLocal();
-    status loadProjects();
+    void                                  saveProjectLocal();
+    status                                loadProjects();
 };
 
 }// namespace taixu
