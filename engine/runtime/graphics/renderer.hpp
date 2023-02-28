@@ -16,6 +16,8 @@
 
 namespace taixu {
 
+constexpr float delta_time = 0.03333;
+
 class Render_Data {
 
     friend class Renderer;
@@ -104,10 +106,9 @@ class Renderer {
 public:
     explicit Renderer() = default;
     ~Renderer(){};
-    const float delta_time = 0.03333;
-    void        initialize();
-    void        tick(float delta_time = 0.03333);
-    void        clear();
+    void initialize();
+    void tick(float delta_time = 0.03333);
+    void clear();
 
     void         resize(float width, float height);
     void         processInput(std::string input);

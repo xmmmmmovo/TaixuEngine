@@ -9,7 +9,13 @@
 
 namespace taixu {
 
-class IElementBuffer : private noncopyable {};
+class IElementBuffer : private noncopyable {
+public:
+    virtual void bind()   = 0;
+    virtual void unbind() = 0;
+
+    ~IElementBuffer() override = 0;
+};
 
 }// namespace taixu
 
