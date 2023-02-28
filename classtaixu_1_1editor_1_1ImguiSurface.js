@@ -1,7 +1,7 @@
 var classtaixu_1_1editor_1_1ImguiSurface =
 [
     [ "ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html#aa69a7cb50d6cb86642fb5bdbec69a3fe", null ],
-    [ "addWidget", "classtaixu_1_1editor_1_1ImguiSurface.html#ab9a0d96e88f70b74c1f40fa98d0a06b2", null ],
+    [ "addWidget", "classtaixu_1_1editor_1_1ImguiSurface.html#af4e60a5618047650c71cf059189cdaf5", null ],
     [ "destroy", "classtaixu_1_1editor_1_1ImguiSurface.html#ae0952851f2d4b24f616c2f2c44431baa", null ],
     [ "init", "classtaixu_1_1editor_1_1ImguiSurface.html#a1ff279ce9c0fb943631fe7d3e3250d7b", null ],
     [ "Input_callback", "classtaixu_1_1editor_1_1ImguiSurface.html#a4f185f8142394572a809cd9d938a97fa", null ],

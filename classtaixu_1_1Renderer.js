@@ -11,7 +11,6 @@ var classtaixu_1_1Renderer =
     [ "resize", "classtaixu_1_1Renderer.html#a361a8db07f4eb74ad8b69d840d35f6f6", null ],
     [ "tick", "classtaixu_1_1Renderer.html#af86768669acc423911cc0ac7c25838c3", null ],
     [ "bufferTexId", "classtaixu_1_1Renderer.html#a05aed569ce10ef5b1ab54a8e297f4bf4", null ],
-    [ "delta_time", "classtaixu_1_1Renderer.html#a5b2900bff96891ac40edde2b28c2d3b6", null ],
     [ "EBO", "classtaixu_1_1Renderer.html#a299717d6059b6dd3b13ea3608a23424c", null ],
     [ "fbo", "classtaixu_1_1Renderer.html#a5e59f7a331a7cadb41eb6ca9eca17e05", null ],
     [ "first_mouse", "classtaixu_1_1Renderer.html#ae5550cb52fa323f1bf47ffba7380aeea", null ],

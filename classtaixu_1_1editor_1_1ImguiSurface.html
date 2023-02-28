@@ -126,9 +126,10 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ab9a0d96e88f70b74c1f40fa98d0a06b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1ImguiSurface.html#ab9a0d96e88f70b74c1f40fa98d0a06b2">addWidget</a> (char const *name, const std::function&lt; void()&gt; &amp;<a class="el" href="classtaixu_1_1editor_1_1ImguiSurface.html#a62ae0b8ae5be91d4a470b4962c636daf">update</a>, ImGuiWindowFlags flags=0, bool *open=nullptr)</td></tr>
-<tr class="memdesc:ab9a0d96e88f70b74c1f40fa98d0a06b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">add widget to the surface  <a href="classtaixu_1_1editor_1_1ImguiSurface.html#ab9a0d96e88f70b74c1f40fa98d0a06b2">More...</a><br /></td></tr>
-<tr class="separator:ab9a0d96e88f70b74c1f40fa98d0a06b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e60a5618047650c71cf059189cdaf5"><td class="memTemplParams" colspan="2">template&lt;class Func &gt; </td></tr>
+<tr class="memitem:af4e60a5618047650c71cf059189cdaf5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1ImguiSurface.html#af4e60a5618047650c71cf059189cdaf5">addWidget</a> (char const *name, Func &amp;&amp;<a class="el" href="classtaixu_1_1editor_1_1ImguiSurface.html#a62ae0b8ae5be91d4a470b4962c636daf">update</a>, ImGuiWindowFlags flags=0, bool *open=nullptr)</td></tr>
+<tr class="memdesc:af4e60a5618047650c71cf059189cdaf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">add widget to the surface  <a href="classtaixu_1_1editor_1_1ImguiSurface.html#af4e60a5618047650c71cf059189cdaf5">More...</a><br /></td></tr>
+<tr class="separator:af4e60a5618047650c71cf059189cdaf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -199,11 +200,13 @@ Static Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab9a0d96e88f70b74c1f40fa98d0a06b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9a0d96e88f70b74c1f40fa98d0a06b2">&#9670;&nbsp;</a></span>addWidget()</h2>
+<a id="af4e60a5618047650c71cf059189cdaf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e60a5618047650c71cf059189cdaf5">&#9670;&nbsp;</a></span>addWidget()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Func &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -217,7 +220,7 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::function&lt; void()&gt; &amp;&#160;</td>
+          <td class="paramtype">Func &amp;&amp;&#160;</td>
           <td class="paramname"><em>update</em>, </td>
         </tr>
         <tr>
@@ -254,7 +257,9 @@ Static Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a href="https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags&mdash;Enumerations/">https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags&amp;mdash;Enumerations/</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags&mdash;Enumerations/">https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags&amp;mdash;Enumerations/</a> </dd>
+<dd>
+tests/benchmarks/function_transfer_benchmark.hpp </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">open</td><td>open pointer, to judge whether window opened </td></tr>

@@ -1,10 +1,24 @@
 var namespacetaixu =
 [
+    [ "cg", "namespacetaixu_1_1cg.html", [
+      [ "RenderAPI", "namespacetaixu_1_1cg.html#a3cff6fb3c036cdea3412e2b8fdda5ad4", [
+        [ "NONE", "namespacetaixu_1_1cg.html#a3cff6fb3c036cdea3412e2b8fdda5ad4ab50339a10e1de285ac99d4c3990b8693", null ],
+        [ "OPENGL", "namespacetaixu_1_1cg.html#a3cff6fb3c036cdea3412e2b8fdda5ad4ac0ad831a34c4633bee584066cfcc5040", null ]
+      ] ],
+      [ "ShaderAPI", "namespacetaixu_1_1cg.html#a35d86f063729f758c858473aed0d951b", [
+        [ "NONE", "namespacetaixu_1_1cg.html#a35d86f063729f758c858473aed0d951bab50339a10e1de285ac99d4c3990b8693", null ],
+        [ "GLSL", "namespacetaixu_1_1cg.html#a35d86f063729f758c858473aed0d951ba2a2c1392bcbaececf702b611e7d7df25", null ],
+        [ "HLSL", "namespacetaixu_1_1cg.html#a35d86f063729f758c858473aed0d951bacdf45fdd8960ab47314fb33febc95d9f", null ]
+      ] ]
+    ] ],
     [ "editor", "namespacetaixu_1_1editor.html", "namespacetaixu_1_1editor" ],
     [ "noncopyable", "classtaixu_1_1noncopyable.html", "classtaixu_1_1noncopyable" ],
     [ "PublicSingleton", "classtaixu_1_1PublicSingleton.html", "classtaixu_1_1PublicSingleton" ],
+    [ "NotImplementedException", "classtaixu_1_1NotImplementedException.html", "classtaixu_1_1NotImplementedException" ],
+    [ "BufferElement", "structtaixu_1_1BufferElement.html", "structtaixu_1_1BufferElement" ],
+    [ "BufferLayout", "classtaixu_1_1BufferLayout.html", "classtaixu_1_1BufferLayout" ],
     [ "Camera", "classtaixu_1_1Camera.html", "classtaixu_1_1Camera" ],
-    [ "IElementBuffer", "classtaixu_1_1IElementBuffer.html", null ],
+    [ "IElementBuffer", "classtaixu_1_1IElementBuffer.html", "classtaixu_1_1IElementBuffer" ],
     [ "Vertex", "structtaixu_1_1Vertex.html", "structtaixu_1_1Vertex" ],
     [ "Texture", "structtaixu_1_1Texture.html", "structtaixu_1_1Texture" ],
     [ "Mesh", "classtaixu_1_1Mesh.html", "classtaixu_1_1Mesh" ],
@@ -13,17 +27,19 @@ var namespacetaixu =
     [ "IShaderProgram", "classtaixu_1_1IShaderProgram.html", "classtaixu_1_1IShaderProgram" ],
     [ "ITexture", "classtaixu_1_1ITexture.html", "classtaixu_1_1ITexture" ],
     [ "IVertexArray", "classtaixu_1_1IVertexArray.html", "classtaixu_1_1IVertexArray" ],
-    [ "IVertexBuffer", "classtaixu_1_1IVertexBuffer.html", null ],
+    [ "IVertexBuffer", "classtaixu_1_1IVertexBuffer.html", "classtaixu_1_1IVertexBuffer" ],
     [ "Render_Data", "classtaixu_1_1Render__Data.html", "classtaixu_1_1Render__Data" ],
     [ "Render_Context", "classtaixu_1_1Render__Context.html", "classtaixu_1_1Render__Context" ],
     [ "Renderer", "classtaixu_1_1Renderer.html", "classtaixu_1_1Renderer" ],
     [ "TX_GLFWwindow", "classtaixu_1_1TX__GLFWwindow.html", "classtaixu_1_1TX__GLFWwindow" ],
     [ "IWindow", "classtaixu_1_1IWindow.html", "classtaixu_1_1IWindow" ],
     [ "IWindowContext", "structtaixu_1_1IWindowContext.html", "structtaixu_1_1IWindowContext" ],
+    [ "OGLElementBuffer", "classtaixu_1_1OGLElementBuffer.html", "classtaixu_1_1OGLElementBuffer" ],
     [ "OGLShader", "classtaixu_1_1OGLShader.html", "classtaixu_1_1OGLShader" ],
     [ "OGLShaderProgram", "classtaixu_1_1OGLShaderProgram.html", "classtaixu_1_1OGLShaderProgram" ],
     [ "OGLTexture", "classtaixu_1_1OGLTexture.html", "classtaixu_1_1OGLTexture" ],
     [ "OGLVertexArray", "classtaixu_1_1OGLVertexArray.html", "classtaixu_1_1OGLVertexArray" ],
+    [ "OGLVertexBuffer", "classtaixu_1_1OGLVertexBuffer.html", "classtaixu_1_1OGLVertexBuffer" ],
     [ "GUID_Generator", "classtaixu_1_1GUID__Generator.html", null ],
     [ "Asset", "structtaixu_1_1Asset.html", "structtaixu_1_1Asset" ],
     [ "Asset_Manager", "classtaixu_1_1Asset__Manager.html", "classtaixu_1_1Asset__Manager" ],
@@ -34,6 +50,12 @@ var namespacetaixu =
     [ "AssetType", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb", [
       [ "MODEL", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba639a04ebc1a05ddf601b9c88883a944b", null ],
       [ "TEXTURE", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba85ba69aa0747e7bcca4b4add8ec638eb", null ]
+    ] ],
+    [ "AttributeType", "namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5", [
+      [ "POSITION", "namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5a90b4ba73224408e82ade8a072a3712c1", null ],
+      [ "COLOR", "namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5a04bd834032febb3fda8c6936ee140949", null ],
+      [ "NORMAL", "namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5a1e23852820b9154316c7c06e2b7ba051", null ],
+      [ "TEXCOORD", "namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5ae406d3f48e0ec122e180637b66787651", null ]
     ] ],
     [ "Camera_Movement", "namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1d", [
       [ "FORWARD", "namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da50c2fc57053018385350b70d55712937", null ],
@@ -64,6 +86,7 @@ var namespacetaixu =
     [ "mapImageToGLReadType", "namespacetaixu.html#a50b059f197588dff329e7188f511d10e", null ],
     [ "mapToShaderTypeGLenum", "namespacetaixu.html#acaed3ec10be035d59d94c20d504c9aae", null ],
     [ "mapToShaderTypeString", "namespacetaixu.html#a205aa55ac5fab58c5ad92706605d58fc", null ],
+    [ "delta_time", "namespacetaixu.html#a60a7e92441438be0646e42748456ea2f", null ],
     [ "INVALID_GUID", "namespacetaixu.html#ae915e42a97457bba37098bd5d36c633b", null ],
     [ "OPENGL_MAJOR_VERSION", "namespacetaixu.html#a7615db81481c93028421bd815f850f7a", null ],
     [ "OPENGL_MINOR_VERSION", "namespacetaixu.html#a4c72cc973baec6d45f9f8b54179d7522", null ],

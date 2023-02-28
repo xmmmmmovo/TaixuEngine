@@ -1,5 +1,6 @@
 var classtaixu_1_1ITexture =
 [
+    [ "~ITexture", "classtaixu_1_1ITexture.html#a45265bb1c94c0019778119230fe15524", null ],
     [ "bind", "classtaixu_1_1ITexture.html#a161251c2dce5102153453cd2551a4ae3", null ],
     [ "getHeight", "classtaixu_1_1ITexture.html#a824e6e4753d885c75af3f7a2031e05db", null ],
     [ "getTextureID", "classtaixu_1_1ITexture.html#ad302b3f33eee4ab261872a918ea405ae", null ],

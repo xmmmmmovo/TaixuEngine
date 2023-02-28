@@ -3,16 +3,23 @@ var hierarchy =
     [ "taixu::editor::ApplicationContext", "structtaixu_1_1editor_1_1ApplicationContext.html", null ],
     [ "taixu::Asset", "structtaixu_1_1Asset.html", null ],
     [ "taixu::Asset_Manager", "classtaixu_1_1Asset__Manager.html", null ],
+    [ "taixu::BufferElement", "structtaixu_1_1BufferElement.html", null ],
+    [ "taixu::BufferLayout", "classtaixu_1_1BufferLayout.html", null ],
     [ "taixu::Camera", "classtaixu_1_1Camera.html", null ],
     [ "taixu::editor::EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", null ],
     [ "taixu::GUID_Generator", "classtaixu_1_1GUID__Generator.html", null ],
     [ "taixu::editor::ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", null ],
     [ "taixu::IWindowContext", "structtaixu_1_1IWindowContext.html", null ],
+    [ "std::logic_error", null, [
+      [ "taixu::NotImplementedException", "classtaixu_1_1NotImplementedException.html", null ]
+    ] ],
     [ "taixu::editor::MainWindowContext", "structtaixu_1_1editor_1_1MainWindowContext.html", null ],
     [ "taixu::Mesh", "classtaixu_1_1Mesh.html", null ],
     [ "taixu::Model_Data", "classtaixu_1_1Model__Data.html", null ],
     [ "taixu::noncopyable", "classtaixu_1_1noncopyable.html", [
-      [ "taixu::IElementBuffer", "classtaixu_1_1IElementBuffer.html", null ],
+      [ "taixu::IElementBuffer", "classtaixu_1_1IElementBuffer.html", [
+        [ "taixu::OGLElementBuffer", "classtaixu_1_1OGLElementBuffer.html", null ]
+      ] ],
       [ "taixu::IJsonable< T >", "classtaixu_1_1IJsonable.html", null ],
       [ "taixu::IShader", "classtaixu_1_1IShader.html", [
         [ "taixu::OGLShader", "classtaixu_1_1OGLShader.html", null ]
@@ -23,8 +30,12 @@ var hierarchy =
       [ "taixu::ITexture", "classtaixu_1_1ITexture.html", [
         [ "taixu::OGLTexture", "classtaixu_1_1OGLTexture.html", null ]
       ] ],
-      [ "taixu::IVertexArray", "classtaixu_1_1IVertexArray.html", null ],
-      [ "taixu::IVertexBuffer", "classtaixu_1_1IVertexBuffer.html", null ],
+      [ "taixu::IVertexArray", "classtaixu_1_1IVertexArray.html", [
+        [ "taixu::OGLVertexArray", "classtaixu_1_1OGLVertexArray.html", null ]
+      ] ],
+      [ "taixu::IVertexBuffer", "classtaixu_1_1IVertexBuffer.html", [
+        [ "taixu::OGLVertexBuffer", "classtaixu_1_1OGLVertexBuffer.html", null ]
+      ] ],
       [ "taixu::IWindow", "classtaixu_1_1IWindow.html", [
         [ "taixu::TX_GLFWwindow", "classtaixu_1_1TX__GLFWwindow.html", [
           [ "taixu::editor::MainWindow", "classtaixu_1_1editor_1_1MainWindow.html", null ]
@@ -40,7 +51,6 @@ var hierarchy =
         [ "taixu::editor::ToolbarComponent", "classtaixu_1_1editor_1_1ToolbarComponent.html", null ]
       ] ]
     ] ],
-    [ "taixu::OGLVertexArray", "classtaixu_1_1OGLVertexArray.html", null ],
     [ "taixu::Project", "structtaixu_1_1Project.html", null ],
     [ "taixu::ProjectManager", "classtaixu_1_1ProjectManager.html", null ],
     [ "taixu::PublicSingleton< T >", "classtaixu_1_1PublicSingleton.html", null ],

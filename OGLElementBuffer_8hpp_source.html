@@ -92,9 +92,37 @@ $(document).ready(function(){initNavTree('OGLElementBuffer_8hpp_source.html','')
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_OGLELEMENTBUFFER_HPP</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_OGLELEMENTBUFFER_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a>{}</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;glad/glad.h&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_OGLELEMENTBUFFER_HPP</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="element__buffer_8hpp.html">graphics/render/element_buffer.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1OGLElementBuffer.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1OGLElementBuffer.html">OGLElementBuffer</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1IElementBuffer.html">IElementBuffer</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classtaixu_1_1OGLElementBuffer.html#a3954e4f187c133aaba7d66c5c351f594">   16</a></span>&#160;    std::uint32_t <a class="code" href="classtaixu_1_1OGLElementBuffer.html#a3954e4f187c133aaba7d66c5c351f594">EBO</a>{0};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classtaixu_1_1OGLElementBuffer.html#af9016ca5cd8e305ac2c2881077165aa5">OGLElementBuffer</a>(std::vector&lt;std::uint32_t&gt; <span class="keyword">const</span>&amp; indices,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                              GLenum usage = GL_STATIC_DRAW);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1OGLElementBuffer.html#a0892e67d403c359b59ec71c1379a77c4">bind</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1OGLElementBuffer.html#a3b5f5927252cf443fa66e5369075bb78">unbind</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classtaixu_1_1OGLElementBuffer.html#a093deead2d78d5bf07b54b2eebc6fd8a">~OGLElementBuffer</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_OGLELEMENTBUFFER_HPP</span></div>
+<div class="ttc" id="aclasstaixu_1_1IElementBuffer_html"><div class="ttname"><a href="classtaixu_1_1IElementBuffer.html">taixu::IElementBuffer</a></div><div class="ttdef"><b>Definition:</b> element_buffer.hpp:12</div></div>
+<div class="ttc" id="aclasstaixu_1_1OGLElementBuffer_html"><div class="ttname"><a href="classtaixu_1_1OGLElementBuffer.html">taixu::OGLElementBuffer</a></div><div class="ttdef"><b>Definition:</b> OGLElementBuffer.hpp:14</div></div>
+<div class="ttc" id="aclasstaixu_1_1OGLElementBuffer_html_a0892e67d403c359b59ec71c1379a77c4"><div class="ttname"><a href="classtaixu_1_1OGLElementBuffer.html#a0892e67d403c359b59ec71c1379a77c4">taixu::OGLElementBuffer::bind</a></div><div class="ttdeci">void bind() override</div><div class="ttdef"><b>Definition:</b> OGLElementBuffer.cpp:18</div></div>
+<div class="ttc" id="aclasstaixu_1_1OGLElementBuffer_html_a093deead2d78d5bf07b54b2eebc6fd8a"><div class="ttname"><a href="classtaixu_1_1OGLElementBuffer.html#a093deead2d78d5bf07b54b2eebc6fd8a">taixu::OGLElementBuffer::~OGLElementBuffer</a></div><div class="ttdeci">~OGLElementBuffer() override</div><div class="ttdef"><b>Definition:</b> OGLElementBuffer.cpp:22</div></div>
+<div class="ttc" id="aclasstaixu_1_1OGLElementBuffer_html_a3954e4f187c133aaba7d66c5c351f594"><div class="ttname"><a href="classtaixu_1_1OGLElementBuffer.html#a3954e4f187c133aaba7d66c5c351f594">taixu::OGLElementBuffer::EBO</a></div><div class="ttdeci">std::uint32_t EBO</div><div class="ttdef"><b>Definition:</b> OGLElementBuffer.hpp:16</div></div>
+<div class="ttc" id="aclasstaixu_1_1OGLElementBuffer_html_a3b5f5927252cf443fa66e5369075bb78"><div class="ttname"><a href="classtaixu_1_1OGLElementBuffer.html#a3b5f5927252cf443fa66e5369075bb78">taixu::OGLElementBuffer::unbind</a></div><div class="ttdeci">void unbind() override</div><div class="ttdef"><b>Definition:</b> OGLElementBuffer.cpp:20</div></div>
+<div class="ttc" id="aclasstaixu_1_1OGLElementBuffer_html_af9016ca5cd8e305ac2c2881077165aa5"><div class="ttname"><a href="classtaixu_1_1OGLElementBuffer.html#af9016ca5cd8e305ac2c2881077165aa5">taixu::OGLElementBuffer::OGLElementBuffer</a></div><div class="ttdeci">OGLElementBuffer(std::vector&lt; std::uint32_t &gt; const &amp;indices, GLenum usage=GL_STATIC_DRAW)</div><div class="ttdef"><b>Definition:</b> OGLElementBuffer.cpp:8</div></div>
+<div class="ttc" id="aelement__buffer_8hpp_html"><div class="ttname"><a href="element__buffer_8hpp.html">element_buffer.hpp</a></div></div>
 <div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

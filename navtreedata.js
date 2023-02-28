@@ -65,8 +65,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "OGLElementBuffer_8cpp.html",
-"classtaixu_1_1editor_1_1DetailComponent.html",
-"namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb"
+"classtaixu_1_1Renderer.html",
+"mesh_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
