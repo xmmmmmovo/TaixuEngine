@@ -6,7 +6,7 @@
 
 namespace taixu {
 
-OGLVertexArray::OGLVertexArray() {}
+OGLVertexArray::OGLVertexArray() {glGenVertexArrays(1, &VAO);}
 
 void OGLVertexArray::bind() {
     glBindVertexArray(VAO);// Bind VAO
@@ -19,5 +19,7 @@ void OGLVertexArray::unbind() {
 void OGLVertexArray::setVBO(const IVertexBuffer& buffer) {}
 
 void OGLVertexArray::setEBO(const IElementBuffer& ebo) {}
+
+std::uint32_t OGLVertexArray::getVAOid() {return VAO;}
 
 }// namespace taixu

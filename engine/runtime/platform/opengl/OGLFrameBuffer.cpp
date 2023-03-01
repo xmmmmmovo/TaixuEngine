@@ -43,4 +43,4 @@ void taixu::OGLFrameBuffer::unbind() {
 
 void taixu::OGLFrameBuffer::getRenderResult() { getImageid(); }
 
-unsigned int taixu::OGLFrameBuffer::getImageid() { return bufferTexId; }
+std::uint32_t taixu::OGLFrameBuffer::getImageid() { return bufferTexId; }

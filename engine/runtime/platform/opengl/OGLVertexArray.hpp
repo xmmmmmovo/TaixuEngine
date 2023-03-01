@@ -6,9 +6,10 @@
 #define TAIXUENGINE_OGLVERTEXARRAY_HPP
 
 #include <glad/glad.h>
-
+#include<memory>
 #include "graphics/render/vertex_array.hpp"
-
+#include "graphics/render/element_buffer.hpp"
+#include "graphics/render/vertex_buffer.hpp"
 namespace taixu {
 
 class OGLVertexArray : public IVertexArray {
@@ -25,6 +26,7 @@ public:
     void unbind() override;
     void setVBO(const IVertexBuffer& buffer) override;
     void setEBO(const IElementBuffer& ebo) override;
+    std::uint32_t getVAOid();
 };
 
 }// namespace taixu

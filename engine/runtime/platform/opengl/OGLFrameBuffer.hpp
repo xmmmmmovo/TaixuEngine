@@ -3,20 +3,20 @@
 #define TAIXUENGINE_OGLFRAMEBUFFER_HPP
 
 #include"graphics/render/framebuffer.hpp"
-#include"graphics/renderer.hpp"
-#include"OGLContext.hpp"
+#include <glad/glad.h>// holds all OpenGL type declarations
+#include <glm/glm.hpp>
 
 namespace taixu {
 class OGLFrameBuffer : public IFrameBuffer {
 public:
-    unsigned int fbo,rbo,bufferTexId;
+    std::uint32_t fbo,rbo,bufferTexId;
 
 	void allocate(glm::vec2 frame_size);
 
-	void bind();
-	void unbind();
-	void getRenderResult();
-    unsigned int getImageid();
+	void bind()override;
+	void unbind()override;
+	void getRenderResult()override;
+    std::uint32_t getImageid();
 
 };
 

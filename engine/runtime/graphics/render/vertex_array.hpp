@@ -13,7 +13,7 @@
 
 namespace taixu {
 
-class IVertexArray : private noncopyable {
+class IVertexArray /*: private noncopyable */{
 public:
     virtual void bind()   = 0;
     virtual void unbind() = 0;
@@ -21,7 +21,7 @@ public:
     virtual void setVBO(IVertexBuffer const &buffer) = 0;
     virtual void setEBO(IElementBuffer const &ebo)   = 0;
 
-    ~IVertexArray() override = 0;
+    //~IVertexArray() override = 0;
 };
 
 }// namespace taixu
