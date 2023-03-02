@@ -24,6 +24,8 @@ namespace taixu::editor {
 class MainWindow : public TX_GLFWwindow, public IWindow {
     using super = TX_GLFWwindow;
 
+    friend class MainWindowSurface;
+
 private:
     std::unique_ptr<MainWindowSurface> main_imgui_surface{};
     std::shared_ptr<Renderer>          renderer{};
@@ -36,9 +38,7 @@ private:
     MainWindowContext context{};
 
 public:
-    explicit MainWindow(MainWindowContext context) : context(context) {
-        this->main_imgui_surface = std::make_unique<MainWindowSurface>();
-    };
+    explicit MainWindow(MainWindowContext const &context);
 
     void init() override;
     void update() override;

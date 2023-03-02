@@ -17,10 +17,6 @@ namespace taixu::editor {
 class IUIComponent : private noncopyable {
 public:
     /**
-     * @brief init function, init some function after imgui inited.
-     */
-    virtual void init() = 0;
-    /**
      * @brief render update
      */
     virtual void update()                      = 0;

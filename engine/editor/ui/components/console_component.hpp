@@ -10,7 +10,6 @@
 namespace taixu::editor {
 class ConsoleComponent : public IUIComponent {
 public:
-    void init() override {}
     void update() override {}
 };
 }// namespace taixu::editor

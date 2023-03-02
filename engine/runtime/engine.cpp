@@ -6,7 +6,10 @@ Engine::Engine() {}
 
 Engine::~Engine() {}
 
-void Engine::init() {}
+void Engine::init() {
+    renderer = std::make_shared<Renderer>();
+    renderer->initialize();
+}
 
 void Engine::run() {}
 

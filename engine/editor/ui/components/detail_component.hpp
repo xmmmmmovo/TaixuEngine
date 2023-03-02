@@ -10,7 +10,6 @@
 namespace taixu::editor {
 class DetailComponent : public IUIComponent {
 public:
-    void init() override {}
     void update() override {
         if (ImGui::CollapsingHeader("Mesh", ImGuiTreeNodeFlags_DefaultOpen)) {
             if (ImGui::Button("Open...")) {}

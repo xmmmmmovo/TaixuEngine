@@ -21,7 +21,6 @@ namespace taixu::editor {
  */
 class MenuComponent : public IUIComponent {
 public:
-    void init() override {}
     void update() override {
         if (ImGui::MenuItem("open project")) {
             ImGuiFileDialog::Instance()->OpenDialog(

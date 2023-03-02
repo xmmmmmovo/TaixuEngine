@@ -5,22 +5,13 @@
 #include "main_window_surface.hpp"
 
 #include "core/utils/function_utils.hpp"
+#include "main_window.hpp"
 
 namespace taixu::editor {
 
-void MainWindowSurface::init(GLFWwindow *window) {
-    this->imgui_surface.init(window);
-
-    menu_component->init();
-
-    render_component->init();
-    world_object_component->init();
-    detail_component->init();
-    file_component->init();
-    status_component->init();
-    useful_obj_component->init();
-
-    tool_bar_component->init();
+void MainWindowSurface::init() {
+    this->imgui_surface.init(parent_window->window);
+    render_component->setRenderer(parent_window->renderer);
 }
 
 void MainWindowSurface::preUpdate() {

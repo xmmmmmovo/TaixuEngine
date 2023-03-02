@@ -6,6 +6,7 @@
 #define TAIXUENGINE_MAIN_WINDOW_SURFACE_HPP
 
 #include "gui/imgui_surface.hpp"
+#include "main_window_context.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
@@ -14,7 +15,10 @@
 #include "ui/components/render_component.hpp"
 #include "ui/components/toolbar_component.hpp"
 
+
 namespace taixu::editor {
+
+class MainWindow;
 
 class MainWindowSurface {
 private:
@@ -41,11 +45,10 @@ private:
     std::unique_ptr<ToolbarComponent>   tool_bar_component{};
 
     // context
-    GLFWwindow     *parent_window{};
-    IWindowContext *parent_context{};
+    MainWindow *parent_window{};
 
 public:
-    MainWindowSurface() {
+    explicit MainWindowSurface(MainWindow *parent_window) {
         this->menu_component = std::make_unique<MenuComponent>();
 
         this->render_component       = std::make_unique<RenderComponent>();
@@ -55,9 +58,11 @@ public:
         this->status_component       = std::make_unique<ConsoleComponent>();
         this->useful_obj_component   = std::make_unique<HierarchyComponent>();
         this->tool_bar_component     = std::make_unique<ToolbarComponent>();
+
+        this->parent_window = parent_window;
     }
 
-    void init(GLFWwindow *window);
+    void init();
     void preUpdate();
     void update();
     void destroy();

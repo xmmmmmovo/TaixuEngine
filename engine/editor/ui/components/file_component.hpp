@@ -24,7 +24,6 @@ private:
     std::filesystem::path current_path{root_path};
 
 public:
-    void init() override {}
     void update() override {
         {
 

@@ -10,7 +10,6 @@
 namespace taixu::editor {
 class HierarchyComponent : public IUIComponent {
 public:
-    void init() override {}
     void update() override {
         ImGui::Selectable("aaaaaaa", false);
         ImGui::Selectable("aaaaaaa", false);
