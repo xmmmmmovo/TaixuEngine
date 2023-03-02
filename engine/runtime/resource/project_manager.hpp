@@ -13,7 +13,6 @@
 #include "graphics/render/mesh.hpp"
 #include "graphics/render/model.hpp"
 
-
 namespace taixu {
 
 class Project {
@@ -48,7 +47,7 @@ public:
         openingProject = nullptr;
         loadProjects();
     }
-    status openProject(std::string const &path);
+    Status openProject(std::string const &path);
     void   createProject(std::string const &path, std::string const &name);
     void   deleteProject() { printf("delete"); };
     void   saveProject(std::string const &path);
@@ -74,7 +73,7 @@ private:
     std::vector<std::shared_ptr<Project>> projectData;
     // record the project that has been loaded before
     void                                  saveProjectLocal();
-    status                                loadProjects();
+    Status                                loadProjects();
 };
 
 }// namespace taixu

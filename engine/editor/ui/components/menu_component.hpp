@@ -9,8 +9,10 @@
 #include <imgui.h>
 #include <spdlog/spdlog.h>
 
-#include "core/application.hpp"
-#include "interface/component.hpp"
+#include "application.hpp"
+#include "core/base/path.hpp"
+#include "interface/ui_component.hpp"
+#include "platform/os/path.hpp"
 
 namespace taixu::editor {
 
@@ -22,7 +24,13 @@ public:
             // TODO: Just debug for this path, remove after decided
             ImGuiFileDialog::Instance()->OpenDialog(
                     "ChooseDirDlgKey", "Choose a Directory", nullptr,
-                    "../tests", 1, nullptr, ImGuiFileDialogFlags_Modal);
+#ifndef NDEBUG
+                    DEBUG_PATH "/example_proj"
+#else
+                    getRootPath().c_str()
+#endif
+                    ,
+                    1, nullptr, ImGuiFileDialogFlags_Modal);
         }
         if (ImGui::MenuItem("save project")) {}
         if (ImGui::MenuItem("save as project")) {}

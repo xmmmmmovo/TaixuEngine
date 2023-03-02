@@ -43,4 +43,19 @@ std::string getFilePureName(const std::string& file_full_name) {
     return file_pure_name;
 }
 
+std::filesystem::path fromRelativePath(const std::filesystem::path& directory,
+                                       const std::filesystem::path& file_path) {
+    return directory / file_path;
+}
+
+std::filesystem::path fromRelativePath(
+        const std::filesystem::path& relative_path) {
+    return std::filesystem::current_path() / relative_path;
+}
+
+std::filesystem::path getRootPath() {
+    // 根据不同os获取磁盘根目录
+    return std::filesystem::current_path().root_path();
+}
+
 }// namespace taixu

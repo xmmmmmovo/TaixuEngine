@@ -1,29 +1,25 @@
 //
-// Created by xmmmmmovo on 2023/2/13.
+// Created by xmmmmmovo on 2023/3/2.
 //
 
-#ifndef TAIXUENGINE_IMGUI_SURFACE_HPP
-#define TAIXUENGINE_IMGUI_SURFACE_HPP
+#ifndef TAIXUENGINE_MAIN_WINDOW_SURFACE_HPP
+#define TAIXUENGINE_MAIN_WINDOW_SURFACE_HPP
 
-#include <glad/glad.h>
-
-#include <GLFW/glfw3.h>
-
-#include "components/console_component.hpp"
-#include "components/detail_component.hpp"
-#include "components/file_component.hpp"
-#include "components/hierarchy_component.hpp"
-#include "components/menu_component.hpp"
-#include "components/render_component.hpp"
-#include "components/toolbar_component.hpp"
+#include "gui/imgui_surface.hpp"
+#include "ui/components/console_component.hpp"
+#include "ui/components/detail_component.hpp"
+#include "ui/components/file_component.hpp"
+#include "ui/components/hierarchy_component.hpp"
+#include "ui/components/menu_component.hpp"
+#include "ui/components/render_component.hpp"
+#include "ui/components/toolbar_component.hpp"
 
 namespace taixu::editor {
 
-/**
- * @brief Imgui render surface.
- */
-class ImguiSurface {
+class MainWindowSurface {
 private:
+    ImguiSurface imgui_surface{};
+
     // names
     static char constexpr DOCK_SPACE_NAME[]           = "TaixuEditorDock";
     static char constexpr RENDER_COMPONENT_NAME[]     = "Scene";
@@ -45,24 +41,11 @@ private:
     std::unique_ptr<ToolbarComponent>   tool_bar_component{};
 
     // context
-    std::shared_ptr<ApplicationContext> context{};
-
-private:
-    /**
-     * @brief add widget to the surface
-     * @param name the component name
-     * @param update update function, most from component->update();
-     * @param flags window flags
-     * @see https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags---Enumerations/
-     * @see tests/benchmarks/function_transfer_benchmark.hpp
-     * @param open open pointer, to judge whether window opened
-     */
-    template<class Func>
-    void addWidget(char const *name, Func &&update,
-                   ImGuiWindowFlags flags = 0, bool *open = nullptr);
+    GLFWwindow     *parent_window{};
+    IWindowContext *parent_context{};
 
 public:
-    ImguiSurface() {
+    MainWindowSurface() {
         this->menu_component = std::make_unique<MenuComponent>();
 
         this->render_component       = std::make_unique<RenderComponent>();
@@ -72,21 +55,14 @@ public:
         this->status_component       = std::make_unique<ConsoleComponent>();
         this->useful_obj_component   = std::make_unique<HierarchyComponent>();
         this->tool_bar_component     = std::make_unique<ToolbarComponent>();
-
-        this->context = Application::getInstance().getContext();
     }
-    void Input_callback(std::string input);
-    void Input_callback(glm::vec2 mouse_pos);
-    void Input_callback(float scroll_yoffset);
+
     void init(GLFWwindow *window);
-
     void preUpdate();
-
     void update();
-
     void destroy();
 };
 
 }// namespace taixu::editor
 
-#endif//TAIXUENGINE_IMGUI_SURFACE_HPP
+#endif//TAIXUENGINE_MAIN_WINDOW_SURFACE_HPP

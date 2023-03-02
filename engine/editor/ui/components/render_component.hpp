@@ -6,7 +6,7 @@
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
 #include "graphics/renderer.hpp"
-#include "interface/component.hpp"
+#include "interface/ui_component.hpp"
 
 namespace taixu::editor {
 
@@ -16,7 +16,7 @@ private:
 
 public:
     const float delta_time = 0.03333;
-    void init() override {
+    void        init() override {
         m_renderer = std::make_shared<Renderer>();
         m_renderer->initialize();
     }
@@ -33,9 +33,6 @@ public:
         ImGui::Image(reinterpret_cast<void *>(m_renderer->getRenderResult()),
                      size, ImVec2(0, 1), ImVec2(1, 0));
     }
-    void processInput(std::string input) { m_renderer->processInput(input);}
-    void processInput(glm::vec2 mouse_pos) { m_renderer->processInput(mouse_pos); }
-    void processInput(float scroll_yoffset) { m_renderer->processInput(scroll_yoffset); }
 };
 
 }// namespace taixu::editor

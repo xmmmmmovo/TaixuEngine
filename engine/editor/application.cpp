@@ -5,7 +5,7 @@
 #include "application.hpp"
 
 // <> headers
-#include <spdlog/spdlog.h>
+#include "spdlog/spdlog.h"
 
 // "" headers
 #include "ui/main_window/main_window.hpp"
@@ -19,25 +19,21 @@ void initSpdlog() {
     spdlog::set_level(spdlog::level::debug);// Set global log level to debug
 }
 
-/**
- * @brief init arguments parser
- */
-void initApplicationArgs() {}
+void Application::initApplicationArgs(int argc, char *argv[]) {}
 
-void Application::initialize() {
+void Application::initialize(int argc, char *argv[]) {
     initSpdlog();
-    initApplicationArgs();
-    this->window = std::make_shared<MainWindow>(IWindowContext{
+    initApplicationArgs(argc, argv);
+    Engine *instance = &Engine::getInstance();
+    instance->init();
+    auto window_ptr = std::make_shared<MainWindow>(new MainWindowContext{
             MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE});
-    this->window->init();
+    window_ptr->init();
+    window_ptr->setEngineRuntime(instance);
+    this->window = window_ptr;
 }
 
 void Application::run() { this->window->update(); }
 
 void Application::destroy() { this->window->destroy(); }
-
-std::shared_ptr<ApplicationContext> Application::getContext() {
-    return context;
-}
-
 }// namespace taixu::editor
