@@ -31,9 +31,6 @@ enum class EngineMode {
     GAME   //game mode
 };
 
-template<typename... Args>
-using callback = std::function<void(Args...)>;//callback function
-
 }// namespace taixu
 
 
