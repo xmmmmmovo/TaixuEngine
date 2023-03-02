@@ -45,6 +45,7 @@ public:
     void destroy() override;
 
     void setEngineRuntime(Engine *engine_runtime_ptr);
+    void init_imgui_surface();
 };
 
 }// namespace taixu::editor

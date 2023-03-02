@@ -24,13 +24,14 @@ void Application::initApplicationArgs(int argc, char *argv[]) {}
 void Application::initialize(int argc, char *argv[]) {
     initSpdlog();
     initApplicationArgs(argc, argv);
-    Engine *instance = &Engine::getInstance();
-    instance->init();
     std::shared_ptr<MainWindow> window_ptr =
             std::make_shared<MainWindow>(MainWindowContext{
                     MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE});
     window_ptr->init();
+    Engine *instance = &Engine::getInstance();
+    instance->init();
     window_ptr->setEngineRuntime(instance);
+    window_ptr->init_imgui_surface();
     this->window = window_ptr;
 }
 

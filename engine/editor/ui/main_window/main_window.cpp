@@ -13,7 +13,6 @@ void MainWindow::init() {
     spdlog::info("Main window start init!");
     super::init(&context);
     super::setIsVsync(true);
-    main_imgui_surface->init();
     spdlog::info("Main window start finished!");
 }
 
@@ -39,6 +38,10 @@ void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
 
 MainWindow::MainWindow(MainWindowContext const& context) : context(context) {
     main_imgui_surface = std::make_unique<MainWindowSurface>(this);
+}
+
+void MainWindow::init_imgui_surface() {
+    main_imgui_surface->init();
 }
 
 }// namespace taixu::editor
