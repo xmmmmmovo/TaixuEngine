@@ -24,7 +24,7 @@ public:
     void init();
     void run();
     void shutdown();
-
+    
     Status loadProject(std::string_view const &path);
 
     [[nodiscard]] std::shared_ptr<Renderer> getRenderer() const;

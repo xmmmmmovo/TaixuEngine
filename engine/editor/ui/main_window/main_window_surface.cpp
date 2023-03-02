@@ -74,7 +74,9 @@ void MainWindowSurface::destroy() { this->imgui_surface.destroy(); }
 void MainWindowSurface::update() { this->imgui_surface.update(); }
 
 void MainWindowSurface::onNewProjectCb(std::string_view const& path) {}
-void MainWindowSurface::onOpenProjectCb(std::string_view const& path) {}
+void MainWindowSurface::onOpenProjectCb(std::string_view const& path) {
+    this->parent_window->engine_runtime->loadProject(path);
+}
 void MainWindowSurface::onSaveProjectCb() {}
 void MainWindowSurface::onSaveAsProjectCb(std::string_view const& path) {}
 

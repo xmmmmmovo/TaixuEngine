@@ -20,9 +20,11 @@ constexpr std::int32_t OPENGL_MINOR_VERSION = 1;
 
 // Define status enum
 enum class Status {
-    OK,                //access allowed
-    PERMISSION_FAILED, //access permission failed
-    NO_SUCH_FILE_FAILED//cannot find file path
+    OK,                 //access allowed
+    PERMISSION_FAILED,  //access permission failed
+    NO_SUCH_FILE_FAILED,//cannot find file path
+
+    NO_OPEN_PROJECT,//no project opened
 };
 
 // Define engine mode enum

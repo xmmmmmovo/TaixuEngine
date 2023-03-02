@@ -3,63 +3,20 @@
 //
 
 #include "project_manager.hpp"
-//
+
+#include "platform/os/file_service.hpp"
+
 namespace taixu {
-//using json = nlohmann::json;
-Status ProjectManager::loadProjects() {
-    // Open the project JSON file
-    std::ifstream file("F:/Gproject/git/tests/project_data.json");
-    if (!file.is_open()) {
-        std::cerr << "Failed to open file\n";
-        return Status::NO_SUCH_FILE_FAILED;
-    }
+using json = nlohmann::json;
 
-    // Read the entire file into a JSON object using nlohmann/json
-    nlohmann::json data;
-    try {
-        file >> data;
-    } catch (nlohmann::json::parse_error& e) {
-        std::cerr << "Failed to parse JSON: " << e.what() << std::endl;
-        return Status::PERMISSION_FAILED;
-    }
-
-    // Loop over the project objects and extract the data for each one
-    // Extract the data from the JSON object and store it in C++ variables
-    for (auto& project : data) {
-        unsigned int             id           = project["id"];
-        std::string              name         = project["name"];
-        std::string              path         = project["path"];
-        std::vector<std::string> texturesPath = project["asset"]["textures"];
-        std::vector<std::string> modelsPath   = project["asset"]["models"];
-        //Project                  newProject;
-        auto                     ProjectPtr =
-                std::make_shared<Project>(name, path, texturesPath, modelsPath);
-        projectData.push_back(ProjectPtr);
-    }
-
-    return Status::OK;
-}
-
-
-Status ProjectManager::openProject(std::string const& path) {
-    // if one project is opening, close current project
-    if (openingProject) { openingProject = nullptr; }
-    // Check if the project is already loaded
-    for (unsigned int i = 0; i < projectData.size(); i++) {
-        if (projectData[i]->path == path) {
-            std::cout << "Project already loaded\n";
-            openedPid      = i;
-            openingProject = projectData[i].get();
-            return Status::OK;
-        }
-    }
-
+Status ProjectManager::openProject(std::string_view const& path) {
     // If the project is not loaded, load it from the JSON file
     std::ifstream file(path);
     if (!file.is_open()) {
         std::cerr << "Failed to open project file " << path << "\n";
         return Status::NO_SUCH_FILE_FAILED;
     }
+
 
     nlohmann::json data;
     file >> data;
@@ -83,8 +40,8 @@ Status ProjectManager::openProject(std::string const& path) {
     return Status::OK;
 }
 
-void ProjectManager::createProject(std::string const& path,
-                                   std::string const& name) {
+Status ProjectManager::createProject(std::string const& path,
+                                     std::string const& name) {
 
     if (openingProject) { openingProject = nullptr; }
     //std::cout << path << std::endl;
@@ -99,66 +56,12 @@ void ProjectManager::createProject(std::string const& path,
     // Open the JSON file
 }
 
+Status ProjectManager::saveAsProject(const std::string& path) {}
 
-void ProjectManager::saveProjectLocal() {
-    // save the project that is not in the localist
+Status ProjectManager::saveProject() {
     if (openingProject == nullptr) {
-        std::cerr << "current have no project opening, error\n";
-        return;
+        spdlog::error("current have no project opening, error");
+        return Status::NO_OPEN_PROJECT;
     }
-    //Project& proj = projectData[openedPid];
-    std::ifstream file("F:/Gproject/git/tests/project_data.json");
-    if (!file.is_open()) {
-        std::cerr << "Failed to open projects file\n";
-        return;
-    }
-
-    std::cout << openingProject->name << std::endl;
-    nlohmann::json data;
-    file >> data;
-
-    // Create a new project object
-    int                      id           = openedPid;
-    std::string              name         = openingProject->name;
-    std::vector<std::string> texturePaths = openingProject->texturePath;
-    std::vector<std::string> modelPaths   = openingProject->modelPath;
-
-
-    nlohmann::json newProject = {
-            {"id", id},
-            {"name", name},
-            {"asset", {{"textures", texturePaths}, {"models", modelPaths}}},
-            {"path", openingProject->path}};
-
-    // Add the new project to the "projects" array in the JSON file
-    data["projects"].push_back(newProject);
-
-    // Save the updated JSON data back to the file
-    std::ofstream outfile("F:/Gproject/git/tests/project_data.json");
-    outfile << std::setw(4) << data << std::endl;
 }
-
-void ProjectManager::saveProject(std::string const& path) {
-    if (openingProject == nullptr) {
-        std::cout << "current have no project opening, error\n";
-        return;
-    }
-
-    nlohmann::json saveFile;
-    saveFile["name"]              = openingProject->name;
-    saveFile["asset"]["textures"] = openingProject->texturePath;
-    saveFile["asset"]["models"]   = openingProject->modelPath;
-
-    // write the JSON object to a file
-    std::string fileOutputPath = path;
-    std::cout << fileOutputPath << std::endl;
-    std::ofstream outfile(fileOutputPath);
-    outfile << std::setw(4) << saveFile << std::endl;
-
-    //update the project information
-    openingProject->path = path;
-
-    //TODO: delete and replace the project object in the local list if it exist;
-}
-//
 }// namespace taixu

@@ -29,4 +29,7 @@
 // glm
 #include <glm/glm.hpp>
 
+// spdlog
+#include <spdlog/spdlog.h>
+
 #endif//TAIXUENGINE_PCH_HPP
