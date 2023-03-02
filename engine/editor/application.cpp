@@ -24,12 +24,12 @@ void Application::initApplicationArgs(int argc, char *argv[]) {}
 void Application::initialize(int argc, char *argv[]) {
     initSpdlog();
     initApplicationArgs(argc, argv);
+    std::shared_ptr<MainWindow> window_ptr =
+            std::make_shared<MainWindow>(MainWindowContext{
+                    MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE});
+    window_ptr->init();
     Engine *instance = &Engine::getInstance();
     instance->init();
-    auto window_ptr = std::make_shared<MainWindow>(new MainWindowContext{
-            MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE});
-    window_ptr->init();
-    window_ptr->setEngineRuntime(instance);
     this->window = window_ptr;
 }
 

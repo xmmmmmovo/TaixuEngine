@@ -16,12 +16,14 @@
 
 namespace taixu::editor {
 
+/**
+ * @brief 菜单栏组件
+ */
 class MenuComponent : public IUIComponent {
 public:
     void init() override {}
     void update() override {
         if (ImGui::MenuItem("open project")) {
-            // TODO: Just debug for this path, remove after decided
             ImGuiFileDialog::Instance()->OpenDialog(
                     "ChooseDirDlgKey", "Choose a Directory", nullptr,
 #ifndef NDEBUG

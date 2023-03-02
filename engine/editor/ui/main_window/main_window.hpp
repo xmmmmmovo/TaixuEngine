@@ -33,10 +33,10 @@ private:
     Engine *engine_runtime{nullptr};
 
     // context
-    MainWindowContext *context{};
+    MainWindowContext context{};
 
 public:
-    explicit MainWindow(MainWindowContext *context) : context(context) {
+    explicit MainWindow(MainWindowContext context) : context(context) {
         this->main_imgui_surface = std::make_unique<MainWindowSurface>();
     };
 

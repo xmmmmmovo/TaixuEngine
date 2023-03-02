@@ -10,12 +10,9 @@
 namespace taixu::editor {
 
 void MainWindow::init() {
-    ///////////////////////////
     spdlog::info("Main window start init!");
-    super::init(this->context);
+    super::init(&context);
     super::setIsVsync(true);
-    ProjectManager manager;
-
     main_imgui_surface->init(window);
     spdlog::info("Main window start finished!");
 }
@@ -32,13 +29,10 @@ void MainWindow::update() {
 
 void MainWindow::destroy() {
     main_imgui_surface->destroy();
-    delete this->context;
     super::destroy();
 }
-
 void MainWindow::setEngineRuntime(Engine *engine_runtime_ptr) {
     this->engine_runtime = engine_runtime_ptr;
     this->renderer       = engine_runtime_ptr->getRenderer();
 }
-
 }// namespace taixu::editor

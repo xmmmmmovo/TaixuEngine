@@ -12,8 +12,8 @@ class Engine : public PublicSingleton<Engine> {
     friend class PublicSingleton<Engine>;
 
 private:
-    std::shared_ptr<Renderer> renderer{nullptr};
-    std::shared_ptr<Project>  project{nullptr};
+    std::shared_ptr<Renderer>     renderer{nullptr};
+    std::shared_ptr<Project>      project{nullptr};
     std::shared_ptr<AssetManager> asset_manager{nullptr};
 
 public:
@@ -26,7 +26,7 @@ public:
 
     Status loadProject(std::string_view const &path);
 
-    std::shared_ptr<Renderer> getRenderer() const;
+    [[nodiscard]] std::shared_ptr<Renderer> getRenderer() const;
 };
 
 }// namespace taixu
