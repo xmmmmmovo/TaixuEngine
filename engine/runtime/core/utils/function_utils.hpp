@@ -6,8 +6,8 @@
 #define TAIXUENGINE_FUNCTION_UTILS_HPP
 
 #define INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(func) [this]() { func(); }
-#define INCLASS_ARGS_FUNCTION_LAMBDA_WRAPPER(func) \
-    (args)[this, &](args) { func(args); }
+#define INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(func) \
+    [this](std::string_view const& str_view) { func(str_view); }
 
 namespace taixu {
 template<typename... Args>

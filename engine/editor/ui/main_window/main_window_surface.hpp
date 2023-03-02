@@ -60,16 +60,10 @@ public:
         this->parent_window = parent_window;
 
         this->menu_component->bindCallbacks(
-                [this](std::string_view const& path) {
-                    this->onNewProjectCb(path);
-                },
-                [this](std::string_view const& path) {
-                    this->onOpenProjectCb(path);
-                },
-                [this]() { this->onSaveProjectCb(); },
-                [this](std::string_view const& path) {
-                    this->onSaveAsProjectCb(path);
-                });
+                INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
+                INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
+                INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
+                INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onSaveAsProjectCb));
     }
 
     void init();
