@@ -18,7 +18,6 @@ public:
     const float delta_time = 0.03333;
     void        setRenderer(std::shared_ptr<Renderer> const& renderer) {
         m_renderer = renderer;
-        std::cout << m_renderer << std::endl;
     }
 
     void update() override {

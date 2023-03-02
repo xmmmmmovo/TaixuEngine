@@ -12,9 +12,10 @@ class Engine : public PublicSingleton<Engine> {
     friend class PublicSingleton<Engine>;
 
 private:
-    std::shared_ptr<Renderer>     renderer{nullptr};
-    std::shared_ptr<Project>      project{nullptr};
-    std::shared_ptr<AssetManager> asset_manager{nullptr};
+    std::shared_ptr<Renderer>       renderer{nullptr};
+    std::shared_ptr<Project>        project{nullptr};
+    std::shared_ptr<AssetManager>   asset_manager{nullptr};
+    std::unique_ptr<ProjectManager> project_manager{nullptr};
 
 public:
     Engine();

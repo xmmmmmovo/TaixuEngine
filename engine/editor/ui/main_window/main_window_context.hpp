@@ -11,7 +11,6 @@
 
 namespace taixu::editor {
 
-
 /**
  * @brief editor status enum
  */

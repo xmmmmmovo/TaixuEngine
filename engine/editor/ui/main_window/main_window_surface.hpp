@@ -35,30 +35,20 @@ private:
     static char constexpr TOOLBAR_COMPONENT_NAME[]    = "Toolbar";
 
     // components
-    std::unique_ptr<MenuComponent>      menu_component{};
-    std::unique_ptr<RenderComponent>    render_component{};
-    std::unique_ptr<HierarchyComponent> world_object_component{};
-    std::unique_ptr<DetailComponent>    detail_component{};
-    std::unique_ptr<FileComponent>      file_component{};
-    std::unique_ptr<ConsoleComponent>   status_component{};
-    std::unique_ptr<HierarchyComponent> useful_obj_component{};
-    std::unique_ptr<ToolbarComponent>   tool_bar_component{};
+    std::unique_ptr<MenuComponent>      menu_component{std::make_unique<MenuComponent>()};
+    std::unique_ptr<RenderComponent>    render_component{std::make_unique<RenderComponent>()};
+    std::unique_ptr<HierarchyComponent> world_object_component{std::make_unique<HierarchyComponent>()};
+    std::unique_ptr<DetailComponent>    detail_component{std::make_unique<DetailComponent>()};
+    std::unique_ptr<FileComponent>      file_component{std::make_unique<FileComponent>()};
+    std::unique_ptr<ConsoleComponent>   status_component{std::make_unique<ConsoleComponent>()};
+    std::unique_ptr<HierarchyComponent> useful_obj_component{std::make_unique<HierarchyComponent>()};
+    std::unique_ptr<ToolbarComponent>   tool_bar_component{std::make_unique<ToolbarComponent>()};
 
     // context
     MainWindow *parent_window{};
 
 public:
     explicit MainWindowSurface(MainWindow *parent_window) {
-        this->menu_component = std::make_unique<MenuComponent>();
-
-        this->render_component       = std::make_unique<RenderComponent>();
-        this->world_object_component = std::make_unique<HierarchyComponent>();
-        this->detail_component       = std::make_unique<DetailComponent>();
-        this->file_component         = std::make_unique<FileComponent>();
-        this->status_component       = std::make_unique<ConsoleComponent>();
-        this->useful_obj_component   = std::make_unique<HierarchyComponent>();
-        this->tool_bar_component     = std::make_unique<ToolbarComponent>();
-
         this->parent_window = parent_window;
     }
 
