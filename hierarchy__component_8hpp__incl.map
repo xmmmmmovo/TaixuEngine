@@ -1,6 +1,8 @@
 <map id="engine/editor/ui/components/hierarchy_component.hpp" name="engine/editor/ui/components/hierarchy_component.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="15,5,223,47"/>
-<area shape="rect" id="node2" href="$ui__component_8hpp.html" title=" " alt="" coords="17,95,221,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,169,76,196"/>
-<area shape="rect" id="node4" href="$noncopyable_8hpp.html" title=" " alt="" coords="99,169,299,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="35,5,243,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,85,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="109,95,168,121"/>
+<area shape="rect" id="node4" href="$ui__component_8hpp.html" title=" " alt="" coords="193,95,397,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="179,169,250,196"/>
+<area shape="rect" id="node6" href="$noncopyable_8hpp.html" title=" " alt="" coords="273,169,473,196"/>
 </map>
