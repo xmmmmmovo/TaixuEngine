@@ -7,13 +7,12 @@
 
 #include <IconsFontAwesome6.h>
 
-#include "interface/component.hpp"
+#include "interface/ui_component.hpp"
 
 namespace taixu::editor {
 
 class ToolbarComponent : public IUIComponent {
 public:
-    void init() override {}
     void update() override {
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 2));
         ImGui::PushStyleVar(ImGuiStyleVar_ItemInnerSpacing, ImVec2(0, 0));

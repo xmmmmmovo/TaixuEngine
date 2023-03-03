@@ -32,9 +32,9 @@ struct Asset {
     std::string  type;
     std::string  location;
 };
-class Asset_Manager {
+class AssetManager {
 public:
-    Asset_Manager() = default;
+    AssetManager() = default;
     std::vector<std::shared_ptr<Asset>> asset_list;
     using Json                  = nlohmann::json;
     std::string asset_file_path = "INVALID";

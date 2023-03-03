@@ -23,9 +23,13 @@
 #include <string>
 #include <tuple>
 #include <type_traits>
+#include <utility>
 #include <vector>
 
 // glm
 #include <glm/glm.hpp>
+
+// spdlog
+#include <spdlog/spdlog.h>
 
 #endif//TAIXUENGINE_PCH_HPP
