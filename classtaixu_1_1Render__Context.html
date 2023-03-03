@@ -97,7 +97,7 @@ Collaboration diagram for taixu::Render_Context:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1Render__Context__coll__graph.png" border="0" usemap="#ataixu_1_1Render__Context_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1Render__Context_coll__map" id="ataixu_1_1Render__Context_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,172,141"/>
+<area shape="rect" title=" " alt="" coords="5,5,172,185"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -109,8 +109,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab5b7c1cbb4613f6b23fc53b038d8a7d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a867bc5a04439166cdc7ea41e31076d1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Render__Context.html#a867bc5a04439166cdc7ea41e31076d1a">initialize</a> ()</td></tr>
 <tr class="separator:a867bc5a04439166cdc7ea41e31076d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf842332f4f49b8a545f3b168146a8e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Render__Context.html#aaf842332f4f49b8a545f3b168146a8e6">bindMesh</a> (unsigned int vertex_arry_object, unsigned int &amp;element_buffer_id, unsigned int &amp;vertex_buffer_id, <a class="el" href="classtaixu_1_1Mesh.html">Mesh</a> mesh)</td></tr>
-<tr class="separator:aaf842332f4f49b8a545f3b168146a8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a148bb8c4990f4857c6949e3bb36f6b84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Render__Context.html#a148bb8c4990f4857c6949e3bb36f6b84">resize</a> (float width, float height)</td></tr>
+<tr class="separator:a148bb8c4990f4857c6949e3bb36f6b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3ea9faf816a29f297ee3143e64ab43e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Render__Context.html#ab3ea9faf816a29f297ee3143e64ab43e">bindMesh</a> (<a class="el" href="classtaixu_1_1Mesh.html">Mesh</a> mesh)</td></tr>
+<tr class="separator:ab3ea9faf816a29f297ee3143e64ab43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb82c49eb63e8a60a31a4b27302e39d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Render__Context.html#abb82c49eb63e8a60a31a4b27302e39d9">tickbyMesh</a> (<a class="el" href="classtaixu_1_1Mesh.html">Mesh</a> mesh)</td></tr>
+<tr class="separator:abb82c49eb63e8a60a31a4b27302e39d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f2c6e48a051be57c6a9b399a7a16c62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1Render__Data.html">Render_Data</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Render__Context.html#a2f2c6e48a051be57c6a9b399a7a16c62">getSwapContext</a> ()</td></tr>
 <tr class="separator:a2f2c6e48a051be57c6a9b399a7a16c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -118,6 +122,8 @@ Public Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:af9bd38b5de418c3e2f6af25fdbdad1e8"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Render__Data.html">Render_Data</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Render__Context.html#af9bd38b5de418c3e2f6af25fdbdad1e8">render_data</a></td></tr>
 <tr class="separator:af9bd38b5de418c3e2f6af25fdbdad1e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997cfd8efeeec7543d8c7a7fd04acebe"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1OGLContext.html">OGLContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Render__Context.html#a997cfd8efeeec7543d8c7a7fd04acebe">ogl_context</a></td></tr>
+<tr class="separator:a997cfd8efeeec7543d8c7a7fd04acebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -176,8 +182,8 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aaf842332f4f49b8a545f3b168146a8e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf842332f4f49b8a545f3b168146a8e6">&#9670;&nbsp;</a></span>bindMesh()</h2>
+<a id="ab3ea9faf816a29f297ee3143e64ab43e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ea9faf816a29f297ee3143e64ab43e">&#9670;&nbsp;</a></span>bindMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -188,31 +194,9 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void taixu::Render_Context::bindMesh </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>vertex_arry_object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>element_buffer_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>vertex_buffer_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="classtaixu_1_1Mesh.html">Mesh</a>&#160;</td>
-          <td class="paramname"><em>mesh</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>mesh</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -274,6 +258,68 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a148bb8c4990f4857c6949e3bb36f6b84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a148bb8c4990f4857c6949e3bb36f6b84">&#9670;&nbsp;</a></span>resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Render_Context::resize </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb82c49eb63e8a60a31a4b27302e39d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb82c49eb63e8a60a31a4b27302e39d9">&#9670;&nbsp;</a></span>tickbyMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::Render_Context::tickbyMesh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtaixu_1_1Mesh.html">Mesh</a>&#160;</td>
+          <td class="paramname"><em>mesh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
 <a id="a70538530bc36e033e360880ef311df61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a70538530bc36e033e360880ef311df61">&#9670;&nbsp;</a></span>Renderer</h2>
@@ -298,6 +344,28 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a997cfd8efeeec7543d8c7a7fd04acebe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997cfd8efeeec7543d8c7a7fd04acebe">&#9670;&nbsp;</a></span>ogl_context</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1OGLContext.html">OGLContext</a>&gt; taixu::Render_Context::ogl_context</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af9bd38b5de418c3e2f6af25fdbdad1e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9bd38b5de418c3e2f6af25fdbdad1e8">&#9670;&nbsp;</a></span>render_data</h2>
 

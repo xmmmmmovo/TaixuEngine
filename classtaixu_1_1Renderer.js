@@ -3,7 +3,7 @@ var classtaixu_1_1Renderer =
     [ "Renderer", "classtaixu_1_1Renderer.html#a27f15475a877fba0ea86a37cba3484c0", null ],
     [ "~Renderer", "classtaixu_1_1Renderer.html#a9259b0b1dcb20d1977e23aabe73505f0", null ],
     [ "clear", "classtaixu_1_1Renderer.html#ab76b504112462972a232e38a2dfe93e6", null ],
-    [ "getRenderResult", "classtaixu_1_1Renderer.html#aefe9e95bceafd58f8ca6255c7e696d9d", null ],
+    [ "getRenderResult", "classtaixu_1_1Renderer.html#ad6d4dc1167970732a62193254585c17e", null ],
     [ "initialize", "classtaixu_1_1Renderer.html#ad237ed0ecd02fcff4a8ef5d058303be6", null ],
     [ "processInput", "classtaixu_1_1Renderer.html#a74f4cad047d966433d0c3886ea84bf3f", null ],
     [ "processInput", "classtaixu_1_1Renderer.html#ae6e36003da84c4ce5358ab1abc126583", null ],

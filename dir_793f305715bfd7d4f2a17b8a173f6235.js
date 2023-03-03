@@ -6,7 +6,9 @@ var dir_793f305715bfd7d4f2a17b8a173f6235 =
     [ "element_buffer.hpp", "element__buffer_8hpp.html", [
       [ "IElementBuffer", "classtaixu_1_1IElementBuffer.html", "classtaixu_1_1IElementBuffer" ]
     ] ],
-    [ "framebuffer.hpp", "framebuffer_8hpp.html", null ],
+    [ "framebuffer.hpp", "framebuffer_8hpp.html", [
+      [ "IFrameBuffer", "classtaixu_1_1IFrameBuffer.html", "classtaixu_1_1IFrameBuffer" ]
+    ] ],
     [ "mesh.cpp", "mesh_8cpp.html", null ],
     [ "mesh.hpp", "mesh_8hpp.html", "mesh_8hpp" ],
     [ "model.cpp", "model_8cpp.html", null ],

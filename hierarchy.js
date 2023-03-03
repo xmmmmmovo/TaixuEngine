@@ -8,6 +8,9 @@ var hierarchy =
     [ "taixu::Clock", "classtaixu_1_1Clock.html", null ],
     [ "taixu::editor::EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", null ],
     [ "taixu::GUID_Generator", "classtaixu_1_1GUID__Generator.html", null ],
+    [ "taixu::IFrameBuffer", "classtaixu_1_1IFrameBuffer.html", [
+      [ "taixu::OGLFrameBuffer", "classtaixu_1_1OGLFrameBuffer.html", null ]
+    ] ],
     [ "taixu::editor::ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", null ],
     [ "taixu::IWindowContext", "classtaixu_1_1IWindowContext.html", [
       [ "taixu::editor::MainWindowContext", "classtaixu_1_1editor_1_1MainWindowContext.html", null ]
@@ -53,6 +56,7 @@ var hierarchy =
         [ "taixu::editor::ToolbarComponent", "classtaixu_1_1editor_1_1ToolbarComponent.html", null ]
       ] ]
     ] ],
+    [ "taixu::OGLContext", "classtaixu_1_1OGLContext.html", null ],
     [ "taixu::Project", "structtaixu_1_1Project.html", null ],
     [ "taixu::ProjectManager", "classtaixu_1_1ProjectManager.html", null ],
     [ "taixu::PublicSingleton< T >", "classtaixu_1_1PublicSingleton.html", null ],

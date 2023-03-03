@@ -10,7 +10,7 @@ var indexSectionsWithContent =
   7: "acers",
   8: "bcefghilmnoprtv",
   9: "mpr",
-  10: "im",
+  10: "imt",
   11: "at"
 };
 
