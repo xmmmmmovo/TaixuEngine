@@ -45,7 +45,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
@@ -56,7 +56,6 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Enumerations", "globals_enum.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -66,8 +65,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "OGLElementBuffer_8cpp.html",
-"classtaixu_1_1Renderer.html",
-"menu__component_8hpp.html"
+"classtaixu_1_1OGLVertexBuffer.html#afb2c7b2ef381921a887c2b2145152d8e",
+"functions_func_~.html",
+"structtaixu_1_1Vertex.html#a5a8033d0a560619fabe0ff6f415dc36e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -92,29 +92,27 @@ $(document).ready(function(){initNavTree('hierarchy__component_8hpp_source.html'
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_HIERARCHY_COMPONENT_HPP</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_HIERARCHY_COMPONENT_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="component_8hpp.html">interface/component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ui__component_8hpp.html">interface/ui_component.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu_1_1editor.html">taixu::editor</a> {</div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1HierarchyComponent.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1editor_1_1HierarchyComponent.html">HierarchyComponent</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1editor_1_1IUIComponent.html">IUIComponent</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a53ebfda2630237fe5ed1e2b0b8d03715">   13</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a53ebfda2630237fe5ed1e2b0b8d03715">init</a>()<span class="keyword"> override </span>{}</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">   14</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">update</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">   13</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">update</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        ImGui::Selectable(<span class="stringliteral">&quot;aaaaaaa&quot;</span>, <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        ImGui::Selectable(<span class="stringliteral">&quot;aaaaaaa&quot;</span>, <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        ImGui::Selectable(<span class="stringliteral">&quot;aaaaaaa&quot;</span>, <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        ImGui::Selectable(<span class="stringliteral">&quot;aaaaaaa&quot;</span>, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        ImGui::Selectable(<span class="stringliteral">&quot;aaaaaaa&quot;</span>, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        ImGui::Selectable(<span class="stringliteral">&quot;bbbbbbb&quot;</span>, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_HIERARCHY_COMPONENT_HPP</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        ImGui::Selectable(<span class="stringliteral">&quot;bbbbbbb&quot;</span>, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_HIERARCHY_COMPONENT_HPP</span></div>
 <div class="ttc" id="aclasstaixu_1_1editor_1_1HierarchyComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1HierarchyComponent.html">taixu::editor::HierarchyComponent</a></div><div class="ttdef"><b>Definition:</b> hierarchy_component.hpp:11</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1HierarchyComponent_html_a53ebfda2630237fe5ed1e2b0b8d03715"><div class="ttname"><a href="classtaixu_1_1editor_1_1HierarchyComponent.html#a53ebfda2630237fe5ed1e2b0b8d03715">taixu::editor::HierarchyComponent::init</a></div><div class="ttdeci">void init() override</div><div class="ttdoc">init function, init some function after imgui inited.</div><div class="ttdef"><b>Definition:</b> hierarchy_component.hpp:13</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1HierarchyComponent_html_a61d87b92f9af54efcef6273f0b888ba0"><div class="ttname"><a href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">taixu::editor::HierarchyComponent::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">render update</div><div class="ttdef"><b>Definition:</b> hierarchy_component.hpp:14</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1IUIComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1IUIComponent.html">taixu::editor::IUIComponent</a></div><div class="ttdoc">UI component interface.</div><div class="ttdef"><b>Definition:</b> component.hpp:17</div></div>
-<div class="ttc" id="acomponent_8hpp_html"><div class="ttname"><a href="component_8hpp.html">component.hpp</a></div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1HierarchyComponent_html_a61d87b92f9af54efcef6273f0b888ba0"><div class="ttname"><a href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">taixu::editor::HierarchyComponent::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">render update</div><div class="ttdef"><b>Definition:</b> hierarchy_component.hpp:13</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1IUIComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1IUIComponent.html">taixu::editor::IUIComponent</a></div><div class="ttdoc">UI component interface.</div><div class="ttdef"><b>Definition:</b> ui_component.hpp:17</div></div>
 <div class="ttc" id="anamespacetaixu_1_1editor_html"><div class="ttname"><a href="namespacetaixu_1_1editor.html">taixu::editor</a></div><div class="ttdef"><b>Definition:</b> application.cpp:13</div></div>
+<div class="ttc" id="aui__component_8hpp_html"><div class="ttname"><a href="ui__component_8hpp.html">ui_component.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

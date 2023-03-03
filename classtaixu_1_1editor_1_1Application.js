@@ -1,9 +1,9 @@
 var classtaixu_1_1editor_1_1Application =
 [
     [ "destroy", "classtaixu_1_1editor_1_1Application.html#aada48b71c29327bd6c6de0fe8c7ae391", null ],
-    [ "getContext", "classtaixu_1_1editor_1_1Application.html#a48c0c775fe1946fd16b17972261baf45", null ],
-    [ "initialize", "classtaixu_1_1editor_1_1Application.html#a2362d8ac7f8c17c20f4ab142c70a1868", null ],
+    [ "initApplicationArgs", "classtaixu_1_1editor_1_1Application.html#aa7b5cc55d88f21c69bb2acb7caf9cddc", null ],
+    [ "initialize", "classtaixu_1_1editor_1_1Application.html#a4ad6e6934e85d50df1126f12532fdeb4", null ],
     [ "run", "classtaixu_1_1editor_1_1Application.html#a5b244b17cb7895f24c21ae3594e7df82", null ],
-    [ "context", "classtaixu_1_1editor_1_1Application.html#a50a4dfef20527a1a4476d8a360180a5c", null ],
+    [ "PublicSingleton< Application >", "classtaixu_1_1editor_1_1Application.html#a5e4fca70495dc40fe0996c3bf0919c87", null ],
     [ "window", "classtaixu_1_1editor_1_1Application.html#a5bbb50e052e62f6e1103648ed94f0acb", null ]
 ];

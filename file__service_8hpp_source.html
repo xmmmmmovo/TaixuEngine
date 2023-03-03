@@ -93,18 +93,46 @@ $(document).ready(function(){initNavTree('file__service_8hpp_source.html',''); i
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_FILE_SERVICE_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;std::vector&lt;std::filesystem::path&gt; <a class="code" href="namespacetaixu.html#ae5e35a634a47a2237dffad3adc8f9ca8">getFiles</a>(</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; directory);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_FILE_SERVICE_HPP</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;std::vector&lt;std::filesystem::path&gt; <a class="code" href="namespacetaixu.html#ae5e35a634a47a2237dffad3adc8f9ca8">getFiles</a>(</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; directory);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetaixu.html#a8a2c508e2eafff58badad6e1497c6834">removeFile</a>(std::filesystem::path <span class="keyword">const</span>&amp; file_path);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetaixu.html#abba4a0a807dc37ab9ad001b232b318c7">removeDirectory</a>(std::filesystem::path <span class="keyword">const</span>&amp; directory_path);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetaixu.html#ab9f92535b5f34eb0b1657f1f2f81184a">createDirectory</a>(std::filesystem::path <span class="keyword">const</span>&amp; directory_path);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetaixu.html#a320a04c3186936940e4642993f2b0832">copyFile</a>(std::filesystem::path <span class="keyword">const</span>&amp; source,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;              std::filesystem::path <span class="keyword">const</span>&amp; destination);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetaixu.html#aec1c71a1495fd4a250b305399ae1932b">copyDirectory</a>(std::filesystem::path <span class="keyword">const</span>&amp; source,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                   std::filesystem::path <span class="keyword">const</span>&amp; destination);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetaixu.html#a130b718d162392d7986e11dedc51cc90">moveFileOrDirectory</a>(std::filesystem::path <span class="keyword">const</span>&amp; source,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                         std::filesystem::path <span class="keyword">const</span>&amp; destination);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;std::ifstream <a class="code" href="namespacetaixu.html#ab8a6f66c3e9aa5cf6a63b3cddef321b7">openFile</a>(std::filesystem::path <span class="keyword">const</span>&amp; file_path);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;std::ofstream <a class="code" href="namespacetaixu.html#aabb3f87aad2d9d69f17e00dfb5d4f3a2">createFile</a>(std::filesystem::path <span class="keyword">const</span>&amp; file_path);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_FILE_SERVICE_HPP</span></div>
 <div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:13</div></div>
-<div class="ttc" id="anamespacetaixu_html_ae5e35a634a47a2237dffad3adc8f9ca8"><div class="ttname"><a href="namespacetaixu.html#ae5e35a634a47a2237dffad3adc8f9ca8">taixu::getFiles</a></div><div class="ttdeci">std::vector&lt; std::filesystem::path &gt; getFiles(const std::filesystem::path &amp;directory)</div><div class="ttdef"><b>Definition:</b> file_service.cpp:8</div></div>
+<div class="ttc" id="anamespacetaixu_html_a130b718d162392d7986e11dedc51cc90"><div class="ttname"><a href="namespacetaixu.html#a130b718d162392d7986e11dedc51cc90">taixu::moveFileOrDirectory</a></div><div class="ttdeci">bool moveFileOrDirectory(std::filesystem::path const &amp;source, std::filesystem::path const &amp;destination)</div><div class="ttdef"><b>Definition:</b> file_service.cpp:49</div></div>
+<div class="ttc" id="anamespacetaixu_html_a320a04c3186936940e4642993f2b0832"><div class="ttname"><a href="namespacetaixu.html#a320a04c3186936940e4642993f2b0832">taixu::copyFile</a></div><div class="ttdeci">bool copyFile(std::filesystem::path const &amp;source, std::filesystem::path const &amp;destination)</div><div class="ttdef"><b>Definition:</b> file_service.cpp:37</div></div>
+<div class="ttc" id="anamespacetaixu_html_a8a2c508e2eafff58badad6e1497c6834"><div class="ttname"><a href="namespacetaixu.html#a8a2c508e2eafff58badad6e1497c6834">taixu::removeFile</a></div><div class="ttdeci">bool removeFile(std::filesystem::path const &amp;file_path)</div><div class="ttdef"><b>Definition:</b> file_service.cpp:25</div></div>
+<div class="ttc" id="anamespacetaixu_html_aabb3f87aad2d9d69f17e00dfb5d4f3a2"><div class="ttname"><a href="namespacetaixu.html#aabb3f87aad2d9d69f17e00dfb5d4f3a2">taixu::createFile</a></div><div class="ttdeci">std::ofstream createFile(std::filesystem::path const &amp;file_path)</div><div class="ttdef"><b>Definition:</b> file_service.cpp:65</div></div>
+<div class="ttc" id="anamespacetaixu_html_ab8a6f66c3e9aa5cf6a63b3cddef321b7"><div class="ttname"><a href="namespacetaixu.html#ab8a6f66c3e9aa5cf6a63b3cddef321b7">taixu::openFile</a></div><div class="ttdeci">std::ifstream openFile(std::filesystem::path const &amp;file_path)</div><div class="ttdef"><b>Definition:</b> file_service.cpp:56</div></div>
+<div class="ttc" id="anamespacetaixu_html_ab9f92535b5f34eb0b1657f1f2f81184a"><div class="ttname"><a href="namespacetaixu.html#ab9f92535b5f34eb0b1657f1f2f81184a">taixu::createDirectory</a></div><div class="ttdeci">bool createDirectory(std::filesystem::path const &amp;directory_path)</div><div class="ttdef"><b>Definition:</b> file_service.cpp:33</div></div>
+<div class="ttc" id="anamespacetaixu_html_abba4a0a807dc37ab9ad001b232b318c7"><div class="ttname"><a href="namespacetaixu.html#abba4a0a807dc37ab9ad001b232b318c7">taixu::removeDirectory</a></div><div class="ttdeci">bool removeDirectory(std::filesystem::path const &amp;directory_path)</div><div class="ttdef"><b>Definition:</b> file_service.cpp:29</div></div>
+<div class="ttc" id="anamespacetaixu_html_ae5e35a634a47a2237dffad3adc8f9ca8"><div class="ttname"><a href="namespacetaixu.html#ae5e35a634a47a2237dffad3adc8f9ca8">taixu::getFiles</a></div><div class="ttdeci">std::vector&lt; std::filesystem::path &gt; getFiles(const std::filesystem::path &amp;directory)</div><div class="ttdef"><b>Definition:</b> file_service.cpp:11</div></div>
+<div class="ttc" id="anamespacetaixu_html_aec1c71a1495fd4a250b305399ae1932b"><div class="ttname"><a href="namespacetaixu.html#aec1c71a1495fd4a250b305399ae1932b">taixu::copyDirectory</a></div><div class="ttdeci">bool copyDirectory(std::filesystem::path const &amp;source, std::filesystem::path const &amp;destination)</div><div class="ttdef"><b>Definition:</b> file_service.cpp:42</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

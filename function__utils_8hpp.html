@@ -83,7 +83,8 @@ $(document).ready(function(){initNavTree('function__utils_8hpp.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">function_utils.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -93,8 +94,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="function__utils_8hpp__dep__incl.png" border="0" usemap="#aengine_2runtime_2core_2utils_2function__utils_8hppdep" alt=""/></div>
 <map name="aengine_2runtime_2core_2utils_2function__utils_8hppdep" id="aengine_2runtime_2core_2utils_2function__utils_8hppdep">
-<area shape="rect" title=" " alt="" coords="5,5,180,47"/>
-<area shape="rect" href="imgui__surface_8cpp.html" title=" " alt="" coords="10,95,175,136"/>
+<area shape="rect" title=" " alt="" coords="419,5,594,47"/>
+<area shape="rect" href="menu__component_8hpp.html" title=" " alt="" coords="332,95,540,136"/>
+<area shape="rect" href="main__window__surface_8cpp.html" title=" " alt="" coords="462,363,717,404"/>
+<area shape="rect" href="main__window__surface_8hpp.html" title=" " alt="" coords="296,184,552,225"/>
+<area shape="rect" href="main__window_8hpp.html" title=" " alt="" coords="255,273,455,315"/>
+<area shape="rect" href="application_8cpp.html" title=" " alt="" coords="5,370,216,397"/>
+<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="239,363,438,404"/>
 </map>
 </div>
 </div>
@@ -109,8 +115,34 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a195d6ef82064bf5f87d6b4180ddfdb8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="function__utils_8hpp.html#a195d6ef82064bf5f87d6b4180ddfdb8e">INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER</a>(func)&#160;&#160;&#160;[this]() { func(); }</td></tr>
 <tr class="separator:a195d6ef82064bf5f87d6b4180ddfdb8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a50b43edbfc39fd26f797b31f9c4a1b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="function__utils_8hpp.html#a9a50b43edbfc39fd26f797b31f9c4a1b">INCLASS_STR_FUNCTION_LAMBDA_WRAPPER</a>(func)&#160;&#160;&#160;    [this](std::string_view const&amp; str_view) { func(str_view); }</td></tr>
+<tr class="separator:a9a50b43edbfc39fd26f797b31f9c4a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a7e05f182aa0b3fe762d619916190ba1e"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a7e05f182aa0b3fe762d619916190ba1e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">taixu::callback</a> = std::function&lt; void(Args...)&gt;</td></tr>
+<tr class="separator:a7e05f182aa0b3fe762d619916190ba1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a9a50b43edbfc39fd26f797b31f9c4a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a50b43edbfc39fd26f797b31f9c4a1b">&#9670;&nbsp;</a></span>INCLASS_STR_FUNCTION_LAMBDA_WRAPPER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INCLASS_STR_FUNCTION_LAMBDA_WRAPPER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func</td><td>)</td>
+          <td>&#160;&#160;&#160;    [this](std::string_view const&amp; str_view) { func(str_view); }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a195d6ef82064bf5f87d6b4180ddfdb8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a195d6ef82064bf5f87d6b4180ddfdb8e">&#9670;&nbsp;</a></span>INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER</h2>
 

@@ -1,5 +1,5 @@
 <map id="taixu::editor::MenuComponent" name="taixu::editor::MenuComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="5,359,225,465"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="14,204,217,311"/>
+<area shape="rect" id="node1" title="菜单栏组件" alt="" coords="5,329,225,495"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="14,204,217,281"/>
 <area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="42,5,189,156"/>
 </map>

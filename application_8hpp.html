@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/editor/core/application.hpp File Reference</title>
+<title>TaixuEngine: engine/editor/application.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,38 +89,36 @@ $(document).ready(function(){initNavTree('application_8hpp.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;memory&gt;</code><br />
-<code>#include &quot;<a class="el" href="application__context_8hpp_source.html">application_context.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="public__singleton_8hpp_source.html">core/base/public_singleton.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="window_8hpp_source.html">gui/window.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for application.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="application_8hpp__incl.png" border="0" usemap="#aengine_2editor_2core_2application_8hpp" alt=""/></div>
-<map name="aengine_2editor_2core_2application_8hpp" id="aengine_2editor_2core_2application_8hpp">
-<area shape="rect" title=" " alt="" coords="155,5,295,47"/>
-<area shape="rect" title=" " alt="" coords="8,169,85,196"/>
-<area shape="rect" href="application__context_8hpp.html" title=" " alt="" coords="24,95,202,121"/>
-<area shape="rect" href="public__singleton_8hpp.html" title=" " alt="" coords="227,95,450,121"/>
-<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="474,95,597,121"/>
-<area shape="rect" title=" " alt="" coords="346,244,405,271"/>
-<area shape="rect" title=" " alt="" coords="256,169,348,196"/>
-<area shape="rect" href="noncopyable_8hpp.html" title=" " alt="" coords="372,169,572,196"/>
-<area shape="rect" href="window__context_8hpp.html" title=" " alt="" coords="596,169,752,196"/>
+<div class="center"><img src="application_8hpp__incl.png" border="0" usemap="#aengine_2editor_2application_8hpp" alt=""/></div>
+<map name="aengine_2editor_2application_8hpp" id="aengine_2editor_2application_8hpp">
+<area shape="rect" title=" " alt="" coords="113,5,325,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,83,107"/>
+<area shape="rect" href="public__singleton_8hpp.html" title=" " alt="" coords="107,80,330,107"/>
+<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="355,80,477,107"/>
+<area shape="rect" title=" " alt="" coords="173,155,265,181"/>
+<area shape="rect" href="noncopyable_8hpp.html" title=" " alt="" coords="301,155,501,181"/>
+<area shape="rect" href="window__context_8hpp.html" title=" " alt="" coords="526,155,682,181"/>
+<area shape="rect" title=" " alt="" coords="575,229,633,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="application_8hpp__dep__incl.png" border="0" usemap="#aengine_2editor_2core_2application_8hppdep" alt=""/></div>
-<map name="aengine_2editor_2core_2application_8hppdep" id="aengine_2editor_2core_2application_8hppdep">
-<area shape="rect" title=" " alt="" coords="60,5,200,47"/>
-<area shape="rect" href="application_8cpp.html" title=" " alt="" coords="5,363,145,404"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="44,102,216,129"/>
-<area shape="rect" href="menu__component_8hpp.html" title=" " alt="" coords="241,95,449,136"/>
-<area shape="rect" href="imgui__surface_8hpp.html" title=" " alt="" coords="255,184,421,225"/>
-<area shape="rect" href="imgui__surface_8cpp.html" title=" " alt="" coords="49,273,214,315"/>
-<area shape="rect" href="main__window_8hpp.html" title=" " alt="" coords="238,273,438,315"/>
-<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="239,363,437,404"/>
+<div class="center"><img src="application_8hpp__dep__incl.png" border="0" usemap="#aengine_2editor_2application_8hppdep" alt=""/></div>
+<map name="aengine_2editor_2application_8hppdep" id="aengine_2editor_2application_8hppdep">
+<area shape="rect" title=" " alt="" coords="129,5,341,32"/>
+<area shape="rect" href="application_8cpp.html" title=" " alt="" coords="5,355,216,382"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="149,87,321,114"/>
+<area shape="rect" href="menu__component_8hpp.html" title=" " alt="" coords="345,80,553,121"/>
+<area shape="rect" href="main__window__surface_8hpp.html" title=" " alt="" coords="321,169,577,211"/>
+<area shape="rect" href="main__window_8hpp.html" title=" " alt="" coords="267,259,467,300"/>
+<area shape="rect" href="main__window__surface_8cpp.html" title=" " alt="" coords="462,348,717,389"/>
+<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="239,348,438,389"/>
 </map>
 </div>
 </div>
@@ -144,7 +142,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_d1aad10e1c648a0ada8a94a1ff7611ce.html">editor</a></li><li class="navelem"><a class="el" href="dir_68d6a7abddc01fabacb6f229ef013b0e.html">core</a></li><li class="navelem"><a class="el" href="application_8hpp.html">application.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_d1aad10e1c648a0ada8a94a1ff7611ce.html">editor</a></li><li class="navelem"><a class="el" href="application_8hpp.html">application.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

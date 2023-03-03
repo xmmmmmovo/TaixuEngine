@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['rbo_671',['rbo',['../classtaixu_1_1Renderer.html#ad6dc54116dfbc8750aad0b2d4b8d4464',1,'taixu::Renderer']]],
-  ['render_5fcomponent_672',['render_component',['../classtaixu_1_1editor_1_1ImguiSurface.html#a8a96d84f1de77f63a2a0094f20fd052c',1,'taixu::editor::ImguiSurface']]],
-  ['render_5fcomponent_5fname_673',['RENDER_COMPONENT_NAME',['../classtaixu_1_1editor_1_1ImguiSurface.html#ac40d8914ab6db5b0980d576032cd5a01',1,'taixu::editor::ImguiSurface']]],
-  ['render_5fcontext_674',['render_context',['../classtaixu_1_1Renderer.html#af671aaf3271f16586b639e37280553a7',1,'taixu::Renderer']]],
-  ['render_5fdata_675',['render_data',['../classtaixu_1_1Render__Context.html#af9bd38b5de418c3e2f6af25fdbdad1e8',1,'taixu::Render_Context']]],
-  ['right_676',['Right',['../classtaixu_1_1Camera.html#a3e625ca489109fe11f92953608135e25',1,'taixu::Camera']]],
-  ['root_5fpath_677',['root_path',['../classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b',1,'taixu::editor::FileComponent']]]
+  ['rbo_788',['rbo',['../classtaixu_1_1Renderer.html#ad6dc54116dfbc8750aad0b2d4b8d4464',1,'taixu::Renderer']]],
+  ['render_5fcomponent_789',['render_component',['../classtaixu_1_1editor_1_1MainWindowSurface.html#a6b93913a8d6258998f6fea7a6314740c',1,'taixu::editor::MainWindowSurface']]],
+  ['render_5fcomponent_5fname_790',['RENDER_COMPONENT_NAME',['../classtaixu_1_1editor_1_1MainWindowSurface.html#a2d1dfd5ac156bce8b519850bdf83446d',1,'taixu::editor::MainWindowSurface']]],
+  ['render_5fcontext_791',['render_context',['../classtaixu_1_1Renderer.html#af671aaf3271f16586b639e37280553a7',1,'taixu::Renderer']]],
+  ['render_5fdata_792',['render_data',['../classtaixu_1_1Render__Context.html#af9bd38b5de418c3e2f6af25fdbdad1e8',1,'taixu::Render_Context']]],
+  ['renderer_793',['renderer',['../classtaixu_1_1editor_1_1MainWindow.html#a95ce6ca253e677a1682c0c686e31f412',1,'taixu::editor::MainWindow::renderer()'],['../classtaixu_1_1Engine.html#a646166cc831d6175dc4bb91b23a4188f',1,'taixu::Engine::renderer()']]],
+  ['right_794',['Right',['../classtaixu_1_1Camera.html#a3e625ca489109fe11f92953608135e25',1,'taixu::Camera']]],
+  ['root_5fpath_795',['root_path',['../classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b',1,'taixu::editor::FileComponent']]]
 ];

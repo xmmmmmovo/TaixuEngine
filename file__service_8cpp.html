@@ -89,15 +89,18 @@ $(document).ready(function(){initNavTree('file__service_8cpp.html',''); initResi
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="file__service_8hpp_source.html">file_service.hpp</a>&quot;</code><br />
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for file_service.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="file__service_8cpp__incl.png" border="0" usemap="#aengine_2runtime_2platform_2os_2file__service_8cpp" alt=""/></div>
 <map name="aengine_2runtime_2platform_2os_2file__service_8cpp" id="aengine_2runtime_2platform_2os_2file__service_8cpp">
-<area shape="rect" title=" " alt="" coords="11,5,192,47"/>
-<area shape="rect" href="file__service_8hpp.html" title=" " alt="" coords="39,95,163,121"/>
+<area shape="rect" title=" " alt="" coords="140,5,321,47"/>
+<area shape="rect" href="file__service_8hpp.html" title=" " alt="" coords="95,95,219,121"/>
+<area shape="rect" title=" " alt="" coords="243,95,367,121"/>
 <area shape="rect" title=" " alt="" coords="5,169,96,196"/>
-<area shape="rect" title=" " alt="" coords="121,169,183,196"/>
+<area shape="rect" title=" " alt="" coords="121,169,194,196"/>
+<area shape="rect" title=" " alt="" coords="218,169,281,196"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -110,6 +113,22 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ae5e35a634a47a2237dffad3adc8f9ca8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::filesystem::path &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ae5e35a634a47a2237dffad3adc8f9ca8">taixu::getFiles</a> (const std::filesystem::path &amp;directory)</td></tr>
 <tr class="separator:ae5e35a634a47a2237dffad3adc8f9ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a2c508e2eafff58badad6e1497c6834"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a8a2c508e2eafff58badad6e1497c6834">taixu::removeFile</a> (std::filesystem::path const &amp;file_path)</td></tr>
+<tr class="separator:a8a2c508e2eafff58badad6e1497c6834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abba4a0a807dc37ab9ad001b232b318c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#abba4a0a807dc37ab9ad001b232b318c7">taixu::removeDirectory</a> (std::filesystem::path const &amp;directory_path)</td></tr>
+<tr class="separator:abba4a0a807dc37ab9ad001b232b318c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9f92535b5f34eb0b1657f1f2f81184a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ab9f92535b5f34eb0b1657f1f2f81184a">taixu::createDirectory</a> (std::filesystem::path const &amp;directory_path)</td></tr>
+<tr class="separator:ab9f92535b5f34eb0b1657f1f2f81184a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a320a04c3186936940e4642993f2b0832"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a320a04c3186936940e4642993f2b0832">taixu::copyFile</a> (std::filesystem::path const &amp;source, std::filesystem::path const &amp;destination)</td></tr>
+<tr class="separator:a320a04c3186936940e4642993f2b0832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec1c71a1495fd4a250b305399ae1932b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aec1c71a1495fd4a250b305399ae1932b">taixu::copyDirectory</a> (std::filesystem::path const &amp;source, std::filesystem::path const &amp;destination)</td></tr>
+<tr class="separator:aec1c71a1495fd4a250b305399ae1932b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a130b718d162392d7986e11dedc51cc90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a130b718d162392d7986e11dedc51cc90">taixu::moveFileOrDirectory</a> (std::filesystem::path const &amp;source, std::filesystem::path const &amp;destination)</td></tr>
+<tr class="separator:a130b718d162392d7986e11dedc51cc90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8a6f66c3e9aa5cf6a63b3cddef321b7"><td class="memItemLeft" align="right" valign="top">std::ifstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ab8a6f66c3e9aa5cf6a63b3cddef321b7">taixu::openFile</a> (std::filesystem::path const &amp;file_path)</td></tr>
+<tr class="separator:ab8a6f66c3e9aa5cf6a63b3cddef321b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabb3f87aad2d9d69f17e00dfb5d4f3a2"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aabb3f87aad2d9d69f17e00dfb5d4f3a2">taixu::createFile</a> (std::filesystem::path const &amp;file_path)</td></tr>
+<tr class="separator:aabb3f87aad2d9d69f17e00dfb5d4f3a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

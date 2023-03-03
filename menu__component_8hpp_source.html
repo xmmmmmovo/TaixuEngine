@@ -96,61 +96,126 @@ $(document).ready(function(){initNavTree('menu__component_8hpp_source.html','');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;imgui.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="application_8hpp.html">core/application.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="component_8hpp.html">interface/component.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu_1_1editor.html">taixu::editor</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html">MenuComponent</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1editor_1_1IUIComponent.html">IUIComponent</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#a712858a0dcfc68c024a54b482ec7e029">   19</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a712858a0dcfc68c024a54b482ec7e029">init</a>()<span class="keyword"> override </span>{}</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#a41f1ce59b7bfd524f89944a947f580e0">   20</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a41f1ce59b7bfd524f89944a947f580e0">update</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">if</span> (ImGui::MenuItem(<span class="stringliteral">&quot;open project&quot;</span>)) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="comment">// TODO: Just debug for this path, remove after decided</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            ImGuiFileDialog::Instance()-&gt;OpenDialog(</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                    <span class="stringliteral">&quot;ChooseDirDlgKey&quot;</span>, <span class="stringliteral">&quot;Choose a Directory&quot;</span>, <span class="keyword">nullptr</span>,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    <span class="stringliteral">&quot;../tests&quot;</span>, 1, <span class="keyword">nullptr</span>, ImGuiFileDialogFlags_Modal);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span> (ImGui::MenuItem(<span class="stringliteral">&quot;save project&quot;</span>)) {}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">if</span> (ImGui::MenuItem(<span class="stringliteral">&quot;save as project&quot;</span>)) {}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="application_8hpp.html">application.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;core/base/path.hpp&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="function__utils_8hpp.html">core/utils/function_utils.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ui__component_8hpp.html">interface/ui_component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="path_8hpp.html">platform/os/path.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu_1_1editor.html">taixu::editor</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html">MenuComponent</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1editor_1_1IUIComponent.html">IUIComponent</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#af2e4edf3fbec474e485008b1f2c5db00">   25</a></span>&#160;    <a class="code" href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">callback&lt;std::string_view const&amp;&gt;</a> <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#af2e4edf3fbec474e485008b1f2c5db00">onNewProject</a>{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#a2eabc30a5f36494032062e20854c07ba">   26</a></span>&#160;    <a class="code" href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">callback&lt;std::string_view const&amp;&gt;</a> <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a2eabc30a5f36494032062e20854c07ba">onOpenProject</a>{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#a2c07e42d3ed3e456d16b8cd9066d6eb3">   27</a></span>&#160;    <a class="code" href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">callback&lt;&gt;</a>                        <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a2c07e42d3ed3e456d16b8cd9066d6eb3">onSaveProject</a>{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#a1c7529f5795c52bc74e0f504a1e48af8">   28</a></span>&#160;    <a class="code" href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">callback&lt;std::string_view const&amp;&gt;</a> <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a1c7529f5795c52bc74e0f504a1e48af8">onSaveAsProject</a>{<span class="keyword">nullptr</span>};</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        ImGui::Separator();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">if</span> (ImGui::MenuItem(<span class="stringliteral">&quot;Exit&quot;</span>)) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <a class="code" href="classtaixu_1_1PublicSingleton.html#a6ec387f83efaf62fad7d72562fd6b4c8">Application::getInstance</a>().destroy();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            exit(0);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#a09b58726c02794f73a73f41c87766c14">   38</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a09b58726c02794f73a73f41c87766c14">processFileDialog</a>() {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">// display</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">if</span> (ImGuiFileDialog::Instance()-&gt;Display(<span class="stringliteral">&quot;ChooseDirDlgKey&quot;</span>)) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="comment">// action if OK</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">if</span> (ImGuiFileDialog::Instance()-&gt;IsOk()) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                std::string filePath =</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                        ImGuiFileDialog::Instance()-&gt;GetCurrentPath();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="comment">// action</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                spdlog::debug(filePath);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="comment">// close</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            ImGuiFileDialog::Instance()-&gt;Close();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_MENU_COMPONENT_HPP</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#a69f111b437772e55971468af470b9815">   31</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a69f111b437772e55971468af470b9815">bindCallbacks</a>(</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">callback&lt;std::string_view const&amp;&gt;</a> <span class="keyword">const</span>&amp; <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#af2e4edf3fbec474e485008b1f2c5db00">onNewProject</a>,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <a class="code" href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">callback&lt;std::string_view const&amp;&gt;</a> <span class="keyword">const</span>&amp; <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a2eabc30a5f36494032062e20854c07ba">onOpenProject</a>,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <a class="code" href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">callback&lt;&gt;</a> <span class="keyword">const</span>&amp;                        <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a2c07e42d3ed3e456d16b8cd9066d6eb3">onSaveProject</a>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <a class="code" href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">callback&lt;std::string_view const&amp;&gt;</a> <span class="keyword">const</span>&amp; <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a1c7529f5795c52bc74e0f504a1e48af8">onSaveAsProject</a>) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        this-&gt;onNewProject    = <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#af2e4edf3fbec474e485008b1f2c5db00">onNewProject</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        this-&gt;onOpenProject   = <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a2eabc30a5f36494032062e20854c07ba">onOpenProject</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        this-&gt;onSaveProject   = <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a2c07e42d3ed3e456d16b8cd9066d6eb3">onSaveProject</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        this-&gt;onSaveAsProject = <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a1c7529f5795c52bc74e0f504a1e48af8">onSaveAsProject</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#a41f1ce59b7bfd524f89944a947f580e0">   42</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a41f1ce59b7bfd524f89944a947f580e0">update</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> (ImGui::MenuItem(<span class="stringliteral">&quot;New Project&quot;</span>)) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            ImGuiFileDialog::Instance()-&gt;OpenDialog(</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    <span class="stringliteral">&quot;NewProjectDlgKey&quot;</span>, <span class="stringliteral">&quot;Choose a Directory&quot;</span>, <span class="keyword">nullptr</span>,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;#ifndef NDEBUG</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    DEBUG_PATH <span class="stringliteral">&quot;/example_proj&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;#<span class="keywordflow">else</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    <a class="code" href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">getRootPath</a>().c_str()</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;#endif</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    ,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    1, <span class="keyword">nullptr</span>, ImGuiFileDialogFlags_Modal);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        ImGui::Separator();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">if</span> (ImGui::MenuItem(<span class="stringliteral">&quot;open project&quot;</span>)) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            ImGuiFileDialog::Instance()-&gt;OpenDialog(</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    <span class="stringliteral">&quot;ChooseDirDlgKey&quot;</span>, <span class="stringliteral">&quot;Choose a Directory&quot;</span>, <span class="keyword">nullptr</span>,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;#ifndef NDEBUG</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    DEBUG_PATH <span class="stringliteral">&quot;/example_proj&quot;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;#<span class="keywordflow">else</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    <a class="code" href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">getRootPath</a>().c_str()</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;#endif</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                    ,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    1, <span class="keyword">nullptr</span>, ImGuiFileDialogFlags_Modal);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span> (ImGui::MenuItem(<span class="stringliteral">&quot;save project&quot;</span>)) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a2c07e42d3ed3e456d16b8cd9066d6eb3">onSaveProject</a>) { <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a2c07e42d3ed3e456d16b8cd9066d6eb3">onSaveProject</a>(); }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> (ImGui::MenuItem(<span class="stringliteral">&quot;save as project&quot;</span>)) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            ImGuiFileDialog::Instance()-&gt;OpenDialog(</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    <span class="stringliteral">&quot;SaveAsDirDlgKey&quot;</span>, <span class="stringliteral">&quot;Choose a Directory&quot;</span>, <span class="keyword">nullptr</span>,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;#ifndef NDEBUG</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    DEBUG_PATH <span class="stringliteral">&quot;/example_proj&quot;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;#<span class="keywordflow">else</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <a class="code" href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">getRootPath</a>().c_str()</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;#endif</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    ,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    1, <span class="keyword">nullptr</span>, ImGuiFileDialogFlags_Modal);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        ImGui::Separator();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span> (ImGui::MenuItem(<span class="stringliteral">&quot;Exit&quot;</span>)) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="classtaixu_1_1PublicSingleton.html#a6ec387f83efaf62fad7d72562fd6b4c8">Application::getInstance</a>().destroy();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            exit(0);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#a7db4f9e3641cd4b57d43e2c00037a534">   89</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a7db4f9e3641cd4b57d43e2c00037a534">onDialogOpen</a>(std::string_view <span class="keyword">const</span>&amp;                  key,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                      <a class="code" href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">callback&lt;std::string_view const&amp;&gt;</a> <span class="keyword">const</span>&amp; cb) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span> (ImGuiFileDialog::Instance()-&gt;Display(key.data())) {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="comment">// action if OK</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">if</span> (ImGuiFileDialog::Instance()-&gt;IsOk()) {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                std::string filePath =</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        ImGuiFileDialog::Instance()-&gt;GetCurrentPath();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="comment">// action</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                spdlog::debug(filePath);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">if</span> (cb) { cb(filePath); }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="comment">// close</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            ImGuiFileDialog::Instance()-&gt;Close();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1MenuComponent.html#a09b58726c02794f73a73f41c87766c14">  106</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a09b58726c02794f73a73f41c87766c14">processFileDialog</a>() {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">// display</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a7db4f9e3641cd4b57d43e2c00037a534">onDialogOpen</a>(<span class="stringliteral">&quot;NewProjectDlgKey&quot;</span>, <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#af2e4edf3fbec474e485008b1f2c5db00">onNewProject</a>);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a7db4f9e3641cd4b57d43e2c00037a534">onDialogOpen</a>(<span class="stringliteral">&quot;ChooseDirDlgKey&quot;</span>, <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a2eabc30a5f36494032062e20854c07ba">onOpenProject</a>);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a7db4f9e3641cd4b57d43e2c00037a534">onDialogOpen</a>(<span class="stringliteral">&quot;SaveAsDirDlgKey&quot;</span>, <a class="code" href="classtaixu_1_1editor_1_1MenuComponent.html#a1c7529f5795c52bc74e0f504a1e48af8">onSaveAsProject</a>);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_MENU_COMPONENT_HPP</span></div>
 <div class="ttc" id="aapplication_8hpp_html"><div class="ttname"><a href="application_8hpp.html">application.hpp</a></div></div>
 <div class="ttc" id="aclasstaixu_1_1PublicSingleton_html_a6ec387f83efaf62fad7d72562fd6b4c8"><div class="ttname"><a href="classtaixu_1_1PublicSingleton.html#a6ec387f83efaf62fad7d72562fd6b4c8">taixu::PublicSingleton&lt; Application &gt;::getInstance</a></div><div class="ttdeci">static Application &amp; getInstance() noexcept(std::is_nothrow_constructible&lt; Application &gt;::value)</div><div class="ttdoc">get instance, thread safe.</div><div class="ttdef"><b>Definition:</b> public_singleton.hpp:27</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1IUIComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1IUIComponent.html">taixu::editor::IUIComponent</a></div><div class="ttdoc">UI component interface.</div><div class="ttdef"><b>Definition:</b> component.hpp:17</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html">taixu::editor::MenuComponent</a></div><div class="ttdef"><b>Definition:</b> menu_component.hpp:17</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_a09b58726c02794f73a73f41c87766c14"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#a09b58726c02794f73a73f41c87766c14">taixu::editor::MenuComponent::processFileDialog</a></div><div class="ttdeci">void processFileDialog()</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:38</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_a41f1ce59b7bfd524f89944a947f580e0"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#a41f1ce59b7bfd524f89944a947f580e0">taixu::editor::MenuComponent::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">render update</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:20</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_a712858a0dcfc68c024a54b482ec7e029"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#a712858a0dcfc68c024a54b482ec7e029">taixu::editor::MenuComponent::init</a></div><div class="ttdeci">void init() override</div><div class="ttdoc">init function, init some function after imgui inited.</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:19</div></div>
-<div class="ttc" id="acomponent_8hpp_html"><div class="ttname"><a href="component_8hpp.html">component.hpp</a></div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1IUIComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1IUIComponent.html">taixu::editor::IUIComponent</a></div><div class="ttdoc">UI component interface.</div><div class="ttdef"><b>Definition:</b> ui_component.hpp:17</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html">taixu::editor::MenuComponent</a></div><div class="ttdoc">菜单栏组件</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:23</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_a09b58726c02794f73a73f41c87766c14"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#a09b58726c02794f73a73f41c87766c14">taixu::editor::MenuComponent::processFileDialog</a></div><div class="ttdeci">void processFileDialog()</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:106</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_a1c7529f5795c52bc74e0f504a1e48af8"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#a1c7529f5795c52bc74e0f504a1e48af8">taixu::editor::MenuComponent::onSaveAsProject</a></div><div class="ttdeci">callback&lt; std::string_view const  &amp; &gt; onSaveAsProject</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:28</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_a2c07e42d3ed3e456d16b8cd9066d6eb3"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#a2c07e42d3ed3e456d16b8cd9066d6eb3">taixu::editor::MenuComponent::onSaveProject</a></div><div class="ttdeci">callback onSaveProject</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:27</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_a2eabc30a5f36494032062e20854c07ba"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#a2eabc30a5f36494032062e20854c07ba">taixu::editor::MenuComponent::onOpenProject</a></div><div class="ttdeci">callback&lt; std::string_view const  &amp; &gt; onOpenProject</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:26</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_a41f1ce59b7bfd524f89944a947f580e0"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#a41f1ce59b7bfd524f89944a947f580e0">taixu::editor::MenuComponent::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">render update</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:42</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_a69f111b437772e55971468af470b9815"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#a69f111b437772e55971468af470b9815">taixu::editor::MenuComponent::bindCallbacks</a></div><div class="ttdeci">void bindCallbacks(callback&lt; std::string_view const &amp; &gt; const &amp;onNewProject, callback&lt; std::string_view const &amp; &gt; const &amp;onOpenProject, callback&lt;&gt; const &amp;onSaveProject, callback&lt; std::string_view const &amp; &gt; const &amp;onSaveAsProject)</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:31</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_a7db4f9e3641cd4b57d43e2c00037a534"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#a7db4f9e3641cd4b57d43e2c00037a534">taixu::editor::MenuComponent::onDialogOpen</a></div><div class="ttdeci">static void onDialogOpen(std::string_view const &amp;key, callback&lt; std::string_view const &amp; &gt; const &amp;cb)</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:89</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1MenuComponent_html_af2e4edf3fbec474e485008b1f2c5db00"><div class="ttname"><a href="classtaixu_1_1editor_1_1MenuComponent.html#af2e4edf3fbec474e485008b1f2c5db00">taixu::editor::MenuComponent::onNewProject</a></div><div class="ttdeci">callback&lt; std::string_view const  &amp; &gt; onNewProject</div><div class="ttdef"><b>Definition:</b> menu_component.hpp:25</div></div>
+<div class="ttc" id="afunction__utils_8hpp_html"><div class="ttname"><a href="function__utils_8hpp.html">function_utils.hpp</a></div></div>
 <div class="ttc" id="anamespacetaixu_1_1editor_html"><div class="ttname"><a href="namespacetaixu_1_1editor.html">taixu::editor</a></div><div class="ttdef"><b>Definition:</b> application.cpp:13</div></div>
+<div class="ttc" id="anamespacetaixu_html_a47eb4f1e632f585c389145c3e0796793"><div class="ttname"><a href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">taixu::getRootPath</a></div><div class="ttdeci">std::filesystem::path getRootPath()</div><div class="ttdef"><b>Definition:</b> path.cpp:56</div></div>
+<div class="ttc" id="anamespacetaixu_html_a7e05f182aa0b3fe762d619916190ba1e"><div class="ttname"><a href="namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e">taixu::callback</a></div><div class="ttdeci">std::function&lt; void(Args...)&gt; callback</div><div class="ttdef"><b>Definition:</b> function_utils.hpp:14</div></div>
+<div class="ttc" id="apath_8hpp_html"><div class="ttname"><a href="path_8hpp.html">path.hpp</a></div></div>
+<div class="ttc" id="aui__component_8hpp_html"><div class="ttname"><a href="ui__component_8hpp.html">ui_component.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

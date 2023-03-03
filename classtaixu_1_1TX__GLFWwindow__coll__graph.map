@@ -1,6 +1,3 @@
 <map id="taixu::TX_GLFWwindow" name="taixu::TX_GLFWwindow">
-<area shape="rect" id="node1" title=" " alt="" coords="82,375,257,599"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="110,219,229,325"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="5,5,152,156"/>
-<area shape="rect" id="node4" href="$structtaixu_1_1IWindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="176,20,347,141"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,180,215"/>
 </map>

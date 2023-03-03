@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['framebuffer_5fsize_5fcallback_507',['framebuffer_size_callback',['../namespacetaixu_1_1editor.html#a4298cc698d4c1c92818b448b3cae93be',1,'taixu::editor']]],
-  ['from_5fjson_508',['from_json',['../classtaixu_1_1Asset__Manager.html#a77196123f0cfdd2183eae565d6ce7fdb',1,'taixu::Asset_Manager']]],
-  ['fromjson_509',['fromJson',['../classtaixu_1_1IJsonable.html#a217a20504de57f3cb9d07c90d3033d26',1,'taixu::IJsonable']]]
+  ['from_5fjson_588',['from_json',['../classtaixu_1_1AssetManager.html#a38fd79775e03ecf716ed1a3eff6a69bb',1,'taixu::AssetManager']]],
+  ['fromjson_589',['fromJson',['../classtaixu_1_1IJsonable.html#a217a20504de57f3cb9d07c90d3033d26',1,'taixu::IJsonable']]],
+  ['fromrelativepath_590',['fromRelativePath',['../namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194',1,'taixu::fromRelativePath(const std::filesystem::path &amp;directory, const std::filesystem::path &amp;file_path)'],['../namespacetaixu.html#af2e071cdc152ffdf10af393f5a2dcf9f',1,'taixu::fromRelativePath(const std::filesystem::path &amp;relative_path)']]]
 ];

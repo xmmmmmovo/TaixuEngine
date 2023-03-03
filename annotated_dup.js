@@ -3,7 +3,6 @@ var annotated_dup =
     [ "taixu", "namespacetaixu.html", [
       [ "editor", "namespacetaixu_1_1editor.html", [
         [ "Application", "classtaixu_1_1editor_1_1Application.html", "classtaixu_1_1editor_1_1Application" ],
-        [ "ApplicationContext", "structtaixu_1_1editor_1_1ApplicationContext.html", "structtaixu_1_1editor_1_1ApplicationContext" ],
         [ "IUIComponent", "classtaixu_1_1editor_1_1IUIComponent.html", "classtaixu_1_1editor_1_1IUIComponent" ],
         [ "ConsoleComponent", "classtaixu_1_1editor_1_1ConsoleComponent.html", "classtaixu_1_1editor_1_1ConsoleComponent" ],
         [ "DetailComponent", "classtaixu_1_1editor_1_1DetailComponent.html", "classtaixu_1_1editor_1_1DetailComponent" ],
@@ -12,14 +11,19 @@ var annotated_dup =
         [ "MenuComponent", "classtaixu_1_1editor_1_1MenuComponent.html", "classtaixu_1_1editor_1_1MenuComponent" ],
         [ "RenderComponent", "classtaixu_1_1editor_1_1RenderComponent.html", "classtaixu_1_1editor_1_1RenderComponent" ],
         [ "ToolbarComponent", "classtaixu_1_1editor_1_1ToolbarComponent.html", "classtaixu_1_1editor_1_1ToolbarComponent" ],
-        [ "ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", "classtaixu_1_1editor_1_1ImguiSurface" ],
         [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html", "classtaixu_1_1editor_1_1MainWindow" ],
-        [ "MainWindowContext", "structtaixu_1_1editor_1_1MainWindowContext.html", "structtaixu_1_1editor_1_1MainWindowContext" ],
-        [ "EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", "structtaixu_1_1editor_1_1EditorStyle" ]
+        [ "MainWindowContext", "classtaixu_1_1editor_1_1MainWindowContext.html", "classtaixu_1_1editor_1_1MainWindowContext" ],
+        [ "MainWindowSurface", "classtaixu_1_1editor_1_1MainWindowSurface.html", "classtaixu_1_1editor_1_1MainWindowSurface" ],
+        [ "EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", "structtaixu_1_1editor_1_1EditorStyle" ],
+        [ "ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", "classtaixu_1_1editor_1_1ImguiSurface" ]
       ] ],
+      [ "Clock", "classtaixu_1_1Clock.html", "classtaixu_1_1Clock" ],
       [ "noncopyable", "classtaixu_1_1noncopyable.html", "classtaixu_1_1noncopyable" ],
+      [ "IObserver", "classtaixu_1_1IObserver.html", "classtaixu_1_1IObserver" ],
+      [ "ISubject", "classtaixu_1_1ISubject.html", "classtaixu_1_1ISubject" ],
       [ "PublicSingleton", "classtaixu_1_1PublicSingleton.html", "classtaixu_1_1PublicSingleton" ],
       [ "NotImplementedException", "classtaixu_1_1NotImplementedException.html", "classtaixu_1_1NotImplementedException" ],
+      [ "Engine", "classtaixu_1_1Engine.html", "classtaixu_1_1Engine" ],
       [ "BufferElement", "structtaixu_1_1BufferElement.html", "structtaixu_1_1BufferElement" ],
       [ "BufferLayout", "classtaixu_1_1BufferLayout.html", "classtaixu_1_1BufferLayout" ],
       [ "Camera", "classtaixu_1_1Camera.html", "classtaixu_1_1Camera" ],
@@ -38,7 +42,7 @@ var annotated_dup =
       [ "Renderer", "classtaixu_1_1Renderer.html", "classtaixu_1_1Renderer" ],
       [ "TX_GLFWwindow", "classtaixu_1_1TX__GLFWwindow.html", "classtaixu_1_1TX__GLFWwindow" ],
       [ "IWindow", "classtaixu_1_1IWindow.html", "classtaixu_1_1IWindow" ],
-      [ "IWindowContext", "structtaixu_1_1IWindowContext.html", "structtaixu_1_1IWindowContext" ],
+      [ "IWindowContext", "classtaixu_1_1IWindowContext.html", "classtaixu_1_1IWindowContext" ],
       [ "OGLElementBuffer", "classtaixu_1_1OGLElementBuffer.html", "classtaixu_1_1OGLElementBuffer" ],
       [ "OGLShader", "classtaixu_1_1OGLShader.html", "classtaixu_1_1OGLShader" ],
       [ "OGLShaderProgram", "classtaixu_1_1OGLShaderProgram.html", "classtaixu_1_1OGLShaderProgram" ],
@@ -47,9 +51,9 @@ var annotated_dup =
       [ "OGLVertexBuffer", "classtaixu_1_1OGLVertexBuffer.html", "classtaixu_1_1OGLVertexBuffer" ],
       [ "GUID_Generator", "classtaixu_1_1GUID__Generator.html", null ],
       [ "Asset", "structtaixu_1_1Asset.html", "structtaixu_1_1Asset" ],
-      [ "Asset_Manager", "classtaixu_1_1Asset__Manager.html", "classtaixu_1_1Asset__Manager" ],
+      [ "AssetManager", "classtaixu_1_1AssetManager.html", "classtaixu_1_1AssetManager" ],
       [ "IJsonable", "classtaixu_1_1IJsonable.html", "classtaixu_1_1IJsonable" ],
-      [ "Project", "structtaixu_1_1Project.html", null ],
-      [ "ProjectManager", "classtaixu_1_1ProjectManager.html", null ]
+      [ "Project", "structtaixu_1_1Project.html", "structtaixu_1_1Project" ],
+      [ "ProjectManager", "classtaixu_1_1ProjectManager.html", "classtaixu_1_1ProjectManager" ]
     ] ]
 ];

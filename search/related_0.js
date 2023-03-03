@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['render_5fcontext_747',['Render_Context',['../classtaixu_1_1Render__Data.html#ab733ecd58b487ed82ecc79c94683b11d',1,'taixu::Render_Data']]],
-  ['renderer_748',['Renderer',['../classtaixu_1_1Render__Data.html#a70538530bc36e033e360880ef311df61',1,'taixu::Render_Data::Renderer()'],['../classtaixu_1_1Render__Context.html#a70538530bc36e033e360880ef311df61',1,'taixu::Render_Context::Renderer()']]]
+  ['mainwindowsurface_874',['MainWindowSurface',['../classtaixu_1_1editor_1_1MainWindow.html#af676255c041b0bc0d5755ffeb495d00f',1,'taixu::editor::MainWindow']]]
 ];

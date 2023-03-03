@@ -6,5 +6,7 @@ var dir_ccefa4bb736f38ca0efc8c5e8641d48d =
     [ "platform", "dir_1a37a6ef312cc461ed009acf26c57545.html", "dir_1a37a6ef312cc461ed009acf26c57545" ],
     [ "resource", "dir_62623fadb18e76a276166b2f13d7c4c1.html", "dir_62623fadb18e76a276166b2f13d7c4c1" ],
     [ "engine.cpp", "engine_8cpp.html", null ],
-    [ "engine.h", "engine_8h.html", null ]
+    [ "engine.hpp", "engine_8hpp.html", [
+      [ "Engine", "classtaixu_1_1Engine.html", "classtaixu_1_1Engine" ]
+    ] ]
 ];
