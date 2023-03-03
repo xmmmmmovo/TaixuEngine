@@ -98,93 +98,99 @@ $(document).ready(function(){initNavTree('file__component_8hpp_source.html','');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ui__component_8hpp.html">interface/ui_component.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu_1_1editor.html">taixu::editor</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1editor_1_1FileComponent.html">FileComponent</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1editor_1_1IUIComponent.html">IUIComponent</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#a28c91cf02894892e9cf4a07b281e7ce1">   19</a></span>&#160;    std::vector&lt;std::string_view&gt; <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a28c91cf02894892e9cf4a07b281e7ce1">file_tree</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb">   20</a></span>&#160;    <span class="keyword">static</span> ImGuiWindowFlags constexpr <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb">window_flags</a> =</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            ImGuiWindowFlags_HorizontalScrollbar;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">   23</a></span>&#160;    std::filesystem::path <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">root_path</a>{<span class="stringliteral">&quot;.&quot;</span>};</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">   24</a></span>&#160;    std::filesystem::path <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a>{<a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">root_path</a>};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#a815be96b2e1adffe63ed42ae944914a2">   27</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a815be96b2e1adffe63ed42ae944914a2">update</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            ImGui::BeginChild(</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                    <span class="stringliteral">&quot;FileTree&quot;</span>,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                    ImVec2(ImGui::GetWindowContentRegionWidth() * 0.2f, 0.f),</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                    <span class="keyword">false</span>, <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb">window_flags</a>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 100; i++)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                ImGui::Text(<span class="stringliteral">&quot;%04d: scrollable region&quot;</span>, i);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            ImGui::EndChild();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">// Child 1: no border, enable horizontal scrollbar</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        ImGui::SameLine();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">// Child 2: rounded border</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            ImGui::BeginChild(<span class="stringliteral">&quot;ChildR&quot;</span>, ImVec2(0, 260), <span class="keyword">false</span>, <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb">window_flags</a>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a> != <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">root_path</a>) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;&lt;-&quot;</span>)) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a> = <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a>.parent_path();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keyword">static</span> <span class="keywordtype">float</span> padding       = 16.0f;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keyword">static</span> <span class="keywordtype">float</span> thumbnailSize = 128.0f;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordtype">float</span>        cellSize      = thumbnailSize + padding;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordtype">float</span> panelWidth  = ImGui::GetContentRegionAvail().x;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordtype">int</span>   columnCount = (int) (panelWidth / cellSize);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">if</span> (columnCount &lt; 1) columnCount = 1;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span> (ImGui::BeginTable(<span class="stringliteral">&quot;split&quot;</span>, columnCount,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                  ImGuiTableFlags_Resizable |</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                          ImGuiTableFlags_NoSavedSettings)) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; directoryEntry :</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                     std::filesystem::directory_iterator(<a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a>)) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; path = directoryEntry.path();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    <span class="keyword">auto</span>        relativePath =</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                            std::filesystem::relative(path, <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">root_path</a>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                    std::string filenameString =</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                            relativePath.filename().string();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    ImGui::Button(filenameString.c_str(),</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                  {thumbnailSize, thumbnailSize});</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    <span class="keywordflow">if</span> (ImGui::IsItemHovered() &amp;&amp;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        <span class="keywordflow">if</span> (directoryEntry.is_directory())</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                            <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a> /= path.filename();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    ImGui::TextUnformatted(filenameString.c_str());</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    ImGui::TableNextColumn();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                ImGui::EndTable();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            ImGui::Columns(1);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hierarchy__component_8hpp.html">hierarchy_component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ui__component_8hpp.html">interface/ui_component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu_1_1editor.html">taixu::editor</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1editor_1_1FileComponent.html">FileComponent</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1editor_1_1IUIComponent.html">IUIComponent</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#a28c91cf02894892e9cf4a07b281e7ce1">   20</a></span>&#160;    std::vector&lt;std::string_view&gt; <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a28c91cf02894892e9cf4a07b281e7ce1">file_tree</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb">   21</a></span>&#160;    <span class="keyword">static</span> ImGuiWindowFlags constexpr <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb">window_flags</a> =</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            ImGuiWindowFlags_HorizontalScrollbar;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">   24</a></span>&#160;    std::filesystem::path <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">root_path</a>{<span class="stringliteral">&quot;.&quot;</span>};</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">   25</a></span>&#160;    std::filesystem::path <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a>{<a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">root_path</a>};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#a63e588a9e30d40f8a1ca514e21a2c854">   27</a></span>&#160;    <a class="code" href="classtaixu_1_1editor_1_1HierarchyComponent.html">HierarchyComponent</a> <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a63e588a9e30d40f8a1ca514e21a2c854">hierarchy_component</a>{};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1FileComponent.html#a815be96b2e1adffe63ed42ae944914a2">   30</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a815be96b2e1adffe63ed42ae944914a2">update</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            ImGui::BeginChild(</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    <span class="stringliteral">&quot;FileTree&quot;</span>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    ImVec2(ImGui::GetWindowContentRegionWidth() * 0.2f, 0.f),</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    <span class="keyword">false</span>, <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb">window_flags</a>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a63e588a9e30d40f8a1ca514e21a2c854">hierarchy_component</a>.<a class="code" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">update</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            ImGui::EndChild();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// Child 1: no border, enable horizontal scrollbar</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        ImGui::SameLine();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">// Child 2: rounded border</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            ImGui::BeginChild(<span class="stringliteral">&quot;ChildR&quot;</span>, ImVec2(0, 260), <span class="keyword">false</span>, <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb">window_flags</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a> != <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">root_path</a>) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;&lt;-&quot;</span>)) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a> = <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a>.parent_path();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keyword">static</span> <span class="keywordtype">float</span> padding       = 16.0f;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keyword">static</span> <span class="keywordtype">float</span> thumbnailSize = 128.0f;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordtype">float</span>        cellSize      = thumbnailSize + padding;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordtype">float</span> panelWidth  = ImGui::GetContentRegionAvail().x;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordtype">int</span>   columnCount = (int) (panelWidth / cellSize);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span> (columnCount &lt; 1) columnCount = 1;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">if</span> (ImGui::BeginTable(<span class="stringliteral">&quot;split&quot;</span>, columnCount,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                  ImGuiTableFlags_Resizable |</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                          ImGuiTableFlags_NoSavedSettings)) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; directoryEntry :</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                     std::filesystem::directory_iterator(<a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a>)) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; path = directoryEntry.path();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                    <span class="keyword">auto</span>        relativePath =</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                            std::filesystem::relative(path, <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">root_path</a>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    std::string filenameString =</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                            relativePath.filename().string();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    ImGui::Button(filenameString.c_str(),</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                  {thumbnailSize, thumbnailSize});</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="keywordflow">if</span> (ImGui::IsItemHovered() &amp;&amp;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                        ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        <span class="keywordflow">if</span> (directoryEntry.is_directory())</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                            <a class="code" href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">current_path</a> /= path.filename();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    ImGui::TextUnformatted(filenameString.c_str());</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    ImGui::TableNextColumn();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                ImGui::EndTable();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            ImGui::SliderFloat(<span class="stringliteral">&quot;Thumbnail Size&quot;</span>, &amp;thumbnailSize, 16, 512);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            ImGui::SliderFloat(<span class="stringliteral">&quot;Padding&quot;</span>, &amp;padding, 0, 32);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            ImGui::EndChild();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_FILE_COMPONENT_HPP</span></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html">taixu::editor::FileComponent</a></div><div class="ttdef"><b>Definition:</b> file_component.hpp:17</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_a028dd00e2c7ba582b4350fd9996ebce9"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">taixu::editor::FileComponent::current_path</a></div><div class="ttdeci">std::filesystem::path current_path</div><div class="ttdef"><b>Definition:</b> file_component.hpp:24</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_a28c91cf02894892e9cf4a07b281e7ce1"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#a28c91cf02894892e9cf4a07b281e7ce1">taixu::editor::FileComponent::file_tree</a></div><div class="ttdeci">std::vector&lt; std::string_view &gt; file_tree</div><div class="ttdef"><b>Definition:</b> file_component.hpp:19</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_a48c76d1e3d114cf22c06b79e9d879a1b"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">taixu::editor::FileComponent::root_path</a></div><div class="ttdeci">std::filesystem::path root_path</div><div class="ttdef"><b>Definition:</b> file_component.hpp:23</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_a815be96b2e1adffe63ed42ae944914a2"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#a815be96b2e1adffe63ed42ae944914a2">taixu::editor::FileComponent::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">render update</div><div class="ttdef"><b>Definition:</b> file_component.hpp:27</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_aeeb3d02a907ea912e70e756e35e054cb"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb">taixu::editor::FileComponent::window_flags</a></div><div class="ttdeci">static constexpr ImGuiWindowFlags window_flags</div><div class="ttdef"><b>Definition:</b> file_component.hpp:20</div></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            ImGui::Columns(1);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            ImGui::SliderFloat(<span class="stringliteral">&quot;Thumbnail Size&quot;</span>, &amp;thumbnailSize, 16, 512);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            ImGui::SliderFloat(<span class="stringliteral">&quot;Padding&quot;</span>, &amp;padding, 0, 32);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            ImGui::EndChild();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_FILE_COMPONENT_HPP</span></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html">taixu::editor::FileComponent</a></div><div class="ttdef"><b>Definition:</b> file_component.hpp:18</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_a028dd00e2c7ba582b4350fd9996ebce9"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#a028dd00e2c7ba582b4350fd9996ebce9">taixu::editor::FileComponent::current_path</a></div><div class="ttdeci">std::filesystem::path current_path</div><div class="ttdef"><b>Definition:</b> file_component.hpp:25</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_a28c91cf02894892e9cf4a07b281e7ce1"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#a28c91cf02894892e9cf4a07b281e7ce1">taixu::editor::FileComponent::file_tree</a></div><div class="ttdeci">std::vector&lt; std::string_view &gt; file_tree</div><div class="ttdef"><b>Definition:</b> file_component.hpp:20</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_a48c76d1e3d114cf22c06b79e9d879a1b"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#a48c76d1e3d114cf22c06b79e9d879a1b">taixu::editor::FileComponent::root_path</a></div><div class="ttdeci">std::filesystem::path root_path</div><div class="ttdef"><b>Definition:</b> file_component.hpp:24</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_a63e588a9e30d40f8a1ca514e21a2c854"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#a63e588a9e30d40f8a1ca514e21a2c854">taixu::editor::FileComponent::hierarchy_component</a></div><div class="ttdeci">HierarchyComponent hierarchy_component</div><div class="ttdef"><b>Definition:</b> file_component.hpp:27</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_a815be96b2e1adffe63ed42ae944914a2"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#a815be96b2e1adffe63ed42ae944914a2">taixu::editor::FileComponent::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">render update</div><div class="ttdef"><b>Definition:</b> file_component.hpp:30</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1FileComponent_html_aeeb3d02a907ea912e70e756e35e054cb"><div class="ttname"><a href="classtaixu_1_1editor_1_1FileComponent.html#aeeb3d02a907ea912e70e756e35e054cb">taixu::editor::FileComponent::window_flags</a></div><div class="ttdeci">static constexpr ImGuiWindowFlags window_flags</div><div class="ttdef"><b>Definition:</b> file_component.hpp:21</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1HierarchyComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1HierarchyComponent.html">taixu::editor::HierarchyComponent</a></div><div class="ttdef"><b>Definition:</b> hierarchy_component.hpp:15</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1HierarchyComponent_html_a61d87b92f9af54efcef6273f0b888ba0"><div class="ttname"><a href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">taixu::editor::HierarchyComponent::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">render update</div><div class="ttdef"><b>Definition:</b> hierarchy_component.hpp:17</div></div>
 <div class="ttc" id="aclasstaixu_1_1editor_1_1IUIComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1IUIComponent.html">taixu::editor::IUIComponent</a></div><div class="ttdoc">UI component interface.</div><div class="ttdef"><b>Definition:</b> ui_component.hpp:17</div></div>
+<div class="ttc" id="ahierarchy__component_8hpp_html"><div class="ttname"><a href="hierarchy__component_8hpp.html">hierarchy_component.hpp</a></div></div>
 <div class="ttc" id="anamespacetaixu_1_1editor_html"><div class="ttname"><a href="namespacetaixu_1_1editor.html">taixu::editor</a></div><div class="ttdef"><b>Definition:</b> application.cpp:13</div></div>
 <div class="ttc" id="aui__component_8hpp_html"><div class="ttname"><a href="ui__component_8hpp.html">ui_component.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
