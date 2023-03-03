@@ -18,8 +18,8 @@ public:
     virtual void bind()   = 0;
     virtual void unbind() = 0;
 
-    virtual void setVBO(std::vector<IVertexBuffer> const &buffer) = 0;
-    virtual void addEBO(IElementBuffer const &ebo)                = 0;
+    virtual void setVBO() = 0;
+    virtual void setEBO()   = 0;
 };
 
 }// namespace taixu

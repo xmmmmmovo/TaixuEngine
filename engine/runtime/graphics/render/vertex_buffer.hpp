@@ -5,11 +5,20 @@
 #ifndef TAIXUENGINE_VERTEX_BUFFER_HPP
 #define TAIXUENGINE_VERTEX_BUFFER_HPP
 
+#include <any>
+
+#include "buffer_layout.hpp"
 #include "core/base/noncopyable.hpp"
 
 namespace taixu {
 
-class IVertexBuffer : private noncopyable {};
+class IVertexBuffer : private noncopyable {
+public:
+    virtual void bind()   = 0;
+    virtual void unbind() = 0;
+
+    virtual void setData(GLsizeiptr size, const void* data, GLenum usage) = 0;
+};
 
 }// namespace taixu
 

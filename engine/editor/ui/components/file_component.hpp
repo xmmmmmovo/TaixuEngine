@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-#include "interface/component.hpp"
+#include "interface/ui_component.hpp"
 
 namespace taixu::editor {
 class FileComponent : public IUIComponent {
@@ -24,7 +24,6 @@ private:
     std::filesystem::path current_path{root_path};
 
 public:
-    void init() override {}
     void update() override {
         {
 

@@ -7,15 +7,13 @@
 
 #include <iostream>
 #include <string>
-
-#include "interface/component.hpp"
+#include "interface/ui_component.hpp"
 
 namespace fs = std::filesystem;
 
 namespace taixu::editor {
 class HierarchyComponent : public IUIComponent {
 public:
-    void init() override {}
     void update() override {
 
         const bool is_tree = 1;

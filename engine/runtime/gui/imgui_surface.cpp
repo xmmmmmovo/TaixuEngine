@@ -4,16 +4,15 @@
 
 #include "imgui_surface.hpp"
 
-#include <IconsFontAwesome6.h>
-#include <backends/imgui_impl_glfw.h>
-#include <backends/imgui_impl_opengl3.h>
-#include <imgui.h>
-#include <imgui_internal.h>
-
+#include "IconsFontAwesome6.h"
+#include "backends/imgui_impl_glfw.h"
+#include "backends/imgui_impl_opengl3.h"
 #include "core/base/macro.hpp"
-#include "core/utils/function_utils.hpp"
+#include "imgui.h"
+#include "imgui_internal.h"
 
 namespace taixu::editor {
+
 void ImguiSurface::init(GLFWwindow *window) {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -78,17 +77,6 @@ void ImguiSurface::init(GLFWwindow *window) {
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(OPENGL_VERSION);
-
-    menu_component->init();
-
-    render_component->init();
-    world_object_component->init();
-    detail_component->init();
-    file_component->init();
-    status_component->init();
-    useful_obj_component->init();
-
-    tool_bar_component->init();
 }
 
 void ImguiSurface::preUpdate() {
@@ -96,13 +84,6 @@ void ImguiSurface::preUpdate() {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
-    // Create the docking environment
-    ImGuiWindowFlags window_flags =
-            ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar |
-            ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
-            ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBackground |
-            ImGuiConfigFlags_NoMouseCursorChange |
-            ImGuiWindowFlags_NoBringToFrontOnFocus;
 
     ImGuiViewport *viewport = ImGui::GetMainViewport();
     ImGui::SetNextWindowPos(viewport->Pos);
@@ -112,48 +93,10 @@ void ImguiSurface::preUpdate() {
     ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
     ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
-
-    ImGui::Begin("Editor Menu", nullptr, window_flags);
-    ImGui::PopStyleVar(3);
-
-    ImGuiID dock_space_id = ImGui::GetID(DOCK_SPACE_NAME);
-
-    ImGui::DockSpace(dock_space_id, ImVec2(0.0f, 0.0f));
-
-    if (ImGui::BeginMenuBar()) {
-        if (ImGui::BeginMenu("Menu")) {
-            menu_component->update();
-            ImGui::EndMenu();
-        }
-        ImGui::EndMenuBar();
-    }
-
-    ImGui::End();
-
-    menu_component->processFileDialog();
-
-    addWidget(WORLD_OBJ_COMPONENT_NAME,
-              INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
-                      world_object_component->update));
-    addWidget(RENDER_COMPONENT_NAME,
-              INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component->update));
-    addWidget(DETAILS_COMPONENT_NAME,
-              INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component->update));
-    addWidget(FILE_COMPONENT_NAME,
-              INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(file_component->update));
-    addWidget(STATUS_COMPONENT_NAME,
-              INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(status_component->update));
-    addWidget(USEFUL_OBJ_COMPONENT_NAME, INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
-                                                 useful_obj_component->update));
-    addWidget(TOOLBAR_COMPONENT_NAME,
-              INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(tool_bar_component->update),
-              ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoScrollbar |
-                      ImGuiWindowFlags_NoScrollWithMouse);
-
 }
 
 void ImguiSurface::addWidget(const char                  *name,
-                             const std::function<void()> &update,
+                             std::function<void()> const &update,
                              ImGuiWindowFlags const flags, bool *open) {
     if (!ImGui::Begin(name, open, flags)) {
         ImGui::End();
@@ -176,17 +119,6 @@ void ImguiSurface::update() {
         ImGui::RenderPlatformWindowsDefault();
         glfwMakeContextCurrent(backup_current_context);
     }
-}
-
-void ImguiSurface::Input_callback(std::string input) { 
-    render_component->processInput(input);
-}
-
-void ImguiSurface::Input_callback(glm::vec2 mouse_pos) {
-    render_component->processInput(mouse_pos);
-}
-void ImguiSurface::Input_callback(float scroll_yoffset) {
-    render_component->processInput(scroll_yoffset);
 }
 
 void ImguiSurface::destroy() {
