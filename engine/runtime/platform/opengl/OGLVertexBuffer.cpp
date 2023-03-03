@@ -25,5 +25,5 @@ void OGLVertexBuffer::setData(GLsizeiptr size,
     glBufferData(GL_ARRAY_BUFFER, size, data, usage);
 }
 
-//OGLVertexBuffer::~OGLVertexBuffer() { glDeleteBuffers(1, &VBO); }
+OGLVertexBuffer::~OGLVertexBuffer() { glDeleteBuffers(1, &VBO); }
 }// namespace taixu

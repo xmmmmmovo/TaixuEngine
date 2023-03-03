@@ -19,5 +19,5 @@ void OGLElementBuffer::bind() { glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO); }
 
 void OGLElementBuffer::unbind() { glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); }
 
-//OGLElementBuffer::~OGLElementBuffer() { glDeleteBuffers(1, &EBO); }
+OGLElementBuffer::~OGLElementBuffer() { glDeleteBuffers(1, &EBO); }
 }// namespace taixu

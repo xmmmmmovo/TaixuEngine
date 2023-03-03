@@ -22,7 +22,7 @@ public:
 
     void setData(GLsizeiptr size, const void* data,
                  GLenum usage = GL_STATIC_DRAW) override;
-    //~OGLVertexBuffer() override;
+    ~OGLVertexBuffer() override;
 };
 
 }// namespace taixu

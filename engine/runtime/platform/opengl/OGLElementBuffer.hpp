@@ -22,7 +22,7 @@ public:
     void bind() override;
     void unbind() override;
 
-    //~OGLElementBuffer() override;
+    ~OGLElementBuffer() override;
 };
 
 }// namespace taixu

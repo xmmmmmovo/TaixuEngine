@@ -6,6 +6,7 @@
 #define TAIXUENGINE_FRAMEBUFFER_HPP
 
 #endif//TAIXUENGINE_FRAMEBUFFER_HPP
+
 namespace taixu {
 class IFrameBuffer {
     
