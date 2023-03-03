@@ -38,7 +38,7 @@ public:
     std::vector<std::shared_ptr<Asset>> asset_list;
     using Json                  = nlohmann::json;
     std::string asset_file_path = "INVALID";
-
+    
     void from_json(const Json& j, std::shared_ptr<Asset> asset) {
         j.at("type").get_to(asset->type);
         j.at("name").get_to(asset->name);
