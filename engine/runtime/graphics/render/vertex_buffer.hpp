@@ -17,8 +17,7 @@ public:
     virtual void bind()   = 0;
     virtual void unbind() = 0;
 
-    virtual void setData(float* data, GLsizeiptr size, GLenum usage) = 0;
-    ~IVertexBuffer() override                                        = 0;
+    virtual void setData(GLsizeiptr size, const void* data, GLenum usage) = 0;
 };
 
 }// namespace taixu

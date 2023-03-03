@@ -19,7 +19,9 @@ void OGLVertexBuffer::unbind() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);// Unbined VBO
 }
 
-void OGLVertexBuffer::setData(float* data, GLsizeiptr size, GLenum usage) {
+void OGLVertexBuffer::setData(GLsizeiptr size,
+                              const void* data,
+                              GLenum usage) {
     glBufferData(GL_ARRAY_BUFFER, size, data, usage);
 }
 

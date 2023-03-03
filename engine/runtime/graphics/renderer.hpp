@@ -13,7 +13,7 @@
 #include "graphics/render/shader.hpp"
 #include "graphics/render/texture.hpp"
 #include "platform/opengl/OGLShader.hpp"
-
+#include "platform/opengl/OGLContext.hpp"
 namespace taixu {
 
 constexpr float delta_time = 0.03333;
@@ -45,60 +45,26 @@ public:
     void initialize() {
         render_data = std::make_shared<Render_Data>();
         render_data->initialize();
-        
+        ogl_context=std::make_shared<OGLContext>();
+        ogl_context->initialize();
     };
-
-    void bindMesh(unsigned int  vertex_arry_object,
-                    unsigned int &element_buffer_id,
-                    unsigned int &vertex_buffer_id, Mesh mesh) {
-        glBindVertexArray(vertex_arry_object);
-        glGenBuffers(1, &vertex_buffer_id);
-        glGenBuffers(1, &element_buffer_id);
-        // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-        //Bind vertices data of mesh
-        glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_id);
-        glBufferData(GL_ARRAY_BUFFER, mesh.vertices.size() * sizeof(Vertex),
-                     &mesh.vertices[0], GL_DYNAMIC_DRAW);
-        //Bind indices data of mesh
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_id);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER,
-                     mesh.indices.size() * sizeof(unsigned int),
-                     &mesh.indices[0], GL_DYNAMIC_DRAW);
-        // vertex Positions
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-                              (void *) 0);
-        // vertex normals
-        glEnableVertexAttribArray(1);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-                              (void *) offsetof(Vertex, Normal));
-        // vertex texture coords
-        glEnableVertexAttribArray(2);
-        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-                              (void *) offsetof(Vertex, TexCoords));
-        // vertex tangent
-        glEnableVertexAttribArray(3);
-        glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-                              (void *) offsetof(Vertex, Tangent));
-        // vertex bitangent
-        glEnableVertexAttribArray(4);
-        glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-                              (void *) offsetof(Vertex, Bitangent));
-        // ids
-        glEnableVertexAttribArray(5);
-        glVertexAttribIPointer(5, 4, GL_INT, sizeof(Vertex),
-                               (void *) offsetof(Vertex, m_BoneIDs));
-        // weights
-        glEnableVertexAttribArray(6);
-        glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-                              (void *) offsetof(Vertex, m_Weights));
-        glBindVertexArray(0);
+    void resize(float width, float height)
+    {
+        ogl_context->size.x=width;
+        ogl_context->size.y=height;
+    };
+    void bindMesh(Mesh mesh) {
+        ogl_context->bindMesh(mesh);
     }
-
+    void tickbyMesh(Mesh mesh)
+    {
+        ogl_context->tickbyMesh(mesh);
+    };
     Render_Data *getSwapContext() { return render_data->getData(); };
 
 protected:
     std::shared_ptr<Render_Data> render_data;
+    std::shared_ptr<OGLContext> ogl_context;
 };
 
 class Renderer {
@@ -116,12 +82,12 @@ public:
     bool         first_mouse = true;
     float        last_x, last_y;
     void         processInput(float scroll_yoffset);
-    unsigned int getRenderResult() { return bufferTexId; };
-
+    //unsigned int getRenderResult() { return bufferTexId; };
+    std::uint32_t getRenderResult() { return render_context->ogl_context->framebuffer->getImageid(); };
     std::shared_ptr<Camera> first_person_camera;
-
+    
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
-
+    
     std::shared_ptr<Render_Context> render_context;
     IShaderProgram                 *shaderProgram;
 

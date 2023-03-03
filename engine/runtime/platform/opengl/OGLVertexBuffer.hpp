@@ -6,7 +6,6 @@
 #define TAIXUENGINE_OGLVERTEXBUFFER_HPP
 
 #include <glm/glm.hpp>
-
 #include "graphics/render/vertex_buffer.hpp"
 
 namespace taixu {
@@ -21,7 +20,7 @@ public:
     void bind() override;
     void unbind() override;
 
-    void setData(float* data, GLsizeiptr size,
+    void setData(GLsizeiptr size, const void* data,
                  GLenum usage = GL_STATIC_DRAW) override;
     ~OGLVertexBuffer() override;
 };
