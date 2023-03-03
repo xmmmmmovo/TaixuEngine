@@ -71,13 +71,14 @@ void taixu::OGLContext::tickbyMesh(Mesh mesh)
 {
     //glBindFramebuffer(GL_FRAMEBUFFER, bufferTexId);
     framebuffer->bind();
-    //glBufferData(GL_FRAMEBUFFER,)
+    //glBufferData(GL_FRAMEBUFFER,_id);
     
     clear();
 
     // glBindVertexArray(
     //         VAO);
     vertex_arry->bind();
+    
     //Draw as meshes
     drawbyElement(mesh);
 

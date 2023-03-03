@@ -20,8 +20,6 @@ public:
 
     virtual void setVBO() = 0;
     virtual void setEBO()   = 0;
-
-    ~IVertexArray() override = default;
 };
 
 }// namespace taixu

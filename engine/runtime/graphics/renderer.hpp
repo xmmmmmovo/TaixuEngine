@@ -54,48 +54,6 @@ public:
         ogl_context->size.y=height;
     };
     void bindMesh(Mesh mesh) {
-        // glBindVertexArray(vertex_arry_object);
-        // glGenBuffers(1, &vertex_buffer_id);
-        // glGenBuffers(1, &element_buffer_id);
-        // // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-        // //Bind vertices data of mesh
-        // glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_id);
-        // glBufferData(GL_ARRAY_BUFFER, mesh.vertices.size() * sizeof(Vertex),
-        //              &mesh.vertices[0], GL_DYNAMIC_DRAW);
-        // //Bind indices data of mesh
-        // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_id);
-        // glBufferData(GL_ELEMENT_ARRAY_BUFFER,
-        //              mesh.indices.size() * sizeof(unsigned int),
-        //              &mesh.indices[0], GL_DYNAMIC_DRAW);
-        // // vertex Positions
-        // glEnableVertexAttribArray(0);
-        // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-        //                       (void *) 0);
-        // // vertex normals
-        // glEnableVertexAttribArray(1);
-        // glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-        //                       (void *) offsetof(Vertex, Normal));
-        // // vertex texture coords
-        // glEnableVertexAttribArray(2);
-        // glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-        //                       (void *) offsetof(Vertex, TexCoords));
-        // // vertex tangent
-        // glEnableVertexAttribArray(3);
-        // glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-        //                       (void *) offsetof(Vertex, Tangent));
-        // // vertex bitangent
-        // glEnableVertexAttribArray(4);
-        // glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-        //                       (void *) offsetof(Vertex, Bitangent));
-        // // ids
-        // glEnableVertexAttribArray(5);
-        // glVertexAttribIPointer(5, 4, GL_INT, sizeof(Vertex),
-        //                        (void *) offsetof(Vertex, m_BoneIDs));
-        // // weights
-        // glEnableVertexAttribArray(6);
-        // glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-        //                       (void *) offsetof(Vertex, m_Weights));
-        // glBindVertexArray(0);
         ogl_context->bindMesh(mesh);
     }
     void tickbyMesh(Mesh mesh)
