@@ -1,8 +1,6 @@
 #ifndef ENGINE_RUNTIME_CORE_BASE_MACRO
 #define ENGINE_RUNTIME_CORE_BASE_MACRO
 
-#include <string_view>
-
 namespace taixu {
 
 /**
@@ -34,6 +32,5 @@ enum class EngineMode {
 };
 
 }// namespace taixu
-
 
 #endif /* ENGINE_RUNTIME_CORE_BASE_MACRO */
