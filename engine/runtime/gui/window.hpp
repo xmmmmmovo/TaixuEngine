@@ -11,9 +11,6 @@
 namespace taixu {
 
 class IWindow : private noncopyable {
-protected:
-    IWindowContext context{};
-
 public:
     virtual void init()    = 0;
     virtual void update()  = 0;

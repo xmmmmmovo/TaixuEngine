@@ -8,7 +8,6 @@
 #include <memory>
 
 // "" include headers
-#include "application_context.hpp"
 #include "core/base/public_singleton.hpp"
 #include "gui/window.hpp"
 
@@ -22,17 +21,15 @@ class Application : public PublicSingleton<Application> {
     /*
       For User to use
     */
+    friend class PublicSingleton<Application>;
+
 private:
     /**
      * A window pointer, because our app only have one window,
      * so there is just one pointer
      * @see IWindow
      */
-    std::shared_ptr<IWindow>            window{nullptr};
-    /**
-     * @brief window context
-     */
-    std::shared_ptr<ApplicationContext> context{};
+    std::shared_ptr<IWindow> window{nullptr};
 
     /**
      * @brief Main window width
@@ -51,7 +48,7 @@ public:
     /**
      * @brief init application
      */
-    void initialize();
+    void initialize(int argc, char *argv[]);
     /**
      * @brief main run function
      */
@@ -61,12 +58,13 @@ public:
      */
     void destroy();
 
+private:
     /**
-     * @brief context getter
-     * @return return application context
-     * @see ApplicationContext
+     * @brief init application args
+     * @param argc args count
+     * @param argv args
      */
-    std::shared_ptr<ApplicationContext> getContext();
+    void initApplicationArgs(int argc, char *argv[]);
 };
 
 }// namespace taixu::editor

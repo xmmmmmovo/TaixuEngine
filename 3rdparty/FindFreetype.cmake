@@ -1,8 +1,7 @@
 CPMAddPackage(
         NAME freetype
         GIT_REPOSITORY https://github.com/aseprite/freetype2.git
-        GIT_TAG VER-2-10-0
-        VERSION 2.10.0
+        GIT_TAG e8ebfe988b5f57bfb9a3ecb13c70d9791bce9ecf
 )
 
 if (freetype_ADDED)
