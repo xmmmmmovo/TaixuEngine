@@ -15,12 +15,10 @@
 
 namespace taixu {
 
-class Project {
+struct Project {
 public:
     //name of project
     std::string_view              name;
-    //file path of project
-    std::string_view              path;
     //texture list
     std::vector<std::string_view> texture_path;
     //model list
@@ -30,7 +28,9 @@ public:
 class ProjectManager {
 private:
     // current project
-    std::shared_ptr<Project> openingProject{nullptr};
+    std::shared_ptr<Project> opened_project{nullptr};
+    //file path of project
+    std::filesystem::path    current_path;
 
 public:
     ProjectManager() = default;
@@ -43,8 +43,12 @@ public:
 
     Status saveAsProject(std::string const &path);
 
-    [[nodiscard]] std::shared_ptr<Project> getProject() const {
-        return openingProject;
+    [[nodiscard]] std::shared_ptr<Project> getCurrentProject() const {
+        return opened_project;
+    }
+
+    [[nodiscard]] std::filesystem::path getCurrentPath() const {
+        return current_path;
     }
 };
 

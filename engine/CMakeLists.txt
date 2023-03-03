@@ -56,6 +56,9 @@ include(../3rdparty/FindJsoncpp.cmake)
 # add refl cpp
 include(../3rdparty/FindReflCpp.cmake)
 
+# add magic enum
+include(../3rdparty/FindMagicEnum.cmake)
+
 # ------- sub-directories --------
 
 # for SPIR_V

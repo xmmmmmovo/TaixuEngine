@@ -1,5 +1,7 @@
 #include "engine.hpp"
 
+#include <magic_enum.hpp>
+
 namespace taixu {
 
 Engine::Engine() {}
@@ -22,7 +24,13 @@ std::shared_ptr<Renderer> Engine::getRenderer() const { return renderer; }
 
 Status Engine::loadProject(const std::string_view& path) {
     spdlog::info("Loading project: {}", path);
-    project_manager->openProject(path);
+    Status status = project_manager->openProject(path);
+    if (Status::OK != status) {
+        spdlog::error("Failed to load project: {}",
+                      magic_enum::enum_name(status));
+        return status;
+    }
+    this->project = project_manager->getCurrentProject();
     return Status::OK;
 }
 
