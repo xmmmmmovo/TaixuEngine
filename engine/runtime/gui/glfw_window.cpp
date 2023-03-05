@@ -19,6 +19,7 @@ void TX_GLFWwindow::init(IWindowContext *context) {
 #ifdef __APPLE__
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
         initialized = true;
     }
 
