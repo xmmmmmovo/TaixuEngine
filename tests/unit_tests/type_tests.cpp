@@ -11,6 +11,14 @@ struct A {
     int a{0};
 };
 
+struct B {
+    virtual void f() = 0;
+};
+
+struct C : B {
+    void f() override {}
+};
+
 TEST_CASE("size type", "[C++ trait tests]") {
     std::vector<int> v{0};
     auto             s = v.size();
@@ -27,4 +35,7 @@ TEST_CASE("smart pointer", "[C++ trait tests]") {
     a = std::make_shared<A>();
     std::cout << a.get() << std::endl;
     std::cout << weakPtr.use_count() << std::endl;
+}
+
+TEST_CASE("unique pointer distribution", "[C++ trait tests]") {
 }

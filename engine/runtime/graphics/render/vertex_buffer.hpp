@@ -17,7 +17,8 @@ public:
     virtual void bind()   = 0;
     virtual void unbind() = 0;
 
-    virtual void setData(GLsizeiptr size, const void* data, GLenum usage) = 0;
+    virtual void setData(GLsizeiptr size, const void* data,
+                         std::uint32_t attribute, GLenum usage) = 0;
 };
 
 }// namespace taixu

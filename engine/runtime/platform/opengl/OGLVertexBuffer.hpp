@@ -6,13 +6,14 @@
 #define TAIXUENGINE_OGLVERTEXBUFFER_HPP
 
 #include <glm/glm.hpp>
+
 #include "graphics/render/vertex_buffer.hpp"
 
 namespace taixu {
 
 class OGLVertexBuffer : public IVertexBuffer {
 private:
-    unsigned int VBO{0};
+    std::vector<unsigned int> VBO{};
 
 public:
     OGLVertexBuffer();
@@ -20,7 +21,7 @@ public:
     void bind() override;
     void unbind() override;
 
-    void setData(GLsizeiptr size, const void* data,
+    void setData(GLsizeiptr size, const void* data, std::uint32_t attribute,
                  GLenum usage = GL_STATIC_DRAW) override;
     ~OGLVertexBuffer() override;
 };
