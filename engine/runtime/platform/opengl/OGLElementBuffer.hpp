@@ -16,11 +16,13 @@ private:
     std::uint32_t EBO{0};
 
 public:
-    explicit OGLElementBuffer(std::vector<std::uint32_t> const& indices,
-                              GLenum usage = GL_STATIC_DRAW);
+    OGLElementBuffer();
 
     void bind() override;
     void unbind() override;
+
+    void setData(GLsizeiptr size, std::vector<std::uint32_t> const& indices,
+                 std::uint32_t attribute, GLenum usage) override;
 
     ~OGLElementBuffer() override;
 };

@@ -23,6 +23,10 @@ enum class Status {
     NO_SUCH_FILE_FAILED,//cannot find file path
 
     NO_OPEN_PROJECT,//no project opened
+
+    // RENDER STATUS CODES
+
+    // END RENDER STATUS CODES
 };
 
 // Define engine mode enum

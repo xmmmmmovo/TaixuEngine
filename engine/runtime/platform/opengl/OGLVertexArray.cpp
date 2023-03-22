@@ -18,12 +18,10 @@ void OGLVertexArray::unbind() {
     glBindVertexArray(0);// Unbined VAO
 }
 
-void OGLVertexArray::setVBO() {}
+void OGLVertexArray::addVBO(OGLVertexBuffer const& vbo) {
+    this->VBO.emplace_back(vbo);
+}
 
-void OGLVertexArray::setEBO() {}
-
-std::uint32_t OGLVertexArray::getVAOid() {return VAO;}
-
-
+void OGLVertexArray::setEBO(OGLElementBuffer const& ebo) { this->EBO = ebo; }
 
 }// namespace taixu

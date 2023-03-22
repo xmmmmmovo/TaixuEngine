@@ -29,7 +29,6 @@ private:
 public:
     void update() override {
         {
-
             ImGui::BeginChild(
                     "FileTree",
                     ImVec2(ImGui::GetWindowContentRegionWidth() * 0.2f, 0.f),
