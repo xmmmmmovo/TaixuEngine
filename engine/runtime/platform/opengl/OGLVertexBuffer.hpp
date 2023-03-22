@@ -13,7 +13,7 @@ namespace taixu {
 
 class OGLVertexBuffer : public IVertexBuffer {
 private:
-    std::vector<unsigned int> VBO{};
+    unsigned int VBO{};
 
 public:
     OGLVertexBuffer();

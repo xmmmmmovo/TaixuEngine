@@ -15,19 +15,24 @@
 
 namespace taixu {
 
-class OGLVertexArray : public IVertexArray {
+class OGLVertexArray : public IVertexArray<OGLVertexBuffer, OGLElementBuffer> {
 private:
-    std::uint32_t                   VAO{0};
-    std::unique_ptr<IVertexBuffer>  VBO{};
-    std::unique_ptr<IElementBuffer> EBO{};
+    std::uint32_t                VAO{0};
+    /**
+     * 这里就让他copy 用空间换时间
+     * @brief VBO
+     */
+    std::vector<OGLVertexBuffer> VBO{};
+    OGLElementBuffer             EBO{};
+    std::uint16_t                index{0};
 
 public:
     OGLVertexArray();
     ~OGLVertexArray() override;
-    void bind() override;
-    void unbind() override;
-    void setVBO(std::unique_ptr<IVertexBuffer>& vbo) override;
-    void setEBO(std::unique_ptr<IElementBuffer>& ebo) override;
+    void                        bind() override;
+    void                        unbind() override;
+    void                        addVBO(OGLVertexBuffer const& vbo) override;
+    void                        setEBO(OGLElementBuffer const& ebo) override;
     [[nodiscard]] std::uint32_t getVAOid() const;
 };
 

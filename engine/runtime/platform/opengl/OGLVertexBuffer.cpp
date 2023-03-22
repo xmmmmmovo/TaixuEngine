@@ -10,7 +10,7 @@ namespace taixu {
 OGLVertexBuffer::OGLVertexBuffer() = default;
 
 void OGLVertexBuffer::bind() {
-    for (auto& vbo : VBO) glBindBuffer(GL_ARRAY_BUFFER, vbo);// Bind VBO
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);// Bind VBO
 }
 
 void OGLVertexBuffer::unbind() {
@@ -24,7 +24,5 @@ void OGLVertexBuffer::setData(GLsizeiptr size, const void* data,
     unbind();
 }
 
-OGLVertexBuffer::~OGLVertexBuffer() {
-    glDeleteBuffers(static_cast<int>(VBO.size()), &VBO[0]);
-}
+OGLVertexBuffer::~OGLVertexBuffer() { glDeleteBuffers(1, &VBO); }
 }// namespace taixu

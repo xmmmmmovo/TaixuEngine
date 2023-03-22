@@ -32,4 +32,10 @@
 // spdlog
 #include <spdlog/spdlog.h>
 
+// glad
+#include <glad/glad.h>
+
+// glfw
+#include <GLFW/glfw3.h>
+
 #endif//TAIXUENGINE_PCH_HPP

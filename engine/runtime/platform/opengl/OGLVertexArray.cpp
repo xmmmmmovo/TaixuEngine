@@ -18,13 +18,11 @@ void OGLVertexArray::unbind() {
     glBindVertexArray(0);// Unbined VAO
 }
 
-void OGLVertexArray::setVBO(std::unique_ptr<IVertexBuffer> &vbo) {
-    this->VBO = std::move(vbo);
+void OGLVertexArray::addVBO(OGLVertexBuffer const& vbo) {
+    this->VBO.emplace_back(vbo);
 }
 
-void OGLVertexArray::setEBO(std::unique_ptr<IElementBuffer> &ebo) {
-    this->EBO = std::move(ebo);
-}
+void OGLVertexArray::setEBO(OGLElementBuffer const& ebo) { this->EBO = ebo; }
 
 std::uint32_t OGLVertexArray::getVAOid() const { return VAO; }
 
