@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('vertex__buffer_8hpp_source.html',''); 
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_VERTEX_BUFFER_HPP</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_VERTEX_BUFFER_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;any&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;glad/glad.h&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="buffer__layout_8hpp.html">buffer_layout.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8hpp.html">core/base/noncopyable.hpp</a>&quot;</span></div>
@@ -104,15 +104,16 @@ $(document).ready(function(){initNavTree('vertex__buffer_8hpp_source.html',''); 
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexBuffer.html#aa76099bdab1dd94b94a12b7e87bf6d9f">   17</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexBuffer.html#aa76099bdab1dd94b94a12b7e87bf6d9f">bind</a>()   = 0;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexBuffer.html#a8856c33133bee0d922c4503c25bc9b31">   18</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexBuffer.html#a8856c33133bee0d922c4503c25bc9b31">unbind</a>() = 0;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexBuffer.html#a7a54660221b4f1c2c6581f68e44567fa">   20</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexBuffer.html#a7a54660221b4f1c2c6581f68e44567fa">setData</a>(GLsizeiptr size, <span class="keyword">const</span> <span class="keywordtype">void</span>* data, GLenum usage) = 0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_VERTEX_BUFFER_HPP</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexBuffer.html#a6738e4594281ae56326c061d1d704450">   20</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexBuffer.html#a6738e4594281ae56326c061d1d704450">setData</a>(GLsizeiptr size, <span class="keyword">const</span> <span class="keywordtype">void</span>* data,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                         std::uint32_t attribute, GLenum usage) = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_VERTEX_BUFFER_HPP</span></div>
 <div class="ttc" id="abuffer__layout_8hpp_html"><div class="ttname"><a href="buffer__layout_8hpp.html">buffer_layout.hpp</a></div></div>
 <div class="ttc" id="aclasstaixu_1_1IVertexBuffer_html"><div class="ttname"><a href="classtaixu_1_1IVertexBuffer.html">taixu::IVertexBuffer</a></div><div class="ttdef"><b>Definition:</b> vertex_buffer.hpp:15</div></div>
-<div class="ttc" id="aclasstaixu_1_1IVertexBuffer_html_a7a54660221b4f1c2c6581f68e44567fa"><div class="ttname"><a href="classtaixu_1_1IVertexBuffer.html#a7a54660221b4f1c2c6581f68e44567fa">taixu::IVertexBuffer::setData</a></div><div class="ttdeci">virtual void setData(GLsizeiptr size, const void *data, GLenum usage)=0</div></div>
+<div class="ttc" id="aclasstaixu_1_1IVertexBuffer_html_a6738e4594281ae56326c061d1d704450"><div class="ttname"><a href="classtaixu_1_1IVertexBuffer.html#a6738e4594281ae56326c061d1d704450">taixu::IVertexBuffer::setData</a></div><div class="ttdeci">virtual void setData(GLsizeiptr size, const void *data, std::uint32_t attribute, GLenum usage)=0</div></div>
 <div class="ttc" id="aclasstaixu_1_1IVertexBuffer_html_a8856c33133bee0d922c4503c25bc9b31"><div class="ttname"><a href="classtaixu_1_1IVertexBuffer.html#a8856c33133bee0d922c4503c25bc9b31">taixu::IVertexBuffer::unbind</a></div><div class="ttdeci">virtual void unbind()=0</div></div>
 <div class="ttc" id="aclasstaixu_1_1IVertexBuffer_html_aa76099bdab1dd94b94a12b7e87bf6d9f"><div class="ttname"><a href="classtaixu_1_1IVertexBuffer.html#aa76099bdab1dd94b94a12b7e87bf6d9f">taixu::IVertexBuffer::bind</a></div><div class="ttdeci">virtual void bind()=0</div></div>
 <div class="ttc" id="aclasstaixu_1_1noncopyable_html"><div class="ttname"><a href="classtaixu_1_1noncopyable.html">taixu::noncopyable</a></div><div class="ttdoc">inherit this class in private method</div><div class="ttdef"><b>Definition:</b> noncopyable.hpp:15</div></div>

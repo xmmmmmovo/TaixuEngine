@@ -120,14 +120,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a45bab7b454f47da64789c99912656cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb2c7b2ef381921a887c2b2145152d8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexBuffer.html#afb2c7b2ef381921a887c2b2145152d8e">unbind</a> () override</td></tr>
 <tr class="separator:afb2c7b2ef381921a887c2b2145152d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb29e7922cd41a7084bfb0299e9bcae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexBuffer.html#a2eb29e7922cd41a7084bfb0299e9bcae">setData</a> (GLsizeiptr size, const void *data, GLenum usage=GL_STATIC_DRAW) override</td></tr>
-<tr class="separator:a2eb29e7922cd41a7084bfb0299e9bcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcb30e8e07862b9f59a905ed3625379e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexBuffer.html#afcb30e8e07862b9f59a905ed3625379e">setData</a> (GLsizeiptr size, const void *data, std::uint32_t attribute, GLenum usage=GL_STATIC_DRAW) override</td></tr>
+<tr class="separator:afcb30e8e07862b9f59a905ed3625379e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a121bde2eb1194d192308606a231da8d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexBuffer.html#a121bde2eb1194d192308606a231da8d0">~OGLVertexBuffer</a> () override</td></tr>
 <tr class="separator:a121bde2eb1194d192308606a231da8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a24de4495cd4c45f8e8202256ac60c1f4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexBuffer.html#a24de4495cd4c45f8e8202256ac60c1f4">VBO</a> {0}</td></tr>
+<tr class="memitem:a24de4495cd4c45f8e8202256ac60c1f4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexBuffer.html#a24de4495cd4c45f8e8202256ac60c1f4">VBO</a> {}</td></tr>
 <tr class="separator:a24de4495cd4c45f8e8202256ac60c1f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -136,6 +136,9 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">taixu::OGLVertexBuffer::OGLVertexBuffer </td>
@@ -144,6 +147,11 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -201,8 +209,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a2eb29e7922cd41a7084bfb0299e9bcae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2eb29e7922cd41a7084bfb0299e9bcae">&#9670;&nbsp;</a></span>setData()</h2>
+<a id="afcb30e8e07862b9f59a905ed3625379e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcb30e8e07862b9f59a905ed3625379e">&#9670;&nbsp;</a></span>setData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,6 +233,12 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::uint32_t&#160;</td>
+          <td class="paramname"><em>attribute</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">GLenum&#160;</td>
           <td class="paramname"><em>usage</em> = <code>GL_STATIC_DRAW</code>&#160;</td>
         </tr>
@@ -241,7 +255,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classtaixu_1_1IVertexBuffer.html#a7a54660221b4f1c2c6581f68e44567fa">taixu::IVertexBuffer</a>.</p>
+<p>Implements <a class="el" href="classtaixu_1_1IVertexBuffer.html#a6738e4594281ae56326c061d1d704450">taixu::IVertexBuffer</a>.</p>
 
 </div>
 </div>
@@ -283,7 +297,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int taixu::OGLVertexBuffer::VBO {0}</td>
+          <td class="memname">unsigned int taixu::OGLVertexBuffer::VBO {}</td>
         </tr>
       </table>
   </td>

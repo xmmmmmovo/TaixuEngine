@@ -22,6 +22,9 @@ var hierarchy =
     [ "taixu::Mesh", "classtaixu_1_1Mesh.html", null ],
     [ "taixu::Model_Data", "classtaixu_1_1Model__Data.html", null ],
     [ "taixu::noncopyable", "classtaixu_1_1noncopyable.html", [
+      [ "taixu::IVertexArray< OGLVertexBuffer, OGLElementBuffer >", "classtaixu_1_1IVertexArray.html", [
+        [ "taixu::OGLVertexArray", "classtaixu_1_1OGLVertexArray.html", null ]
+      ] ],
       [ "taixu::IElementBuffer", "classtaixu_1_1IElementBuffer.html", [
         [ "taixu::OGLElementBuffer", "classtaixu_1_1OGLElementBuffer.html", null ]
       ] ],
@@ -37,9 +40,7 @@ var hierarchy =
       [ "taixu::ITexture", "classtaixu_1_1ITexture.html", [
         [ "taixu::OGLTexture", "classtaixu_1_1OGLTexture.html", null ]
       ] ],
-      [ "taixu::IVertexArray", "classtaixu_1_1IVertexArray.html", [
-        [ "taixu::OGLVertexArray", "classtaixu_1_1OGLVertexArray.html", null ]
-      ] ],
+      [ "taixu::IVertexArray< VboType, EboType >", "classtaixu_1_1IVertexArray.html", null ],
       [ "taixu::IVertexBuffer", "classtaixu_1_1IVertexBuffer.html", [
         [ "taixu::OGLVertexBuffer", "classtaixu_1_1OGLVertexBuffer.html", null ]
       ] ],

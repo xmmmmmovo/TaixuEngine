@@ -1,7 +1,7 @@
 var classtaixu_1_1IVertexArray =
 [
-    [ "bind", "classtaixu_1_1IVertexArray.html#a5732c839e8656142b89675624a4d40b5", null ],
-    [ "setEBO", "classtaixu_1_1IVertexArray.html#a8a27d06b17d2751d6be484e68b5935c7", null ],
-    [ "setVBO", "classtaixu_1_1IVertexArray.html#a2c7ac7194ddbe4e3ab47731fe5994baa", null ],
-    [ "unbind", "classtaixu_1_1IVertexArray.html#adc9f8aeb7e8bbde37e6401e07ae6d509", null ]
+    [ "addVBO", "classtaixu_1_1IVertexArray.html#a48ffd37ba6029cda14eb169af052145e", null ],
+    [ "bind", "classtaixu_1_1IVertexArray.html#a5796bb6aa92b489a14e99b6fe6c4dab5", null ],
+    [ "setEBO", "classtaixu_1_1IVertexArray.html#a52e97cfce68a1bf0c6c97537cf7f4b6f", null ],
+    [ "unbind", "classtaixu_1_1IVertexArray.html#a1cdc74407bec20777b85284178f8be27", null ]
 ];

@@ -1,7 +1,7 @@
 var classtaixu_1_1Render__Context =
 [
     [ "Render_Context", "classtaixu_1_1Render__Context.html#ad36d4b646feefbc361c61b6f264af3be", null ],
-    [ "~Render_Context", "classtaixu_1_1Render__Context.html#ab5b7c1cbb4613f6b23fc53b038d8a7d0", null ],
+    [ "~Render_Context", "classtaixu_1_1Render__Context.html#acff013c9b9d7d6b51e65a4c827397bf7", null ],
     [ "bindMesh", "classtaixu_1_1Render__Context.html#ab3ea9faf816a29f297ee3143e64ab43e", null ],
     [ "getSwapContext", "classtaixu_1_1Render__Context.html#a2f2c6e48a051be57c6a9b399a7a16c62", null ],
     [ "initialize", "classtaixu_1_1Render__Context.html#a867bc5a04439166cdc7ea41e31076d1a", null ],
