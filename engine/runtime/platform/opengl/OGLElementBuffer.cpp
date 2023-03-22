@@ -15,7 +15,7 @@ void OGLElementBuffer::unbind() { glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); }
 void OGLElementBuffer::setData(GLsizeiptr                        size,
                                const std::vector<std::uint32_t>& indices,
                                std::uint32_t attribute, GLenum usage) {
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    bind();
     glBufferData(
             GL_ELEMENT_ARRAY_BUFFER,
             static_cast<GLsizeiptr>(indices.size() * sizeof(std::uint32_t)),

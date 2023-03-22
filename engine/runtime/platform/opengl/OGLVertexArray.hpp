@@ -29,11 +29,10 @@ private:
 public:
     OGLVertexArray();
     ~OGLVertexArray() override;
-    void                        bind() override;
-    void                        unbind() override;
-    void                        addVBO(OGLVertexBuffer const& vbo) override;
-    void                        setEBO(OGLElementBuffer const& ebo) override;
-    [[nodiscard]] std::uint32_t getVAOid() const;
+    void bind() override;
+    void unbind() override;
+    void addVBO(OGLVertexBuffer const& vbo) override;
+    void setEBO(OGLElementBuffer const& ebo) override;
 };
 
 }// namespace taixu

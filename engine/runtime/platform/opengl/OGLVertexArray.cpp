@@ -24,7 +24,4 @@ void OGLVertexArray::addVBO(OGLVertexBuffer const& vbo) {
 
 void OGLVertexArray::setEBO(OGLElementBuffer const& ebo) { this->EBO = ebo; }
 
-std::uint32_t OGLVertexArray::getVAOid() const { return VAO; }
-
-
 }// namespace taixu
