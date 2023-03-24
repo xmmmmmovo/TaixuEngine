@@ -19,9 +19,11 @@ void OGLVertexArray::unbind() {
 }
 
 void OGLVertexArray::addVBO(OGLVertexBuffer const& vbo) {
-    this->VBO.emplace_back(vbo);
+//    this->VBO.emplace_back(std::move(vbo));
 }
 
-void OGLVertexArray::setEBO(OGLElementBuffer const& ebo) { this->EBO = ebo; }
+void OGLVertexArray::setEBO(OGLElementBuffer const&& ebo) {
+//    this->EBO = ebo;
+}
 
 }// namespace taixu
