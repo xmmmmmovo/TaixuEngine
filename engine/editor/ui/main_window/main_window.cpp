@@ -22,6 +22,24 @@ void  MainWindow::processInput(GLFWwindow *window) {
         imgui_surface->Input_callback("LEFT");
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         imgui_surface->Input_callback("RIGHT");
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+
+    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+        double xPos, yPos;
+        glfwGetCursorPos(window, &xPos, &yPos);
+        imgui_surface->Input_callback(glm::vec2(xPos, yPos));
+    }
+
+    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS) {
+        double xPos, yPos;
+        glfwGetCursorPos(window, &xPos, &yPos);
+        imgui_surface->Input_callback(glm::vec2(xPos, yPos));
+    }
+    double xOffset, yOffset;
+    glfwGetCursorPos(window, &xOffset, &yOffset);
+    imgui_surface->Input_callback((float)yOffset);
+
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
