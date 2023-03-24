@@ -18,8 +18,6 @@ void MainWindow::init() {
 
 void MainWindow::update() {
     while (!glfwWindowShouldClose(window)) {
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
         main_imgui_surface->preUpdate();
         main_imgui_surface->update();
         super::update();

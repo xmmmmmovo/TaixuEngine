@@ -18,12 +18,17 @@ void OGLVertexArray::unbind() {
     glBindVertexArray(0);// Unbined VAO
 }
 
-void OGLVertexArray::addVBO(OGLVertexBuffer const& vbo) {
-//    this->VBO.emplace_back(std::move(vbo));
+void OGLVertexArray::addVBO(OGLVertexBuffer &&vbo) {
+    std::size_t const idx = VBO.size();
+    vbo.bind();
+    glVertexAttribPointer(idx, vbo.getAlign(), GL_FLOAT, GL_FALSE, 0, nullptr);
+    this->VBO.emplace_back(std::move(vbo));
+    glEnableVertexAttribArray(idx);
 }
 
-void OGLVertexArray::setEBO(OGLElementBuffer const&& ebo) {
-//    this->EBO = ebo;
+void OGLVertexArray::setEBO(OGLElementBuffer &&ebo) {
+    ebo.bind();
+    this->EBO = std::move(ebo);
 }
 
 }// namespace taixu
