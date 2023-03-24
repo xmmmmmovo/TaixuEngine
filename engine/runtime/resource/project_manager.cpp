@@ -24,14 +24,17 @@ Status ProjectManager::openProject(std::string_view const& path) {
 
     // Parse the project data from the JSON file
     std::string                   name         = data["name"];
-    std::vector<std::string_view> texturePaths = data["asset"]["textures"];
-    std::vector<std::string_view> modelPaths   = data["asset"]["models"];
-
+    //std::vector<std::string_view> texturePaths = data["asset"]["textures"];
+    //std::vector<std::string_view> modelPaths   = data["asset"]["models"];
+    std::string                   tempstr         = data["assets"];
+    std::string asset_configure_path(path);
+    asset_configure_path+=tempstr;
     // Create a new project object and add it to the vector of projects
     opened_project = std::make_shared<Project>(Project{
             name,
-            texturePaths,
-            modelPaths,
+            //texturePaths,
+            //modelPaths,
+            asset_configure_path
     });
 
     current_path = project_path.parent_path();

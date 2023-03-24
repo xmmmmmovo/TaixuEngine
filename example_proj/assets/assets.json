@@ -1,0 +1,14 @@
+{
+    "assets": [
+        {
+            "location": "D:/SourseCode/TaixuEngine/engine/assets/model/cube.obj",
+            "name": "cube.obj",
+            "type": "Model"
+        },
+        {
+            "location": "D:/SourseCode/TaixuEngine/engine/assets/model/sphere.obj",
+            "name": "sphere.obj",
+            "type": "Model"
+        }
+    ]
+}

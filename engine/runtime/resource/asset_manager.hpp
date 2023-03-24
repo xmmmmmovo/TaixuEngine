@@ -51,13 +51,14 @@ public:
     }
 
     void loadAsset(std::string file_path) {
+
         std::ifstream f(file_path);
         if (!f.is_open()) {
             spdlog::debug("Unable to load Asset configure file");
         } else
             asset_file_path = file_path;
         Json data = Json::parse(f);
-
+        
         for (auto i : data["assets"].items()) {
             std::shared_ptr<Asset> new_asset = std::make_shared<Asset>();
             std::uint8_t new_guid = GUID_Generator::generate_new_guid();
