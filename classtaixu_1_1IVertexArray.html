@@ -98,7 +98,7 @@ Inheritance diagram for taixu::IVertexArray&lt; VboType, EboType &gt;:</div>
 <area shape="rect" title=" " alt="" coords="37,205,207,341"/>
 <area shape="rect" href="classtaixu_1_1IVertexArray.html" title=" " alt="" coords="5,419,239,569"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="49,5,195,156"/>
-<area shape="rect" href="classtaixu_1_1OGLVertexArray.html" title=" " alt="" coords="39,619,205,813"/>
+<area shape="rect" href="classtaixu_1_1OGLVertexArray.html" title=" " alt="" coords="39,619,205,799"/>
 </map>
 </div>
 <div class="dynheader">
@@ -117,10 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5796bb6aa92b489a14e99b6fe6c4dab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cdc74407bec20777b85284178f8be27"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IVertexArray.html#a1cdc74407bec20777b85284178f8be27">unbind</a> ()=0</td></tr>
 <tr class="separator:a1cdc74407bec20777b85284178f8be27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48ffd37ba6029cda14eb169af052145e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IVertexArray.html#a48ffd37ba6029cda14eb169af052145e">addVBO</a> (VboType const &amp;vbo)=0</td></tr>
-<tr class="separator:a48ffd37ba6029cda14eb169af052145e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52e97cfce68a1bf0c6c97537cf7f4b6f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IVertexArray.html#a52e97cfce68a1bf0c6c97537cf7f4b6f">setEBO</a> (EboType const &amp;ebo)=0</td></tr>
-<tr class="separator:a52e97cfce68a1bf0c6c97537cf7f4b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d1cf8105b913c298c3aa64860ed637d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IVertexArray.html#a3d1cf8105b913c298c3aa64860ed637d">addVBO</a> (VboType &amp;&amp;vbo)=0</td></tr>
+<tr class="separator:a3d1cf8105b913c298c3aa64860ed637d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac03ae80ddfd436d2eb16f7f84bcbdd6e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IVertexArray.html#ac03ae80ddfd436d2eb16f7f84bcbdd6e">setEBO</a> (EboType &amp;&amp;ebo)=0</td></tr>
+<tr class="separator:ac03ae80ddfd436d2eb16f7f84bcbdd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -139,8 +139,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a091f4c4f48636c63f7734790d72ccd17 inherit pub_methods_classtaixu_1_1noncopyable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a48ffd37ba6029cda14eb169af052145e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48ffd37ba6029cda14eb169af052145e">&#9670;&nbsp;</a></span>addVBO()</h2>
+<a id="a3d1cf8105b913c298c3aa64860ed637d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d1cf8105b913c298c3aa64860ed637d">&#9670;&nbsp;</a></span>addVBO()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,7 +153,7 @@ template&lt;typename VboType  = IVertexBuffer, typename EboType  = IElementBuffe
         <tr>
           <td class="memname">virtual void <a class="el" href="classtaixu_1_1IVertexArray.html">taixu::IVertexArray</a>&lt; VboType, EboType &gt;::addVBO </td>
           <td>(</td>
-          <td class="paramtype">VboType const &amp;&#160;</td>
+          <td class="paramtype">VboType &amp;&amp;&#160;</td>
           <td class="paramname"><em>vbo</em></td><td>)</td>
           <td></td>
         </tr>
@@ -165,7 +165,7 @@ template&lt;typename VboType  = IVertexBuffer, typename EboType  = IElementBuffe
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classtaixu_1_1OGLVertexArray.html#a0664271489e088a85bfc5b6243afee53">taixu::OGLVertexArray</a>.</p>
+<p>Implemented in <a class="el" href="classtaixu_1_1OGLVertexArray.html#ac657c7fb017eb604589f9d05cf76b8b0">taixu::OGLVertexArray</a>.</p>
 
 </div>
 </div>
@@ -198,8 +198,8 @@ template&lt;typename VboType  = IVertexBuffer, typename EboType  = IElementBuffe
 
 </div>
 </div>
-<a id="a52e97cfce68a1bf0c6c97537cf7f4b6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52e97cfce68a1bf0c6c97537cf7f4b6f">&#9670;&nbsp;</a></span>setEBO()</h2>
+<a id="ac03ae80ddfd436d2eb16f7f84bcbdd6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac03ae80ddfd436d2eb16f7f84bcbdd6e">&#9670;&nbsp;</a></span>setEBO()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,7 +212,7 @@ template&lt;typename VboType  = IVertexBuffer, typename EboType  = IElementBuffe
         <tr>
           <td class="memname">virtual void <a class="el" href="classtaixu_1_1IVertexArray.html">taixu::IVertexArray</a>&lt; VboType, EboType &gt;::setEBO </td>
           <td>(</td>
-          <td class="paramtype">EboType const &amp;&#160;</td>
+          <td class="paramtype">EboType &amp;&amp;&#160;</td>
           <td class="paramname"><em>ebo</em></td><td>)</td>
           <td></td>
         </tr>
@@ -224,7 +224,7 @@ template&lt;typename VboType  = IVertexBuffer, typename EboType  = IElementBuffe
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classtaixu_1_1OGLVertexArray.html#a42e5580ca7659d69c088a246051c5264">taixu::OGLVertexArray</a>.</p>
+<p>Implemented in <a class="el" href="classtaixu_1_1OGLVertexArray.html#a6935070c3f21594cadfeb1a607333da4">taixu::OGLVertexArray</a>.</p>
 
 </div>
 </div>
