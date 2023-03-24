@@ -7,7 +7,15 @@
 #include "OGLVertexBuffer.hpp"
 
 namespace taixu {
-OGLVertexBuffer::OGLVertexBuffer() = default;
+OGLVertexBuffer::OGLVertexBuffer() {
+    glGenBuffers(1, &VBO);// Generate VBO
+};
+
+OGLVertexBuffer::OGLVertexBuffer(GLsizeiptr size, const void* data,
+                                 GLenum usage, GLint align)
+    : OGLVertexBuffer() {
+    setDataInner(size, data, usage, align);
+}
 
 void OGLVertexBuffer::bind() {
     glBindBuffer(GL_ARRAY_BUFFER, VBO);// Bind VBO
@@ -17,12 +25,22 @@ void OGLVertexBuffer::unbind() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);// Unbined VBO
 }
 
-void OGLVertexBuffer::setData(GLsizeiptr size, const void* data,
-                              std::uint32_t attribute, GLenum usage) {
-    bind();
-    glBufferData(GL_ARRAY_BUFFER, size, data, usage);
-    unbind();
+void OGLVertexBuffer::setData(GLsizeiptr size, const void* data, GLenum usage,
+                              GLint align) {
+    setDataInner(size, data, usage, align);
 }
 
+void OGLVertexBuffer::setDataInner(GLsizeiptr size, const void* data,
+                                   GLenum usage, GLint align) {
+    bind();
+    glBufferData(GL_ARRAY_BUFFER, size, data, usage);
+    this->align = align;
+}
+
+GLint OGLVertexBuffer::getStride() const { return this->stride; }
+
+GLint OGLVertexBuffer::getAlign() const { return this->align; }
+
 OGLVertexBuffer::~OGLVertexBuffer() { glDeleteBuffers(1, &VBO); }
+
 }// namespace taixu

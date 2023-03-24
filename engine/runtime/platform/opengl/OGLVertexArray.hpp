@@ -24,15 +24,14 @@ private:
      */
     std::vector<OGLVertexBuffer> VBO{};
     OGLElementBuffer             EBO{};
-    std::uint16_t                index{0};
 
 public:
     OGLVertexArray();
     ~OGLVertexArray() override;
     void bind() override;
     void unbind() override;
-    void addVBO(OGLVertexBuffer const& vbo) override;
-    void setEBO(OGLElementBuffer const& ebo) override;
+    void addVBO(OGLVertexBuffer &&vbo) override;
+    void setEBO(OGLElementBuffer &&ebo) override;
 };
 
 }// namespace taixu

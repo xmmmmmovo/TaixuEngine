@@ -19,8 +19,8 @@ public:
     virtual void bind()   = 0;
     virtual void unbind() = 0;
 
-    virtual void addVBO(VboType const& vbo)  = 0;
-    virtual void setEBO(EboType const& ebo) = 0;
+    virtual void addVBO(VboType&& vbo) = 0;
+    virtual void setEBO(EboType&& ebo) = 0;
 };
 
 }// namespace taixu

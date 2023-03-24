@@ -19,14 +19,14 @@ class OGLContext
 public:
     glm::vec2 size= {1366, 768};
 
-    std::unique_ptr<OGLVertexArray> vertex_arry;
+    std::unique_ptr<OGLVertexArray> vertex_array;
     //std::vector<OGLVertexBuffer> VBOs;
     //std::unique_ptr<OGLVertexBuffer>  vertex_buffer;
     //std::unique_ptr<OGLElementBuffer> element_buffer;
     std::unique_ptr<OGLFrameBuffer> framebuffer;
     
     void initialize();
-    void bindMesh(Mesh mesh);
+    void bindMesh(Mesh mesh) const;
     void tickbyMesh(Mesh mesh);
     void drawbyElement(Mesh mesh);
     void clear();
