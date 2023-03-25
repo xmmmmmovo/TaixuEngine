@@ -22,7 +22,7 @@ if (USE_VCPKG)
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 endif ()
 
-if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+if (WARNINGS)
     add_definitions(-Wall)
 endif ()
 

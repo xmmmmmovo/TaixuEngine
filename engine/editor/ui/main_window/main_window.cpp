@@ -68,7 +68,6 @@ void MainWindow::preUpdate() {
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(tool_bar_component->update),
             ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoScrollbar |
                     ImGuiWindowFlags_NoScrollWithMouse);
-    imgui_surface.preUpdate();
 }
 
 void MainWindow::update() {
