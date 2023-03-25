@@ -1,9 +1,7 @@
 <map id="engine/editor/ui/components/hierarchy_component.hpp" name="engine/editor/ui/components/hierarchy_component.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="359,5,567,47"/>
-<area shape="rect" id="node2" href="$file__component_8hpp.html" title=" " alt="" coords="288,95,496,136"/>
-<area shape="rect" id="node3" href="$main__window__surface_8hpp.html" title=" " alt="" coords="335,184,591,225"/>
-<area shape="rect" id="node4" href="$main__window_8hpp.html" title=" " alt="" coords="295,273,495,315"/>
-<area shape="rect" id="node7" href="$main__window__surface_8cpp.html" title=" " alt="" coords="462,363,717,404"/>
-<area shape="rect" id="node5" href="$application_8cpp.html" title=" " alt="" coords="5,370,216,397"/>
-<area shape="rect" id="node6" href="$main__window_8cpp.html" title=" " alt="" coords="239,363,438,404"/>
+<area shape="rect" id="node1" title=" " alt="" coords="120,5,328,47"/>
+<area shape="rect" id="node2" href="$file__component_8hpp.html" title=" " alt="" coords="49,95,257,136"/>
+<area shape="rect" id="node3" href="$main__window_8hpp.html" title=" " alt="" coords="124,184,324,225"/>
+<area shape="rect" id="node4" href="$application_8cpp.html" title=" " alt="" coords="5,281,216,307"/>
+<area shape="rect" id="node5" href="$main__window_8cpp.html" title=" " alt="" coords="239,273,438,315"/>
 </map>

@@ -13,7 +13,6 @@ var annotated_dup =
         [ "ToolbarComponent", "classtaixu_1_1editor_1_1ToolbarComponent.html", "classtaixu_1_1editor_1_1ToolbarComponent" ],
         [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html", "classtaixu_1_1editor_1_1MainWindow" ],
         [ "MainWindowContext", "classtaixu_1_1editor_1_1MainWindowContext.html", "classtaixu_1_1editor_1_1MainWindowContext" ],
-        [ "MainWindowSurface", "classtaixu_1_1editor_1_1MainWindowSurface.html", "classtaixu_1_1editor_1_1MainWindowSurface" ],
         [ "EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", "structtaixu_1_1editor_1_1EditorStyle" ],
         [ "ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", "classtaixu_1_1editor_1_1ImguiSurface" ]
       ] ],

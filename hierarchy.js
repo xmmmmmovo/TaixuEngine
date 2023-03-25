@@ -18,7 +18,6 @@ var hierarchy =
     [ "std::logic_error", null, [
       [ "taixu::NotImplementedException", "classtaixu_1_1NotImplementedException.html", null ]
     ] ],
-    [ "taixu::editor::MainWindowSurface", "classtaixu_1_1editor_1_1MainWindowSurface.html", null ],
     [ "taixu::Mesh", "classtaixu_1_1Mesh.html", null ],
     [ "taixu::Model_Data", "classtaixu_1_1Model__Data.html", null ],
     [ "taixu::noncopyable", "classtaixu_1_1noncopyable.html", [

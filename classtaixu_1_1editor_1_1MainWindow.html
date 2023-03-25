@@ -84,8 +84,9 @@ $(document).ready(function(){initNavTree('classtaixu_1_1editor_1_1MainWindow.htm
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classtaixu_1_1editor_1_1MainWindow-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">taixu::editor::MainWindow Class Reference</div>  </div>
@@ -98,7 +99,7 @@ Inheritance diagram for taixu::editor::MainWindow:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1editor_1_1MainWindow__inherit__graph.png" border="0" usemap="#ataixu_1_1editor_1_1MainWindow_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1editor_1_1MainWindow_inherit__map" id="ataixu_1_1editor_1_1MainWindow_inherit__map">
-<area shape="rect" title=" " alt="" coords="81,461,275,656"/>
+<area shape="rect" title=" " alt="" coords="53,461,303,964"/>
 <area shape="rect" href="classtaixu_1_1TX__GLFWwindow.html" title=" " alt="" coords="5,204,180,413"/>
 <area shape="rect" href="classtaixu_1_1IWindow.html" title=" " alt="" coords="204,255,323,362"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="190,5,337,156"/>
@@ -109,7 +110,7 @@ Collaboration diagram for taixu::editor::MainWindow:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1editor_1_1MainWindow__coll__graph.png" border="0" usemap="#ataixu_1_1editor_1_1MainWindow_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1editor_1_1MainWindow_coll__map" id="ataixu_1_1editor_1_1MainWindow_coll__map">
-<area shape="rect" title=" " alt="" coords="241,676,435,841"/>
+<area shape="rect" title=" " alt="" coords="291,676,542,1135"/>
 <area shape="rect" href="classtaixu_1_1TX__GLFWwindow.html" title=" " alt="" coords="5,404,180,613"/>
 <area shape="rect" href="classtaixu_1_1IWindow.html" title=" " alt="" coords="204,455,323,562"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="166,204,313,355"/>
@@ -118,6 +119,7 @@ Collaboration diagram for taixu::editor::MainWindow:</div>
 <area shape="rect" href="classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="317,5,519,141"/>
 <area shape="rect" href="classtaixu_1_1editor_1_1MainWindowContext.html" title=" " alt="" coords="512,463,705,555"/>
 <area shape="rect" href="classtaixu_1_1IWindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="523,226,694,333"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1ImguiSurface.html" title="Imgui render surface." alt="" coords="730,433,925,584"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -156,21 +158,64 @@ Private Types</h2></td></tr>
 <tr class="memitem:acefa2dc4000f82633ef902067e8faae1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#acefa2dc4000f82633ef902067e8faae1">super</a> = <a class="el" href="classtaixu_1_1TX__GLFWwindow.html">TX_GLFWwindow</a></td></tr>
 <tr class="separator:acefa2dc4000f82633ef902067e8faae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a0dad7f245695b7f8261a7d7f7f6c1c4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a0dad7f245695b7f8261a7d7f7f6c1c4e">preUpdate</a> ()</td></tr>
+<tr class="separator:a0dad7f245695b7f8261a7d7f7f6c1c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac710e957beab14b1d521099bac93fd59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#ac710e957beab14b1d521099bac93fd59">onNewProjectCb</a> (std::string_view const &amp;path)</td></tr>
+<tr class="separator:ac710e957beab14b1d521099bac93fd59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6063551e344a724074237b67ee6ba0bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a6063551e344a724074237b67ee6ba0bc">onOpenProjectCb</a> (std::string_view const &amp;path)</td></tr>
+<tr class="separator:a6063551e344a724074237b67ee6ba0bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b22e19b258ba1f50cb3e24276f12226"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a7b22e19b258ba1f50cb3e24276f12226">onSaveProjectCb</a> ()</td></tr>
+<tr class="separator:a7b22e19b258ba1f50cb3e24276f12226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fede708d5ce0c53ab4c21edda249744"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a7fede708d5ce0c53ab4c21edda249744">onSaveAsProjectCb</a> (std::string_view const &amp;path)</td></tr>
+<tr class="separator:a7fede708d5ce0c53ab4c21edda249744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a1f9fe651d3c5e1961d65164010975ceb"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1editor_1_1MainWindowSurface.html">MainWindowSurface</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a1f9fe651d3c5e1961d65164010975ceb">main_imgui_surface</a> {}</td></tr>
-<tr class="separator:a1f9fe651d3c5e1961d65164010975ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95ce6ca253e677a1682c0c686e31f412"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Renderer.html">Renderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a95ce6ca253e677a1682c0c686e31f412">renderer</a> {}</td></tr>
 <tr class="separator:a95ce6ca253e677a1682c0c686e31f412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12cf3e37d1d6b75bc4d36281bb9b0af4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1Engine.html">Engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a12cf3e37d1d6b75bc4d36281bb9b0af4">engine_runtime</a> {nullptr}</td></tr>
 <tr class="separator:a12cf3e37d1d6b75bc4d36281bb9b0af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2678ebed293c43417dafff244e35c48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1editor_1_1MainWindowContext.html">MainWindowContext</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#ac2678ebed293c43417dafff244e35c48">context</a> {}</td></tr>
 <tr class="separator:ac2678ebed293c43417dafff244e35c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67d1b56944cb551197e6dc2467cdde6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1editor_1_1ImguiSurface.html">ImguiSurface</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a67d1b56944cb551197e6dc2467cdde6f">imgui_surface</a> {}</td></tr>
+<tr class="separator:a67d1b56944cb551197e6dc2467cdde6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56430a89c8b7afe39628e9b86913a265"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1editor_1_1MenuComponent.html">MenuComponent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a56430a89c8b7afe39628e9b86913a265">menu_component</a></td></tr>
+<tr class="separator:a56430a89c8b7afe39628e9b86913a265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a387b7de67ebde353a611857ba94dc295"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html">RenderComponent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a387b7de67ebde353a611857ba94dc295">render_component</a></td></tr>
+<tr class="separator:a387b7de67ebde353a611857ba94dc295"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a565ea0d8f56209d29c6dcc65e5ba83c8"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html">HierarchyComponent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a565ea0d8f56209d29c6dcc65e5ba83c8">world_object_component</a></td></tr>
+<tr class="separator:a565ea0d8f56209d29c6dcc65e5ba83c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9134a51db3c32d8614842eeabde2c49a"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1editor_1_1DetailComponent.html">DetailComponent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a9134a51db3c32d8614842eeabde2c49a">detail_component</a></td></tr>
+<tr class="separator:a9134a51db3c32d8614842eeabde2c49a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eae47267d9f94fa449a32481ff325e7"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1editor_1_1FileComponent.html">FileComponent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a0eae47267d9f94fa449a32481ff325e7">file_component</a></td></tr>
+<tr class="separator:a0eae47267d9f94fa449a32481ff325e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712dd4697238214056c28e95e4ffae89"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1editor_1_1ConsoleComponent.html">ConsoleComponent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a712dd4697238214056c28e95e4ffae89">status_component</a></td></tr>
+<tr class="separator:a712dd4697238214056c28e95e4ffae89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fc2127f18e2af575b0f65b16fba6f03"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html">HierarchyComponent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a1fc2127f18e2af575b0f65b16fba6f03">useful_obj_component</a></td></tr>
+<tr class="separator:a1fc2127f18e2af575b0f65b16fba6f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e2ac6f7e0ffeb8c8cece288068338a1"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1editor_1_1ToolbarComponent.html">ToolbarComponent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a9e2ac6f7e0ffeb8c8cece288068338a1">tool_bar_component</a></td></tr>
+<tr class="separator:a9e2ac6f7e0ffeb8c8cece288068338a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:af676255c041b0bc0d5755ffeb495d00f"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#af676255c041b0bc0d5755ffeb495d00f">MainWindowSurface</a></td></tr>
-<tr class="separator:af676255c041b0bc0d5755ffeb495d00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a5c24283e4ea0e78d71f866579076c0df"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a5c24283e4ea0e78d71f866579076c0df">DOCK_SPACE_NAME</a> [] = &quot;TaixuEditorDock&quot;</td></tr>
+<tr class="separator:a5c24283e4ea0e78d71f866579076c0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31287b402fd21118695c7a2453fba2e2"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a31287b402fd21118695c7a2453fba2e2">RENDER_COMPONENT_NAME</a> [] = &quot;Scene&quot;</td></tr>
+<tr class="separator:a31287b402fd21118695c7a2453fba2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0473e1787b05d89533712eea9d2f1ab8"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a0473e1787b05d89533712eea9d2f1ab8">FILE_COMPONENT_NAME</a> [] = &quot;Files&quot;</td></tr>
+<tr class="separator:a0473e1787b05d89533712eea9d2f1ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08af7fe80855d55ffd39945571856e65"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a08af7fe80855d55ffd39945571856e65">DETAILS_COMPONENT_NAME</a> [] = &quot;Components Details&quot;</td></tr>
+<tr class="separator:a08af7fe80855d55ffd39945571856e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbfbbe3e2c0aae53abc6af2aa0f5fd88"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#adbfbbe3e2c0aae53abc6af2aa0f5fd88">WORLD_OBJ_COMPONENT_NAME</a> [] = &quot;World Objects&quot;</td></tr>
+<tr class="separator:adbfbbe3e2c0aae53abc6af2aa0f5fd88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6086ac23e3a49844ea2c4fc1abfa13b0"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a6086ac23e3a49844ea2c4fc1abfa13b0">STATUS_COMPONENT_NAME</a> [] = &quot;Status&quot;</td></tr>
+<tr class="separator:a6086ac23e3a49844ea2c4fc1abfa13b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5958483b6d4e54b4e6174736d6e452b"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#ab5958483b6d4e54b4e6174736d6e452b">USEFUL_OBJ_COMPONENT_NAME</a> [] = &quot;Useful Objects&quot;</td></tr>
+<tr class="separator:ab5958483b6d4e54b4e6174736d6e452b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e1552307b87fd75dd9807f36dd4010e"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a3e1552307b87fd75dd9807f36dd4010e">TOOLBAR_COMPONENT_NAME</a> [] = &quot;Toolbar&quot;</td></tr>
+<tr class="separator:a3e1552307b87fd75dd9807f36dd4010e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -304,6 +349,134 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="ac710e957beab14b1d521099bac93fd59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac710e957beab14b1d521099bac93fd59">&#9670;&nbsp;</a></span>onNewProjectCb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::editor::MainWindow::onNewProjectCb </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view const &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6063551e344a724074237b67ee6ba0bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6063551e344a724074237b67ee6ba0bc">&#9670;&nbsp;</a></span>onOpenProjectCb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::editor::MainWindow::onOpenProjectCb </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view const &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7fede708d5ce0c53ab4c21edda249744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fede708d5ce0c53ab4c21edda249744">&#9670;&nbsp;</a></span>onSaveAsProjectCb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::editor::MainWindow::onSaveAsProjectCb </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view const &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b22e19b258ba1f50cb3e24276f12226"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b22e19b258ba1f50cb3e24276f12226">&#9670;&nbsp;</a></span>onSaveProjectCb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::editor::MainWindow::onSaveProjectCb </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0dad7f245695b7f8261a7d7f7f6c1c4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dad7f245695b7f8261a7d7f7f6c1c4e">&#9670;&nbsp;</a></span>preUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::editor::MainWindow::preUpdate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae72b2abdf6960cfbe277547758f41cff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae72b2abdf6960cfbe277547758f41cff">&#9670;&nbsp;</a></span>setEngineRuntime()</h2>
 
@@ -349,29 +522,6 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="af676255c041b0bc0d5755ffeb495d00f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af676255c041b0bc0d5755ffeb495d00f">&#9670;&nbsp;</a></span>MainWindowSurface</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="classtaixu_1_1editor_1_1MainWindowSurface.html">MainWindowSurface</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="ac2678ebed293c43417dafff244e35c48"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2678ebed293c43417dafff244e35c48">&#9670;&nbsp;</a></span>context</h2>
@@ -389,6 +539,74 @@ Additional Inherited Members</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9134a51db3c32d8614842eeabde2c49a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9134a51db3c32d8614842eeabde2c49a">&#9670;&nbsp;</a></span>detail_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1editor_1_1DetailComponent.html">DetailComponent</a>&gt; taixu::editor::MainWindow::detail_component</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">            std::make_unique&lt;DetailComponent&gt;()}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a08af7fe80855d55ffd39945571856e65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08af7fe80855d55ffd39945571856e65">&#9670;&nbsp;</a></span>DETAILS_COMPONENT_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char taixu::editor::MainWindow::DETAILS_COMPONENT_NAME[] = &quot;Components Details&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c24283e4ea0e78d71f866579076c0df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c24283e4ea0e78d71f866579076c0df">&#9670;&nbsp;</a></span>DOCK_SPACE_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char taixu::editor::MainWindow::DOCK_SPACE_NAME[] = &quot;TaixuEditorDock&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -417,8 +635,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a1f9fe651d3c5e1961d65164010975ceb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f9fe651d3c5e1961d65164010975ceb">&#9670;&nbsp;</a></span>main_imgui_surface</h2>
+<a id="a0eae47267d9f94fa449a32481ff325e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eae47267d9f94fa449a32481ff325e7">&#9670;&nbsp;</a></span>file_component</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -427,12 +645,128 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1editor_1_1MainWindowSurface.html">MainWindowSurface</a>&gt; taixu::editor::MainWindow::main_imgui_surface {}</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1editor_1_1FileComponent.html">FileComponent</a>&gt; taixu::editor::MainWindow::file_component</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">            std::make_unique&lt;FileComponent&gt;()}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0473e1787b05d89533712eea9d2f1ab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0473e1787b05d89533712eea9d2f1ab8">&#9670;&nbsp;</a></span>FILE_COMPONENT_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char taixu::editor::MainWindow::FILE_COMPONENT_NAME[] = &quot;Files&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67d1b56944cb551197e6dc2467cdde6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67d1b56944cb551197e6dc2467cdde6f">&#9670;&nbsp;</a></span>imgui_surface</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtaixu_1_1editor_1_1ImguiSurface.html">ImguiSurface</a> taixu::editor::MainWindow::imgui_surface {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56430a89c8b7afe39628e9b86913a265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56430a89c8b7afe39628e9b86913a265">&#9670;&nbsp;</a></span>menu_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1editor_1_1MenuComponent.html">MenuComponent</a>&gt; taixu::editor::MainWindow::menu_component</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">            std::make_unique&lt;MenuComponent&gt;()}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a387b7de67ebde353a611857ba94dc295"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a387b7de67ebde353a611857ba94dc295">&#9670;&nbsp;</a></span>render_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html">RenderComponent</a>&gt; taixu::editor::MainWindow::render_component</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">            std::make_unique&lt;RenderComponent&gt;()}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a31287b402fd21118695c7a2453fba2e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31287b402fd21118695c7a2453fba2e2">&#9670;&nbsp;</a></span>RENDER_COMPONENT_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char taixu::editor::MainWindow::RENDER_COMPONENT_NAME[] = &quot;Scene&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -459,6 +793,190 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="a712dd4697238214056c28e95e4ffae89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712dd4697238214056c28e95e4ffae89">&#9670;&nbsp;</a></span>status_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1editor_1_1ConsoleComponent.html">ConsoleComponent</a>&gt; taixu::editor::MainWindow::status_component</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">            std::make_unique&lt;ConsoleComponent&gt;()}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6086ac23e3a49844ea2c4fc1abfa13b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6086ac23e3a49844ea2c4fc1abfa13b0">&#9670;&nbsp;</a></span>STATUS_COMPONENT_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char taixu::editor::MainWindow::STATUS_COMPONENT_NAME[] = &quot;Status&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e2ac6f7e0ffeb8c8cece288068338a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2ac6f7e0ffeb8c8cece288068338a1">&#9670;&nbsp;</a></span>tool_bar_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1editor_1_1ToolbarComponent.html">ToolbarComponent</a>&gt; taixu::editor::MainWindow::tool_bar_component</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">            std::make_unique&lt;ToolbarComponent&gt;()}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3e1552307b87fd75dd9807f36dd4010e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e1552307b87fd75dd9807f36dd4010e">&#9670;&nbsp;</a></span>TOOLBAR_COMPONENT_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char taixu::editor::MainWindow::TOOLBAR_COMPONENT_NAME[] = &quot;Toolbar&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1fc2127f18e2af575b0f65b16fba6f03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fc2127f18e2af575b0f65b16fba6f03">&#9670;&nbsp;</a></span>useful_obj_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html">HierarchyComponent</a>&gt; taixu::editor::MainWindow::useful_obj_component</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">            std::make_unique&lt;HierarchyComponent&gt;()}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab5958483b6d4e54b4e6174736d6e452b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5958483b6d4e54b4e6174736d6e452b">&#9670;&nbsp;</a></span>USEFUL_OBJ_COMPONENT_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char taixu::editor::MainWindow::USEFUL_OBJ_COMPONENT_NAME[] = &quot;Useful Objects&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adbfbbe3e2c0aae53abc6af2aa0f5fd88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbfbbe3e2c0aae53abc6af2aa0f5fd88">&#9670;&nbsp;</a></span>WORLD_OBJ_COMPONENT_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char taixu::editor::MainWindow::WORLD_OBJ_COMPONENT_NAME[] = &quot;World Objects&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a565ea0d8f56209d29c6dcc65e5ba83c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a565ea0d8f56209d29c6dcc65e5ba83c8">&#9670;&nbsp;</a></span>world_object_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html">HierarchyComponent</a>&gt; taixu::editor::MainWindow::world_object_component</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">            std::make_unique&lt;HierarchyComponent&gt;()}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

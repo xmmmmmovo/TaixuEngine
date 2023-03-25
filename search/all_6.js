@@ -1,9 +1,9 @@
 var searchData=
 [
   ['fbo_87',['fbo',['../classtaixu_1_1Renderer.html#a5e59f7a331a7cadb41eb6ca9eca17e05',1,'taixu::Renderer::fbo()'],['../classtaixu_1_1OGLFrameBuffer.html#a2a3b8245e55809fb32b130d6ecb4d3c0',1,'taixu::OGLFrameBuffer::fbo()']]],
-  ['file_5fcomponent_88',['file_component',['../classtaixu_1_1editor_1_1MainWindowSurface.html#a6fb0b7ff04e3348179aed614cf79ad6e',1,'taixu::editor::MainWindowSurface']]],
+  ['file_5fcomponent_88',['file_component',['../classtaixu_1_1editor_1_1MainWindow.html#a0eae47267d9f94fa449a32481ff325e7',1,'taixu::editor::MainWindow']]],
   ['file_5fcomponent_2ehpp_89',['file_component.hpp',['../file__component_8hpp.html',1,'']]],
-  ['file_5fcomponent_5fname_90',['FILE_COMPONENT_NAME',['../classtaixu_1_1editor_1_1MainWindowSurface.html#a1f2c7e68f736acecfe6625e41f5abe43',1,'taixu::editor::MainWindowSurface']]],
+  ['file_5fcomponent_5fname_90',['FILE_COMPONENT_NAME',['../classtaixu_1_1editor_1_1MainWindow.html#a0473e1787b05d89533712eea9d2f1ab8',1,'taixu::editor::MainWindow']]],
   ['file_5fservice_2ecpp_91',['file_service.cpp',['../file__service_8cpp.html',1,'']]],
   ['file_5fservice_2ehpp_92',['file_service.hpp',['../file__service_8hpp.html',1,'']]],
   ['file_5ftree_93',['file_tree',['../classtaixu_1_1editor_1_1FileComponent.html#a28c91cf02894892e9cf4a07b281e7ce1',1,'taixu::editor::FileComponent']]],

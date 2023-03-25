@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['publicsingleton_3c_20application_20_3e_913',['PublicSingleton&lt; Application &gt;',['../classtaixu_1_1editor_1_1Application.html#a5e4fca70495dc40fe0996c3bf0919c87',1,'taixu::editor::Application']]],
-  ['publicsingleton_3c_20engine_20_3e_914',['PublicSingleton&lt; Engine &gt;',['../classtaixu_1_1Engine.html#ac98c32d07778d652e1fe219aa65a4f81',1,'taixu::Engine']]]
+  ['render_5fcontext_902',['Render_Context',['../classtaixu_1_1Render__Data.html#ab733ecd58b487ed82ecc79c94683b11d',1,'taixu::Render_Data']]],
+  ['renderer_903',['Renderer',['../classtaixu_1_1Render__Data.html#a70538530bc36e033e360880ef311df61',1,'taixu::Render_Data::Renderer()'],['../classtaixu_1_1Render__Context.html#a70538530bc36e033e360880ef311df61',1,'taixu::Render_Context::Renderer()']]]
 ];
