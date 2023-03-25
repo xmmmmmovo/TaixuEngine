@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['n_5fchannels_236',['n_channels',['../classtaixu_1_1OGLTexture.html#aeefd1f2c7485450cd4e315595a0d9c12',1,'taixu::OGLTexture']]],
-  ['name_237',['name',['../structtaixu_1_1BufferElement.html#aea65c8050541dad4039fea9d059021e7',1,'taixu::BufferElement::name()'],['../structtaixu_1_1Asset.html#add52499d1c566688d7402e92c2fc6fac',1,'taixu::Asset::name()'],['../structtaixu_1_1Project.html#aab33e451edaeed403f7f8036749e6068',1,'taixu::Project::name()']]],
-  ['next_5fid_238',['next_id',['../classtaixu_1_1GUID__Generator.html#a66f4c0e89960d7901013274e5912a7a4',1,'taixu::GUID_Generator']]],
+  ['n_5fchannels_235',['n_channels',['../classtaixu_1_1OGLTexture.html#aeefd1f2c7485450cd4e315595a0d9c12',1,'taixu::OGLTexture']]],
+  ['name_236',['name',['../structtaixu_1_1BufferElement.html#aea65c8050541dad4039fea9d059021e7',1,'taixu::BufferElement::name()'],['../structtaixu_1_1Asset.html#add52499d1c566688d7402e92c2fc6fac',1,'taixu::Asset::name()'],['../structtaixu_1_1Project.html#aab33e451edaeed403f7f8036749e6068',1,'taixu::Project::name()']]],
+  ['next_5fid_237',['next_id',['../classtaixu_1_1GUID__Generator.html#a66f4c0e89960d7901013274e5912a7a4',1,'taixu::GUID_Generator']]],
+  ['nlohmann_5fdefine_5ftype_5fnon_5fintrusive_238',['NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE',['../classtaixu_1_1AssetManager.html#a73edbaba19dd14f4723debc7b1540f4b',1,'taixu::AssetManager']]],
   ['no_5fopen_5fproject_239',['NO_OPEN_PROJECT',['../namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857a6aca231caf4349e8c720a0e8afe9e273',1,'taixu']]],
   ['no_5fsuch_5ffile_5ffailed_240',['NO_SUCH_FILE_FAILED',['../namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857a3a73e888cfbb60942a7e422b526d98eb',1,'taixu']]],
   ['noncopyable_241',['noncopyable',['../classtaixu_1_1noncopyable.html#a39747958ff6af20987cc058eca9f4fa7',1,'taixu::noncopyable::noncopyable()=default'],['../classtaixu_1_1noncopyable.html#aa4f0fa23d64a358083a2fef5cd119110',1,'taixu::noncopyable::noncopyable(const noncopyable &amp;)=delete'],['../classtaixu_1_1noncopyable.html#ac754dfa4c43a41e99aae5ab3db681bbe',1,'taixu::noncopyable::noncopyable(noncopyable &amp;&amp;other) noexcept=default'],['../classtaixu_1_1noncopyable.html',1,'taixu::noncopyable']]],

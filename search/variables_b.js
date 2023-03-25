@@ -10,8 +10,7 @@ var searchData=
   ['menu_5fcomponent_797',['menu_component',['../classtaixu_1_1editor_1_1MainWindowSurface.html#a5725e02117944a8950f8992439093f77',1,'taixu::editor::MainWindowSurface']]],
   ['meshes_798',['meshes',['../classtaixu_1_1Model__Data.html#a7cbf588f3fa2fd285644ba4d81a28527',1,'taixu::Model_Data']]],
   ['model_799',['model',['../classtaixu_1_1Render__Data.html#a6495eed0fb90677d845cf094bd621cec',1,'taixu::Render_Data']]],
-  ['model_5fpath_800',['model_path',['../structtaixu_1_1Project.html#a533bead51d4c47c925740a896b16bfe0',1,'taixu::Project']]],
-  ['mousesensitivity_801',['MouseSensitivity',['../classtaixu_1_1Camera.html#a17612cb0eaba0af22e968902d6641bd8',1,'taixu::Camera']]],
-  ['movementspeed_802',['MovementSpeed',['../classtaixu_1_1Camera.html#aa9b6474df8fc71aad1e05333c60500ea',1,'taixu::Camera']]],
-  ['mset_803',['mSet',['../structtaixu_1_1editor_1_1EditorStyle.html#a39a8619038274e57aff69ed4bd7f80da',1,'taixu::editor::EditorStyle']]]
+  ['mousesensitivity_800',['MouseSensitivity',['../classtaixu_1_1Camera.html#a17612cb0eaba0af22e968902d6641bd8',1,'taixu::Camera']]],
+  ['movementspeed_801',['MovementSpeed',['../classtaixu_1_1Camera.html#aa9b6474df8fc71aad1e05333c60500ea',1,'taixu::Camera']]],
+  ['mset_802',['mSet',['../structtaixu_1_1editor_1_1EditorStyle.html#a39a8619038274e57aff69ed4bd7f80da',1,'taixu::editor::EditorStyle']]]
 ];

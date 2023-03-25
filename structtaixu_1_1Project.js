@@ -1,6 +1,6 @@
 var structtaixu_1_1Project =
 [
-    [ "model_path", "structtaixu_1_1Project.html#a533bead51d4c47c925740a896b16bfe0", null ],
+    [ "asset_configure_path", "structtaixu_1_1Project.html#a257a7af8041b4ea3dbc2edf61a87fb8c", null ],
     [ "name", "structtaixu_1_1Project.html#aab33e451edaeed403f7f8036749e6068", null ],
-    [ "texture_path", "structtaixu_1_1Project.html#af381e05de0a4fec5656127eae883d670", null ]
+    [ "root", "structtaixu_1_1Project.html#af5f87f7a5d4ba3752214048168183cc4", null ]
 ];

@@ -11,13 +11,14 @@ var searchData=
   ['application_2ehpp_11',['application.hpp',['../application_8hpp.html',1,'']]],
   ['asset_12',['Asset',['../structtaixu_1_1Asset.html',1,'taixu']]],
   ['asset_5fcomponent_2ehpp_13',['asset_component.hpp',['../asset__component_8hpp.html',1,'']]],
-  ['asset_5ffile_5fpath_14',['asset_file_path',['../classtaixu_1_1AssetManager.html#a013b0f2d9fc7c184407d202026ca6a67',1,'taixu::AssetManager']]],
-  ['asset_5flist_15',['asset_list',['../classtaixu_1_1AssetManager.html#ad28372c5682635d7816012b1be58b361',1,'taixu::AssetManager']]],
-  ['asset_5fmanager_16',['asset_manager',['../classtaixu_1_1Engine.html#aa829b2614e8bc1400ba5959987207516',1,'taixu::Engine']]],
-  ['asset_5fmanager_2ecpp_17',['asset_manager.cpp',['../asset__manager_8cpp.html',1,'']]],
-  ['asset_5fmanager_2ehpp_18',['asset_manager.hpp',['../asset__manager_8hpp.html',1,'']]],
-  ['assetmanager_19',['AssetManager',['../classtaixu_1_1AssetManager.html#adeefeb1fe9ef3dfa3ede15e11ab581d6',1,'taixu::AssetManager::AssetManager()'],['../classtaixu_1_1AssetManager.html',1,'taixu::AssetManager']]],
-  ['assettype_20',['AssetType',['../namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb',1,'taixu']]],
-  ['attach_21',['attach',['../classtaixu_1_1ISubject.html#a9775d32002318df8d8e8b58f59afc37a',1,'taixu::ISubject']]],
-  ['attributetype_22',['AttributeType',['../namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5',1,'taixu']]]
+  ['asset_5fconfigure_5fpath_14',['asset_configure_path',['../structtaixu_1_1Project.html#a257a7af8041b4ea3dbc2edf61a87fb8c',1,'taixu::Project']]],
+  ['asset_5ffile_5fpath_15',['asset_file_path',['../classtaixu_1_1AssetManager.html#a013b0f2d9fc7c184407d202026ca6a67',1,'taixu::AssetManager']]],
+  ['asset_5flist_16',['asset_list',['../classtaixu_1_1AssetManager.html#a7c2540e24466a6eb44752f9bda9c78c0',1,'taixu::AssetManager']]],
+  ['asset_5fmanager_17',['asset_manager',['../classtaixu_1_1Engine.html#aa829b2614e8bc1400ba5959987207516',1,'taixu::Engine']]],
+  ['asset_5fmanager_2ecpp_18',['asset_manager.cpp',['../asset__manager_8cpp.html',1,'']]],
+  ['asset_5fmanager_2ehpp_19',['asset_manager.hpp',['../asset__manager_8hpp.html',1,'']]],
+  ['assetmanager_20',['AssetManager',['../classtaixu_1_1AssetManager.html#adeefeb1fe9ef3dfa3ede15e11ab581d6',1,'taixu::AssetManager::AssetManager()'],['../classtaixu_1_1AssetManager.html',1,'taixu::AssetManager']]],
+  ['assettype_21',['AssetType',['../namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb',1,'taixu']]],
+  ['attach_22',['attach',['../classtaixu_1_1ISubject.html#a9775d32002318df8d8e8b58f59afc37a',1,'taixu::ISubject']]],
+  ['attributetype_23',['AttributeType',['../namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5',1,'taixu']]]
 ];
