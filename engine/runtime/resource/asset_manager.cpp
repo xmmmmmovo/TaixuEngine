@@ -24,6 +24,7 @@ void AssetManager::writeAsset() {
         for (auto count : asset_list) 
         {   
             Json j;
+            //to_json(j, count);
             to_json(j, count);
             write+=j;
         }
@@ -34,15 +35,15 @@ void AssetManager::writeAsset() {
 }
 
 void AssetManager::loadAsset(std::string file_path, AssetType asset_type) {
-    std::shared_ptr<Asset> new_asset = std::make_shared<Asset>();
-    new_asset->guid                  = GUID_Generator::generate_new_guid();
-    new_asset->name     = file_path.substr(file_path.find_last_of('/') + 1);
-    new_asset->location = file_path;
+    Asset new_asset;
+    new_asset.guid                  = GUID_Generator::generate_new_guid();
+    new_asset.name     = file_path.substr(file_path.find_last_of('/') + 1);
+    new_asset.location = file_path;
         
     if (asset_type == MODEL) 
-        new_asset->type = "Model";
+        new_asset.type = "Model";
      else if (asset_type==TEXTURE)
-        new_asset->type = "Texture";
+        new_asset.type = "Texture";
 
         asset_list.push_back(new_asset);
 }
