@@ -70,7 +70,7 @@ public:
             from_json(j, new_asset);
             asset_list.push_back(new_asset);
         }
-        //int a = 0;
+        int a = 0;
     }
     void writeAsset();
     void loadAsset(std::string file_path, AssetType asset_type);
