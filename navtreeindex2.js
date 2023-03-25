@@ -114,6 +114,7 @@ var NAVTREEINDEX2 =
 "main_8cpp.html":[3,0,1,0,4],
 "main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97":[3,0,1,0,4,0],
 "main__window_8cpp.html":[3,0,1,0,1,1,0],
+"main__window_8cpp.html#a4298cc698d4c1c92818b448b3cae93be":[3,0,1,0,1,1,0,0],
 "main__window_8hpp.html":[3,0,1,0,1,1,1],
 "main__window_8hpp_source.html":[3,0,1,0,1,1,1],
 "main__window__context_8hpp.html":[3,0,1,0,1,1,2],
@@ -219,11 +220,12 @@ var NAVTREEINDEX2 =
 "namespacetaixu_1_1cg.html#a3cff6fb3c036cdea3412e2b8fdda5ad4ab50339a10e1de285ac99d4c3990b8693":[1,0,0,0,0,0],
 "namespacetaixu_1_1cg.html#a3cff6fb3c036cdea3412e2b8fdda5ad4ac0ad831a34c4633bee584066cfcc5040":[1,0,0,0,0,1],
 "namespacetaixu_1_1editor.html":[1,0,0,1],
+"namespacetaixu_1_1editor.html#a4298cc698d4c1c92818b448b3cae93be":[1,0,0,1,15],
 "namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8a":[1,0,0,1,14],
 "namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8aa09dcc66e46d387b904e5b665cf997c5f":[1,0,0,1,14,0],
 "namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8aa9ebc5e74a8713c53e27bef6ceb6f1bd9":[1,0,0,1,14,2],
 "namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8aaeaf33e0f78b0e8e94f74ecf0430fbe27":[1,0,0,1,14,1],
-"namespacetaixu_1_1editor.html#ab1cd451c09dd24b5a651973d01688f75":[1,0,0,1,15],
+"namespacetaixu_1_1editor.html#ab1cd451c09dd24b5a651973d01688f75":[1,0,0,1,16],
 "noncopyable_8hpp.html":[3,0,1,2,0,0,3],
 "noncopyable_8hpp_source.html":[3,0,1,2,0,0,3],
 "notimplemented__exception_8hpp.html":[3,0,1,2,0,1,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "path_8hpp.html#aa3edf7c7d843186ca8ee41ab8b2a371b":[3,0,1,2,3,1,3,2],
 "path_8hpp.html#aa957f205abdf6df8a3ee560d0da743d0":[3,0,1,2,3,1,3,4],
 "path_8hpp.html#ab19eaf5d7295e86921308f915322a9fe":[3,0,1,2,3,1,3,3],
-"path_8hpp.html#ac6b2bea29adb7f251249e2af52aaf6ca":[3,0,1,2,3,1,3,5],
-"path_8hpp.html#af2e071cdc152ffdf10af393f5a2dcf9f":[3,0,1,2,3,1,3,1],
-"path_8hpp_source.html":[3,0,1,2,3,1,3]
+"path_8hpp.html#ac6b2bea29adb7f251249e2af52aaf6ca":[3,0,1,2,3,1,3,5]
 };

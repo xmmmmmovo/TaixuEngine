@@ -19,5 +19,6 @@ var namespacetaixu_1_1editor =
       [ "PLAYMODE", "namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8aaeaf33e0f78b0e8e94f74ecf0430fbe27", null ],
       [ "IDLEMODE", "namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8aa9ebc5e74a8713c53e27bef6ceb6f1bd9", null ]
     ] ],
+    [ "framebuffer_size_callback", "namespacetaixu_1_1editor.html#a4298cc698d4c1c92818b448b3cae93be", null ],
     [ "initSpdlog", "namespacetaixu_1_1editor.html#ab1cd451c09dd24b5a651973d01688f75", null ]
 ];
