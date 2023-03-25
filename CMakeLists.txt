@@ -21,6 +21,10 @@ if (USE_VCPKG)
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 endif ()
 
+if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+    add_definitions(-Wall)
+endif ()
+
 project(
         TaixuEngine
         VERSION ${ENGINE_VERSION}

@@ -11,7 +11,7 @@ OGLVertexBuffer::OGLVertexBuffer() {
     glGenBuffers(1, &VBO);// Generate VBO
 };
 
-OGLVertexBuffer::OGLVertexBuffer(GLsizeiptr size, const void* data,
+OGLVertexBuffer::OGLVertexBuffer(std::size_t size, const void* data,
                                  GLenum usage, GLint align)
     : OGLVertexBuffer() {
     setDataInner(size, data, usage, align);
@@ -25,15 +25,17 @@ void OGLVertexBuffer::unbind() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);// Unbined VBO
 }
 
-void OGLVertexBuffer::setData(GLsizeiptr size, const void* data, GLenum usage,
+void OGLVertexBuffer::setData(std::size_t size, const void* data, GLenum usage,
                               GLint align) {
     setDataInner(size, data, usage, align);
 }
 
-void OGLVertexBuffer::setDataInner(GLsizeiptr size, const void* data,
+void OGLVertexBuffer::setDataInner(std::size_t size, const void* data,
                                    GLenum usage, GLint align) {
     bind();
-    glBufferData(GL_ARRAY_BUFFER, size, data, usage);
+    glBufferData(GL_ARRAY_BUFFER,
+                 static_cast<GLsizeiptr>(size) * align * sizeof(float), data,
+                 usage);
     this->align = align;
 }
 
