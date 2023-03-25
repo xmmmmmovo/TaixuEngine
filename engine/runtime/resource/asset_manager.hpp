@@ -38,17 +38,6 @@ public:
     std::vector<Asset> asset_list;
     using Json                  = nlohmann::json;
     std::string asset_file_path = "INVALID";
-    
-    // void from_json(const Json& j, std::shared_ptr<Asset> asset) {
-    //     j.at("type").get_to(asset->type);
-    //     j.at("name").get_to(asset->name);
-    //     j.at("location").get_to(asset->location);
-    // }
-    // void to_json(Json& j, std::shared_ptr<Asset> asset) {
-    //     j = Json{{"type", asset->type},
-    //              {"name", asset->name},
-    //              {"location", asset->location}};
-    // }
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Asset, name, type, location);
 
@@ -70,7 +59,6 @@ public:
             from_json(j, new_asset);
             asset_list.push_back(new_asset);
         }
-        int a = 0;
     }
     void writeAsset();
     void loadAsset(std::string file_path, AssetType asset_type);
