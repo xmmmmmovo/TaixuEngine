@@ -14,6 +14,7 @@ set_target_properties(${TARGET_NAME} PROPERTIES CXX_STANDARD 17 OUTPUT_NAME ${TA
 
 set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "EngineShader")
 
+# 使用MSVC标准
 target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/WX->")
 
 target_link_libraries(${TARGET_NAME} TaixuRuntime)
@@ -27,6 +28,11 @@ if ("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
 else ()
     set(OUTPUT_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 endif ()
+
+if(MSVC)
+    string(CONCAT ${OUTPUT_DIR} "${OUTPUT_DIR}" "/Debug")
+endif(MSVC)
+
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -DENGINE_ROOT_DIR=${ENGINE_ROOT_DIR} -DOUTPUT_DIR=${OUTPUT_DIR} -P ${PROJECT_SOURCE_DIR}/cmake/MoveResourceDirs.cmake

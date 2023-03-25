@@ -14,33 +14,38 @@
 #include "imgui_internal.h"
 
 // "" headers
-#include "graphics/renderer.hpp"
+#include "engine.hpp"
 #include "gui/glfw_window.hpp"
-#include "ui/imgui_surface.hpp"
+#include "main_window_context.hpp"
+#include "main_window_surface.hpp"
 
 namespace taixu::editor {
 
-class MainWindow : public TX_GLFWwindow {
+class MainWindow : public TX_GLFWwindow, public IWindow {
     using super = TX_GLFWwindow;
 
-private:
-    std::unique_ptr<ImguiSurface> imgui_surface{};
+    friend class MainWindowSurface;
 
 private:
-    void bindCallbacks();
+    std::unique_ptr<MainWindowSurface> main_imgui_surface{};
+    std::shared_ptr<Renderer>          renderer{};
+
+    // static raw engine runtime pointer
+    // do not need to free
+    Engine *engine_runtime{nullptr};
+
+    // context
+    MainWindowContext context{};
 
 public:
-    MainWindow() : MainWindow(IWindowContext{}) {}
-
-    explicit MainWindow(IWindowContext const &context)
-        : TX_GLFWwindow(context) {
-        this->imgui_surface = std::make_unique<ImguiSurface>();
-    };
+    explicit MainWindow(MainWindowContext const &context);
 
     void init() override;
     void update() override;
     void destroy() override;
-    void processInput(GLFWwindow *window);
+
+    void setEngineRuntime(Engine *engine_runtime_ptr);
+    void init_imgui_surface();
 };
 
 }// namespace taixu::editor

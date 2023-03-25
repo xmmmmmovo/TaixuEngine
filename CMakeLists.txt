@@ -32,9 +32,13 @@ project(
 # add cmake package manager
 include(cmake/CPM.cmake)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 set(TAIXUENGINE_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_INSTALL_PREFIX "${TAIXUENGINE_ROOT_DIR}/bin")
 set(BINARY_ROOT_DIR "${CMAKE_INSTALL_PREFIX}/")
+
+configure_file(cmake/path.hpp.in ${TAIXUENGINE_ROOT_DIR}/engine/runtime/core/base/path.hpp @ONLY)
 
 add_subdirectory(engine)
 add_subdirectory(docs)

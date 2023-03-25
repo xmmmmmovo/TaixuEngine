@@ -16,7 +16,7 @@ std::uint8_t GUID_Generator::generate_new_guid()
     return new_id;
 }
 
-void Asset_Manager::writeAsset() {
+void AssetManager::writeAsset() {
     if (asset_file_path != "INVALID")
     {
         std::ofstream o(asset_file_path);
@@ -24,6 +24,7 @@ void Asset_Manager::writeAsset() {
         for (auto count : asset_list) 
         {   
             Json j;
+            //to_json(j, count);
             to_json(j, count);
             write+=j;
         }
@@ -33,16 +34,16 @@ void Asset_Manager::writeAsset() {
     }
 }
 
-void Asset_Manager::loadAsset(std::string file_path, AssetType asset_type) {
-    std::shared_ptr<Asset> new_asset = std::make_shared<Asset>();
-    new_asset->guid                  = GUID_Generator::generate_new_guid();
-    new_asset->name     = file_path.substr(file_path.find_last_of('/') + 1);
-    new_asset->location = file_path;
+void AssetManager::loadAsset(std::string file_path, AssetType asset_type) {
+    Asset new_asset;
+    new_asset.guid                  = GUID_Generator::generate_new_guid();
+    new_asset.name     = file_path.substr(file_path.find_last_of('/') + 1);
+    new_asset.location = file_path;
         
-    if (asset_type == Model) 
-        new_asset->type = "Model";
-     else if (asset_type==Texture)
-        new_asset->type = "Texture";
+    if (asset_type == MODEL) 
+        new_asset.type = "Model";
+     else if (asset_type==TEXTURE)
+        new_asset.type = "Texture";
 
         asset_list.push_back(new_asset);
 }

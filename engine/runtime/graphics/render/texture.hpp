@@ -4,6 +4,10 @@
 
 #ifndef TAIXUENGINE_TEXTURE_HPP
 #define TAIXUENGINE_TEXTURE_HPP
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
+#include <assimp/Importer.hpp>
+#include <stb_image.h>
 
 #include <cstdint>
 
@@ -20,6 +24,8 @@ public:
     virtual void bind(uint32_t slot = 0) const = 0;
 
     virtual bool operator==(const ITexture& other) const = 0;
+
+    ~ITexture() override = 0;
 };
 
 }// namespace taixu
