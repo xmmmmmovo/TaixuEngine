@@ -31,10 +31,10 @@ public:
 
     std::vector<BufferElement>::iterator begin() { return elements.begin(); }
     std::vector<BufferElement>::iterator end() { return elements.end(); }
-    std::vector<BufferElement>::const_iterator cbegin() const {
+    [[nodiscard]] std::vector<BufferElement>::const_iterator cbegin() const {
         return elements.cbegin();
     }
-    std::vector<BufferElement>::const_iterator cend() const {
+    [[nodiscard]] std::vector<BufferElement>::const_iterator cend() const {
         return elements.cend();
     }
 

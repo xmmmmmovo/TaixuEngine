@@ -7,14 +7,25 @@
 
 #include <string>
 
+#include "gui/window_context.hpp"
+
 namespace taixu::editor {
 
-enum EditorState { EDITORMODE, PLAYMODE, IDLEMODE };
+/**
+ * @brief editor status enum
+ */
+enum EditorState {
+    EDITORMODE, /*Editor mode*/
+    PLAYMODE,   /*play mode*/
+    IDLEMODE    /*idle mode, this mode will be used until project opened*/
+};
 
-struct MainWindowContext {
+class MainWindowContext : public IWindowContext {
 public:
-    EditorState      state{EditorState::IDLEMODE};
-    std::string_view project_path{};
+    /**
+     * @brief editor state
+     */
+    EditorState state{EditorState::IDLEMODE};
 };
 
 }// namespace taixu::editor

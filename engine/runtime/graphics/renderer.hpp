@@ -25,7 +25,7 @@ class Render_Data {
 
 public:
     explicit Render_Data() = default;
-    ~Render_Data(){};
+    ~Render_Data()= default;;
     void initialize() {
         model = std::make_shared<Model_Data>(
                 std::string("assets/model/cube.obj"));
@@ -41,7 +41,7 @@ class Render_Context {
 
 public:
     explicit Render_Context() = default;
-    ~Render_Context(){};
+    ~Render_Context()= default;;
     void initialize() {
         render_data = std::make_shared<Render_Data>();
         render_data->initialize();

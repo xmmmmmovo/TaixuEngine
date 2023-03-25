@@ -15,7 +15,7 @@
 
 namespace taixu {
 
-class TX_GLFWwindow : public IWindow {
+class TX_GLFWwindow {
 protected:
     GLFWwindow *window{nullptr};
     bool        initialized{false};
@@ -25,18 +25,15 @@ private:
     static void errorCallBack(int error, const char *description);
 
 public:
-    TX_GLFWwindow() = default;
-    explicit TX_GLFWwindow(IWindowContext const &context_) {
-        context = context_;
-    }
-    ~TX_GLFWwindow() override = default;
+    TX_GLFWwindow()  = default;
+    ~TX_GLFWwindow() = default;
 
-    void init() override;
-    void update() override;
-    void destroy() override;
+    void init(IWindowContext *context);
+    void update();
+    void destroy();
 
     [[nodiscard]] bool getIsVsync() const;
-    void setIsVsync(bool isVsync);
+    void               setIsVsync(bool isVsync);
 };
 
 }// namespace taixu

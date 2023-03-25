@@ -8,7 +8,7 @@
 
 namespace taixu {
 
-void TX_GLFWwindow::init() {
+void TX_GLFWwindow::init(IWindowContext *context) {
     if (window != nullptr) { return; }
     if (!initialized) {
         glfwInit();
@@ -19,11 +19,12 @@ void TX_GLFWwindow::init() {
 #ifdef __APPLE__
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
         initialized = true;
     }
 
-    window = glfwCreateWindow(context.width, context.height,
-                              context.title.data(), nullptr, nullptr);
+    window = glfwCreateWindow(context->width, context->height,
+                              context->title.data(), nullptr, nullptr);
     if (window == nullptr) {
         spdlog::error("Failed to Create GLFW window!");
         glfwTerminate();
@@ -37,7 +38,7 @@ void TX_GLFWwindow::init() {
         errorCallBack(-1, "Failed to initialize GLAD");
         exit(1);
     }
-    glfwSetWindowUserPointer(window, &context);
+    glfwSetWindowUserPointer(window, context);
 
     // configure global opengl state
     // -----------------------------
@@ -52,7 +53,7 @@ void TX_GLFWwindow::update() {
 void TX_GLFWwindow::destroy() { glfwDestroyWindow(window); }
 
 void TX_GLFWwindow::errorCallBack(int error, const char *description) {
-    spdlog::error("GLFW Error: {}", description);
+    spdlog::error("GLFW Error: {}, {}", error, description);
 }
 
 bool TX_GLFWwindow::getIsVsync() const { return isVsync; }

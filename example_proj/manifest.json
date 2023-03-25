@@ -1,3 +1,16 @@
 {
-  "name": "demo"
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "demo",
+  "author": "demo",
+  "asset": {
+    "models": [
+      "",
+      ""
+    ],
+    "textures": [
+      "",
+      ""
+    ]
+  }
 }

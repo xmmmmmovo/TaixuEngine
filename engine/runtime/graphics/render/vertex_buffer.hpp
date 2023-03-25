@@ -5,7 +5,7 @@
 #ifndef TAIXUENGINE_VERTEX_BUFFER_HPP
 #define TAIXUENGINE_VERTEX_BUFFER_HPP
 
-#include <any>
+#include <glad/glad.h>
 
 #include "buffer_layout.hpp"
 #include "core/base/noncopyable.hpp"
@@ -17,7 +17,11 @@ public:
     virtual void bind()   = 0;
     virtual void unbind() = 0;
 
-    virtual void setData(GLsizeiptr size, const void* data, GLenum usage) = 0;
+    virtual void setData(GLsizeiptr size, const void* data, GLenum usage,
+                         GLint align) = 0;
+
+    [[nodiscard]] virtual GLint getAlign() const  = 0;
+    [[nodiscard]] virtual GLint getStride() const = 0;
 };
 
 }// namespace taixu

@@ -6,27 +6,32 @@
 #define TAIXUENGINE_OGLVERTEXARRAY_HPP
 
 #include <glad/glad.h>
-#include<memory>
+
+#include <memory>
+
+#include "OGLElementBuffer.hpp"
+#include "OGLVertexBuffer.hpp"
 #include "graphics/render/vertex_array.hpp"
-#include "graphics/render/element_buffer.hpp"
-#include "graphics/render/vertex_buffer.hpp"
+
 namespace taixu {
 
-class OGLVertexArray : public IVertexArray {
+class OGLVertexArray : public IVertexArray<OGLVertexBuffer, OGLElementBuffer> {
 private:
-    BufferLayout                    layout{};
-    std::uint32_t                   VAO{0};
-    std::unique_ptr<IVertexBuffer>  VBO{};
-    std::unique_ptr<IElementBuffer> EBO{};
+    std::uint32_t                VAO{0};
+    /**
+     * 这里就让他copy 用空间换时间
+     * @brief VBO
+     */
+    std::vector<OGLVertexBuffer> VBO{};
+    OGLElementBuffer             EBO{};
 
 public:
     OGLVertexArray();
-    ~OGLVertexArray();
+    ~OGLVertexArray() override;
     void bind() override;
     void unbind() override;
-    void setVBO() override;
-    void setEBO() override;
-    std::uint32_t getVAOid();
+    void addVBO(OGLVertexBuffer &&vbo) override;
+    void setEBO(OGLElementBuffer &&ebo) override;
 };
 
 }// namespace taixu

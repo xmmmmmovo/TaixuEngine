@@ -16,13 +16,20 @@ private:
     std::uint32_t EBO{0};
 
 public:
-    explicit OGLElementBuffer(std::vector<std::uint32_t> const& indices,
-                              GLenum usage = GL_STATIC_DRAW);
+    OGLElementBuffer();
+    OGLElementBuffer(const std::vector<std::uint32_t>& indices, GLenum usage);
 
     void bind() override;
     void unbind() override;
 
+    void setData(const std::vector<std::uint32_t>& indices,
+                 GLenum                            usage) override;
+    void setDataInner(const std::vector<std::uint32_t>& indices, GLenum usage);
+
     ~OGLElementBuffer() override;
+
+    OGLElementBuffer(OGLElementBuffer&& other) noexcept            = default;
+    OGLElementBuffer& operator=(OGLElementBuffer&& other) noexcept = default;
 };
 
 }// namespace taixu
