@@ -5,7 +5,7 @@
 #include "main_window.hpp"
 
 #include "spdlog/spdlog.h"
-
+#include "clock_manager.h"
 
 namespace taixu::editor {
 
@@ -58,9 +58,13 @@ void MainWindow::init() {
     super::setIsVsync(true);
     imgui_surface->init(window);
     spdlog::info("Main window start finished!");
+
 }
 
+
 void MainWindow::update() {
+    auto &clockManager = ClockManager::getInstance();
+    auto &clock = clockManager.getClock("MainLoop");
     while (!glfwWindowShouldClose(window)) {
         processInput(window);
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -68,12 +72,16 @@ void MainWindow::update() {
         imgui_surface->preUpdate();
         imgui_surface->update();
         super::update();
+        double deltaTime = clock.getCurrentTime();
+        // do something with deltaTime, e.g. print it
+        std::cout << "Delta time: " << deltaTime << " s" << std::endl;
     }
 }
 
 void MainWindow::destroy() {
     imgui_surface->destroy();
     super::destroy();
+
 }
 
 void MainWindow::bindCallbacks() {
