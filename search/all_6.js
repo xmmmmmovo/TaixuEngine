@@ -14,10 +14,9 @@ var searchData=
   ['fragment_97',['FRAGMENT',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3adbb27117159e4b13c34d9ec1832f3208',1,'taixu']]],
   ['framebuffer_98',['framebuffer',['../classtaixu_1_1OGLContext.html#acf56717d6568668dd37e5517058cc9f6',1,'taixu::OGLContext']]],
   ['framebuffer_2ehpp_99',['framebuffer.hpp',['../framebuffer_8hpp.html',1,'']]],
-  ['framebuffer_5fsize_5fcallback_100',['framebuffer_size_callback',['../namespacetaixu_1_1editor.html#a4298cc698d4c1c92818b448b3cae93be',1,'taixu::editor']]],
-  ['from_5fjson_101',['from_json',['../classtaixu_1_1AssetManager.html#a38fd79775e03ecf716ed1a3eff6a69bb',1,'taixu::AssetManager']]],
-  ['fromjson_102',['fromJson',['../classtaixu_1_1IJsonable.html#a217a20504de57f3cb9d07c90d3033d26',1,'taixu::IJsonable']]],
-  ['fromrelativepath_103',['fromRelativePath',['../namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194',1,'taixu::fromRelativePath(const std::filesystem::path &amp;directory, const std::filesystem::path &amp;file_path)'],['../namespacetaixu.html#af2e071cdc152ffdf10af393f5a2dcf9f',1,'taixu::fromRelativePath(const std::filesystem::path &amp;relative_path)']]],
-  ['front_104',['Front',['../classtaixu_1_1Camera.html#ad93bb0b65c5e54d1f3783f43c691bf47',1,'taixu::Camera']]],
-  ['function_5futils_2ehpp_105',['function_utils.hpp',['../function__utils_8hpp.html',1,'']]]
+  ['from_5fjson_100',['from_json',['../classtaixu_1_1AssetManager.html#a38fd79775e03ecf716ed1a3eff6a69bb',1,'taixu::AssetManager']]],
+  ['fromjson_101',['fromJson',['../classtaixu_1_1IJsonable.html#a217a20504de57f3cb9d07c90d3033d26',1,'taixu::IJsonable']]],
+  ['fromrelativepath_102',['fromRelativePath',['../namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194',1,'taixu::fromRelativePath(const std::filesystem::path &amp;directory, const std::filesystem::path &amp;file_path)'],['../namespacetaixu.html#af2e071cdc152ffdf10af393f5a2dcf9f',1,'taixu::fromRelativePath(const std::filesystem::path &amp;relative_path)']]],
+  ['front_103',['Front',['../classtaixu_1_1Camera.html#ad93bb0b65c5e54d1f3783f43c691bf47',1,'taixu::Camera']]],
+  ['function_5futils_2ehpp_104',['function_utils.hpp',['../function__utils_8hpp.html',1,'']]]
 ];
