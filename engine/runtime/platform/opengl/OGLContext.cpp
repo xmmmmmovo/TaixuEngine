@@ -12,16 +12,15 @@ void taixu::OGLContext::initialize() {
 void taixu::OGLContext::bindMesh(Mesh mesh) const {
     vertex_array->bind();
 
-    OGLElementBuffer element_buffer;
-    element_buffer.bind();
-    element_buffer.setData(mesh.indices, GL_STATIC_DRAW);
+    OGLElementBuffer element_buffer(mesh.indices, GL_STATIC_DRAW);
 
     std::vector<glm::vec3> vertices(mesh.vertices.size());
     for (std::size_t i = 0; i < mesh.vertices.size(); ++i) {
         vertices[i] = mesh.vertices[i].Position;
     }
-    vertex_array->addVBO({static_cast<GLsizeiptr>(vertices.size()),
-                          vertices.data(), GL_STATIC_DRAW, 3});
+    OGLVertexBuffer buf(static_cast<GLsizeiptr>(vertices.size() * sizeof(glm::vec3)),
+                        vertices.data(), GL_STATIC_DRAW, 3);
+    vertex_array->addVBO(std::move(buf));
     vertex_array->setEBO(std::move(element_buffer));
 
     vertex_array->unbind();
