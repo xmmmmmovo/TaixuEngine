@@ -9,6 +9,47 @@
 
 namespace taixu::editor {
 
+// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
+// ---------------------------------------------------------------------------------------------------------
+void  MainWindow::processInput(GLFWwindow *window) {
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        imgui_surface->Input_callback("FORWARD");
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        imgui_surface->Input_callback("BACKWARD");
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        imgui_surface->Input_callback("LEFT");
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        imgui_surface->Input_callback("RIGHT");
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+
+    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+        double xPos, yPos;
+        glfwGetCursorPos(window, &xPos, &yPos);
+        imgui_surface->Input_callback(glm::vec2(xPos, yPos));
+    }
+
+    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS) {
+        double xPos, yPos;
+        glfwGetCursorPos(window, &xPos, &yPos);
+        imgui_surface->Input_callback(glm::vec2(xPos, yPos));
+    }
+    double xOffset, yOffset;
+    glfwGetCursorPos(window, &xOffset, &yOffset);
+    imgui_surface->Input_callback((float)yOffset);
+
+}
+
+// glfw: whenever the window size changed (by OS or user resize) this callback function executes
+// ---------------------------------------------------------------------------------------------
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+    // make sure the viewport matches the new window dimensions; note that width and
+    // height will be significantly larger than specified on retina displays.
+    glViewport(0, 0, width, height);
+}
+
 void MainWindow::init() {
     spdlog::info("Main window start init!");
     super::init(&context);
