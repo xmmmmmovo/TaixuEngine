@@ -11,6 +11,6 @@ TEST_CASE("noncopyable") {
     //    taixu::Asset_Manager manager{};
     //    manager.loadAsset("assets/asset.json");
     //    manager.writeAsset();
-    //OGLVertexArray o;
+    
 
 }

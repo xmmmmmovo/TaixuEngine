@@ -19,10 +19,12 @@ struct Project {
 public:
     //name of project
     std::string_view              name;
-    //texture list
-    std::vector<std::string_view> texture_path;
-    //model list
-    std::vector<std::string_view> model_path;
+    // //texture list
+    // std::vector<std::string_view> texture_path;
+    // //model list
+    // std::vector<std::string_view> model_path;
+    std::string root;
+    std::string asset_configure_path;
 };
 
 class ProjectManager {

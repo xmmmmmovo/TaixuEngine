@@ -30,7 +30,9 @@ Status Engine::loadProject(const std::string_view& path) {
                       magic_enum::enum_name(status));
         return status;
     }
+
     this->project = project_manager->getCurrentProject();
+    asset_manager->loadAsset(this->project->asset_configure_path);
     return Status::OK;
 }
 
