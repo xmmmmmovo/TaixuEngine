@@ -125,52 +125,40 @@ $(document).ready(function(){initNavTree('asset__manager_8hpp_source.html',''); 
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classtaixu_1_1AssetManager.html#a7c2540e24466a6eb44752f9bda9c78c0">   38</a></span>&#160;    std::vector&lt;Asset&gt; <a class="code" href="classtaixu_1_1AssetManager.html#a7c2540e24466a6eb44752f9bda9c78c0">asset_list</a>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classtaixu_1_1AssetManager.html#a20b746cef9db88f800c23b8c134b4362">   39</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classtaixu_1_1AssetManager.html#a20b746cef9db88f800c23b8c134b4362">Json</a>                  = <a class="code" href="namespacetaixu.html#af876a3b1f89f874d9460dd06234888f6">nlohmann::json</a>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classtaixu_1_1AssetManager.html#a013b0f2d9fc7c184407d202026ca6a67">   40</a></span>&#160;    std::string <a class="code" href="classtaixu_1_1AssetManager.html#a013b0f2d9fc7c184407d202026ca6a67">asset_file_path</a> = <span class="stringliteral">&quot;INVALID&quot;</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// void from_json(const Json&amp; j, std::shared_ptr&lt;Asset&gt; asset) {</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//     j.at(&quot;type&quot;).get_to(asset-&gt;type);</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//     j.at(&quot;name&quot;).get_to(asset-&gt;name);</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">//     j.at(&quot;location&quot;).get_to(asset-&gt;location);</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// }</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// void to_json(Json&amp; j, std::shared_ptr&lt;Asset&gt; asset) {</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//     j = Json{{&quot;type&quot;, asset-&gt;type},</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">//              {&quot;name&quot;, asset-&gt;name},</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//              {&quot;location&quot;, asset-&gt;location}};</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// }</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classtaixu_1_1AssetManager.html#a73edbaba19dd14f4723debc7b1540f4b">   53</a></span>&#160;    <a class="code" href="classtaixu_1_1AssetManager.html#a73edbaba19dd14f4723debc7b1540f4b">NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE</a>(<a class="code" href="structtaixu_1_1Asset.html">Asset</a>, name, type, location);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classtaixu_1_1AssetManager.html#ab45a796474fb2e8362719ba5e48214cb">   56</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1AssetManager.html#ab45a796474fb2e8362719ba5e48214cb">loadAsset</a>(std::string file_path) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::ifstream f(file_path);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> (!f.is_open()) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            spdlog::debug(<span class="stringliteral">&quot;Unable to load Asset configure file&quot;</span>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="classtaixu_1_1AssetManager.html#a013b0f2d9fc7c184407d202026ca6a67">asset_file_path</a> = file_path;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classtaixu_1_1AssetManager.html#a20b746cef9db88f800c23b8c134b4362">Json</a> data = Json::parse(f);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i : data[<span class="stringliteral">&quot;assets&quot;</span>].items()) {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <a class="code" href="structtaixu_1_1Asset.html">Asset</a> new_asset;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            std::uint8_t new_guid = <a class="code" href="classtaixu_1_1GUID__Generator.html#a4559a7695a5c3d089b8267e0dff4314c">GUID_Generator::generate_new_guid</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            new_asset.<a class="code" href="structtaixu_1_1Asset.html#a6b4d04eb01b3fe964fd59fc52d166cdf">guid</a>       = new_guid;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="classtaixu_1_1AssetManager.html#a20b746cef9db88f800c23b8c134b4362">Json</a> j                = i.value();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            from_json(j, new_asset);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="classtaixu_1_1AssetManager.html#a7c2540e24466a6eb44752f9bda9c78c0">asset_list</a>.push_back(new_asset);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">int</span> a = 0;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1AssetManager.html#aeb295d60e44bb1b2eaa25497f5833ec2">writeAsset</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1AssetManager.html#ab45a796474fb2e8362719ba5e48214cb">loadAsset</a>(std::string file_path, <a class="code" href="namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb">AssetType</a> asset_type);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_RESOURCE_MANAGER_HPP</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classtaixu_1_1AssetManager.html#a73edbaba19dd14f4723debc7b1540f4b">   42</a></span>&#160;    <a class="code" href="classtaixu_1_1AssetManager.html#a73edbaba19dd14f4723debc7b1540f4b">NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE</a>(<a class="code" href="structtaixu_1_1Asset.html">Asset</a>, name, type, location);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classtaixu_1_1AssetManager.html#ab45a796474fb2e8362719ba5e48214cb">   45</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1AssetManager.html#ab45a796474fb2e8362719ba5e48214cb">loadAsset</a>(std::string file_path) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::ifstream f(file_path);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (!f.is_open()) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            spdlog::debug(<span class="stringliteral">&quot;Unable to load Asset configure file&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="classtaixu_1_1AssetManager.html#a013b0f2d9fc7c184407d202026ca6a67">asset_file_path</a> = file_path;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classtaixu_1_1AssetManager.html#a20b746cef9db88f800c23b8c134b4362">Json</a> data = Json::parse(f);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i : data[<span class="stringliteral">&quot;assets&quot;</span>].items()) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <a class="code" href="structtaixu_1_1Asset.html">Asset</a> new_asset;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            std::uint8_t new_guid = <a class="code" href="classtaixu_1_1GUID__Generator.html#a4559a7695a5c3d089b8267e0dff4314c">GUID_Generator::generate_new_guid</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            new_asset.<a class="code" href="structtaixu_1_1Asset.html#a6b4d04eb01b3fe964fd59fc52d166cdf">guid</a>       = new_guid;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="classtaixu_1_1AssetManager.html#a20b746cef9db88f800c23b8c134b4362">Json</a> j                = i.value();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            from_json(j, new_asset);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="classtaixu_1_1AssetManager.html#a7c2540e24466a6eb44752f9bda9c78c0">asset_list</a>.push_back(new_asset);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1AssetManager.html#aeb295d60e44bb1b2eaa25497f5833ec2">writeAsset</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1AssetManager.html#ab45a796474fb2e8362719ba5e48214cb">loadAsset</a>(std::string file_path, <a class="code" href="namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb">AssetType</a> asset_type);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_RESOURCE_MANAGER_HPP</span></div>
 <div class="ttc" id="aclasstaixu_1_1AssetManager_html"><div class="ttname"><a href="classtaixu_1_1AssetManager.html">taixu::AssetManager</a></div><div class="ttdef"><b>Definition:</b> asset_manager.hpp:35</div></div>
 <div class="ttc" id="aclasstaixu_1_1AssetManager_html_a013b0f2d9fc7c184407d202026ca6a67"><div class="ttname"><a href="classtaixu_1_1AssetManager.html#a013b0f2d9fc7c184407d202026ca6a67">taixu::AssetManager::asset_file_path</a></div><div class="ttdeci">std::string asset_file_path</div><div class="ttdef"><b>Definition:</b> asset_manager.hpp:40</div></div>
 <div class="ttc" id="aclasstaixu_1_1AssetManager_html_a20b746cef9db88f800c23b8c134b4362"><div class="ttname"><a href="classtaixu_1_1AssetManager.html#a20b746cef9db88f800c23b8c134b4362">taixu::AssetManager::Json</a></div><div class="ttdeci">nlohmann::json Json</div><div class="ttdef"><b>Definition:</b> asset_manager.hpp:39</div></div>
 <div class="ttc" id="aclasstaixu_1_1AssetManager_html_a73edbaba19dd14f4723debc7b1540f4b"><div class="ttname"><a href="classtaixu_1_1AssetManager.html#a73edbaba19dd14f4723debc7b1540f4b">taixu::AssetManager::NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE</a></div><div class="ttdeci">NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Asset, name, type, location)</div></div>
 <div class="ttc" id="aclasstaixu_1_1AssetManager_html_a7c2540e24466a6eb44752f9bda9c78c0"><div class="ttname"><a href="classtaixu_1_1AssetManager.html#a7c2540e24466a6eb44752f9bda9c78c0">taixu::AssetManager::asset_list</a></div><div class="ttdeci">std::vector&lt; Asset &gt; asset_list</div><div class="ttdef"><b>Definition:</b> asset_manager.hpp:38</div></div>
-<div class="ttc" id="aclasstaixu_1_1AssetManager_html_ab45a796474fb2e8362719ba5e48214cb"><div class="ttname"><a href="classtaixu_1_1AssetManager.html#ab45a796474fb2e8362719ba5e48214cb">taixu::AssetManager::loadAsset</a></div><div class="ttdeci">void loadAsset(std::string file_path)</div><div class="ttdef"><b>Definition:</b> asset_manager.hpp:56</div></div>
+<div class="ttc" id="aclasstaixu_1_1AssetManager_html_ab45a796474fb2e8362719ba5e48214cb"><div class="ttname"><a href="classtaixu_1_1AssetManager.html#ab45a796474fb2e8362719ba5e48214cb">taixu::AssetManager::loadAsset</a></div><div class="ttdeci">void loadAsset(std::string file_path)</div><div class="ttdef"><b>Definition:</b> asset_manager.hpp:45</div></div>
 <div class="ttc" id="aclasstaixu_1_1AssetManager_html_adeefeb1fe9ef3dfa3ede15e11ab581d6"><div class="ttname"><a href="classtaixu_1_1AssetManager.html#adeefeb1fe9ef3dfa3ede15e11ab581d6">taixu::AssetManager::AssetManager</a></div><div class="ttdeci">AssetManager()=default</div></div>
 <div class="ttc" id="aclasstaixu_1_1AssetManager_html_aeb295d60e44bb1b2eaa25497f5833ec2"><div class="ttname"><a href="classtaixu_1_1AssetManager.html#aeb295d60e44bb1b2eaa25497f5833ec2">taixu::AssetManager::writeAsset</a></div><div class="ttdeci">void writeAsset()</div><div class="ttdef"><b>Definition:</b> asset_manager.cpp:19</div></div>
 <div class="ttc" id="aclasstaixu_1_1GUID__Generator_html"><div class="ttname"><a href="classtaixu_1_1GUID__Generator.html">taixu::GUID_Generator</a></div><div class="ttdef"><b>Definition:</b> asset_manager.hpp:22</div></div>
