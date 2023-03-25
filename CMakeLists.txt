@@ -8,6 +8,7 @@ set(CMAKE_C_STANDARD 11)
 option(USE_CCACHE "ccache accelerate the compile" OFF)
 option(USE_VCPKG "vcpkg manager" OFF)
 option(USE_PCH "pre compile" ON)
+option(WARNINGS "warnings" OFF)
 
 # for project properties
 set(ENGINE_VERSION 0.01)
