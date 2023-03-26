@@ -30,6 +30,7 @@ void TX_GLFWwindow::init(IWindowContext *context) {
         glfwTerminate();
         exit(1);
     }
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     glfwMakeContextCurrent(window);
 
     // glad: load all OpenGL function pointers
