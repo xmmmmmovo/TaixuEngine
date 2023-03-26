@@ -8,12 +8,12 @@
 #include <memory>
 #include <vector>
 
-#include "graphics/render/camera.hpp"
 #include "graphics/render/model.hpp"
+#include "graphics/render/perspective_camera.hpp"
 #include "graphics/render/shader.hpp"
 #include "graphics/render/texture.hpp"
-#include "platform/opengl/OGLShader.hpp"
 #include "platform/opengl/OGLContext.hpp"
+#include "platform/opengl/OGLShader.hpp"
 namespace taixu {
 
 constexpr float delta_time = 0.03333;
@@ -84,7 +84,7 @@ public:
     void         processInput(float scroll_yoffset);
     //unsigned int getRenderResult() { return bufferTexId; };
     std::uint32_t getRenderResult() { return render_context->ogl_context->framebuffer->getImageid(); };
-    std::shared_ptr<Camera> first_person_camera;
+    std::shared_ptr<PerspectiveCamera> first_person_camera;
     
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
     

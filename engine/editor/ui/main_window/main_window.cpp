@@ -4,11 +4,9 @@
 
 #include "main_window.hpp"
 
-#include "core/base/clock.hpp"
 #include "spdlog/spdlog.h"
 
 namespace taixu::editor {
-
 void MainWindow::init() {
     spdlog::info("Main window start init!");
     super::init(&context);
@@ -72,11 +70,8 @@ void MainWindow::preUpdate() {
                     ImGuiWindowFlags_NoNav);
 }
 
-static Clock clock;
-
 void MainWindow::update() {
     while (!glfwWindowShouldClose(window)) {
-        clock.update();
         preUpdate();
         imgui_surface.update();
         super::update();
