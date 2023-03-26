@@ -47,16 +47,16 @@ void Renderer::resize(float width, float height) {
 void Renderer::processInput(std::string input) {
 
     if (input == "FORWARD")
-        first_person_camera->ProcessKeyboard(taixu::Camera_Movement::FORWARD,
+        first_person_camera->processKeyboard(taixu::Camera_Movement::FORWARD,
                                              delta_time);
     if (input == "BACKWARD")
-        first_person_camera->ProcessKeyboard(taixu::Camera_Movement::BACKWARD,
+        first_person_camera->processKeyboard(taixu::Camera_Movement::BACKWARD,
                                              delta_time);
     if (input == "LEFT")
-        first_person_camera->ProcessKeyboard(taixu::Camera_Movement::LEFT,
+        first_person_camera->processKeyboard(taixu::Camera_Movement::LEFT,
                                              delta_time);
     if (input == "RIGHT")
-        first_person_camera->ProcessKeyboard(taixu::Camera_Movement::RIGHT,
+        first_person_camera->processKeyboard(taixu::Camera_Movement::RIGHT,
                                              delta_time);
 }
 void Renderer::processInput(glm::vec2 mouse_pos) {
