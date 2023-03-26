@@ -13,13 +13,13 @@ void Renderer::initialize() {
 
     render_context->initialize();
 
-    first_person_camera = std::make_shared<Camera>();
+    first_person_camera = std::make_shared<PerspectiveCamera>();
     shaderProgram       = new OGLShaderProgram(VERT_VERT, FRAG_FRAG);
 
     //Bind buffer for each Mesh
 
-    render_context->bindMesh(render_context->getSwapContext()->getData()->model->meshes[0]);
-    
+    render_context->bindMesh(
+            render_context->getSwapContext()->getData()->model->meshes[0]);
 }
 void Renderer::tick(float delta_time) {
     glm::mat4 ProjectionMatrix   = first_person_camera->getProjectionMatrix();
@@ -36,8 +36,9 @@ void Renderer::tick(float delta_time) {
     shaderProgram->set_uniform("MV3x3", ModelView3x3Matrix);
 
     shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
-    
-    render_context->tickbyMesh(render_context->getSwapContext()->model->meshes[0]);
+
+    render_context->tickbyMesh(
+            render_context->getSwapContext()->model->meshes[0]);
 }
 void Renderer::clear() {}
 void Renderer::resize(float width, float height) {
@@ -47,18 +48,17 @@ void Renderer::resize(float width, float height) {
 void Renderer::processInput(std::string input) {
 
     if (input == "FORWARD")
-        first_person_camera->processKeyboard(taixu::Camera_Movement::FORWARD,
+        first_person_camera->processKeyboard(CameraMovement::FORWARD,
                                              delta_time);
     if (input == "BACKWARD")
-        first_person_camera->processKeyboard(taixu::Camera_Movement::BACKWARD,
+        first_person_camera->processKeyboard(CameraMovement::BACKWARD,
                                              delta_time);
     if (input == "LEFT")
-        first_person_camera->processKeyboard(taixu::Camera_Movement::LEFT,
-                                             delta_time);
+        first_person_camera->processKeyboard(CameraMovement::LEFT, delta_time);
     if (input == "RIGHT")
-        first_person_camera->processKeyboard(taixu::Camera_Movement::RIGHT,
-                                             delta_time);
+        first_person_camera->processKeyboard(CameraMovement::RIGHT, delta_time);
 }
+
 void Renderer::processInput(glm::vec2 mouse_pos) {
 
     if (first_mouse) {

@@ -1,5 +1,5 @@
-#ifndef TAIXUENGINE_CAMERA_HPP
-#define TAIXUENGINE_CAMERA_HPP
+#ifndef TAIXUENGINE_PERSPECTIVE_CAMERA_HPP
+#define TAIXUENGINE_PERSPECTIVE_CAMERA_HPP
 
 #include "glad/glad.h"
 
@@ -28,7 +28,7 @@ static constexpr float FASTS_PEED   = 2.5f;
 static constexpr float SENSITIVITY  = 0.1f;
 static constexpr float ZOOM         = 45.0f;
 
-class Camera {
+class PerspectiveCamera {
 public:
     // camera Attributes
     glm::vec3 Position{};
@@ -45,7 +45,7 @@ public:
     float     Zoom;
 
     // constructor with vectors
-    explicit Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
+    explicit PerspectiveCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
                     glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW,
                     float pitch = PITCH)
         : Front(glm::vec3(0.0f, 0.0f, -1.0f)),
@@ -60,7 +60,7 @@ public:
     }
 
     // constructor with scalar values
-    Camera(float posX, float posY, float posZ, float upX, float upY, float upZ,
+    PerspectiveCamera(float posX, float posY, float posZ, float upX, float upY, float upZ,
            float yaw, float pitch)
         : Front(glm::vec3(0.0f, 0.0f, -1.0f)),
           MovementSpeed(NORMAL_SPEED),
@@ -139,4 +139,4 @@ private:
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_CAMERA_HPP
+#endif//TAIXUENGINE_PERSPECTIVE_CAMERA_HPP

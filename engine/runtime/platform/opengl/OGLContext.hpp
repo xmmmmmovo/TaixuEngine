@@ -7,8 +7,8 @@
 #include <memory>
 
 #include "glm/glm.hpp"
-#include "graphics/render/camera.hpp"
 #include "graphics/render/model.hpp"
+#include "graphics/render/perspective_camera.hpp"
 #include "platform/opengl/OGLElementBuffer.hpp"
 #include "platform/opengl/OGLFrameBuffer.hpp"
 #include "platform/opengl/OGLVertexArray.hpp"
