@@ -30,9 +30,8 @@ else ()
 endif ()
 
 if(MSVC)
-    string(CONCAT ${OUTPUT_DIR} "${OUTPUT_DIR}" "/Debug")
+    set(OUTPUT_DIR ${OUTPUT_DIR}/Debug)
 endif(MSVC)
-
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -DENGINE_ROOT_DIR=${ENGINE_ROOT_DIR} -DOUTPUT_DIR=${OUTPUT_DIR} -P ${PROJECT_SOURCE_DIR}/cmake/MoveResourceDirs.cmake

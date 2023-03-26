@@ -27,17 +27,10 @@ public:
                 ImGuiCol_ButtonActive,
                 ImVec4(buttonActive.x, buttonActive.y, buttonActive.z, 0.5f));
 
-        bool toolbarEnabled = (bool) true;
-
-        ImVec4 tintColor = ImVec4(1, 1, 1, 1);
-        if (!toolbarEnabled) tintColor.w = 0.5f;
-
         float size = ImGui::GetWindowHeight() - 4.0f;
         ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) -
                              (size * 0.5f));
 
-        if (ImGui::Button(u8"中文！")) {}
-        ImGui::SameLine();
         if (ImGui::Button(ICON_FA_PLAY "Play")) {}
 
         ImGui::PopStyleVar(2);

@@ -19,16 +19,16 @@ private:
 
 public:
     OGLVertexBuffer();
-    OGLVertexBuffer(GLsizeiptr size, const void *data, GLenum usage,
+    OGLVertexBuffer(std::size_t size, const void *data, GLenum usage,
                     GLint align);
 
     void bind() override;
     void unbind() override;
 
-    void setData(GLsizeiptr size, const void *data, GLenum usage,
+    void setData(std::size_t size, const void *data, GLenum usage,
                  GLint align) override;
 
-    void setDataInner(GLsizeiptr size, const void *data, GLenum usage,
+    void setDataInner(std::size_t size, const void *data, GLenum usage,
                       GLint align);
 
     [[nodiscard]] GLint getAlign() const override;

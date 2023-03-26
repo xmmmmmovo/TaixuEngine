@@ -18,33 +18,27 @@ void taixu::OGLContext::bindMesh(Mesh mesh) const {
     for (std::size_t i = 0; i < mesh.vertices.size(); ++i) {
         vertices[i] = mesh.vertices[i].Position;
     }
-    OGLVertexBuffer buf(static_cast<GLsizeiptr>(vertices.size() * sizeof(glm::vec3)),
-                        vertices.data(), GL_STATIC_DRAW, 3);
+    OGLVertexBuffer buf(vertices.size(), vertices.data(), GL_STATIC_DRAW, 3);
     vertex_array->addVBO(std::move(buf));
     vertex_array->setEBO(std::move(element_buffer));
 
     vertex_array->unbind();
 }
 
-void taixu::OGLContext::tickbyMesh(Mesh mesh) {
-    //glBindFramebuffer(GL_FRAMEBUFFER, bufferTexId);
+void taixu::OGLContext::tickbyMesh(Mesh const&mesh) {
     framebuffer->bind();
-    //glBufferData(GL_FRAMEBUFFER,_id);
 
     clear();
 
-    // glBindVertexArray(
-    //         VAO);
     vertex_array->bind();
 
     //Draw as meshes
     drawbyElement(mesh);
 
-    //glBindFramebuffer(GL_FRAMEBUFFER, 0);
     framebuffer->unbind();
 }
 
-void taixu::OGLContext::drawbyElement(Mesh mesh) {
+void taixu::OGLContext::drawbyElement(Mesh const& mesh) {
     glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(mesh.indices.size()),
                    GL_UNSIGNED_INT, 0);
 }
