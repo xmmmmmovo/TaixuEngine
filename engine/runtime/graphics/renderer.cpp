@@ -46,7 +46,6 @@ void Renderer::resize(float width, float height) {
     size.y = height;
 }
 void Renderer::processInput(std::string input) {
-
     if (input == "FORWARD")
         first_person_camera->processKeyboard(CameraMovement::FORWARD,
                                              delta_time);
@@ -78,6 +77,6 @@ void Renderer::processInput(glm::vec2 mouse_pos) {
     first_person_camera->ProcessMouseMovement(xoffset, yoffset);
 }
 void Renderer::processInput(float scroll_yoffset) {
-    first_person_camera->ProcessMouseScroll(scroll_yoffset);
+    first_person_camera->processMouseScroll(scroll_yoffset);
 }
 }// namespace taixu

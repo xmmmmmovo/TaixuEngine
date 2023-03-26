@@ -46,18 +46,21 @@ void TX_GLFWwindow::init(IWindowContext *context) {
     glEnable(GL_DEPTH_TEST);
 }
 
-void TX_GLFWwindow::update() {
-    glfwPollEvents();
-    glfwSwapBuffers(window);
-}
+void TX_GLFWwindow::update() { glfwSwapBuffers(window); }
 
 void TX_GLFWwindow::destroy() { glfwDestroyWindow(window); }
+
+bool TX_GLFWwindow::shouldClose() const {
+    if (glfwWindowShouldClose(window)) { return true; }
+    glfwPollEvents();
+    return false;
+}
 
 void TX_GLFWwindow::errorCallBack(int error, const char *description) {
     spdlog::error("GLFW Error: {}, {}", error, description);
 }
 
-bool TX_GLFWwindow::getIsVsync() const { return isVsync; }
+bool TX_GLFWwindow::getIsVsync() const { return is_vsync; }
 
 void TX_GLFWwindow::setIsVsync(bool enable) {
     if (enable) {
@@ -67,7 +70,7 @@ void TX_GLFWwindow::setIsVsync(bool enable) {
         glfwSwapInterval(0);
     }
 
-    isVsync = enable;
+    is_vsync = enable;
 }
 
 }// namespace taixu

@@ -70,12 +70,12 @@ void MainWindow::preUpdate() {
                     ImGuiWindowFlags_NoNav);
 }
 
+bool MainWindow::shouldClose() const { return super::shouldClose(); }
+
 void MainWindow::update() {
-    while (!glfwWindowShouldClose(window)) {
-        preUpdate();
-        imgui_surface.update();
-        super::update();
-    }
+    preUpdate();
+    imgui_surface.update();
+    super::update();
 }
 
 void MainWindow::destroy() {

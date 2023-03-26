@@ -83,6 +83,8 @@ public:
     void update() override;
     void destroy() override;
 
+    bool shouldClose() const override;
+
     void setEngineRuntime(Engine* engine_runtime_ptr);
     void init_imgui_surface();
 

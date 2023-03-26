@@ -8,7 +8,6 @@
 #include <string>
 
 namespace taixu {
-
 /**
  * @brief 仅在父类使用为Prop 在所有类中使用为Context
  */

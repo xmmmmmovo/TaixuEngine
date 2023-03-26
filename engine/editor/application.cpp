@@ -39,7 +39,9 @@ void Application::initialize(int argc, char *argv[]) {
     this->window = window_ptr;
 }
 
-void Application::run() { this->window->update(); }
+void Application::run() {
+    while (!this->window->shouldClose()) { this->window->update(); }
+}
 
 void Application::destroy() { this->window->destroy(); }
 }// namespace taixu::editor
