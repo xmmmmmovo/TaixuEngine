@@ -1,5 +1,19 @@
-#ifndef B062B20C_7A36_4D74_AEB5_6905326695B9
-#define B062B20C_7A36_4D74_AEB5_6905326695B9
+#ifndef MESH_COMPONENT
+#define MESH_COMPONENT
+
+namespace taixu
+{
+class MeshComponent
+{
+public:
+bool visiable;
+std::string mesh_path;
+std::string material_path;
+
+};
 
 
-#endif /* B062B20C_7A36_4D74_AEB5_6905326695B9 */
+
+}
+
+#endif /* MESH_COMPONENT */

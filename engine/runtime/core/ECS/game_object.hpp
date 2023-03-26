@@ -1,5 +1,18 @@
-#ifndef DA388E2E_2A05_4E58_9D08_20B6662538B9
-#define DA388E2E_2A05_4E58_9D08_20B6662538B9
+#ifndef GAME_OBJECT
+#define GAME_OBJECT
 
+namespace taixu
+{
+class GameObject
+{
+    public:
+    std::uint32_t get_id(){return unique_id;};
+    std::uint32_t set_id(std::uint32_t id_from_generator){unique_id=id_from_generator;};
 
-#endif /* DA388E2E_2A05_4E58_9D08_20B6662538B9 */
+    private:
+    std::uint32_t unique_id;
+    
+};
+
+}
+#endif /* GAME_OBJECT */

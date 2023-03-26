@@ -5,6 +5,7 @@
 #include "core/base/public_singleton.hpp"
 #include "graphics/renderer.hpp"
 #include "resource/project_manager.hpp"
+#include "core/ECS/entity_component_system.hpp"
 
 namespace taixu {
 
@@ -16,6 +17,7 @@ private:
     std::shared_ptr<Project>        project{nullptr};
     std::shared_ptr<AssetManager>   asset_manager{nullptr};
     std::unique_ptr<ProjectManager> project_manager{nullptr};
+    std::shared_ptr<ECS>       entity_component_system{nullptr};
 
 public:
     Engine();
