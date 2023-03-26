@@ -16,14 +16,21 @@ void Engine::init() {
     asset_manager   = std::make_shared<AssetManager>();
     entity_component_system = std::make_shared<ECS>();
 
+    entity_component_system->initialize();
     //temptory
-    Component<MeshComponent> testmesh;
-    std::uint32_t testid = 0;
     MeshComponent mesh;
+    std::uint32_t testid = 0;
     mesh.mesh_path="mesh";
     mesh.material_path="material";
     mesh.visiable=true;
-    testmesh.addComponent(testid,mesh);
+    entity_component_system->all_components[0]->addComponent(testid,mesh);
+    
+
+
+    // testmesh.addComponent(testid,mesh);
+    // entity_component_system->addComponentType<MeshComponent>();
+    //entity_component_system->components[""]=testmesh;
+
     int a=0;
 }
 
