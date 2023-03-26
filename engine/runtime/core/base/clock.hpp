@@ -14,26 +14,33 @@ private:
     std::chrono::high_resolution_clock::time_point start_time;
     std::chrono::high_resolution_clock::time_point last_time;
     std::chrono::high_resolution_clock::time_point current_time;
-    std::chrono::duration<float>                   elapsed_time;
+    std::chrono::duration<float>                   elapsed_time{};
 
-    float delta_time{0.0f};
-    float time_scale{1.0f};
-    bool  inited{false};
+    float delta_time{};
+    float time_scale{};
 
-    float time_since_start{0.0f};
+    float time_since_start{};
 
 public:
-    Clock() = default;
-    void init() {
+    Clock() { reset(); };
+
+    [[nodiscard]] float getDeltaTime() const { return delta_time; }
+
+    [[nodiscard]] float getTimeScale() const { return time_scale; }
+
+    [[nodiscard]] float getTimeSinceStart() const { return time_since_start; }
+
+    void reset() {
         start_time   = std::chrono::high_resolution_clock::now();
         last_time    = start_time;
         current_time = start_time;
 
-        inited = true;
+        delta_time       = 0.0f;
+        time_scale       = 1.0f;
+        time_since_start = 0.0f;
     }
 
     void update() {
-        if (!inited) { init(); }
         last_time    = current_time;
         current_time = std::chrono::high_resolution_clock::now();
         elapsed_time = current_time - last_time;
@@ -42,6 +49,9 @@ public:
         delta_time = elapsed_time.count() * time_scale;
         time_since_start += delta_time;
     }
+
+    // calculate the fps
+    [[nodiscard]] float getFPS() const { return 1.0f / delta_time; }
 };
 
 }// namespace taixu
