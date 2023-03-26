@@ -53,6 +53,7 @@ var hierarchy =
         [ "taixu::editor::HierarchyComponent", "classtaixu_1_1editor_1_1HierarchyComponent.html", null ],
         [ "taixu::editor::MenuComponent", "classtaixu_1_1editor_1_1MenuComponent.html", null ],
         [ "taixu::editor::RenderComponent", "classtaixu_1_1editor_1_1RenderComponent.html", null ],
+        [ "taixu::editor::StatusBarComponent", "classtaixu_1_1editor_1_1StatusBarComponent.html", null ],
         [ "taixu::editor::ToolbarComponent", "classtaixu_1_1editor_1_1ToolbarComponent.html", null ]
       ] ]
     ] ],

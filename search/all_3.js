@@ -8,7 +8,7 @@ var searchData=
   ['cbegin_39',['cbegin',['../classtaixu_1_1BufferLayout.html#a01ade3cfd74114955a25566049d577d2',1,'taixu::BufferLayout']]],
   ['cend_40',['cend',['../classtaixu_1_1BufferLayout.html#a4f80b2d6121aade4ba7407d5afec2904',1,'taixu::BufferLayout']]],
   ['clear_41',['clear',['../classtaixu_1_1OGLContext.html#a4704b87ca6d53157a61af1a5dd04c2df',1,'taixu::OGLContext::clear()'],['../classtaixu_1_1Renderer.html#ab76b504112462972a232e38a2dfe93e6',1,'taixu::Renderer::clear()']]],
-  ['clock_42',['Clock',['../classtaixu_1_1Clock.html#a72830cb78f556b87972e9db223dbb9de',1,'taixu::Clock::Clock()'],['../classtaixu_1_1Clock.html',1,'taixu::Clock']]],
+  ['clock_42',['Clock',['../classtaixu_1_1Clock.html#a61c52b6db7d95325bc90f0bfb17c8795',1,'taixu::Clock::Clock()'],['../classtaixu_1_1Clock.html',1,'taixu::Clock']]],
   ['clock_2ehpp_43',['clock.hpp',['../clock_8hpp.html',1,'']]],
   ['color_44',['COLOR',['../namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5a04bd834032febb3fda8c6936ee140949',1,'taixu']]],
   ['compute_45',['COMPUTE',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3ab86be59142ebc7ff1f2c1720426f5802',1,'taixu']]],

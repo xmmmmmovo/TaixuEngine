@@ -20,6 +20,7 @@ var classtaixu_1_1editor_1_1MainWindow =
     [ "menu_component", "classtaixu_1_1editor_1_1MainWindow.html#a56430a89c8b7afe39628e9b86913a265", null ],
     [ "render_component", "classtaixu_1_1editor_1_1MainWindow.html#a387b7de67ebde353a611857ba94dc295", null ],
     [ "renderer", "classtaixu_1_1editor_1_1MainWindow.html#a95ce6ca253e677a1682c0c686e31f412", null ],
+    [ "status_bar_component", "classtaixu_1_1editor_1_1MainWindow.html#a41e340906b396b2b244f0c97a7a190ef", null ],
     [ "status_component", "classtaixu_1_1editor_1_1MainWindow.html#a712dd4697238214056c28e95e4ffae89", null ],
     [ "tool_bar_component", "classtaixu_1_1editor_1_1MainWindow.html#a9e2ac6f7e0ffeb8c8cece288068338a1", null ],
     [ "useful_obj_component", "classtaixu_1_1editor_1_1MainWindow.html#a1fc2127f18e2af575b0f65b16fba6f03", null ],
