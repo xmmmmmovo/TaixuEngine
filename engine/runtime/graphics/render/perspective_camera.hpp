@@ -11,14 +11,7 @@
 
 namespace taixu {
 
-enum class CameraMovement {
-    FORWARD,
-    BACKWARD,
-    LEFT,
-    RIGHT,
-    UP,
-    DOWN
-};
+enum class CameraMovement { FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN };
 
 // Default camera values
 static constexpr float YAW          = -90.0f;
@@ -46,8 +39,8 @@ public:
 
     // constructor with vectors
     explicit PerspectiveCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
-                    glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW,
-                    float pitch = PITCH)
+                               glm::vec3 up       = glm::vec3(0.0f, 1.0f, 0.0f),
+                               float yaw = YAW, float pitch = PITCH)
         : Front(glm::vec3(0.0f, 0.0f, -1.0f)),
           MovementSpeed(NORMAL_SPEED),
           MouseSensitivity(SENSITIVITY),
@@ -60,8 +53,8 @@ public:
     }
 
     // constructor with scalar values
-    PerspectiveCamera(float posX, float posY, float posZ, float upX, float upY, float upZ,
-           float yaw, float pitch)
+    PerspectiveCamera(float posX, float posY, float posZ, float upX, float upY,
+                      float upZ, float yaw, float pitch)
         : Front(glm::vec3(0.0f, 0.0f, -1.0f)),
           MovementSpeed(NORMAL_SPEED),
           MouseSensitivity(SENSITIVITY),
@@ -108,7 +101,7 @@ public:
     }
 
     // processes input received from a mouse scroll-wheel event. Only requires input on the vertical wheel-axis
-    void ProcessMouseScroll(float yoffset) {
+    void processMouseScroll(float yoffset) {
         Zoom -= (float) yoffset;
         if (Zoom < 1.0f) Zoom = 1.0f;
         if (Zoom > 45.0f) Zoom = 45.0f;
@@ -116,12 +109,12 @@ public:
 
 private:
     // calculates the front vector from the Camera's (updated) Euler Angles
-    glm::mat4 ProjectionMatrix{};
-    float     initialFoV = 45.0f;
+    glm::mat4 projection_matrix{};
+    float     initial_foV = 45.0f;
     void      updateCameraVectors() {
         // calculate the new Front vector
-        float FoV = initialFoV;
-        ProjectionMatrix =
+        float FoV = initial_foV;
+        projection_matrix =
                 glm::perspective(glm::radians(FoV), 4.0f / 3.0f, 0.1f, 500.0f);
 
         glm::vec3 front;

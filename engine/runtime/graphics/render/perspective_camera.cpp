@@ -6,7 +6,7 @@ glm::mat4 PerspectiveCamera::getViewMatrix() {
     return glm::lookAt(Position, Position + Front, Up);
 }
 
-glm::mat4 PerspectiveCamera::getProjectionMatrix() { return ProjectionMatrix; }
+glm::mat4 PerspectiveCamera::getProjectionMatrix() { return projection_matrix; }
 
 
 }// namespace taixu
