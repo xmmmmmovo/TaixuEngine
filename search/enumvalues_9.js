@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['no_5fopen_5fproject_901',['NO_OPEN_PROJECT',['../namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857a6aca231caf4349e8c720a0e8afe9e273',1,'taixu']]],
-  ['no_5fsuch_5ffile_5ffailed_902',['NO_SUCH_FILE_FAILED',['../namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857a3a73e888cfbb60942a7e422b526d98eb',1,'taixu']]],
-  ['none_903',['NONE',['../namespacetaixu_1_1cg.html#a3cff6fb3c036cdea3412e2b8fdda5ad4ab50339a10e1de285ac99d4c3990b8693',1,'taixu::cg::NONE()'],['../namespacetaixu_1_1cg.html#a35d86f063729f758c858473aed0d951bab50339a10e1de285ac99d4c3990b8693',1,'taixu::cg::NONE()']]],
-  ['normal_904',['NORMAL',['../namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5a1e23852820b9154316c7c06e2b7ba051',1,'taixu']]]
+  ['model_898',['MODEL',['../namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba639a04ebc1a05ddf601b9c88883a944b',1,'taixu']]]
 ];

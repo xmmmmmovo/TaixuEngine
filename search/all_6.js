@@ -9,13 +9,13 @@ var searchData=
   ['file_5ftree_93',['file_tree',['../classtaixu_1_1editor_1_1FileComponent.html#a28c91cf02894892e9cf4a07b281e7ce1',1,'taixu::editor::FileComponent']]],
   ['filecomponent_94',['FileComponent',['../classtaixu_1_1editor_1_1FileComponent.html',1,'taixu::editor']]],
   ['first_5fmouse_95',['first_mouse',['../classtaixu_1_1Renderer.html#ae5550cb52fa323f1bf47ffba7380aeea',1,'taixu::Renderer']]],
-  ['first_5fperson_5fcamera_96',['first_person_camera',['../classtaixu_1_1Renderer.html#acb0ee1bae6cc7b649546a585fb5daa54',1,'taixu::Renderer']]],
-  ['forward_97',['FORWARD',['../namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da50c2fc57053018385350b70d55712937',1,'taixu']]],
+  ['first_5fperson_5fcamera_96',['first_person_camera',['../classtaixu_1_1Renderer.html#ab0f30bac1edf4a18607ff4899dbcd040',1,'taixu::Renderer']]],
+  ['forward_97',['FORWARD',['../namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8abfec72bb37910c61f36b6c29a1f7ec31',1,'taixu']]],
   ['fragment_98',['FRAGMENT',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3adbb27117159e4b13c34d9ec1832f3208',1,'taixu']]],
   ['framebuffer_99',['framebuffer',['../classtaixu_1_1OGLContext.html#acf56717d6568668dd37e5517058cc9f6',1,'taixu::OGLContext']]],
   ['framebuffer_2ehpp_100',['framebuffer.hpp',['../framebuffer_8hpp.html',1,'']]],
   ['fromjson_101',['fromJson',['../classtaixu_1_1IJsonable.html#a217a20504de57f3cb9d07c90d3033d26',1,'taixu::IJsonable']]],
   ['fromrelativepath_102',['fromRelativePath',['../namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194',1,'taixu::fromRelativePath(const std::filesystem::path &amp;directory, const std::filesystem::path &amp;file_path)'],['../namespacetaixu.html#af2e071cdc152ffdf10af393f5a2dcf9f',1,'taixu::fromRelativePath(const std::filesystem::path &amp;relative_path)']]],
-  ['front_103',['Front',['../classtaixu_1_1Camera.html#ad93bb0b65c5e54d1f3783f43c691bf47',1,'taixu::Camera']]],
+  ['front_103',['Front',['../classtaixu_1_1PerspectiveCamera.html#a0ff27409a3a193bf46d618f903670de0',1,'taixu::PerspectiveCamera']]],
   ['function_5futils_2ehpp_104',['function_utils.hpp',['../function__utils_8hpp.html',1,'']]]
 ];

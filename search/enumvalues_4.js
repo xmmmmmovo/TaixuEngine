@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['game_894',['GAME',['../namespacetaixu.html#a17b869e67f78bb3b10088a8e5c1ec25ba4504e1ed59cd9732b8a844e5424e6f13',1,'taixu']]],
-  ['geometry_895',['GEOMETRY',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a1bf9d54e1b266cacdd0b937e462f9adc',1,'taixu']]],
-  ['glsl_896',['GLSL',['../namespacetaixu_1_1cg.html#a35d86f063729f758c858473aed0d951ba2a2c1392bcbaececf702b611e7d7df25',1,'taixu::cg']]]
+  ['forward_890',['FORWARD',['../namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8abfec72bb37910c61f36b6c29a1f7ec31',1,'taixu']]],
+  ['fragment_891',['FRAGMENT',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3adbb27117159e4b13c34d9ec1832f3208',1,'taixu']]]
 ];

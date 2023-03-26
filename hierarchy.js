@@ -4,7 +4,6 @@ var hierarchy =
     [ "taixu::AssetManager", "classtaixu_1_1AssetManager.html", null ],
     [ "taixu::BufferElement", "structtaixu_1_1BufferElement.html", null ],
     [ "taixu::BufferLayout", "classtaixu_1_1BufferLayout.html", null ],
-    [ "taixu::Camera", "classtaixu_1_1Camera.html", null ],
     [ "taixu::Clock", "classtaixu_1_1Clock.html", null ],
     [ "taixu::editor::EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", null ],
     [ "taixu::GUID_Generator", "classtaixu_1_1GUID__Generator.html", null ],
@@ -58,6 +57,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "taixu::OGLContext", "classtaixu_1_1OGLContext.html", null ],
+    [ "taixu::PerspectiveCamera", "classtaixu_1_1PerspectiveCamera.html", null ],
     [ "taixu::Project", "structtaixu_1_1Project.html", null ],
     [ "taixu::ProjectManager", "classtaixu_1_1ProjectManager.html", null ],
     [ "taixu::PublicSingleton< T >", "classtaixu_1_1PublicSingleton.html", null ],

@@ -14,7 +14,7 @@ var classtaixu_1_1Renderer =
     [ "EBO", "classtaixu_1_1Renderer.html#a299717d6059b6dd3b13ea3608a23424c", null ],
     [ "fbo", "classtaixu_1_1Renderer.html#a5e59f7a331a7cadb41eb6ca9eca17e05", null ],
     [ "first_mouse", "classtaixu_1_1Renderer.html#ae5550cb52fa323f1bf47ffba7380aeea", null ],
-    [ "first_person_camera", "classtaixu_1_1Renderer.html#acb0ee1bae6cc7b649546a585fb5daa54", null ],
+    [ "first_person_camera", "classtaixu_1_1Renderer.html#ab0f30bac1edf4a18607ff4899dbcd040", null ],
     [ "last_x", "classtaixu_1_1Renderer.html#a5fe26d2a693ab0a9be879ca7ad4b74c9", null ],
     [ "last_y", "classtaixu_1_1Renderer.html#a976c45b60d6c5eeeecf1ec6eedbe9f8b", null ],
     [ "lightPos", "classtaixu_1_1Renderer.html#aac16855f0a625fa33cb40afe77493103", null ],

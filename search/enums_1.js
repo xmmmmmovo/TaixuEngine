@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['camera_5fmovement_880',['Camera_Movement',['../namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1d',1,'taixu']]]
+  ['cameramovement_877',['CameraMovement',['../namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8',1,'taixu']]]
 ];

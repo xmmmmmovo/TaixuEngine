@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/graphics/render/camera.hpp File Reference</title>
+<title>TaixuEngine: engine/runtime/graphics/render/perspective_camera.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('camera_8hpp.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('perspective__camera_8hpp.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -84,10 +84,9 @@ $(document).ready(function(){initNavTree('camera_8hpp.html',''); initResizable()
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">camera.hpp File Reference</div>  </div>
+<div class="title">perspective_camera.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;glad/glad.h&quot;</code><br />
@@ -96,11 +95,11 @@ $(document).ready(function(){initNavTree('camera_8hpp.html',''); initResizable()
 <code>#include &quot;glm/gtc/matrix_transform.hpp&quot;</code><br />
 <code>#include &quot;glm/gtc/type_ptr.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for camera.hpp:</div>
+Include dependency graph for perspective_camera.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="camera_8hpp__incl.png" border="0" usemap="#aengine_2runtime_2graphics_2render_2camera_8hpp" alt=""/></div>
-<map name="aengine_2runtime_2graphics_2render_2camera_8hpp" id="aengine_2runtime_2graphics_2render_2camera_8hpp">
-<area shape="rect" title=" " alt="" coords="173,5,353,47"/>
+<div class="center"><img src="perspective__camera_8hpp__incl.png" border="0" usemap="#aengine_2runtime_2graphics_2render_2perspective__camera_8hpp" alt=""/></div>
+<map name="aengine_2runtime_2graphics_2render_2perspective__camera_8hpp" id="aengine_2runtime_2graphics_2render_2perspective__camera_8hpp">
+<area shape="rect" title=" " alt="" coords="147,5,379,47"/>
 <area shape="rect" title=" " alt="" coords="5,95,100,121"/>
 <area shape="rect" title=" " alt="" coords="124,95,187,121"/>
 <area shape="rect" title=" " alt="" coords="211,95,315,121"/>
@@ -111,10 +110,10 @@ Include dependency graph for camera.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="camera_8hpp__dep__incl.png" border="0" usemap="#aengine_2runtime_2graphics_2render_2camera_8hppdep" alt=""/></div>
-<map name="aengine_2runtime_2graphics_2render_2camera_8hppdep" id="aengine_2runtime_2graphics_2render_2camera_8hppdep">
-<area shape="rect" title=" " alt="" coords="358,5,538,47"/>
-<area shape="rect" href="camera_8cpp.html" title=" " alt="" coords="230,95,410,136"/>
+<div class="center"><img src="perspective__camera_8hpp__dep__incl.png" border="0" usemap="#aengine_2runtime_2graphics_2render_2perspective__camera_8hppdep" alt=""/></div>
+<map name="aengine_2runtime_2graphics_2render_2perspective__camera_8hppdep" id="aengine_2runtime_2graphics_2render_2perspective__camera_8hppdep">
+<area shape="rect" title=" " alt="" coords="332,5,564,47"/>
+<area shape="rect" href="perspective__camera_8cpp.html" title=" " alt="" coords="179,95,410,136"/>
 <area shape="rect" href="renderer_8hpp.html" title=" " alt="" coords="358,184,538,225"/>
 <area shape="rect" href="OGLContext_8hpp.html" title=" " alt="" coords="485,95,667,136"/>
 <area shape="rect" href="render__component_8hpp.html" title=" " alt="" coords="117,273,325,315"/>
@@ -128,11 +127,11 @@ This graph shows which files directly or indirectly include this file:</div>
 </map>
 </div>
 </div>
-<p><a href="camera_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="perspective__camera_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Camera.html">taixu::Camera</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PerspectiveCamera.html">taixu::PerspectiveCamera</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -142,32 +141,24 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a0acd751b16c6daf9d8f69707c889db1d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1d">taixu::Camera_Movement</a> { <a class="el" href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da50c2fc57053018385350b70d55712937">taixu::FORWARD</a>
-, <a class="el" href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da82dcadb1fd643a52bb803bd046a25854">taixu::BACKWARD</a>
-, <a class="el" href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da7fa23dd7112c7a118528d60a04674f77">taixu::LEFT</a>
-, <a class="el" href="namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1dafc42e2051bd9f9d5f64d34b04719f8c9">taixu::RIGHT</a>
+<tr class="memitem:ad571bf0061d26dc5f96481fd262bedf8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8">taixu::CameraMovement</a> { <br />
+&#160;&#160;<a class="el" href="namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8abfec72bb37910c61f36b6c29a1f7ec31">taixu::FORWARD</a>
+, <a class="el" href="namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a6377b4908ae38f9a57fe9120cf179eb1">taixu::BACKWARD</a>
+, <a class="el" href="namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a684d325a7303f52e64011467ff5c5758">taixu::LEFT</a>
+, <a class="el" href="namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a21507b40c80068eda19865706fdc2403">taixu::RIGHT</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8afbaedde498cdead4f2780217646e9ba1">taixu::UP</a>
+, <a class="el" href="namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8ac4e0e4e3118472beeb2ae75827450f1f">taixu::DOWN</a>
+<br />
  }</td></tr>
-<tr class="separator:a0acd751b16c6daf9d8f69707c889db1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a8ccf3d88a9eb0705b6554df8ca676eb2"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a8ccf3d88a9eb0705b6554df8ca676eb2">taixu::YAW</a> = -90.0f</td></tr>
-<tr class="separator:a8ccf3d88a9eb0705b6554df8ca676eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a8d641662fc344da5ee7f4617890a88"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a7a8d641662fc344da5ee7f4617890a88">taixu::PITCH</a> = 0.0f</td></tr>
-<tr class="separator:a7a8d641662fc344da5ee7f4617890a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf7340257ca28c42fcb27e13b6b05b1d"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#adf7340257ca28c42fcb27e13b6b05b1d">taixu::SPEED</a> = 2.5f</td></tr>
-<tr class="separator:adf7340257ca28c42fcb27e13b6b05b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69410f93a2a5120cbc309fc4159c6ff5"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a69410f93a2a5120cbc309fc4159c6ff5">taixu::SENSITIVITY</a> = 0.1f</td></tr>
-<tr class="separator:a69410f93a2a5120cbc309fc4159c6ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61f94a8962e0d8de24f8f245c50b8996"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a61f94a8962e0d8de24f8f245c50b8996">taixu::ZOOM</a> = 45.0f</td></tr>
-<tr class="separator:a61f94a8962e0d8de24f8f245c50b8996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ad571bf0061d26dc5f96481fd262bedf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_8b5a216d7a52457cfc229f7af9d82f6a.html">graphics</a></li><li class="navelem"><a class="el" href="dir_793f305715bfd7d4f2a17b8a173f6235.html">render</a></li><li class="navelem"><a class="el" href="camera_8hpp.html">camera.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_8b5a216d7a52457cfc229f7af9d82f6a.html">graphics</a></li><li class="navelem"><a class="el" href="dir_793f305715bfd7d4f2a17b8a173f6235.html">render</a></li><li class="navelem"><a class="el" href="perspective__camera_8hpp.html">perspective_camera.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

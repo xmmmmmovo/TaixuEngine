@@ -21,13 +21,13 @@ var namespacetaixu =
     [ "Engine", "classtaixu_1_1Engine.html", "classtaixu_1_1Engine" ],
     [ "BufferElement", "structtaixu_1_1BufferElement.html", "structtaixu_1_1BufferElement" ],
     [ "BufferLayout", "classtaixu_1_1BufferLayout.html", "classtaixu_1_1BufferLayout" ],
-    [ "Camera", "classtaixu_1_1Camera.html", "classtaixu_1_1Camera" ],
     [ "IElementBuffer", "classtaixu_1_1IElementBuffer.html", "classtaixu_1_1IElementBuffer" ],
     [ "IFrameBuffer", "classtaixu_1_1IFrameBuffer.html", "classtaixu_1_1IFrameBuffer" ],
     [ "Vertex", "structtaixu_1_1Vertex.html", "structtaixu_1_1Vertex" ],
     [ "Texture", "structtaixu_1_1Texture.html", "structtaixu_1_1Texture" ],
     [ "Mesh", "classtaixu_1_1Mesh.html", "classtaixu_1_1Mesh" ],
     [ "Model_Data", "classtaixu_1_1Model__Data.html", "classtaixu_1_1Model__Data" ],
+    [ "PerspectiveCamera", "classtaixu_1_1PerspectiveCamera.html", "classtaixu_1_1PerspectiveCamera" ],
     [ "IShader", "classtaixu_1_1IShader.html", "classtaixu_1_1IShader" ],
     [ "IShaderProgram", "classtaixu_1_1IShaderProgram.html", "classtaixu_1_1IShaderProgram" ],
     [ "ITexture", "classtaixu_1_1ITexture.html", "classtaixu_1_1ITexture" ],
@@ -65,11 +65,13 @@ var namespacetaixu =
       [ "NORMAL", "namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5a1e23852820b9154316c7c06e2b7ba051", null ],
       [ "TEXCOORD", "namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5ae406d3f48e0ec122e180637b66787651", null ]
     ] ],
-    [ "Camera_Movement", "namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1d", [
-      [ "FORWARD", "namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da50c2fc57053018385350b70d55712937", null ],
-      [ "BACKWARD", "namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da82dcadb1fd643a52bb803bd046a25854", null ],
-      [ "LEFT", "namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da7fa23dd7112c7a118528d60a04674f77", null ],
-      [ "RIGHT", "namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1dafc42e2051bd9f9d5f64d34b04719f8c9", null ]
+    [ "CameraMovement", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8", [
+      [ "FORWARD", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8abfec72bb37910c61f36b6c29a1f7ec31", null ],
+      [ "BACKWARD", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a6377b4908ae38f9a57fe9120cf179eb1", null ],
+      [ "LEFT", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a684d325a7303f52e64011467ff5c5758", null ],
+      [ "RIGHT", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a21507b40c80068eda19865706fdc2403", null ],
+      [ "UP", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8afbaedde498cdead4f2780217646e9ba1", null ],
+      [ "DOWN", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8ac4e0e4e3118472beeb2ae75827450f1f", null ]
     ] ],
     [ "EngineMode", "namespacetaixu.html#a17b869e67f78bb3b10088a8e5c1ec25b", [
       [ "EDITOR", "namespacetaixu.html#a17b869e67f78bb3b10088a8e5c1ec25ba4698850447aa09571776addcb6a2911b", null ],
@@ -119,10 +121,5 @@ var namespacetaixu =
     [ "INVALID_GUID", "namespacetaixu.html#ae915e42a97457bba37098bd5d36c633b", null ],
     [ "OPENGL_MAJOR_VERSION", "namespacetaixu.html#a7615db81481c93028421bd815f850f7a", null ],
     [ "OPENGL_MINOR_VERSION", "namespacetaixu.html#a4c72cc973baec6d45f9f8b54179d7522", null ],
-    [ "OPENGL_VERSION", "namespacetaixu.html#ad3ad62ac4ccabe271da3009193208193", null ],
-    [ "PITCH", "namespacetaixu.html#a7a8d641662fc344da5ee7f4617890a88", null ],
-    [ "SENSITIVITY", "namespacetaixu.html#a69410f93a2a5120cbc309fc4159c6ff5", null ],
-    [ "SPEED", "namespacetaixu.html#adf7340257ca28c42fcb27e13b6b05b1d", null ],
-    [ "YAW", "namespacetaixu.html#a8ccf3d88a9eb0705b6554df8ca676eb2", null ],
-    [ "ZOOM", "namespacetaixu.html#a61f94a8962e0d8de24f8f245c50b8996", null ]
+    [ "OPENGL_VERSION", "namespacetaixu.html#ad3ad62ac4ccabe271da3009193208193", null ]
 ];

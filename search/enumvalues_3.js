@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['forward_892',['FORWARD',['../namespacetaixu.html#a0acd751b16c6daf9d8f69707c889db1da50c2fc57053018385350b70d55712937',1,'taixu']]],
-  ['fragment_893',['FRAGMENT',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3adbb27117159e4b13c34d9ec1832f3208',1,'taixu']]]
+  ['editor_888',['EDITOR',['../namespacetaixu.html#a17b869e67f78bb3b10088a8e5c1ec25ba4698850447aa09571776addcb6a2911b',1,'taixu']]],
+  ['editormode_889',['EDITORMODE',['../namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8aa09dcc66e46d387b904e5b665cf997c5f',1,'taixu::editor']]]
 ];

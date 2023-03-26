@@ -1,8 +1,6 @@
 var dir_793f305715bfd7d4f2a17b8a173f6235 =
 [
     [ "buffer_layout.hpp", "buffer__layout_8hpp.html", "buffer__layout_8hpp" ],
-    [ "camera.cpp", "camera_8cpp.html", null ],
-    [ "camera.hpp", "camera_8hpp.html", "camera_8hpp" ],
     [ "element_buffer.hpp", "element__buffer_8hpp.html", [
       [ "IElementBuffer", "classtaixu_1_1IElementBuffer.html", "classtaixu_1_1IElementBuffer" ]
     ] ],
@@ -15,6 +13,8 @@ var dir_793f305715bfd7d4f2a17b8a173f6235 =
     [ "model.hpp", "model_8hpp.html", [
       [ "Model_Data", "classtaixu_1_1Model__Data.html", "classtaixu_1_1Model__Data" ]
     ] ],
+    [ "perspective_camera.cpp", "perspective__camera_8cpp.html", null ],
+    [ "perspective_camera.hpp", "perspective__camera_8hpp.html", "perspective__camera_8hpp" ],
     [ "render_api.hpp", "render__api_8hpp.html", "render__api_8hpp" ],
     [ "shader.hpp", "shader_8hpp.html", "shader_8hpp" ],
     [ "texture.hpp", "texture_8hpp.html", [
