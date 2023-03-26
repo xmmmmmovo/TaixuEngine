@@ -1,6 +1,6 @@
 <map id="taixu::noncopyable" name="taixu::noncopyable">
 <area shape="rect" id="node1" title="inherit this class in private method" alt="" coords="875,5,1022,156"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1IVertexArray.html" title=" " alt="" coords="627,734,860,885"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1IVertexArray.html" title=" " alt="" coords="627,741,860,892"/>
 <area shape="rect" id="node4" href="$classtaixu_1_1IElementBuffer.html" title=" " alt="" coords="27,286,187,393"/>
 <area shape="rect" id="node6" href="$classtaixu_1_1IJsonable.html" title=" " alt="" coords="353,293,513,385"/>
 <area shape="rect" id="node7" href="$classtaixu_1_1IObserver.html" title=" " alt="" coords="537,301,664,378"/>
@@ -10,21 +10,21 @@
 <area shape="rect" id="node13" href="$classtaixu_1_1ITexture.html" title=" " alt="" coords="1265,264,1395,415"/>
 <area shape="rect" id="node15" href="$classtaixu_1_1IVertexArray.html" title=" " alt="" coords="740,271,909,407"/>
 <area shape="rect" id="node16" href="$classtaixu_1_1IVertexBuffer.html" title=" " alt="" coords="1420,271,1568,407"/>
-<area shape="rect" id="node18" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="1631,286,1749,393"/>
+<area shape="rect" id="node18" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="1629,279,1756,400"/>
 <area shape="rect" id="node20" href="$classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="2601,301,2803,378"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1OGLVertexArray.html" title=" " alt="" coords="660,1117,827,1297"/>
-<area shape="rect" id="node5" href="$classtaixu_1_1OGLElementBuffer.html" title=" " alt="" coords="5,712,188,907"/>
-<area shape="rect" id="node9" href="$classtaixu_1_1OGLShader.html" title=" " alt="" coords="212,756,347,863"/>
-<area shape="rect" id="node11" href="$classtaixu_1_1OGLShaderProgram.html" title=" " alt="" coords="1032,668,1223,951"/>
-<area shape="rect" id="node14" href="$classtaixu_1_1OGLTexture.html" title="OpenGL texture." alt="" coords="1247,705,1384,914"/>
-<area shape="rect" id="node17" href="$classtaixu_1_1OGLVertexBuffer.html" title=" " alt="" coords="1409,683,1579,936"/>
-<area shape="rect" id="node19" href="$classtaixu_1_1editor_1_1MainWindow.html" title=" " alt="" coords="1603,551,1854,1068"/>
-<area shape="rect" id="node21" href="$classtaixu_1_1editor_1_1ConsoleComponent.html" title=" " alt="" coords="1879,771,2115,848"/>
-<area shape="rect" id="node22" href="$classtaixu_1_1editor_1_1DetailComponent.html" title=" " alt="" coords="2139,771,2361,848"/>
-<area shape="rect" id="node23" href="$classtaixu_1_1editor_1_1FileComponent.html" title=" " alt="" coords="2385,741,2592,877"/>
-<area shape="rect" id="node24" href="$classtaixu_1_1editor_1_1HierarchyComponent.html" title=" " alt="" coords="2616,763,2788,855"/>
-<area shape="rect" id="node25" href="$classtaixu_1_1editor_1_1MenuComponent.html" title="菜单栏组件" alt="" coords="2812,727,3032,892"/>
-<area shape="rect" id="node26" href="$classtaixu_1_1editor_1_1RenderComponent.html" title=" " alt="" coords="3056,756,3287,863"/>
-<area shape="rect" id="node27" href="$classtaixu_1_1editor_1_1StatusBarComponent.html" title=" " alt="" coords="3311,763,3483,855"/>
-<area shape="rect" id="node28" href="$classtaixu_1_1editor_1_1ToolbarComponent.html" title=" " alt="" coords="3507,771,3737,848"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1OGLVertexArray.html" title=" " alt="" coords="660,1132,827,1312"/>
+<area shape="rect" id="node5" href="$classtaixu_1_1OGLElementBuffer.html" title=" " alt="" coords="5,719,188,914"/>
+<area shape="rect" id="node9" href="$classtaixu_1_1OGLShader.html" title=" " alt="" coords="212,763,347,870"/>
+<area shape="rect" id="node11" href="$classtaixu_1_1OGLShaderProgram.html" title=" " alt="" coords="1032,675,1223,958"/>
+<area shape="rect" id="node14" href="$classtaixu_1_1OGLTexture.html" title="OpenGL texture." alt="" coords="1247,712,1384,921"/>
+<area shape="rect" id="node17" href="$classtaixu_1_1OGLVertexBuffer.html" title=" " alt="" coords="1409,690,1579,943"/>
+<area shape="rect" id="node19" href="$classtaixu_1_1editor_1_1MainWindow.html" title=" " alt="" coords="1603,551,1854,1083"/>
+<area shape="rect" id="node21" href="$classtaixu_1_1editor_1_1ConsoleComponent.html" title=" " alt="" coords="1879,778,2115,855"/>
+<area shape="rect" id="node22" href="$classtaixu_1_1editor_1_1DetailComponent.html" title=" " alt="" coords="2139,778,2361,855"/>
+<area shape="rect" id="node23" href="$classtaixu_1_1editor_1_1FileComponent.html" title=" " alt="" coords="2385,749,2592,885"/>
+<area shape="rect" id="node24" href="$classtaixu_1_1editor_1_1HierarchyComponent.html" title=" " alt="" coords="2616,771,2788,863"/>
+<area shape="rect" id="node25" href="$classtaixu_1_1editor_1_1MenuComponent.html" title="菜单栏组件" alt="" coords="2812,734,3032,899"/>
+<area shape="rect" id="node26" href="$classtaixu_1_1editor_1_1RenderComponent.html" title=" " alt="" coords="3056,763,3287,870"/>
+<area shape="rect" id="node27" href="$classtaixu_1_1editor_1_1StatusBarComponent.html" title=" " alt="" coords="3311,771,3483,863"/>
+<area shape="rect" id="node28" href="$classtaixu_1_1editor_1_1ToolbarComponent.html" title=" " alt="" coords="3507,778,3737,855"/>
 </map>

@@ -1,13 +1,25 @@
 var classtaixu_1_1TX__GLFWwindow =
 [
+    [ "on_char_fn", "classtaixu_1_1TX__GLFWwindow.html#a3b684cafc7e265c0df6f8009a03a2241", null ],
+    [ "on_char_mods_fn", "classtaixu_1_1TX__GLFWwindow.html#a234a88e66b3a4340974d8752a2ef5b72", null ],
+    [ "on_cursor_enter_fn", "classtaixu_1_1TX__GLFWwindow.html#a8829e18cf6b99703254594361b281b14", null ],
+    [ "on_cursor_pos_fn", "classtaixu_1_1TX__GLFWwindow.html#ad1eec5e795af4d91dde4178ad7935d85", null ],
+    [ "on_drop_fn", "classtaixu_1_1TX__GLFWwindow.html#a593c333645089c689fd74c40895eb015", null ],
+    [ "on_key_fn", "classtaixu_1_1TX__GLFWwindow.html#a262e902af166efa20b0e88655981e9a2", null ],
+    [ "on_mouse_button_fn", "classtaixu_1_1TX__GLFWwindow.html#ac846cc7e45d9ae932cc8387c7334d9c9", null ],
+    [ "on_reset_fn", "classtaixu_1_1TX__GLFWwindow.html#ab2f865de020c00f9d8f51745c0cf4e23", null ],
+    [ "on_scroll_fn", "classtaixu_1_1TX__GLFWwindow.html#a876b9bb2fbc9a798ca44a297820e939d", null ],
+    [ "on_window_close_fn", "classtaixu_1_1TX__GLFWwindow.html#abb6d248609707470e2cd26fd76fb60fa", null ],
+    [ "on_window_size_fn", "classtaixu_1_1TX__GLFWwindow.html#a5453b874c277965c40ab70835bb5b3c1", null ],
     [ "TX_GLFWwindow", "classtaixu_1_1TX__GLFWwindow.html#a317777ca60081c15ed141d8d2d210be7", null ],
     [ "~TX_GLFWwindow", "classtaixu_1_1TX__GLFWwindow.html#a4b494b1f4408e05372891dd8f1336295", null ],
     [ "destroy", "classtaixu_1_1TX__GLFWwindow.html#a88764a9ac11a0536aff54662ce8a1162", null ],
     [ "getIsVsync", "classtaixu_1_1TX__GLFWwindow.html#a8dde1805bc52423dc32d9681482c8f54", null ],
     [ "init", "classtaixu_1_1TX__GLFWwindow.html#ac86f0bc3886c3de88c5f496346df0f4e", null ],
     [ "setIsVsync", "classtaixu_1_1TX__GLFWwindow.html#aaa17e010df6d2db6f91f94e867b013ae", null ],
+    [ "shouldClose", "classtaixu_1_1TX__GLFWwindow.html#af31e9b2a8d5799f4c984513b1aed6115", null ],
     [ "update", "classtaixu_1_1TX__GLFWwindow.html#a179083fec5beb9226dfb2e49836b67ae", null ],
     [ "initialized", "classtaixu_1_1TX__GLFWwindow.html#aa163c62956c4a1a94e035047839e30d6", null ],
-    [ "isVsync", "classtaixu_1_1TX__GLFWwindow.html#a2a7cd22a26b8d04d5cf6860ee4aa6816", null ],
+    [ "is_vsync", "classtaixu_1_1TX__GLFWwindow.html#a2c9d4d256e483239bd4ac2b4ee1a40a8", null ],
     [ "window", "classtaixu_1_1TX__GLFWwindow.html#a0e294af28c76161457f0e89443b2cbe5", null ]
 ];

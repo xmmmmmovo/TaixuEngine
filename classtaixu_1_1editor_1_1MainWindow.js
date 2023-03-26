@@ -11,6 +11,7 @@ var classtaixu_1_1editor_1_1MainWindow =
     [ "onSaveProjectCb", "classtaixu_1_1editor_1_1MainWindow.html#a7b22e19b258ba1f50cb3e24276f12226", null ],
     [ "preUpdate", "classtaixu_1_1editor_1_1MainWindow.html#a0dad7f245695b7f8261a7d7f7f6c1c4e", null ],
     [ "setEngineRuntime", "classtaixu_1_1editor_1_1MainWindow.html#ae72b2abdf6960cfbe277547758f41cff", null ],
+    [ "shouldClose", "classtaixu_1_1editor_1_1MainWindow.html#add249f60243ed380835c379cc1c9d1e7", null ],
     [ "update", "classtaixu_1_1editor_1_1MainWindow.html#a5406a9373a7766a833ff41f07b171cc9", null ],
     [ "context", "classtaixu_1_1editor_1_1MainWindow.html#ac2678ebed293c43417dafff244e35c48", null ],
     [ "detail_component", "classtaixu_1_1editor_1_1MainWindow.html#a9134a51db3c32d8614842eeabde2c49a", null ],
