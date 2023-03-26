@@ -4,6 +4,7 @@
 
 #include "main_window.hpp"
 
+#include "core/base/clock.hpp"
 #include "spdlog/spdlog.h"
 
 namespace taixu::editor {
@@ -66,12 +67,16 @@ void MainWindow::preUpdate() {
     imgui_surface.addWidget(
             TOOLBAR_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(tool_bar_component->update),
-            ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoScrollbar |
-                    ImGuiWindowFlags_NoScrollWithMouse);
+            ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize |
+                    ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar |
+                    ImGuiWindowFlags_NoNav);
 }
+
+static Clock clock;
 
 void MainWindow::update() {
     while (!glfwWindowShouldClose(window)) {
+        clock.update();
         preUpdate();
         imgui_surface.update();
         super::update();
@@ -87,6 +92,7 @@ void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
     this->engine_runtime = engine_runtime_ptr;
     this->renderer       = engine_runtime_ptr->getRenderer();
 }
+
 
 MainWindow::MainWindow(MainWindowContext const& context) : context(context) {
     this->menu_component->bindCallbacks(

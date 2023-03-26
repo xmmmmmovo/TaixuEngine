@@ -16,14 +16,15 @@
 // "" headers
 #include "engine.hpp"
 #include "gui/glfw_window.hpp"
-#include "main_window_context.hpp"
 #include "gui/imgui_surface.hpp"
+#include "main_window_context.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
 #include "ui/components/hierarchy_component.hpp"
 #include "ui/components/menu_component.hpp"
 #include "ui/components/render_component.hpp"
+#include "ui/components/statusbar_component.hpp"
 #include "ui/components/toolbar_component.hpp"
 
 
@@ -71,6 +72,8 @@ private:
             std::make_unique<HierarchyComponent>()};
     std::unique_ptr<ToolbarComponent> tool_bar_component{
             std::make_unique<ToolbarComponent>()};
+    std::unique_ptr<StatusBarComponent> status_bar_component{
+            std::make_unique<StatusBarComponent>()};
 
 
 public:
