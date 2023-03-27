@@ -69,12 +69,93 @@ protected:
         glfwSetWindowShouldClose(window, true);
     }
 
+    void onReset() {
+        for (auto const& func : on_reset_fns) { func(); }
+    }
+
     void onKey(int key, int scancode, int action, int mods) {
         for (auto const& func : on_key_fns) {
             func(key, scancode, action, mods);
         }
     }
 
+    void onChar(unsigned int codepoint) {
+        for (auto const& func : on_char_fns) { func(codepoint); }
+    }
+
+    void onCharMods(int mods, unsigned int codepoint) {
+        for (auto const& func : on_char_mods_fns) { func(mods, codepoint); }
+    }
+
+    void onMouseButton(int button, int action, int mods) {
+        for (auto const& func : on_mouse_button_fns) {
+            func(button, action, mods);
+        }
+    }
+
+    void onCursorPos(double xpos, double ypos) {
+        for (auto const& func : on_cursor_pos_fns) { func(xpos, ypos); }
+    }
+
+    void onCursorEnter(int entered) {
+        for (auto const& func : on_cursor_enter_fns) { func(entered); }
+    }
+
+    void onScroll(double xoffset, double yoffset) {
+        for (auto const& func : on_scroll_fns) { func(xoffset, yoffset); }
+    }
+
+    void onDrop(int count, const char** paths) {
+        for (auto const& func : on_drop_fns) { func(count, paths); }
+    }
+
+    void onWindowSize(int width, int height) {
+        for (auto const& func : on_window_size_fns) { func(width, height); }
+    }
+
+public:
+    void onWindowClose() {
+        for (auto const& func : on_window_close_fns) { func(); }
+    }
+
+    void registerOnResetFn(on_reset_fn const& fn) {
+        on_reset_fns.push_back(fn);
+    }
+
+    void registerOnKeyFn(on_key_fn const& fn) { on_key_fns.push_back(fn); }
+
+    void registerOnCharFn(on_char_fn const& fn) { on_char_fns.push_back(fn); }
+
+    void registerOnCharModsFn(on_char_mods_fn const& fn) {
+        on_char_mods_fns.push_back(fn);
+    }
+
+    void registerOnMouseButtonFn(on_mouse_button_fn const& fn) {
+        on_mouse_button_fns.push_back(fn);
+    }
+
+    void registerOnCursorPosFn(on_cursor_pos_fn const& fn) {
+        on_cursor_pos_fns.push_back(fn);
+    }
+
+    void registerOnCursorEnterFn(on_cursor_enter_fn const& fn) {
+        on_cursor_enter_fns.push_back(fn);
+    }
+
+    void registerOnScrollFn(on_scroll_fn const& fn) {
+        on_scroll_fns.push_back(fn);
+    }
+
+    void registerOnDropFn(on_drop_fn const& fn) { on_drop_fns.push_back(fn); }
+
+    void registerOnWindowSizeFn(on_window_size_fn const& fn) {
+        on_window_size_fns.push_back(fn);
+    }
+
+    void registerOnWindowCloseFn(on_window_close_fn const& fn) {
+        on_window_close_fns.push_back(fn);
+    }
+    
 public:
     GLFWwindow* _window{nullptr};
 
@@ -119,7 +200,6 @@ public:
         }
         glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         glfwMakeContextCurrent(_window);
-
 
         glfwSetWindowUserPointer(_window, this);
         glfwSetKeyCallback(_window, WindowContext::keyCallback);
