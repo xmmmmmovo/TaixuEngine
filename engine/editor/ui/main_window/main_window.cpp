@@ -87,7 +87,6 @@ void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
     this->renderer       = engine_runtime_ptr->getRenderer();
 }
 
-
 MainWindow::MainWindow(MainWindowContext const& context) : context(context) {
     this->menu_component->bindCallbacks(
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
@@ -101,6 +100,7 @@ void MainWindow::init_imgui_surface() {
     render_component->setRenderer(renderer);
 }
 
+// for callbacks
 void MainWindow::onNewProjectCb(std::string_view const& path) {}
 void MainWindow::onOpenProjectCb(std::string_view const& path) {
     this->engine_runtime->loadProject(path);

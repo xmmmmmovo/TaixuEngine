@@ -26,8 +26,6 @@ public:
      * @brief editor state
      */
     EditorState state{EditorState::IDLEMODE};
-
-
 };
 
 }// namespace taixu::editor

@@ -2,8 +2,8 @@
 // Created by xmmmmmovo on 2023/2/14.
 //
 
-#ifndef TAIXUENGINE_MENU_COMPONENT_HPP
-#define TAIXUENGINE_MENU_COMPONENT_HPP
+#ifndef ENGINE_EDITOR_UI_COMPONENTS_MENU_COMPONENT
+#define ENGINE_EDITOR_UI_COMPONENTS_MENU_COMPONENT
 
 #include <ImGuiFileDialog.h>
 #include <imgui.h>
@@ -12,8 +12,8 @@
 #include "application.hpp"
 #include "core/base/path.hpp"
 #include "core/utils/function_utils.hpp"
-#include "interface/ui_component.hpp"
 #include "platform/os/path.hpp"
+#include "ui/ui_component.hpp"
 
 namespace taixu::editor {
 
@@ -73,7 +73,7 @@ public:
                     DEBUG_PATH "/example_proj"
 #else
                     getRootPath().c_str()
-#endif
+#endif /* ENGINE_EDITOR_UI_COMPONENTS_MENU_COMPONENT */
                     ,
                     1, nullptr, ImGuiFileDialogFlags_Modal);
         }

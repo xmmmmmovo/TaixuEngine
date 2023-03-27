@@ -7,7 +7,7 @@
 
 #include <IconsFontAwesome6.h>
 
-#include "interface/ui_component.hpp"
+#include "ui/ui_component.hpp"
 
 namespace taixu::editor {
 

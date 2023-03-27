@@ -9,6 +9,8 @@
 #define INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(func) \
     [this](std::string_view const& str_view) { func(str_view); }
 
+#include <functional>
+
 namespace taixu {
 template<typename... Args>
 using callback = std::function<void(Args...)>;//callback function

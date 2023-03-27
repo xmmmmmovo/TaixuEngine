@@ -7,10 +7,16 @@
 
 // std stuff
 #include <algorithm>
+#include <array>
+#include <atomic>
 #include <cassert>
 #include <chrono>
 #include <climits>
+#include <cmath>
+#include <cstddef>
+#include <filesystem>
 #include <fstream>
+#include <functional>
 #include <iomanip>
 #include <iosfwd>
 #include <iostream>
@@ -18,12 +24,15 @@
 #include <list>
 #include <map>
 #include <memory>
+#include <optional>
 #include <set>
 #include <sstream>
 #include <string>
 #include <tuple>
 #include <type_traits>
+#include <unordered_map>
 #include <utility>
+#include <variant>
 #include <vector>
 
 // glm
@@ -37,5 +46,15 @@
 
 // glfw
 #include <GLFW/glfw3.h>
+
+// imgui
+#include <IconsFontAwesome6.h>
+#include <imgui.h>
+
+// stb
+#include <stb_image.h>
+
+// json
+#include <nlohmann/json.hpp>
 
 #endif//TAIXUENGINE_PCH_HPP

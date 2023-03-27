@@ -5,7 +5,7 @@
 #ifndef TAIXUENGINE_STATUSBAR_COMPONENT_HPP
 #define TAIXUENGINE_STATUSBAR_COMPONENT_HPP
 
-#include "interface/ui_component.hpp"
+#include "ui/ui_component.hpp"
 
 namespace taixu::editor {
 

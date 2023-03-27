@@ -12,7 +12,7 @@
 #include <vector>
 
 #include "hierarchy_component.hpp"
-#include "interface/ui_component.hpp"
+#include "ui/ui_component.hpp"
 
 namespace taixu::editor {
 class FileComponent : public IUIComponent {
