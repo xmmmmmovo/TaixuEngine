@@ -3,7 +3,6 @@ var annotated_dup =
     [ "taixu", "namespacetaixu.html", [
       [ "editor", "namespacetaixu_1_1editor.html", [
         [ "Application", "classtaixu_1_1editor_1_1Application.html", "classtaixu_1_1editor_1_1Application" ],
-        [ "IUIComponent", "classtaixu_1_1editor_1_1IUIComponent.html", "classtaixu_1_1editor_1_1IUIComponent" ],
         [ "ConsoleComponent", "classtaixu_1_1editor_1_1ConsoleComponent.html", "classtaixu_1_1editor_1_1ConsoleComponent" ],
         [ "DetailComponent", "classtaixu_1_1editor_1_1DetailComponent.html", "classtaixu_1_1editor_1_1DetailComponent" ],
         [ "FileComponent", "classtaixu_1_1editor_1_1FileComponent.html", "classtaixu_1_1editor_1_1FileComponent" ],
@@ -13,8 +12,8 @@ var annotated_dup =
         [ "StatusBarComponent", "classtaixu_1_1editor_1_1StatusBarComponent.html", "classtaixu_1_1editor_1_1StatusBarComponent" ],
         [ "ToolbarComponent", "classtaixu_1_1editor_1_1ToolbarComponent.html", "classtaixu_1_1editor_1_1ToolbarComponent" ],
         [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html", "classtaixu_1_1editor_1_1MainWindow" ],
-        [ "MainWindowContext", "classtaixu_1_1editor_1_1MainWindowContext.html", "classtaixu_1_1editor_1_1MainWindowContext" ],
         [ "EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", "structtaixu_1_1editor_1_1EditorStyle" ],
+        [ "IUIComponent", "classtaixu_1_1editor_1_1IUIComponent.html", "classtaixu_1_1editor_1_1IUIComponent" ],
         [ "ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", null ]
       ] ],
       [ "Clock", "classtaixu_1_1Clock.html", "classtaixu_1_1Clock" ],
@@ -42,7 +41,7 @@ var annotated_dup =
       [ "Render_Context", "classtaixu_1_1Render__Context.html", "classtaixu_1_1Render__Context" ],
       [ "Renderer", "classtaixu_1_1Renderer.html", "classtaixu_1_1Renderer" ],
       [ "IWindow", "classtaixu_1_1IWindow.html", "classtaixu_1_1IWindow" ],
-      [ "IWindowContext", "classtaixu_1_1IWindowContext.html", "classtaixu_1_1IWindowContext" ],
+      [ "WindowContext", "classtaixu_1_1WindowContext.html", "classtaixu_1_1WindowContext" ],
       [ "OGLContext", "classtaixu_1_1OGLContext.html", "classtaixu_1_1OGLContext" ],
       [ "OGLElementBuffer", "classtaixu_1_1OGLElementBuffer.html", "classtaixu_1_1OGLElementBuffer" ],
       [ "OGLFrameBuffer", "classtaixu_1_1OGLFrameBuffer.html", "classtaixu_1_1OGLFrameBuffer" ],

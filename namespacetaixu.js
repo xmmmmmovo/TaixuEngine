@@ -1,16 +1,5 @@
 var namespacetaixu =
 [
-    [ "cg", "namespacetaixu_1_1cg.html", [
-      [ "RenderAPI", "namespacetaixu_1_1cg.html#a3cff6fb3c036cdea3412e2b8fdda5ad4", [
-        [ "NONE", "namespacetaixu_1_1cg.html#a3cff6fb3c036cdea3412e2b8fdda5ad4ab50339a10e1de285ac99d4c3990b8693", null ],
-        [ "OPENGL", "namespacetaixu_1_1cg.html#a3cff6fb3c036cdea3412e2b8fdda5ad4ac0ad831a34c4633bee584066cfcc5040", null ]
-      ] ],
-      [ "ShaderAPI", "namespacetaixu_1_1cg.html#a35d86f063729f758c858473aed0d951b", [
-        [ "NONE", "namespacetaixu_1_1cg.html#a35d86f063729f758c858473aed0d951bab50339a10e1de285ac99d4c3990b8693", null ],
-        [ "GLSL", "namespacetaixu_1_1cg.html#a35d86f063729f758c858473aed0d951ba2a2c1392bcbaececf702b611e7d7df25", null ],
-        [ "HLSL", "namespacetaixu_1_1cg.html#a35d86f063729f758c858473aed0d951bacdf45fdd8960ab47314fb33febc95d9f", null ]
-      ] ]
-    ] ],
     [ "editor", "namespacetaixu_1_1editor.html", "namespacetaixu_1_1editor" ],
     [ "Clock", "classtaixu_1_1Clock.html", "classtaixu_1_1Clock" ],
     [ "noncopyable", "classtaixu_1_1noncopyable.html", "classtaixu_1_1noncopyable" ],
@@ -37,7 +26,7 @@ var namespacetaixu =
     [ "Render_Context", "classtaixu_1_1Render__Context.html", "classtaixu_1_1Render__Context" ],
     [ "Renderer", "classtaixu_1_1Renderer.html", "classtaixu_1_1Renderer" ],
     [ "IWindow", "classtaixu_1_1IWindow.html", "classtaixu_1_1IWindow" ],
-    [ "IWindowContext", "classtaixu_1_1IWindowContext.html", "classtaixu_1_1IWindowContext" ],
+    [ "WindowContext", "classtaixu_1_1WindowContext.html", "classtaixu_1_1WindowContext" ],
     [ "OGLContext", "classtaixu_1_1OGLContext.html", "classtaixu_1_1OGLContext" ],
     [ "OGLElementBuffer", "classtaixu_1_1OGLElementBuffer.html", "classtaixu_1_1OGLElementBuffer" ],
     [ "OGLFrameBuffer", "classtaixu_1_1OGLFrameBuffer.html", "classtaixu_1_1OGLFrameBuffer" ],
@@ -72,9 +61,20 @@ var namespacetaixu =
       [ "UP", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8afbaedde498cdead4f2780217646e9ba1", null ],
       [ "DOWN", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8ac4e0e4e3118472beeb2ae75827450f1f", null ]
     ] ],
-    [ "EngineMode", "namespacetaixu.html#a17b869e67f78bb3b10088a8e5c1ec25b", [
-      [ "EDITOR", "namespacetaixu.html#a17b869e67f78bb3b10088a8e5c1ec25ba4698850447aa09571776addcb6a2911b", null ],
-      [ "GAME", "namespacetaixu.html#a17b869e67f78bb3b10088a8e5c1ec25ba4504e1ed59cd9732b8a844e5424e6f13", null ]
+    [ "EngineState", "namespacetaixu.html#a0019e688317bd524b76edd73df8a4507", [
+      [ "EDITORMODE", "namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b", null ],
+      [ "PREVIEWMODE", "namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ac62e3d94e99fe5f4fd32c92a61679539", null ],
+      [ "IDLEMODE", "namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ae5cd59ce2a24c6954a3c67dfd4a6c2ed", null ],
+      [ "GAMEMODE", "namespacetaixu.html#a0019e688317bd524b76edd73df8a4507aa47c7e18b85dd065d02f75743d85947f", null ]
+    ] ],
+    [ "RenderAPI", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302", [
+      [ "NONE", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "OPENGL", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302ac0ad831a34c4633bee584066cfcc5040", null ]
+    ] ],
+    [ "ShaderAPI", "namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8", [
+      [ "NONE", "namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "GLSL", "namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8a2a2c1392bcbaececf702b611e7d7df25", null ],
+      [ "HLSL", "namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8acdf45fdd8960ab47314fb33febc95d9f", null ]
     ] ],
     [ "ShaderTypeEnum", "namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3", [
       [ "VERTEX", "namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a4c4c8525ed098cb4d0e1926439f4be9a", null ],
@@ -94,7 +94,6 @@ var namespacetaixu =
     [ "copyFile", "namespacetaixu.html#a320a04c3186936940e4642993f2b0832", null ],
     [ "createDirectory", "namespacetaixu.html#ab9f92535b5f34eb0b1657f1f2f81184a", null ],
     [ "createFile", "namespacetaixu.html#aabb3f87aad2d9d69f17e00dfb5d4f3a2", null ],
-    [ "destroyWindow", "namespacetaixu.html#a42ea7f15e0b3c9946aa56512e82b20f3", null ],
     [ "dumpJsonFile", "namespacetaixu.html#aba1e7e691591cbdce96817b46b67f908", null ],
     [ "dumpJsonString", "namespacetaixu.html#a5349f140eb4c79dfc226e770f1bd141a", null ],
     [ "fromRelativePath", "namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194", null ],
@@ -109,18 +108,16 @@ var namespacetaixu =
     [ "getRootPath", "namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793", null ],
     [ "hash_combine", "namespacetaixu.html#a79e52b8516b7cf547f949ef72d6c3ad3", null ],
     [ "hash_combine", "namespacetaixu.html#a285c0ff61bfb0bcdf4d2cc4453376d95", null ],
-    [ "initWindow", "namespacetaixu.html#a9dfcfba402d0242c4e37a94a5ff56839", null ],
+    [ "loadAPI", "namespacetaixu.html#a89647400212a20d45e88e211d5339abd", null ],
     [ "loadJsonFile", "namespacetaixu.html#a9ec62596cd7787865c89c0f695466f98", null ],
     [ "loadJsonString", "namespacetaixu.html#a8c1ac98086e37a29b5d2e001e2469272", null ],
     [ "mapImageToGLReadType", "namespacetaixu.html#a50b059f197588dff329e7188f511d10e", null ],
     [ "mapToShaderTypeGLenum", "namespacetaixu.html#acaed3ec10be035d59d94c20d504c9aae", null ],
     [ "moveFileOrDirectory", "namespacetaixu.html#a130b718d162392d7986e11dedc51cc90", null ],
     [ "openFile", "namespacetaixu.html#ab8a6f66c3e9aa5cf6a63b3cddef321b7", null ],
+    [ "openglAPILoader", "namespacetaixu.html#a65841ea64ad9fd1e45ec572bcf0a5d5c", null ],
     [ "removeDirectory", "namespacetaixu.html#abba4a0a807dc37ab9ad001b232b318c7", null ],
     [ "removeFile", "namespacetaixu.html#a8a2c508e2eafff58badad6e1497c6834", null ],
-    [ "shouldClose", "namespacetaixu.html#ae44ac7445d84fba6e9ae1934bc22a565", null ],
-    [ "updateVsync", "namespacetaixu.html#ab044ecb30cb64425930a0021528740f1", null ],
-    [ "updateWindow", "namespacetaixu.html#a8b32c0aabede73696c2d424b97a3d745", null ],
     [ "delta_time", "namespacetaixu.html#a60a7e92441438be0646e42748456ea2f", null ],
     [ "INVALID_GUID", "namespacetaixu.html#ae915e42a97457bba37098bd5d36c633b", null ],
     [ "OPENGL_MAJOR_VERSION", "namespacetaixu.html#a7615db81481c93028421bd815f850f7a", null ],

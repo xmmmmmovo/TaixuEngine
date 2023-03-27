@@ -1,5 +1,5 @@
-<map id="engine/editor/interface/ui_component.hpp" name="engine/editor/interface/ui_component.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="559,5,729,47"/>
+<map id="engine/editor/ui/ui_component.hpp" name="engine/editor/ui/ui_component.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="574,5,714,47"/>
 <area shape="rect" id="node2" href="$console__component_8hpp.html" title=" " alt="" coords="5,184,213,225"/>
 <area shape="rect" id="node6" href="$detail__component_8hpp.html" title=" " alt="" coords="237,184,445,225"/>
 <area shape="rect" id="node7" href="$file__component_8hpp.html" title=" " alt="" coords="469,184,677,225"/>

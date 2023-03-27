@@ -1,8 +1,10 @@
 var macro_8hpp =
 [
-    [ "EngineMode", "macro_8hpp.html#a17b869e67f78bb3b10088a8e5c1ec25b", [
-      [ "EDITOR", "macro_8hpp.html#a17b869e67f78bb3b10088a8e5c1ec25ba4698850447aa09571776addcb6a2911b", null ],
-      [ "GAME", "macro_8hpp.html#a17b869e67f78bb3b10088a8e5c1ec25ba4504e1ed59cd9732b8a844e5424e6f13", null ]
+    [ "EngineState", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507", [
+      [ "EDITORMODE", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b", null ],
+      [ "PREVIEWMODE", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507ac62e3d94e99fe5f4fd32c92a61679539", null ],
+      [ "IDLEMODE", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507ae5cd59ce2a24c6954a3c67dfd4a6c2ed", null ],
+      [ "GAMEMODE", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507aa47c7e18b85dd065d02f75743d85947f", null ]
     ] ],
     [ "Status", "macro_8hpp.html#aa70335f91ba6491f07f3f620fa030857", [
       [ "OK", "macro_8hpp.html#aa70335f91ba6491f07f3f620fa030857ae0aa021e21dddbd6d8cecec71e9cf564", null ],

@@ -1,12 +1,10 @@
 <map id="engine/runtime/gui/window_context.hpp" name="engine/runtime/gui/window_context.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="221,5,381,47"/>
-<area shape="rect" id="node2" href="$main__window__context_8hpp.html" title=" " alt="" coords="5,184,263,225"/>
-<area shape="rect" id="node6" href="$glfw__window_8hpp.html" title=" " alt="" coords="228,95,373,136"/>
-<area shape="rect" id="node7" href="$window_8hpp.html" title=" " alt="" coords="339,184,484,225"/>
-<area shape="rect" id="node3" href="$main__window_8hpp.html" title=" " alt="" coords="215,437,415,479"/>
-<area shape="rect" id="node4" href="$application_8cpp.html" title=" " alt="" coords="465,534,675,561"/>
-<area shape="rect" id="node5" href="$main__window_8cpp.html" title=" " alt="" coords="216,527,415,568"/>
-<area shape="rect" id="node8" href="$application_8hpp.html" title=" " alt="" coords="407,273,619,300"/>
-<area shape="rect" id="node9" href="$main_8cpp.html" title=" " alt="" coords="621,355,793,382"/>
-<area shape="rect" id="node10" href="$menu__component_8hpp.html" title=" " alt="" coords="338,348,546,389"/>
+<area shape="rect" id="node1" title=" " alt="" coords="100,5,260,47"/>
+<area shape="rect" id="node2" href="$window_8hpp.html" title=" " alt="" coords="107,95,253,136"/>
+<area shape="rect" id="node3" href="$application_8hpp.html" title=" " alt="" coords="74,184,286,211"/>
+<area shape="rect" id="node4" href="$application_8cpp.html" title=" " alt="" coords="5,445,216,471"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="94,266,266,293"/>
+<area shape="rect" id="node6" href="$menu__component_8hpp.html" title=" " alt="" coords="291,259,499,300"/>
+<area shape="rect" id="node7" href="$main__window_8hpp.html" title=" " alt="" coords="267,348,467,389"/>
+<area shape="rect" id="node8" href="$main__window_8cpp.html" title=" " alt="" coords="267,437,466,479"/>
 </map>

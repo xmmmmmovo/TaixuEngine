@@ -94,21 +94,21 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="macro_8hpp__dep__incl.png" border="0" usemap="#aengine_2runtime_2core_2base_2macro_8hppdep" alt=""/></div>
 <map name="aengine_2runtime_2core_2base_2macro_8hppdep" id="aengine_2runtime_2core_2base_2macro_8hppdep">
-<area shape="rect" title=" " alt="" coords="443,5,596,47"/>
-<area shape="rect" href="engine_8hpp.html" title=" " alt="" coords="537,191,734,218"/>
-<area shape="rect" href="glfw__window_8hpp.html" title=" " alt="" coords="225,95,371,136"/>
-<area shape="rect" href="imgui__surface_8cpp.html" title=" " alt="" coords="447,95,592,136"/>
-<area shape="rect" href="OGLShader_8cpp.html" title=" " alt="" coords="617,95,798,136"/>
-<area shape="rect" href="project__manager_8hpp.html" title=" " alt="" coords="822,95,1003,136"/>
-<area shape="rect" href="main__window_8hpp.html" title=" " alt="" coords="303,437,503,479"/>
-<area shape="rect" href="engine_8cpp.html" title=" " alt="" coords="563,273,759,300"/>
-<area shape="rect" href="application_8cpp.html" title=" " alt="" coords="15,534,226,561"/>
-<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="304,527,503,568"/>
-<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="225,184,371,225"/>
-<area shape="rect" href="application_8hpp.html" title=" " alt="" coords="147,273,359,300"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="32,355,204,382"/>
-<area shape="rect" href="menu__component_8hpp.html" title=" " alt="" coords="229,348,437,389"/>
-<area shape="rect" href="project__manager_8cpp.html" title=" " alt="" coords="822,184,1003,225"/>
+<area shape="rect" title=" " alt="" coords="386,5,539,47"/>
+<area shape="rect" href="engine_8hpp.html" title=" " alt="" coords="401,191,599,218"/>
+<area shape="rect" href="imgui__surface_8cpp.html" title=" " alt="" coords="279,95,425,136"/>
+<area shape="rect" href="window__context_8hpp.html" title=" " alt="" coords="95,95,255,136"/>
+<area shape="rect" href="OGLShader_8cpp.html" title=" " alt="" coords="500,95,681,136"/>
+<area shape="rect" href="project__manager_8hpp.html" title=" " alt="" coords="705,95,887,136"/>
+<area shape="rect" href="main__window_8hpp.html" title=" " alt="" coords="293,437,493,479"/>
+<area shape="rect" href="engine_8cpp.html" title=" " alt="" coords="305,273,501,300"/>
+<area shape="rect" href="application_8cpp.html" title=" " alt="" coords="5,534,216,561"/>
+<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="294,527,493,568"/>
+<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="102,184,247,225"/>
+<area shape="rect" href="application_8hpp.html" title=" " alt="" coords="69,273,281,300"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="93,355,265,382"/>
+<area shape="rect" href="menu__component_8hpp.html" title=" " alt="" coords="289,348,497,389"/>
+<area shape="rect" href="project__manager_8cpp.html" title=" " alt="" coords="705,184,887,225"/>
 </map>
 </div>
 </div>
@@ -127,10 +127,13 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857a6aca231caf4349e8c720a0e8afe9e273">taixu::NO_OPEN_PROJECT</a>
  }</td></tr>
 <tr class="separator:aa70335f91ba6491f07f3f620fa030857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17b869e67f78bb3b10088a8e5c1ec25b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a17b869e67f78bb3b10088a8e5c1ec25b">taixu::EngineMode</a> { <a class="el" href="namespacetaixu.html#a17b869e67f78bb3b10088a8e5c1ec25ba4698850447aa09571776addcb6a2911b">taixu::EDITOR</a>
-, <a class="el" href="namespacetaixu.html#a17b869e67f78bb3b10088a8e5c1ec25ba4504e1ed59cd9732b8a844e5424e6f13">taixu::GAME</a>
+<tr class="memitem:a0019e688317bd524b76edd73df8a4507"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507">taixu::EngineState</a> { <a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b">taixu::EDITORMODE</a>
+, <a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ac62e3d94e99fe5f4fd32c92a61679539">taixu::PREVIEWMODE</a>
+, <a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ae5cd59ce2a24c6954a3c67dfd4a6c2ed">taixu::IDLEMODE</a>
+, <a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507aa47c7e18b85dd065d02f75743d85947f">taixu::GAMEMODE</a>
  }</td></tr>
-<tr class="separator:a17b869e67f78bb3b10088a8e5c1ec25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a0019e688317bd524b76edd73df8a4507"><td class="mdescLeft">&#160;</td><td class="mdescRight">editor status enum  <a href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507">More...</a><br /></td></tr>
+<tr class="separator:a0019e688317bd524b76edd73df8a4507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>

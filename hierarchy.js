@@ -11,9 +11,6 @@ var hierarchy =
       [ "taixu::OGLFrameBuffer", "classtaixu_1_1OGLFrameBuffer.html", null ]
     ] ],
     [ "taixu::editor::ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", null ],
-    [ "taixu::IWindowContext", "classtaixu_1_1IWindowContext.html", [
-      [ "taixu::editor::MainWindowContext", "classtaixu_1_1editor_1_1MainWindowContext.html", null ]
-    ] ],
     [ "std::logic_error", null, [
       [ "taixu::NotImplementedException", "classtaixu_1_1NotImplementedException.html", null ]
     ] ],
@@ -71,5 +68,6 @@ var hierarchy =
     [ "taixu::Render_Data", "classtaixu_1_1Render__Data.html", null ],
     [ "taixu::Renderer", "classtaixu_1_1Renderer.html", null ],
     [ "taixu::Texture", "structtaixu_1_1Texture.html", null ],
-    [ "taixu::Vertex", "structtaixu_1_1Vertex.html", null ]
+    [ "taixu::Vertex", "structtaixu_1_1Vertex.html", null ],
+    [ "taixu::WindowContext", "classtaixu_1_1WindowContext.html", null ]
 ];

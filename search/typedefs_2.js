@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['on_5fchar_5ffn_900',['on_char_fn',['../classtaixu_1_1IWindowContext.html#ad1f91e128f568224af75d1fef54e07a7',1,'taixu::IWindowContext']]],
-  ['on_5fchar_5fmods_5ffn_901',['on_char_mods_fn',['../classtaixu_1_1IWindowContext.html#a677fda54f8f79364ee68a663b5070e8c',1,'taixu::IWindowContext']]],
-  ['on_5fcursor_5fenter_5ffn_902',['on_cursor_enter_fn',['../classtaixu_1_1IWindowContext.html#a9a2220c8a8b56764f54fed7206c9d411',1,'taixu::IWindowContext']]],
-  ['on_5fcursor_5fpos_5ffn_903',['on_cursor_pos_fn',['../classtaixu_1_1IWindowContext.html#a9add280231dfd854bd0412006e63b0ea',1,'taixu::IWindowContext']]],
-  ['on_5fdrop_5ffn_904',['on_drop_fn',['../classtaixu_1_1IWindowContext.html#a529d7e4d3915b0c111bb919d060e513b',1,'taixu::IWindowContext']]],
-  ['on_5fkey_5ffn_905',['on_key_fn',['../classtaixu_1_1IWindowContext.html#acc71d3a86be8922d2d526082323bc7c8',1,'taixu::IWindowContext']]],
-  ['on_5fmouse_5fbutton_5ffn_906',['on_mouse_button_fn',['../classtaixu_1_1IWindowContext.html#a09ca2d49a9808cd52d7243e108a60147',1,'taixu::IWindowContext']]],
-  ['on_5freset_5ffn_907',['on_reset_fn',['../classtaixu_1_1IWindowContext.html#a4f12faf26ec06999a085e72ee191f7aa',1,'taixu::IWindowContext']]],
-  ['on_5fscroll_5ffn_908',['on_scroll_fn',['../classtaixu_1_1IWindowContext.html#a7f78b59a497f06740d6b73a10bf555c8',1,'taixu::IWindowContext']]],
-  ['on_5fwindow_5fclose_5ffn_909',['on_window_close_fn',['../classtaixu_1_1IWindowContext.html#aac06bd6f5a49937c11eb11a78842ffd7',1,'taixu::IWindowContext']]],
-  ['on_5fwindow_5fsize_5ffn_910',['on_window_size_fn',['../classtaixu_1_1IWindowContext.html#a22a6e915b2aebbebde67f64a445cc500',1,'taixu::IWindowContext']]]
+  ['on_5fchar_5ffn_927',['on_char_fn',['../classtaixu_1_1WindowContext.html#a797de7c3042d2b355449cf8314f848cf',1,'taixu::WindowContext']]],
+  ['on_5fchar_5fmods_5ffn_928',['on_char_mods_fn',['../classtaixu_1_1WindowContext.html#af3130d448f5b4ec654b59d0f4680f97d',1,'taixu::WindowContext']]],
+  ['on_5fcursor_5fenter_5ffn_929',['on_cursor_enter_fn',['../classtaixu_1_1WindowContext.html#a06b78d61246934a6462e4ef45f6ef7cf',1,'taixu::WindowContext']]],
+  ['on_5fcursor_5fpos_5ffn_930',['on_cursor_pos_fn',['../classtaixu_1_1WindowContext.html#a3893341737eb6be142f65959dd76469d',1,'taixu::WindowContext']]],
+  ['on_5fdrop_5ffn_931',['on_drop_fn',['../classtaixu_1_1WindowContext.html#a4b7f2ef7083a54ff7af46a3694548783',1,'taixu::WindowContext']]],
+  ['on_5fkey_5ffn_932',['on_key_fn',['../classtaixu_1_1WindowContext.html#ac9419959e312ec3a0dd40b03d0c601f5',1,'taixu::WindowContext']]],
+  ['on_5fmouse_5fbutton_5ffn_933',['on_mouse_button_fn',['../classtaixu_1_1WindowContext.html#adea8c9f1205c0349f6a704e6956294c0',1,'taixu::WindowContext']]],
+  ['on_5freset_5ffn_934',['on_reset_fn',['../classtaixu_1_1WindowContext.html#a91a3e68015558273475c660c013c42a6',1,'taixu::WindowContext']]],
+  ['on_5fscroll_5ffn_935',['on_scroll_fn',['../classtaixu_1_1WindowContext.html#a978f28853b69d9d29803d4e7854b2140',1,'taixu::WindowContext']]],
+  ['on_5fwindow_5fclose_5ffn_936',['on_window_close_fn',['../classtaixu_1_1WindowContext.html#a9d1d1393ce3478228da8c58c122d8078',1,'taixu::WindowContext']]],
+  ['on_5fwindow_5fsize_5ffn_937',['on_window_size_fn',['../classtaixu_1_1WindowContext.html#ab0c7938d4e2257469b424179cb21b8fb',1,'taixu::WindowContext']]]
 ];
