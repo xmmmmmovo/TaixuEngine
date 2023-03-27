@@ -18,26 +18,24 @@ namespace taixu::editor {
  */
 class ImguiSurface {
 public:
-    ImguiSurface() = default;
+    static void init(GLFWwindow *window);
 
-    void init(GLFWwindow *window);
+    static void preUpdate();
 
-    void preUpdate();
+    static void update();
 
-    void update();
-
-    void destroy();
+    static void destroy();
 
     /**
      * @brief add widget to the surface
      * @param name the component name
-     * @param update update function, most from component->update();
+     * @param update update function, most from component->updateWindow();
      * @param flags window flags
      * @see https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags---Enumerations/
      * @see tests/benchmarks/function_transfer_benchmark.hpp
      * @param open open pointer, to judge whether window opened
      */
-    void addWidget(char const *name, std::function<void()> const &update,
+    static void addWidget(char const *name, std::function<void()> const &update,
                    ImGuiWindowFlags flags = 0, bool *open = nullptr);
 };
 

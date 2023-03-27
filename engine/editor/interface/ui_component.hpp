@@ -17,7 +17,7 @@ namespace taixu::editor {
 class IUIComponent : private noncopyable {
 public:
     /**
-     * @brief render update
+     * @brief render updateWindow
      */
     virtual void update()                      = 0;
 };

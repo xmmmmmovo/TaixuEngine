@@ -11,44 +11,67 @@
 #include <spdlog/spdlog.h>
 
 // "" headers
+#include "core/base/macro.hpp"
 #include "window.hpp"
+#include "window_context.hpp"
 
 namespace taixu {
 
-class TX_GLFWwindow {
-protected:
-    GLFWwindow *window{nullptr};
-    bool        initialized{false};
-    bool        is_vsync{false};
+inline GLFWwindow* initWindow(IWindowContext* context) {
+    GLFWwindow* window = nullptr;
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPENGL_MAJOR_VERSION);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, OPENGL_MINOR_VERSION);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+    glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
-private:
-    using on_reset_fn        = std::function<void()>;
-    using on_key_fn          = std::function<void(int, int, int, int)>;
-    using on_char_fn         = std::function<void(unsigned int)>;
-    using on_char_mods_fn    = std::function<void(int, unsigned int)>;
-    using on_mouse_button_fn = std::function<void(int, int, int)>;
-    using on_cursor_pos_fn   = std::function<void(double, double)>;
-    using on_cursor_enter_fn = std::function<void(int)>;
-    using on_scroll_fn       = std::function<void(double, double)>;
-    using on_drop_fn         = std::function<void(int, const char **)>;
-    using on_window_size_fn  = std::function<void(int, int)>;
-    using on_window_close_fn = std::function<void()>;
+    window = glfwCreateWindow(context->width, context->height,
+                              context->title.data(), nullptr, nullptr);
+    if (window == nullptr) {
+        spdlog::error("Failed to Create GLFW window!");
+        glfwTerminate();
+        exit(1);
+    }
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    glfwMakeContextCurrent(window);
 
-    static void errorCallBack(int error, const char *description);
+    // glad: load all OpenGL function pointers
+    // ---------------------------------------
+    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+        IWindowContext::errorCallBack(-1, "Failed to initialize GLAD");
+        exit(1);
+    }
+    glfwSetWindowUserPointer(window, context);
 
-public:
-    TX_GLFWwindow()  = default;
-    ~TX_GLFWwindow() = default;
+    // configure global opengl state
+    // -----------------------------
+    glEnable(GL_DEPTH_TEST);
 
-    void init(IWindowContext *context);
-    void update();
-    void destroy();
+    return window;
+}
 
-    [[nodiscard]] bool shouldClose() const;
+inline void updateWindow(GLFWwindow* window) { glfwSwapBuffers(window); }
+inline void destroyWindow(GLFWwindow* window) { glfwDestroyWindow(window); }
 
-    [[nodiscard]] bool getIsVsync() const;
-    void               setIsVsync(bool isVsync);
-};
+[[nodiscard]] inline bool shouldClose(GLFWwindow* window) {
+    if (glfwWindowShouldClose(window)) { return true; }
+    glfwPollEvents();
+    return false;
+}
+
+inline void updateVsync(IWindowContext const& context) {
+    if (context.is_vsync) {
+        // turn off if you are using complex shader
+        glfwSwapInterval(1);
+    } else {
+        glfwSwapInterval(0);
+    }
+}
+
 
 }// namespace taixu
 
