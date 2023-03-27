@@ -14,6 +14,10 @@ void Engine::init() {
 
     project_manager = std::make_unique<ProjectManager>();
     asset_manager   = std::make_shared<AssetManager>();
+    entity_component_system = std::make_shared<ECS>();
+
+    entity_component_system->initialize();
+    
 }
 
 void Engine::run() {}

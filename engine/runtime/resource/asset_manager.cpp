@@ -6,16 +6,6 @@
 
 namespace taixu {
 
-std::atomic<std::uint8_t> GUID_Generator::next_id{0};
-
-std::uint8_t GUID_Generator::generate_new_guid() 
-{
-    std::atomic<std::uint8_t> new_id = next_id.load();
-    next_id++;
-    if (next_id >= INVALID_GUID) { spdlog::debug("GUID is overflow"); }
-    return new_id;
-}
-
 void AssetManager::writeAsset() {
     if (asset_file_path != "INVALID")
     {
@@ -34,7 +24,7 @@ void AssetManager::writeAsset() {
     }
 }
 
-void AssetManager::loadAsset(std::string file_path, AssetType asset_type) {
+void AssetManager::loadAsset(const std::string &file_path, const AssetType &asset_type) {
     Asset new_asset;
     new_asset.guid                  = GUID_Generator::generate_new_guid();
     new_asset.name     = file_path.substr(file_path.find_last_of('/') + 1);

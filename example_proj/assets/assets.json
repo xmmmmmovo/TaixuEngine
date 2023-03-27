@@ -1,12 +1,12 @@
 {
   "assets": [
     {
-      "location": "model/cube.obj",
+      "location": "model\\cube.obj",
       "name": "cube.obj",
       "type": "Model"
     },
     {
-      "location": "model/sphere.obj",
+      "location": "model\\sphere.obj",
       "name": "sphere.obj",
       "type": "Model"
     }
