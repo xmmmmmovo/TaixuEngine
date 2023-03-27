@@ -1,12 +1,10 @@
 <map id="taixu::editor::MainWindow" name="taixu::editor::MainWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="301,691,551,1179"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1TX__GLFWwindow.html" title=" " alt="" coords="5,404,180,628"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="204,455,331,577"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="175,204,322,355"/>
-<area shape="rect" id="node5" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="355,411,497,621"/>
-<area shape="rect" id="node6" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="346,204,509,355"/>
-<area shape="rect" id="node7" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="327,5,528,141"/>
-<area shape="rect" id="node8" href="$classtaixu_1_1editor_1_1MainWindowContext.html" title=" " alt="" coords="521,470,715,562"/>
-<area shape="rect" id="node9" href="$classtaixu_1_1IWindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="533,226,703,333"/>
-<area shape="rect" id="node10" href="$classtaixu_1_1editor_1_1ImguiSurface.html" title="Imgui render surface." alt="" coords="739,441,934,591"/>
+<area shape="rect" id="node1" title=" " alt="" coords="132,793,383,1281"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="26,558,153,694"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="5,263,152,413"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="187,521,328,731"/>
+<area shape="rect" id="node5" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="176,263,339,413"/>
+<area shape="rect" id="node6" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="157,5,358,141"/>
+<area shape="rect" id="node7" href="$classtaixu_1_1editor_1_1MainWindowContext.html" title=" " alt="" coords="358,580,551,672"/>
+<area shape="rect" id="node8" href="$classtaixu_1_1IWindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="363,204,554,472"/>
 </map>

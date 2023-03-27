@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['main_684',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
-  ['mainwindow_685',['MainWindow',['../classtaixu_1_1editor_1_1MainWindow.html#a872eccca2a6b9b4f9925d2e478d11bb8',1,'taixu::editor::MainWindow']]],
-  ['mapimagetoglreadtype_686',['mapImageToGLReadType',['../namespacetaixu.html#a50b059f197588dff329e7188f511d10e',1,'taixu']]],
-  ['maptoshadertypeglenum_687',['mapToShaderTypeGLenum',['../namespacetaixu.html#acaed3ec10be035d59d94c20d504c9aae',1,'taixu']]],
-  ['mesh_688',['Mesh',['../classtaixu_1_1Mesh.html#aeb9b71d8095614179133c35a90923657',1,'taixu::Mesh']]],
-  ['model_5fdata_689',['Model_Data',['../classtaixu_1_1Model__Data.html#ace6225487de1ddf48044ad4ab6c2a7b9',1,'taixu::Model_Data']]],
-  ['movefileordirectory_690',['moveFileOrDirectory',['../namespacetaixu.html#a130b718d162392d7986e11dedc51cc90',1,'taixu']]]
+  ['loadasset_688',['loadAsset',['../classtaixu_1_1AssetManager.html#ab45a796474fb2e8362719ba5e48214cb',1,'taixu::AssetManager::loadAsset(std::string file_path)'],['../classtaixu_1_1AssetManager.html#af261ad5729417ad3ba61af49c561e10c',1,'taixu::AssetManager::loadAsset(std::string file_path, AssetType asset_type)']]],
+  ['loadjsonfile_689',['loadJsonFile',['../namespacetaixu.html#a9ec62596cd7787865c89c0f695466f98',1,'taixu']]],
+  ['loadjsonstring_690',['loadJsonString',['../namespacetaixu.html#a8c1ac98086e37a29b5d2e001e2469272',1,'taixu']]],
+  ['loadmaterialtextures_691',['loadMaterialTextures',['../classtaixu_1_1Model__Data.html#ad5453ae2ba983eca8ed2944103fd0b56',1,'taixu::Model_Data']]],
+  ['loadmodel_692',['loadModel',['../classtaixu_1_1Model__Data.html#a45a8dbe743d704aadfc41e8fa668aa44',1,'taixu::Model_Data']]],
+  ['loadproject_693',['loadProject',['../classtaixu_1_1Engine.html#a1e77723d9c8d2546dfa07a7b0f8f766b',1,'taixu::Engine']]]
 ];

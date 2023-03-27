@@ -13,7 +13,7 @@ var namespacetaixu_1_1editor =
     [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html", "classtaixu_1_1editor_1_1MainWindow" ],
     [ "MainWindowContext", "classtaixu_1_1editor_1_1MainWindowContext.html", "classtaixu_1_1editor_1_1MainWindowContext" ],
     [ "EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", "structtaixu_1_1editor_1_1EditorStyle" ],
-    [ "ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", "classtaixu_1_1editor_1_1ImguiSurface" ],
+    [ "ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", null ],
     [ "EditorState", "namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8a", [
       [ "EDITORMODE", "namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8aa09dcc66e46d387b904e5b665cf997c5f", null ],
       [ "PLAYMODE", "namespacetaixu_1_1editor.html#aa73bce2f68884e1bec54856e89261c8aaeaf33e0f78b0e8e94f74ecf0430fbe27", null ],

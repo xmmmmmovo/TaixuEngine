@@ -1,6 +1,5 @@
 var classtaixu_1_1editor_1_1MainWindow =
 [
-    [ "super", "classtaixu_1_1editor_1_1MainWindow.html#acefa2dc4000f82633ef902067e8faae1", null ],
     [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html#a872eccca2a6b9b4f9925d2e478d11bb8", null ],
     [ "destroy", "classtaixu_1_1editor_1_1MainWindow.html#ade6a1d9f80fc0c972b9b21b47128aed8", null ],
     [ "init", "classtaixu_1_1editor_1_1MainWindow.html#a3bea5c39e0f5cff804d4265594071f82", null ],
@@ -17,7 +16,6 @@ var classtaixu_1_1editor_1_1MainWindow =
     [ "detail_component", "classtaixu_1_1editor_1_1MainWindow.html#a9134a51db3c32d8614842eeabde2c49a", null ],
     [ "engine_runtime", "classtaixu_1_1editor_1_1MainWindow.html#a12cf3e37d1d6b75bc4d36281bb9b0af4", null ],
     [ "file_component", "classtaixu_1_1editor_1_1MainWindow.html#a0eae47267d9f94fa449a32481ff325e7", null ],
-    [ "imgui_surface", "classtaixu_1_1editor_1_1MainWindow.html#a67d1b56944cb551197e6dc2467cdde6f", null ],
     [ "menu_component", "classtaixu_1_1editor_1_1MainWindow.html#a56430a89c8b7afe39628e9b86913a265", null ],
     [ "render_component", "classtaixu_1_1editor_1_1MainWindow.html#a387b7de67ebde353a611857ba94dc295", null ],
     [ "renderer", "classtaixu_1_1editor_1_1MainWindow.html#a95ce6ca253e677a1682c0c686e31f412", null ],

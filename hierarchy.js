@@ -71,8 +71,5 @@ var hierarchy =
     [ "taixu::Render_Data", "classtaixu_1_1Render__Data.html", null ],
     [ "taixu::Renderer", "classtaixu_1_1Renderer.html", null ],
     [ "taixu::Texture", "structtaixu_1_1Texture.html", null ],
-    [ "taixu::TX_GLFWwindow", "classtaixu_1_1TX__GLFWwindow.html", [
-      [ "taixu::editor::MainWindow", "classtaixu_1_1editor_1_1MainWindow.html", null ]
-    ] ],
     [ "taixu::Vertex", "structtaixu_1_1Vertex.html", null ]
 ];

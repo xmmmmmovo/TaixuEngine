@@ -15,7 +15,7 @@ var annotated_dup =
         [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html", "classtaixu_1_1editor_1_1MainWindow" ],
         [ "MainWindowContext", "classtaixu_1_1editor_1_1MainWindowContext.html", "classtaixu_1_1editor_1_1MainWindowContext" ],
         [ "EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", "structtaixu_1_1editor_1_1EditorStyle" ],
-        [ "ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", "classtaixu_1_1editor_1_1ImguiSurface" ]
+        [ "ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", null ]
       ] ],
       [ "Clock", "classtaixu_1_1Clock.html", "classtaixu_1_1Clock" ],
       [ "noncopyable", "classtaixu_1_1noncopyable.html", "classtaixu_1_1noncopyable" ],
@@ -41,7 +41,6 @@ var annotated_dup =
       [ "Render_Data", "classtaixu_1_1Render__Data.html", "classtaixu_1_1Render__Data" ],
       [ "Render_Context", "classtaixu_1_1Render__Context.html", "classtaixu_1_1Render__Context" ],
       [ "Renderer", "classtaixu_1_1Renderer.html", "classtaixu_1_1Renderer" ],
-      [ "TX_GLFWwindow", "classtaixu_1_1TX__GLFWwindow.html", "classtaixu_1_1TX__GLFWwindow" ],
       [ "IWindow", "classtaixu_1_1IWindow.html", "classtaixu_1_1IWindow" ],
       [ "IWindowContext", "classtaixu_1_1IWindowContext.html", "classtaixu_1_1IWindowContext" ],
       [ "OGLContext", "classtaixu_1_1OGLContext.html", "classtaixu_1_1OGLContext" ],

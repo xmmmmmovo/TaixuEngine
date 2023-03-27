@@ -1,6 +1,5 @@
 <map id="taixu::editor::MainWindow" name="taixu::editor::MainWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="54,476,305,1008"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1TX__GLFWwindow.html" title=" " alt="" coords="5,204,180,428"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="204,255,331,377"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="194,5,341,156"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,388,256,905"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="67,204,194,340"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="57,5,204,156"/>
 </map>

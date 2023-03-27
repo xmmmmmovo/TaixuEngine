@@ -152,8 +152,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html">Renderer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1TX__GLFWwindow.html">TX_GLFWwindow</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IWindow.html">IWindow</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IWindowContext.html">IWindowContext</a></td></tr>
@@ -253,6 +251,16 @@ Functions</h2></td></tr>
 <tr class="separator:a285c0ff61bfb0bcdf4d2cc4453376d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd9cb02ff17375c7243830e1d477021e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#abd9cb02ff17375c7243830e1d477021e">getDateString</a> ()</td></tr>
 <tr class="separator:abd9cb02ff17375c7243830e1d477021e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dfcfba402d0242c4e37a94a5ff56839"><td class="memItemLeft" align="right" valign="top">GLFWwindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a9dfcfba402d0242c4e37a94a5ff56839">initWindow</a> (<a class="el" href="classtaixu_1_1IWindowContext.html">IWindowContext</a> *context)</td></tr>
+<tr class="separator:a9dfcfba402d0242c4e37a94a5ff56839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b32c0aabede73696c2d424b97a3d745"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a8b32c0aabede73696c2d424b97a3d745">updateWindow</a> (GLFWwindow *window)</td></tr>
+<tr class="separator:a8b32c0aabede73696c2d424b97a3d745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42ea7f15e0b3c9946aa56512e82b20f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a42ea7f15e0b3c9946aa56512e82b20f3">destroyWindow</a> (GLFWwindow *window)</td></tr>
+<tr class="separator:a42ea7f15e0b3c9946aa56512e82b20f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae44ac7445d84fba6e9ae1934bc22a565"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ae44ac7445d84fba6e9ae1934bc22a565">shouldClose</a> (GLFWwindow *window)</td></tr>
+<tr class="separator:ae44ac7445d84fba6e9ae1934bc22a565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab044ecb30cb64425930a0021528740f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ab044ecb30cb64425930a0021528740f1">updateVsync</a> (<a class="el" href="classtaixu_1_1IWindowContext.html">IWindowContext</a> const &amp;context)</td></tr>
+<tr class="separator:ab044ecb30cb64425930a0021528740f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaed3ec10be035d59d94c20d504c9aae"><td class="memItemLeft" align="right" valign="top">GLenum&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#acaed3ec10be035d59d94c20d504c9aae">mapToShaderTypeGLenum</a> (<a class="el" href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">ShaderTypeEnum</a> type)</td></tr>
 <tr class="separator:acaed3ec10be035d59d94c20d504c9aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50b059f197588dff329e7188f511d10e"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a50b059f197588dff329e7188f511d10e">mapImageToGLReadType</a> (std::string const &amp;ext)</td></tr>
@@ -600,6 +608,32 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="a42ea7f15e0b3c9946aa56512e82b20f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42ea7f15e0b3c9946aa56512e82b20f3">&#9670;&nbsp;</a></span>destroyWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::destroyWindow </td>
+          <td>(</td>
+          <td class="paramtype">GLFWwindow *&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aba1e7e691591cbdce96817b46b67f908"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba1e7e691591cbdce96817b46b67f908">&#9670;&nbsp;</a></span>dumpJsonFile()</h2>
 
@@ -935,6 +969,32 @@ template&lt;typename T , typename... Ts&gt; </div>
 
 </div>
 </div>
+<a id="a9dfcfba402d0242c4e37a94a5ff56839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dfcfba402d0242c4e37a94a5ff56839">&#9670;&nbsp;</a></span>initWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLFWwindow* taixu::initWindow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtaixu_1_1IWindowContext.html">IWindowContext</a> *&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9ec62596cd7787865c89c0f695466f98"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ec62596cd7787865c89c0f695466f98">&#9670;&nbsp;</a></span>loadJsonFile()</h2>
 
@@ -1089,6 +1149,84 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae44ac7445d84fba6e9ae1934bc22a565"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae44ac7445d84fba6e9ae1934bc22a565">&#9670;&nbsp;</a></span>shouldClose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool taixu::shouldClose </td>
+          <td>(</td>
+          <td class="paramtype">GLFWwindow *&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab044ecb30cb64425930a0021528740f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab044ecb30cb64425930a0021528740f1">&#9670;&nbsp;</a></span>updateVsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::updateVsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtaixu_1_1IWindowContext.html">IWindowContext</a> const &amp;&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b32c0aabede73696c2d424b97a3d745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b32c0aabede73696c2d424b97a3d745">&#9670;&nbsp;</a></span>updateWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::updateWindow </td>
+          <td>(</td>
+          <td class="paramtype">GLFWwindow *&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
