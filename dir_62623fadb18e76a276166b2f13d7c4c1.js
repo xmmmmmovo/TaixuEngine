@@ -6,6 +6,8 @@ var dir_62623fadb18e76a276166b2f13d7c4c1 =
     [ "asset_manager.hpp", "asset__manager_8hpp.html", "asset__manager_8hpp" ],
     [ "config_manager.cpp", "config__manager_8cpp.html", null ],
     [ "config_manager.hpp", "config__manager_8hpp.html", null ],
+    [ "guid_genenrator.hpp", "guid__genenrator_8hpp.html", "guid__genenrator_8hpp" ],
+    [ "guid_generator.cpp", "guid__generator_8cpp.html", null ],
     [ "project_manager.cpp", "project__manager_8cpp.html", null ],
     [ "project_manager.hpp", "project__manager_8hpp.html", [
       [ "Project", "structtaixu_1_1Project.html", "structtaixu_1_1Project" ],

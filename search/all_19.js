@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['_7eeditorstyle_468',['~EditorStyle',['../structtaixu_1_1editor_1_1EditorStyle.html#a5b55a9fe894cd6e95f80fef25e8ec420',1,'taixu::editor::EditorStyle']]],
-  ['_7eengine_469',['~Engine',['../classtaixu_1_1Engine.html#afaf291a69e659e92582a7465d748559b',1,'taixu::Engine']]],
-  ['_7eitexture_470',['~ITexture',['../classtaixu_1_1ITexture.html#a45265bb1c94c0019778119230fe15524',1,'taixu::ITexture']]],
-  ['_7enoncopyable_471',['~noncopyable',['../classtaixu_1_1noncopyable.html#a091f4c4f48636c63f7734790d72ccd17',1,'taixu::noncopyable']]],
-  ['_7eoglelementbuffer_472',['~OGLElementBuffer',['../classtaixu_1_1OGLElementBuffer.html#a093deead2d78d5bf07b54b2eebc6fd8a',1,'taixu::OGLElementBuffer']]],
-  ['_7eoglshader_473',['~OGLShader',['../classtaixu_1_1OGLShader.html#ad53a253d016c70fe75d581823fb0631b',1,'taixu::OGLShader']]],
-  ['_7eoglshaderprogram_474',['~OGLShaderProgram',['../classtaixu_1_1OGLShaderProgram.html#a8ce6dde7554a4843a8b9c97121f7adba',1,'taixu::OGLShaderProgram']]],
-  ['_7eogltexture_475',['~OGLTexture',['../classtaixu_1_1OGLTexture.html#a3762a334db9c942b7643160716380b4c',1,'taixu::OGLTexture']]],
-  ['_7eoglvertexarray_476',['~OGLVertexArray',['../classtaixu_1_1OGLVertexArray.html#a842245fb87169768efc505dd316e79d3',1,'taixu::OGLVertexArray']]],
-  ['_7eoglvertexbuffer_477',['~OGLVertexBuffer',['../classtaixu_1_1OGLVertexBuffer.html#a121bde2eb1194d192308606a231da8d0',1,'taixu::OGLVertexBuffer']]],
-  ['_7epublicsingleton_478',['~PublicSingleton',['../classtaixu_1_1PublicSingleton.html#a7a7b9adabc24268c8108c6ef9aabc3ed',1,'taixu::PublicSingleton']]],
-  ['_7erender_5fcontext_479',['~Render_Context',['../classtaixu_1_1Render__Context.html#acff013c9b9d7d6b51e65a4c827397bf7',1,'taixu::Render_Context']]],
-  ['_7erender_5fdata_480',['~Render_Data',['../classtaixu_1_1Render__Data.html#aff5c4950d7881f4e5b10ed1b61f88c50',1,'taixu::Render_Data']]],
-  ['_7erenderer_481',['~Renderer',['../classtaixu_1_1Renderer.html#a9259b0b1dcb20d1977e23aabe73505f0',1,'taixu::Renderer']]]
+  ['_7eecs_506',['~ECS',['../classtaixu_1_1ECS.html#a18cc9c2e0f6a922c1861bc09e7426804',1,'taixu::ECS']]],
+  ['_7eeditorstyle_507',['~EditorStyle',['../structtaixu_1_1editor_1_1EditorStyle.html#a5b55a9fe894cd6e95f80fef25e8ec420',1,'taixu::editor::EditorStyle']]],
+  ['_7eengine_508',['~Engine',['../classtaixu_1_1Engine.html#afaf291a69e659e92582a7465d748559b',1,'taixu::Engine']]],
+  ['_7eentitycomponent_509',['~EntityComponent',['../classtaixu_1_1EntityComponent.html#a75ed3efc632bc330464a781174363e80',1,'taixu::EntityComponent']]],
+  ['_7eitexture_510',['~ITexture',['../classtaixu_1_1ITexture.html#a45265bb1c94c0019778119230fe15524',1,'taixu::ITexture']]],
+  ['_7enoncopyable_511',['~noncopyable',['../classtaixu_1_1noncopyable.html#a091f4c4f48636c63f7734790d72ccd17',1,'taixu::noncopyable']]],
+  ['_7eoglelementbuffer_512',['~OGLElementBuffer',['../classtaixu_1_1OGLElementBuffer.html#a093deead2d78d5bf07b54b2eebc6fd8a',1,'taixu::OGLElementBuffer']]],
+  ['_7eoglshader_513',['~OGLShader',['../classtaixu_1_1OGLShader.html#ad53a253d016c70fe75d581823fb0631b',1,'taixu::OGLShader']]],
+  ['_7eoglshaderprogram_514',['~OGLShaderProgram',['../classtaixu_1_1OGLShaderProgram.html#a8ce6dde7554a4843a8b9c97121f7adba',1,'taixu::OGLShaderProgram']]],
+  ['_7eogltexture_515',['~OGLTexture',['../classtaixu_1_1OGLTexture.html#a3762a334db9c942b7643160716380b4c',1,'taixu::OGLTexture']]],
+  ['_7eoglvertexarray_516',['~OGLVertexArray',['../classtaixu_1_1OGLVertexArray.html#a842245fb87169768efc505dd316e79d3',1,'taixu::OGLVertexArray']]],
+  ['_7eoglvertexbuffer_517',['~OGLVertexBuffer',['../classtaixu_1_1OGLVertexBuffer.html#a121bde2eb1194d192308606a231da8d0',1,'taixu::OGLVertexBuffer']]],
+  ['_7epublicsingleton_518',['~PublicSingleton',['../classtaixu_1_1PublicSingleton.html#a7a7b9adabc24268c8108c6ef9aabc3ed',1,'taixu::PublicSingleton']]],
+  ['_7erender_5fcontext_519',['~Render_Context',['../classtaixu_1_1Render__Context.html#acff013c9b9d7d6b51e65a4c827397bf7',1,'taixu::Render_Context']]],
+  ['_7erender_5fdata_520',['~Render_Data',['../classtaixu_1_1Render__Data.html#aff5c4950d7881f4e5b10ed1b61f88c50',1,'taixu::Render_Data']]],
+  ['_7erenderer_521',['~Renderer',['../classtaixu_1_1Renderer.html#a9259b0b1dcb20d1977e23aabe73505f0',1,'taixu::Renderer']]]
 ];

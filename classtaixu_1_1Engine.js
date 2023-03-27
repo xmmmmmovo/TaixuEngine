@@ -9,6 +9,7 @@ var classtaixu_1_1Engine =
     [ "shutdown", "classtaixu_1_1Engine.html#a8f453bf6870ce28e4c80bb1eb3e936fe", null ],
     [ "PublicSingleton< Engine >", "classtaixu_1_1Engine.html#ac98c32d07778d652e1fe219aa65a4f81", null ],
     [ "asset_manager", "classtaixu_1_1Engine.html#aa829b2614e8bc1400ba5959987207516", null ],
+    [ "entity_component_system", "classtaixu_1_1Engine.html#ae201cd3fe9a40ebf6be3cc3873857b4e", null ],
     [ "project", "classtaixu_1_1Engine.html#abfd2b79504bb171e21d8650e12f6efbd", null ],
     [ "project_manager", "classtaixu_1_1Engine.html#ae1ef9b39c5e3160acc525c75774cba12", null ],
     [ "renderer", "classtaixu_1_1Engine.html#a646166cc831d6175dc4bb91b23a4188f", null ]

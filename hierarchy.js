@@ -5,12 +5,20 @@ var hierarchy =
     [ "taixu::BufferElement", "structtaixu_1_1BufferElement.html", null ],
     [ "taixu::BufferLayout", "classtaixu_1_1BufferLayout.html", null ],
     [ "taixu::Clock", "classtaixu_1_1Clock.html", null ],
+    [ "taixu::ECS", "classtaixu_1_1ECS.html", null ],
     [ "taixu::editor::EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", null ],
+    [ "taixu::EntityComponent", "classtaixu_1_1EntityComponent.html", [
+      [ "taixu::MeshComponent", "classtaixu_1_1MeshComponent.html", null ],
+      [ "taixu::TransformComponent", "classtaixu_1_1TransformComponent.html", null ]
+    ] ],
+    [ "taixu::EntityComponentMap", "classtaixu_1_1EntityComponentMap.html", null ],
+    [ "taixu::GameObject", "classtaixu_1_1GameObject.html", null ],
     [ "taixu::GUID_Generator", "classtaixu_1_1GUID__Generator.html", null ],
     [ "taixu::IFrameBuffer", "classtaixu_1_1IFrameBuffer.html", [
       [ "taixu::OGLFrameBuffer", "classtaixu_1_1OGLFrameBuffer.html", null ]
     ] ],
     [ "taixu::editor::ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", null ],
+    [ "taixu::Level", "classtaixu_1_1Level.html", null ],
     [ "std::logic_error", null, [
       [ "taixu::NotImplementedException", "classtaixu_1_1NotImplementedException.html", null ]
     ] ],
@@ -69,5 +77,6 @@ var hierarchy =
     [ "taixu::Renderer", "classtaixu_1_1Renderer.html", null ],
     [ "taixu::Texture", "structtaixu_1_1Texture.html", null ],
     [ "taixu::Vertex", "structtaixu_1_1Vertex.html", null ],
-    [ "taixu::WindowContext", "classtaixu_1_1WindowContext.html", null ]
+    [ "taixu::WindowContext", "classtaixu_1_1WindowContext.html", null ],
+    [ "taixu::WorldManager", "classtaixu_1_1WorldManager.html", null ]
 ];
