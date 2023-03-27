@@ -46,7 +46,7 @@ private:
 
 public:
     /**
-     * @brief init application
+     * @brief initWindow application
      */
     void initialize(int argc, char *argv[]);
     /**
@@ -54,13 +54,13 @@ public:
      */
     void run();
     /**
-     * @brief destroy function, to release memory.
+     * @brief destroyWindow function, to release memory.
      */
     void destroy();
 
 private:
     /**
-     * @brief init application args
+     * @brief initWindow application args
      * @param argc args count
      * @param argv args
      */

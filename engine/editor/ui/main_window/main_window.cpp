@@ -8,14 +8,15 @@
 
 namespace taixu::editor {
 void MainWindow::init() {
-    spdlog::info("Main window start init!");
-    super::init(&context);
-    super::setIsVsync(true);
+    spdlog::info("Main window start initWindow!");
+    window           = initWindow(&context);
+    context.is_vsync = true;
+    updateVsync(context);
     spdlog::info("Main window start finished!");
 }
 
 void MainWindow::preUpdate() {
-    imgui_surface.preUpdate();
+    ImguiSurface::preUpdate();
 
     // Create the docking environment
     ImGuiWindowFlags window_flags =
@@ -44,25 +45,25 @@ void MainWindow::preUpdate() {
 
     menu_component->processFileDialog();
 
-    imgui_surface.addWidget(WORLD_OBJ_COMPONENT_NAME,
+    ImguiSurface::addWidget(WORLD_OBJ_COMPONENT_NAME,
                             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
                                     world_object_component->update));
-    imgui_surface.addWidget(
+    ImguiSurface::addWidget(
             RENDER_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component->update));
-    imgui_surface.addWidget(
+    ImguiSurface::addWidget(
             DETAILS_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component->update));
-    imgui_surface.addWidget(
+    ImguiSurface::addWidget(
             FILE_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(file_component->update));
-    imgui_surface.addWidget(
+    ImguiSurface::addWidget(
             STATUS_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(status_component->update));
-    imgui_surface.addWidget(
+    ImguiSurface::addWidget(
             USEFUL_OBJ_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component->update));
-    imgui_surface.addWidget(
+    ImguiSurface::addWidget(
             TOOLBAR_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(tool_bar_component->update),
             ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize |
@@ -70,17 +71,15 @@ void MainWindow::preUpdate() {
                     ImGuiWindowFlags_NoNav);
 }
 
-bool MainWindow::shouldClose() const { return super::shouldClose(); }
-
 void MainWindow::update() {
     preUpdate();
-    imgui_surface.update();
-    super::update();
+    ImguiSurface::update();
+    updateWindow(window);
 }
 
 void MainWindow::destroy() {
-    imgui_surface.destroy();
-    super::destroy();
+    ImguiSurface::destroy();
+    destroyWindow(window);
 }
 
 void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
@@ -98,7 +97,7 @@ MainWindow::MainWindow(MainWindowContext const& context) : context(context) {
 }
 
 void MainWindow::init_imgui_surface() {
-    this->imgui_surface.init(window);
+    ImguiSurface::init(window);
     render_component->setRenderer(renderer);
 }
 
@@ -108,6 +107,9 @@ void MainWindow::onOpenProjectCb(std::string_view const& path) {
 }
 void MainWindow::onSaveProjectCb() {}
 void MainWindow::onSaveAsProjectCb(std::string_view const& path) {}
+bool MainWindow::shouldClose() const {
+    return ::taixu::shouldClose(this->window);
+}
 
 
 }// namespace taixu::editor

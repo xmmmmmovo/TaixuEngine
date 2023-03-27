@@ -30,9 +30,7 @@
 
 namespace taixu::editor {
 
-class MainWindow : public TX_GLFWwindow, public IWindow {
-    using super = TX_GLFWwindow;
-
+class MainWindow : public IWindow {
 private:
     std::shared_ptr<Renderer> renderer{};
 
@@ -42,8 +40,6 @@ private:
 
     // context
     MainWindowContext context{};
-
-    ImguiSurface imgui_surface{};
 
     // names
     static char constexpr DOCK_SPACE_NAME[]           = "TaixuEditorDock";
