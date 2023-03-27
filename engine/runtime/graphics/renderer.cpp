@@ -9,6 +9,7 @@
 
 namespace taixu {
 void Renderer::initialize() {
+    loadAPI(this->api);
     render_context = std::make_shared<Render_Context>();
 
     render_context->initialize();

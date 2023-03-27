@@ -29,11 +29,16 @@ enum class Status {
     // END RENDER STATUS CODES
 };
 
-// Define engine mode enum
-enum class EngineMode {
-    EDITOR,//editor mode
-    GAME   //game mode
+/**
+ * @brief editor status enum
+ */
+enum class EngineState {
+    EDITORMODE,  /*Editor mode*/
+    PREVIEWMODE, /*play mode*/
+    IDLEMODE,    /*idle mode, this mode will be used until project opened*/
+    GAMEMODE
 };
+
 
 }// namespace taixu
 

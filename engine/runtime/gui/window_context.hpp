@@ -16,7 +16,7 @@ namespace taixu {
 /**
  * @brief 仅在父类使用为Prop 在所有类中使用为Context
  */
-class IWindowContext {
+class WindowContext {
 protected:
     using on_reset_fn        = std::function<void()>;
     using on_key_fn          = std::function<void(int, int, int, int)>;
@@ -49,7 +49,7 @@ protected:
     static void keyCallback(GLFWwindow* window, int key, int scancode,
                             int action, int mods) {
         auto* context =
-                static_cast<IWindowContext*>(glfwGetWindowUserPointer(window));
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
         context->onKey(key, scancode, action, mods);
     }
     static void charCallback(GLFWwindow* window, unsigned int codepoint) {}
@@ -83,10 +83,20 @@ public:
 
     std::string_view _title{};
 
+    /**
+     * @brief editor state
+     */
+    EngineState state{EngineState::IDLEMODE};
+
 protected:
     bool is_vsync{false};
 
 public:
+    WindowContext(int32_t width, int32_t height, std::string_view const& title)
+        : _width(width),
+          _height(height),
+          _title(title) {}
+
     [[nodiscard]] inline bool getVsync() const { return is_vsync; }
 
     inline void initWindow() {
@@ -112,7 +122,7 @@ public:
 
 
         glfwSetWindowUserPointer(_window, this);
-        glfwSetKeyCallback(_window, IWindowContext::keyCallback);
+        glfwSetKeyCallback(_window, WindowContext::keyCallback);
         glfwSetErrorCallback(errorCallBack);
         glfwSetCharCallback(_window, charCallback);
         glfwSetCharModsCallback(_window, charModsCallback);

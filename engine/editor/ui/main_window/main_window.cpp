@@ -9,9 +9,8 @@
 namespace taixu::editor {
 void MainWindow::init() {
     spdlog::info("Main window start initWindow!");
-    window           = initWindow(&context);
-    context.is_vsync = true;
-    updateVsync(context);
+    context_ptr->initWindow();
+    context_ptr->setVsync(true);
     spdlog::info("Main window start finished!");
 }
 
@@ -74,30 +73,29 @@ void MainWindow::preUpdate() {
 void MainWindow::update() {
     preUpdate();
     ImguiSurface::update();
-    updateWindow(window);
+    context_ptr->swapBuffers();
 }
 
 void MainWindow::destroy() {
     ImguiSurface::destroy();
-    destroyWindow(window);
+    context_ptr->destroy();
 }
 
 void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
     this->engine_runtime = engine_runtime_ptr;
     this->renderer       = engine_runtime_ptr->getRenderer();
+
+    ImguiSurface::init(context_ptr->_window);
+    render_component->setRenderer(renderer);
 }
 
-MainWindow::MainWindow(MainWindowContext const& context) : context(context) {
+MainWindow::MainWindow(std::shared_ptr<WindowContext> const& context_ptr)
+    : context_ptr(context_ptr) {
     this->menu_component->bindCallbacks(
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onSaveAsProjectCb));
-}
-
-void MainWindow::init_imgui_surface() {
-    ImguiSurface::init(window);
-    render_component->setRenderer(renderer);
 }
 
 // for callbacks
@@ -107,9 +105,5 @@ void MainWindow::onOpenProjectCb(std::string_view const& path) {
 }
 void MainWindow::onSaveProjectCb() {}
 void MainWindow::onSaveAsProjectCb(std::string_view const& path) {}
-bool MainWindow::shouldClose() const {
-    return ::taixu::shouldClose(this->window);
-}
-
 
 }// namespace taixu::editor

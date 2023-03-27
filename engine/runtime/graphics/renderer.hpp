@@ -10,10 +10,12 @@
 
 #include "graphics/render/model.hpp"
 #include "graphics/render/perspective_camera.hpp"
+#include "graphics/render/render_api.hpp"
 #include "graphics/render/shader.hpp"
 #include "graphics/render/texture.hpp"
 #include "platform/opengl/OGLContext.hpp"
 #include "platform/opengl/OGLShader.hpp"
+
 namespace taixu {
 
 constexpr float delta_time = 0.03333;
@@ -32,7 +34,6 @@ public:
                 std::string("assets/model/cube.obj"));
     }
     Render_Data                *getData() { return this; };
-    //std::vector<Model>
     std::shared_ptr<Model_Data> model;
 };
 
@@ -64,20 +65,11 @@ protected:
 };
 
 class Renderer {
-    //std::shared_ptr<Render_Resource> RenderQueue;
 public:
-    explicit Renderer() {
-        // glad: load all OpenGL function pointers
-        // ---------------------------------------
-        if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
-            spdlog::error("Failed to initialize GLAD");
-            exit(1);
-        }
+    RenderAPI api{RenderAPI::OPENGL};
 
-        // configure global opengl state
-        // -----------------------------
-        glEnable(GL_DEPTH_TEST);
-    }
+public:
+    explicit Renderer() = default;
     ~Renderer(){};
     void initialize();
     void tick(float delta_time = 0.03333);
@@ -100,7 +92,7 @@ public:
     std::shared_ptr<Render_Context> render_context;
     IShaderProgram                 *shaderProgram;
 
-    glm::vec2    size = {1366, 768};
+    glm::vec2 size = {1366, 768};
 };
 
 

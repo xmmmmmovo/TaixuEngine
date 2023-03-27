@@ -15,9 +15,7 @@
 
 // "" headers
 #include "engine.hpp"
-#include "gui/glfw_window.hpp"
 #include "gui/imgui_surface.hpp"
-#include "main_window_context.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
@@ -39,7 +37,7 @@ private:
     Engine* engine_runtime{nullptr};
 
     // context
-    MainWindowContext context{};
+    std::shared_ptr<WindowContext> context_ptr{};
 
     // names
     static char constexpr DOCK_SPACE_NAME[]           = "TaixuEditorDock";
@@ -73,16 +71,13 @@ private:
 
 
 public:
-    explicit MainWindow(MainWindowContext const& context);
+    explicit MainWindow(std::shared_ptr<WindowContext> const& context_ptr);
 
     void init() override;
     void update() override;
     void destroy() override;
 
-    [[nodiscard]] bool shouldClose() const override;
-
     void setEngineRuntime(Engine* engine_runtime_ptr);
-    void init_imgui_surface();
 
 private:
     void preUpdate();

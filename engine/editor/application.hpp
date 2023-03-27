@@ -29,7 +29,8 @@ private:
      * so there is just one pointer
      * @see IWindow
      */
-    std::shared_ptr<IWindow> window{nullptr};
+    std::shared_ptr<IWindow>       window_ptr{nullptr};
+    std::shared_ptr<WindowContext> context_ptr{nullptr};
 
     /**
      * @brief Main window width
