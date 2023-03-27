@@ -18,12 +18,12 @@ void Engine::init() {
 
     entity_component_system->initialize();
     //temptory
-    MeshComponent mesh;
+    auto mesh=std::make_shared<MeshComponent>(true,"mesh","material");
     std::uint32_t testid = 0;
-    mesh.mesh_path="mesh";
-    mesh.material_path="material";
-    mesh.visiable=true;
-    entity_component_system->all_components[0]->addComponent(testid,mesh);
+    // mesh->mesh_path="mesh";
+    // mesh->material_path="material";
+    // mesh->visiable=true;
+    entity_component_system->all_components[0]->addComponent(testid,mesh.get());
     
 
 

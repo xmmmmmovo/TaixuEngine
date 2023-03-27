@@ -6,18 +6,19 @@
 
 namespace taixu
 {
-struct EntityComponent
+class EntityComponent
 {
 public:
-std::string name{};
-
+virtual ~EntityComponent()=default;
 };
 
-struct MeshComponent:public EntityComponent
+class MeshComponent:public EntityComponent
 {
 public:
+MeshComponent(bool renderable,std::string path1,std::string path2)
+:visible(renderable),mesh_path(path1),material_path(path2){}
 //std::string name{};
-bool visiable;
+bool visible;
 std::string mesh_path;
 std::string material_path;
 };
@@ -26,16 +27,16 @@ class EntityComponentMap {
 public:
     EntityComponentMap(){}
 
-    EntityComponent getComponent(std::uint32_t uid){
+    EntityComponent* getComponent(std::uint32_t uid){
         return map[uid];
     }
 
-    void addComponent(std::uint32_t uid,EntityComponent instance){
+    void addComponent(std::uint32_t uid,EntityComponent* instance){
         map[uid]=instance;
     }
 
 private:
-    std::unordered_map<std::uint32_t, EntityComponent> map;
+    std::unordered_map<std::uint32_t, EntityComponent*> map;
 };
 
 

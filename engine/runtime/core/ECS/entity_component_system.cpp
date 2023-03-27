@@ -1,6 +1,8 @@
 #include "entity_component_system.hpp"
 
 
+
+
 void taixu::ECS::initialize() 
 {
     std::shared_ptr<EntityComponentMap> mesh_component_map=std::make_shared<EntityComponentMap>();
