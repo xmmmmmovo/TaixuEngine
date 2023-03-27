@@ -1,5 +1,5 @@
-#ifndef ENTITY_COMPONENT_SYSTEM
-#define ENTITY_COMPONENT_SYSTEM
+#ifndef TAIXUENGINE_ENTITY_COMPONENT_SYSTEM
+#define TAIXUENGINE_ENTITY_COMPONENT_SYSTEM
 
 //#include <unordered_map>
 #include <typeinfo>
@@ -10,8 +10,10 @@
 #include <spdlog/spdlog.h>
 
 #include "game_object.hpp"
+#include "resource/guid_genenrator.hpp"
 #include "entity_component/entity_component.hpp"
 #include "entity_component/mesh/mesh_component.hpp"
+#include "world_manager.hpp"
 
 namespace taixu
 {
@@ -25,12 +27,15 @@ public:
     
     void initialize();
 
-    void update();
+    void reloadWorld(const std::filesystem::path &world_path); 
 
-//private:
+    void tick(float delta_time=0.033);
+
+private:
     std::vector<std::shared_ptr<EntityComponentMap>> all_components;
+    std::shared_ptr<WorldManager> taixu_world;
 };
 
 }
 
-#endif /* ENTITY_COMPONENT_SYSTEM */
+#endif /* TAIXUENGINE_ENTITY_COMPONENT_SYSTEM */

@@ -17,21 +17,7 @@ void Engine::init() {
     entity_component_system = std::make_shared<ECS>();
 
     entity_component_system->initialize();
-    //temptory
-    auto mesh=std::make_shared<MeshComponent>(true,"mesh","material");
-    std::uint32_t testid = 0;
-    // mesh->mesh_path="mesh";
-    // mesh->material_path="material";
-    // mesh->visiable=true;
-    entity_component_system->all_components[0]->addComponent(testid,mesh.get());
     
-
-
-    // testmesh.addComponent(testid,mesh);
-    // entity_component_system->addComponentType<MeshComponent>();
-    //entity_component_system->components[""]=testmesh;
-
-    int a=0;
 }
 
 void Engine::run() {}

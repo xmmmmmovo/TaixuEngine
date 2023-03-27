@@ -6,49 +6,43 @@
 #define TAIXUENGINE_RESOURCE_MANAGER_HPP
 
 #include <spdlog/spdlog.h>
-
-#include <atomic>
-#include <cstdint>
-#include <fstream>
-#include <limits>
-#include <memory>
 #include <nlohmann/json.hpp>
+
+#include <fstream>
+#include <memory>
+#include <vector>
 #include <string>
 
+#include "guid_genenrator.hpp"
 
 namespace taixu {
-constexpr std::uint8_t INVALID_GUID = std::numeric_limits<std::uint8_t>::max();
-enum AssetType { MODEL, TEXTURE };
-class GUID_Generator {
-public:
-    static std::uint8_t generate_new_guid();
 
-private:
-    static std::atomic<std::uint8_t> next_id;
-};
 struct Asset {
     std::uint8_t guid;
     std::string  name;
     std::string  type;
     std::string  location;
 };
+enum AssetType { MODEL, TEXTURE };
 class AssetManager {
 public:
     AssetManager() = default;
     std::vector<Asset> asset_list;
     using Json                  = nlohmann::json;
-    std::string asset_file_path = "INVALID";
+    std::filesystem::path asset_file_path = "INVALID";
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Asset, name, type, location);
 
 
-    void loadAsset(std::string file_path) {
+    void loadAsset(std::filesystem::path const &file_path) {
 
-        std::ifstream f(file_path);
+
+        std::ifstream f(file_path.c_str());
         if (!f.is_open()) {
             spdlog::debug("Unable to load Asset configure file");
         } else
-            asset_file_path = file_path;
+            asset_file_path = file_path.parent_path();
+
         Json data = Json::parse(f);
         
         for (auto i : data["assets"].items()) {
@@ -59,9 +53,10 @@ public:
             from_json(j, new_asset);
             asset_list.push_back(new_asset);
         }
+        int a=0;
     }
     void writeAsset();
-    void loadAsset(std::string file_path, AssetType asset_type);
+    void loadAsset(const std::string &file_path, const AssetType &asset_type);
 };
 }// namespace taixu
 

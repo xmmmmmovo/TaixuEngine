@@ -26,15 +26,14 @@ Status ProjectManager::openProject(std::string_view const& path) {
     std::string                   name         = data["name"];
     //std::vector<std::string_view> texturePaths = data["asset"]["textures"];
     //std::vector<std::string_view> modelPaths   = data["asset"]["models"];
-    std::string                   tempstr         = data["assets"];
-    std::string root(path);
-    std::string asset_configure_path=root+tempstr;
+    const std::string                   tempstr         = data["assets"];
+    std::filesystem::path asset_configure_path=path;
+    asset_configure_path /= tempstr;
     // Create a new project object and add it to the vector of projects
     opened_project = std::make_shared<Project>(Project{
             name,
             //texturePaths,
             //modelPaths,
-            root,
             asset_configure_path
     });
 

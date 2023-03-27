@@ -3,5 +3,5 @@
   "version": "1.0.0",
   "description": "demo",
   "author": "demo",
-  "assets": "assets/assets.json"
+  "assets": "assets\\assets.json"
 }
