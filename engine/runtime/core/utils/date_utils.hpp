@@ -12,7 +12,7 @@
 
 namespace taixu {
 
-std::string getDateString() {
+inline std::string getDateString() {
     auto              now       = std::chrono::system_clock::now();
     auto              in_time_t = std::chrono::system_clock::to_time_t(now);
     std::stringstream ss;

@@ -5,7 +5,7 @@
 #ifndef TAIXUENGINE_RENDER_API_HPP
 #define TAIXUENGINE_RENDER_API_HPP
 
-namespace taixu::cg {
+namespace taixu {
 
 /**
  * @brief 决定渲染API
@@ -17,6 +17,8 @@ enum class RenderAPI { NONE, OPENGL };
  * @brief 决定shaderAPI
  */
 enum class ShaderAPI { NONE, GLSL, HLSL };
+
+[[maybe_unused]] void loadAPI(RenderAPI api);
 
 }// namespace taixu::cg
 

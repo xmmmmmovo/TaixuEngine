@@ -6,7 +6,7 @@
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
 #include "graphics/renderer.hpp"
-#include "interface/ui_component.hpp"
+#include "ui/ui_component.hpp"
 
 namespace taixu::editor {
 

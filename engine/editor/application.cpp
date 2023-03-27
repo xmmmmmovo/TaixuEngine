@@ -24,24 +24,23 @@ void Application::initApplicationArgs(int argc, char *argv[]) {}
 void Application::initialize(int argc, char *argv[]) {
     initSpdlog();
     initApplicationArgs(argc, argv);
+    context_ptr = std::make_shared<WindowContext>(
+            MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE);
     // init window pointer
-    std::shared_ptr<MainWindow> window_ptr =
-            std::make_shared<MainWindow>(MainWindowContext{
-                    MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE});
+    std::shared_ptr<MainWindow> window_ptr_local =
+            std::make_shared<MainWindow>(context_ptr);
     // init window
-    window_ptr->init();
+    window_ptr_local->init();
     // get engine instance raw pointer
     Engine *instance = &Engine::getInstance();
     instance->init();
-    window_ptr->setEngineRuntime(instance);
-    // init imgui surface after engine init(after engine init needed!)
-    window_ptr->init_imgui_surface();
-    this->window = window_ptr;
+    window_ptr_local->setEngineRuntime(instance);
+    this->window_ptr = window_ptr_local;
 }
 
 void Application::run() {
-    while (!this->window->shouldClose()) { this->window->update(); }
+    while (!this->context_ptr->shouldClose()) { this->window_ptr->update(); }
 }
 
-void Application::destroy() { this->window->destroy(); }
+void Application::destroy() { this->window_ptr->destroy(); }
 }// namespace taixu::editor

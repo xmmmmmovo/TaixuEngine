@@ -7,7 +7,8 @@
 
 #include <iostream>
 #include <string>
-#include "interface/ui_component.hpp"
+
+#include "ui/ui_component.hpp"
 
 namespace fs = std::filesystem;
 
