@@ -1,12 +1,15 @@
 <map id="engine/runtime/platform/opengl/OGLContext.hpp" name="engine/runtime/platform/opengl/OGLContext.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="460,5,641,47"/>
-<area shape="rect" id="node2" href="$renderer_8hpp.html" title=" " alt="" coords="358,95,538,136"/>
-<area shape="rect" id="node10" href="$OGLContext_8cpp.html" title=" " alt="" coords="563,95,744,136"/>
-<area shape="rect" id="node3" href="$render__component_8hpp.html" title=" " alt="" coords="117,184,325,225"/>
-<area shape="rect" id="node7" href="$engine_8hpp.html" title=" " alt="" coords="349,191,547,218"/>
-<area shape="rect" id="node9" href="$renderer_8cpp.html" title=" " alt="" coords="571,184,751,225"/>
-<area shape="rect" id="node4" href="$main__window_8hpp.html" title=" " alt="" coords="124,273,324,315"/>
-<area shape="rect" id="node5" href="$application_8cpp.html" title=" " alt="" coords="5,370,216,397"/>
-<area shape="rect" id="node6" href="$main__window_8cpp.html" title=" " alt="" coords="239,363,438,404"/>
-<area shape="rect" id="node8" href="$engine_8cpp.html" title=" " alt="" coords="350,281,546,307"/>
+<area shape="rect" id="node1" title=" " alt="" coords="331,5,512,47"/>
+<area shape="rect" id="node2" href="$renderer_8hpp.html" title=" " alt="" coords="229,95,409,136"/>
+<area shape="rect" id="node13" href="$OGLContext_8cpp.html" title=" " alt="" coords="433,95,615,136"/>
+<area shape="rect" id="node3" href="$render__component_8hpp.html" title=" " alt="" coords="5,273,213,315"/>
+<area shape="rect" id="node7" href="$engine_8hpp.html" title=" " alt="" coords="220,191,417,218"/>
+<area shape="rect" id="node12" href="$renderer_8cpp.html" title=" " alt="" coords="442,184,622,225"/>
+<area shape="rect" id="node4" href="$main__window_8hpp.html" title=" " alt="" coords="215,452,415,493"/>
+<area shape="rect" id="node5" href="$application_8cpp.html" title=" " alt="" coords="563,549,773,575"/>
+<area shape="rect" id="node6" href="$main__window_8cpp.html" title=" " alt="" coords="215,541,414,583"/>
+<area shape="rect" id="node8" href="$application_8hpp.html" title=" " alt="" coords="509,281,721,307"/>
+<area shape="rect" id="node11" href="$engine_8cpp.html" title=" " alt="" coords="289,281,485,307"/>
+<area shape="rect" id="node9" href="$main_8cpp.html" title=" " alt="" coords="289,370,461,397"/>
+<area shape="rect" id="node10" href="$menu__component_8hpp.html" title=" " alt="" coords="485,363,693,404"/>
 </map>

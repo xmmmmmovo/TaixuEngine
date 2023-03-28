@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"classtaixu_1_1editor_1_1MenuComponent.html#af2e4edf3fbec474e485008b1f2c5db00":[2,0,0,0,5,3],
 "classtaixu_1_1editor_1_1RenderComponent.html":[2,0,0,0,6],
 "classtaixu_1_1editor_1_1RenderComponent.html#a1f74a3948f129b57c8ac61cfd35d8be4":[2,0,0,0,6,0],
 "classtaixu_1_1editor_1_1RenderComponent.html#a846d6772902c110e10d0c2426ac1d396":[2,0,0,0,6,4],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "namespacetaixu.html#a320a04c3186936940e4642993f2b0832":[1,0,0,61],
 "namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793":[1,0,0,75],
 "namespacetaixu.html#a4c72cc973baec6d45f9f8b54179d7522":[1,0,0,92],
-"namespacetaixu.html#a50b059f197588dff329e7188f511d10e":[1,0,0,81]
+"namespacetaixu.html#a50b059f197588dff329e7188f511d10e":[1,0,0,81],
+"namespacetaixu.html#a5349f140eb4c79dfc226e770f1bd141a":[1,0,0,65]
 };

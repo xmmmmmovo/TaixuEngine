@@ -14,6 +14,5 @@ var searchData=
   ['_7eoglvertexbuffer_556',['~OGLVertexBuffer',['../classtaixu_1_1OGLVertexBuffer.html#a121bde2eb1194d192308606a231da8d0',1,'taixu::OGLVertexBuffer']]],
   ['_7epublicsingleton_557',['~PublicSingleton',['../classtaixu_1_1PublicSingleton.html#a7a7b9adabc24268c8108c6ef9aabc3ed',1,'taixu::PublicSingleton']]],
   ['_7erender_5fcontext_558',['~Render_Context',['../classtaixu_1_1Render__Context.html#acff013c9b9d7d6b51e65a4c827397bf7',1,'taixu::Render_Context']]],
-  ['_7erender_5fdata_559',['~Render_Data',['../classtaixu_1_1Render__Data.html#aff5c4950d7881f4e5b10ed1b61f88c50',1,'taixu::Render_Data']]],
-  ['_7erenderer_560',['~Renderer',['../classtaixu_1_1Renderer.html#a9259b0b1dcb20d1977e23aabe73505f0',1,'taixu::Renderer']]]
+  ['_7erender_5fdata_559',['~Render_Data',['../classtaixu_1_1Render__Data.html#aff5c4950d7881f4e5b10ed1b61f88c50',1,'taixu::Render_Data']]]
 ];

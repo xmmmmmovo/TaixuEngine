@@ -1,19 +1,22 @@
 <map id="engine/runtime/graphics/render/buffer_layout.hpp" name="engine/runtime/graphics/render/buffer_layout.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="368,5,555,47"/>
-<area shape="rect" id="node2" href="$vertex__buffer_8hpp.html" title=" " alt="" coords="368,95,555,136"/>
-<area shape="rect" id="node3" href="$vertex__array_8hpp.html" title=" " alt="" coords="261,184,443,225"/>
-<area shape="rect" id="node16" href="$OGLVertexBuffer_8hpp.html" title=" " alt="" coords="467,184,675,225"/>
-<area shape="rect" id="node4" href="$OGLVertexArray_8hpp.html" title=" " alt="" coords="291,273,493,315"/>
-<area shape="rect" id="node5" href="$OGLContext_8hpp.html" title=" " alt="" coords="460,363,641,404"/>
-<area shape="rect" id="node15" href="$OGLVertexArray_8cpp.html" title=" " alt="" coords="233,363,436,404"/>
-<area shape="rect" id="node6" href="$renderer_8hpp.html" title=" " alt="" coords="358,452,538,493"/>
-<area shape="rect" id="node14" href="$OGLContext_8cpp.html" title=" " alt="" coords="563,452,744,493"/>
-<area shape="rect" id="node7" href="$render__component_8hpp.html" title=" " alt="" coords="117,541,325,583"/>
-<area shape="rect" id="node11" href="$engine_8hpp.html" title=" " alt="" coords="349,549,547,575"/>
-<area shape="rect" id="node13" href="$renderer_8cpp.html" title=" " alt="" coords="571,541,751,583"/>
-<area shape="rect" id="node8" href="$main__window_8hpp.html" title=" " alt="" coords="124,631,324,672"/>
-<area shape="rect" id="node9" href="$application_8cpp.html" title=" " alt="" coords="5,727,216,754"/>
-<area shape="rect" id="node10" href="$main__window_8cpp.html" title=" " alt="" coords="239,720,438,761"/>
-<area shape="rect" id="node12" href="$engine_8cpp.html" title=" " alt="" coords="350,638,546,665"/>
-<area shape="rect" id="node17" href="$OGLVertexBuffer_8cpp.html" title=" " alt="" coords="589,273,795,315"/>
+<area shape="rect" id="node1" title=" " alt="" coords="149,5,336,47"/>
+<area shape="rect" id="node2" href="$vertex__buffer_8hpp.html" title=" " alt="" coords="149,95,336,136"/>
+<area shape="rect" id="node3" href="$vertex__array_8hpp.html" title=" " alt="" coords="43,184,224,225"/>
+<area shape="rect" id="node19" href="$OGLVertexBuffer_8hpp.html" title=" " alt="" coords="251,184,459,225"/>
+<area shape="rect" id="node4" href="$OGLVertexArray_8hpp.html" title=" " alt="" coords="27,273,229,315"/>
+<area shape="rect" id="node5" href="$OGLContext_8hpp.html" title=" " alt="" coords="331,363,512,404"/>
+<area shape="rect" id="node18" href="$OGLVertexArray_8cpp.html" title=" " alt="" coords="27,363,229,404"/>
+<area shape="rect" id="node6" href="$renderer_8hpp.html" title=" " alt="" coords="229,452,409,493"/>
+<area shape="rect" id="node17" href="$OGLContext_8cpp.html" title=" " alt="" coords="433,452,615,493"/>
+<area shape="rect" id="node7" href="$render__component_8hpp.html" title=" " alt="" coords="5,631,213,672"/>
+<area shape="rect" id="node11" href="$engine_8hpp.html" title=" " alt="" coords="220,549,417,575"/>
+<area shape="rect" id="node16" href="$renderer_8cpp.html" title=" " alt="" coords="442,541,622,583"/>
+<area shape="rect" id="node8" href="$main__window_8hpp.html" title=" " alt="" coords="215,809,415,851"/>
+<area shape="rect" id="node9" href="$application_8cpp.html" title=" " alt="" coords="563,906,773,933"/>
+<area shape="rect" id="node10" href="$main__window_8cpp.html" title=" " alt="" coords="215,899,414,940"/>
+<area shape="rect" id="node12" href="$application_8hpp.html" title=" " alt="" coords="509,638,721,665"/>
+<area shape="rect" id="node15" href="$engine_8cpp.html" title=" " alt="" coords="289,638,485,665"/>
+<area shape="rect" id="node13" href="$main_8cpp.html" title=" " alt="" coords="289,727,461,754"/>
+<area shape="rect" id="node14" href="$menu__component_8hpp.html" title=" " alt="" coords="485,720,693,761"/>
+<area shape="rect" id="node20" href="$OGLVertexBuffer_8cpp.html" title=" " alt="" coords="254,273,461,315"/>
 </map>

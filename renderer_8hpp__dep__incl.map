@@ -1,10 +1,13 @@
 <map id="engine/runtime/graphics/renderer.hpp" name="engine/runtime/graphics/renderer.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="358,5,538,47"/>
-<area shape="rect" id="node2" href="$render__component_8hpp.html" title=" " alt="" coords="117,95,325,136"/>
-<area shape="rect" id="node6" href="$engine_8hpp.html" title=" " alt="" coords="349,102,547,129"/>
-<area shape="rect" id="node8" href="$renderer_8cpp.html" title=" " alt="" coords="571,95,751,136"/>
-<area shape="rect" id="node3" href="$main__window_8hpp.html" title=" " alt="" coords="124,184,324,225"/>
-<area shape="rect" id="node4" href="$application_8cpp.html" title=" " alt="" coords="5,281,216,307"/>
-<area shape="rect" id="node5" href="$main__window_8cpp.html" title=" " alt="" coords="239,273,438,315"/>
-<area shape="rect" id="node7" href="$engine_8cpp.html" title=" " alt="" coords="350,191,546,218"/>
+<area shape="rect" id="node1" title=" " alt="" coords="229,5,409,47"/>
+<area shape="rect" id="node2" href="$render__component_8hpp.html" title=" " alt="" coords="5,184,213,225"/>
+<area shape="rect" id="node6" href="$engine_8hpp.html" title=" " alt="" coords="220,102,417,129"/>
+<area shape="rect" id="node11" href="$renderer_8cpp.html" title=" " alt="" coords="442,95,622,136"/>
+<area shape="rect" id="node3" href="$main__window_8hpp.html" title=" " alt="" coords="215,363,415,404"/>
+<area shape="rect" id="node4" href="$application_8cpp.html" title=" " alt="" coords="563,459,773,486"/>
+<area shape="rect" id="node5" href="$main__window_8cpp.html" title=" " alt="" coords="215,452,414,493"/>
+<area shape="rect" id="node7" href="$application_8hpp.html" title=" " alt="" coords="509,191,721,218"/>
+<area shape="rect" id="node10" href="$engine_8cpp.html" title=" " alt="" coords="289,191,485,218"/>
+<area shape="rect" id="node8" href="$main_8cpp.html" title=" " alt="" coords="289,281,461,307"/>
+<area shape="rect" id="node9" href="$menu__component_8hpp.html" title=" " alt="" coords="485,273,693,315"/>
 </map>

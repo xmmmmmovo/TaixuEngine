@@ -1,9 +1,12 @@
 <map id="engine/runtime/resource/project_manager.hpp" name="engine/runtime/resource/project_manager.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="351,5,532,47"/>
-<area shape="rect" id="node2" href="$engine_8hpp.html" title=" " alt="" coords="236,102,433,129"/>
-<area shape="rect" id="node7" href="$project__manager_8cpp.html" title=" " alt="" coords="457,95,639,136"/>
-<area shape="rect" id="node3" href="$main__window_8hpp.html" title=" " alt="" coords="124,184,324,225"/>
-<area shape="rect" id="node6" href="$engine_8cpp.html" title=" " alt="" coords="349,191,545,218"/>
-<area shape="rect" id="node4" href="$application_8cpp.html" title=" " alt="" coords="5,281,216,307"/>
-<area shape="rect" id="node5" href="$main__window_8cpp.html" title=" " alt="" coords="239,273,438,315"/>
+<area shape="rect" id="node1" title=" " alt="" coords="551,5,732,47"/>
+<area shape="rect" id="node2" href="$engine_8hpp.html" title=" " alt="" coords="436,102,633,129"/>
+<area shape="rect" id="node10" href="$project__manager_8cpp.html" title=" " alt="" coords="657,95,839,136"/>
+<area shape="rect" id="node3" href="$application_8hpp.html" title=" " alt="" coords="179,184,391,211"/>
+<area shape="rect" id="node7" href="$main__window_8hpp.html" title=" " alt="" coords="293,348,493,389"/>
+<area shape="rect" id="node9" href="$engine_8cpp.html" title=" " alt="" coords="573,184,769,211"/>
+<area shape="rect" id="node4" href="$application_8cpp.html" title=" " alt="" coords="5,445,216,471"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="93,266,265,293"/>
+<area shape="rect" id="node6" href="$menu__component_8hpp.html" title=" " alt="" coords="289,259,497,300"/>
+<area shape="rect" id="node8" href="$main__window_8cpp.html" title=" " alt="" coords="294,437,493,479"/>
 </map>

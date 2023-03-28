@@ -1,10 +1,13 @@
 <map id="engine/runtime/resource/ecs/world_manager.hpp" name="engine/runtime/resource/ecs/world_manager.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="351,5,532,47"/>
-<area shape="rect" id="node2" href="$entity__component__system_8hpp.html" title=" " alt="" coords="351,95,532,151"/>
-<area shape="rect" id="node3" href="$engine_8hpp.html" title=" " alt="" coords="236,213,433,240"/>
-<area shape="rect" id="node8" href="$entity__component__system_8cpp.html" title=" " alt="" coords="457,199,639,255"/>
-<area shape="rect" id="node4" href="$main__window_8hpp.html" title=" " alt="" coords="124,303,324,344"/>
-<area shape="rect" id="node7" href="$engine_8cpp.html" title=" " alt="" coords="349,310,545,337"/>
-<area shape="rect" id="node5" href="$application_8cpp.html" title=" " alt="" coords="5,399,216,426"/>
-<area shape="rect" id="node6" href="$main__window_8cpp.html" title=" " alt="" coords="239,392,438,433"/>
+<area shape="rect" id="node1" title=" " alt="" coords="551,5,732,47"/>
+<area shape="rect" id="node2" href="$entity__component__system_8hpp.html" title=" " alt="" coords="551,95,732,151"/>
+<area shape="rect" id="node3" href="$engine_8hpp.html" title=" " alt="" coords="436,213,633,240"/>
+<area shape="rect" id="node11" href="$entity__component__system_8cpp.html" title=" " alt="" coords="657,199,839,255"/>
+<area shape="rect" id="node4" href="$application_8hpp.html" title=" " alt="" coords="179,303,391,329"/>
+<area shape="rect" id="node8" href="$main__window_8hpp.html" title=" " alt="" coords="293,467,493,508"/>
+<area shape="rect" id="node10" href="$engine_8cpp.html" title=" " alt="" coords="573,303,769,329"/>
+<area shape="rect" id="node5" href="$application_8cpp.html" title=" " alt="" coords="5,563,216,590"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title=" " alt="" coords="93,385,265,411"/>
+<area shape="rect" id="node7" href="$menu__component_8hpp.html" title=" " alt="" coords="289,377,497,419"/>
+<area shape="rect" id="node9" href="$main__window_8cpp.html" title=" " alt="" coords="294,556,493,597"/>
 </map>

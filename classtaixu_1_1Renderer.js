@@ -1,7 +1,5 @@
 var classtaixu_1_1Renderer =
 [
-    [ "Renderer", "classtaixu_1_1Renderer.html#a27f15475a877fba0ea86a37cba3484c0", null ],
-    [ "~Renderer", "classtaixu_1_1Renderer.html#a9259b0b1dcb20d1977e23aabe73505f0", null ],
     [ "clear", "classtaixu_1_1Renderer.html#ab76b504112462972a232e38a2dfe93e6", null ],
     [ "getRenderResult", "classtaixu_1_1Renderer.html#aeb987a4563cf056984d472724ff0d787", null ],
     [ "initialize", "classtaixu_1_1Renderer.html#ad237ed0ecd02fcff4a8ef5d058303be6", null ],

@@ -66,8 +66,8 @@ var NAVTREEINDEX =
 [
 "OGLContext_8cpp.html",
 "classtaixu_1_1OGLShader.html#adda5aa7e5ab91e387a983df7902faf5b",
-"classtaixu_1_1editor_1_1MenuComponent.html#af2e4edf3fbec474e485008b1f2c5db00",
-"namespacetaixu.html#a5349f140eb4c79dfc226e770f1bd141a"
+"classtaixu_1_1editor_1_1RenderComponent.html",
+"namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
