@@ -1,5 +1,5 @@
-<map id="engine/runtime/core/ECS/entity_component/entity_component.hpp" name="engine/runtime/core/ECS/entity_component/entity_component.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="42,5,215,61"/>
+<map id="engine/runtime/resource/ecs/entity_component/entity_component.hpp" name="engine/runtime/resource/ecs/entity_component/entity_component.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="38,5,219,61"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,109,129,136"/>
 <area shape="rect" id="node3" title=" " alt="" coords="153,109,229,136"/>
 </map>

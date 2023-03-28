@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/core/ECS/entity_component/mesh/mesh_component.hpp Source File</title>
+<title>TaixuEngine: engine/runtime/resource/ecs/entity_component/mesh/mesh_component.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,35 +89,37 @@ $(document).ready(function(){initNavTree('mesh__component_8hpp_source.html','');
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TAIXUENGINE_MESH_COMPONENT</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../entity_component.hpp&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classtaixu_1_1MeshComponent.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1MeshComponent.html">MeshComponent</a>:<span class="keyword">public</span> <a class="code" href="classtaixu_1_1EntityComponent.html">EntityComponent</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classtaixu_1_1MeshComponent.html#a8d6d15919d99053ebb777f6f6575d060">   11</a></span>&#160;<a class="code" href="classtaixu_1_1MeshComponent.html#a8d6d15919d99053ebb777f6f6575d060">MeshComponent</a>(<span class="keywordtype">bool</span> renderable,std::string path1,std::string path2)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;:<a class="code" href="classtaixu_1_1MeshComponent.html#add282791cfc455892b779264428cdb7f">visible</a>(renderable),<a class="code" href="classtaixu_1_1MeshComponent.html#a07a4a8f9059ade83455bc3aca5428d31">mesh_path</a>(path1),<a class="code" href="classtaixu_1_1MeshComponent.html#a6ace2a87fb86681a1cbf19c97d26f9ad">material_path</a>(path2){}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//std::string name{};</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1MeshComponent.html#add282791cfc455892b779264428cdb7f">   14</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classtaixu_1_1MeshComponent.html#add282791cfc455892b779264428cdb7f">visible</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classtaixu_1_1MeshComponent.html#a07a4a8f9059ade83455bc3aca5428d31">   15</a></span>&#160;std::string <a class="code" href="classtaixu_1_1MeshComponent.html#a07a4a8f9059ade83455bc3aca5428d31">mesh_path</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classtaixu_1_1MeshComponent.html#a6ace2a87fb86681a1cbf19c97d26f9ad">   16</a></span>&#160;std::string <a class="code" href="classtaixu_1_1MeshComponent.html#a6ace2a87fb86681a1cbf19c97d26f9ad">material_path</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TAIXUENGINE_MESH_COMPONENT */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entity__component_8hpp.html">resource/ecs/entity_component/entity_component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classtaixu_1_1MeshComponent.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1MeshComponent.html">MeshComponent</a>:<span class="keyword">public</span> <a class="code" href="classtaixu_1_1EntityComponent.html">EntityComponent</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classtaixu_1_1MeshComponent.html#a8d6d15919d99053ebb777f6f6575d060">   12</a></span>&#160;<a class="code" href="classtaixu_1_1MeshComponent.html#a8d6d15919d99053ebb777f6f6575d060">MeshComponent</a>(<span class="keywordtype">bool</span> renderable,std::string path1,std::string path2)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;:<a class="code" href="classtaixu_1_1MeshComponent.html#add282791cfc455892b779264428cdb7f">visible</a>(renderable),<a class="code" href="classtaixu_1_1MeshComponent.html#a07a4a8f9059ade83455bc3aca5428d31">mesh_path</a>(path1),<a class="code" href="classtaixu_1_1MeshComponent.html#a6ace2a87fb86681a1cbf19c97d26f9ad">material_path</a>(path2){}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//std::string name{};</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classtaixu_1_1MeshComponent.html#add282791cfc455892b779264428cdb7f">   15</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classtaixu_1_1MeshComponent.html#add282791cfc455892b779264428cdb7f">visible</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classtaixu_1_1MeshComponent.html#a07a4a8f9059ade83455bc3aca5428d31">   16</a></span>&#160;std::string <a class="code" href="classtaixu_1_1MeshComponent.html#a07a4a8f9059ade83455bc3aca5428d31">mesh_path</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classtaixu_1_1MeshComponent.html#a6ace2a87fb86681a1cbf19c97d26f9ad">   17</a></span>&#160;std::string <a class="code" href="classtaixu_1_1MeshComponent.html#a6ace2a87fb86681a1cbf19c97d26f9ad">material_path</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TAIXUENGINE_MESH_COMPONENT */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aclasstaixu_1_1EntityComponent_html"><div class="ttname"><a href="classtaixu_1_1EntityComponent.html">taixu::EntityComponent</a></div><div class="ttdef"><b>Definition:</b> entity_component.hpp:10</div></div>
-<div class="ttc" id="aclasstaixu_1_1MeshComponent_html"><div class="ttname"><a href="classtaixu_1_1MeshComponent.html">taixu::MeshComponent</a></div><div class="ttdef"><b>Definition:</b> mesh_component.hpp:9</div></div>
-<div class="ttc" id="aclasstaixu_1_1MeshComponent_html_a07a4a8f9059ade83455bc3aca5428d31"><div class="ttname"><a href="classtaixu_1_1MeshComponent.html#a07a4a8f9059ade83455bc3aca5428d31">taixu::MeshComponent::mesh_path</a></div><div class="ttdeci">std::string mesh_path</div><div class="ttdef"><b>Definition:</b> mesh_component.hpp:15</div></div>
-<div class="ttc" id="aclasstaixu_1_1MeshComponent_html_a6ace2a87fb86681a1cbf19c97d26f9ad"><div class="ttname"><a href="classtaixu_1_1MeshComponent.html#a6ace2a87fb86681a1cbf19c97d26f9ad">taixu::MeshComponent::material_path</a></div><div class="ttdeci">std::string material_path</div><div class="ttdef"><b>Definition:</b> mesh_component.hpp:16</div></div>
-<div class="ttc" id="aclasstaixu_1_1MeshComponent_html_a8d6d15919d99053ebb777f6f6575d060"><div class="ttname"><a href="classtaixu_1_1MeshComponent.html#a8d6d15919d99053ebb777f6f6575d060">taixu::MeshComponent::MeshComponent</a></div><div class="ttdeci">MeshComponent(bool renderable, std::string path1, std::string path2)</div><div class="ttdef"><b>Definition:</b> mesh_component.hpp:11</div></div>
-<div class="ttc" id="aclasstaixu_1_1MeshComponent_html_add282791cfc455892b779264428cdb7f"><div class="ttname"><a href="classtaixu_1_1MeshComponent.html#add282791cfc455892b779264428cdb7f">taixu::MeshComponent::visible</a></div><div class="ttdeci">bool visible</div><div class="ttdef"><b>Definition:</b> mesh_component.hpp:14</div></div>
+<div class="ttc" id="aclasstaixu_1_1MeshComponent_html"><div class="ttname"><a href="classtaixu_1_1MeshComponent.html">taixu::MeshComponent</a></div><div class="ttdef"><b>Definition:</b> mesh_component.hpp:10</div></div>
+<div class="ttc" id="aclasstaixu_1_1MeshComponent_html_a07a4a8f9059ade83455bc3aca5428d31"><div class="ttname"><a href="classtaixu_1_1MeshComponent.html#a07a4a8f9059ade83455bc3aca5428d31">taixu::MeshComponent::mesh_path</a></div><div class="ttdeci">std::string mesh_path</div><div class="ttdef"><b>Definition:</b> mesh_component.hpp:16</div></div>
+<div class="ttc" id="aclasstaixu_1_1MeshComponent_html_a6ace2a87fb86681a1cbf19c97d26f9ad"><div class="ttname"><a href="classtaixu_1_1MeshComponent.html#a6ace2a87fb86681a1cbf19c97d26f9ad">taixu::MeshComponent::material_path</a></div><div class="ttdeci">std::string material_path</div><div class="ttdef"><b>Definition:</b> mesh_component.hpp:17</div></div>
+<div class="ttc" id="aclasstaixu_1_1MeshComponent_html_a8d6d15919d99053ebb777f6f6575d060"><div class="ttname"><a href="classtaixu_1_1MeshComponent.html#a8d6d15919d99053ebb777f6f6575d060">taixu::MeshComponent::MeshComponent</a></div><div class="ttdeci">MeshComponent(bool renderable, std::string path1, std::string path2)</div><div class="ttdef"><b>Definition:</b> mesh_component.hpp:12</div></div>
+<div class="ttc" id="aclasstaixu_1_1MeshComponent_html_add282791cfc455892b779264428cdb7f"><div class="ttname"><a href="classtaixu_1_1MeshComponent.html#add282791cfc455892b779264428cdb7f">taixu::MeshComponent::visible</a></div><div class="ttdeci">bool visible</div><div class="ttdef"><b>Definition:</b> mesh_component.hpp:15</div></div>
+<div class="ttc" id="aentity__component_8hpp_html"><div class="ttname"><a href="entity__component_8hpp.html">entity_component.hpp</a></div></div>
 <div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_0f5c9aa018504ec80b3590dee96e9bd5.html">core</a></li><li class="navelem"><a class="el" href="dir_79e4e28a71201c60225f0284a6fbed9c.html">ECS</a></li><li class="navelem"><a class="el" href="dir_bc2cf1c94c876314ee44ec661eec9324.html">entity_component</a></li><li class="navelem"><a class="el" href="dir_7465bf879c0beca548b73a04ec676881.html">mesh</a></li><li class="navelem"><a class="el" href="mesh__component_8hpp.html">mesh_component.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_62623fadb18e76a276166b2f13d7c4c1.html">resource</a></li><li class="navelem"><a class="el" href="dir_082dcba338adf3001ee2fde3096d7366.html">ecs</a></li><li class="navelem"><a class="el" href="dir_1c58dcf1bd3c63d0305e825424309427.html">entity_component</a></li><li class="navelem"><a class="el" href="dir_47b04e7d1a8083f563ab9007b46f577d.html">mesh</a></li><li class="navelem"><a class="el" href="mesh__component_8hpp.html">mesh_component.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

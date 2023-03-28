@@ -7,7 +7,7 @@ var searchData=
   ['gammacorrection_141',['gammaCorrection',['../classtaixu_1_1Model__Data.html#a3aa7860b18b5844466f353edbf258115',1,'taixu::Model_Data']]],
   ['generate_5fnew_5fguid_142',['generate_new_guid',['../classtaixu_1_1GUID__Generator.html#ac090f2c19b794cd5463cae034a48b457',1,'taixu::GUID_Generator']]],
   ['geometry_143',['GEOMETRY',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a1bf9d54e1b266cacdd0b937e462f9adc',1,'taixu']]],
-  ['get_5fid_144',['get_id',['../classtaixu_1_1GameObject.html#a3462fc16b78f879b0af480fdb414523f',1,'taixu::GameObject::get_id()'],['../classtaixu_1_1IShader.html#a56805a9b6ffca57123aaec9af2f1ab09',1,'taixu::IShader::get_id()']]],
+  ['get_5fid_144',['get_id',['../classtaixu_1_1IShader.html#a56805a9b6ffca57123aaec9af2f1ab09',1,'taixu::IShader::get_id()'],['../classtaixu_1_1GameObject.html#a3462fc16b78f879b0af480fdb414523f',1,'taixu::GameObject::get_id()']]],
   ['getalign_145',['getAlign',['../classtaixu_1_1IVertexBuffer.html#a711484ac06afcef7bb3d11fc93b8f1f1',1,'taixu::IVertexBuffer::getAlign()'],['../classtaixu_1_1OGLVertexBuffer.html#a5352a6840a375e98c88a2728d8427257',1,'taixu::OGLVertexBuffer::getAlign()']]],
   ['getcomponent_146',['getComponent',['../classtaixu_1_1EntityComponentMap.html#aa8443f97005748d7881a94615b19dfc4',1,'taixu::EntityComponentMap']]],
   ['getcurrentpath_147',['getCurrentPath',['../classtaixu_1_1ProjectManager.html#a06630982fb9492137f5f0a9fa03fab30',1,'taixu::ProjectManager']]],
