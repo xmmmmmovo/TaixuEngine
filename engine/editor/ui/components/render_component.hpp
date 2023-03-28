@@ -30,16 +30,19 @@ public:
         }
 
         _menu_bar_rect = ImGui::GetCurrentWindow()->MenuBarRect();
-        _render_rect   = ImGui::GetCurrentWindow()->Rect();
+        _render_size   = ImGui::GetWindowSize();
+        _render_size.y -= _menu_bar_rect.GetHeight() + 8;
+
+        _render_rect.Min = ImGui::GetWindowPos();
+        _render_rect.Min.x -= ImGui::GetMainViewport()->Pos.x;
+        _render_rect.Min.y -= ImGui::GetMainViewport()->Pos.y;
         _render_rect.Min.y += _menu_bar_rect.GetHeight();
 
-        _render_size.x = _render_rect.GetWidth();
-        // TODO: I don't know why I need to minus 8.
-        _render_size.y = _render_rect.GetHeight() - 8;
+        _render_rect.Max.x = _render_rect.Min.x + _render_size.x;
+        _render_rect.Max.y = _render_rect.Min.y + _render_size.y;
 
         _renderer->resize(_render_size.x, _render_size.y);
-
-
+        
         // TODO:???? ????????
         InputSystem::getInstance().processInput();
         _renderer->tick();

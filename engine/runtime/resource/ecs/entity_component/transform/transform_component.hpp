@@ -2,7 +2,8 @@
 #define TAIXUENGINE_TRANSFORM_COMPONENT
 
 #include <string>
-#include "../entity_component.hpp"
+
+#include "resource/ecs/entity_component/entity_component.hpp"
 namespace taixu
 {
 class TransformComponent:public EntityComponent

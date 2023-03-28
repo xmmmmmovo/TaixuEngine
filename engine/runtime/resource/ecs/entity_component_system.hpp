@@ -2,17 +2,16 @@
 #define TAIXUENGINE_ENTITY_COMPONENT_SYSTEM
 
 //#include <unordered_map>
-#include <typeinfo>
-#include <string>
-#include <vector>
 #include <memory>
-
-#include <spdlog/spdlog.h>
+#include <string>
+#include <typeinfo>
+#include <vector>
 
 #include "game_object.hpp"
+#include "resource/ecs/entity_component/entity_component.hpp"
+#include "resource/ecs/entity_component/mesh/mesh_component.hpp"
 #include "resource/guid_genenrator.hpp"
-#include "entity_component/entity_component.hpp"
-#include "entity_component/mesh/mesh_component.hpp"
+#include "spdlog/spdlog.h"
 #include "world_manager.hpp"
 
 namespace taixu
