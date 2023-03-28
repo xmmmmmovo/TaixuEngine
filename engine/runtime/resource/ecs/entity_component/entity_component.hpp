@@ -9,6 +9,7 @@ namespace taixu
 class EntityComponent
 {
 public:
+virtual void tick();
 virtual ~EntityComponent()=default;
 };
 
@@ -27,7 +28,6 @@ public:
         map[uid]=instance;
     }
 
-private:
     std::unordered_map<std::uint32_t, EntityComponent*> map;
 };
 

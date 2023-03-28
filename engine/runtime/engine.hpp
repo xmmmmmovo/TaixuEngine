@@ -5,7 +5,7 @@
 #include "core/base/public_singleton.hpp"
 #include "graphics/renderer.hpp"
 #include "resource/project_manager.hpp"
-#include "core/ECS/entity_component_system.hpp"
+#include "resource/ecs/entity_component_system.hpp"
 
 namespace taixu {
 

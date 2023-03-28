@@ -36,7 +36,6 @@ public:
 
     void loadAsset(std::filesystem::path const &file_path) {
 
-
         std::ifstream f(file_path.c_str());
         if (!f.is_open()) {
             spdlog::debug("Unable to load Asset configure file");

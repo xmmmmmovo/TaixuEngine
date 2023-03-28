@@ -14,6 +14,8 @@
 #include "graphics/render/texture.hpp"
 #include "platform/opengl/OGLContext.hpp"
 #include "platform/opengl/OGLShader.hpp"
+#include "resource/ecs/entity_component_system.hpp"
+#include "resource/ecs/entity_component/mesh/mesh_component.hpp"
 namespace taixu {
 
 constexpr float delta_time = 0.03333;
@@ -22,7 +24,7 @@ class Render_Data {
 
     friend class Renderer;
     friend class Render_Context;
-
+    //friend void MeshComponent::loadModelData();
 public:
     explicit Render_Data() = default;
     ~Render_Data()= default;;

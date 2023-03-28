@@ -14,8 +14,9 @@ void ECS::initialize()
 
     auto &current_GO = taixu_world->current_level->GOs[0];
     //add
-    auto mesh=std::make_shared<MeshComponent>(true,"mesh","material");
-    
+    auto mesh=std::make_shared<MeshComponent>(true,"assets/model/cube.obj","material");
+    mesh->loadModelData();
+    mesh->data_target=data_target;
     all_components[0]->addComponent(current_GO.get_id(),mesh.get());
 
     auto testmesh = all_components[0]->getComponent(current_GO.get_id());
@@ -26,6 +27,12 @@ void ECS::initialize()
     //int a=0;
 }
 
+void ECS::dataRedirection(
+        std::shared_ptr<Render_Context> render_context) 
+{
+    data_target=render_context;
+}
+
 void ECS::reloadWorld(const std::filesystem::path & world_path)
 {
 
@@ -33,10 +40,13 @@ void ECS::reloadWorld(const std::filesystem::path & world_path)
 
 void ECS::tick(float delta_time) 
 {
-// for(auto map:all_components)
-// {
-
-// }
+for(auto map:all_components)
+{
+    for(auto cpnt:map->map)
+    {
+        //cpnt.second
+    }
+}
 
 }
 }
