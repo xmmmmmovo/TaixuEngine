@@ -42,10 +42,7 @@ public:
         _render_rect.Max.y = _render_rect.Min.y + _render_size.y;
 
         _renderer->resize(_render_size.x, _render_size.y);
-        
-        // TODO:???? ????????
-        InputSystem::getInstance().processInput();
-        _renderer->tick();
+
         // Because I use the texture from OpenGL, I need to invert the V from the UV.
         ImGui::Image(reinterpret_cast<void*>(_renderer->getRenderResult()),
                      _render_size, ImVec2(0, 1), ImVec2(1, 0));

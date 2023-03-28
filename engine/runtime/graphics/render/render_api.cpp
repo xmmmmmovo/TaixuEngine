@@ -17,6 +17,9 @@ void openglAPILoader() {
     // configure global opengl state
     // -----------------------------
     glEnable(GL_DEPTH_TEST);
+    spdlog::info("Cull face enabled");
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
 }
 
 void loadAPI(RenderAPI api) {

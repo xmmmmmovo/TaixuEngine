@@ -9,6 +9,7 @@
 
 // "" include headers
 #include "core/base/public_singleton.hpp"
+#include "engine.hpp"
 #include "gui/window.hpp"
 
 namespace taixu::editor {
@@ -31,6 +32,8 @@ private:
      */
     std::shared_ptr<IWindow>       window_ptr{nullptr};
     std::shared_ptr<WindowContext> context_ptr{nullptr};
+    // get engine instance raw pointer
+    Engine *_engine_ptr = &Engine::getInstance();
 
     /**
      * @brief Main window width
