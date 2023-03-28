@@ -17,20 +17,23 @@ void ECS::initialize()
     auto mesh=std::make_shared<MeshComponent>(true,"assets/model/cube.obj","material");
     mesh->loadModelData();
     mesh->data_target=data_target;
+    
     all_components[0]->addComponent(current_GO.get_id(),mesh.get());
 
     auto testmesh = all_components[0]->getComponent(current_GO.get_id());
 
-    //modify
-    auto newmesh=std::make_shared<MeshComponent>(true,"new","new");
-    all_components[0]->addComponent(current_GO.get_id(),newmesh.get());
-    //int a=0;
+    // //modify
+    // auto newmesh=std::make_shared<MeshComponent>(true,"new","new");
+    // all_components[0]->addComponent(current_GO.get_id(),newmesh.get());
+    //tick();
+    int a=0;
 }
 
 void ECS::dataRedirection(
         std::shared_ptr<Render_Context> render_context) 
 {
     data_target=render_context;
+    //int a=0;
 }
 
 void ECS::reloadWorld(const std::filesystem::path & world_path)
@@ -44,7 +47,7 @@ for(auto map:all_components)
 {
     for(auto cpnt:map->map)
     {
-        //cpnt.second
+        cpnt.second->tick();
     }
 }
 

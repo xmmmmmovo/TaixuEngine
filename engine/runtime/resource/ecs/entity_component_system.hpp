@@ -22,7 +22,7 @@ class ECS
 {
 public:
     
-    std::shared_ptr<Render_Context>data_target;
+    std::weak_ptr<Render_Context>data_target;
     void initialize();
     void dataRedirection(std::shared_ptr<Render_Context> render_context);
 

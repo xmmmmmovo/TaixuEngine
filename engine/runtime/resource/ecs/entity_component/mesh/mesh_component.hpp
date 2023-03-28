@@ -19,7 +19,7 @@ bool visible;
 std::string mesh_path{"INVALID"};
 std::string material_path{"INVALID"};
 std::shared_ptr<Model_Data>model;
-//std::weak_ptr<Render_Context>data_target;
+std::weak_ptr<Render_Context>data_target;
 void loadModelData();
 void tick();
 };

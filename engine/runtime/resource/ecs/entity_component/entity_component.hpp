@@ -9,7 +9,7 @@ namespace taixu
 class EntityComponent
 {
 public:
-virtual void tick();
+virtual void tick()=0;
 virtual ~EntityComponent()=default;
 };
 

@@ -13,8 +13,9 @@ void MeshComponent::loadModelData()
 
 void MeshComponent::tick() 
 {
-    // assert(data_target.expired());
-    // data_target.lock()->getSwapContext()->model=model;
+    //assert(data_target.expired());
+    data_target.lock()->getSwapContext()->model=model;
+    int a=0;
 }
 
 }// namespace taixu
