@@ -37,11 +37,8 @@ void Application::initialize(int argc, char *argv[]) {
     // init window
     window_ptr_local->init();
 
-    // get engine instance raw pointer
-    Engine *instance = &Engine::getInstance();
-    instance->init();
-
-    window_ptr_local->setEngineRuntime(instance);
+    _engine_ptr->init();
+    window_ptr_local->setEngineRuntime(_engine_ptr);
     this->window_ptr = window_ptr_local;
 }
 
@@ -49,6 +46,7 @@ void Application::run() {
     while (!this->context_ptr->shouldClose()) {
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        this->_engine_ptr->update();
         this->window_ptr->update();
     }
 }
