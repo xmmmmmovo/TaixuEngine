@@ -104,6 +104,13 @@ void MainWindow::preUpdate() {
 }
 
 bool MainWindow::isCursorInRenderComponent() const {
+    spdlog::debug("Mouse pos: {}, {}", _mouse_pos.x, _mouse_pos.y);
+    spdlog::debug("Render rect: {}, {}, {}, {}",
+                  render_component->_render_rect.Min.x,
+                  render_component->_render_rect.Min.y,
+                  render_component->_render_rect.Max.x,
+                  render_component->_render_rect.Max.y);
+    // TODO: fix this
     return render_component->_render_rect.Contains(_mouse_pos);
 }
 

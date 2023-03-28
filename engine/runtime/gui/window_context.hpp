@@ -265,8 +265,6 @@ public:
         glfwSetWindowCloseCallback(_window, windowCloseCallback);
 
         glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-        // TODO: Need Test
-        glfwSetInputMode(_window, GLFW_RAW_MOUSE_MOTION, GLFW_FALSE);
     }
 
     inline void setVsync(bool enable) {
