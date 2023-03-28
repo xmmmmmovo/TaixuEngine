@@ -21,7 +21,7 @@ protected:
     using on_reset_fn        = std::function<void()>;
     using on_key_fn          = std::function<void(int, int, int, int)>;
     using on_char_fn         = std::function<void(unsigned int)>;
-    using on_char_mods_fn    = std::function<void(int, unsigned int)>;
+    using on_char_mods_fn    = std::function<void(unsigned int, int)>;
     using on_mouse_button_fn = std::function<void(int, int, int)>;
     using on_cursor_pos_fn   = std::function<void(double, double)>;
     using on_cursor_enter_fn = std::function<void(int)>;
@@ -52,21 +52,68 @@ protected:
                 static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
         context->onKey(key, scancode, action, mods);
     }
-    static void charCallback(GLFWwindow* window, unsigned int codepoint) {}
+
+    static void charCallback(GLFWwindow* window, unsigned int codepoint) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onChar(codepoint);
+    }
+
     static void charModsCallback(GLFWwindow* window, unsigned int codepoint,
-                                 int mods) {}
+                                 int mods) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onCharMods(codepoint, mods);
+    }
+
     static void mouseButtonCallback(GLFWwindow* window, int button, int action,
-                                    int mods) {}
+                                    int mods) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onMouseButton(button, action, mods);
+    }
+
     static void cursorPosCallback(GLFWwindow* window, double xpos,
-                                  double ypos) {}
-    static void cursorEnterCallback(GLFWwindow* window, int entered) {}
+                                  double ypos) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onCursorPos(xpos, ypos);
+    }
+
+    static void cursorEnterCallback(GLFWwindow* window, int entered) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onCursorEnter(entered);
+    }
+
     static void scrollCallback(GLFWwindow* window, double xoffset,
-                               double yoffset) {}
+                               double yoffset) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onScroll(xoffset, yoffset);
+    }
+
     static void dropCallback(GLFWwindow* window, int count,
-                             const char** paths) {}
-    static void windowSizeCallback(GLFWwindow* window, int width, int height) {}
+                             const char** paths) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onDrop(count, paths);
+    }
+
+    static void windowSizeCallback(GLFWwindow* window, int width, int height) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->_width  = width;
+        context->_height = height;
+        context->onReset();
+        context->onWindowSize(width, height);
+    }
+
     static void windowCloseCallback(GLFWwindow* window) {
         glfwSetWindowShouldClose(window, true);
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onWindowClose();
     }
 
     void onReset() {
@@ -83,8 +130,8 @@ protected:
         for (auto const& func : on_char_fns) { func(codepoint); }
     }
 
-    void onCharMods(int mods, unsigned int codepoint) {
-        for (auto const& func : on_char_mods_fns) { func(mods, codepoint); }
+    void onCharMods(unsigned int codepoint, int mods) {
+        for (auto const& func : on_char_mods_fns) { func(codepoint, mods); }
     }
 
     void onMouseButton(int button, int action, int mods) {
@@ -113,11 +160,11 @@ protected:
         for (auto const& func : on_window_size_fns) { func(width, height); }
     }
 
-public:
     void onWindowClose() {
         for (auto const& func : on_window_close_fns) { func(); }
     }
 
+public:
     void registerOnResetFn(on_reset_fn const& fn) {
         on_reset_fns.push_back(fn);
     }
@@ -155,7 +202,7 @@ public:
     void registerOnWindowCloseFn(on_window_close_fn const& fn) {
         on_window_close_fns.push_back(fn);
     }
-    
+
 public:
     GLFWwindow* _window{nullptr};
 
