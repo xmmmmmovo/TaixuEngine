@@ -71,9 +71,6 @@ private:
     Clock     clock{};
 
 public:
-    explicit Renderer() = default;
-    ~Renderer(){};
-
     void initialize();
     void tick(float delta_time = 0.03333);
     void clear();
@@ -82,11 +79,12 @@ public:
         first_person_camera = camera;
     }
 
-    void                        resize(float width, float height);
-    //unsigned int getRenderResult() { return bufferTexId; };
+    void resize(float width, float height);
+
     [[nodiscard]] std::uint32_t getRenderResult() const {
         return render_context->ogl_context->framebuffer->getImageid();
     };
+
     std::shared_ptr<PerspectiveCamera> first_person_camera{nullptr};
 
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
