@@ -57,8 +57,7 @@ var hierarchy =
         [ "taixu::editor::HierarchyComponent", "classtaixu_1_1editor_1_1HierarchyComponent.html", null ],
         [ "taixu::editor::MenuComponent", "classtaixu_1_1editor_1_1MenuComponent.html", null ],
         [ "taixu::editor::RenderComponent", "classtaixu_1_1editor_1_1RenderComponent.html", null ],
-        [ "taixu::editor::StatusBarComponent", "classtaixu_1_1editor_1_1StatusBarComponent.html", null ],
-        [ "taixu::editor::ToolbarComponent", "classtaixu_1_1editor_1_1ToolbarComponent.html", null ]
+        [ "taixu::editor::StatusBarComponent", "classtaixu_1_1editor_1_1StatusBarComponent.html", null ]
       ] ]
     ] ],
     [ "taixu::OGLContext", "classtaixu_1_1OGLContext.html", null ],
@@ -71,6 +70,9 @@ var hierarchy =
     ] ],
     [ "taixu::PublicSingleton< Engine >", "classtaixu_1_1PublicSingleton.html", [
       [ "taixu::Engine", "classtaixu_1_1Engine.html", null ]
+    ] ],
+    [ "taixu::PublicSingleton< InputSystem >", "classtaixu_1_1PublicSingleton.html", [
+      [ "taixu::InputSystem", "classtaixu_1_1InputSystem.html", null ]
     ] ],
     [ "taixu::Render_Context", "classtaixu_1_1Render__Context.html", null ],
     [ "taixu::Render_Data", "classtaixu_1_1Render__Data.html", null ],

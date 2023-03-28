@@ -84,7 +84,6 @@ $(document).ready(function(){initNavTree('classtaixu_1_1editor_1_1RenderComponen
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtaixu_1_1editor_1_1RenderComponent-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">taixu::editor::RenderComponent Class Reference</div>  </div>
@@ -97,7 +96,7 @@ Inheritance diagram for taixu::editor::RenderComponent:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1editor_1_1RenderComponent__inherit__graph.png" border="0" usemap="#ataixu_1_1editor_1_1RenderComponent_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1editor_1_1RenderComponent_inherit__map" id="ataixu_1_1editor_1_1RenderComponent_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,329,236,436"/>
+<area shape="rect" title=" " alt="" coords="5,329,236,451"/>
 <area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="19,204,222,281"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="47,5,194,156"/>
 </map>
@@ -107,7 +106,7 @@ Collaboration diagram for taixu::editor::RenderComponent:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1editor_1_1RenderComponent__coll__graph.png" border="0" usemap="#ataixu_1_1editor_1_1RenderComponent_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1editor_1_1RenderComponent_coll__map" id="ataixu_1_1editor_1_1RenderComponent_coll__map">
-<area shape="rect" title=" " alt="" coords="5,329,236,436"/>
+<area shape="rect" title=" " alt="" coords="5,329,236,451"/>
 <area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="19,204,222,281"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="47,5,194,156"/>
 </map>
@@ -115,49 +114,22 @@ Collaboration diagram for taixu::editor::RenderComponent:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6f46223ef97f2921ddbfcd2110afc1be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#a6f46223ef97f2921ddbfcd2110afc1be">setRenderer</a> (std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Renderer.html">Renderer</a> &gt; const &amp;renderer)</td></tr>
-<tr class="separator:a6f46223ef97f2921ddbfcd2110afc1be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f74a3948f129b57c8ac61cfd35d8be4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#a1f74a3948f129b57c8ac61cfd35d8be4">update</a> () override</td></tr>
 <tr class="memdesc:a1f74a3948f129b57c8ac61cfd35d8be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">render updateWindow  <a href="classtaixu_1_1editor_1_1RenderComponent.html#a1f74a3948f129b57c8ac61cfd35d8be4">More...</a><br /></td></tr>
 <tr class="separator:a1f74a3948f129b57c8ac61cfd35d8be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a80dd170be8d7ca15d609190a48bd4456"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#a80dd170be8d7ca15d609190a48bd4456">delta_time</a> = 0.03333</td></tr>
-<tr class="separator:a80dd170be8d7ca15d609190a48bd4456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a1252df7be0dbb415a2dc8db3f27b38b9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Renderer.html">Renderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#a1252df7be0dbb415a2dc8db3f27b38b9">m_renderer</a></td></tr>
-<tr class="separator:a1252df7be0dbb415a2dc8db3f27b38b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a846d6772902c110e10d0c2426ac1d396"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Renderer.html">Renderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#a846d6772902c110e10d0c2426ac1d396">_renderer</a></td></tr>
+<tr class="separator:a846d6772902c110e10d0c2426ac1d396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4e04ae4f4bc56ad8b3a8a72a3ffec38"><td class="memItemLeft" align="right" valign="top">ImVec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#ac4e04ae4f4bc56ad8b3a8a72a3ffec38">_render_size</a></td></tr>
+<tr class="separator:ac4e04ae4f4bc56ad8b3a8a72a3ffec38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac796d1ddd3621c77b3749f57cf337dc6"><td class="memItemLeft" align="right" valign="top">ImRect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#ac796d1ddd3621c77b3749f57cf337dc6">_render_rect</a></td></tr>
+<tr class="separator:ac796d1ddd3621c77b3749f57cf337dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe14b501363a0783199fb713f5d6a338"><td class="memItemLeft" align="right" valign="top">ImRect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#afe14b501363a0783199fb713f5d6a338">_menu_bar_rect</a></td></tr>
+<tr class="separator:afe14b501363a0783199fb713f5d6a338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6f46223ef97f2921ddbfcd2110afc1be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f46223ef97f2921ddbfcd2110afc1be">&#9670;&nbsp;</a></span>setRenderer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void taixu::editor::RenderComponent::setRenderer </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Renderer.html">Renderer</a> &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>renderer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a1f74a3948f129b57c8ac61cfd35d8be4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f74a3948f129b57c8ac61cfd35d8be4">&#9670;&nbsp;</a></span>update()</h2>
 
@@ -188,38 +160,58 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a80dd170be8d7ca15d609190a48bd4456"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80dd170be8d7ca15d609190a48bd4456">&#9670;&nbsp;</a></span>delta_time</h2>
+<a id="afe14b501363a0783199fb713f5d6a338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe14b501363a0783199fb713f5d6a338">&#9670;&nbsp;</a></span>_menu_bar_rect</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const float taixu::editor::RenderComponent::delta_time = 0.03333</td>
+          <td class="memname">ImRect taixu::editor::RenderComponent::_menu_bar_rect</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a1252df7be0dbb415a2dc8db3f27b38b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1252df7be0dbb415a2dc8db3f27b38b9">&#9670;&nbsp;</a></span>m_renderer</h2>
+<a id="ac796d1ddd3621c77b3749f57cf337dc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac796d1ddd3621c77b3749f57cf337dc6">&#9670;&nbsp;</a></span>_render_rect</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1Renderer.html">Renderer</a>&gt; taixu::editor::RenderComponent::m_renderer</td>
+          <td class="memname">ImRect taixu::editor::RenderComponent::_render_rect</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4e04ae4f4bc56ad8b3a8a72a3ffec38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4e04ae4f4bc56ad8b3a8a72a3ffec38">&#9670;&nbsp;</a></span>_render_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ImVec2 taixu::editor::RenderComponent::_render_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a846d6772902c110e10d0c2426ac1d396"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a846d6772902c110e10d0c2426ac1d396">&#9670;&nbsp;</a></span>_renderer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1Renderer.html">Renderer</a>&gt; taixu::editor::RenderComponent::_renderer</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

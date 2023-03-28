@@ -3,6 +3,7 @@ var classtaixu_1_1editor_1_1MainWindow =
     [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html#a9fa9e218540fb692522f693d2cc8e7e2", null ],
     [ "destroy", "classtaixu_1_1editor_1_1MainWindow.html#ade6a1d9f80fc0c972b9b21b47128aed8", null ],
     [ "init", "classtaixu_1_1editor_1_1MainWindow.html#a3bea5c39e0f5cff804d4265594071f82", null ],
+    [ "isCursorInRenderComponent", "classtaixu_1_1editor_1_1MainWindow.html#a8dbc01f1c1a584c62966df616ae42dbf", null ],
     [ "onNewProjectCb", "classtaixu_1_1editor_1_1MainWindow.html#ac710e957beab14b1d521099bac93fd59", null ],
     [ "onOpenProjectCb", "classtaixu_1_1editor_1_1MainWindow.html#a6063551e344a724074237b67ee6ba0bc", null ],
     [ "onSaveAsProjectCb", "classtaixu_1_1editor_1_1MainWindow.html#a7fede708d5ce0c53ab4c21edda249744", null ],
@@ -10,6 +11,9 @@ var classtaixu_1_1editor_1_1MainWindow =
     [ "preUpdate", "classtaixu_1_1editor_1_1MainWindow.html#a0dad7f245695b7f8261a7d7f7f6c1c4e", null ],
     [ "setEngineRuntime", "classtaixu_1_1editor_1_1MainWindow.html#ae72b2abdf6960cfbe277547758f41cff", null ],
     [ "update", "classtaixu_1_1editor_1_1MainWindow.html#a5406a9373a7766a833ff41f07b171cc9", null ],
+    [ "_cam_mode", "classtaixu_1_1editor_1_1MainWindow.html#a6df887ecb1fa9110bf1085140ef10fe1", null ],
+    [ "_last_mouse_pos", "classtaixu_1_1editor_1_1MainWindow.html#a75e99b578eef2cea835c3f0882a9f48c", null ],
+    [ "_mouse_pos", "classtaixu_1_1editor_1_1MainWindow.html#af3575a1e4b2caf49147981fc9e237987", null ],
     [ "context_ptr", "classtaixu_1_1editor_1_1MainWindow.html#aadc6edf90cab622fe08c679e490c5bcf", null ],
     [ "detail_component", "classtaixu_1_1editor_1_1MainWindow.html#a9134a51db3c32d8614842eeabde2c49a", null ],
     [ "engine_runtime", "classtaixu_1_1editor_1_1MainWindow.html#a12cf3e37d1d6b75bc4d36281bb9b0af4", null ],
@@ -19,7 +23,6 @@ var classtaixu_1_1editor_1_1MainWindow =
     [ "renderer", "classtaixu_1_1editor_1_1MainWindow.html#a95ce6ca253e677a1682c0c686e31f412", null ],
     [ "status_bar_component", "classtaixu_1_1editor_1_1MainWindow.html#a41e340906b396b2b244f0c97a7a190ef", null ],
     [ "status_component", "classtaixu_1_1editor_1_1MainWindow.html#a712dd4697238214056c28e95e4ffae89", null ],
-    [ "tool_bar_component", "classtaixu_1_1editor_1_1MainWindow.html#a9e2ac6f7e0ffeb8c8cece288068338a1", null ],
     [ "useful_obj_component", "classtaixu_1_1editor_1_1MainWindow.html#a1fc2127f18e2af575b0f65b16fba6f03", null ],
     [ "world_object_component", "classtaixu_1_1editor_1_1MainWindow.html#a565ea0d8f56209d29c6dcc65e5ba83c8", null ]
 ];

@@ -8,7 +8,6 @@ var namespacetaixu_1_1editor =
     [ "MenuComponent", "classtaixu_1_1editor_1_1MenuComponent.html", "classtaixu_1_1editor_1_1MenuComponent" ],
     [ "RenderComponent", "classtaixu_1_1editor_1_1RenderComponent.html", "classtaixu_1_1editor_1_1RenderComponent" ],
     [ "StatusBarComponent", "classtaixu_1_1editor_1_1StatusBarComponent.html", "classtaixu_1_1editor_1_1StatusBarComponent" ],
-    [ "ToolbarComponent", "classtaixu_1_1editor_1_1ToolbarComponent.html", "classtaixu_1_1editor_1_1ToolbarComponent" ],
     [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html", "classtaixu_1_1editor_1_1MainWindow" ],
     [ "EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", "structtaixu_1_1editor_1_1EditorStyle" ],
     [ "IUIComponent", "classtaixu_1_1editor_1_1IUIComponent.html", "classtaixu_1_1editor_1_1IUIComponent" ],

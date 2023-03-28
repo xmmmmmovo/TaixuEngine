@@ -20,8 +20,5 @@ var dir_56e768b79572d2e98efb680403656294 =
     ] ],
     [ "statusbar_component.hpp", "statusbar__component_8hpp.html", [
       [ "StatusBarComponent", "classtaixu_1_1editor_1_1StatusBarComponent.html", "classtaixu_1_1editor_1_1StatusBarComponent" ]
-    ] ],
-    [ "toolbar_component.hpp", "toolbar__component_8hpp.html", [
-      [ "ToolbarComponent", "classtaixu_1_1editor_1_1ToolbarComponent.html", "classtaixu_1_1editor_1_1ToolbarComponent" ]
     ] ]
 ];

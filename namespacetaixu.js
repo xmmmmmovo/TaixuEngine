@@ -33,6 +33,7 @@ var namespacetaixu =
     [ "Render_Data", "classtaixu_1_1Render__Data.html", "classtaixu_1_1Render__Data" ],
     [ "Render_Context", "classtaixu_1_1Render__Context.html", "classtaixu_1_1Render__Context" ],
     [ "Renderer", "classtaixu_1_1Renderer.html", "classtaixu_1_1Renderer" ],
+    [ "InputSystem", "classtaixu_1_1InputSystem.html", "classtaixu_1_1InputSystem" ],
     [ "IWindow", "classtaixu_1_1IWindow.html", "classtaixu_1_1IWindow" ],
     [ "WindowContext", "classtaixu_1_1WindowContext.html", "classtaixu_1_1WindowContext" ],
     [ "OGLContext", "classtaixu_1_1OGLContext.html", "classtaixu_1_1OGLContext" ],

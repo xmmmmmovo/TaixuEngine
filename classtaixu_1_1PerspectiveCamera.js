@@ -6,7 +6,7 @@ var classtaixu_1_1PerspectiveCamera =
     [ "getProjectionMatrix", "classtaixu_1_1PerspectiveCamera.html#ad741cc101b228434b7d6ec1db3c7a002", null ],
     [ "getViewMatrix", "classtaixu_1_1PerspectiveCamera.html#acdc670cbeefa4e005bac14ee495e2084", null ],
     [ "processKeyboard", "classtaixu_1_1PerspectiveCamera.html#aa47d1e078aeb3cf3fc8b8aedffaac922", null ],
-    [ "ProcessMouseMovement", "classtaixu_1_1PerspectiveCamera.html#af775cbb8de5f68590844d35e310b7362", null ],
+    [ "processMouseMovement", "classtaixu_1_1PerspectiveCamera.html#ac0a53c6638961541200d174c4a2a8d09", null ],
     [ "processMouseScroll", "classtaixu_1_1PerspectiveCamera.html#ab5e0b20807118e0df181460fc1387e08", null ],
     [ "updateCameraVectors", "classtaixu_1_1PerspectiveCamera.html#ab89d3a1ae2b5d58fdece21f2dd5b563f", null ],
     [ "Front", "classtaixu_1_1PerspectiveCamera.html#a0ff27409a3a193bf46d618f903670de0", null ],
