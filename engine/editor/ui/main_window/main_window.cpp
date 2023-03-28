@@ -49,7 +49,8 @@ void MainWindow::preUpdate() {
                                     world_object_component->update));
     ImguiSurface::addWidget(
             RENDER_COMPONENT_NAME,
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component->update));
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component->update),
+            ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_MenuBar);
     ImguiSurface::addWidget(
             DETAILS_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component->update));
@@ -62,12 +63,10 @@ void MainWindow::preUpdate() {
     ImguiSurface::addWidget(
             USEFUL_OBJ_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component->update));
-    ImguiSurface::addWidget(
-            TOOLBAR_COMPONENT_NAME,
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(tool_bar_component->update),
-            ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize |
-                    ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar |
-                    ImGuiWindowFlags_NoNav);
+}
+
+bool MainWindow::isCursorInRenderComponent() const {
+    return render_component->_render_rect.Contains(_mouse_pos);
 }
 
 void MainWindow::update() {
@@ -86,7 +85,7 @@ void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
     this->renderer       = engine_runtime_ptr->getRenderer();
 
     ImguiSurface::init(context_ptr->_window);
-    render_component->setRenderer(renderer);
+    render_component->_renderer = renderer;
 }
 
 MainWindow::MainWindow(std::shared_ptr<WindowContext> const& context_ptr)
@@ -105,5 +104,6 @@ void MainWindow::onOpenProjectCb(std::string_view const& path) {
 }
 void MainWindow::onSaveProjectCb() {}
 void MainWindow::onSaveAsProjectCb(std::string_view const& path) {}
+
 
 }// namespace taixu::editor

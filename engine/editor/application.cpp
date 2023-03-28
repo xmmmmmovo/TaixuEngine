@@ -39,7 +39,10 @@ void Application::initialize(int argc, char *argv[]) {
 }
 
 void Application::run() {
-    while (!this->context_ptr->shouldClose()) { this->window_ptr->update(); }
+    while (!this->context_ptr->shouldClose()) {
+        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+        this->window_ptr->update(); }
 }
 
 void Application::destroy() { this->window_ptr->destroy(); }
