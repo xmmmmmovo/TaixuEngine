@@ -29,7 +29,8 @@ private:
      * so there is just one pointer
      * @see IWindow
      */
-    std::shared_ptr<IWindow> window{nullptr};
+    std::shared_ptr<IWindow>       window_ptr{nullptr};
+    std::shared_ptr<WindowContext> context_ptr{nullptr};
 
     /**
      * @brief Main window width
@@ -46,7 +47,7 @@ private:
 
 public:
     /**
-     * @brief init application
+     * @brief initWindow application
      */
     void initialize(int argc, char *argv[]);
     /**
@@ -54,13 +55,13 @@ public:
      */
     void run();
     /**
-     * @brief destroy function, to release memory.
+     * @brief destroyWindow function, to release memory.
      */
     void destroy();
 
 private:
     /**
-     * @brief init application args
+     * @brief initWindow application args
      * @param argc args count
      * @param argv args
      */

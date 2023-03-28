@@ -20,7 +20,7 @@ void Engine::init() {
     entity_component_system->dataRedirection(renderer->render_context);
 }
 
-void Engine::run() {}
+void Engine::update() {}
 
 void Engine::shutdown() {}
 

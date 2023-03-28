@@ -12,7 +12,7 @@
 #include <vector>
 
 #include "hierarchy_component.hpp"
-#include "interface/ui_component.hpp"
+#include "ui/ui_component.hpp"
 
 namespace taixu::editor {
 class FileComponent : public IUIComponent {
@@ -41,7 +41,7 @@ public:
         ImGui::SameLine();
         // Child 2: rounded border
         {
-            ImGui::BeginChild("ChildR", ImVec2(0, 260), false, window_flags);
+            ImGui::BeginChild("ChildR", ImVec2(0, 0.f), false, window_flags);
 
             if (current_path != root_path) {
                 if (ImGui::Button("<-")) {

@@ -20,10 +20,9 @@ private:
     float time_scale{};
 
     float time_since_start{};
+    bool  unreset{false};
 
 public:
-    Clock() { reset(); };
-
     [[nodiscard]] float getDeltaTime() const { return delta_time; }
 
     [[nodiscard]] float getTimeScale() const { return time_scale; }
@@ -41,6 +40,10 @@ public:
     }
 
     void update() {
+        if (unreset) {
+            reset();
+            unreset = false;
+        }
         last_time    = current_time;
         current_time = std::chrono::high_resolution_clock::now();
         elapsed_time = current_time - last_time;

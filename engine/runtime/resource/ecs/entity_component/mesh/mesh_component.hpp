@@ -5,6 +5,8 @@
 #include "../entity_component.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/renderer.hpp"
+#include "resource/ecs/entity_component/entity_component.hpp"
+
 namespace taixu
 {
 class MeshComponent:public EntityComponent

@@ -4,8 +4,10 @@
 #include "core/base/macro.hpp"
 #include "core/base/public_singleton.hpp"
 #include "graphics/renderer.hpp"
+#include "resource/ecs/entity_component_system.hpp"
 #include "resource/project_manager.hpp"
 #include "resource/ecs/entity_component_system.hpp"
+
 
 namespace taixu {
 
@@ -17,16 +19,16 @@ private:
     std::shared_ptr<Project>        project{nullptr};
     std::shared_ptr<AssetManager>   asset_manager{nullptr};
     std::unique_ptr<ProjectManager> project_manager{nullptr};
-    std::shared_ptr<ECS>       entity_component_system{nullptr};
+    std::shared_ptr<ECS>            entity_component_system{nullptr};
 
 public:
     Engine();
     ~Engine();
 
     void init();
-    void run();
+    void update();
     void shutdown();
-    
+
     Status loadProject(std::string_view const &path);
 
     [[nodiscard]] std::shared_ptr<Renderer> getRenderer() const;

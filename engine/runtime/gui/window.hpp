@@ -12,10 +12,9 @@ namespace taixu {
 
 class IWindow : private noncopyable {
 public:
-    virtual void init()        = 0;
-    virtual void update()      = 0;
-    [[nodiscard]] virtual bool shouldClose() const = 0;
-    virtual void destroy()     = 0;
+    virtual void init()    = 0;
+    virtual void update()  = 0;
+    virtual void destroy() = 0;
 };
 
 }// namespace taixu

@@ -15,7 +15,7 @@ std::vector<std::string> getPathSegments(
         const std::filesystem::path& file_path) {
     std::vector<std::string> segments;
     for (auto iter = file_path.begin(); iter != file_path.end(); ++iter) {
-        segments.emplace_back(iter->generic_string());
+        segments.push_back(iter->generic_string());
     }
     return segments;
 }
@@ -24,7 +24,7 @@ std::vector<std::string> getFileExtensions(
         const std::filesystem::path& file_path) {
     std::vector<std::string> res(1);
     for (auto p = file_path; !p.extension().empty(); p = p.stem()) {
-        res.emplace_back(p.extension().generic_string());
+        res.push_back(p.extension().generic_string());
     }
     return res;
 }
