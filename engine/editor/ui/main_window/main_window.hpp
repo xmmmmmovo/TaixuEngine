@@ -67,6 +67,8 @@ private:
     std::shared_ptr<WindowContext> context_ptr{};
 
     ImVec2 _mouse_pos{0.0f, 0.0f};
+    ImVec2 _last_mouse_pos{-1.f, -1.f};
+    bool   _cam_mode{false};
 
 public:
     explicit MainWindow(std::shared_ptr<WindowContext> const& context_ptr);
@@ -78,8 +80,6 @@ public:
     void setEngineRuntime(Engine* engine_runtime_ptr);
 
 private:
-    inline void showRenderComponent() const;
-
     void preUpdate();
 
     [[nodiscard]] inline bool isCursorInRenderComponent() const;

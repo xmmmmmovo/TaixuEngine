@@ -16,7 +16,7 @@ void Engine::init() {
     asset_manager   = std::make_shared<AssetManager>();
 }
 
-void Engine::run() {}
+void Engine::update() {}
 
 void Engine::shutdown() {}
 

@@ -6,6 +6,7 @@
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
 #include "graphics/renderer.hpp"
+#include "gui/input_system.hpp"
 #include "ui/ui_component.hpp"
 
 namespace taixu::editor {
@@ -18,8 +19,6 @@ public:
     ImRect                    _menu_bar_rect;
 
 public:
-    const float delta_time = 0.03333;
-
     void update() override {
         if (ImGui::BeginMenuBar()) {
             float size = ImGui::GetWindowHeight() - 4.0f;
@@ -39,6 +38,10 @@ public:
         _render_size.y = _render_rect.GetHeight() - 8;
 
         _renderer->resize(_render_size.x, _render_size.y);
+
+
+        // TODO:???? ????????
+        InputSystem::getInstance().processInput();
         _renderer->tick();
         // Because I use the texture from OpenGL, I need to invert the V from the UV.
         ImGui::Image(reinterpret_cast<void*>(_renderer->getRenderResult()),

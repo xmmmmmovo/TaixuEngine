@@ -22,9 +22,9 @@ public:
     ~Engine();
 
     void init();
-    void run();
+    void update();
     void shutdown();
-    
+
     Status loadProject(std::string_view const &path);
 
     [[nodiscard]] std::shared_ptr<Renderer> getRenderer() const;

@@ -11,6 +11,7 @@
 #include <string>
 
 #include "core/base/macro.hpp"
+#include "graphics/render/perspective_camera.hpp"
 
 namespace taixu {
 /**
@@ -214,7 +215,10 @@ public:
     /**
      * @brief editor state
      */
-    EngineState state{EngineState::IDLEMODE};
+    EngineState _state{EngineState::EDITORMODE};
+
+    std::shared_ptr<PerspectiveCamera> _editor_camera{
+            std::make_shared<PerspectiveCamera>()};
 
 protected:
     bool is_vsync{false};
@@ -245,7 +249,6 @@ public:
             glfwTerminate();
             exit(1);
         }
-        glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         glfwMakeContextCurrent(_window);
 
         glfwSetWindowUserPointer(_window, this);
@@ -260,6 +263,10 @@ public:
         glfwSetDropCallback(_window, dropCallback);
         glfwSetWindowSizeCallback(_window, windowSizeCallback);
         glfwSetWindowCloseCallback(_window, windowCloseCallback);
+
+        glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        // TODO: Need Test
+        glfwSetInputMode(_window, GLFW_RAW_MOUSE_MOTION, GLFW_FALSE);
     }
 
     inline void setVsync(bool enable) {
