@@ -11,7 +11,6 @@
 
 #include "game_object.hpp"
 #include "resource/guid_genenrator.hpp"
-#include "graphics/renderer.hpp"
 #include "entity_component/entity_component.hpp"
 #include "entity_component/mesh/mesh_component.hpp"
 #include "world_manager.hpp"
