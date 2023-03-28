@@ -82,7 +82,7 @@ public:
     void accelerate(float deltaTime) { MovementSpeed = FASTS_PEED; }
 
     // processes input received from a mouse input system. Expects the offset value in both the x and y direction.
-    void ProcessMouseMovement(float xoffset, float yoffset,
+    void processMouseMovement(float xoffset, float yoffset,
                               GLboolean constrainPitch = true) {
         xoffset *= MouseSensitivity;
         yoffset *= MouseSensitivity;

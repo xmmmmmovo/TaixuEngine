@@ -23,22 +23,11 @@
 #include "ui/components/menu_component.hpp"
 #include "ui/components/render_component.hpp"
 #include "ui/components/statusbar_component.hpp"
-#include "ui/components/toolbar_component.hpp"
-
 
 namespace taixu::editor {
 
 class MainWindow : public IWindow {
 private:
-    std::shared_ptr<Renderer> renderer{};
-
-    // static raw engine runtime pointer
-    // do not need to free
-    Engine* engine_runtime{nullptr};
-
-    // context
-    std::shared_ptr<WindowContext> context_ptr{};
-
     // names
     static char constexpr DOCK_SPACE_NAME[]           = "TaixuEditorDock";
     static char constexpr RENDER_COMPONENT_NAME[]     = "Scene";
@@ -47,7 +36,6 @@ private:
     static char constexpr WORLD_OBJ_COMPONENT_NAME[]  = "World Objects";
     static char constexpr STATUS_COMPONENT_NAME[]     = "Status";
     static char constexpr USEFUL_OBJ_COMPONENT_NAME[] = "Useful Objects";
-    static char constexpr TOOLBAR_COMPONENT_NAME[]    = "Toolbar";
 
     // components
     std::unique_ptr<MenuComponent> menu_component{
@@ -64,11 +52,23 @@ private:
             std::make_unique<ConsoleComponent>()};
     std::unique_ptr<HierarchyComponent> useful_obj_component{
             std::make_unique<HierarchyComponent>()};
-    std::unique_ptr<ToolbarComponent> tool_bar_component{
-            std::make_unique<ToolbarComponent>()};
     std::unique_ptr<StatusBarComponent> status_bar_component{
             std::make_unique<StatusBarComponent>()};
 
+
+private:
+    std::shared_ptr<Renderer> renderer{};
+
+    // static raw engine runtime pointer
+    // do not need to free
+    Engine* engine_runtime{nullptr};
+
+    // context
+    std::shared_ptr<WindowContext> context_ptr{};
+
+    ImVec2 _mouse_pos{0.0f, 0.0f};
+    ImVec2 _last_mouse_pos{-1.f, -1.f};
+    bool   _cam_mode{false};
 
 public:
     explicit MainWindow(std::shared_ptr<WindowContext> const& context_ptr);
@@ -82,6 +82,9 @@ public:
 private:
     void preUpdate();
 
+    [[nodiscard]] inline bool isCursorInRenderComponent() const;
+
+private:
     // callback functions
     void onNewProjectCb(std::string_view const& path);
     void onOpenProjectCb(std::string_view const& path);

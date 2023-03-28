@@ -20,7 +20,7 @@ void Engine::init() {
     
 }
 
-void Engine::run() {}
+void Engine::update() {}
 
 void Engine::shutdown() {}
 

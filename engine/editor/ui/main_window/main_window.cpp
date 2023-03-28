@@ -11,6 +11,44 @@ void MainWindow::init() {
     spdlog::info("Main window start initWindow!");
     context_ptr->initWindow();
     context_ptr->setVsync(true);
+
+    context_ptr->registerOnScrollFn([&](double xoffset, double yoffset) {
+        if (context_ptr->_state == EngineState::GAMEMODE) {
+            context_ptr->_editor_camera->processMouseScroll(yoffset);
+        }
+    });
+
+    context_ptr->registerOnCursorPosFn([&](double xpos, double ypos) {
+        if (_last_mouse_pos.x == -1.0f && _last_mouse_pos.y == -1.0f) {
+            _last_mouse_pos.x = xpos;
+            _last_mouse_pos.y = ypos;
+        }
+        _mouse_pos.x = xpos;
+        _mouse_pos.y = ypos;
+        if (_cam_mode) {
+            context_ptr->_editor_camera->processMouseMovement(
+                    _mouse_pos.x - _last_mouse_pos.x,
+                    _last_mouse_pos.y - _mouse_pos.y);
+        }
+        _last_mouse_pos = _mouse_pos;
+    });
+
+    context_ptr->registerOnMouseButtonFn([&](int button, int action, int mods) {
+        if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
+            if (_cam_mode) {
+                _cam_mode = false;
+                glfwSetInputMode(context_ptr->_window, GLFW_CURSOR,
+                                 GLFW_CURSOR_NORMAL);
+            } else {
+                if (isCursorInRenderComponent()) {
+                    _cam_mode = true;
+                    glfwSetInputMode(context_ptr->_window, GLFW_CURSOR,
+                                     GLFW_CURSOR_DISABLED);
+                }
+            }
+        }
+    });
+
     spdlog::info("Main window start finished!");
 }
 
@@ -49,7 +87,8 @@ void MainWindow::preUpdate() {
                                     world_object_component->update));
     ImguiSurface::addWidget(
             RENDER_COMPONENT_NAME,
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component->update));
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component->update),
+            ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_MenuBar);
     ImguiSurface::addWidget(
             DETAILS_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component->update));
@@ -62,12 +101,10 @@ void MainWindow::preUpdate() {
     ImguiSurface::addWidget(
             USEFUL_OBJ_COMPONENT_NAME,
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component->update));
-    ImguiSurface::addWidget(
-            TOOLBAR_COMPONENT_NAME,
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(tool_bar_component->update),
-            ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize |
-                    ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar |
-                    ImGuiWindowFlags_NoNav);
+}
+
+bool MainWindow::isCursorInRenderComponent() const {
+    return render_component->_render_rect.Contains(_mouse_pos);
 }
 
 void MainWindow::update() {
@@ -86,7 +123,30 @@ void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
     this->renderer       = engine_runtime_ptr->getRenderer();
 
     ImguiSurface::init(context_ptr->_window);
-    render_component->setRenderer(renderer);
+    render_component->_renderer = renderer;
+    renderer->setCamera(context_ptr->_editor_camera);
+
+    InputSystem::getInstance().registerEditorCallback([&](float delta_time) {
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_W) == GLFW_PRESS)
+            context_ptr->_editor_camera->processKeyboard(
+                    CameraMovement::FORWARD, delta_time);
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_S) == GLFW_PRESS)
+            context_ptr->_editor_camera->processKeyboard(
+                    CameraMovement::BACKWARD, delta_time);
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_A) == GLFW_PRESS)
+            context_ptr->_editor_camera->processKeyboard(CameraMovement::LEFT,
+                                                         delta_time);
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_D) == GLFW_PRESS)
+            context_ptr->_editor_camera->processKeyboard(CameraMovement::RIGHT,
+                                                         delta_time);
+
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_E) == GLFW_PRESS)
+            context_ptr->_editor_camera->processKeyboard(CameraMovement::UP,
+                                                         delta_time);
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_Q) == GLFW_PRESS)
+            context_ptr->_editor_camera->processKeyboard(CameraMovement::DOWN,
+                                                         delta_time);
+    });
 }
 
 MainWindow::MainWindow(std::shared_ptr<WindowContext> const& context_ptr)
@@ -105,5 +165,6 @@ void MainWindow::onOpenProjectCb(std::string_view const& path) {
 }
 void MainWindow::onSaveProjectCb() {}
 void MainWindow::onSaveAsProjectCb(std::string_view const& path) {}
+
 
 }// namespace taixu::editor

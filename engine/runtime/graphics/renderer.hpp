@@ -8,6 +8,7 @@
 #include <memory>
 #include <vector>
 
+#include "core/base/clock.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/render/perspective_camera.hpp"
 #include "graphics/render/render_api.hpp"
@@ -44,7 +45,7 @@ class Render_Context {
 public:
     explicit Render_Context() = default;
     ~Render_Context()         = default;
-    ;
+
     void initialize() {
         render_data = std::make_shared<Render_Data>();
         render_data->initialize();
@@ -65,27 +66,28 @@ protected:
 };
 
 class Renderer {
-public:
+private:
     RenderAPI api{RenderAPI::OPENGL};
+    Clock     clock{};
 
 public:
     explicit Renderer() = default;
     ~Renderer(){};
+
     void initialize();
     void tick(float delta_time = 0.03333);
     void clear();
 
-    void          resize(float width, float height);
-    void          processInput(std::string input);
-    void          processInput(glm::vec2 mouse_pos);
-    bool          first_mouse = true;
-    float         last_x, last_y;
-    void          processInput(float scroll_yoffset);
+    void setCamera(std::shared_ptr<PerspectiveCamera> const &camera) {
+        first_person_camera = camera;
+    }
+
+    void                        resize(float width, float height);
     //unsigned int getRenderResult() { return bufferTexId; };
-    std::uint32_t getRenderResult() {
+    [[nodiscard]] std::uint32_t getRenderResult() const {
         return render_context->ogl_context->framebuffer->getImageid();
     };
-    std::shared_ptr<PerspectiveCamera> first_person_camera;
+    std::shared_ptr<PerspectiveCamera> first_person_camera{nullptr};
 
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 

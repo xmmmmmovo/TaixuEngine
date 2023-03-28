@@ -22,7 +22,7 @@ void OGLVertexArray::addVBO(OGLVertexBuffer &&vbo) {
     std::size_t const idx = VBO.size();
     vbo.bind();
     glVertexAttribPointer(idx, vbo.getAlign(), GL_FLOAT, GL_FALSE, 0, nullptr);
-    this->VBO.emplace_back(std::move(vbo));
+    this->VBO.push_back(std::move(vbo));
     glEnableVertexAttribArray(idx);
 }
 

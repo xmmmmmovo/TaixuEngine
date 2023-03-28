@@ -11,6 +11,7 @@
 #include <string>
 
 #include "core/base/macro.hpp"
+#include "graphics/render/perspective_camera.hpp"
 
 namespace taixu {
 /**
@@ -21,7 +22,7 @@ protected:
     using on_reset_fn        = std::function<void()>;
     using on_key_fn          = std::function<void(int, int, int, int)>;
     using on_char_fn         = std::function<void(unsigned int)>;
-    using on_char_mods_fn    = std::function<void(int, unsigned int)>;
+    using on_char_mods_fn    = std::function<void(unsigned int, int)>;
     using on_mouse_button_fn = std::function<void(int, int, int)>;
     using on_cursor_pos_fn   = std::function<void(double, double)>;
     using on_cursor_enter_fn = std::function<void(int)>;
@@ -52,27 +53,155 @@ protected:
                 static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
         context->onKey(key, scancode, action, mods);
     }
-    static void charCallback(GLFWwindow* window, unsigned int codepoint) {}
+
+    static void charCallback(GLFWwindow* window, unsigned int codepoint) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onChar(codepoint);
+    }
+
     static void charModsCallback(GLFWwindow* window, unsigned int codepoint,
-                                 int mods) {}
+                                 int mods) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onCharMods(codepoint, mods);
+    }
+
     static void mouseButtonCallback(GLFWwindow* window, int button, int action,
-                                    int mods) {}
+                                    int mods) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onMouseButton(button, action, mods);
+    }
+
     static void cursorPosCallback(GLFWwindow* window, double xpos,
-                                  double ypos) {}
-    static void cursorEnterCallback(GLFWwindow* window, int entered) {}
+                                  double ypos) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onCursorPos(xpos, ypos);
+    }
+
+    static void cursorEnterCallback(GLFWwindow* window, int entered) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onCursorEnter(entered);
+    }
+
     static void scrollCallback(GLFWwindow* window, double xoffset,
-                               double yoffset) {}
+                               double yoffset) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onScroll(xoffset, yoffset);
+    }
+
     static void dropCallback(GLFWwindow* window, int count,
-                             const char** paths) {}
-    static void windowSizeCallback(GLFWwindow* window, int width, int height) {}
+                             const char** paths) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onDrop(count, paths);
+    }
+
+    static void windowSizeCallback(GLFWwindow* window, int width, int height) {
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->_width  = width;
+        context->_height = height;
+        context->onReset();
+        context->onWindowSize(width, height);
+    }
+
     static void windowCloseCallback(GLFWwindow* window) {
         glfwSetWindowShouldClose(window, true);
+        auto* context =
+                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        context->onWindowClose();
+    }
+
+    void onReset() {
+        for (auto const& func : on_reset_fns) { func(); }
     }
 
     void onKey(int key, int scancode, int action, int mods) {
         for (auto const& func : on_key_fns) {
             func(key, scancode, action, mods);
         }
+    }
+
+    void onChar(unsigned int codepoint) {
+        for (auto const& func : on_char_fns) { func(codepoint); }
+    }
+
+    void onCharMods(unsigned int codepoint, int mods) {
+        for (auto const& func : on_char_mods_fns) { func(codepoint, mods); }
+    }
+
+    void onMouseButton(int button, int action, int mods) {
+        for (auto const& func : on_mouse_button_fns) {
+            func(button, action, mods);
+        }
+    }
+
+    void onCursorPos(double xpos, double ypos) {
+        for (auto const& func : on_cursor_pos_fns) { func(xpos, ypos); }
+    }
+
+    void onCursorEnter(int entered) {
+        for (auto const& func : on_cursor_enter_fns) { func(entered); }
+    }
+
+    void onScroll(double xoffset, double yoffset) {
+        for (auto const& func : on_scroll_fns) { func(xoffset, yoffset); }
+    }
+
+    void onDrop(int count, const char** paths) {
+        for (auto const& func : on_drop_fns) { func(count, paths); }
+    }
+
+    void onWindowSize(int width, int height) {
+        for (auto const& func : on_window_size_fns) { func(width, height); }
+    }
+
+    void onWindowClose() {
+        for (auto const& func : on_window_close_fns) { func(); }
+    }
+
+public:
+    void registerOnResetFn(on_reset_fn const& fn) {
+        on_reset_fns.push_back(fn);
+    }
+
+    void registerOnKeyFn(on_key_fn const& fn) { on_key_fns.push_back(fn); }
+
+    void registerOnCharFn(on_char_fn const& fn) { on_char_fns.push_back(fn); }
+
+    void registerOnCharModsFn(on_char_mods_fn const& fn) {
+        on_char_mods_fns.push_back(fn);
+    }
+
+    void registerOnMouseButtonFn(on_mouse_button_fn const& fn) {
+        on_mouse_button_fns.push_back(fn);
+    }
+
+    void registerOnCursorPosFn(on_cursor_pos_fn const& fn) {
+        on_cursor_pos_fns.push_back(fn);
+    }
+
+    void registerOnCursorEnterFn(on_cursor_enter_fn const& fn) {
+        on_cursor_enter_fns.push_back(fn);
+    }
+
+    void registerOnScrollFn(on_scroll_fn const& fn) {
+        on_scroll_fns.push_back(fn);
+    }
+
+    void registerOnDropFn(on_drop_fn const& fn) { on_drop_fns.push_back(fn); }
+
+    void registerOnWindowSizeFn(on_window_size_fn const& fn) {
+        on_window_size_fns.push_back(fn);
+    }
+
+    void registerOnWindowCloseFn(on_window_close_fn const& fn) {
+        on_window_close_fns.push_back(fn);
     }
 
 public:
@@ -86,7 +215,10 @@ public:
     /**
      * @brief editor state
      */
-    EngineState state{EngineState::IDLEMODE};
+    EngineState _state{EngineState::EDITORMODE};
+
+    std::shared_ptr<PerspectiveCamera> _editor_camera{
+            std::make_shared<PerspectiveCamera>()};
 
 protected:
     bool is_vsync{false};
@@ -117,9 +249,7 @@ public:
             glfwTerminate();
             exit(1);
         }
-        glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         glfwMakeContextCurrent(_window);
-
 
         glfwSetWindowUserPointer(_window, this);
         glfwSetKeyCallback(_window, WindowContext::keyCallback);
@@ -133,6 +263,10 @@ public:
         glfwSetDropCallback(_window, dropCallback);
         glfwSetWindowSizeCallback(_window, windowSizeCallback);
         glfwSetWindowCloseCallback(_window, windowCloseCallback);
+
+        glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        // TODO: Need Test
+        glfwSetInputMode(_window, GLFW_RAW_MOUSE_MOTION, GLFW_FALSE);
     }
 
     inline void setVsync(bool enable) {

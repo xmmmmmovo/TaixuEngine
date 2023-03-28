@@ -5,6 +5,7 @@
 #include "renderer.hpp"
 
 #include "frag_frag.h"
+#include "gui/input_system.hpp"
 #include "vert_vert.h"
 
 namespace taixu {
@@ -14,7 +15,6 @@ void Renderer::initialize() {
 
     render_context->initialize();
 
-    first_person_camera = std::make_shared<PerspectiveCamera>();
     shaderProgram       = new OGLShaderProgram(VERT_VERT, FRAG_FRAG);
 
     //Bind buffer for each Mesh
@@ -22,7 +22,10 @@ void Renderer::initialize() {
     render_context->bindMesh(
             render_context->getSwapContext()->getData()->model->meshes[0]);
 }
+
 void Renderer::tick(float delta_time) {
+    clock.update();
+
     glm::mat4 ProjectionMatrix   = first_person_camera->getProjectionMatrix();
     glm::mat4 ViewMatrix         = first_person_camera->getViewMatrix();
     glm::mat4 ModelMatrix        = glm::mat4(1.0);
@@ -41,43 +44,12 @@ void Renderer::tick(float delta_time) {
     render_context->tickbyMesh(
             render_context->getSwapContext()->model->meshes[0]);
 }
+
 void Renderer::clear() {}
+
 void Renderer::resize(float width, float height) {
     size.x = width;
     size.y = height;
 }
-void Renderer::processInput(std::string input) {
-    if (input == "FORWARD")
-        first_person_camera->processKeyboard(CameraMovement::FORWARD,
-                                             delta_time);
-    if (input == "BACKWARD")
-        first_person_camera->processKeyboard(CameraMovement::BACKWARD,
-                                             delta_time);
-    if (input == "LEFT")
-        first_person_camera->processKeyboard(CameraMovement::LEFT, delta_time);
-    if (input == "RIGHT")
-        first_person_camera->processKeyboard(CameraMovement::RIGHT, delta_time);
-}
 
-void Renderer::processInput(glm::vec2 mouse_pos) {
-
-    if (first_mouse) {
-        last_x      = mouse_pos.x;
-        last_y      = mouse_pos.y;
-        first_mouse = false;
-    }
-
-    float xoffset = mouse_pos.x - last_x;
-    float yoffset =
-            last_y -
-            mouse_pos.y;// reversed since y-coordinates go from bottom to top
-
-    last_x = mouse_pos.x;
-    last_y = mouse_pos.y;
-
-    first_person_camera->ProcessMouseMovement(xoffset, yoffset);
-}
-void Renderer::processInput(float scroll_yoffset) {
-    first_person_camera->processMouseScroll(scroll_yoffset);
-}
 }// namespace taixu
