@@ -12,14 +12,14 @@ void MainWindow::init() {
     context_ptr->initWindow();
     context_ptr->setVsync(true);
 
-    context_ptr->registerOnScrollFn([&](double xoffset, double yoffset) {
+    context_ptr->registerOnScrollFn([&](double /*xoffset*/, double yoffset) {
         if (context_ptr->_state == EngineState::GAMEMODE) {
             context_ptr->_editor_camera->processMouseScroll(yoffset);
         }
     });
 
     context_ptr->registerOnCursorPosFn([&](double xpos, double ypos) {
-        if (_last_mouse_pos.x == -1.0f && _last_mouse_pos.y == -1.0f) {
+        if (_last_mouse_pos.x == -1.0F && _last_mouse_pos.y == -1.0F) {
             _last_mouse_pos.x = xpos;
             _last_mouse_pos.y = ypos;
         }
@@ -33,21 +33,22 @@ void MainWindow::init() {
         _last_mouse_pos = _mouse_pos;
     });
 
-    context_ptr->registerOnMouseButtonFn([&](int button, int action, int mods) {
-        if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-            if (_cam_mode) {
-                _cam_mode = false;
-                glfwSetInputMode(context_ptr->_window, GLFW_CURSOR,
-                                 GLFW_CURSOR_NORMAL);
-            } else {
-                if (isCursorInRenderComponent()) {
-                    _cam_mode = true;
-                    glfwSetInputMode(context_ptr->_window, GLFW_CURSOR,
-                                     GLFW_CURSOR_DISABLED);
+    context_ptr->registerOnMouseButtonFn(
+            [&](int button, int action, int /*mods*/) {
+                if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
+                    if (_cam_mode) {
+                        _cam_mode = false;
+                        glfwSetInputMode(context_ptr->_window, GLFW_CURSOR,
+                                         GLFW_CURSOR_NORMAL);
+                    } else {
+                        if (isCursorInRenderComponent()) {
+                            _cam_mode = true;
+                            glfwSetInputMode(context_ptr->_window, GLFW_CURSOR,
+                                             GLFW_CURSOR_DISABLED);
+                        }
+                    }
                 }
-            }
-        }
-    });
+            });
 
     spdlog::info("Main window start finished!");
 }
@@ -68,7 +69,7 @@ void MainWindow::preUpdate() {
 
     ImGuiID dock_space_id = ImGui::GetID(DOCK_SPACE_NAME);
 
-    ImGui::DockSpace(dock_space_id, ImVec2(0.0f, 0.0f));
+    ImGui::DockSpace(dock_space_id, ImVec2(0.0F, 0.0F));
 
     if (ImGui::BeginMenuBar()) {
         if (ImGui::BeginMenu("Menu")) {
@@ -110,7 +111,6 @@ bool MainWindow::isCursorInRenderComponent() const {
                   render_component->_render_rect.Min.y,
                   render_component->_render_rect.Max.x,
                   render_component->_render_rect.Max.y);
-    // TODO: fix this
     return render_component->_render_rect.Contains(_mouse_pos);
 }
 
@@ -131,7 +131,7 @@ void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
 
     ImguiSurface::init(context_ptr->_window);
     render_component->_renderer = renderer;
-    renderer->setCamera(context_ptr->_editor_camera);
+    renderer->_camera           = context_ptr->_editor_camera;
 
     InputSystem::getInstance().registerEditorCallback([&](float delta_time) {
         if (glfwGetKey(context_ptr->_window, GLFW_KEY_W) == GLFW_PRESS)

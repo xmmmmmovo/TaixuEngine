@@ -56,8 +56,8 @@ public:
         ogl_context->size.x = width;
         ogl_context->size.y = height;
     };
-    void         bindMesh(Mesh mesh) { ogl_context->bindMesh(mesh); }
-    void         tickbyMesh(Mesh mesh) { ogl_context->tickbyMesh(mesh); };
+    void         bindMesh(Mesh const& mesh) { ogl_context->bindMesh(mesh); }
+    void         tickbyMesh(Mesh const& mesh) { ogl_context->tickbyMesh(mesh); };
     Render_Data *getSwapContext() { return render_data->getData(); };
 
 protected:
@@ -71,23 +71,17 @@ private:
     Clock     clock{};
 
 public:
-    explicit Renderer() = default;
-    ~Renderer(){};
-
     void initialize();
     void tick(float delta_time = 0.03333);
     void clear();
 
-    void setCamera(std::shared_ptr<PerspectiveCamera> const &camera) {
-        first_person_camera = camera;
-    }
+    void resize(float width, float height);
 
-    void                        resize(float width, float height);
-    //unsigned int getRenderResult() { return bufferTexId; };
     [[nodiscard]] std::uint32_t getRenderResult() const {
         return render_context->ogl_context->framebuffer->getImageid();
     };
-    std::shared_ptr<PerspectiveCamera> first_person_camera{nullptr};
+
+    std::shared_ptr<PerspectiveCamera> _camera{nullptr};
 
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 

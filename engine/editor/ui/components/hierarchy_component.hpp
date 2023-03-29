@@ -10,19 +10,31 @@
 
 #include "ui/ui_component.hpp"
 
-namespace fs = std::filesystem;
 
 namespace taixu::editor {
+
+namespace fs = std::filesystem;
+
+struct HierarchyNode {
+    std::string                name;
+    bool                       is_directory;
+    std::vector<HierarchyNode> childrens;
+};
+
 class HierarchyComponent : public IUIComponent {
+private:
+    HierarchyNode _root_node;
+    HierarchyNode _current_node;
+
 public:
     void update() override {
 
-        const bool is_tree = 1;
+        const bool is_tree = true;
         if (is_tree) {
-           
+
             ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow |
                                        ImGuiTreeNodeFlags_SpanAvailWidth;
-            bool open = ImGui::TreeNodeEx( "Model", flags);
+            bool open = ImGui::TreeNodeEx("Model", flags);
             if (open) {
                 ImGui::Text("obj-1");
                 ImGui::Text("obj-2");
@@ -30,16 +42,9 @@ public:
                 ImGui::Text("obj-4");
                 ImGui::TreePop();
             }
-        }
-        else {
+        } else {
             ImGui::Text("No entities");
         }
-
-        /* if (ImGui::TreeNode("Light")) {
-            for (int i = 0; i < 2; i++) 
-                 ImGui::Text("text1");
-            ImGui::TreePop();
-        }*/
     }
 };
 }// namespace taixu::editor

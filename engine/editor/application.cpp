@@ -17,7 +17,11 @@ namespace taixu::editor {
  * @brief initWindow spdlog config
  */
 void initSpdlog() {
+#ifndef NDEBUG
     spdlog::set_level(spdlog::level::debug);// Set global log level to debug
+#else
+    spdlog::set_level(spdlog::level::info);// Set global log level to info
+#endif
 }
 
 void Application::initApplicationArgs(int argc, char *argv[]) {}
@@ -37,11 +41,8 @@ void Application::initialize(int argc, char *argv[]) {
     // init window
     window_ptr_local->init();
 
-    // get engine instance raw pointer
-    Engine *instance = &Engine::getInstance();
-    instance->init();
-
-    window_ptr_local->setEngineRuntime(instance);
+    _engine_ptr->init();
+    window_ptr_local->setEngineRuntime(_engine_ptr);
     this->window_ptr = window_ptr_local;
 }
 
@@ -49,6 +50,7 @@ void Application::run() {
     while (!this->context_ptr->shouldClose()) {
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        this->_engine_ptr->update();
         this->window_ptr->update();
     }
 }
