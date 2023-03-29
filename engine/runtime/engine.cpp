@@ -18,13 +18,14 @@ void Engine::init() {
     _project_manager         = std::make_unique<ProjectManager>();
     _asset_manager           = std::make_shared<AssetManager>();
     _entity_component_system = std::make_shared<ECS>();
-    _entity_component_system->dataRedirection(renderer->render_context);
+    _entity_component_system->dataRedirection(_renderer->render_context);
     _entity_component_system->initialize();
 
 }
 
 void Engine::update() {
     InputSystem::getInstance().processInput();
+    _entity_component_system->tick();
     _renderer->tick();
 }
 

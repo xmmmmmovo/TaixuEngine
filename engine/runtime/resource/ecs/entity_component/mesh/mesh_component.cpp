@@ -9,6 +9,7 @@ void MeshComponent::loadModelData()
 {
     assert(mesh_path!="INVALID");
     model=std::make_shared<Model_Data>(mesh_path.c_str());
+    //int a=0;
 }
 
 void MeshComponent::tick() 

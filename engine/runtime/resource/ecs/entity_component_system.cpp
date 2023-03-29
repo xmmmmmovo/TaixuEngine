@@ -26,7 +26,7 @@ void ECS::initialize()
     // auto newmesh=std::make_shared<MeshComponent>(true,"new","new");
     // all_components[0]->addComponent(current_GO.get_id(),newmesh.get());
     //tick();
-    //int a=0;
+    int a=0;
 }
 
 void ECS::dataRedirection(
