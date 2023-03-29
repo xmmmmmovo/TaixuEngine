@@ -3,7 +3,6 @@ Checks: >
   abseil-*,
   bugprone-*,
   google-*,
-  modernize-*,
   performance-*,
   portability-*,
   google-readability-braces-around-statements,
