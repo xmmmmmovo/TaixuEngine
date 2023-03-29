@@ -13,10 +13,10 @@ namespace taixu::editor {
 
 class RenderComponent : public IUIComponent {
 public:
-    std::shared_ptr<Renderer> _renderer;
-    ImVec2                    _render_size;
-    ImRect                    _render_rect;
-    ImRect                    _menu_bar_rect;
+    Renderer *_renderer;
+    ImVec2    _render_size;
+    ImRect    _render_rect;
+    ImRect    _menu_bar_rect;
 
 public:
     void update() override {
@@ -44,8 +44,9 @@ public:
         _renderer->resize(_render_size.x, _render_size.y);
 
         // Because I use the texture from OpenGL, I need to invert the V from the UV.
-        ImGui::Image(reinterpret_cast<void*>(_renderer->getRenderResult()),
-                     _render_size, ImVec2(0, 1), ImVec2(1, 0));
+        ImGui::Image(
+                reinterpret_cast<ImTextureID>(_renderer->getRenderResult()),
+                _render_size, ImVec2(0, 1), ImVec2(1, 0));
     }
 };
 

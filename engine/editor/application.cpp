@@ -30,20 +30,20 @@ void Application::initialize(int argc, char *argv[]) {
     initSpdlog();
     initApplicationArgs(argc, argv);
 
-    context_ptr = std::make_shared<WindowContext>(
+    context_ptr = std::make_unique<WindowContext>(
             MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE);
 
-    InputSystem::getInstance().setContext(context_ptr);
+    InputSystem::getInstance().setContext(context_ptr.get());
 
     // init window pointer
-    std::shared_ptr<MainWindow> window_ptr_local =
-            std::make_shared<MainWindow>(context_ptr);
+    std::unique_ptr<MainWindow> window_ptr_local =
+            std::make_unique<MainWindow>(context_ptr.get());
     // init window
     window_ptr_local->init();
 
     _engine_ptr->init();
     window_ptr_local->setEngineRuntime(_engine_ptr);
-    this->window_ptr = window_ptr_local;
+    this->window_ptr = std::move(window_ptr_local);
 }
 
 void Application::run() {
