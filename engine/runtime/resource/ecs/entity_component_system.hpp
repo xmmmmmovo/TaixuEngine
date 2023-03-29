@@ -16,7 +16,7 @@
 
 namespace taixu
 {
-enum component_type{meshcpnt,transformcpnt};
+enum class ComponentType{MESH_COMPONENT,TRANSFORM_COMPONENT};
 
 class ECS
 {
