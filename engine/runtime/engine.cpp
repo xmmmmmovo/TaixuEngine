@@ -20,7 +20,6 @@ void Engine::init() {
     _entity_component_system = std::make_shared<ECS>();
     _entity_component_system->dataRedirection(_renderer->render_context);
     _entity_component_system->initialize();
-
 }
 
 void Engine::update() {

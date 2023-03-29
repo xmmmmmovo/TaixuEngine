@@ -18,15 +18,14 @@ void ECS::initialize()
     mesh->loadModelData();
     mesh->data_target=data_target;
     
-    all_components[0]->addComponent(current_GO.get_id(),mesh.get());
+    all_components[0]->addComponent(current_GO.get_id(),mesh);
 
     auto testmesh = all_components[0]->getComponent(current_GO.get_id());
 
     // //modify
     // auto newmesh=std::make_shared<MeshComponent>(true,"new","new");
     // all_components[0]->addComponent(current_GO.get_id(),newmesh.get());
-    //tick();
-    int a=0;
+    //int a=0;
 }
 
 void ECS::dataRedirection(

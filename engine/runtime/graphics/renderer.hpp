@@ -31,8 +31,8 @@ public:
     ~Render_Data()         = default;
     ;
     void initialize() {
-        model = std::make_shared<Model_Data>(
-                std::string("assets/model/sphere.obj"));
+        // model = std::make_shared<Model_Data>(
+        //         std::string("assets/model/sphere.obj"));
     }
     Render_Data                *getData() { return this; };
     std::shared_ptr<Model_Data> model;

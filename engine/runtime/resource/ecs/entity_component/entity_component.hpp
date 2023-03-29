@@ -19,16 +19,16 @@ class EntityComponentMap {
 public:
     EntityComponentMap(){}
 
-   [[nodiscard]] EntityComponent* getComponent(std::uint32_t uid){
+   [[nodiscard]] std::shared_ptr<EntityComponent> getComponent(std::uint32_t uid){
 
         return map[uid];
     }
 
-    void addComponent(std::uint32_t uid, EntityComponent* instance){
+    void addComponent(std::uint32_t uid, std::shared_ptr<EntityComponent> instance){
         map[uid]=instance;
     }
 
-    std::unordered_map<std::uint32_t, EntityComponent*> map;
+    std::unordered_map<std::uint32_t, std::shared_ptr<EntityComponent>> map;
 };
 
 
