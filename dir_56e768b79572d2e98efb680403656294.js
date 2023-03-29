@@ -10,6 +10,7 @@ var dir_56e768b79572d2e98efb680403656294 =
       [ "FileComponent", "classtaixu_1_1editor_1_1FileComponent.html", "classtaixu_1_1editor_1_1FileComponent" ]
     ] ],
     [ "hierarchy_component.hpp", "hierarchy__component_8hpp.html", [
+      [ "HierarchyNode", "structtaixu_1_1editor_1_1HierarchyNode.html", "structtaixu_1_1editor_1_1HierarchyNode" ],
       [ "HierarchyComponent", "classtaixu_1_1editor_1_1HierarchyComponent.html", "classtaixu_1_1editor_1_1HierarchyComponent" ]
     ] ],
     [ "menu_component.hpp", "menu__component_8hpp.html", [

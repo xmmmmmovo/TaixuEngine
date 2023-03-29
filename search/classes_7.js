@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hierarchycomponent_576',['HierarchyComponent',['../classtaixu_1_1editor_1_1HierarchyComponent.html',1,'taixu::editor']]]
+  ['hierarchycomponent_585',['HierarchyComponent',['../classtaixu_1_1editor_1_1HierarchyComponent.html',1,'taixu::editor']]],
+  ['hierarchynode_586',['HierarchyNode',['../structtaixu_1_1editor_1_1HierarchyNode.html',1,'taixu::editor']]]
 ];

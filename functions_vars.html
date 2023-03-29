@@ -90,8 +90,17 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>_cam_mode
 : <a class="el" href="classtaixu_1_1editor_1_1MainWindow.html#a6df887ecb1fa9110bf1085140ef10fe1">taixu::editor::MainWindow</a>
 </li>
+<li>_camera
+: <a class="el" href="classtaixu_1_1Renderer.html#a978a4b06b26f6271028df5feaba3030d">taixu::Renderer</a>
+</li>
 <li>_context
 : <a class="el" href="classtaixu_1_1InputSystem.html#a834cadc8574016c346dada10d14b12f9">taixu::InputSystem</a>
+</li>
+<li>_current_node
+: <a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html#afb6f3028ac575b7e7209c90d4a7bb63e">taixu::editor::HierarchyComponent</a>
+</li>
+<li>_dir_path
+: <a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#adcd0834da369dc9c3c97c538fe4ce101">taixu::editor::ViewModel</a>
 </li>
 <li>_editor_callbacks
 : <a class="el" href="classtaixu_1_1InputSystem.html#a42559a0128a1588c51910edae2a3c1ec">taixu::InputSystem</a>
@@ -130,6 +139,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>_project_manager
 : <a class="el" href="classtaixu_1_1Engine.html#a31d75235f9637d6d6c143b7d7b8b7a31">taixu::Engine</a>
 </li>
+<li>_project_path
+: <a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#aebd40bff35a6d0f329a8728d720ccbfe">taixu::editor::ViewModel</a>
+</li>
 <li>_render_rect
 : <a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#ac796d1ddd3621c77b3749f57cf337dc6">taixu::editor::RenderComponent</a>
 </li>
@@ -139,6 +151,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>_renderer
 : <a class="el" href="classtaixu_1_1editor_1_1RenderComponent.html#a846d6772902c110e10d0c2426ac1d396">taixu::editor::RenderComponent</a>
 , <a class="el" href="classtaixu_1_1Engine.html#aac452a22819054335512f4700407b4d3">taixu::Engine</a>
+</li>
+<li>_root_node
+: <a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a71bb7bd45db44842063f9daa42f5d079">taixu::editor::HierarchyComponent</a>
 </li>
 <li>_shader_type
 : <a class="el" href="classtaixu_1_1OGLShader.html#adda5aa7e5ab91e387a983df7902faf5b">taixu::OGLShader</a>
@@ -194,6 +209,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
+<li>childrens
+: <a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html#aee86a25b322fb19970ca15cee29ad3aa">taixu::editor::HierarchyNode</a>
+</li>
 <li>clock
 : <a class="el" href="classtaixu_1_1Renderer.html#afe063df550308d9a0af8291aaa7a4fcf">taixu::Renderer</a>
 </li>
@@ -266,9 +284,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>file_tree
 : <a class="el" href="classtaixu_1_1editor_1_1FileComponent.html#a28c91cf02894892e9cf4a07b281e7ce1">taixu::editor::FileComponent</a>
 </li>
-<li>first_person_camera
-: <a class="el" href="classtaixu_1_1Renderer.html#ab0f30bac1edf4a18607ff4899dbcd040">taixu::Renderer</a>
-</li>
 <li>framebuffer
 : <a class="el" href="classtaixu_1_1OGLContext.html#acf56717d6568668dd37e5517058cc9f6">taixu::OGLContext</a>
 </li>
@@ -313,6 +328,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 </li>
 <li>initial_foV
 : <a class="el" href="classtaixu_1_1PerspectiveCamera.html#ac8e94a348a8eb349a709c788f6bad43e">taixu::PerspectiveCamera</a>
+</li>
+<li>is_directory
+: <a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html#a95eacc715785e0c7a0175c147d90ddf2">taixu::editor::HierarchyNode</a>
 </li>
 <li>is_vsync
 : <a class="el" href="classtaixu_1_1WindowContext.html#af073cda9ca34eee91f4392b3a4eb9ca7">taixu::WindowContext</a>
@@ -392,6 +410,7 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>name
 : <a class="el" href="structtaixu_1_1Asset.html#add52499d1c566688d7402e92c2fc6fac">taixu::Asset</a>
 , <a class="el" href="structtaixu_1_1BufferElement.html#aea65c8050541dad4039fea9d059021e7">taixu::BufferElement</a>
+, <a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html#a6688697a30e8788dbdb480559cacd9d2">taixu::editor::HierarchyNode</a>
 , <a class="el" href="classtaixu_1_1Level.html#a6415c29975b5ae5603755a27c0176584">taixu::Level</a>
 , <a class="el" href="structtaixu_1_1Project.html#aab33e451edaeed403f7f8036749e6068">taixu::Project</a>
 , <a class="el" href="classtaixu_1_1WorldManager.html#a3f5ccfa61f678b282b32f82f81db991e">taixu::WorldManager</a>

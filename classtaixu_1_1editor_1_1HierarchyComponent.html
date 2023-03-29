@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('classtaixu_1_1editor_1_1HierarchyCompo
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtaixu_1_1editor_1_1HierarchyComponent-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">taixu::editor::HierarchyComponent Class Reference</div>  </div>
@@ -95,7 +96,7 @@ Inheritance diagram for taixu::editor::HierarchyComponent:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1editor_1_1HierarchyComponent__inherit__graph.png" border="0" usemap="#ataixu_1_1editor_1_1HierarchyComponent_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1editor_1_1HierarchyComponent_inherit__map" id="ataixu_1_1editor_1_1HierarchyComponent_inherit__map">
-<area shape="rect" title=" " alt="" coords="21,329,193,421"/>
+<area shape="rect" title=" " alt="" coords="21,329,193,436"/>
 <area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="5,204,208,281"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="33,5,180,156"/>
 </map>
@@ -105,9 +106,10 @@ Collaboration diagram for taixu::editor::HierarchyComponent:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1editor_1_1HierarchyComponent__coll__graph.png" border="0" usemap="#ataixu_1_1editor_1_1HierarchyComponent_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1editor_1_1HierarchyComponent_coll__map" id="ataixu_1_1editor_1_1HierarchyComponent_coll__map">
-<area shape="rect" title=" " alt="" coords="21,329,193,421"/>
-<area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="5,204,208,281"/>
+<area shape="rect" title=" " alt="" coords="135,389,307,481"/>
+<area shape="rect" href="classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="5,220,208,297"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="33,5,180,156"/>
+<area shape="rect" href="structtaixu_1_1editor_1_1HierarchyNode.html" title=" " alt="" coords="233,205,439,312"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -116,6 +118,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a61d87b92f9af54efcef6273f0b888ba0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">update</a> () override</td></tr>
 <tr class="memdesc:a61d87b92f9af54efcef6273f0b888ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">render updateWindow  <a href="classtaixu_1_1editor_1_1HierarchyComponent.html#a61d87b92f9af54efcef6273f0b888ba0">More...</a><br /></td></tr>
 <tr class="separator:a61d87b92f9af54efcef6273f0b888ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a71bb7bd45db44842063f9daa42f5d079"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html">HierarchyNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html#a71bb7bd45db44842063f9daa42f5d079">_root_node</a></td></tr>
+<tr class="separator:a71bb7bd45db44842063f9daa42f5d079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb6f3028ac575b7e7209c90d4a7bb63e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html">HierarchyNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1HierarchyComponent.html#afb6f3028ac575b7e7209c90d4a7bb63e">_current_node</a></td></tr>
+<tr class="separator:afb6f3028ac575b7e7209c90d4a7bb63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a61d87b92f9af54efcef6273f0b888ba0"></a>
@@ -144,6 +153,51 @@ Public Member Functions</h2></td></tr>
 <p>render updateWindow </p>
 
 <p>Implements <a class="el" href="classtaixu_1_1editor_1_1IUIComponent.html#a258856ab95998fbd61d9eaaa210f3a8e">taixu::editor::IUIComponent</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="afb6f3028ac575b7e7209c90d4a7bb63e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb6f3028ac575b7e7209c90d4a7bb63e">&#9670;&nbsp;</a></span>_current_node</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html">HierarchyNode</a> taixu::editor::HierarchyComponent::_current_node</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a71bb7bd45db44842063f9daa42f5d079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71bb7bd45db44842063f9daa42f5d079">&#9670;&nbsp;</a></span>_root_node</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html">HierarchyNode</a> taixu::editor::HierarchyComponent::_root_node</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

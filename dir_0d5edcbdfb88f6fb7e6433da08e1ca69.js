@@ -7,5 +7,8 @@ var dir_0d5edcbdfb88f6fb7e6433da08e1ca69 =
     ] ],
     [ "ui_component.hpp", "ui__component_8hpp.html", [
       [ "IUIComponent", "classtaixu_1_1editor_1_1IUIComponent.html", "classtaixu_1_1editor_1_1IUIComponent" ]
+    ] ],
+    [ "view_model.hpp", "view__model_8hpp.html", [
+      [ "ViewModel", "structtaixu_1_1editor_1_1ViewModel.html", "structtaixu_1_1editor_1_1ViewModel" ]
     ] ]
 ];

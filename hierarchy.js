@@ -14,6 +14,7 @@ var hierarchy =
     [ "taixu::EntityComponentMap", "classtaixu_1_1EntityComponentMap.html", null ],
     [ "taixu::GameObject", "classtaixu_1_1GameObject.html", null ],
     [ "taixu::GUID_Generator", "classtaixu_1_1GUID__Generator.html", null ],
+    [ "taixu::editor::HierarchyNode", "structtaixu_1_1editor_1_1HierarchyNode.html", null ],
     [ "taixu::IFrameBuffer", "classtaixu_1_1IFrameBuffer.html", [
       [ "taixu::OGLFrameBuffer", "classtaixu_1_1OGLFrameBuffer.html", null ]
     ] ],
@@ -79,6 +80,7 @@ var hierarchy =
     [ "taixu::Renderer", "classtaixu_1_1Renderer.html", null ],
     [ "taixu::Texture", "structtaixu_1_1Texture.html", null ],
     [ "taixu::Vertex", "structtaixu_1_1Vertex.html", null ],
+    [ "taixu::editor::ViewModel", "structtaixu_1_1editor_1_1ViewModel.html", null ],
     [ "taixu::WindowContext", "classtaixu_1_1WindowContext.html", null ],
     [ "taixu::WorldManager", "classtaixu_1_1WorldManager.html", null ]
 ];

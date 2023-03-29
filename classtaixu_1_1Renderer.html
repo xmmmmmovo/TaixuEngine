@@ -97,7 +97,7 @@ Collaboration diagram for taixu::Renderer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1Renderer__coll__graph.png" border="0" usemap="#ataixu_1_1Renderer_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1Renderer_coll__map" id="ataixu_1_1Renderer_coll__map">
-<area shape="rect" title=" " alt="" coords="121,536,291,745"/>
+<area shape="rect" title=" " alt="" coords="129,536,283,731"/>
 <area shape="rect" href="classtaixu_1_1IShaderProgram.html" title=" " alt="" coords="5,205,172,473"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="15,5,162,156"/>
 <area shape="rect" href="classtaixu_1_1Clock.html" title=" " alt="" coords="196,213,363,466"/>
@@ -112,8 +112,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af86768669acc423911cc0ac7c25838c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab76b504112462972a232e38a2dfe93e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#ab76b504112462972a232e38a2dfe93e6">clear</a> ()</td></tr>
 <tr class="separator:ab76b504112462972a232e38a2dfe93e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f6f5293f614a72682371f024cbfbaf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a4f6f5293f614a72682371f024cbfbaf0">setCamera</a> (std::shared_ptr&lt; <a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a> &gt; const &amp;camera)</td></tr>
-<tr class="separator:a4f6f5293f614a72682371f024cbfbaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a361a8db07f4eb74ad8b69d840d35f6f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a361a8db07f4eb74ad8b69d840d35f6f6">resize</a> (float width, float height)</td></tr>
 <tr class="separator:a361a8db07f4eb74ad8b69d840d35f6f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb987a4563cf056984d472724ff0d787"><td class="memItemLeft" align="right" valign="top">std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#aeb987a4563cf056984d472724ff0d787">getRenderResult</a> () const</td></tr>
@@ -121,8 +119,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ab0f30bac1edf4a18607ff4899dbcd040"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#ab0f30bac1edf4a18607ff4899dbcd040">first_person_camera</a> {nullptr}</td></tr>
-<tr class="separator:ab0f30bac1edf4a18607ff4899dbcd040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a978a4b06b26f6271028df5feaba3030d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#a978a4b06b26f6271028df5feaba3030d">_camera</a> {nullptr}</td></tr>
+<tr class="separator:a978a4b06b26f6271028df5feaba3030d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac16855f0a625fa33cb40afe77493103"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#aac16855f0a625fa33cb40afe77493103">lightPos</a> = glm::vec3(0, -0.5, -0.5)</td></tr>
 <tr class="separator:aac16855f0a625fa33cb40afe77493103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af671aaf3271f16586b639e37280553a7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Render__Context.html">Render_Context</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Renderer.html#af671aaf3271f16586b639e37280553a7">render_context</a></td></tr>
@@ -227,32 +225,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4f6f5293f614a72682371f024cbfbaf0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f6f5293f614a72682371f024cbfbaf0">&#9670;&nbsp;</a></span>setCamera()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void taixu::Renderer::setCamera </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a> &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>camera</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="af86768669acc423911cc0ac7c25838c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af86768669acc423911cc0ac7c25838c3">&#9670;&nbsp;</a></span>tick()</h2>
 
@@ -272,6 +244,20 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a978a4b06b26f6271028df5feaba3030d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a978a4b06b26f6271028df5feaba3030d">&#9670;&nbsp;</a></span>_camera</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a>&gt; taixu::Renderer::_camera {nullptr}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a99d77a1cce92bba4c8f4adf982a3c37a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a99d77a1cce92bba4c8f4adf982a3c37a">&#9670;&nbsp;</a></span>api</h2>
 
@@ -312,20 +298,6 @@ Private Attributes</h2></td></tr>
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab0f30bac1edf4a18607ff4899dbcd040"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0f30bac1edf4a18607ff4899dbcd040">&#9670;&nbsp;</a></span>first_person_camera</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a>&gt; taixu::Renderer::first_person_camera {nullptr}</td>
-        </tr>
-      </table>
 </div><div class="memdoc">
 
 </div>

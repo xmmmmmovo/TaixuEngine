@@ -1,5 +1,6 @@
 <map id="taixu::editor::HierarchyComponent" name="taixu::editor::HierarchyComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="21,329,193,421"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="5,204,208,281"/>
+<area shape="rect" id="node1" title=" " alt="" coords="135,389,307,481"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="5,220,208,297"/>
 <area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="33,5,180,156"/>
+<area shape="rect" id="node4" href="$structtaixu_1_1editor_1_1HierarchyNode.html" title=" " alt="" coords="233,205,439,312"/>
 </map>
