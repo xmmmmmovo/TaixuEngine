@@ -31,11 +31,16 @@ public:
     ~Render_Data()         = default;
     ;
     void initialize() {
-        // model = std::make_shared<Model_Data>(
-        //         std::string("assets/model/sphere.obj"));
+        sphere = std::make_shared<Model_Data>(
+                 std::string("assets/model/sphere.obj"));
+        model = std::make_shared<Model_Data>(
+                 std::string("assets/model/teapot.obj"));
+
+
     }
     Render_Data                *getData() { return this; };
     std::shared_ptr<Model_Data> model;
+    std::shared_ptr<Model_Data> sphere;
 };
 
 class Render_Context {
