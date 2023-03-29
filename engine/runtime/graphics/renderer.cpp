@@ -26,8 +26,8 @@ void Renderer::initialize() {
 void Renderer::tick(float delta_time) {
     clock.update();
 
-    glm::mat4 ProjectionMatrix   = first_person_camera->getProjectionMatrix();
-    glm::mat4 ViewMatrix         = first_person_camera->getViewMatrix();
+    glm::mat4 ProjectionMatrix   = _camera->getProjectionMatrix();
+    glm::mat4 ViewMatrix         = _camera->getViewMatrix();
     glm::mat4 ModelMatrix        = glm::mat4(1.0);
     glm::mat4 ModelViewMatrix    = ViewMatrix * ModelMatrix;
     glm::mat3 ModelView3x3Matrix = glm::mat3(ModelViewMatrix);
