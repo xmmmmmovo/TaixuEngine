@@ -15,23 +15,19 @@ class Engine : public PublicSingleton<Engine> {
     friend class PublicSingleton<Engine>;
 
 private:
-    std::shared_ptr<Renderer>       _renderer{nullptr};
-    std::shared_ptr<Project>        _project{nullptr};
-    std::shared_ptr<AssetManager>   _asset_manager{nullptr};
+    std::unique_ptr<Renderer>       _renderer{nullptr};
+    std::unique_ptr<AssetManager>   _asset_manager{nullptr};
     std::unique_ptr<ProjectManager> _project_manager{nullptr};
-    std::shared_ptr<ECS>            _entity_component_system{nullptr};
+    std::unique_ptr<ECS>            _entity_component_system{nullptr};
 
 public:
-    Engine();
-    ~Engine();
-
     void init();
     void update();
     void shutdown();
 
-    Status loadProject(std::string_view const &path);
+    Status loadProject(std::string_view const& path);
 
-    [[nodiscard]] std::shared_ptr<Renderer> getRenderer() const;
+    [[nodiscard]] Renderer* getRenderer() const;
 };
 
 }// namespace taixu

@@ -67,7 +67,7 @@ void MainWindow::preUpdate() {
     ImGui::Begin("Editor Menu", nullptr, window_flags);
     ImGui::PopStyleVar(3);
 
-    ImGuiID dock_space_id = ImGui::GetID(DOCK_SPACE_NAME);
+    ImGuiID dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
 
     ImGui::DockSpace(dock_space_id, ImVec2(0.0F, 0.0F));
 
@@ -83,24 +83,24 @@ void MainWindow::preUpdate() {
 
     menu_component->processFileDialog();
 
-    ImguiSurface::addWidget(WORLD_OBJ_COMPONENT_NAME,
+    ImguiSurface::addWidget(WORLD_OBJ_COMPONENT_NAME.data(),
                             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
                                     world_object_component->update));
     ImguiSurface::addWidget(
-            RENDER_COMPONENT_NAME,
+            RENDER_COMPONENT_NAME.data(),
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component->update),
             ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_MenuBar);
     ImguiSurface::addWidget(
-            DETAILS_COMPONENT_NAME,
+            DETAILS_COMPONENT_NAME.data(),
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component->update));
     ImguiSurface::addWidget(
-            FILE_COMPONENT_NAME,
+            FILE_COMPONENT_NAME.data(),
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(file_component->update));
     ImguiSurface::addWidget(
-            STATUS_COMPONENT_NAME,
+            STATUS_COMPONENT_NAME.data(),
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(status_component->update));
     ImguiSurface::addWidget(
-            USEFUL_OBJ_COMPONENT_NAME,
+            USEFUL_OBJ_COMPONENT_NAME.data(),
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component->update));
 }
 
@@ -131,32 +131,38 @@ void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
 
     ImguiSurface::init(context_ptr->_window);
     render_component->_renderer = renderer;
-    renderer->_camera           = context_ptr->_editor_camera;
+    renderer->_camera           = context_ptr->_editor_camera.get();
 
     InputSystem::getInstance().registerEditorCallback([&](float delta_time) {
-        if (glfwGetKey(context_ptr->_window, GLFW_KEY_W) == GLFW_PRESS)
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_W) == GLFW_PRESS) {
             context_ptr->_editor_camera->processKeyboard(
                     CameraMovement::FORWARD, delta_time);
-        if (glfwGetKey(context_ptr->_window, GLFW_KEY_S) == GLFW_PRESS)
+        }
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_S) == GLFW_PRESS) {
             context_ptr->_editor_camera->processKeyboard(
                     CameraMovement::BACKWARD, delta_time);
-        if (glfwGetKey(context_ptr->_window, GLFW_KEY_A) == GLFW_PRESS)
+        }
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_A) == GLFW_PRESS) {
             context_ptr->_editor_camera->processKeyboard(CameraMovement::LEFT,
                                                          delta_time);
-        if (glfwGetKey(context_ptr->_window, GLFW_KEY_D) == GLFW_PRESS)
+        }
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_D) == GLFW_PRESS) {
             context_ptr->_editor_camera->processKeyboard(CameraMovement::RIGHT,
                                                          delta_time);
+        }
 
-        if (glfwGetKey(context_ptr->_window, GLFW_KEY_E) == GLFW_PRESS)
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_E) == GLFW_PRESS) {
             context_ptr->_editor_camera->processKeyboard(CameraMovement::UP,
                                                          delta_time);
-        if (glfwGetKey(context_ptr->_window, GLFW_KEY_Q) == GLFW_PRESS)
+        }
+        if (glfwGetKey(context_ptr->_window, GLFW_KEY_Q) == GLFW_PRESS) {
             context_ptr->_editor_camera->processKeyboard(CameraMovement::DOWN,
                                                          delta_time);
+        }
     });
 }
 
-MainWindow::MainWindow(std::shared_ptr<WindowContext> const& context_ptr)
+MainWindow::MainWindow(WindowContext* const context_ptr)
     : context_ptr(context_ptr) {
     this->menu_component->bindCallbacks(
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),

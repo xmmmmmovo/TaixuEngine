@@ -6,6 +6,7 @@
 #define TAIXUENGINE_APPLICATION_HPP
 
 #include <memory>
+#include <string_view>
 
 // "" include headers
 #include "core/base/public_singleton.hpp"
@@ -30,10 +31,10 @@ private:
      * so there is just one pointer
      * @see IWindow
      */
-    std::shared_ptr<IWindow>       window_ptr{nullptr};
-    std::shared_ptr<WindowContext> context_ptr{nullptr};
+    std::unique_ptr<IWindow>       window_ptr{nullptr};
+    std::unique_ptr<WindowContext> context_ptr{nullptr};
     // get engine instance raw pointer
-    Engine *_engine_ptr = &Engine::getInstance();
+    Engine                        *_engine_ptr = &Engine::getInstance();
 
     /**
      * @brief Main window width
@@ -52,7 +53,7 @@ public:
     /**
      * @brief initWindow application
      */
-    void initialize(int argc, char *argv[]);
+    void initialize(std::vector<std::string_view> const &args);
     /**
      * @brief main run function
      */
@@ -65,10 +66,8 @@ public:
 private:
     /**
      * @brief initWindow application args
-     * @param argc args count
-     * @param argv args
      */
-    void initApplicationArgs(int argc, char *argv[]);
+    void initApplicationArgs(std::vector<std::string_view> const &args);
 };
 
 }// namespace taixu::editor

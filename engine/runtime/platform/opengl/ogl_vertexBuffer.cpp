@@ -4,7 +4,7 @@
 
 #include <glad/glad.h>
 
-#include "OGLVertexBuffer.hpp"
+#include "ogl_vertexBuffer.hpp"
 
 namespace taixu {
 OGLVertexBuffer::OGLVertexBuffer() {
@@ -43,6 +43,9 @@ GLint OGLVertexBuffer::getStride() const { return this->stride; }
 
 GLint OGLVertexBuffer::getAlign() const { return this->align; }
 
-OGLVertexBuffer::~OGLVertexBuffer() { glDeleteBuffers(1, &VBO); }
+OGLVertexBuffer::~OGLVertexBuffer() {
+    spdlog::debug("VertexBuffer {} deleted", VBO);
+    glDeleteBuffers(1, &VBO);
+}
 
 }// namespace taixu

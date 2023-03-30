@@ -14,8 +14,8 @@
 #include "graphics/render/render_api.hpp"
 #include "graphics/render/shader.hpp"
 #include "graphics/render/texture.hpp"
-#include "platform/opengl/OGLContext.hpp"
-#include "platform/opengl/OGLShader.hpp"
+#include "platform/opengl/ogl_context.hpp"
+#include "platform/opengl/ogl_shader.hpp"
 
 namespace taixu {
 
@@ -38,7 +38,7 @@ public:
 
 
     }
-    Render_Data                *getData() { return this; };
+    Render_Data*                getData() { return this; };
     std::shared_ptr<Model_Data> model;
     std::shared_ptr<Model_Data> sphere;
 };
@@ -61,6 +61,7 @@ public:
         ogl_context->size.x = width;
         ogl_context->size.y = height;
     };
+<<<<<<< HEAD
     void         bindMesh(Mesh const& mesh) { ogl_context->bindMesh(mesh); }
     void         rebindMesh(Mesh const& mesh) {
         ogl_context->vertex_array->clear();
@@ -90,12 +91,12 @@ public:
         return render_context->ogl_context->framebuffer->getImageid();
     };
 
-    std::shared_ptr<PerspectiveCamera> _camera{nullptr};
+    PerspectiveCamera* _camera{nullptr};
 
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 
     std::shared_ptr<Render_Context> render_context;
-    IShaderProgram                 *shaderProgram;
+    IShaderProgram*                 shaderProgram;
 
     glm::vec2 size = {1366, 768};
 };

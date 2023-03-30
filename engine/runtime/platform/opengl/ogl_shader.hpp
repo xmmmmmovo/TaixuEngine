@@ -2,8 +2,8 @@
 // Created by xmmmmmovo on 2023/2/21.
 //
 
-#ifndef TAIXUENGINE_OGLSHADER_HPP
-#define TAIXUENGINE_OGLSHADER_HPP
+#ifndef TAIXUENGINE_OGL_SHADER_HPP
+#define TAIXUENGINE_OGL_SHADER_HPP
 
 #include <glad/glad.h>
 
@@ -204,4 +204,4 @@ public:
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_OGLSHADER_HPP
+#endif//TAIXUENGINE_OGL_SHADER_HPP

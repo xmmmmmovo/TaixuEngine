@@ -29,13 +29,15 @@ namespace taixu::editor {
 class MainWindow : public IWindow {
 private:
     // names
-    static char constexpr DOCK_SPACE_NAME[]           = "TaixuEditorDock";
-    static char constexpr RENDER_COMPONENT_NAME[]     = "Scene";
-    static char constexpr FILE_COMPONENT_NAME[]       = "Files";
-    static char constexpr DETAILS_COMPONENT_NAME[]    = "Components Details";
-    static char constexpr WORLD_OBJ_COMPONENT_NAME[]  = "World Objects";
-    static char constexpr STATUS_COMPONENT_NAME[]     = "Status";
-    static char constexpr USEFUL_OBJ_COMPONENT_NAME[] = "Useful Objects";
+    static std::string_view constexpr DOCK_SPACE_NAME{"TaixuEditorDock"};
+    static std::string_view constexpr RENDER_COMPONENT_NAME{"Scene"};
+    static std::string_view constexpr FILE_COMPONENT_NAME{"Files"};
+    static std::string_view constexpr DETAILS_COMPONENT_NAME{
+            "Components Details"};
+    static std::string_view constexpr WORLD_OBJ_COMPONENT_NAME{"World Objects"};
+    static std::string_view constexpr STATUS_COMPONENT_NAME{"Status"};
+    static std::string_view constexpr USEFUL_OBJ_COMPONENT_NAME{
+            "Useful Objects"};
 
     // components
     std::unique_ptr<MenuComponent> menu_component{
@@ -57,21 +59,21 @@ private:
 
 
 private:
-    std::shared_ptr<Renderer> renderer{};
+    Renderer* renderer{};
 
     // static raw engine runtime pointer
     // do not need to free
     Engine* engine_runtime{nullptr};
 
     // context
-    std::shared_ptr<WindowContext> context_ptr{};
+    WindowContext* context_ptr{nullptr};
 
     ImVec2 _mouse_pos{0.0f, 0.0f};
     ImVec2 _last_mouse_pos{-1.f, -1.f};
     bool   _cam_mode{false};
 
 public:
-    explicit MainWindow(std::shared_ptr<WindowContext> const& context_ptr);
+    explicit MainWindow(WindowContext* context_ptr);
 
     void init() override;
     void update() override;

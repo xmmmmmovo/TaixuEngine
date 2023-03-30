@@ -161,7 +161,16 @@ Checks: >
   readability-string-compare,
   readability-uniqueptr-delete-release,
   readability-use-anyofallof,
-  readability-identifier-naming
+  readability-identifier-naming,
+  misc-use-anonymous-namespace,
+  bugprone-standalone-empty,
+  bugprone-unsafe-functions,
+  bugprone-unsafe-memory-manipulation,
+  cert-msc24-c,
+  cert-msc33-c,
+  cppcoreguidelines-avoid-capture-default-when-capturing-this,
+  cppcoreguidelines-avoid-reference-coroutine-parameters,
+  cppcoreguidelines-avoid-do-while
 
 # Turn all the warnings from the checks above into errors.
 WarningsAsErrors: "*"

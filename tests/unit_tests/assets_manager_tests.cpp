@@ -3,9 +3,9 @@
 //
 #include <catch2/catch_test_macros.hpp>
 
-#include "resource/asset_manager.hpp"
 #include "graphics/render/vertex_array.hpp"
-#include "platform/opengl/OGLVertexArray.hpp"
+#include "platform/opengl/ogl_vertexArray.hpp"
+#include "resource/asset_manager.hpp"
 
 TEST_CASE("noncopyable") {
     //    taixu::Asset_Manager manager{};

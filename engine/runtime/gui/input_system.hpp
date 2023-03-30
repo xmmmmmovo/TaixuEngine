@@ -18,12 +18,12 @@ class InputSystem : public PublicSingleton<InputSystem> {
     using inputCallback = std::function<void(float)>;
 
 private:
-    std::shared_ptr<WindowContext> _context{nullptr};
-    std::vector<inputCallback>     _editor_callbacks;
-    std::vector<inputCallback>     _game_callbacks;
+    WindowContext*             _context{nullptr};
+    std::vector<inputCallback> _editor_callbacks;
+    std::vector<inputCallback> _game_callbacks;
 
 public:
-    void        setContext(std::shared_ptr<WindowContext> const& context);
+    void setContext(WindowContext * context);
     void processInput(float delta_time = 0.03333);
 
     inline void registerEditorCallback(inputCallback const& callback) {

@@ -2,16 +2,16 @@
 // Created by xmmmmmovo on 2023/2/25.
 //
 
-#ifndef TAIXUENGINE_OGLVERTEXARRAY_HPP
-#define TAIXUENGINE_OGLVERTEXARRAY_HPP
+#ifndef TAIXUENGINE_OGL_VERTEXARRAY_HPP
+#define TAIXUENGINE_OGL_VERTEXARRAY_HPP
 
 #include <glad/glad.h>
 
 #include <memory>
 
-#include "OGLElementBuffer.hpp"
-#include "OGLVertexBuffer.hpp"
 #include "graphics/render/vertex_array.hpp"
+#include "ogl_elementBuffer.hpp"
+#include "ogl_vertexBuffer.hpp"
 
 namespace taixu {
 
@@ -44,4 +44,4 @@ public:
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_OGLVERTEXARRAY_HPP
+#endif//TAIXUENGINE_OGL_VERTEXARRAY_HPP

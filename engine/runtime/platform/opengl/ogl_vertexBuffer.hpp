@@ -2,8 +2,8 @@
 // Created by xmmmmmovo on 2023/2/25.
 //
 
-#ifndef TAIXUENGINE_OGLVERTEXBUFFER_HPP
-#define TAIXUENGINE_OGLVERTEXBUFFER_HPP
+#ifndef TAIXUENGINE_OGL_VERTEXBUFFER_HPP
+#define TAIXUENGINE_OGL_VERTEXBUFFER_HPP
 
 #include <glm/glm.hpp>
 
@@ -36,10 +36,28 @@ public:
 
     ~OGLVertexBuffer() override;
 
-    OGLVertexBuffer(OGLVertexBuffer &&other) noexcept            = default;
-    OGLVertexBuffer &operator=(OGLVertexBuffer &&other) noexcept = default;
+    OGLVertexBuffer(OGLVertexBuffer &&other) noexcept
+        : VBO(other.VBO),
+          stride(other.stride),
+          align(other.align) {
+        other.VBO    = 0;
+        other.stride = 0;
+        other.align  = 0;
+    }
+
+    OGLVertexBuffer &operator=(OGLVertexBuffer &&other) noexcept {
+        if (this != &other) {
+            VBO          = other.VBO;
+            stride       = other.stride;
+            align        = other.align;
+            other.VBO    = 0;
+            other.stride = 0;
+            other.align  = 0;
+        }
+        return *this;
+    }
 };
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_OGLVERTEXBUFFER_HPP
+#endif//TAIXUENGINE_OGL_VERTEXBUFFER_HPP

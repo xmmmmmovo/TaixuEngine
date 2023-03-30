@@ -1,6 +1,6 @@
 #pragma once
-#ifndef TAIXUENGINE_OGLCONTEXT_HPP
-#define TAIXUENGINE_OGLCONTEXT_HPP
+#ifndef TAIXUENGINE_OGL_CONTEXT_HPP
+#define TAIXUENGINE_OGL_CONTEXT_HPP
 
 #include <glad/glad.h>// holds all OpenGL type declarations
 
@@ -9,10 +9,10 @@
 #include "glm/glm.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/render/perspective_camera.hpp"
-#include "platform/opengl/OGLElementBuffer.hpp"
-#include "platform/opengl/OGLFrameBuffer.hpp"
-#include "platform/opengl/OGLVertexArray.hpp"
-#include "platform/opengl/OGLVertexBuffer.hpp"
+#include "platform/opengl/ogl_elementBuffer.hpp"
+#include "platform/opengl/ogl_frameBuffer.hpp"
+#include "platform/opengl/ogl_vertexArray.hpp"
+#include "platform/opengl/ogl_vertexBuffer.hpp"
 
 namespace taixu {
 
@@ -36,4 +36,4 @@ public:
 
 
 }// namespace taixu
-#endif//TAIXUENGINE_OGLCONTEXT_HPP
+#endif//TAIXUENGINE_OGL_CONTEXT_HPP

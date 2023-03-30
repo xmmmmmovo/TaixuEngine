@@ -2,8 +2,8 @@
 // Created by xmmmmmovo on 2023/2/25.
 //
 
-#ifndef TAIXUENGINE_OGLELEMENTBUFFER_HPP
-#define TAIXUENGINE_OGLELEMENTBUFFER_HPP
+#ifndef TAIXUENGINE_OGL_ELEMENTBUFFER_HPP
+#define TAIXUENGINE_OGL_ELEMENTBUFFER_HPP
 
 #include <glad/glad.h>
 
@@ -28,10 +28,19 @@ public:
 
     ~OGLElementBuffer() override;
 
-    OGLElementBuffer(OGLElementBuffer&& other) noexcept            = default;
-    OGLElementBuffer& operator=(OGLElementBuffer&& other) noexcept = default;
+    OGLElementBuffer(OGLElementBuffer&& other) noexcept : EBO(other.EBO) {
+        other.EBO = 0;
+    }
+
+    OGLElementBuffer& operator=(OGLElementBuffer&& other) noexcept {
+        if (this != &other) {
+            EBO       = other.EBO;
+            other.EBO = 0;
+        }
+        return *this;
+    }
 };
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_OGLELEMENTBUFFER_HPP
+#endif//TAIXUENGINE_OGL_ELEMENTBUFFER_HPP
