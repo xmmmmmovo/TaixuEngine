@@ -62,6 +62,10 @@ public:
         ogl_context->size.y = height;
     };
     void         bindMesh(Mesh const& mesh) { ogl_context->bindMesh(mesh); }
+    void         rebindMesh(Mesh const& mesh) {
+        ogl_context->vertex_array->clear();
+        ogl_context->bindMesh(mesh);
+    };
     void         tickbyMesh(Mesh const& mesh) { ogl_context->tickbyMesh(mesh); };
     Render_Data *getSwapContext() { return render_data->getData(); };
 

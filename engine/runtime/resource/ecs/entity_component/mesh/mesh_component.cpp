@@ -16,6 +16,7 @@ void MeshComponent::tick()
 {
     //assert(data_target.expired());
     data_target.lock()->getSwapContext()->model=model;
+    data_target.lock()->getSwapContext()->model=model;
     //int a=0;
 }
 

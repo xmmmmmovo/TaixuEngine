@@ -24,7 +24,7 @@ public:
 
     void bind() override;
     void unbind() override;
-
+    std::uint32_t getbufferID(){return VBO;};
     void setData(std::size_t size, const void *data, GLenum usage,
                  GLint align) override;
 
