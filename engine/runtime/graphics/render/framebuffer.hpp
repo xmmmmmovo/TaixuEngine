@@ -9,12 +9,10 @@
 
 namespace taixu {
 class IFrameBuffer {
-    
-    
-    virtual void bind() = 0;
-    virtual void unbind() = 0;
+    virtual void bind()            = 0;
+    virtual void unbind()          = 0;
     virtual void getRenderResult() = 0;
 };
 
 
-}
+}// namespace taixu
