@@ -1,8 +1,9 @@
 <map id="engine/runtime/platform/opengl/OGLElementBuffer.cpp" name="engine/runtime/platform/opengl/OGLElementBuffer.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,225,47"/>
-<area shape="rect" id="node2" href="$OGLElementBuffer_8hpp.html" title=" " alt="" coords="31,95,200,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="16,259,111,285"/>
-<area shape="rect" id="node4" href="$element__buffer_8hpp.html" title=" " alt="" coords="89,169,270,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="141,259,204,285"/>
-<area shape="rect" id="node6" href="$noncopyable_8hpp.html" title=" " alt="" coords="227,259,427,285"/>
+<area shape="rect" id="node1" title=" " alt="" coords="80,5,300,47"/>
+<area shape="rect" id="node2" href="$OGLElementBuffer_8hpp.html" title=" " alt="" coords="20,95,189,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="213,95,337,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,259,100,285"/>
+<area shape="rect" id="node4" href="$element__buffer_8hpp.html" title=" " alt="" coords="78,169,259,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="131,259,193,285"/>
+<area shape="rect" id="node6" href="$noncopyable_8hpp.html" title=" " alt="" coords="217,259,417,285"/>
 </map>
