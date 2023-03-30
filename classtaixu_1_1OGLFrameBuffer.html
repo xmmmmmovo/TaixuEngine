@@ -90,14 +90,14 @@ $(document).ready(function(){initNavTree('classtaixu_1_1OGLFrameBuffer.html','')
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="OGLFrameBuffer_8hpp_source.html">OGLFrameBuffer.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="ogl__frameBuffer_8hpp_source.html">ogl_frameBuffer.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for taixu::OGLFrameBuffer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1OGLFrameBuffer__inherit__graph.png" border="0" usemap="#ataixu_1_1OGLFrameBuffer_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1OGLFrameBuffer_inherit__map" id="ataixu_1_1OGLFrameBuffer_inherit__map">
 <area shape="rect" title=" " alt="" coords="5,160,176,325"/>
-<area shape="rect" href="classtaixu_1_1IFrameBuffer.html" title=" " alt="" coords="16,5,165,112"/>
+<area shape="rect" href="classtaixu_1_1IFrameBuffer.html" title=" " alt="" coords="13,5,169,112"/>
 </map>
 </div>
 <div class="dynheader">
@@ -106,7 +106,7 @@ Collaboration diagram for taixu::OGLFrameBuffer:</div>
 <div class="center"><img src="classtaixu_1_1OGLFrameBuffer__coll__graph.png" border="0" usemap="#ataixu_1_1OGLFrameBuffer_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1OGLFrameBuffer_coll__map" id="ataixu_1_1OGLFrameBuffer_coll__map">
 <area shape="rect" title=" " alt="" coords="5,160,176,325"/>
-<area shape="rect" href="classtaixu_1_1IFrameBuffer.html" title=" " alt="" coords="16,5,165,112"/>
+<area shape="rect" href="classtaixu_1_1IFrameBuffer.html" title=" " alt="" coords="13,5,169,112"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -118,8 +118,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa865a412c7e3e14e003e2787f7927aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad93f96abf4c288bfa31e0ee90e7abf0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLFrameBuffer.html#ad93f96abf4c288bfa31e0ee90e7abf0b">unbind</a> () override</td></tr>
 <tr class="separator:ad93f96abf4c288bfa31e0ee90e7abf0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c24aaa21e92c21853e0b3ca680be4a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLFrameBuffer.html#a8c24aaa21e92c21853e0b3ca680be4a0">getRenderResult</a> () override</td></tr>
-<tr class="separator:a8c24aaa21e92c21853e0b3ca680be4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ade12366216fd2f33af2cbaae90b32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLFrameBuffer.html#ac0ade12366216fd2f33af2cbaae90b32">getFrameBufferID</a> () override</td></tr>
+<tr class="separator:ac0ade12366216fd2f33af2cbaae90b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21c69d222a2d8451f9f8251d7571922b"><td class="memItemLeft" align="right" valign="top">std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLFrameBuffer.html#a21c69d222a2d8451f9f8251d7571922b">getImageid</a> ()</td></tr>
 <tr class="separator:a21c69d222a2d8451f9f8251d7571922b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -178,6 +178,33 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ac0ade12366216fd2f33af2cbaae90b32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ade12366216fd2f33af2cbaae90b32">&#9670;&nbsp;</a></span>getFrameBufferID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::OGLFrameBuffer::getFrameBufferID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classtaixu_1_1IFrameBuffer.html#a8cac492bf61402f3da7bd67ce6dd50e8">taixu::IFrameBuffer</a>.</p>
+
+</div>
+</div>
 <a id="a21c69d222a2d8451f9f8251d7571922b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a21c69d222a2d8451f9f8251d7571922b">&#9670;&nbsp;</a></span>getImageid()</h2>
 
@@ -192,33 +219,6 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8c24aaa21e92c21853e0b3ca680be4a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c24aaa21e92c21853e0b3ca680be4a0">&#9670;&nbsp;</a></span>getRenderResult()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void taixu::OGLFrameBuffer::getRenderResult </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="classtaixu_1_1IFrameBuffer.html#a038c34b6a44737de62d6b7397288f75c">taixu::IFrameBuffer</a>.</p>
 
 </div>
 </div>
@@ -293,8 +293,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>engine/runtime/platform/opengl/<a class="el" href="OGLFrameBuffer_8hpp_source.html">OGLFrameBuffer.hpp</a></li>
-<li>engine/runtime/platform/opengl/<a class="el" href="OGLFrameBuffer_8cpp.html">OGLFrameBuffer.cpp</a></li>
+<li>engine/runtime/platform/opengl/<a class="el" href="ogl__frameBuffer_8hpp_source.html">ogl_frameBuffer.hpp</a></li>
+<li>engine/runtime/platform/opengl/<a class="el" href="ogl__frameBuffer_8cpp.html">ogl_frameBuffer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

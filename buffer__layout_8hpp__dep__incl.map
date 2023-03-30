@@ -2,12 +2,12 @@
 <area shape="rect" id="node1" title=" " alt="" coords="149,5,336,47"/>
 <area shape="rect" id="node2" href="$vertex__buffer_8hpp.html" title=" " alt="" coords="149,95,336,136"/>
 <area shape="rect" id="node3" href="$vertex__array_8hpp.html" title=" " alt="" coords="43,184,224,225"/>
-<area shape="rect" id="node19" href="$OGLVertexBuffer_8hpp.html" title=" " alt="" coords="251,184,459,225"/>
-<area shape="rect" id="node4" href="$OGLVertexArray_8hpp.html" title=" " alt="" coords="27,273,229,315"/>
-<area shape="rect" id="node5" href="$OGLContext_8hpp.html" title=" " alt="" coords="331,363,512,404"/>
-<area shape="rect" id="node18" href="$OGLVertexArray_8cpp.html" title=" " alt="" coords="27,363,229,404"/>
+<area shape="rect" id="node19" href="$ogl__vertexBuffer_8hpp.html" title=" " alt="" coords="251,184,461,225"/>
+<area shape="rect" id="node4" href="$ogl__vertexArray_8hpp.html" title=" " alt="" coords="26,273,230,315"/>
+<area shape="rect" id="node5" href="$ogl__context_8hpp.html" title=" " alt="" coords="331,363,512,404"/>
+<area shape="rect" id="node18" href="$ogl__vertexArray_8cpp.html" title=" " alt="" coords="27,363,229,404"/>
 <area shape="rect" id="node6" href="$renderer_8hpp.html" title=" " alt="" coords="229,452,409,493"/>
-<area shape="rect" id="node17" href="$OGLContext_8cpp.html" title=" " alt="" coords="433,452,615,493"/>
+<area shape="rect" id="node17" href="$ogl__context_8cpp.html" title=" " alt="" coords="433,452,615,493"/>
 <area shape="rect" id="node7" href="$render__component_8hpp.html" title=" " alt="" coords="5,631,213,672"/>
 <area shape="rect" id="node11" href="$engine_8hpp.html" title=" " alt="" coords="220,549,417,575"/>
 <area shape="rect" id="node16" href="$renderer_8cpp.html" title=" " alt="" coords="442,541,622,583"/>
@@ -18,5 +18,5 @@
 <area shape="rect" id="node15" href="$engine_8cpp.html" title=" " alt="" coords="289,638,485,665"/>
 <area shape="rect" id="node13" href="$main_8cpp.html" title=" " alt="" coords="289,727,461,754"/>
 <area shape="rect" id="node14" href="$menu__component_8hpp.html" title=" " alt="" coords="485,720,693,761"/>
-<area shape="rect" id="node20" href="$OGLVertexBuffer_8cpp.html" title=" " alt="" coords="254,273,461,315"/>
+<area shape="rect" id="node20" href="$ogl__vertexBuffer_8cpp.html" title=" " alt="" coords="255,273,463,315"/>
 </map>

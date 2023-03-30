@@ -76,6 +76,15 @@ var namespacetaixu =
       [ "IDLEMODE", "namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ae5cd59ce2a24c6954a3c67dfd4a6c2ed", null ],
       [ "GAMEMODE", "namespacetaixu.html#a0019e688317bd524b76edd73df8a4507aa47c7e18b85dd065d02f75743d85947f", null ]
     ] ],
+    [ "FrameColorImageFormat", "namespacetaixu.html#a2c20540527d99b113a293b71af17a97c", [
+      [ "None", "namespacetaixu.html#a2c20540527d99b113a293b71af17a97ca6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "RGBA8", "namespacetaixu.html#a2c20540527d99b113a293b71af17a97cab4b279046a02077466fa26cabb00c642", null ],
+      [ "RED_INTEGER", "namespacetaixu.html#a2c20540527d99b113a293b71af17a97ca2849effb989cbdcfb4b9eb143fd826aa", null ]
+    ] ],
+    [ "FrameDepthImageFormat", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09", [
+      [ "None", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09a6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "DEPTH24STENCIL8", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09a7ca3e26e4e5c35e4408bd49c1e32e9a3", null ]
+    ] ],
     [ "RenderAPI", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302", [
       [ "NONE", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302ab50339a10e1de285ac99d4c3990b8693", null ],
       [ "OPENGL", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302ac0ad831a34c4633bee584066cfcc5040", null ]

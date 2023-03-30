@@ -2,9 +2,9 @@
 <area shape="rect" id="node1" title=" " alt="" coords="217,5,397,47"/>
 <area shape="rect" id="node2" href="$model_8hpp.html" title=" " alt="" coords="217,95,397,136"/>
 <area shape="rect" id="node4" href="$renderer_8hpp.html" title=" " alt="" coords="115,273,295,315"/>
-<area shape="rect" id="node19" href="$OGLTexture_8hpp.html" title=" " alt="" coords="589,95,770,136"/>
+<area shape="rect" id="node19" href="$ogl__texture_8hpp.html" title=" " alt="" coords="589,95,770,136"/>
 <area shape="rect" id="node3" href="$model_8cpp.html" title=" " alt="" coords="25,184,205,225"/>
-<area shape="rect" id="node15" href="$OGLContext_8hpp.html" title=" " alt="" coords="281,184,462,225"/>
+<area shape="rect" id="node15" href="$ogl__context_8hpp.html" title=" " alt="" coords="281,184,462,225"/>
 <area shape="rect" id="node17" href="$project__manager_8hpp.html" title=" " alt="" coords="486,184,667,225"/>
 <area shape="rect" id="node5" href="$render__component_8hpp.html" title=" " alt="" coords="13,452,221,493"/>
 <area shape="rect" id="node9" href="$engine_8hpp.html" title=" " alt="" coords="401,370,598,397"/>
@@ -16,7 +16,7 @@
 <area shape="rect" id="node13" href="$engine_8cpp.html" title=" " alt="" coords="629,459,825,486"/>
 <area shape="rect" id="node11" href="$main_8cpp.html" title=" " alt="" coords="579,549,751,575"/>
 <area shape="rect" id="node12" href="$menu__component_8hpp.html" title=" " alt="" coords="295,541,503,583"/>
-<area shape="rect" id="node16" href="$OGLContext_8cpp.html" title=" " alt="" coords="319,273,501,315"/>
+<area shape="rect" id="node16" href="$ogl__context_8cpp.html" title=" " alt="" coords="319,273,501,315"/>
 <area shape="rect" id="node18" href="$project__manager_8cpp.html" title=" " alt="" coords="575,273,757,315"/>
-<area shape="rect" id="node20" href="$OGLTexture_8cpp.html" title=" " alt="" coords="691,184,873,225"/>
+<area shape="rect" id="node20" href="$ogl__texture_8cpp.html" title=" " alt="" coords="691,184,873,225"/>
 </map>
