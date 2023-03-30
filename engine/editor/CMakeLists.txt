@@ -17,7 +17,10 @@ set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "EngineShader")
 # 使用MSVC标准
 target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/WX->")
 
-target_link_libraries(${TARGET_NAME} TaixuRuntime)
+# link libraries
+target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime)
+
+target_link_libraries(${TARGET_NAME} PRIVATE argparse)
 
 if (USE_PCH)
     target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch.hpp)
@@ -29,9 +32,9 @@ else ()
     set(OUTPUT_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 endif ()
 
-if(MSVC)
+if (MSVC)
     set(OUTPUT_DIR ${OUTPUT_DIR}/Debug)
-endif(MSVC)
+endif (MSVC)
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -DENGINE_ROOT_DIR=${ENGINE_ROOT_DIR} -DOUTPUT_DIR=${OUTPUT_DIR} -P ${PROJECT_SOURCE_DIR}/cmake/MoveResourceDirs.cmake

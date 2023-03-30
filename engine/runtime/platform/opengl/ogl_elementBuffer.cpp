@@ -3,6 +3,7 @@
 //
 
 #include "ogl_elementBuffer.hpp"
+
 #include "spdlog/spdlog.h"
 
 namespace taixu {
@@ -32,9 +33,6 @@ void OGLElementBuffer::setDataInner(const std::vector<std::uint32_t>& indices,
             &indices[0], usage);
 }
 
-OGLElementBuffer::~OGLElementBuffer() {
-    spdlog::debug("ElementBuffer {} deleted", EBO);
-    glDeleteBuffers(1, &EBO);
-}
+OGLElementBuffer::~OGLElementBuffer() { glDeleteBuffers(1, &EBO); }
 
 }// namespace taixu

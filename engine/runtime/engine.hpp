@@ -26,6 +26,8 @@ public:
     Status loadProject(std::string_view const& path);
 
     [[nodiscard]] Renderer* getRenderer() const;
+
+    [[nodiscard]] Project *getOpenedProject() const;
 };
 
 }// namespace taixu

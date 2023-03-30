@@ -31,7 +31,7 @@ public:
 
         _menu_bar_rect = ImGui::GetCurrentWindow()->MenuBarRect();
         _render_size   = ImGui::GetWindowSize();
-        _render_size.y -= _menu_bar_rect.GetHeight() + 8;
+        _render_size.y -= _menu_bar_rect.GetHeight();
 
         _render_rect.Min = ImGui::GetWindowPos();
         _render_rect.Min.x -= ImGui::GetMainViewport()->Pos.x;
