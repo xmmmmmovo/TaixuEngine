@@ -14,8 +14,8 @@
 #include "graphics/render/render_api.hpp"
 #include "graphics/render/shader.hpp"
 #include "graphics/render/texture.hpp"
-#include "platform/opengl/OGLContext.hpp"
-#include "platform/opengl/OGLShader.hpp"
+#include "platform/opengl/ogl_context.hpp"
+#include "platform/opengl/ogl_shader.hpp"
 
 namespace taixu {
 

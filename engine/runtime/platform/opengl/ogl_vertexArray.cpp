@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 2023/2/25.
 //
 
-#include "OGLVertexArray.hpp"
+#include "ogl_vertexArray.hpp"
 
 namespace taixu {
 

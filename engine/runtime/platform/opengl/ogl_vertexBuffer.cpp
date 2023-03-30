@@ -4,7 +4,7 @@
 
 #include <glad/glad.h>
 
-#include "OGLVertexBuffer.hpp"
+#include "ogl_vertexBuffer.hpp"
 
 namespace taixu {
 OGLVertexBuffer::OGLVertexBuffer() {

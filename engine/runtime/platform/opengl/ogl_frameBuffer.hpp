@@ -1,6 +1,6 @@
 
-#ifndef TAIXUENGINE_OGLFRAMEBUFFER_HPP
-#define TAIXUENGINE_OGLFRAMEBUFFER_HPP
+#ifndef TAIXUENGINE_OGL_FRAMEBUFFER_HPP
+#define TAIXUENGINE_OGL_FRAMEBUFFER_HPP
 
 #include"graphics/render/framebuffer.hpp"
 #include <glad/glad.h>// holds all OpenGL type declarations
@@ -15,12 +15,11 @@ public:
 
 	void bind()override;
 	void unbind()override;
-	void getRenderResult()override;
+	void          getFrameBufferID()override;
     std::uint32_t getImageid();
-
 };
 
 
 }
 
-#endif//TAIXUENGINE_OGLFRAMEBUFFER_HPP
+#endif//TAIXUENGINE_OGL_FRAMEBUFFER_HPP

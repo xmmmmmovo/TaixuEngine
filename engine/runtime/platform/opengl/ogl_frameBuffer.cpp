@@ -1,4 +1,4 @@
-#include "OGLFrameBuffer.hpp"
+#include "ogl_frameBuffer.hpp"
 
 void taixu::OGLFrameBuffer::allocate(glm::vec2 frame_size) {
     //Generate a texture image to store rendering results
@@ -41,6 +41,6 @@ void taixu::OGLFrameBuffer::unbind() {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-void taixu::OGLFrameBuffer::getRenderResult() { getImageid(); }
+void taixu::OGLFrameBuffer::getFrameBufferID() { getImageid(); }
 
 std::uint32_t taixu::OGLFrameBuffer::getImageid() { return bufferTexId; }

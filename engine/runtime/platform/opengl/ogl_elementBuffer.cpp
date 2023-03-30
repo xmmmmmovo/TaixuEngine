@@ -2,8 +2,7 @@
 // Created by xmmmmmovo on 2023/2/25.
 //
 
-#include "OGLElementBuffer.hpp"
-
+#include "ogl_elementBuffer.hpp"
 #include "spdlog/spdlog.h"
 
 namespace taixu {

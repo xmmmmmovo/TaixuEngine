@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 2023/2/23.
 //
 
-#include "OGLTexture.hpp"
+#include "ogl_texture.hpp"
 
 #include "platform/os/path.hpp"
 
