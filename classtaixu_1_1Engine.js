@@ -1,5 +1,6 @@
 var classtaixu_1_1Engine =
 [
+    [ "getOpenedProject", "classtaixu_1_1Engine.html#aec57044c21ea622e83618008acf49f3f", null ],
     [ "getRenderer", "classtaixu_1_1Engine.html#a090da2877fc98a4b72bf72834a0ab338", null ],
     [ "init", "classtaixu_1_1Engine.html#a09ba2b38893667f12059bd3551dd55f7", null ],
     [ "loadProject", "classtaixu_1_1Engine.html#a1e77723d9c8d2546dfa07a7b0f8f766b", null ],

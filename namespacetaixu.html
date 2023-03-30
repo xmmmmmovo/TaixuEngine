@@ -335,6 +335,9 @@ Functions</h2></td></tr>
 <tr class="separator:af2e071cdc152ffdf10af393f5a2dcf9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47eb4f1e632f585c389145c3e0796793"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">getRootPath</a> ()</td></tr>
 <tr class="separator:a47eb4f1e632f585c389145c3e0796793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57787d8e552695ad3623ad435c8769fb"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a57787d8e552695ad3623ad435c8769fb">getDirectoryPath</a> (const std::filesystem::path &amp;file_path)</td></tr>
+<tr class="memdesc:a57787d8e552695ad3623ad435c8769fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取文件的文件夹路径  <a href="namespacetaixu.html#a57787d8e552695ad3623ad435c8769fb">More...</a><br /></td></tr>
+<tr class="separator:a57787d8e552695ad3623ad435c8769fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5349f140eb4c79dfc226e770f1bd141a"><td class="memTemplParams" colspan="2">template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </td></tr>
 <tr class="memitem:a5349f140eb4c79dfc226e770f1bd141a"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a5349f140eb4c79dfc226e770f1bd141a">dumpJsonString</a> (T const &amp;jsonObj)</td></tr>
 <tr class="separator:a5349f140eb4c79dfc226e770f1bd141a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -800,6 +803,9 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::filesystem::path taixu::fromRelativePath </td>
@@ -819,6 +825,11 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -828,6 +839,9 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::filesystem::path taixu::fromRelativePath </td>
@@ -837,6 +851,11 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -866,11 +885,42 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
 
 </div>
 </div>
+<a id="a57787d8e552695ad3623ad435c8769fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57787d8e552695ad3623ad435c8769fb">&#9670;&nbsp;</a></span>getDirectoryPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::filesystem::path taixu::getDirectoryPath </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
+          <td class="paramname"><em>file_path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取文件的文件夹路径 </p>
+
+</div>
+</div>
 <a id="aa3edf7c7d843186ca8ee41ab8b2a371b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa3edf7c7d843186ca8ee41ab8b2a371b">&#9670;&nbsp;</a></span>getFileExtensions()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; std::string &gt; taixu::getFileExtensions </td>
@@ -880,6 +930,11 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -896,6 +951,9 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string taixu::getFilePureName </td>
@@ -905,6 +963,11 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -932,6 +995,9 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string taixu::getLastExtension </td>
@@ -941,6 +1007,11 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>get last extension </p>
@@ -960,6 +1031,9 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; std::string &gt; taixu::getPathSegments </td>
@@ -969,6 +1043,11 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -978,6 +1057,9 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::filesystem::path taixu::getRelativePath </td>
@@ -997,6 +1079,11 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -1006,6 +1093,9 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::filesystem::path taixu::getRootPath </td>
@@ -1014,6 +1104,11 @@ template&lt;typename I , typename T  = IJsonable&lt;I&gt;&gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

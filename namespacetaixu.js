@@ -117,6 +117,7 @@ var namespacetaixu =
     [ "fromRelativePath", "namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194", null ],
     [ "fromRelativePath", "namespacetaixu.html#af2e071cdc152ffdf10af393f5a2dcf9f", null ],
     [ "getDateString", "namespacetaixu.html#abd9cb02ff17375c7243830e1d477021e", null ],
+    [ "getDirectoryPath", "namespacetaixu.html#a57787d8e552695ad3623ad435c8769fb", null ],
     [ "getFileExtensions", "namespacetaixu.html#aa3edf7c7d843186ca8ee41ab8b2a371b", null ],
     [ "getFilePureName", "namespacetaixu.html#ab19eaf5d7295e86921308f915322a9fe", null ],
     [ "getFiles", "namespacetaixu.html#ae5e35a634a47a2237dffad3adc8f9ca8", null ],

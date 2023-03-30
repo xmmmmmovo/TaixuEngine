@@ -1,12 +1,12 @@
 <map id="taixu::editor::MainWindow" name="taixu::editor::MainWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="361,1691,612,2164"/>
+<area shape="rect" id="node1" title=" " alt="" coords="361,1691,612,2179"/>
 <area shape="rect" id="node2" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="14,599,133,705"/>
 <area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="5,5,152,156"/>
 <area shape="rect" id="node6" href="$classtaixu_1_1IShaderProgram.html" title=" " alt="" coords="86,263,253,531"/>
 <area shape="rect" id="node4" href="$classtaixu_1_1Renderer.html" title=" " alt="" coords="305,1089,460,1269"/>
 <area shape="rect" id="node5" href="$classtaixu_1_1PerspectiveCamera.html" title=" " alt="" coords="277,219,488,575"/>
 <area shape="rect" id="node7" href="$classtaixu_1_1Clock.html" title=" " alt="" coords="511,270,678,523"/>
-<area shape="rect" id="node8" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="484,1089,695,1269"/>
+<area shape="rect" id="node8" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="484,1081,695,1276"/>
 <area shape="rect" id="node9" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="703,321,865,472"/>
 <area shape="rect" id="node10" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="683,13,885,149"/>
 <area shape="rect" id="node11" href="$classtaixu_1_1WindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="719,729,937,1628"/>
