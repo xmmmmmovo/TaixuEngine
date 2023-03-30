@@ -4,6 +4,7 @@
 
 #include "main_window.hpp"
 
+#include "core/base/path.hpp"
 #include "spdlog/spdlog.h"
 
 namespace taixu::editor {
@@ -56,7 +57,15 @@ void MainWindow::init() {
 void MainWindow::preUpdate() {
     ImguiSurface::preUpdate();
 
-//    if (nullptr == _engine_runtime->getOpenedProject()) { return; }
+#ifndef NDEBUG
+    if (nullptr == _engine_runtime->getOpenedProject()) {
+        onOpenProjectCb(DEBUG_PATH "/example_proj");
+        return;
+    }
+#else
+    if (nullptr == _engine_runtime->getOpenedProject()) { return; }
+#endif
+
 
     ImGui::Begin("Editor Menu", nullptr, DOCK_SPACE_FLAGS);
 
