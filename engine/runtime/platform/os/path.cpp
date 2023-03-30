@@ -58,4 +58,8 @@ std::filesystem::path getRootPath() {
     return std::filesystem::current_path().root_path();
 }
 
+std::filesystem::path getDirectoryPath(const std::filesystem::path& file_path) {
+    return file_path.parent_path();
+}
+
 }// namespace taixu

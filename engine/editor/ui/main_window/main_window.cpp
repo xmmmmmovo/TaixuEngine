@@ -4,6 +4,7 @@
 
 #include "main_window.hpp"
 
+#include "core/base/path.hpp"
 #include "spdlog/spdlog.h"
 
 namespace taixu::editor {
@@ -12,13 +13,13 @@ void MainWindow::init() {
     context_ptr->initWindow();
     context_ptr->setVsync(true);
 
-    context_ptr->registerOnScrollFn([&](double /*xoffset*/, double yoffset) {
+    context_ptr->registerOnScrollFn([this](double /*xoffset*/, double yoffset) {
         if (context_ptr->_state == EngineState::GAMEMODE) {
             context_ptr->_editor_camera->processMouseScroll(yoffset);
         }
     });
 
-    context_ptr->registerOnCursorPosFn([&](double xpos, double ypos) {
+    context_ptr->registerOnCursorPosFn([this](double xpos, double ypos) {
         if (_last_mouse_pos.x == -1.0F && _last_mouse_pos.y == -1.0F) {
             _last_mouse_pos.x = xpos;
             _last_mouse_pos.y = ypos;
@@ -34,7 +35,7 @@ void MainWindow::init() {
     });
 
     context_ptr->registerOnMouseButtonFn(
-            [&](int button, int action, int /*mods*/) {
+            [this](int button, int action, int /*mods*/) {
                 if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
                     if (_cam_mode) {
                         _cam_mode = false;
@@ -56,18 +57,19 @@ void MainWindow::init() {
 void MainWindow::preUpdate() {
     ImguiSurface::preUpdate();
 
-    // Create the docking environment
-    ImGuiWindowFlags window_flags =
-            ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar |
-            ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
-            ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBackground |
-            ImGuiConfigFlags_NoMouseCursorChange |
-            ImGuiWindowFlags_NoBringToFrontOnFocus;
+#ifndef NDEBUG
+    if (nullptr == _engine_runtime->getOpenedProject()) {
+        onOpenProjectCb(DEBUG_PATH "/example_proj");
+        return;
+    }
+#else
+    if (nullptr == _engine_runtime->getOpenedProject()) { return; }
+#endif
 
-    ImGui::Begin("Editor Menu", nullptr, window_flags);
-    ImGui::PopStyleVar(3);
 
-    ImGuiID dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
+    ImGui::Begin("Editor Menu", nullptr, DOCK_SPACE_FLAGS);
+
+    ImGuiID const dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
 
     ImGui::DockSpace(dock_space_id, ImVec2(0.0F, 0.0F));
 
@@ -126,14 +128,14 @@ void MainWindow::destroy() {
 }
 
 void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
-    this->engine_runtime = engine_runtime_ptr;
-    this->renderer       = engine_runtime_ptr->getRenderer();
+    this->_engine_runtime = engine_runtime_ptr;
+    this->renderer        = engine_runtime_ptr->getRenderer();
 
     ImguiSurface::init(context_ptr->_window);
     render_component->_renderer = renderer;
     renderer->_camera           = context_ptr->_editor_camera.get();
 
-    InputSystem::getInstance().registerEditorCallback([&](float delta_time) {
+    InputSystem::getInstance().registerEditorCallback([this](float delta_time) {
         if (glfwGetKey(context_ptr->_window, GLFW_KEY_W) == GLFW_PRESS) {
             context_ptr->_editor_camera->processKeyboard(
                     CameraMovement::FORWARD, delta_time);
@@ -174,7 +176,7 @@ MainWindow::MainWindow(WindowContext* const context_ptr)
 // for callbacks
 void MainWindow::onNewProjectCb(std::string_view const& path) {}
 void MainWindow::onOpenProjectCb(std::string_view const& path) {
-    this->engine_runtime->loadProject(path);
+    this->_engine_runtime->loadProject(path);
 }
 void MainWindow::onSaveProjectCb() {}
 void MainWindow::onSaveAsProjectCb(std::string_view const& path) {}

@@ -27,12 +27,12 @@ void ImguiSurface::init(GLFWwindow *window) {
     io.FontDefault = font;
 
     // merge in icons from Font Awesome
-    static const ImWchar icons_ranges[] = {ICON_MIN_FA, ICON_MAX_16_FA, 0};
+    static const ImWchar kIconsRanges[] = {ICON_MIN_FA, ICON_MAX_16_FA, 0};
     ImFontConfig         icons_config;
     icons_config.MergeMode  = true;
     icons_config.PixelSnapH = true;
     io.Fonts->AddFontFromFileTTF("res/fonts/fa-solid-900.ttf", 16.0f,
-                                 &icons_config, icons_ranges);
+                                 &icons_config, kIconsRanges);
     // use FONT_ICON_FILE_NAME_FAR if you want regular instead of solid
 
     io.ConfigFlags |=
@@ -119,8 +119,10 @@ void ImguiSurface::init(GLFWwindow *window) {
 
     style.Colors[ImGuiCol_Border] = ImVec4(0.539f, 0.479f, 0.255f, 0.162f);
     style.FrameBorderSize         = 0.0f;
-    style.WindowBorderSize        = 1.0f;
 
+    style.WindowRounding = 0.0f;
+    style.WindowBorderSize = 0.0f;
+    style.WindowPadding = ImVec2(0.0f, 0.0f);
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(OPENGL_VERSION);
@@ -136,10 +138,6 @@ void ImguiSurface::preUpdate() {
     ImGui::SetNextWindowPos(viewport->Pos);
     ImGui::SetNextWindowSize(viewport->Size);
     ImGui::SetNextWindowViewport(viewport->ID);
-
-    ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
-    ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
-    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
 }
 
 void ImguiSurface::addWidget(const char                  *name,
@@ -158,7 +156,7 @@ void ImguiSurface::update() {
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-    ImGuiIO &io = ImGui::GetIO();
+    ImGuiIO  const&io = ImGui::GetIO();
 
     if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
         GLFWwindow *backup_current_context = glfwGetCurrentContext();
