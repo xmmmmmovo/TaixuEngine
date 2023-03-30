@@ -2,8 +2,8 @@
 // Created by xmmmmmovo on 2023/2/25.
 //
 
-#ifndef TAIXUENGINE_OGLVERTEXBUFFER_HPP
-#define TAIXUENGINE_OGLVERTEXBUFFER_HPP
+#ifndef TAIXUENGINE_OGL_VERTEXBUFFER_HPP
+#define TAIXUENGINE_OGL_VERTEXBUFFER_HPP
 
 #include <glm/glm.hpp>
 
@@ -60,4 +60,4 @@ public:
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_OGLVERTEXBUFFER_HPP
+#endif//TAIXUENGINE_OGL_VERTEXBUFFER_HPP

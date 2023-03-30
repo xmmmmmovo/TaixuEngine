@@ -1,6 +1,6 @@
-#include "platform/opengl/OGLContext.hpp"
+#include "platform/opengl/ogl_context.hpp"
 
-#include "OGLContext.hpp"
+#include "ogl_context.hpp"
 
 
 void taixu::OGLContext::initialize() {

@@ -1,7 +1,7 @@
 //
 // Created by xmmmmmovo on 2023/2/23.
 //
-#include "OGLShader.hpp"
+#include "ogl_shader.hpp"
 
 #include <magic_enum.hpp>
 

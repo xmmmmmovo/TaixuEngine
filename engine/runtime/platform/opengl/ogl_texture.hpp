@@ -2,8 +2,8 @@
 // Created by xmmmmmovo on 2023/2/23.
 //
 
-#ifndef TAIXUENGINE_OGLTEXTURE_HPP
-#define TAIXUENGINE_OGLTEXTURE_HPP
+#ifndef TAIXUENGINE_OGL_TEXTURE_HPP
+#define TAIXUENGINE_OGL_TEXTURE_HPP
 
 #include <glad/glad.h>
 
@@ -47,4 +47,4 @@ public:
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_OGLTEXTURE_HPP
+#endif//TAIXUENGINE_OGL_TEXTURE_HPP
