@@ -6,6 +6,7 @@
 #define TAIXUENGINE_APPLICATION_HPP
 
 #include <memory>
+#include <string_view>
 
 // "" include headers
 #include "core/base/public_singleton.hpp"
@@ -52,7 +53,7 @@ public:
     /**
      * @brief initWindow application
      */
-    void initialize(int argc, char *argv[]);
+    void initialize(std::vector<std::string_view> const &args);
     /**
      * @brief main run function
      */
@@ -65,10 +66,8 @@ public:
 private:
     /**
      * @brief initWindow application args
-     * @param argc args count
-     * @param argv args
      */
-    void initApplicationArgs(int argc, char *argv[]);
+    void initApplicationArgs(std::vector<std::string_view> const &args);
 };
 
 }// namespace taixu::editor

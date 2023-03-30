@@ -21,7 +21,7 @@ public:
 public:
     void update() override {
         if (ImGui::BeginMenuBar()) {
-            float size = ImGui::GetWindowHeight() - 4.0f;
+            float const size = ImGui::GetWindowHeight() - 4.0f;
             ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) -
                                  (size * 0.5f));
 

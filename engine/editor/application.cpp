@@ -4,6 +4,9 @@
 
 #include "application.hpp"
 
+#include <string_view>
+#include <vector>
+
 // <> headers
 #include "spdlog/spdlog.h"
 
@@ -24,11 +27,12 @@ void initSpdlog() {
 #endif
 }
 
-void Application::initApplicationArgs(int argc, char *argv[]) {}
+void Application::initApplicationArgs(
+        std::vector<std::string_view> const &args) {}
 
-void Application::initialize(int argc, char *argv[]) {
+void Application::initialize(std::vector<std::string_view> const &args) {
     initSpdlog();
-    initApplicationArgs(argc, argv);
+    initApplicationArgs(args);
 
     context_ptr = std::make_unique<WindowContext>(
             MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE);

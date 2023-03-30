@@ -28,8 +28,17 @@ public:
 
     ~OGLElementBuffer() override;
 
-    OGLElementBuffer(OGLElementBuffer&& other) noexcept            = default;
-    OGLElementBuffer& operator=(OGLElementBuffer&& other) noexcept = default;
+    OGLElementBuffer(OGLElementBuffer&& other) noexcept : EBO(other.EBO) {
+        other.EBO = 0;
+    }
+
+    OGLElementBuffer& operator=(OGLElementBuffer&& other) noexcept {
+        if (this != &other) {
+            EBO       = other.EBO;
+            other.EBO = 0;
+        }
+        return *this;
+    }
 };
 
 }// namespace taixu

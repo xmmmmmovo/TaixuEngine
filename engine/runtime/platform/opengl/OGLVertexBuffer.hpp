@@ -36,8 +36,26 @@ public:
 
     ~OGLVertexBuffer() override;
 
-    OGLVertexBuffer(OGLVertexBuffer &&other) noexcept            = default;
-    OGLVertexBuffer &operator=(OGLVertexBuffer &&other) noexcept = default;
+    OGLVertexBuffer(OGLVertexBuffer &&other) noexcept
+        : VBO(other.VBO),
+          stride(other.stride),
+          align(other.align) {
+        other.VBO    = 0;
+        other.stride = 0;
+        other.align  = 0;
+    }
+
+    OGLVertexBuffer &operator=(OGLVertexBuffer &&other) noexcept {
+        if (this != &other) {
+            VBO          = other.VBO;
+            stride       = other.stride;
+            align        = other.align;
+            other.VBO    = 0;
+            other.stride = 0;
+            other.align  = 0;
+        }
+        return *this;
+    }
 };
 
 }// namespace taixu
