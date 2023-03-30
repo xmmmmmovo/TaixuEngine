@@ -112,11 +112,11 @@ Collaboration diagram for taixu::editor::Application:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1editor_1_1Application__coll__graph.png" border="0" usemap="#ataixu_1_1editor_1_1Application_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1editor_1_1Application_coll__map" id="ataixu_1_1editor_1_1Application_coll__map">
-<area shape="rect" title="Application for the whole editor use Singleton pattern." alt="" coords="11,840,202,1020"/>
+<area shape="rect" title="Application for the whole editor use Singleton pattern." alt="" coords="11,796,202,976"/>
 <area shape="rect" href="classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="5,379,168,529"/>
 <area shape="rect" href="classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="57,5,258,141"/>
 <area shape="rect" href="classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="145,204,308,355"/>
-<area shape="rect" href="classtaixu_1_1Engine.html" title=" " alt="" coords="123,553,333,777"/>
+<area shape="rect" href="classtaixu_1_1Engine.html" title=" " alt="" coords="123,553,333,733"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -145,10 +145,10 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:af90f1690841f44beccbb555d673cd55d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1IWindow.html">IWindow</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1Application.html#af90f1690841f44beccbb555d673cd55d">window_ptr</a> {nullptr}</td></tr>
-<tr class="separator:af90f1690841f44beccbb555d673cd55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a344c4ef5bb6516a3bb4fa1e20692e619"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1WindowContext.html">WindowContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1Application.html#a344c4ef5bb6516a3bb4fa1e20692e619">context_ptr</a> {nullptr}</td></tr>
-<tr class="separator:a344c4ef5bb6516a3bb4fa1e20692e619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2f9d6f812b978ad3e34ba9e1ada5de0"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1IWindow.html">IWindow</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1Application.html#ac2f9d6f812b978ad3e34ba9e1ada5de0">window_ptr</a> {nullptr}</td></tr>
+<tr class="separator:ac2f9d6f812b978ad3e34ba9e1ada5de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70df7dcb5bd494566a7d17cddf71501d"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1WindowContext.html">WindowContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1Application.html#a70df7dcb5bd494566a7d17cddf71501d">context_ptr</a> {nullptr}</td></tr>
+<tr class="separator:a70df7dcb5bd494566a7d17cddf71501d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e268c4a28213825b609f6fe6f309b65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1Engine.html">Engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1editor_1_1Application.html#a2e268c4a28213825b609f6fe6f309b65">_engine_ptr</a> = &amp;<a class="el" href="classtaixu_1_1PublicSingleton.html#a6ec387f83efaf62fad7d72562fd6b4c8">Engine::getInstance</a>()</td></tr>
 <tr class="separator:a2e268c4a28213825b609f6fe6f309b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -343,8 +343,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a344c4ef5bb6516a3bb4fa1e20692e619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a344c4ef5bb6516a3bb4fa1e20692e619">&#9670;&nbsp;</a></span>context_ptr</h2>
+<a id="a70df7dcb5bd494566a7d17cddf71501d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70df7dcb5bd494566a7d17cddf71501d">&#9670;&nbsp;</a></span>context_ptr</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -353,7 +353,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1WindowContext.html">WindowContext</a>&gt; taixu::editor::Application::context_ptr {nullptr}</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1WindowContext.html">WindowContext</a>&gt; taixu::editor::Application::context_ptr {nullptr}</td>
         </tr>
       </table>
   </td>
@@ -437,8 +437,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="af90f1690841f44beccbb555d673cd55d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af90f1690841f44beccbb555d673cd55d">&#9670;&nbsp;</a></span>window_ptr</h2>
+<a id="ac2f9d6f812b978ad3e34ba9e1ada5de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2f9d6f812b978ad3e34ba9e1ada5de0">&#9670;&nbsp;</a></span>window_ptr</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,7 +447,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1IWindow.html">IWindow</a>&gt; taixu::editor::Application::window_ptr {nullptr}</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1IWindow.html">IWindow</a>&gt; taixu::editor::Application::window_ptr {nullptr}</td>
         </tr>
       </table>
   </td>

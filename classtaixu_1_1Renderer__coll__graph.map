@@ -1,6 +1,7 @@
 <map id="taixu::Renderer" name="taixu::Renderer">
-<area shape="rect" id="node1" title=" " alt="" coords="129,536,283,731"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1IShaderProgram.html" title=" " alt="" coords="5,205,172,473"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="15,5,162,156"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1Clock.html" title=" " alt="" coords="196,213,363,466"/>
+<area shape="rect" id="node1" title=" " alt="" coords="245,624,400,804"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1PerspectiveCamera.html" title=" " alt="" coords="5,205,216,561"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1IShaderProgram.html" title=" " alt="" coords="239,249,406,517"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="249,5,396,156"/>
+<area shape="rect" id="node5" href="$classtaixu_1_1Clock.html" title=" " alt="" coords="430,257,597,510"/>
 </map>

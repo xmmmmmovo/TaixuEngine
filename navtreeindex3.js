@@ -1,8 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"namespacetaixu.html#a5349f140eb4c79dfc226e770f1bd141a":[1,0,0,65],
-"namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8":[1,0,0,57],
-"namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8a2a2c1392bcbaececf702b611e7d7df25":[1,0,0,57,1],
 "namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8ab50339a10e1de285ac99d4c3990b8693":[1,0,0,57,0],
 "namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8acdf45fdd8960ab47314fb33febc95d9f":[1,0,0,57,2],
 "namespacetaixu.html#a60a7e92441438be0646e42748456ea2f":[1,0,0,89],

@@ -6,6 +6,6 @@ var classtaixu_1_1editor_1_1Application =
     [ "run", "classtaixu_1_1editor_1_1Application.html#a5b244b17cb7895f24c21ae3594e7df82", null ],
     [ "PublicSingleton< Application >", "classtaixu_1_1editor_1_1Application.html#a5e4fca70495dc40fe0996c3bf0919c87", null ],
     [ "_engine_ptr", "classtaixu_1_1editor_1_1Application.html#a2e268c4a28213825b609f6fe6f309b65", null ],
-    [ "context_ptr", "classtaixu_1_1editor_1_1Application.html#a344c4ef5bb6516a3bb4fa1e20692e619", null ],
-    [ "window_ptr", "classtaixu_1_1editor_1_1Application.html#af90f1690841f44beccbb555d673cd55d", null ]
+    [ "context_ptr", "classtaixu_1_1editor_1_1Application.html#a70df7dcb5bd494566a7d17cddf71501d", null ],
+    [ "window_ptr", "classtaixu_1_1editor_1_1Application.html#ac2f9d6f812b978ad3e34ba9e1ada5de0", null ]
 ];

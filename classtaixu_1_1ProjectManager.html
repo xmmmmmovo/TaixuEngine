@@ -112,15 +112,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a47752777169dcffeea42cd7cb0834f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fe7dbe8c9dd6f7f93f9f4f650bee475"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ProjectManager.html#a5fe7dbe8c9dd6f7f93f9f4f650bee475">saveAsProject</a> (std::string const &amp;path)</td></tr>
 <tr class="separator:a5fe7dbe8c9dd6f7f93f9f4f650bee475"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8abb5ad96cc35faa0f74bb6d1124044e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structtaixu_1_1Project.html">Project</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ProjectManager.html#a8abb5ad96cc35faa0f74bb6d1124044e">getCurrentProject</a> () const</td></tr>
-<tr class="separator:a8abb5ad96cc35faa0f74bb6d1124044e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f15381869dbbd27727fcfab96ff2bf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtaixu_1_1Project.html">Project</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ProjectManager.html#a8f15381869dbbd27727fcfab96ff2bf0">getCurrentProject</a> () const</td></tr>
+<tr class="separator:a8f15381869dbbd27727fcfab96ff2bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06630982fb9492137f5f0a9fa03fab30"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ProjectManager.html#a06630982fb9492137f5f0a9fa03fab30">getCurrentPath</a> () const</td></tr>
 <tr class="separator:a06630982fb9492137f5f0a9fa03fab30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ac718552245f1b4a075a3451e002bca79"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structtaixu_1_1Project.html">Project</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ProjectManager.html#ac718552245f1b4a075a3451e002bca79">opened_project</a> {nullptr}</td></tr>
-<tr class="separator:ac718552245f1b4a075a3451e002bca79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa0de5fc9f448d15fb36a03a9fec8d3d"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="structtaixu_1_1Project.html">Project</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ProjectManager.html#afa0de5fc9f448d15fb36a03a9fec8d3d">opened_project</a> {nullptr}</td></tr>
+<tr class="separator:afa0de5fc9f448d15fb36a03a9fec8d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e2eb01675458eefd8abd0530f92f818"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ProjectManager.html#a6e2eb01675458eefd8abd0530f92f818">current_path</a></td></tr>
 <tr class="separator:a6e2eb01675458eefd8abd0530f92f818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -204,8 +204,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8abb5ad96cc35faa0f74bb6d1124044e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8abb5ad96cc35faa0f74bb6d1124044e">&#9670;&nbsp;</a></span>getCurrentProject()</h2>
+<a id="a8f15381869dbbd27727fcfab96ff2bf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f15381869dbbd27727fcfab96ff2bf0">&#9670;&nbsp;</a></span>getCurrentProject()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,7 +214,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="structtaixu_1_1Project.html">Project</a>&gt; taixu::ProjectManager::getCurrentProject </td>
+          <td class="memname"><a class="el" href="structtaixu_1_1Project.html">Project</a>* taixu::ProjectManager::getCurrentProject </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -305,8 +305,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac718552245f1b4a075a3451e002bca79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac718552245f1b4a075a3451e002bca79">&#9670;&nbsp;</a></span>opened_project</h2>
+<a id="afa0de5fc9f448d15fb36a03a9fec8d3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa0de5fc9f448d15fb36a03a9fec8d3d">&#9670;&nbsp;</a></span>opened_project</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -315,7 +315,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="structtaixu_1_1Project.html">Project</a>&gt; taixu::ProjectManager::opened_project {nullptr}</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="structtaixu_1_1Project.html">Project</a>&gt; taixu::ProjectManager::opened_project {nullptr}</td>
         </tr>
       </table>
   </td>

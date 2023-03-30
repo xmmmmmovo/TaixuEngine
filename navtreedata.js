@@ -65,9 +65,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "OGLContext_8cpp.html",
-"classtaixu_1_1OGLShader.html#adda5aa7e5ab91e387a983df7902faf5b",
-"classtaixu_1_1editor_1_1MenuComponent.html#af2e4edf3fbec474e485008b1f2c5db00",
-"namespacetaixu.html#a5349f140eb4c79dfc226e770f1bd141a"
+"classtaixu_1_1OGLShaderProgram.html#a1db1e71262d9e78ba3b97dc983fb64e8",
+"classtaixu_1_1editor_1_1RenderComponent.html#a87e80511291f4714027b95074d84482a",
+"namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8ab50339a10e1de285ac99d4c3990b8693"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

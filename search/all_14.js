@@ -10,5 +10,5 @@ var searchData=
   ['updatecameravectors_521',['updateCameraVectors',['../classtaixu_1_1PerspectiveCamera.html#ab89d3a1ae2b5d58fdece21f2dd5b563f',1,'taixu::PerspectiveCamera']]],
   ['use_522',['use',['../classtaixu_1_1IShaderProgram.html#a25eb4b742ce5725b9e86ee86483105f2',1,'taixu::IShaderProgram::use()'],['../classtaixu_1_1OGLShaderProgram.html#aee5bd4467e1d6bafc11a52f5455fa9e6',1,'taixu::OGLShaderProgram::use()']]],
   ['useful_5fobj_5fcomponent_523',['useful_obj_component',['../classtaixu_1_1editor_1_1MainWindow.html#a1fc2127f18e2af575b0f65b16fba6f03',1,'taixu::editor::MainWindow']]],
-  ['useful_5fobj_5fcomponent_5fname_524',['USEFUL_OBJ_COMPONENT_NAME',['../classtaixu_1_1editor_1_1MainWindow.html#ab5958483b6d4e54b4e6174736d6e452b',1,'taixu::editor::MainWindow']]]
+  ['useful_5fobj_5fcomponent_5fname_524',['USEFUL_OBJ_COMPONENT_NAME',['../classtaixu_1_1editor_1_1MainWindow.html#a1b034af837c9acb0d042bb1900b2368d',1,'taixu::editor::MainWindow']]]
 ];

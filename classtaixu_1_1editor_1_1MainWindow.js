@@ -1,6 +1,6 @@
 var classtaixu_1_1editor_1_1MainWindow =
 [
-    [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html#a9fa9e218540fb692522f693d2cc8e7e2", null ],
+    [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html#a1133bf52d9d79401baa544879704f240", null ],
     [ "destroy", "classtaixu_1_1editor_1_1MainWindow.html#ade6a1d9f80fc0c972b9b21b47128aed8", null ],
     [ "init", "classtaixu_1_1editor_1_1MainWindow.html#a3bea5c39e0f5cff804d4265594071f82", null ],
     [ "isCursorInRenderComponent", "classtaixu_1_1editor_1_1MainWindow.html#a8dbc01f1c1a584c62966df616ae42dbf", null ],
@@ -14,13 +14,13 @@ var classtaixu_1_1editor_1_1MainWindow =
     [ "_cam_mode", "classtaixu_1_1editor_1_1MainWindow.html#a6df887ecb1fa9110bf1085140ef10fe1", null ],
     [ "_last_mouse_pos", "classtaixu_1_1editor_1_1MainWindow.html#a75e99b578eef2cea835c3f0882a9f48c", null ],
     [ "_mouse_pos", "classtaixu_1_1editor_1_1MainWindow.html#af3575a1e4b2caf49147981fc9e237987", null ],
-    [ "context_ptr", "classtaixu_1_1editor_1_1MainWindow.html#aadc6edf90cab622fe08c679e490c5bcf", null ],
+    [ "context_ptr", "classtaixu_1_1editor_1_1MainWindow.html#ab359f940091e4069de3925e1718538d9", null ],
     [ "detail_component", "classtaixu_1_1editor_1_1MainWindow.html#a9134a51db3c32d8614842eeabde2c49a", null ],
     [ "engine_runtime", "classtaixu_1_1editor_1_1MainWindow.html#a12cf3e37d1d6b75bc4d36281bb9b0af4", null ],
     [ "file_component", "classtaixu_1_1editor_1_1MainWindow.html#a0eae47267d9f94fa449a32481ff325e7", null ],
     [ "menu_component", "classtaixu_1_1editor_1_1MainWindow.html#a56430a89c8b7afe39628e9b86913a265", null ],
     [ "render_component", "classtaixu_1_1editor_1_1MainWindow.html#a387b7de67ebde353a611857ba94dc295", null ],
-    [ "renderer", "classtaixu_1_1editor_1_1MainWindow.html#a95ce6ca253e677a1682c0c686e31f412", null ],
+    [ "renderer", "classtaixu_1_1editor_1_1MainWindow.html#aa764a46b330008015fc281b6d1d6f5a3", null ],
     [ "status_bar_component", "classtaixu_1_1editor_1_1MainWindow.html#a41e340906b396b2b244f0c97a7a190ef", null ],
     [ "status_component", "classtaixu_1_1editor_1_1MainWindow.html#a712dd4697238214056c28e95e4ffae89", null ],
     [ "useful_obj_component", "classtaixu_1_1editor_1_1MainWindow.html#a1fc2127f18e2af575b0f65b16fba6f03", null ],
