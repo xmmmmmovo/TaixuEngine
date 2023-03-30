@@ -5,8 +5,9 @@
 
 void taixu::OGLContext::initialize() {
     vertex_array = std::make_unique<OGLVertexArray>();
-    framebuffer  = std::make_unique<OGLFrameBuffer>();
-    framebuffer->allocate(size);
+    
+    //framebuffer  = std::make_unique<OGLFrameBuffer>();
+    //framebuffer->allocate(size);
 }
 
 void taixu::OGLContext::bindMesh(Mesh mesh) const {
@@ -34,6 +35,8 @@ void taixu::OGLContext::tickbyMesh(Mesh const&mesh) {
 
     //Draw as meshes
     drawbyElement(mesh);
+
+    vertex_array->unbind();
 
     framebuffer->unbind();
 }

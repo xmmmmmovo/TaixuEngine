@@ -33,7 +33,6 @@ void OGLElementBuffer::setDataInner(const std::vector<std::uint32_t>& indices,
 }
 
 OGLElementBuffer::~OGLElementBuffer() {
-    spdlog::debug("ElementBuffer {} deleted", EBO);
     glDeleteBuffers(1, &EBO);
 }
 

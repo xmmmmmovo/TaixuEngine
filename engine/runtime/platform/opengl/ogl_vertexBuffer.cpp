@@ -44,7 +44,6 @@ GLint OGLVertexBuffer::getStride() const { return this->stride; }
 GLint OGLVertexBuffer::getAlign() const { return this->align; }
 
 OGLVertexBuffer::~OGLVertexBuffer() {
-    spdlog::debug("VertexBuffer {} deleted", VBO);
     glDeleteBuffers(1, &VBO);
 }
 

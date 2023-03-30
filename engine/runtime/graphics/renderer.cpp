@@ -19,18 +19,19 @@ void Renderer::initialize() {
 
     //Bind buffer for each Mesh
 
-//     render_context->bindMesh(
-//             render_context->getSwapContext()->getData()->sphere->meshes[0]);
+    // render_context->bindMesh(
+    //         render_context->getSwapContext()->getData()->sphere->meshes[0]);
        
-//     render_context->bindMesh(
-//             render_context->getSwapContext()->getData()->sphere->meshes[0]);     
+    render_context->bindMesh(
+            render_context->getSwapContext()->getData()->model->meshes[0]);     
     
 }
 
 void Renderer::tick(float delta_time) {
     clock.update();
-    render_context->rebindMesh(
-            render_context->getSwapContext()->getData()->model->meshes[0]);
+    // render_context->rebindMesh(
+    //         render_context->getSwapContext()->getData()->model->meshes[0]);
+    render_context->framebuffer->bind();
     glm::mat4 ProjectionMatrix   = _camera->getProjectionMatrix();
     glm::mat4 ViewMatrix         = _camera->getViewMatrix();
     glm::mat4 ModelMatrix        = glm::mat4(1.0);
@@ -46,10 +47,12 @@ void Renderer::tick(float delta_time) {
 
     shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
 
-//     render_context->tickbyMesh(
-//             render_context->getSwapContext()->sphere->meshes[0]);
+    // render_context->tickbyMesh(
+    //         render_context->getSwapContext()->sphere->meshes[0]);
     render_context->tickbyMesh(
            render_context->getSwapContext()->model->meshes[0]);
+    
+    render_context->framebuffer->unbind();
 }
 
 void Renderer::clear() {}
@@ -57,6 +60,7 @@ void Renderer::clear() {}
 void Renderer::resize(float width, float height) {
     size.x = width;
     size.y = height;
+    render_context->resize(width,height);
 }
 
 }// namespace taixu

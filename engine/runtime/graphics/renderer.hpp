@@ -16,6 +16,7 @@
 #include "graphics/render/texture.hpp"
 #include "platform/opengl/ogl_context.hpp"
 #include "platform/opengl/ogl_shader.hpp"
+#include "graphics/render/framebuffer.hpp"
 
 namespace taixu {
 
@@ -54,14 +55,16 @@ public:
     void initialize() {
         render_data = std::make_shared<Render_Data>();
         render_data->initialize();
+        framebuffer=std::make_unique<OGLFrameBuffer>();
+        framebuffer->allocate(framesize);
+        
         ogl_context = std::make_shared<OGLContext>();
         ogl_context->initialize();
     };
     void resize(float width, float height) {
-        ogl_context->size.x = width;
-        ogl_context->size.y = height;
+        framesize.x = width;
+        framesize.y = height;
     };
-<<<<<<< HEAD
     void         bindMesh(Mesh const& mesh) { ogl_context->bindMesh(mesh); }
     void         rebindMesh(Mesh const& mesh) {
         ogl_context->vertex_array->clear();
@@ -69,6 +72,8 @@ public:
     };
     void         tickbyMesh(Mesh const& mesh) { ogl_context->tickbyMesh(mesh); };
     Render_Data *getSwapContext() { return render_data->getData(); };
+    std::unique_ptr<OGLFrameBuffer> framebuffer;
+    glm::vec2 framesize{1366,768};
 
 protected:
     std::shared_ptr<Render_Data> render_data;
