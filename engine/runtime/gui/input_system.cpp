@@ -6,7 +6,7 @@
 
 namespace taixu {
 
-void InputSystem::setContext(const std::shared_ptr<WindowContext>& context) {
+void InputSystem::setContext(WindowContext* const context) {
     this->_context = context;
 }
 

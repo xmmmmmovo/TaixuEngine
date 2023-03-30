@@ -29,7 +29,7 @@ public:
 class ProjectManager {
 private:
     // current project
-    std::shared_ptr<Project> opened_project{nullptr};
+    std::unique_ptr<Project> opened_project{nullptr};
     //file path of project
     std::filesystem::path    current_path;
 
@@ -44,8 +44,8 @@ public:
 
     Status saveAsProject(std::string const &path);
 
-    [[nodiscard]] std::shared_ptr<Project> getCurrentProject() const {
-        return opened_project;
+    [[nodiscard]] Project* getCurrentProject() const {
+        return opened_project.get();
     }
 
     [[nodiscard]] std::filesystem::path getCurrentPath() const {

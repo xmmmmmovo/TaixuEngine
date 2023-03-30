@@ -166,42 +166,46 @@ protected:
     }
 
 public:
-    void registerOnResetFn(on_reset_fn const& fn) {
-        on_reset_fns.push_back(fn);
+    void registerOnResetFn(on_reset_fn const& func) {
+        on_reset_fns.push_back(func);
     }
 
-    void registerOnKeyFn(on_key_fn const& fn) { on_key_fns.push_back(fn); }
+    void registerOnKeyFn(on_key_fn const& func) { on_key_fns.push_back(func); }
 
-    void registerOnCharFn(on_char_fn const& fn) { on_char_fns.push_back(fn); }
-
-    void registerOnCharModsFn(on_char_mods_fn const& fn) {
-        on_char_mods_fns.push_back(fn);
+    void registerOnCharFn(on_char_fn const& func) {
+        on_char_fns.push_back(func);
     }
 
-    void registerOnMouseButtonFn(on_mouse_button_fn const& fn) {
-        on_mouse_button_fns.push_back(fn);
+    void registerOnCharModsFn(on_char_mods_fn const& func) {
+        on_char_mods_fns.push_back(func);
     }
 
-    void registerOnCursorPosFn(on_cursor_pos_fn const& fn) {
-        on_cursor_pos_fns.push_back(fn);
+    void registerOnMouseButtonFn(on_mouse_button_fn const& func) {
+        on_mouse_button_fns.push_back(func);
     }
 
-    void registerOnCursorEnterFn(on_cursor_enter_fn const& fn) {
-        on_cursor_enter_fns.push_back(fn);
+    void registerOnCursorPosFn(on_cursor_pos_fn const& func) {
+        on_cursor_pos_fns.push_back(func);
     }
 
-    void registerOnScrollFn(on_scroll_fn const& fn) {
-        on_scroll_fns.push_back(fn);
+    void registerOnCursorEnterFn(on_cursor_enter_fn const& func) {
+        on_cursor_enter_fns.push_back(func);
     }
 
-    void registerOnDropFn(on_drop_fn const& fn) { on_drop_fns.push_back(fn); }
-
-    void registerOnWindowSizeFn(on_window_size_fn const& fn) {
-        on_window_size_fns.push_back(fn);
+    void registerOnScrollFn(on_scroll_fn const& func) {
+        on_scroll_fns.push_back(func);
     }
 
-    void registerOnWindowCloseFn(on_window_close_fn const& fn) {
-        on_window_close_fns.push_back(fn);
+    void registerOnDropFn(on_drop_fn const& func) {
+        on_drop_fns.push_back(func);
+    }
+
+    void registerOnWindowSizeFn(on_window_size_fn const& func) {
+        on_window_size_fns.push_back(func);
+    }
+
+    void registerOnWindowCloseFn(on_window_close_fn const& func) {
+        on_window_close_fns.push_back(func);
     }
 
 public:
@@ -217,14 +221,15 @@ public:
      */
     EngineState _state{EngineState::EDITORMODE};
 
-    std::shared_ptr<PerspectiveCamera> _editor_camera{
-            std::make_shared<PerspectiveCamera>()};
+    std::unique_ptr<PerspectiveCamera> _editor_camera{
+            std::make_unique<PerspectiveCamera>()};
 
 protected:
     bool is_vsync{false};
 
 public:
-    WindowContext(int32_t width, int32_t height, std::string_view const& title)
+    explicit WindowContext(int32_t width, int32_t height,
+                           std::string_view const& title)
         : _width(width),
           _height(height),
           _title(title) {}
