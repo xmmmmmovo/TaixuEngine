@@ -59,6 +59,9 @@ include(../3rdparty/FindReflCpp.cmake)
 # add magic enum
 include(../3rdparty/FindMagicEnum.cmake)
 
+# add argparse
+include(../3rdparty/FindArgparse.cmake)
+
 # ------- sub-directories --------
 
 # for SPIR_V

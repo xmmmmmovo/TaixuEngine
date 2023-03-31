@@ -18,7 +18,7 @@ namespace taixu {
 struct Project {
 public:
     //name of project
-    std::string_view              name;
+    std::string_view      name;
     // //texture list
     // std::vector<std::string_view> texture_path;
     // //model list
@@ -44,11 +44,11 @@ public:
 
     Status saveAsProject(std::string const &path);
 
-    [[nodiscard]] Project* getCurrentProject() const {
+    [[nodiscard]] inline Project *getCurrentProject() const {
         return opened_project.get();
     }
 
-    [[nodiscard]] std::filesystem::path getCurrentPath() const {
+    [[nodiscard]] inline std::filesystem::path getCurrentPath() const {
         return current_path;
     }
 };

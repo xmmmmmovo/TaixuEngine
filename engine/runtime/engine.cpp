@@ -43,4 +43,8 @@ Status Engine::loadProject(const std::string_view& path) {
     return Status::OK;
 }
 
+Project* Engine::getOpenedProject() const {
+    return this->_project_manager->getCurrentProject();
+}
+
 }// namespace taixu
