@@ -34,7 +34,7 @@ public:
     ;
     void initialize() {
         sphere = std::make_shared<Model_Data>(
-                 std::string("assets/model/sphere.obj"));
+                 std::string("assets/model/cube.obj"));
         model = std::make_shared<Model_Data>(
                  std::string("assets/model/teapot.obj"));
 
@@ -111,10 +111,12 @@ public:
     PerspectiveCamera* _camera{nullptr};
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 
-protected:
-    std::shared_ptr<Render_Data> render_data;
     std::shared_ptr<OGLContext>  sphere_context;
     std::shared_ptr<OGLContext>  teapot_context;
+
+protected:
+    std::shared_ptr<Render_Data> render_data;
+    
 };
 
 class Renderer {

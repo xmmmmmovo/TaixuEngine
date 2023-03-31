@@ -17,8 +17,8 @@ void Renderer::initialize() {
 
     //Bind buffer for each Mesh
 
-    // render_context->bindMesh(
-    //         render_context->getSwapContext()->getData()->sphere->meshes[0],"sphere");
+    render_context->bindMesh(
+            render_context->getSwapContext()->getData()->sphere->meshes[0],"sphere");
        
     render_context->bindMesh(
             render_context->getSwapContext()->getData()->model->meshes[0],"teapot");     

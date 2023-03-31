@@ -14,7 +14,7 @@ void ECS::initialize()
 
     auto &current_GO = taixu_world->current_level->GOs[0];
     //add
-    auto mesh=std::make_shared<MeshComponent>(true,"assets/model/cube.obj","material");
+    auto mesh=std::make_shared<MeshComponent>(true,"assets/model/sphere.obj","material");
     mesh->loadModelData();
     mesh->data_target=data_target;
     

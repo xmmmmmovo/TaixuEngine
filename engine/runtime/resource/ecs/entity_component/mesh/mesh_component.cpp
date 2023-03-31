@@ -16,6 +16,7 @@ void MeshComponent::tick()
 {
     //assert(data_target.expired());
     data_target.lock()->getSwapContext()->sphere=model;
+    data_target.lock()->sphere_context->vertex_array->clear();
     data_target.lock()->bindMesh(data_target.lock()->getSwapContext()->sphere->meshes[0],"sphere");
     //data_target.lock()->getSwapContext()->model=model;
     //int a=0;

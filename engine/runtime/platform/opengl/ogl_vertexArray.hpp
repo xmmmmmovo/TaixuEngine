@@ -34,8 +34,8 @@ public:
     void setEBO(OGLElementBuffer &&ebo) override;
     void clear()
     {
-        GLuint vboID=VBO[0].getAlign();
-        glDeleteBuffers(1, &vboID);
+        // GLuint vboID=VBO[0].getAlign();
+        // glDeleteBuffers(1, &vboID);
         VBO.clear();
         GLuint eboID=EBO.getbufferID();
         glDeleteBuffers(1, &eboID);
