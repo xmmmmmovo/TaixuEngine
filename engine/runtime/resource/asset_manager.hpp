@@ -54,7 +54,8 @@ public:
             new_asset.guid              = new_guid;
             Json const j                = i.value();
             from_json(j, new_asset);
-            new_asset.location = dir_path / new_asset.location;
+            std::filesystem::path temppath =   dir_path / new_asset.location;
+            new_asset.location = temppath.string();
             asset_list.push_back(new_asset);
         }
     }
