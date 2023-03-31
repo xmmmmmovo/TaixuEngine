@@ -4,16 +4,19 @@
 
 #include "project_manager.hpp"
 
+#include <filesystem>
+
 #include "platform/os/file_service.hpp"
+#include "spdlog/spdlog.h"
 
 namespace taixu {
 using json = nlohmann::json;
 
 Status ProjectManager::openProject(std::string_view const& path) {
     // If the project is not loaded, load it from the JSON file
-    std::filesystem::path project_path = path;
-    project_path /= "manifest.json";
-    std::ifstream file(project_path.c_str());
+    std::filesystem::path manifest_path = path;
+    manifest_path /= "manifest.json";
+    std::ifstream file(manifest_path.c_str());
     if (!file.is_open()) {
         std::cerr << "Failed to open project file " << path << "\n";
         return Status::NO_SUCH_FILE_FAILED;
@@ -23,19 +26,18 @@ Status ProjectManager::openProject(std::string_view const& path) {
     file >> data;
 
     // Parse the project data from the JSON file
-    std::string           name                 = data["name"];
+    std::string const     name                 = data["name"];
     //std::vector<std::string_view> texturePaths = data["asset"]["textures"];
     //std::vector<std::string_view> modelPaths   = data["asset"]["models"];
-    const std::string     tempstr              = data["assets"];
-    std::filesystem::path asset_configure_path = path;
-    asset_configure_path /= tempstr;
+    std::filesystem::path asset_configure_path = data["assets"];
+    asset_configure_path                       = path / asset_configure_path;
     // Create a new project object and add it to the vector of projects
     opened_project = std::make_unique<Project>(Project{name,
                                                        //texturePaths,
                                                        //modelPaths,
                                                        asset_configure_path});
 
-    current_path = project_path.parent_path();
+    current_path = manifest_path.parent_path();
 
     return Status::OK;
 }

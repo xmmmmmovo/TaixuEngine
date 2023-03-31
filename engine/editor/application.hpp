@@ -6,6 +6,7 @@
 #define TAIXUENGINE_APPLICATION_HPP
 
 #include <memory>
+#include <string>
 #include <string_view>
 
 // "" include headers
@@ -53,7 +54,7 @@ public:
     /**
      * @brief initWindow application
      */
-    void initialize(std::vector<std::string_view> const &args);
+    void initialize(std::vector<std::string> const &args);
     /**
      * @brief main run function
      */
@@ -67,7 +68,7 @@ private:
     /**
      * @brief initWindow application args
      */
-    void initApplicationArgs(std::vector<std::string_view> const &args);
+    void initApplicationArgs(std::vector<std::string> const &args);
 };
 
 }// namespace taixu::editor

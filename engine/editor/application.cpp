@@ -4,6 +4,7 @@
 
 #include "application.hpp"
 
+#include <argparse/argparse.hpp>
 #include <string_view>
 #include <vector>
 
@@ -27,10 +28,18 @@ void initSpdlog() {
 #endif
 }
 
-void Application::initApplicationArgs(
-        std::vector<std::string_view> const &args) {}
+void Application::initApplicationArgs(std::vector<std::string> const &args) {
+    argparse::ArgumentParser program("TaixuEngineEditor");
+    try {
+        program.parse_args(args);
+    } catch (const std::runtime_error &err) {
+        std::cerr << err.what() << std::endl;
+        std::cerr << program;
+        std::exit(1);
+    }
+}
 
-void Application::initialize(std::vector<std::string_view> const &args) {
+void Application::initialize(std::vector<std::string> const &args) {
     initSpdlog();
     initApplicationArgs(args);
 

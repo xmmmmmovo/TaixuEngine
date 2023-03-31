@@ -63,7 +63,7 @@ private:
 
     // static raw engine runtime pointer
     // do not need to free
-    Engine* engine_runtime{nullptr};
+    Engine* _engine_runtime{nullptr};
 
     // context
     WindowContext* context_ptr{nullptr};
@@ -71,6 +71,17 @@ private:
     ImVec2 _mouse_pos{0.0f, 0.0f};
     ImVec2 _last_mouse_pos{-1.f, -1.f};
     bool   _cam_mode{false};
+
+private:
+    /**
+     * 一些const代码
+     */
+    static constexpr ImGuiWindowFlags DOCK_SPACE_FLAGS =
+            ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar |
+            ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
+            ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBackground |
+            ImGuiConfigFlags_NoMouseCursorChange |
+            ImGuiWindowFlags_NoBringToFrontOnFocus;
 
 public:
     explicit MainWindow(WindowContext* context_ptr);
