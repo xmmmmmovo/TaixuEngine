@@ -21,20 +21,20 @@ namespace taixu {
 
 constexpr float delta_time = 0.03333;
 
-class Render_Data {
+class RenderData {
 
     friend class Renderer;
     friend class Render_Context;
 
 public:
-    explicit Render_Data() = default;
-    ~Render_Data()         = default;
+    explicit RenderData() = default;
+    ~RenderData()         = default;
     ;
     void initialize() {
         model = std::make_shared<Model_Data>(
                 std::string("assets/model/cube.obj"));
     }
-    Render_Data*                getData() { return this; };
+    RenderData*                getData() { return this; };
     std::shared_ptr<Model_Data> model;
 };
 
@@ -47,7 +47,7 @@ public:
     ~Render_Context()         = default;
 
     void initialize() {
-        render_data = std::make_shared<Render_Data>();
+        render_data = std::make_shared<RenderData>();
         render_data->initialize();
         ogl_context = std::make_shared<OGLContext>();
         ogl_context->initialize();
@@ -58,10 +58,10 @@ public:
     };
     void bindMesh(Mesh const& mesh) { ogl_context->bindMesh(mesh); }
     void tickbyMesh(Mesh const& mesh) { ogl_context->tickbyMesh(mesh); };
-    Render_Data* getSwapContext() { return render_data->getData(); };
+    RenderData* getSwapContext() { return render_data->getData(); };
 
 protected:
-    std::shared_ptr<Render_Data> render_data;
+    std::shared_ptr<RenderData> render_data;
     std::shared_ptr<OGLContext>  ogl_context;
 };
 
@@ -78,7 +78,7 @@ public:
     void resize(float width, float height);
 
     [[nodiscard]] std::uint32_t getRenderResult() const {
-        return render_context->ogl_context->framebuffer->getImageid();
+        return render_context->ogl_context->framebuffer->getFrameBufferID();
     };
 
     PerspectiveCamera* _camera{nullptr};

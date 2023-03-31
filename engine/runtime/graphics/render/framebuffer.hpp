@@ -10,21 +10,26 @@
 namespace taixu {
 
 enum class FrameColorImageFormat {
-    None = 0,
+    NONE = 0,
 
     RGBA8,
     RED_INTEGER,
 };
 
 enum class FrameDepthImageFormat {
-    None = 0,
+    NONE = 0,
     DEPTH24STENCIL8,
 };
 
+struct IFrameBufferSpecification {
+    FrameColorImageFormat color_image_format = FrameColorImageFormat::NONE;
+    FrameDepthImageFormat depth_image_format = FrameDepthImageFormat::NONE;
+};
+
 class IFrameBuffer {
-    virtual void bind()             = 0;
-    virtual void unbind()           = 0;
-    virtual void getFrameBufferID() = 0;
+    virtual void          bind()             = 0;
+    virtual void          unbind()           = 0;
+    virtual std::uint32_t getFrameBufferID() = 0;
 };
 
 
