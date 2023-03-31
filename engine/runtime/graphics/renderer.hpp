@@ -19,12 +19,10 @@
 
 namespace taixu {
 
-constexpr float delta_time = 0.03333;
-
 class RenderData {
 
     friend class Renderer;
-    friend class Render_Context;
+    friend class RenderContext;
 
 public:
     explicit RenderData() = default;
@@ -34,17 +32,17 @@ public:
         model = std::make_shared<Model_Data>(
                 std::string("assets/model/cube.obj"));
     }
-    RenderData*                getData() { return this; };
+    RenderData*                 getData() { return this; };
     std::shared_ptr<Model_Data> model;
 };
 
-class Render_Context {
+class RenderContext {
 
     friend class Renderer;
 
 public:
-    explicit Render_Context() = default;
-    ~Render_Context()         = default;
+    explicit RenderContext() = default;
+    ~RenderContext()         = default;
 
     void initialize() {
         render_data = std::make_shared<RenderData>();
@@ -56,13 +54,13 @@ public:
         ogl_context->size.x = width;
         ogl_context->size.y = height;
     };
-    void bindMesh(Mesh const& mesh) { ogl_context->bindMesh(mesh); }
-    void tickbyMesh(Mesh const& mesh) { ogl_context->tickbyMesh(mesh); };
+    void        bindMesh(Mesh const& mesh) { ogl_context->bindMesh(mesh); }
+    void        tickbyMesh(Mesh const& mesh) { ogl_context->tickbyMesh(mesh); };
     RenderData* getSwapContext() { return render_data->getData(); };
 
 protected:
     std::shared_ptr<RenderData> render_data;
-    std::shared_ptr<OGLContext>  ogl_context;
+    std::shared_ptr<OGLContext> ogl_context;
 };
 
 class Renderer {
@@ -85,8 +83,8 @@ public:
 
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 
-    std::shared_ptr<Render_Context> render_context;
-    IShaderProgram*                 shaderProgram;
+    std::shared_ptr<RenderContext> render_context;
+    IShaderProgram*                shaderProgram;
 
     glm::vec2 size = {1366, 768};
 };
