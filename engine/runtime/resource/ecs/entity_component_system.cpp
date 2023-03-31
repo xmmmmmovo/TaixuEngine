@@ -7,24 +7,25 @@ void ECS::initialize()
     taixu_world=std::make_shared<WorldManager>();
     taixu_world->initialize();
     
-    std::shared_ptr<EntityComponentMap> mesh_component_map=std::make_shared<EntityComponentMap>();
+    //std::shared_ptr<EntityComponentMap> mesh_component_map=std::make_shared<EntityComponentMap>();
+    EntityComponentMap mesh_component_map;
     all_components.push_back(mesh_component_map);
 
     //temporary read obj.json
 
     auto &current_GO = taixu_world->current_level->GOs[0];
     //add
-    auto mesh=std::make_shared<MeshComponent>(true,"assets/model/sphere.obj","material");
+    auto mesh=std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/sphere.obj","material");
     mesh->loadModelData();
     mesh->data_target=data_target;
     
-    all_components[0]->addComponent(current_GO.get_id(),mesh);
+    //all_components[0]->addComponent(current_GO.get_id(),mesh);
+    all_components[0].addComponent(mesh);
 
-    auto testmesh = all_components[0]->getComponent(current_GO.get_id());
-
+    auto testmesh = all_components[0].getComponent(current_GO.get_id());
     // //modify
-    // auto newmesh=std::make_shared<MeshComponent>(true,"new","new");
-    // all_components[0]->addComponent(current_GO.get_id(),newmesh.get());
+    // auto newmesh=std::make_shared<MeshComponent>(false,1,"new","new");
+    // all_components[0].addComponent(newmesh);
     //int a=0;
 }
 
@@ -44,9 +45,9 @@ void ECS::tick(float delta_time)
 {
 for(auto map:all_components)
 {
-    for(auto cpnt:map->map)
+    for(auto cpnt:map.map)
     {
-        cpnt.second->tick();
+        cpnt->tick();
     }
 }
 

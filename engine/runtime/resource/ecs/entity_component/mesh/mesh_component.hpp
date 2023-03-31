@@ -12,14 +12,16 @@ namespace taixu
 class MeshComponent:public EntityComponent
 {
 public:
-MeshComponent(bool renderable,std::string path1,std::string path2)
-:visible(renderable),mesh_path(path1),material_path(path2){}
+MeshComponent(bool renderable,std::uint32_t guid,std::string path1,std::string path2)
+:visible(renderable),GO(guid),mesh_path(path1),material_path(path2){}
 //std::string name{};
 bool visible;
+std::uint32_t GO;
 std::string mesh_path{"INVALID"};
 std::string material_path{"INVALID"};
 std::shared_ptr<Model_Data>model;
 std::weak_ptr<Render_Context>data_target;
+std::uint32_t getGO(){return GO;};
 void loadModelData();
 void tick();
 };

@@ -19,7 +19,7 @@ void taixu::OGLContext::bindMesh(Mesh mesh) const {
     OGLVertexBuffer buf(vertices.size(), vertices.data(), GL_STATIC_DRAW, 3);
     vertex_array->addVBO(std::move(buf));
     vertex_array->setEBO(std::move(element_buffer));
-
+    
     vertex_array->unbind();
 }
 

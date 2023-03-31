@@ -31,7 +31,7 @@ public:
     void tick(float delta_time=0.033);
 
 private:
-    std::vector<std::shared_ptr<EntityComponentMap>> all_components;
+    std::vector<EntityComponentMap> all_components;
     std::shared_ptr<WorldManager> taixu_world;
     
 };
