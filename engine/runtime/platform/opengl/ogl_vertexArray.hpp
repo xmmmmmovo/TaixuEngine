@@ -28,10 +28,26 @@ private:
 public:
     OGLVertexArray();
     ~OGLVertexArray() override;
+
     void bind() override;
     void unbind() override;
     void addVBO(OGLVertexBuffer &&vbo) override;
     void setEBO(OGLElementBuffer &&ebo) override;
+
+    OGLVertexArray(OGLVertexArray &&other) noexcept
+        : VAO(other.VAO), VBO(std::move(other.VBO)), EBO(std::move(other.EBO)) {
+        other.VAO = 0;
+    }
+
+    OGLVertexArray &operator=(OGLVertexArray &&other) noexcept {
+        if (this != &other) {
+            VAO       = other.VAO;
+            VBO       = std::move(other.VBO);
+            EBO       = std::move(other.EBO);
+            other.VAO = 0;
+        }
+        return *this;
+    }
 };
 
 }// namespace taixu
