@@ -8,6 +8,8 @@
 #include <memory>
 #include <vector>
 
+#include "frag_frag.h"
+#include "vert_vert.h"
 #include "core/base/clock.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/render/perspective_camera.hpp"
@@ -16,7 +18,6 @@
 #include "graphics/render/texture.hpp"
 #include "platform/opengl/ogl_context.hpp"
 #include "platform/opengl/ogl_shader.hpp"
-#include "graphics/render/framebuffer.hpp"
 
 namespace taixu {
 
@@ -36,7 +37,6 @@ public:
                  std::string("assets/model/sphere.obj"));
         model = std::make_shared<Model_Data>(
                  std::string("assets/model/teapot.obj"));
-
 
     }
     Render_Data*                getData() { return this; };
@@ -58,26 +58,63 @@ public:
         framebuffer=std::make_unique<OGLFrameBuffer>();
         framebuffer->allocate(framesize);
         
-        ogl_context = std::make_shared<OGLContext>();
-        ogl_context->initialize();
+        shaderProgram       = new OGLShaderProgram(VERT_VERT, FRAG_FRAG);
+        
+        sphere_context = std::make_shared<OGLContext>();
+        sphere_context->initialize();
+
+        teapot_context = std::make_shared<OGLContext>();
+        teapot_context->initialize();
     };
+
     void resize(float width, float height) {
         framesize.x = width;
         framesize.y = height;
     };
-    void         bindMesh(Mesh const& mesh) { ogl_context->bindMesh(mesh); }
-    void         rebindMesh(Mesh const& mesh) {
-        ogl_context->vertex_array->clear();
-        ogl_context->bindMesh(mesh);
+
+    void         bindMesh(Mesh const& mesh,std::string const &mode) { 
+        if(mode == "sphere")
+            sphere_context->bindMesh(mesh);
+        else if(mode == "teapot")
+            teapot_context->bindMesh(mesh); 
+    }
+    
+    void        tickbyMesh(Mesh const& mesh,std::string const& mode) { 
+        if(mode=="sphere")
+        sphere_context->tickbyMesh(mesh);
+        else if(mode=="teapot")
+        teapot_context->tickbyMesh(mesh);
     };
-    void         tickbyMesh(Mesh const& mesh) { ogl_context->tickbyMesh(mesh); };
+
+    void        bindShader(){
+    glm::mat4 ProjectionMatrix   = _camera->getProjectionMatrix();
+    glm::mat4 ViewMatrix         = _camera->getViewMatrix();
+    glm::mat4 ModelMatrix        = glm::mat4(1.0);
+    glm::mat4 ModelViewMatrix    = ViewMatrix * ModelMatrix;
+    glm::mat3 ModelView3x3Matrix = glm::mat3(ModelViewMatrix);
+    glm::mat4 MVP                = ProjectionMatrix * ViewMatrix * ModelMatrix;
+    
+    shaderProgram->use();
+
+    shaderProgram->set_uniform("MVP", MVP);
+    shaderProgram->set_uniform("V", ViewMatrix);
+    shaderProgram->set_uniform("M", ModelMatrix);
+    shaderProgram->set_uniform("MV3x3", ModelView3x3Matrix);
+
+    shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
+    }
+
     Render_Data *getSwapContext() { return render_data->getData(); };
     std::unique_ptr<OGLFrameBuffer> framebuffer;
     glm::vec2 framesize{1366,768};
+    IShaderProgram*                 shaderProgram;
+    PerspectiveCamera* _camera{nullptr};
+    glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 
 protected:
     std::shared_ptr<Render_Data> render_data;
-    std::shared_ptr<OGLContext>  ogl_context;
+    std::shared_ptr<OGLContext>  sphere_context;
+    std::shared_ptr<OGLContext>  teapot_context;
 };
 
 class Renderer {
@@ -93,15 +130,11 @@ public:
     void resize(float width, float height);
 
     [[nodiscard]] std::uint32_t getRenderResult() const {
-        return render_context->ogl_context->framebuffer->getImageid();
+        return render_context->framebuffer->getImageid();
     };
 
-    PerspectiveCamera* _camera{nullptr};
-
-    glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
-
     std::shared_ptr<Render_Context> render_context;
-    IShaderProgram*                 shaderProgram;
+    
 
     glm::vec2 size = {1366, 768};
 };
