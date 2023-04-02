@@ -96,7 +96,7 @@ Inheritance diagram for taixu::OGLElementBuffer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1OGLElementBuffer__inherit__graph.png" border="0" usemap="#ataixu_1_1OGLElementBuffer_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1OGLElementBuffer_inherit__map" id="ataixu_1_1OGLElementBuffer_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,359,188,553"/>
+<area shape="rect" title=" " alt="" coords="5,359,188,568"/>
 <area shape="rect" href="classtaixu_1_1IElementBuffer.html" title=" " alt="" coords="17,204,177,311"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="23,5,170,156"/>
 </map>
@@ -106,7 +106,7 @@ Collaboration diagram for taixu::OGLElementBuffer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1OGLElementBuffer__coll__graph.png" border="0" usemap="#ataixu_1_1OGLElementBuffer_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1OGLElementBuffer_coll__map" id="ataixu_1_1OGLElementBuffer_coll__map">
-<area shape="rect" title=" " alt="" coords="5,359,188,553"/>
+<area shape="rect" title=" " alt="" coords="5,359,188,568"/>
 <area shape="rect" href="classtaixu_1_1IElementBuffer.html" title=" " alt="" coords="17,204,177,311"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="23,5,170,156"/>
 </map>
@@ -122,6 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0892e67d403c359b59ec71c1379a77c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b5f5927252cf443fa66e5369075bb78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLElementBuffer.html#a3b5f5927252cf443fa66e5369075bb78">unbind</a> () override</td></tr>
 <tr class="separator:a3b5f5927252cf443fa66e5369075bb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4194ad6dcab9b1ef64b6a10531877e50"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLElementBuffer.html#a4194ad6dcab9b1ef64b6a10531877e50">getbufferID</a> ()</td></tr>
+<tr class="separator:a4194ad6dcab9b1ef64b6a10531877e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae369c0caed887996c1abaf6d4bc3a6cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLElementBuffer.html#ae369c0caed887996c1abaf6d4bc3a6cb">setData</a> (const std::vector&lt; std::uint32_t &gt; &amp;indices, GLenum usage) override</td></tr>
 <tr class="separator:ae369c0caed887996c1abaf6d4bc3a6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae48b19342c57b0bcffaf25cbe1e2694a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLElementBuffer.html#ae48b19342c57b0bcffaf25cbe1e2694a">setDataInner</a> (const std::vector&lt; std::uint32_t &gt; &amp;indices, GLenum usage)</td></tr>
@@ -135,8 +137,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3954e4f187c133aaba7d66c5c351f594"><td class="memItemLeft" align="right" valign="top">std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLElementBuffer.html#a3954e4f187c133aaba7d66c5c351f594">EBO</a> {0}</td></tr>
-<tr class="separator:a3954e4f187c133aaba7d66c5c351f594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa18fa793a402eabdda05b90ed3013b71"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLElementBuffer.html#aa18fa793a402eabdda05b90ed3013b71">EBO</a> {0}</td></tr>
+<tr class="separator:aa18fa793a402eabdda05b90ed3013b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a29ccb6a9d9e663b0b71c2395e5b4ce1d"></a>
@@ -263,6 +265,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a4194ad6dcab9b1ef64b6a10531877e50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4194ad6dcab9b1ef64b6a10531877e50">&#9670;&nbsp;</a></span>getbufferID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int taixu::OGLElementBuffer::getbufferID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afcb62240143c87ee4f3eb9721d2e6201"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afcb62240143c87ee4f3eb9721d2e6201">&#9670;&nbsp;</a></span>operator=()</h2>
 
@@ -383,8 +410,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3954e4f187c133aaba7d66c5c351f594"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3954e4f187c133aaba7d66c5c351f594">&#9670;&nbsp;</a></span>EBO</h2>
+<a id="aa18fa793a402eabdda05b90ed3013b71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa18fa793a402eabdda05b90ed3013b71">&#9670;&nbsp;</a></span>EBO</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,7 +420,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::uint32_t taixu::OGLElementBuffer::EBO {0}</td>
+          <td class="memname">unsigned int taixu::OGLElementBuffer::EBO {0}</td>
         </tr>
       </table>
   </td>

@@ -6,5 +6,6 @@ var classtaixu_1_1Render__Data =
     [ "initialize", "classtaixu_1_1Render__Data.html#a9aea18aa9b241abc5c2edbd95da5d54e", null ],
     [ "Render_Context", "classtaixu_1_1Render__Data.html#ab733ecd58b487ed82ecc79c94683b11d", null ],
     [ "Renderer", "classtaixu_1_1Render__Data.html#a70538530bc36e033e360880ef311df61", null ],
-    [ "model", "classtaixu_1_1Render__Data.html#a6495eed0fb90677d845cf094bd621cec", null ]
+    [ "model", "classtaixu_1_1Render__Data.html#a6495eed0fb90677d845cf094bd621cec", null ],
+    [ "sphere", "classtaixu_1_1Render__Data.html#a79be25fdb549107f5cece519d0117423", null ]
 ];

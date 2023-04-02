@@ -41,7 +41,7 @@ var namespacetaixu =
     [ "EntityComponent", "classtaixu_1_1EntityComponent.html", "classtaixu_1_1EntityComponent" ],
     [ "EntityComponentMap", "classtaixu_1_1EntityComponentMap.html", "classtaixu_1_1EntityComponentMap" ],
     [ "MeshComponent", "classtaixu_1_1MeshComponent.html", "classtaixu_1_1MeshComponent" ],
-    [ "TransformComponent", "classtaixu_1_1TransformComponent.html", null ],
+    [ "TransformComponent", "classtaixu_1_1TransformComponent.html", "classtaixu_1_1TransformComponent" ],
     [ "ECS", "classtaixu_1_1ECS.html", "classtaixu_1_1ECS" ],
     [ "GameObject", "classtaixu_1_1GameObject.html", "classtaixu_1_1GameObject" ],
     [ "Level", "classtaixu_1_1Level.html", "classtaixu_1_1Level" ],
@@ -69,6 +69,10 @@ var namespacetaixu =
       [ "RIGHT", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a21507b40c80068eda19865706fdc2403", null ],
       [ "UP", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8afbaedde498cdead4f2780217646e9ba1", null ],
       [ "DOWN", "namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8ac4e0e4e3118472beeb2ae75827450f1f", null ]
+    ] ],
+    [ "ComponentType", "namespacetaixu.html#aaec4bf66f7267efd6ed38975e8df9ab5", [
+      [ "MESH_COMPONENT", "namespacetaixu.html#aaec4bf66f7267efd6ed38975e8df9ab5a216e54953a9268abc2dd789dbb7c5c5e", null ],
+      [ "TRANSFORM_COMPONENT", "namespacetaixu.html#aaec4bf66f7267efd6ed38975e8df9ab5a39521ade3b9182632f75911be4fdbdcb", null ]
     ] ],
     [ "EngineState", "namespacetaixu.html#a0019e688317bd524b76edd73df8a4507", [
       [ "EDITORMODE", "namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b", null ],

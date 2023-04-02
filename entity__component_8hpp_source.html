@@ -96,40 +96,50 @@ $(document).ready(function(){initNavTree('entity__component_8hpp_source.html',''
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponent.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1EntityComponent.html">EntityComponent</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponent.html#a75ed3efc632bc330464a781174363e80">   12</a></span>&#160;<span class="keyword">virtual</span> <a class="code" href="classtaixu_1_1EntityComponent.html#a75ed3efc632bc330464a781174363e80">~EntityComponent</a>()=<span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponent.html#a289ccb35fdfabe4f1a7d15784ef75f63">   12</a></span>&#160;<span class="keyword">virtual</span> std::uint32_t <a class="code" href="classtaixu_1_1EntityComponent.html#a289ccb35fdfabe4f1a7d15784ef75f63">getGO</a>()=0;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponent.html#abdc3814c25480602a21c5c77a919d0d8">   13</a></span>&#160;<span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1EntityComponent.html#abdc3814c25480602a21c5c77a919d0d8">tick</a>()=0;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponent.html#a75ed3efc632bc330464a781174363e80">   14</a></span>&#160;<span class="keyword">virtual</span> <a class="code" href="classtaixu_1_1EntityComponent.html#a75ed3efc632bc330464a781174363e80">~EntityComponent</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponentMap.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1EntityComponentMap.html">EntityComponentMap</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponentMap.html#a05619ab27eaa62057afff28456906916">   19</a></span>&#160;    <a class="code" href="classtaixu_1_1EntityComponentMap.html#a05619ab27eaa62057afff28456906916">EntityComponentMap</a>(){}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponentMap.html#aa8443f97005748d7881a94615b19dfc4">   21</a></span>&#160;   [[nodiscard]] <a class="code" href="classtaixu_1_1EntityComponent.html">EntityComponent</a>* <a class="code" href="classtaixu_1_1EntityComponentMap.html#aa8443f97005748d7881a94615b19dfc4">getComponent</a>(std::uint32_t uid){</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponentMap.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1EntityComponentMap.html">EntityComponentMap</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponentMap.html#a05619ab27eaa62057afff28456906916">   21</a></span>&#160;    <a class="code" href="classtaixu_1_1EntityComponentMap.html#a05619ab27eaa62057afff28456906916">EntityComponentMap</a>(){}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classtaixu_1_1EntityComponentMap.html#a69f792c86b5a18d39112a4b16be3d0cf">map</a>[uid];</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponentMap.html#a8510ec257409a0173e4065e59cc0c823">   26</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1EntityComponentMap.html#a8510ec257409a0173e4065e59cc0c823">addComponent</a>(std::uint32_t uid, <a class="code" href="classtaixu_1_1EntityComponent.html">EntityComponent</a>* instance){</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="classtaixu_1_1EntityComponentMap.html#a69f792c86b5a18d39112a4b16be3d0cf">map</a>[uid]=instance;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponentMap.html#a69f792c86b5a18d39112a4b16be3d0cf">   31</a></span>&#160;    std::unordered_map&lt;std::uint32_t, EntityComponent*&gt; <a class="code" href="classtaixu_1_1EntityComponentMap.html#a69f792c86b5a18d39112a4b16be3d0cf">map</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponentMap.html#a787ce7f2e414e98554126027aca70819">   23</a></span>&#160;   [[nodiscard]] std::shared_ptr&lt;EntityComponent&gt; <a class="code" href="classtaixu_1_1EntityComponentMap.html#a787ce7f2e414e98554126027aca70819">getComponent</a>(std::uint32_t guid){</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">int</span> mark=0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> component:<a class="code" href="classtaixu_1_1EntityComponentMap.html#a435ff740463dcdfc097f326313c74f4d">map</a>)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">if</span>(component-&gt;getGO()==guid)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                mark++;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classtaixu_1_1EntityComponentMap.html#a435ff740463dcdfc097f326313c74f4d">map</a>[mark];</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TAIXUENGINE_ENTITY_COMPONENT */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclasstaixu_1_1EntityComponentMap_html"><div class="ttname"><a href="classtaixu_1_1EntityComponentMap.html">taixu::EntityComponentMap</a></div><div class="ttdef"><b>Definition:</b> entity_component.hpp:17</div></div>
-<div class="ttc" id="aclasstaixu_1_1EntityComponentMap_html_a05619ab27eaa62057afff28456906916"><div class="ttname"><a href="classtaixu_1_1EntityComponentMap.html#a05619ab27eaa62057afff28456906916">taixu::EntityComponentMap::EntityComponentMap</a></div><div class="ttdeci">EntityComponentMap()</div><div class="ttdef"><b>Definition:</b> entity_component.hpp:19</div></div>
-<div class="ttc" id="aclasstaixu_1_1EntityComponentMap_html_a69f792c86b5a18d39112a4b16be3d0cf"><div class="ttname"><a href="classtaixu_1_1EntityComponentMap.html#a69f792c86b5a18d39112a4b16be3d0cf">taixu::EntityComponentMap::map</a></div><div class="ttdeci">std::unordered_map&lt; std::uint32_t, EntityComponent * &gt; map</div><div class="ttdef"><b>Definition:</b> entity_component.hpp:31</div></div>
-<div class="ttc" id="aclasstaixu_1_1EntityComponentMap_html_a8510ec257409a0173e4065e59cc0c823"><div class="ttname"><a href="classtaixu_1_1EntityComponentMap.html#a8510ec257409a0173e4065e59cc0c823">taixu::EntityComponentMap::addComponent</a></div><div class="ttdeci">void addComponent(std::uint32_t uid, EntityComponent *instance)</div><div class="ttdef"><b>Definition:</b> entity_component.hpp:26</div></div>
-<div class="ttc" id="aclasstaixu_1_1EntityComponentMap_html_aa8443f97005748d7881a94615b19dfc4"><div class="ttname"><a href="classtaixu_1_1EntityComponentMap.html#aa8443f97005748d7881a94615b19dfc4">taixu::EntityComponentMap::getComponent</a></div><div class="ttdeci">EntityComponent * getComponent(std::uint32_t uid)</div><div class="ttdef"><b>Definition:</b> entity_component.hpp:21</div></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponentMap.html#a04870b41e27c23a7dbadb9a339725b1b">   35</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1EntityComponentMap.html#a04870b41e27c23a7dbadb9a339725b1b">addComponent</a>(std::shared_ptr&lt;EntityComponent&gt; instance){</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classtaixu_1_1EntityComponentMap.html#a435ff740463dcdfc097f326313c74f4d">map</a>.push_back(instance);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classtaixu_1_1EntityComponentMap.html#a435ff740463dcdfc097f326313c74f4d">   39</a></span>&#160;    std::vector&lt;std::shared_ptr&lt;EntityComponent&gt;&gt; <a class="code" href="classtaixu_1_1EntityComponentMap.html#a435ff740463dcdfc097f326313c74f4d">map</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TAIXUENGINE_ENTITY_COMPONENT */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aclasstaixu_1_1EntityComponentMap_html"><div class="ttname"><a href="classtaixu_1_1EntityComponentMap.html">taixu::EntityComponentMap</a></div><div class="ttdef"><b>Definition:</b> entity_component.hpp:19</div></div>
+<div class="ttc" id="aclasstaixu_1_1EntityComponentMap_html_a04870b41e27c23a7dbadb9a339725b1b"><div class="ttname"><a href="classtaixu_1_1EntityComponentMap.html#a04870b41e27c23a7dbadb9a339725b1b">taixu::EntityComponentMap::addComponent</a></div><div class="ttdeci">void addComponent(std::shared_ptr&lt; EntityComponent &gt; instance)</div><div class="ttdef"><b>Definition:</b> entity_component.hpp:35</div></div>
+<div class="ttc" id="aclasstaixu_1_1EntityComponentMap_html_a05619ab27eaa62057afff28456906916"><div class="ttname"><a href="classtaixu_1_1EntityComponentMap.html#a05619ab27eaa62057afff28456906916">taixu::EntityComponentMap::EntityComponentMap</a></div><div class="ttdeci">EntityComponentMap()</div><div class="ttdef"><b>Definition:</b> entity_component.hpp:21</div></div>
+<div class="ttc" id="aclasstaixu_1_1EntityComponentMap_html_a435ff740463dcdfc097f326313c74f4d"><div class="ttname"><a href="classtaixu_1_1EntityComponentMap.html#a435ff740463dcdfc097f326313c74f4d">taixu::EntityComponentMap::map</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; EntityComponent &gt; &gt; map</div><div class="ttdef"><b>Definition:</b> entity_component.hpp:39</div></div>
+<div class="ttc" id="aclasstaixu_1_1EntityComponentMap_html_a787ce7f2e414e98554126027aca70819"><div class="ttname"><a href="classtaixu_1_1EntityComponentMap.html#a787ce7f2e414e98554126027aca70819">taixu::EntityComponentMap::getComponent</a></div><div class="ttdeci">std::shared_ptr&lt; EntityComponent &gt; getComponent(std::uint32_t guid)</div><div class="ttdef"><b>Definition:</b> entity_component.hpp:23</div></div>
 <div class="ttc" id="aclasstaixu_1_1EntityComponent_html"><div class="ttname"><a href="classtaixu_1_1EntityComponent.html">taixu::EntityComponent</a></div><div class="ttdef"><b>Definition:</b> entity_component.hpp:10</div></div>
+<div class="ttc" id="aclasstaixu_1_1EntityComponent_html_a289ccb35fdfabe4f1a7d15784ef75f63"><div class="ttname"><a href="classtaixu_1_1EntityComponent.html#a289ccb35fdfabe4f1a7d15784ef75f63">taixu::EntityComponent::getGO</a></div><div class="ttdeci">virtual std::uint32_t getGO()=0</div></div>
 <div class="ttc" id="aclasstaixu_1_1EntityComponent_html_a75ed3efc632bc330464a781174363e80"><div class="ttname"><a href="classtaixu_1_1EntityComponent.html#a75ed3efc632bc330464a781174363e80">taixu::EntityComponent::~EntityComponent</a></div><div class="ttdeci">virtual ~EntityComponent()=default</div></div>
+<div class="ttc" id="aclasstaixu_1_1EntityComponent_html_abdc3814c25480602a21c5c77a919d0d8"><div class="ttname"><a href="classtaixu_1_1EntityComponent.html#abdc3814c25480602a21c5c77a919d0d8">taixu::EntityComponent::tick</a></div><div class="ttdeci">virtual void tick()=0</div></div>
 <div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -8,8 +8,7 @@ var hierarchy =
     [ "taixu::ECS", "classtaixu_1_1ECS.html", null ],
     [ "taixu::editor::EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", null ],
     [ "taixu::EntityComponent", "classtaixu_1_1EntityComponent.html", [
-      [ "taixu::MeshComponent", "classtaixu_1_1MeshComponent.html", null ],
-      [ "taixu::TransformComponent", "classtaixu_1_1TransformComponent.html", null ]
+      [ "taixu::MeshComponent", "classtaixu_1_1MeshComponent.html", null ]
     ] ],
     [ "taixu::EntityComponentMap", "classtaixu_1_1EntityComponentMap.html", null ],
     [ "taixu::GameObject", "classtaixu_1_1GameObject.html", null ],
@@ -79,6 +78,7 @@ var hierarchy =
     [ "taixu::Render_Data", "classtaixu_1_1Render__Data.html", null ],
     [ "taixu::Renderer", "classtaixu_1_1Renderer.html", null ],
     [ "taixu::Texture", "structtaixu_1_1Texture.html", null ],
+    [ "taixu::TransformComponent", "classtaixu_1_1TransformComponent.html", null ],
     [ "taixu::Vertex", "structtaixu_1_1Vertex.html", null ],
     [ "taixu::editor::ViewModel", "structtaixu_1_1editor_1_1ViewModel.html", null ],
     [ "taixu::WindowContext", "classtaixu_1_1WindowContext.html", null ],

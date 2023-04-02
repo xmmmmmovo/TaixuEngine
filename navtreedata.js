@@ -65,9 +65,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "about.html",
-"classtaixu_1_1OGLTexture.html#acc2ec7a3e230a044b072943adf8e75ea",
-"detail__component_8hpp.html",
-"namespacetaixu.html#a7615db81481c93028421bd815f850f7a"
+"classtaixu_1_1OGLTexture.html",
+"classtaixu_1_1editor_1_1MenuComponent.html#a41f1ce59b7bfd524f89944a947f580e0",
+"namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ae5cd59ce2a24c6954a3c67dfd4a6c2ed"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

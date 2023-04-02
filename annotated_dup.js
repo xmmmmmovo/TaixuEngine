@@ -57,7 +57,7 @@ var annotated_dup =
       [ "EntityComponent", "classtaixu_1_1EntityComponent.html", "classtaixu_1_1EntityComponent" ],
       [ "EntityComponentMap", "classtaixu_1_1EntityComponentMap.html", "classtaixu_1_1EntityComponentMap" ],
       [ "MeshComponent", "classtaixu_1_1MeshComponent.html", "classtaixu_1_1MeshComponent" ],
-      [ "TransformComponent", "classtaixu_1_1TransformComponent.html", null ],
+      [ "TransformComponent", "classtaixu_1_1TransformComponent.html", "classtaixu_1_1TransformComponent" ],
       [ "ECS", "classtaixu_1_1ECS.html", "classtaixu_1_1ECS" ],
       [ "GameObject", "classtaixu_1_1GameObject.html", "classtaixu_1_1GameObject" ],
       [ "Level", "classtaixu_1_1Level.html", "classtaixu_1_1Level" ],

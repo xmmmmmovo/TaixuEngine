@@ -6,6 +6,7 @@ var classtaixu_1_1OGLVertexBuffer =
     [ "OGLVertexBuffer", "classtaixu_1_1OGLVertexBuffer.html#a8ab038c5f73ef33e05e7157201beb26c", null ],
     [ "bind", "classtaixu_1_1OGLVertexBuffer.html#a45bab7b454f47da64789c99912656cb3", null ],
     [ "getAlign", "classtaixu_1_1OGLVertexBuffer.html#a5352a6840a375e98c88a2728d8427257", null ],
+    [ "getbufferID", "classtaixu_1_1OGLVertexBuffer.html#a8056dca3ed5fc748360c9356a3f1742d", null ],
     [ "getStride", "classtaixu_1_1OGLVertexBuffer.html#a2c3ef8b08d740caa32538c1e655eb58a", null ],
     [ "operator=", "classtaixu_1_1OGLVertexBuffer.html#ac911fd622176ee3f734b78afa30986f1", null ],
     [ "setData", "classtaixu_1_1OGLVertexBuffer.html#a3ac8f9ab90479f22e7aecef92ba51a17", null ],

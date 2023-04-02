@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('classtaixu_1_1EntityComponentMap.html'
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classtaixu_1_1EntityComponentMap-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">taixu::EntityComponentMap Class Reference</div>  </div>
@@ -104,15 +104,15 @@ Collaboration diagram for taixu::EntityComponentMap:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a05619ab27eaa62057afff28456906916"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1EntityComponentMap.html#a05619ab27eaa62057afff28456906916">EntityComponentMap</a> ()</td></tr>
 <tr class="separator:a05619ab27eaa62057afff28456906916"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8443f97005748d7881a94615b19dfc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1EntityComponentMap.html#aa8443f97005748d7881a94615b19dfc4">getComponent</a> (std::uint32_t uid)</td></tr>
-<tr class="separator:aa8443f97005748d7881a94615b19dfc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8510ec257409a0173e4065e59cc0c823"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1EntityComponentMap.html#a8510ec257409a0173e4065e59cc0c823">addComponent</a> (std::uint32_t uid, <a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a> *instance)</td></tr>
-<tr class="separator:a8510ec257409a0173e4065e59cc0c823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a787ce7f2e414e98554126027aca70819"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1EntityComponentMap.html#a787ce7f2e414e98554126027aca70819">getComponent</a> (std::uint32_t guid)</td></tr>
+<tr class="separator:a787ce7f2e414e98554126027aca70819"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04870b41e27c23a7dbadb9a339725b1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1EntityComponentMap.html#a04870b41e27c23a7dbadb9a339725b1b">addComponent</a> (std::shared_ptr&lt; <a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a> &gt; instance)</td></tr>
+<tr class="separator:a04870b41e27c23a7dbadb9a339725b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a69f792c86b5a18d39112a4b16be3d0cf"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::uint32_t, <a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1EntityComponentMap.html#a69f792c86b5a18d39112a4b16be3d0cf">map</a></td></tr>
-<tr class="separator:a69f792c86b5a18d39112a4b16be3d0cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a435ff740463dcdfc097f326313c74f4d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1EntityComponentMap.html#a435ff740463dcdfc097f326313c74f4d">map</a></td></tr>
+<tr class="separator:a435ff740463dcdfc097f326313c74f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a05619ab27eaa62057afff28456906916"></a>
@@ -141,8 +141,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8510ec257409a0173e4065e59cc0c823"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8510ec257409a0173e4065e59cc0c823">&#9670;&nbsp;</a></span>addComponent()</h2>
+<a id="a04870b41e27c23a7dbadb9a339725b1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04870b41e27c23a7dbadb9a339725b1b">&#9670;&nbsp;</a></span>addComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,19 +153,9 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void taixu::EntityComponentMap::addComponent </td>
           <td>(</td>
-          <td class="paramtype">std::uint32_t&#160;</td>
-          <td class="paramname"><em>uid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a> &gt;&#160;</td>
+          <td class="paramname"><em>instance</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a> *&#160;</td>
-          <td class="paramname"><em>instance</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -177,8 +167,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa8443f97005748d7881a94615b19dfc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8443f97005748d7881a94615b19dfc4">&#9670;&nbsp;</a></span>getComponent()</h2>
+<a id="a787ce7f2e414e98554126027aca70819"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a787ce7f2e414e98554126027aca70819">&#9670;&nbsp;</a></span>getComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,10 +177,10 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a>* taixu::EntityComponentMap::getComponent </td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a>&gt; taixu::EntityComponentMap::getComponent </td>
           <td>(</td>
           <td class="paramtype">std::uint32_t&#160;</td>
-          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td class="paramname"><em>guid</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -204,24 +194,16 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a69f792c86b5a18d39112a4b16be3d0cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69f792c86b5a18d39112a4b16be3d0cf">&#9670;&nbsp;</a></span>map</h2>
+<a id="a435ff740463dcdfc097f326313c74f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a435ff740463dcdfc097f326313c74f4d">&#9670;&nbsp;</a></span>map</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;std::uint32_t, <a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a>*&gt; taixu::EntityComponentMap::map</td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classtaixu_1_1EntityComponent.html">EntityComponent</a>&gt; &gt; taixu::EntityComponentMap::map</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>

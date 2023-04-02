@@ -2,7 +2,7 @@ var searchData=
 [
   ['_5fasset_5fmanager_0',['_asset_manager',['../classtaixu_1_1Engine.html#aaead31559103f31c3e817c761b9163c0',1,'taixu::Engine']]],
   ['_5fcam_5fmode_1',['_cam_mode',['../classtaixu_1_1editor_1_1MainWindow.html#a6df887ecb1fa9110bf1085140ef10fe1',1,'taixu::editor::MainWindow']]],
-  ['_5fcamera_2',['_camera',['../classtaixu_1_1Renderer.html#ab3fadbbb70e060541c495a36c94cb809',1,'taixu::Renderer']]],
+  ['_5fcamera_2',['_camera',['../classtaixu_1_1Render__Context.html#a61d33ef186378489ac35f35719f28cb1',1,'taixu::Render_Context']]],
   ['_5fcontext_3',['_context',['../classtaixu_1_1InputSystem.html#ad625ebf682b3dcbc166396c4d56c2afe',1,'taixu::InputSystem']]],
   ['_5fcurrent_5fnode_4',['_current_node',['../classtaixu_1_1editor_1_1HierarchyComponent.html#afb6f3028ac575b7e7209c90d4a7bb63e',1,'taixu::editor::HierarchyComponent']]],
   ['_5fdir_5fpath_5',['_dir_path',['../structtaixu_1_1editor_1_1ViewModel.html#adcd0834da369dc9c3c97c538fe4ce101',1,'taixu::editor::ViewModel']]],
