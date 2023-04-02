@@ -93,15 +93,18 @@ public:
     glm::mat4 ModelViewMatrix    = ViewMatrix * ModelMatrix;
     glm::mat3 ModelView3x3Matrix = glm::mat3(ModelViewMatrix);
     glm::mat4 MVP                = ProjectionMatrix * ViewMatrix * ModelMatrix;
-    
+    //glm::mat4 Transform          = glm::mat4(1.0f);
+    //Transform                    = glm::translate(Transform,glm::vec3(1.0f,1.0f,1.0f));
+
     shaderProgram->use();
 
     shaderProgram->set_uniform("MVP", MVP);
     shaderProgram->set_uniform("V", ViewMatrix);
     shaderProgram->set_uniform("M", ModelMatrix);
     shaderProgram->set_uniform("MV3x3", ModelView3x3Matrix);
-
     shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
+    shaderProgram->set_uniform("transform", Transform);
+
     }
 
     Render_Data *getSwapContext() { return render_data->getData(); };
@@ -110,6 +113,7 @@ public:
     IShaderProgram*                 shaderProgram;
     PerspectiveCamera* _camera{nullptr};
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
+    glm::mat4 Transform{glm::mat4(1.0f)};
 
     std::shared_ptr<OGLContext>  sphere_context;
     std::shared_ptr<OGLContext>  teapot_context;
