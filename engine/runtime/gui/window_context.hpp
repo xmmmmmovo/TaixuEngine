@@ -27,7 +27,7 @@ protected:
     using on_cursor_pos_fn   = std::function<void(double, double)>;
     using on_cursor_enter_fn = std::function<void(int)>;
     using on_scroll_fn       = std::function<void(double, double)>;
-    using on_drop_fn         = std::function<void(int, const char**)>;
+    using on_drop_fn         = std::function<void(int, const char **)>;
     using on_window_size_fn  = std::function<void(int, int)>;
     using on_window_close_fn = std::function<void()>;
 
@@ -43,173 +43,173 @@ protected:
     std::vector<on_window_size_fn>  on_window_size_fns;
     std::vector<on_window_close_fn> on_window_close_fns;
 
-    static void errorCallBack(int error, const char* description) {
+    static void errorCallBack(int error, const char *description) {
         spdlog::error("GLFW Error: {}, {}", error, description);
     }
 
-    static void keyCallback(GLFWwindow* window, int key, int scancode,
+    static void keyCallback(GLFWwindow *window, int key, int scancode,
                             int action, int mods) {
-        auto* context =
-                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        auto *context =
+                static_cast<WindowContext *>(glfwGetWindowUserPointer(window));
         context->onKey(key, scancode, action, mods);
     }
 
-    static void charCallback(GLFWwindow* window, unsigned int codepoint) {
-        auto* context =
-                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+    static void charCallback(GLFWwindow *window, unsigned int codepoint) {
+        auto *context =
+                static_cast<WindowContext *>(glfwGetWindowUserPointer(window));
         context->onChar(codepoint);
     }
 
-    static void charModsCallback(GLFWwindow* window, unsigned int codepoint,
+    static void charModsCallback(GLFWwindow *window, unsigned int codepoint,
                                  int mods) {
-        auto* context =
-                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        auto *context =
+                static_cast<WindowContext *>(glfwGetWindowUserPointer(window));
         context->onCharMods(codepoint, mods);
     }
 
-    static void mouseButtonCallback(GLFWwindow* window, int button, int action,
+    static void mouseButtonCallback(GLFWwindow *window, int button, int action,
                                     int mods) {
-        auto* context =
-                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        auto *context =
+                static_cast<WindowContext *>(glfwGetWindowUserPointer(window));
         context->onMouseButton(button, action, mods);
     }
 
-    static void cursorPosCallback(GLFWwindow* window, double xpos,
+    static void cursorPosCallback(GLFWwindow *window, double xpos,
                                   double ypos) {
-        auto* context =
-                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        auto *context =
+                static_cast<WindowContext *>(glfwGetWindowUserPointer(window));
         context->onCursorPos(xpos, ypos);
     }
 
-    static void cursorEnterCallback(GLFWwindow* window, int entered) {
-        auto* context =
-                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+    static void cursorEnterCallback(GLFWwindow *window, int entered) {
+        auto *context =
+                static_cast<WindowContext *>(glfwGetWindowUserPointer(window));
         context->onCursorEnter(entered);
     }
 
-    static void scrollCallback(GLFWwindow* window, double xoffset,
+    static void scrollCallback(GLFWwindow *window, double xoffset,
                                double yoffset) {
-        auto* context =
-                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        auto *context =
+                static_cast<WindowContext *>(glfwGetWindowUserPointer(window));
         context->onScroll(xoffset, yoffset);
     }
 
-    static void dropCallback(GLFWwindow* window, int count,
-                             const char** paths) {
-        auto* context =
-                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+    static void dropCallback(GLFWwindow *window, int count,
+                             const char **paths) {
+        auto *context =
+                static_cast<WindowContext *>(glfwGetWindowUserPointer(window));
         context->onDrop(count, paths);
     }
 
-    static void windowSizeCallback(GLFWwindow* window, int width, int height) {
-        auto* context =
-                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+    static void windowSizeCallback(GLFWwindow *window, int width, int height) {
+        auto *context =
+                static_cast<WindowContext *>(glfwGetWindowUserPointer(window));
         context->_width  = width;
         context->_height = height;
         context->onReset();
         context->onWindowSize(width, height);
     }
 
-    static void windowCloseCallback(GLFWwindow* window) {
+    static void windowCloseCallback(GLFWwindow *window) {
         glfwSetWindowShouldClose(window, true);
-        auto* context =
-                static_cast<WindowContext*>(glfwGetWindowUserPointer(window));
+        auto *context =
+                static_cast<WindowContext *>(glfwGetWindowUserPointer(window));
         context->onWindowClose();
     }
 
     void onReset() {
-        for (auto const& func : on_reset_fns) { func(); }
+        for (auto const &func : on_reset_fns) { func(); }
     }
 
     void onKey(int key, int scancode, int action, int mods) {
-        for (auto const& func : on_key_fns) {
+        for (auto const &func : on_key_fns) {
             func(key, scancode, action, mods);
         }
     }
 
     void onChar(unsigned int codepoint) {
-        for (auto const& func : on_char_fns) { func(codepoint); }
+        for (auto const &func : on_char_fns) { func(codepoint); }
     }
 
     void onCharMods(unsigned int codepoint, int mods) {
-        for (auto const& func : on_char_mods_fns) { func(codepoint, mods); }
+        for (auto const &func : on_char_mods_fns) { func(codepoint, mods); }
     }
 
     void onMouseButton(int button, int action, int mods) {
-        for (auto const& func : on_mouse_button_fns) {
+        for (auto const &func : on_mouse_button_fns) {
             func(button, action, mods);
         }
     }
 
     void onCursorPos(double xpos, double ypos) {
-        for (auto const& func : on_cursor_pos_fns) { func(xpos, ypos); }
+        for (auto const &func : on_cursor_pos_fns) { func(xpos, ypos); }
     }
 
     void onCursorEnter(int entered) {
-        for (auto const& func : on_cursor_enter_fns) { func(entered); }
+        for (auto const &func : on_cursor_enter_fns) { func(entered); }
     }
 
     void onScroll(double xoffset, double yoffset) {
-        for (auto const& func : on_scroll_fns) { func(xoffset, yoffset); }
+        for (auto const &func : on_scroll_fns) { func(xoffset, yoffset); }
     }
 
-    void onDrop(int count, const char** paths) {
-        for (auto const& func : on_drop_fns) { func(count, paths); }
+    void onDrop(int count, const char **paths) {
+        for (auto const &func : on_drop_fns) { func(count, paths); }
     }
 
     void onWindowSize(int width, int height) {
-        for (auto const& func : on_window_size_fns) { func(width, height); }
+        for (auto const &func : on_window_size_fns) { func(width, height); }
     }
 
     void onWindowClose() {
-        for (auto const& func : on_window_close_fns) { func(); }
+        for (auto const &func : on_window_close_fns) { func(); }
     }
 
 public:
-    void registerOnResetFn(on_reset_fn const& func) {
+    void registerOnResetFn(on_reset_fn const &func) {
         on_reset_fns.push_back(func);
     }
 
-    void registerOnKeyFn(on_key_fn const& func) { on_key_fns.push_back(func); }
+    void registerOnKeyFn(on_key_fn const &func) { on_key_fns.push_back(func); }
 
-    void registerOnCharFn(on_char_fn const& func) {
+    void registerOnCharFn(on_char_fn const &func) {
         on_char_fns.push_back(func);
     }
 
-    void registerOnCharModsFn(on_char_mods_fn const& func) {
+    void registerOnCharModsFn(on_char_mods_fn const &func) {
         on_char_mods_fns.push_back(func);
     }
 
-    void registerOnMouseButtonFn(on_mouse_button_fn const& func) {
+    void registerOnMouseButtonFn(on_mouse_button_fn const &func) {
         on_mouse_button_fns.push_back(func);
     }
 
-    void registerOnCursorPosFn(on_cursor_pos_fn const& func) {
+    void registerOnCursorPosFn(on_cursor_pos_fn const &func) {
         on_cursor_pos_fns.push_back(func);
     }
 
-    void registerOnCursorEnterFn(on_cursor_enter_fn const& func) {
+    void registerOnCursorEnterFn(on_cursor_enter_fn const &func) {
         on_cursor_enter_fns.push_back(func);
     }
 
-    void registerOnScrollFn(on_scroll_fn const& func) {
+    void registerOnScrollFn(on_scroll_fn const &func) {
         on_scroll_fns.push_back(func);
     }
 
-    void registerOnDropFn(on_drop_fn const& func) {
+    void registerOnDropFn(on_drop_fn const &func) {
         on_drop_fns.push_back(func);
     }
 
-    void registerOnWindowSizeFn(on_window_size_fn const& func) {
+    void registerOnWindowSizeFn(on_window_size_fn const &func) {
         on_window_size_fns.push_back(func);
     }
 
-    void registerOnWindowCloseFn(on_window_close_fn const& func) {
+    void registerOnWindowCloseFn(on_window_close_fn const &func) {
         on_window_close_fns.push_back(func);
     }
 
 public:
-    GLFWwindow* _window{nullptr};
+    GLFWwindow *_window{nullptr};
 
     std::int32_t _width{0};
     std::int32_t _height{0};
@@ -229,22 +229,16 @@ protected:
 
 public:
     explicit WindowContext(int32_t width, int32_t height,
-                           std::string_view const& title)
-        : _width(width),
-          _height(height),
-          _title(title) {}
+                           std::string_view const &title)
+        : _width(width), _height(height), _title(title) {}
 
     [[nodiscard]] inline bool getVsync() const { return is_vsync; }
 
     inline void initWindow() {
-        glfwInit();
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPENGL_MAJOR_VERSION);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, OPENGL_MINOR_VERSION);
-        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-        glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-#ifdef __APPLE__
-        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+        if (!glfwInit()) {
+            spdlog::error("Failed to initialize GLFW!");
+            exit(1);
+        }
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
         _window = glfwCreateWindow(_width, _height, _title.data(), nullptr,
@@ -254,7 +248,6 @@ public:
             glfwTerminate();
             exit(1);
         }
-        glfwMakeContextCurrent(_window);
 
         glfwSetWindowUserPointer(_window, this);
         glfwSetKeyCallback(_window, WindowContext::keyCallback);
