@@ -19,6 +19,15 @@ void ECS::initialize()
     mesh->loadModelData();
     mesh->data_target=data_target;
     
+    //transform
+    glm::vec3 pos{1.0f,1.0f,1.0f},scale{2.0f,2.0f,2.0f},rotate{45.0f,45.0f,45.0f};
+    TransformComponent trans(pos,scale,rotate);
+
+    trans.makeTransformMatrix();
+    mesh->transform_component=trans;
+
+    glm::mat4 finalMatrix=mesh->transform_component.getTransformMatrix();
+
     //all_components[0]->addComponent(current_GO.get_id(),mesh);
     all_components[0].addComponent(mesh);
 

@@ -38,8 +38,8 @@ void Renderer::tick(float delta_time) {
     render_context->tickbyMesh(
            render_context->getSwapContext()->sphere->meshes[0],"sphere");
 
-    render_context->tickbyMesh(
-           render_context->getSwapContext()->model->meshes[0],"teapot");
+    // render_context->tickbyMesh(
+    //        render_context->getSwapContext()->model->meshes[0],"teapot");
 
     
     render_context->framebuffer->unbind();

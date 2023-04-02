@@ -6,6 +6,7 @@
 #include "graphics/render/model.hpp"
 #include "graphics/renderer.hpp"
 #include "resource/ecs/entity_component/entity_component.hpp"
+#include "resource/ecs/entity_component/transform/transform_component.hpp"
 
 namespace taixu
 {
@@ -22,6 +23,7 @@ std::string material_path{"INVALID"};
 std::shared_ptr<Model_Data>model;
 std::weak_ptr<Render_Context>data_target;
 std::uint32_t getGO(){return GO;};
+TransformComponent transform_component;
 void loadModelData();
 void tick();
 };
