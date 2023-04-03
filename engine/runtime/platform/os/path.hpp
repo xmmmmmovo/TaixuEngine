@@ -41,18 +41,17 @@ inline std::vector<std::string> getFileExtensions(
  * @param file_path
  * @return
  */
-inline std::string getLastExtension(const std::filesystem::path& file_path);
+std::string getLastExtension(const std::filesystem::path& file_path);
 
-inline std::string getFilePureName(const std::string&);
+std::string getFilePureName(const std::string&);
 
-inline std::filesystem::path getRootPath();
+std::filesystem::path getRootPath();
 
 /**
  * @brief 获取文件的文件夹路径
  */
-[[maybe_unused]] inline std::filesystem::path getDirectoryPath(
+[[maybe_unused]] std::filesystem::path getDirectoryPath(
         const std::filesystem::path& file_path);
-
 }// namespace taixu
 
 #endif//TAIXUENGINE_PATH_HPP

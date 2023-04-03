@@ -5,6 +5,10 @@
 #ifndef TAIXUENGINE_SWAPCHAIN_HPP
 #define TAIXUENGINE_SWAPCHAIN_HPP
 
-namespace taixu {}
+namespace taixu {
+class ISwapChain {
+    virtual void swapBuffers() = 0;
+};
+}// namespace taixu
 
 #endif//TAIXUENGINE_SWAPCHAIN_HPP
