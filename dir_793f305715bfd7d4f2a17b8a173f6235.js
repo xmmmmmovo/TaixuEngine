@@ -16,7 +16,9 @@ var dir_793f305715bfd7d4f2a17b8a173f6235 =
     [ "render_api.cpp", "render__api_8cpp.html", "render__api_8cpp" ],
     [ "render_api.hpp", "render__api_8hpp.html", "render__api_8hpp" ],
     [ "shader.hpp", "shader_8hpp.html", "shader_8hpp" ],
-    [ "swapchain.hpp", "swapchain_8hpp.html", null ],
+    [ "swapchain.hpp", "swapchain_8hpp.html", [
+      [ "ISwapChain", "classtaixu_1_1ISwapChain.html", "classtaixu_1_1ISwapChain" ]
+    ] ],
     [ "texture.hpp", "texture_8hpp.html", [
       [ "ITexture", "classtaixu_1_1ITexture.html", "classtaixu_1_1ITexture" ]
     ] ],

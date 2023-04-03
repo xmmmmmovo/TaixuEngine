@@ -11,6 +11,7 @@ var namespacetaixu =
     [ "BufferElement", "structtaixu_1_1BufferElement.html", "structtaixu_1_1BufferElement" ],
     [ "BufferLayout", "classtaixu_1_1BufferLayout.html", "classtaixu_1_1BufferLayout" ],
     [ "IElementBuffer", "classtaixu_1_1IElementBuffer.html", "classtaixu_1_1IElementBuffer" ],
+    [ "IFrameBufferSpecification", "structtaixu_1_1IFrameBufferSpecification.html", "structtaixu_1_1IFrameBufferSpecification" ],
     [ "IFrameBuffer", "classtaixu_1_1IFrameBuffer.html", "classtaixu_1_1IFrameBuffer" ],
     [ "Vertex", "structtaixu_1_1Vertex.html", "structtaixu_1_1Vertex" ],
     [ "Texture", "structtaixu_1_1Texture.html", "structtaixu_1_1Texture" ],
@@ -19,11 +20,12 @@ var namespacetaixu =
     [ "PerspectiveCamera", "classtaixu_1_1PerspectiveCamera.html", "classtaixu_1_1PerspectiveCamera" ],
     [ "IShader", "classtaixu_1_1IShader.html", "classtaixu_1_1IShader" ],
     [ "IShaderProgram", "classtaixu_1_1IShaderProgram.html", "classtaixu_1_1IShaderProgram" ],
+    [ "ISwapChain", "classtaixu_1_1ISwapChain.html", "classtaixu_1_1ISwapChain" ],
     [ "ITexture", "classtaixu_1_1ITexture.html", "classtaixu_1_1ITexture" ],
     [ "IVertexArray", "classtaixu_1_1IVertexArray.html", "classtaixu_1_1IVertexArray" ],
     [ "IVertexBuffer", "classtaixu_1_1IVertexBuffer.html", "classtaixu_1_1IVertexBuffer" ],
-    [ "Render_Data", "classtaixu_1_1Render__Data.html", "classtaixu_1_1Render__Data" ],
-    [ "Render_Context", "classtaixu_1_1Render__Context.html", "classtaixu_1_1Render__Context" ],
+    [ "RenderData", "classtaixu_1_1RenderData.html", "classtaixu_1_1RenderData" ],
+    [ "RenderContext", "classtaixu_1_1RenderContext.html", "classtaixu_1_1RenderContext" ],
     [ "Renderer", "classtaixu_1_1Renderer.html", "classtaixu_1_1Renderer" ],
     [ "InputSystem", "classtaixu_1_1InputSystem.html", "classtaixu_1_1InputSystem" ],
     [ "IWindow", "classtaixu_1_1IWindow.html", "classtaixu_1_1IWindow" ],
@@ -81,12 +83,12 @@ var namespacetaixu =
       [ "GAMEMODE", "namespacetaixu.html#a0019e688317bd524b76edd73df8a4507aa47c7e18b85dd065d02f75743d85947f", null ]
     ] ],
     [ "FrameColorImageFormat", "namespacetaixu.html#a2c20540527d99b113a293b71af17a97c", [
-      [ "None", "namespacetaixu.html#a2c20540527d99b113a293b71af17a97ca6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "NONE", "namespacetaixu.html#a2c20540527d99b113a293b71af17a97cab50339a10e1de285ac99d4c3990b8693", null ],
       [ "RGBA8", "namespacetaixu.html#a2c20540527d99b113a293b71af17a97cab4b279046a02077466fa26cabb00c642", null ],
       [ "RED_INTEGER", "namespacetaixu.html#a2c20540527d99b113a293b71af17a97ca2849effb989cbdcfb4b9eb143fd826aa", null ]
     ] ],
     [ "FrameDepthImageFormat", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09", [
-      [ "None", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09a6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "NONE", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09ab50339a10e1de285ac99d4c3990b8693", null ],
       [ "DEPTH24STENCIL8", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09a7ca3e26e4e5c35e4408bd49c1e32e9a3", null ]
     ] ],
     [ "RenderAPI", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302", [
@@ -142,7 +144,6 @@ var namespacetaixu =
     [ "operator-", "namespacetaixu.html#a7d32e4469dad517410884a59490b7aa2", null ],
     [ "removeDirectory", "namespacetaixu.html#abba4a0a807dc37ab9ad001b232b318c7", null ],
     [ "removeFile", "namespacetaixu.html#a8a2c508e2eafff58badad6e1497c6834", null ],
-    [ "delta_time", "namespacetaixu.html#a60a7e92441438be0646e42748456ea2f", null ],
     [ "INVALID_GUID", "namespacetaixu.html#a07bf29860b2e3d8da53a4b7b06c29a15", null ],
     [ "OPENGL_MAJOR_VERSION", "namespacetaixu.html#a7615db81481c93028421bd815f850f7a", null ],
     [ "OPENGL_MINOR_VERSION", "namespacetaixu.html#a4c72cc973baec6d45f9f8b54179d7522", null ],

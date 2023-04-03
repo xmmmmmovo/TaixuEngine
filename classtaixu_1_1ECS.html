@@ -105,16 +105,16 @@ Collaboration diagram for taixu::ECS:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a971f5af9d6c0f53fbec0023262d0e366"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#a971f5af9d6c0f53fbec0023262d0e366">initialize</a> ()</td></tr>
 <tr class="separator:a971f5af9d6c0f53fbec0023262d0e366"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acce28b18ab9adbd40dc528a5cc062d97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#acce28b18ab9adbd40dc528a5cc062d97">dataRedirection</a> (std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Render__Context.html">Render_Context</a> &gt; render_context)</td></tr>
+<tr class="memitem:acce28b18ab9adbd40dc528a5cc062d97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#acce28b18ab9adbd40dc528a5cc062d97">dataRedirection</a> (std::shared_ptr&lt; Render_Context &gt; render_context)</td></tr>
 <tr class="separator:acce28b18ab9adbd40dc528a5cc062d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51ad95c7919aaa45be064cbcc9a7970e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#a51ad95c7919aaa45be064cbcc9a7970e">reloadWorld</a> (const std::filesystem::path &amp;world_path)</td></tr>
 <tr class="separator:a51ad95c7919aaa45be064cbcc9a7970e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91a3eb1e8c9c09b64267ca39dc4bd5f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#a91a3eb1e8c9c09b64267ca39dc4bd5f0">tick</a> (float <a class="el" href="namespacetaixu.html#a60a7e92441438be0646e42748456ea2f">delta_time</a>=0.033)</td></tr>
+<tr class="memitem:a91a3eb1e8c9c09b64267ca39dc4bd5f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#a91a3eb1e8c9c09b64267ca39dc4bd5f0">tick</a> (float delta_time=0.033)</td></tr>
 <tr class="separator:a91a3eb1e8c9c09b64267ca39dc4bd5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a1d8c08e90641d20bc4dd9a6bf605af89"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="classtaixu_1_1Render__Context.html">Render_Context</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#a1d8c08e90641d20bc4dd9a6bf605af89">data_target</a></td></tr>
+<tr class="memitem:a1d8c08e90641d20bc4dd9a6bf605af89"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; Render_Context &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#a1d8c08e90641d20bc4dd9a6bf605af89">data_target</a></td></tr>
 <tr class="separator:a1d8c08e90641d20bc4dd9a6bf605af89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -134,7 +134,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void taixu::ECS::dataRedirection </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1Render__Context.html">Render_Context</a> &gt;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; Render_Context &gt;&#160;</td>
           <td class="paramname"><em>render_context</em></td><td>)</td>
           <td></td>
         </tr>
@@ -226,7 +226,7 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::weak_ptr&lt;<a class="el" href="classtaixu_1_1Render__Context.html">Render_Context</a>&gt; taixu::ECS::data_target</td>
+          <td class="memname">std::weak_ptr&lt;Render_Context&gt; taixu::ECS::data_target</td>
         </tr>
       </table>
 </div><div class="memdoc">
