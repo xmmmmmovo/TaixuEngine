@@ -89,7 +89,7 @@ public:
     void        bindShader(){
     glm::mat4 ProjectionMatrix   = _camera->getProjectionMatrix();
     glm::mat4 ViewMatrix         = _camera->getViewMatrix();
-    glm::mat4 ModelMatrix        = glm::mat4(1.0);
+    glm::mat4 ModelMatrix        = Transform;
     glm::mat4 ModelViewMatrix    = ViewMatrix * ModelMatrix;
     glm::mat3 ModelView3x3Matrix = glm::mat3(ModelViewMatrix);
     glm::mat4 MVP                = ProjectionMatrix * ViewMatrix * ModelMatrix;
@@ -103,7 +103,7 @@ public:
     shaderProgram->set_uniform("M", ModelMatrix);
     shaderProgram->set_uniform("MV3x3", ModelView3x3Matrix);
     shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
-    shaderProgram->set_uniform("transform", Transform);
+    //shaderProgram->set_uniform("transform", Transform);
 
     }
 
