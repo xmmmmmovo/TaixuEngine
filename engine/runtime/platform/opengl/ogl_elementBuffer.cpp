@@ -33,6 +33,8 @@ void OGLElementBuffer::setDataInner(const std::vector<std::uint32_t>& indices,
             &indices[0], usage);
 }
 
+
 OGLElementBuffer::~OGLElementBuffer() { glDeleteBuffers(1, &EBO); }
+
 
 }// namespace taixu

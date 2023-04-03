@@ -34,20 +34,14 @@ public:
     void addVBO(OGLVertexBuffer &&vbo) override;
     void setEBO(OGLElementBuffer &&ebo) override;
 
-    OGLVertexArray(OGLVertexArray &&other) noexcept
-        : VAO(other.VAO), VBO(std::move(other.VBO)), EBO(std::move(other.EBO)) {
-        other.VAO = 0;
-    }
-
-    OGLVertexArray &operator=(OGLVertexArray &&other) noexcept {
-        if (this != &other) {
-            VAO       = other.VAO;
-            VBO       = std::move(other.VBO);
-            EBO       = std::move(other.EBO);
-            other.VAO = 0;
-        }
-        return *this;
-    }
+    void clear()
+    {
+        // GLuint vboID=VBO[0].getAlign();
+        // glDeleteBuffers(1, &vboID);
+        VBO.clear();
+        GLuint eboID=EBO.getbufferID();
+        glDeleteBuffers(1, &eboID);
+    };
 };
 
 }// namespace taixu

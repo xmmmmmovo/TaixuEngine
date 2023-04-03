@@ -133,7 +133,7 @@ void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
 
     ImguiSurface::init(context_ptr->_window);
     render_component->_renderer = renderer;
-    renderer->_camera           = context_ptr->_editor_camera.get();
+    renderer->render_context->_camera           = context_ptr->_editor_camera.get();
 
     InputSystem::getInstance().registerEditorCallback([this](float delta_time) {
         if (glfwGetKey(context_ptr->_window, GLFW_KEY_W) == GLFW_PRESS) {
