@@ -9,7 +9,6 @@
 #include "glm/glm.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/render/perspective_camera.hpp"
-#include "graphics/render_context.hpp"
 #include "platform/opengl/ogl_elementBuffer.hpp"
 #include "platform/opengl/ogl_frameBuffer.hpp"
 #include "platform/opengl/ogl_vertexArray.hpp"
@@ -17,14 +16,18 @@
 
 namespace taixu {
 
-class OGLContext : public IGraphicsContext {
-private:
-    GLFWwindow *_window{nullptr};
-
+class OGLContext {
 public:
-    void initialize(GLFWwindow *window) override;
-    void swapBuffers() override;
-    void clear() override;
+    glm::vec2 size = {1366, 768};
+
+    std::unique_ptr<OGLVertexArray> vertex_array;
+    
+    void initialize();
+    void bindMesh(Mesh mesh) const;
+    //void rebindMesh(Mesh mesh) const;
+    void tickbyMesh(Mesh const& mesh);
+    void drawbyElement(Mesh const& mesh);
+    void clear();
 };
 
 
