@@ -14,77 +14,34 @@
 #include "graphics/render/render_api.hpp"
 #include "graphics/render/shader.hpp"
 #include "graphics/render/texture.hpp"
+#include "graphics/render_context.hpp"
 #include "platform/opengl/ogl_context.hpp"
 #include "platform/opengl/ogl_shader.hpp"
 
 namespace taixu {
 
-class RenderData {
-
-    friend class Renderer;
-    friend class RenderContext;
-
-public:
-    explicit RenderData() = default;
-    ~RenderData()         = default;
-    ;
-    void initialize() {
-        model = std::make_shared<Model_Data>(
-                std::string("assets/model/cube.obj"));
-    }
-    RenderData*                 getData() { return this; };
-    std::shared_ptr<Model_Data> model;
-};
-
-class RenderContext {
-
-    friend class Renderer;
-
-public:
-    explicit RenderContext() = default;
-    ~RenderContext()         = default;
-
-    void initialize() {
-        render_data = std::make_shared<RenderData>();
-        render_data->initialize();
-        ogl_context = std::make_shared<OGLContext>();
-        ogl_context->initialize();
-    };
-    void resize(float width, float height) {
-        ogl_context->size.x = width;
-        ogl_context->size.y = height;
-    };
-    void        bindMesh(Mesh const& mesh) { ogl_context->bindMesh(mesh); }
-    void        tickbyMesh(Mesh const& mesh) { ogl_context->tickbyMesh(mesh); };
-    RenderData* getSwapContext() { return render_data->getData(); };
-
-protected:
-    std::shared_ptr<RenderData> render_data;
-    std::shared_ptr<OGLContext> ogl_context;
-};
-
-class Renderer {
+template<typename Context = IGraphicsContext>
+class BaseRenderer {
 private:
     RenderAPI api{RenderAPI::OPENGL};
     Clock     clock{};
 
 public:
     void initialize();
+    void pretick();
     void tick(float delta_time = 0.03333);
     void clear();
 
     void resize(float width, float height);
 
-    [[nodiscard]] std::uint32_t getRenderResult() const {
-        return render_context->ogl_context->framebuffer->getFrameBufferID();
-    };
+    [[nodiscard]] std::uint32_t getRenderResult() const { return 0; };
 
-    PerspectiveCamera* _camera{nullptr};
+    PerspectiveCamera *_camera{nullptr};
 
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
 
-    std::shared_ptr<RenderContext> render_context;
-    IShaderProgram*                shaderProgram;
+    std::unique_ptr<Context> render_context{};
+    IShaderProgram          *shaderProgram{};
 
     glm::vec2 size = {1366, 768};
 };

@@ -3,7 +3,8 @@
 #include "core/base/macro.hpp"
 #include "ogl_context.hpp"
 
-void taixu::OGLContext::initialize(GLFWwindow *window) {
+namespace taixu {
+void OGLContext::initialize(GLFWwindow *window) {
     _window = window;
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPENGL_MAJOR_VERSION);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, OPENGL_MINOR_VERSION);
@@ -15,9 +16,11 @@ void taixu::OGLContext::initialize(GLFWwindow *window) {
     glfwMakeContextCurrent(window);
 }
 
-void taixu::OGLContext::swapBuffers() { glfwSwapBuffers(_window); }
+void OGLContext::swapBuffers() { glfwSwapBuffers(_window); }
 
-void taixu::OGLContext::clear() {
+void OGLContext::clear() {
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
+
+}// namespace taixu
