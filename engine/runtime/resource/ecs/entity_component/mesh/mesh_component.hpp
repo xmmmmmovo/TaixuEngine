@@ -7,6 +7,7 @@
 #include "graphics/renderer.hpp"
 #include "resource/ecs/entity_component/entity_component.hpp"
 #include "resource/ecs/entity_component/transform/transform_component.hpp"
+#include "resource/ecs/entity_component/camera/camera_component.hpp"
 
 namespace taixu
 {
@@ -24,6 +25,7 @@ std::shared_ptr<Model_Data>model;
 std::weak_ptr<Render_Context>data_target;
 std::uint32_t getGO(){return GO;};
 TransformComponent transform_component;
+std::optional<CameraComponent> camera_component;
 void loadModelData();
 void tick();
 };

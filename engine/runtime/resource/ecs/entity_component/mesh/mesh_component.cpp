@@ -21,6 +21,10 @@ void MeshComponent::tick()
         //data_target.lock()->sphere_context->vertex_array->clear();
         //data_target.lock()->bindMesh(data_target.lock()->getSwapContext()->sphere->meshes[0],"sphere");
         data_target.lock()->Transform=transform_component.getTransformMatrix();
+        
+        ////camera
+        // if(camera_component.has_value())
+        //     data_target.lock()->_camera=(*camera_component).character_camera.get();
     }
     
     //data_target.lock()->getSwapContext()->model=model;

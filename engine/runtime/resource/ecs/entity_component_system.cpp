@@ -26,8 +26,12 @@ void ECS::initialize()
     trans.makeTransformMatrix();
     mesh->transform_component=trans;
 
-    glm::mat4 finalMatrix=mesh->transform_component.getTransformMatrix();
+    //glm::mat4 finalMatrix=mesh->transform_component.getTransformMatrix();
 
+    CameraComponent camera;
+    camera.initialize();
+    camera.setCameraPosition(glm::vec3{0.0f,0.0f,8.0f});
+    mesh->camera_component=std::move(camera);
     //all_components[0]->addComponent(current_GO.get_id(),mesh);
     all_components[0].addComponent(mesh);
 
