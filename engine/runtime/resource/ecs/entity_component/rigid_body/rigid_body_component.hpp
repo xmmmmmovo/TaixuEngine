@@ -1,7 +1,7 @@
 #ifndef TAIXUENGINE_RIGID_BODY_COMPONENT
 #define TAIXUENGINE_RIGID_BODY_COMPONENT
 
-#include <Jolt/Jolt.h>
+//#include <Jolt/Jolt.h>
 
 #include "resource/ecs/entity_component/entity_component.hpp"
 #include "resource/ecs/entity_component/transform/transform_component.hpp"

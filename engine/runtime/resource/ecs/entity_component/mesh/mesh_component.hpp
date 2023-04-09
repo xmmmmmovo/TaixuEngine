@@ -2,6 +2,7 @@
 #define TAIXUENGINE_MESH_COMPONENT
 
 #include <string>
+#include <optional>
 #include "../entity_component.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/renderer.hpp"

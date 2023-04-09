@@ -9,8 +9,7 @@ namespace taixu
     }
 
     void RigidBodyComponent::tick() {
-
-        
+        current_scene.lock()->updateGlobalTransform(transform_component);
     }
 }
 
