@@ -51,7 +51,6 @@ std::filesystem::path getRootPath();
  */
 [[maybe_unused]] std::filesystem::path getDirectoryPath(
         const std::filesystem::path& file_path);
-
 }// namespace taixu
 
 #endif//TAIXUENGINE_PATH_HPP

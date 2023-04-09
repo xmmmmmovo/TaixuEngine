@@ -21,16 +21,14 @@
 
 namespace taixu {
 
-constexpr float delta_time = 0.03333;
-
-class Render_Data {
+class RenderData {
 
     friend class Renderer;
-    friend class Render_Context;
-    //friend void MeshComponent::loadModelData();
+
+    friend class RenderContext;
 public:
-    explicit Render_Data() = default;
-    ~Render_Data()         = default;
+    explicit RenderData() = default;
+    ~RenderData()         = default;
     ;
     void initialize() {
         sphere = std::make_shared<Model_Data>(
@@ -39,21 +37,21 @@ public:
                  std::string("assets/model/teapot.obj"));
 
     }
-    Render_Data*                getData() { return this; };
+    RenderData*                 getData() { return this; };
     std::shared_ptr<Model_Data> model;
     std::shared_ptr<Model_Data> sphere;
 };
 
-class Render_Context {
+class RenderContext {
 
     friend class Renderer;
 
 public:
-    explicit Render_Context() = default;
-    ~Render_Context()         = default;
+    explicit RenderContext() = default;
+    ~RenderContext()         = default;
 
     void initialize() {
-        render_data = std::make_shared<Render_Data>();
+        render_data = std::make_shared<RenderData>();
         render_data->initialize();
         framebuffer=std::make_unique<OGLFrameBuffer>();
         framebuffer->allocate(framesize);
@@ -85,6 +83,7 @@ public:
         else if(mode=="teapot")
         teapot_context->tickbyMesh(mesh);
     };
+
 
     void        bindShader(){
     glm::mat4 ProjectionMatrix   = _camera->getProjectionMatrix();
@@ -141,7 +140,6 @@ public:
 
     std::shared_ptr<Render_Context> render_context;
     
-
     glm::vec2 size = {1366, 768};
 };
 

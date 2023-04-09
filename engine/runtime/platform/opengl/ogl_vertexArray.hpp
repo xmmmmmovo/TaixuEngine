@@ -28,10 +28,12 @@ private:
 public:
     OGLVertexArray();
     ~OGLVertexArray() override;
+
     void bind() override;
     void unbind() override;
     void addVBO(OGLVertexBuffer &&vbo) override;
     void setEBO(OGLElementBuffer &&ebo) override;
+
     void clear()
     {
         // GLuint vboID=VBO[0].getAlign();
