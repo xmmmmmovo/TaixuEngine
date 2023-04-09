@@ -20,7 +20,9 @@ void MeshComponent::tick()
         //data_target.lock()->getSwapContext()->sphere=model;
         //data_target.lock()->sphere_context->vertex_array->clear();
         //data_target.lock()->bindMesh(data_target.lock()->getSwapContext()->sphere->meshes[0],"sphere");
-        data_target.lock()->Transform=transform_component.getTransformMatrix();
+        //transform_component->setPosition(glm::vec3(2.0f,2.0f,2.0f));
+        transform_component->makeTransformMatrix();
+        data_target.lock()->Transform = std::move(transform_component->transform);
         
         ////camera
         // if(camera_component.has_value())

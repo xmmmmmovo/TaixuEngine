@@ -11,7 +11,7 @@
 
 namespace taixu
 {
-class MeshComponent:public EntityComponent
+class MeshComponent : public EntityComponent
 {
 public:
 MeshComponent(bool renderable,std::uint32_t guid,std::string path1,std::string path2)
@@ -24,7 +24,8 @@ std::string material_path{"INVALID"};
 std::shared_ptr<Model_Data>model;
 std::weak_ptr<Render_Context>data_target;
 std::uint32_t getGO(){return GO;};
-TransformComponent transform_component;
+//std::weak_ptr<TransformComponent> transform_component;
+TransformComponent *transform_component;
 std::optional<CameraComponent> camera_component;
 void loadModelData();
 void tick();

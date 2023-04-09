@@ -62,6 +62,9 @@ include(../3rdparty/FindMagicEnum.cmake)
 # add argparse
 include(../3rdparty/FindArgparse.cmake)
 
+# add joltpyhsics
+include(../3rdparty/FindJoltPhysics.cmake)
+
 # ------- sub-directories --------
 
 # for SPIR_V

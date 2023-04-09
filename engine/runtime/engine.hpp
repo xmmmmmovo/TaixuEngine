@@ -7,7 +7,7 @@
 #include "resource/ecs/entity_component_system.hpp"
 #include "resource/project_manager.hpp"
 #include "resource/ecs/entity_component_system.hpp"
-
+#include "physics/physics_manager.hpp"
 
 namespace taixu {
 
@@ -19,6 +19,8 @@ private:
     std::unique_ptr<AssetManager>   _asset_manager{nullptr};
     std::unique_ptr<ProjectManager> _project_manager{nullptr};
     std::unique_ptr<ECS>            _entity_component_system{nullptr};
+    std::unique_ptr<PhysicsManager>            _physics_manager{nullptr};
+
 
 public:
     void init();

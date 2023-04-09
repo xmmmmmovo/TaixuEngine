@@ -101,8 +101,9 @@
         "xtr1common": "cpp",
         "xtree": "cpp",
         "xutility": "cpp",
-        "*.def": "cpp"
+        "*.def": "cpp",
+        "coroutine": "cpp",
+        "shared_mutex": "cpp"
     },
     "cmake.configureOnOpen": true,
-    "C_Cpp.errorSquiggles": "enabled"
 }
