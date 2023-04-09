@@ -11,7 +11,7 @@ elseif(UNIX AND NOT APPLE)
     # note that the order is important for setting the libs
     # use pkg-config --libs $(pkg-config --print-requires --print-requires-private glfw3) in a terminal to confirm
     set(OGL GL)
-    set(OGLLIB X11 Xrandr Xinerama Xi Xxf86vm Xcursor ${OGL} dl pthread)
+    set(OGLLIB X11 Xrandr Xinerama Xi Xxf86vm Xcursor ${OGL} dl Threads::Threads)
 elseif(APPLE)
     find_package(OpenGL REQUIRED)
     find_library(COCOA_LIBRARY Cocoa)

@@ -65,6 +65,8 @@ include(../3rdparty/FindArgparse.cmake)
 # add joltpyhsics
 include(../3rdparty/FindJoltPhysics.cmake)
 
+find_package(Threads REQUIRED)
+
 # ------- sub-directories --------
 
 # for SPIR_V
