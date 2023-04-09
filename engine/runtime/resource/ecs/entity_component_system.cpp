@@ -58,7 +58,7 @@ void ECS::initialize()
 }
 
 void ECS::dataRedirection(
-        std::shared_ptr<Render_Context> render_context) 
+        std::shared_ptr<RenderContext> render_context) 
 {
     data_target = render_context;
     //int a=0;

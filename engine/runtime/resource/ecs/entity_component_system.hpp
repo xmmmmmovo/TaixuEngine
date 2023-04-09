@@ -25,11 +25,11 @@ class ECS
 {
 public:
     
-    std::weak_ptr<Render_Context>data_target;
+    std::weak_ptr<RenderContext>data_target;
     std::weak_ptr<PhysicsScene>scene_target;
     void initialize();
-    void Redirection(std::shared_ptr<Render_Context> render_context);
-    void Redirection(std::shared_ptr<PhysicsScene> physics_scene);
+    void dataRedirection(std::shared_ptr<RenderContext> render_context);
+    void sceneRedirection(std::shared_ptr<PhysicsScene> physics_scene);
 
     void reloadWorld(const std::filesystem::path &world_path); 
 

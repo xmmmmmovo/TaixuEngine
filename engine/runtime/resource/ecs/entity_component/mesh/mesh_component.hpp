@@ -22,7 +22,7 @@ std::uint32_t GO;
 std::string mesh_path{"INVALID"};
 std::string material_path{"INVALID"};
 std::shared_ptr<Model_Data>model;
-std::weak_ptr<Render_Context>data_target;
+std::weak_ptr<RenderContext>data_target;
 std::uint32_t getGO(){return GO;};
 //std::weak_ptr<TransformComponent> transform_component;
 TransformComponent *transform_component;

@@ -106,7 +106,7 @@ public:
 
     }
 
-    Render_Data *getSwapContext() { return render_data->getData(); };
+    RenderData *getSwapContext() { return render_data->getData(); };
     std::unique_ptr<OGLFrameBuffer> framebuffer;
     glm::vec2 framesize{1366,768};
     IShaderProgram*                 shaderProgram;
@@ -118,7 +118,7 @@ public:
     std::shared_ptr<OGLContext>  teapot_context;
 
 protected:
-    std::shared_ptr<Render_Data> render_data;
+    std::shared_ptr<RenderData> render_data;
     
 };
 
@@ -135,10 +135,10 @@ public:
     void resize(float width, float height);
 
     [[nodiscard]] std::uint32_t getRenderResult() const {
-        return render_context->framebuffer->getImageid();
+        return render_context->framebuffer->getFrameBufferID();
     };
 
-    std::shared_ptr<Render_Context> render_context;
+    std::shared_ptr<RenderContext> render_context;
     
     glm::vec2 size = {1366, 768};
 };
