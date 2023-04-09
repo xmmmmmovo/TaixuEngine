@@ -26,20 +26,75 @@ class RenderData {
     friend class Renderer;
 
     friend class RenderContext;
+
+    enum oprationType{ADD,MODEL,TRANSFORM};
+
+    struct RenderableModelInfo
+    {
+        std::uint32_t GO{4294967295}; //Invalid
+        char* file_path{"INVALID"};
+        glm::mat4 transform_matrix{glm::mat4(1.0f)};
+        oprationType opt;
+    };
+
+    struct RenderUint
+    {
+        std::uint32_t GO{4294967295}; //Invalid
+        Model_Data model{};
+        std::shared_ptr<OGLContext> GPU;
+        bool dirty{false};
+        glm::mat4 transform_matrix{glm::mat4(1.0f)};
+    };
+
 public:
     explicit RenderData() = default;
     ~RenderData()         = default;
     ;
-    void initialize() {
-        sphere = std::make_shared<Model_Data>(
-                 std::string("assets/model/cube.obj"));
-        model = std::make_shared<Model_Data>(
-                 std::string("assets/model/teapot.obj"));
+    void tick() {
+        // sphere = std::make_shared<Model_Data>(
+        //          std::string("assets/model/cube.obj"));
+        // model = std::make_shared<Model_Data>(
+        //          std::string("assets/model/teapot.obj"));
+        //dirty_models.push_back(modinfo);
+        RenderableModelInfo cube;
+        RenderableModelInfo teapot;
+        cube.file_path = "assets/model/cube.obj";
+        cube.GO = 0;
+        cube.transform_matrix = glm::translate(cube.transform_matrix,glm::vec3(1.0f,1.0f,1.0f));
+        cube.opt = oprationType::ADD;
+        dirty_models.push_back(cube);
+        if(dirty_models.size()>0)
+        {
+            for(auto modinfo : dirty_models)
+            {
+                if(modinfo.opt == oprationType::ADD)
+                {
+                    auto render_uint = std::make_shared<RenderUint>();
+                    render_uint->GO = modinfo.GO;
+                    render_uint->model.loadModel(modinfo.file_path);
+                    render_uint->transform_matrix = modinfo.transform_matrix;
+                    render_uint->GPU = std::make_shared<OGLContext>();
+                    render_uint->GPU->initialize();
+                    render_uint->GPU->bindMesh(render_uint->model.meshes[0]);
+                    prepared_models.push_back(render_uint);
+                }
+                else if(modinfo.opt == oprationType::MODEL){}
+                else if(modinfo.opt == oprationType::TRANSFORM){}
+            }
+            dirty_models.clear();
+        }
+        
 
     }
+
+    void clear(){dirty_models.clear();};
     RenderData*                 getData() { return this; };
-    std::shared_ptr<Model_Data> model;
-    std::shared_ptr<Model_Data> sphere;
+    // std::shared_ptr<Model_Data> model;
+    // std::shared_ptr<Model_Data> sphere;
+    std::vector<RenderableModelInfo> dirty_models;
+
+    std::vector<std::shared_ptr<RenderUint>> prepared_models;
+
 };
 
 class RenderContext {
@@ -52,17 +107,23 @@ public:
 
     void initialize() {
         render_data = std::make_shared<RenderData>();
-        render_data->initialize();
+        
         framebuffer=std::make_unique<OGLFrameBuffer>();
         framebuffer->allocate(framesize);
         
         shaderProgram       = new OGLShaderProgram(VERT_VERT, FRAG_FRAG);
+        model = std::make_shared<Model_Data>("assets/model/cube.obj");
         
         sphere_context = std::make_shared<OGLContext>();
+
         sphere_context->initialize();
 
-        teapot_context = std::make_shared<OGLContext>();
-        teapot_context->initialize();
+        sphere_context->bindMesh(model->meshes[0]);
+        // for(auto modinfo : render_data->render_models)
+        // {
+        //     auto modelGPU = std::make_shared<OGLContext>();
+            
+        // }
     };
 
     void resize(float width, float height) {
@@ -77,13 +138,22 @@ public:
             teapot_context->bindMesh(mesh); 
     }
     
-    void        tickbyMesh(Mesh const& mesh,std::string const& mode) { 
-        if(mode=="sphere")
-        sphere_context->tickbyMesh(mesh);
-        else if(mode=="teapot")
-        teapot_context->tickbyMesh(mesh);
-    };
-
+    // void        tickbyMesh(Mesh const& mesh,std::string const& mode) { 
+    //     if(mode=="sphere")
+    //     sphere_context->tickbyMesh(mesh);
+    //     else if(mode=="teapot")
+    //     teapot_context->tickbyMesh(mesh);
+    // };
+    void        tickbyMesh() {
+        // for(auto pm : render_data->prepared_models)
+        // {
+        //     Transform = pm->transform_matrix;
+            
+        //     pm->GPU->tickMesh(pm->model.meshes[0]);
+        //     int a=0;
+        // }
+        sphere_context = render_data->prepared_models[0]->GPU;
+    }
 
     void        bindShader(){
     glm::mat4 ProjectionMatrix   = _camera->getProjectionMatrix();
@@ -114,8 +184,10 @@ public:
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
     glm::mat4 Transform{glm::mat4(1.0f)};
 
+    std::vector<std::shared_ptr<OGLContext>> render_meshes;
     std::shared_ptr<OGLContext>  sphere_context;
     std::shared_ptr<OGLContext>  teapot_context;
+    std::shared_ptr<Model_Data> model;
 
 protected:
     std::shared_ptr<RenderData> render_data;
