@@ -1,7 +1,7 @@
 #ifndef TAIXUENGINE_PHYSICS_SCENE
 #define TAIXUENGINE_PHYSICS_SCENE
 
-//#include <Jolt/Jolt.h>
+#include <Jolt/Jolt.h>
 
 
 namespace taixu

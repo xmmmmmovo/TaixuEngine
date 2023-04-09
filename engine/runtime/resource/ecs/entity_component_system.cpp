@@ -17,7 +17,7 @@ void ECS::initialize()
     //add
     auto mesh=std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/sphere.obj","material");
     mesh->loadModelData();
-    mesh->data_target=data_target;
+    mesh->data_target = data_target;
     
     //transform
     glm::vec3 pos{1.0f,1.0f,1.0f},scale{2.0f,2.0f,2.0f},rotate{45.0f,45.0f,45.0f};
@@ -57,14 +57,14 @@ void ECS::initialize()
     // int a=0;
 }
 
-void ECS::Redirection(
+void ECS::dataRedirection(
         std::shared_ptr<Render_Context> render_context) 
 {
-    data_target=render_context;
+    data_target = render_context;
     //int a=0;
 }
 
-void ECS::Redirection(std::shared_ptr<PhysicsScene> physics_scene)
+void ECS::sceneRedirection(std::shared_ptr<PhysicsScene> physics_scene)
 {
     scene_target = physics_scene;
 }

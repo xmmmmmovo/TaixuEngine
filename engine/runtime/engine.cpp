@@ -14,11 +14,11 @@ void Engine::init() {
     _project_manager         = std::make_unique<ProjectManager>();
     _asset_manager           = std::make_unique<AssetManager>();
     _physics_manager         = std::make_unique<PhysicsManager>();
-
-
+    _physics_manager->initialize();
+    
     _entity_component_system = std::make_unique<ECS>();
-    _entity_component_system->Redirection(_renderer->render_context);
-    //_entity_component_system->Redirection(_physics_manager->current_scene);
+    _entity_component_system->dataRedirection(_renderer->render_context);
+    _entity_component_system->sceneRedirection(_physics_manager->current_scene);
     _entity_component_system->initialize();
 }
 
