@@ -37,6 +37,10 @@ void OGLFrameBuffer::bind() { glBindFramebuffer(GL_FRAMEBUFFER, bufferTexId); }
 
 void OGLFrameBuffer::unbind() { glBindFramebuffer(GL_FRAMEBUFFER, 0); }
 
-std::uint32_t OGLFrameBuffer::getFrameBufferID() { return bufferTexId; }
+// std::uint32_t OGLFrameBuffer::getFrameBufferID() { return bufferTexId; }
+
+void taixu::OGLFrameBuffer::getFrameBufferID() { getImageid(); }
+
+std::uint32_t taixu::OGLFrameBuffer::getImageid() { return bufferTexId; }
 
 }// namespace taixu
