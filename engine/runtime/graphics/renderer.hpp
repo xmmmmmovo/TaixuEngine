@@ -23,27 +23,17 @@ namespace taixu {
 template<typename Context = IGraphicsContext>
 class BaseRenderer {
 private:
-    RenderAPI api{RenderAPI::OPENGL};
-    Clock     clock{};
+    RenderAPI                         api{RenderAPI::OPENGL};
+    Clock                             clock{};
+    std::unique_ptr<IGraphicsContext> context{nullptr};
 
 public:
-    void initialize();
-    void pretick();
-    void tick(float delta_time = 0.03333);
-    void clear();
-
-    void resize(float width, float height);
+    virtual void initialize()                     = 0;
+    virtual void pretick()                        = 0;
+    virtual void tick(float delta_time = 0.03333) = 0;
+    virtual void clear()                          = 0;
 
     [[nodiscard]] std::uint32_t getRenderResult() const { return 0; };
-
-    PerspectiveCamera *_camera{nullptr};
-
-    glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
-
-    std::unique_ptr<Context> render_context{};
-    IShaderProgram          *shaderProgram{};
-
-    glm::vec2 size = {1366, 768};
 };
 
 

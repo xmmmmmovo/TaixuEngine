@@ -127,13 +127,13 @@ void MainWindow::destroy() {
     context_ptr->destroy();
 }
 
-void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
+void MainWindow::setEngineRuntime(Engine *engine_runtime_ptr) {
     this->_engine_runtime = engine_runtime_ptr;
     this->renderer        = engine_runtime_ptr->getRenderer();
 
     ImguiSurface::init(context_ptr->_window);
-    render_component->_renderer = renderer;
-    renderer->render_context->_camera           = context_ptr->_editor_camera.get();
+    render_component->_renderer       = renderer;
+    renderer->render_context->_camera = context_ptr->_editor_camera.get();
 
     InputSystem::getInstance().registerEditorCallback([this](float delta_time) {
         if (glfwGetKey(context_ptr->_window, GLFW_KEY_W) == GLFW_PRESS) {
@@ -164,7 +164,7 @@ void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
     });
 }
 
-MainWindow::MainWindow(WindowContext* const context_ptr)
+MainWindow::MainWindow(WindowContext *const context_ptr)
     : context_ptr(context_ptr) {
     this->menu_component->bindCallbacks(
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
@@ -174,12 +174,12 @@ MainWindow::MainWindow(WindowContext* const context_ptr)
 }
 
 // for callbacks
-void MainWindow::onNewProjectCb(std::string_view const& path) {}
-void MainWindow::onOpenProjectCb(std::string_view const& path) {
+void MainWindow::onNewProjectCb(std::string_view const &path) {}
+void MainWindow::onOpenProjectCb(std::string_view const &path) {
     this->_engine_runtime->loadProject(path);
 }
 void MainWindow::onSaveProjectCb() {}
-void MainWindow::onSaveAsProjectCb(std::string_view const& path) {}
+void MainWindow::onSaveAsProjectCb(std::string_view const &path) {}
 
 
 }// namespace taixu::editor
