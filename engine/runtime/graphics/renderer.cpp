@@ -14,46 +14,18 @@ void Renderer::initialize() {
     render_context = std::make_shared<RenderContext>();
 
     render_context->initialize();
-
-    //Bind buffer for each Mesh
-
-    // render_context->bindMesh(
-    //         render_context->getSwapContext()->getData()->sphere->meshes[0],"sphere");
-       
-    // render_context->bindMesh(
-    //         render_context->getSwapContext()->getData()->model->meshes[0],"teapot");   
-    render_context->render_data->tick();
-    render_context->tickbyMesh();  
     
 }
 
 void Renderer::tick(float delta_time) {
     clock.update();
-    // render_context->bindMesh(
-    //         render_context->getSwapContext()->getData()->sphere->meshes[0],"sphere");
-    // render_context->rebindMesh(
-    //         render_context->getSwapContext()->getData()->sphere->meshes[0]);
     
+    render_context->render_data->tick();
     render_context->framebuffer->bind();
-    render_context->bindShader();
-
-    // for(auto pm : render_context->render_data->prepared_models)
-    // {
-    //         //render_context->Transform = pm->transform_matrix;
-            
-    //         pm->GPU->tickMesh(pm->model.meshes[0]);
-    //         int a=0;
-    // }
     
-    //render_context->sphere_context->clear();
-    //render_context->bindShader();
-
-    // render_context->tickbyMesh(
-    //        render_context->getSwapContext()->sphere->meshes[0],"sphere");
-    render_context->sphere_context->tickMesh(render_context->model->meshes[0]);
-
-    // render_context->tickbyMesh(
-    //        render_context->getSwapContext()->model->meshes[0],"teapot");
+    render_context->sphere_context->clear();
+    
+    render_context->tickbyMesh();
 
     
     render_context->framebuffer->unbind();

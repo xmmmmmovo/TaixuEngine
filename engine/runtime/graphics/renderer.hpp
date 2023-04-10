@@ -51,18 +51,19 @@ public:
     ~RenderData()         = default;
     ;
     void tick() {
-        // sphere = std::make_shared<Model_Data>(
-        //          std::string("assets/model/cube.obj"));
-        // model = std::make_shared<Model_Data>(
-        //          std::string("assets/model/teapot.obj"));
-        //dirty_models.push_back(modinfo);
         RenderableModelInfo cube;
-        RenderableModelInfo teapot;
+        RenderableModelInfo sphere;
         cube.file_path = "assets/model/cube.obj";
         cube.GO = 0;
         cube.transform_matrix = glm::translate(cube.transform_matrix,glm::vec3(1.0f,1.0f,1.0f));
         cube.opt = oprationType::ADD;
         dirty_models.push_back(cube);
+
+        sphere.file_path = "assets/model/sphere.obj";
+        sphere.GO = 1;
+        sphere.transform_matrix = glm::translate(sphere.transform_matrix,glm::vec3(0.0f,0.0f,0.0f));
+        sphere.opt = oprationType::ADD;
+        dirty_models.push_back(sphere);
         if(dirty_models.size()>0)
         {
             for(auto modinfo : dirty_models)
@@ -89,8 +90,7 @@ public:
 
     void clear(){dirty_models.clear();};
     RenderData*                 getData() { return this; };
-    // std::shared_ptr<Model_Data> model;
-    // std::shared_ptr<Model_Data> sphere;
+
     std::vector<RenderableModelInfo> dirty_models;
 
     std::vector<std::shared_ptr<RenderUint>> prepared_models;
@@ -112,47 +112,26 @@ public:
         framebuffer->allocate(framesize);
         
         shaderProgram       = new OGLShaderProgram(VERT_VERT, FRAG_FRAG);
-        model = std::make_shared<Model_Data>("assets/model/cube.obj");
         
         sphere_context = std::make_shared<OGLContext>();
 
         sphere_context->initialize();
-
-        sphere_context->bindMesh(model->meshes[0]);
-        // for(auto modinfo : render_data->render_models)
-        // {
-        //     auto modelGPU = std::make_shared<OGLContext>();
-            
-        // }
     };
 
     void resize(float width, float height) {
         framesize.x = width;
         framesize.y = height;
     };
-
-    void         bindMesh(Mesh const& mesh,std::string const &mode) { 
-        if(mode == "sphere")
-            sphere_context->bindMesh(mesh);
-        else if(mode == "teapot")
-            teapot_context->bindMesh(mesh); 
-    }
-    
-    // void        tickbyMesh(Mesh const& mesh,std::string const& mode) { 
-    //     if(mode=="sphere")
-    //     sphere_context->tickbyMesh(mesh);
-    //     else if(mode=="teapot")
-    //     teapot_context->tickbyMesh(mesh);
-    // };
+  
     void        tickbyMesh() {
-        // for(auto pm : render_data->prepared_models)
-        // {
-        //     Transform = pm->transform_matrix;
-            
-        //     pm->GPU->tickMesh(pm->model.meshes[0]);
-        //     int a=0;
-        // }
-        sphere_context = render_data->prepared_models[0]->GPU;
+        for(auto pm : render_data->prepared_models)
+        {
+            Transform = pm->transform_matrix;
+            bindShader();
+            pm->GPU->tickMesh(pm->model.meshes[0]);
+            //int a=0;
+        }
+        //sphere_context = render_data->prepared_models[0]->GPU;
     }
 
     void        bindShader(){
@@ -164,15 +143,12 @@ public:
     glm::mat4 MVP                = ProjectionMatrix * ViewMatrix * ModelMatrix;
     //glm::mat4 Transform          = glm::mat4(1.0f);
     //Transform                    = glm::translate(Transform,glm::vec3(1.0f,1.0f,1.0f));
-
     shaderProgram->use();
-
     shaderProgram->set_uniform("MVP", MVP);
     shaderProgram->set_uniform("V", ViewMatrix);
     shaderProgram->set_uniform("M", ModelMatrix);
     shaderProgram->set_uniform("MV3x3", ModelView3x3Matrix);
     shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
-    //shaderProgram->set_uniform("transform", Transform);
 
     }
 
@@ -186,8 +162,6 @@ public:
 
     std::vector<std::shared_ptr<OGLContext>> render_meshes;
     std::shared_ptr<OGLContext>  sphere_context;
-    std::shared_ptr<OGLContext>  teapot_context;
-    std::shared_ptr<Model_Data> model;
 
 protected:
     std::shared_ptr<RenderData> render_data;

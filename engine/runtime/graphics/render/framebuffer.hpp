@@ -29,8 +29,7 @@ struct IFrameBufferSpecification {
 class IFrameBuffer {
     virtual void          bind()             = 0;
     virtual void          unbind()           = 0;
-    //virtual std::uint32_t getFrameBufferID() = 0;
-    virtual void getFrameBufferID() = 0;
+    virtual std::uint32_t getFrameBufferID() = 0;
 };
 
 
