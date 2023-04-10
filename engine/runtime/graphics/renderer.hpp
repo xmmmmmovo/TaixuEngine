@@ -20,19 +20,12 @@
 #include "platform/opengl/ogl_shader.hpp"
 
 namespace taixu {
-
-class RenderData {
-
-    friend class Renderer;
-
-    friend class RenderContext;
-
-    enum oprationType{ADD,MODEL,TRANSFORM};
+    enum oprationType{ADD,CHANGEMODEL,TRANSFORM};
 
     struct RenderableModelInfo
     {
         std::uint32_t GO{4294967295}; //Invalid
-        char* file_path{"INVALID"};
+        const char* file_path{"INVALID"};
         glm::mat4 transform_matrix{glm::mat4(1.0f)};
         oprationType opt;
     };
@@ -46,24 +39,30 @@ class RenderData {
         glm::mat4 transform_matrix{glm::mat4(1.0f)};
     };
 
+class RenderData {
+
+    friend class Renderer;
+
+    friend class RenderContext;
+
 public:
     explicit RenderData() = default;
     ~RenderData()         = default;
     ;
     void tick() {
-        RenderableModelInfo cube;
-        RenderableModelInfo sphere;
-        cube.file_path = "assets/model/cube.obj";
-        cube.GO = 0;
-        cube.transform_matrix = glm::translate(cube.transform_matrix,glm::vec3(1.0f,1.0f,1.0f));
-        cube.opt = oprationType::ADD;
-        dirty_models.push_back(cube);
+        //RenderableModelInfo cube;
+        //RenderableModelInfo sphere;
+        // cube.file_path = "assets/model/cube.obj";
+        // cube.GO = 0;
+        // cube.transform_matrix = glm::translate(cube.transform_matrix,glm::vec3(1.0f,1.0f,1.0f));
+        // cube.opt = oprationType::ADD;
+        // dirty_models.push_back(cube);
 
-        sphere.file_path = "assets/model/sphere.obj";
-        sphere.GO = 1;
-        sphere.transform_matrix = glm::translate(sphere.transform_matrix,glm::vec3(0.0f,0.0f,0.0f));
-        sphere.opt = oprationType::ADD;
-        dirty_models.push_back(sphere);
+        // sphere.file_path = "assets/model/sphere.obj";
+        // sphere.GO = 1;
+        // sphere.transform_matrix = glm::translate(sphere.transform_matrix,glm::vec3(0.0f,0.0f,0.0f));
+        // sphere.opt = oprationType::ADD;
+        // dirty_models.push_back(sphere);
         if(dirty_models.size()>0)
         {
             for(auto modinfo : dirty_models)
@@ -79,7 +78,7 @@ public:
                     render_uint->GPU->bindMesh(render_uint->model.meshes[0]);
                     prepared_models.push_back(render_uint);
                 }
-                else if(modinfo.opt == oprationType::MODEL){}
+                else if(modinfo.opt == oprationType::CHANGEMODEL){}
                 else if(modinfo.opt == oprationType::TRANSFORM){}
             }
             dirty_models.clear();
@@ -113,9 +112,9 @@ public:
         
         shaderProgram       = new OGLShaderProgram(VERT_VERT, FRAG_FRAG);
         
-        sphere_context = std::make_shared<OGLContext>();
+        //sphere_context = std::make_shared<OGLContext>();
 
-        sphere_context->initialize();
+        //sphere_context->initialize();
     };
 
     void resize(float width, float height) {

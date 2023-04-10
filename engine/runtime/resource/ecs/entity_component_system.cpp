@@ -7,21 +7,27 @@ void ECS::initialize()
     taixu_world=std::make_shared<WorldManager>();
     taixu_world->initialize();
     
-    //std::shared_ptr<EntityComponentMap> mesh_component_map=std::make_shared<EntityComponentMap>();
+    //Due to the mesh component need to transfer data to renderer
+    //So its order of tick is at the end
+    
     EntityComponentMap mesh_component_map;
-    all_components.push_back(mesh_component_map);
+    EntityComponentMap rigid_body_component_map;        
+
+                                                        //tick order
+    
+    all_components.push_back(rigid_body_component_map);     //0
+    all_components.push_back(mesh_component_map);           //1
 
     //temporary read obj.json
 
     auto &current_GO = taixu_world->current_level->GOs[0];
     //add
-    auto mesh=std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/sphere.obj","material");
-    
+    auto mesh=std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/cube.obj","material");
     mesh->data_target = data_target;
-    mesh->loadModelData();
+    
     //transform
-    glm::vec3 pos{1.0f,1.0f,1.0f},scale{2.0f,2.0f,2.0f},rotate{45.0f,45.0f,45.0f};
-    auto trans = std::make_unique<TransformComponent>(pos,scale,rotate);
+    //glm::vec3 pos{1.0f,1.0f,1.0f},scale{2.0f,2.0f,2.0f},rotate{45.0f,45.0f,45.0f};
+    auto trans = std::make_unique<TransformComponent>();
     trans->GO = current_GO.get_id();
 
     global_transform.push_back(std::move(trans));
@@ -33,35 +39,32 @@ void ECS::initialize()
     camera.setCameraPosition(glm::vec3{0.0f,0.0f,8.0f});
     mesh->camera_component=std::move(camera);
 
-    all_components[0].addComponent(mesh);
+    all_components[1].addComponent(mesh);
 
     //rigid body
-    EntityComponentMap rigid_body_component_map;
-    all_components.push_back(rigid_body_component_map);
 
     auto rigid_body = std::make_shared<RigidBodyComponent>(
         current_GO.get_id(),
         _pointer,
         scene_target
     );
-    //rigid_body->tick();
-    all_components[1].addComponent(rigid_body);
-
-    //glm::vec3 pos{1.0f,1.0f,1.0f},scale{2.0f,2.0f,2.0f},rotate{45.0f,45.0f,45.0f};
-
-    current_GO = taixu_world->current_level->GOs[1];
-    // auto teapot_trans = std::make_unique<TransformComponent>(pos,scale,rotate);
-    // teapot_trans->GO = current_GO.get_id();
-
-    // global_transform.push_back(std::move(trans));
     
-    auto teapot_mesh = std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/teapot.obj","material");
+    all_components[0].addComponent(rigid_body);
 
-    //auto testmesh = all_components[0].getComponent(current_GO.get_id());
-    // //modify
-    // auto newmesh=std::make_shared<MeshComponent>(false,1,"new","new");
-    // all_components[0].addComponent(newmesh);
-    // int a=0;
+    //next mesh
+    current_GO = taixu_world->current_level->GOs[1];
+    
+    auto sphere_mesh = std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/sphere.obj","material");
+    sphere_mesh->data_target = data_target;
+
+    auto sphere_trans = std::make_unique<TransformComponent>();
+    sphere_trans->GO = current_GO.get_id();
+
+    global_transform.push_back(std::move(sphere_trans));
+    TransformComponent *sphere_pointer = global_transform.back().get();
+    sphere_mesh->transform_component = sphere_pointer;
+    all_components[1].addComponent(sphere_mesh);
+    
 }
 
 void ECS::dataRedirection(

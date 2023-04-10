@@ -19,12 +19,18 @@ void MeshComponent::tick()
     //assert(data_target.expired());
     if(visible==true)
     {
+        transform_component->makeTransformMatrix();
+        RenderableModelInfo sphere;
         
-        //data_target.lock()->getSwapContext()->sphere=model;
-        //data_target.lock()->sphere_context->vertex_array->clear();
-        //data_target.lock()->bindMesh(data_target.lock()->getSwapContext()->sphere->meshes[0],"sphere");
+        sphere.file_path = mesh_path.c_str();
+        sphere.GO = GO;
+        sphere.transform_matrix = transform_component->transform;
+        sphere.opt = oprationType::ADD;
+        data_target.lock()->getSwapContext()->dirty_models.push_back(sphere);
+
+        
         //transform_component->setPosition(glm::vec3(2.0f,2.0f,2.0f));
-        //transform_component->makeTransformMatrix();
+        
         //data_target.lock()->Transform = std::move(transform_component->transform);
         
         ////camera

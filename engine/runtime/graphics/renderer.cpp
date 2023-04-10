@@ -23,7 +23,7 @@ void Renderer::tick(float delta_time) {
     render_context->render_data->tick();
     render_context->framebuffer->bind();
     
-    render_context->sphere_context->clear();
+    render_context->render_data->prepared_models[0]->GPU->clear();
     
     render_context->tickbyMesh();
 
