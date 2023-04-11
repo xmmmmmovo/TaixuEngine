@@ -1,9 +1,5 @@
 #ifndef TAIXUENGINE_PHYSICS_MANAGER
 #define TAIXUENGINE_PHYSICS_MANAGER
-
-
-
-
 #include "physics_scene.hpp"
 
 namespace taixu
