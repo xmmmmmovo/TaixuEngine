@@ -28,7 +28,7 @@ std::uint32_t getGO(){return GO;};
 //std::weak_ptr<TransformComponent> transform_component;
 TransformComponent *transform_component;
 std::optional<CameraComponent> camera_component;
-void loadModelData();
+void initialize();
 void tick();
 };
 }

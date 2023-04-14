@@ -26,6 +26,16 @@ namespace taixu
         std::unique_ptr<JPH::JobSystem>                job_system {nullptr};
         std::unique_ptr<JPH::TempAllocator>            temp_allocator {nullptr};
         std::unique_ptr<JPH::BroadPhaseLayerInterface> broad_phase_layer_interface {nullptr};
+        std::unique_ptr<ObjectVsBroadPhaseLayerFilterImpl>      object_vs_broadphase_layer_filter{nullptr};
+        std::unique_ptr<ObjectLayerPairFilterImpl>             object_vs_object_layer_filter{nullptr};
+        std::unique_ptr<MyBodyActivationListener>      body_activation_listener{nullptr};
+        std::unique_ptr<MyContactListener>             contact_listener{nullptr};
+        // JPH::PhysicsSystem*            physics_system {nullptr};
+        // JPH::JobSystem*                job_system {nullptr};
+        // JPH::TempAllocator*            temp_allocator {nullptr};
+        // JPH::BroadPhaseLayerInterface* broad_phase_layer_interface {nullptr};
+        // MyBodyActivationListener*      body_activation_listener{nullptr};
+        // MyContactListener*             contact_listener{nullptr};
         int m_collision_steps {1};
         int m_integration_substeps {1};
     };
@@ -52,7 +62,8 @@ public:
     PhysicsScene() = default;
     JoltPhysics m_physics;
     JoltParameters m_parameter;
-
+    ObjectVsBroadPhaseLayerFilterImpl object_vs_broadphase_layer_filter;
+    ObjectLayerPairFilterImpl object_vs_object_layer_filter;
     JPH::BodyID sphere_id;
     int step =0;
     void initialize();

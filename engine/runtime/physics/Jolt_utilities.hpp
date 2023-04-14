@@ -31,9 +31,6 @@ namespace Layers {
     static constexpr uint8_t NON_MOVING = 2;
     static constexpr uint8_t MOVING     = 3;
     static constexpr uint8_t NUM_LAYERS = 4;
-    // static constexpr uint8_t NON_MOVING = 0;
-	// static constexpr uint8_t MOVING = 1;
-	// static constexpr uint8_t NUM_LAYERS = 2;
 };// namespace Layers
 
 /// Broadphase layers
@@ -42,9 +39,6 @@ namespace BroadPhaseLayers {
     static constexpr JPH::BroadPhaseLayer MOVING(1);
     static constexpr JPH::BroadPhaseLayer UNUSED(2);
     static constexpr uint32_t             NUM_LAYERS(3);
-    // static constexpr JPH::BroadPhaseLayer NON_MOVING(0);
-	// static constexpr JPH::BroadPhaseLayer MOVING(1);
-	// static constexpr uint32_t NUM_LAYERS(2);
 };// namespace BroadPhaseLayers
 
 /// BroadPhaseLayerInterface implementation
@@ -70,14 +64,6 @@ public:
 private:
     JPH::BroadPhaseLayer m_object_to_broad_phase[Layers::NUM_LAYERS];
 };
-
-/// Function that determines if two object layers can collide
-//bool ObjectvsObjectCollide(JPH::ObjectLayer inObject1,
-                           //JPH::ObjectLayer inObject2);
-
-/// Function that determines if two broadphase layers can collide
-//bool ObjectvsBroadPhaseCanCollide(JPH::ObjectLayer     inLayer1,
-                                  //JPH::BroadPhaseLayer inLayer2);
 
 using namespace JPH;
 
@@ -163,16 +149,6 @@ class ObjectVsBroadPhaseLayerFilterImpl : public ObjectVsBroadPhaseLayerFilter
 public:
 	virtual bool				ShouldCollide(ObjectLayer inLayer1, BroadPhaseLayer inLayer2) const override
 	{
-		// switch (inLayer1)
-        // {
-        //     case Layers::NON_MOVING:
-        //         return inLayer2 == BroadPhaseLayers::MOVING;
-        //     case Layers::MOVING:
-        //         return true;
-        //     default:
-        //         assert(false);
-        //         return false;
-        // }
         switch (inLayer1)
         {
             case Layers::NON_MOVING:

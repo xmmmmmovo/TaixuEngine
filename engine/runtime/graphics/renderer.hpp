@@ -79,7 +79,14 @@ public:
                     prepared_models.push_back(render_uint);
                 }
                 else if(modinfo.opt == oprationType::CHANGEMODEL){}
-                else if(modinfo.opt == oprationType::TRANSFORM){}
+                else if(modinfo.opt == oprationType::TRANSFORM)
+                {
+                    for(auto pm:prepared_models)
+                    {
+                        if(modinfo.GO == pm->GO)
+                            pm->transform_matrix = modinfo.transform_matrix;
+                    }
+                }
             }
             dirty_models.clear();
         }

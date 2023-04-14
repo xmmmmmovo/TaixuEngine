@@ -22,7 +22,7 @@ void ECS::initialize()
 
     auto &current_GO = taixu_world->current_level->GOs[0];
     //add
-    auto mesh=std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/cube.obj","material");
+    auto mesh=std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/sphere.obj","material");
     mesh->data_target = data_target;
     
     //transform
@@ -38,7 +38,7 @@ void ECS::initialize()
     camera.initialize();
     camera.setCameraPosition(glm::vec3{0.0f,0.0f,8.0f});
     mesh->camera_component=std::move(camera);
-
+    mesh->initialize();
     all_components[1].addComponent(mesh);
 
     //rigid body
@@ -54,7 +54,7 @@ void ECS::initialize()
     //next mesh
     current_GO = taixu_world->current_level->GOs[1];
     
-    auto sphere_mesh = std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/sphere.obj","material");
+    auto sphere_mesh = std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/cube.obj","material");
     sphere_mesh->data_target = data_target;
 
     auto sphere_trans = std::make_unique<TransformComponent>();
@@ -63,7 +63,7 @@ void ECS::initialize()
     global_transform.push_back(std::move(sphere_trans));
     TransformComponent *sphere_pointer = global_transform.back().get();
     sphere_mesh->transform_component = sphere_pointer;
-    all_components[1].addComponent(sphere_mesh);
+    //all_components[1].addComponent(sphere_mesh);
     
 }
 
