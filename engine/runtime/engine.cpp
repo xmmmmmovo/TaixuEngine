@@ -25,6 +25,7 @@ void Engine::init() {
 void Engine::update() {
     InputSystem::getInstance().processInput();
     _entity_component_system->tick();
+    _physics_manager->tick();
     _renderer->tick();
 }
 

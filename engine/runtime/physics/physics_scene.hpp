@@ -52,9 +52,13 @@ public:
     PhysicsScene() = default;
     JoltPhysics m_physics;
     JoltParameters m_parameter;
+
+    JPH::BodyID sphere_id;
+    int step =0;
     void initialize();
 
-    uint32_t createRigidBodyActor();
+    //uint32_t createRigidBodyActor();
+    void createRigidBodyActor();
     void removeRigidBodyActor(uint32_t body_id);
 
     void tick();

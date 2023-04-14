@@ -11,6 +11,8 @@ public:
 
     void initialize();
 
+    void tick();
+    
     std::shared_ptr<PhysicsScene> current_scene;
     //std::vector<PhysicsScene>
 };

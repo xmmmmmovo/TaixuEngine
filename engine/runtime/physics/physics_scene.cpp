@@ -4,8 +4,11 @@ namespace taixu
 {
 
 void PhysicsScene::initialize() {
+    // Register allocation hook
+	RegisterDefaultAllocator();
     JPH::Factory::sInstance = new JPH::Factory();
     JPH::RegisterTypes();
+
     m_physics.physics_system = std::make_unique<JPH::PhysicsSystem>();
 
     m_physics.job_system = std::make_unique<JPH::JobSystemThreadPool>(
@@ -17,24 +20,42 @@ void PhysicsScene::initialize() {
     m_physics.temp_allocator = std::make_unique<JPH::TempAllocatorImpl>(10 * 1024 * 1024);
     m_physics.broad_phase_layer_interface = std::make_unique<BPLayerInterfaceImpl>();
 
-    
+    // Create class that filters object vs broadphase layers
+	// Note: As this is an interface, PhysicsSystem will take a reference to this so this instance needs to stay alive!
+	ObjectVsBroadPhaseLayerFilterImpl object_vs_broadphase_layer_filter;
+
+	// Create class that filters object vs object layers
+	// Note: As this is an interface, PhysicsSystem will take a reference to this so this instance needs to stay alive!
+	ObjectLayerPairFilterImpl object_vs_object_layer_filter;
+
+
     m_physics.physics_system->Init(m_parameter.m_max_body_count,
                                               m_parameter.m_body_mutex_count,
                                               m_parameter.m_max_body_pairs,
                                               m_parameter.m_max_contact_constraints,
                                               *(m_physics.broad_phase_layer_interface),
-                                              ObjectvsBroadPhaseCanCollide,
-                                              ObjectvsObjectCollide
+                                              //ObjectvsBroadPhaseCanCollide,
+                                              //ObjectvsObjectCollide
+                                            object_vs_broadphase_layer_filter,
+                                            object_vs_object_layer_filter
                                             );
 
     // use the default setting
     m_physics.physics_system->SetPhysicsSettings(JPH::PhysicsSettings());
 
     m_physics.physics_system->SetGravity(JPH::Vec3(0.f,0.f,-9.8f));
-    
+
+    MyBodyActivationListener body_activation_listener;
+	m_physics.physics_system.get()->SetBodyActivationListener(&body_activation_listener);
+
+    auto contact_listener = std::make_unique<MyContactListener>();
+	m_physics.physics_system.get()->SetContactListener(contact_listener.get());
+
+
+    createRigidBodyActor();
 }
 
-uint32_t PhysicsScene::createRigidBodyActor(){
+void PhysicsScene::createRigidBodyActor(){
     // The main way to interact with the bodies in the physics system is through the body interface. There is a locking and a non-locking
 	// variant of this. We're going to use the locking version (even though we're not planning to access bodies from multiple threads)
 	JPH::BodyInterface &body_interface = m_physics.physics_system->GetBodyInterface();
@@ -55,18 +76,18 @@ uint32_t PhysicsScene::createRigidBodyActor(){
 	JPH::Body *floor = body_interface.CreateBody(floor_settings); // Note that if we run out of bodies this can return nullptr
 
 	// Add it to the world
-	body_interface.AddBody(floor->GetID(), JPH::EActivation::DontActivate);
-
+	body_interface.AddBody(floor->GetID(), JPH::EActivation::Activate);
+    
 	// Now create a dynamic body to bounce on the floor
 	// Note that this uses the shorthand version of creating and adding a body to the world
 	JPH::BodyCreationSettings sphere_settings(new JPH::SphereShape(0.5f), JPH::Vec3Arg(0.0, 2.0, 0.0), JPH::Quat::sIdentity(), JPH::EMotionType::Dynamic, Layers::MOVING);
-	JPH::BodyID sphere_id = body_interface.CreateAndAddBody(sphere_settings, JPH::EActivation::Activate);
+	sphere_id = body_interface.CreateAndAddBody(sphere_settings, JPH::EActivation::Activate);
 
 	// Now you can interact with the dynamic body, in this case we're going to give it a velocity.
 	// (note that if we had used CreateBody then we could have set the velocity straight on the body before adding it to the physics system)
 	body_interface.SetLinearVelocity(sphere_id, JPH::Vec3(0.0f, -5.0f, 0.0f));
 
-    return sphere_id.GetIndexAndSequenceNumber();
+    //return sphere_id.GetIndexAndSequenceNumber();
 }
 
 void PhysicsScene::removeRigidBodyActor(uint32_t body_id) {
@@ -75,7 +96,22 @@ void PhysicsScene::removeRigidBodyActor(uint32_t body_id) {
 
 void PhysicsScene::tick() {
     //Update()
+    JPH::BodyInterface &body_interface = m_physics.physics_system->GetBodyInterface();
+    //assert(body_interface.IsActive(sphere_id)==false);
+    step++;
     const float time_step = 1.0f / 60.0f;
+    
+    Vec3 position = body_interface.GetCenterOfMassPosition(sphere_id);
+	Vec3 velocity = body_interface.GetLinearVelocity(sphere_id);
+    
+    spdlog::debug("Step {}: Position = ( {} , {}, {} ), Velocity = ( {}, {}, {} )",
+    step,position.GetX(),
+    position.GetY(),
+    position.GetZ(),
+    velocity.GetX(), 
+    velocity.GetY(), 
+    velocity.GetZ());
+	
     m_physics.physics_system->Update(time_step,
                                                 m_physics.m_collision_steps,
                                                 m_physics.m_integration_substeps,

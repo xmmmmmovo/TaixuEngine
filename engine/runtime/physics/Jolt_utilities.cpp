@@ -21,6 +21,8 @@ BPLayerInterfaceImpl::BPLayerInterfaceImpl()
                 return "NON_MOVING";
             case (JPH::BroadPhaseLayer::Type)BroadPhaseLayers::MOVING:
                 return "MOVING";
+            case (JPH::BroadPhaseLayer::Type)BroadPhaseLayers::UNUSED:
+                return "UNUSED";
             default:
                 assert(false);
                 return "INVALID";
