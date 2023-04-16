@@ -23,7 +23,7 @@ void taixu::OGLContext::bindMesh(Mesh mesh) const {
     vertex_array->unbind();
 }
 
-void taixu::OGLContext::tickbyMesh(Mesh const&mesh) {
+void taixu::OGLContext::tickMesh(Mesh const&mesh) {
 
     vertex_array->bind();
     

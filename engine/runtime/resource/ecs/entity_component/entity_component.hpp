@@ -22,7 +22,7 @@ public:
 
    [[nodiscard]] std::shared_ptr<EntityComponent> getComponent(std::uint32_t guid){
         int mark=0;
-        for(auto component:map)
+        for(auto &component:map)
         {
             if(component->getGO()==guid)
                 break;
@@ -32,7 +32,7 @@ public:
         return map[mark];
     }
 
-    void addComponent(std::shared_ptr<EntityComponent> instance){
+    void addComponent(const std::shared_ptr<EntityComponent> &instance){
         map.push_back(instance);
     }
 

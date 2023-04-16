@@ -20,26 +20,87 @@
 #include "platform/opengl/ogl_shader.hpp"
 
 namespace taixu {
+    enum oprationType{ADD,CHANGEMODEL,TRANSFORM};
+
+    struct RenderableModelInfo
+    {
+        std::uint32_t GO{4294967295}; //Invalid
+        const char* file_path{"INVALID"};
+        glm::mat4 transform_matrix{glm::mat4(1.0f)};
+        oprationType opt;
+    };
+
+    struct RenderUint
+    {
+        std::uint32_t GO{4294967295}; //Invalid
+        Model_Data model{};
+        std::shared_ptr<OGLContext> GPU;
+        bool dirty{false};
+        glm::mat4 transform_matrix{glm::mat4(1.0f)};
+    };
 
 class RenderData {
 
     friend class Renderer;
 
     friend class RenderContext;
+
 public:
     explicit RenderData() = default;
     ~RenderData()         = default;
     ;
-    void initialize() {
-        sphere = std::make_shared<Model_Data>(
-                 std::string("assets/model/cube.obj"));
-        model = std::make_shared<Model_Data>(
-                 std::string("assets/model/teapot.obj"));
+    void tick() {
+        //RenderableModelInfo cube;
+        //RenderableModelInfo sphere;
+        // cube.file_path = "assets/model/cube.obj";
+        // cube.GO = 0;
+        // cube.transform_matrix = glm::translate(cube.transform_matrix,glm::vec3(1.0f,1.0f,1.0f));
+        // cube.opt = oprationType::ADD;
+        // dirty_models.push_back(cube);
+
+        // sphere.file_path = "assets/model/sphere.obj";
+        // sphere.GO = 1;
+        // sphere.transform_matrix = glm::translate(sphere.transform_matrix,glm::vec3(0.0f,0.0f,0.0f));
+        // sphere.opt = oprationType::ADD;
+        // dirty_models.push_back(sphere);
+        if(dirty_models.size()>0)
+        {
+            for(auto modinfo : dirty_models)
+            {
+                if(modinfo.opt == oprationType::ADD)
+                {
+                    auto render_uint = std::make_shared<RenderUint>();
+                    render_uint->GO = modinfo.GO;
+                    render_uint->model.loadModel(modinfo.file_path);
+                    render_uint->transform_matrix = modinfo.transform_matrix;
+                    render_uint->GPU = std::make_shared<OGLContext>();
+                    render_uint->GPU->initialize();
+                    render_uint->GPU->bindMesh(render_uint->model.meshes[0]);
+                    prepared_models.push_back(render_uint);
+                }
+                else if(modinfo.opt == oprationType::CHANGEMODEL){}
+                else if(modinfo.opt == oprationType::TRANSFORM)
+                {
+                    for(auto pm:prepared_models)
+                    {
+                        if(modinfo.GO == pm->GO)
+                            pm->transform_matrix = modinfo.transform_matrix;
+                    }
+                }
+            }
+            dirty_models.clear();
+        }
+        
 
     }
+
+    void clear(){dirty_models.clear();};
     RenderData*                 getData() { return this; };
-    std::shared_ptr<Model_Data> model;
-    std::shared_ptr<Model_Data> sphere;
+
+    std::vector<RenderableModelInfo> dirty_models;
+
+    std::vector<std::shared_ptr<RenderUint>> prepared_models;
+
 };
 
 class RenderContext {
@@ -52,61 +113,52 @@ public:
 
     void initialize() {
         render_data = std::make_shared<RenderData>();
-        render_data->initialize();
+        
         framebuffer=std::make_unique<OGLFrameBuffer>();
         framebuffer->allocate(framesize);
         
         shaderProgram       = new OGLShaderProgram(VERT_VERT, FRAG_FRAG);
         
-        sphere_context = std::make_shared<OGLContext>();
-        sphere_context->initialize();
+        //sphere_context = std::make_shared<OGLContext>();
 
-        teapot_context = std::make_shared<OGLContext>();
-        teapot_context->initialize();
+        //sphere_context->initialize();
     };
 
     void resize(float width, float height) {
         framesize.x = width;
         framesize.y = height;
     };
-
-    void         bindMesh(Mesh const& mesh,std::string const &mode) { 
-        if(mode == "sphere")
-            sphere_context->bindMesh(mesh);
-        else if(mode == "teapot")
-            teapot_context->bindMesh(mesh); 
+  
+    void        tickbyMesh() {
+        for(auto pm : render_data->prepared_models)
+        {
+            Transform = pm->transform_matrix;
+            bindShader();
+            pm->GPU->tickMesh(pm->model.meshes[0]);
+            //int a=0;
+        }
+        //sphere_context = render_data->prepared_models[0]->GPU;
     }
-    
-    void        tickbyMesh(Mesh const& mesh,std::string const& mode) { 
-        if(mode=="sphere")
-        sphere_context->tickbyMesh(mesh);
-        else if(mode=="teapot")
-        teapot_context->tickbyMesh(mesh);
-    };
-
 
     void        bindShader(){
     glm::mat4 ProjectionMatrix   = _camera->getProjectionMatrix();
     glm::mat4 ViewMatrix         = _camera->getViewMatrix();
-    glm::mat4 ModelMatrix        = glm::mat4(1.0);
+    glm::mat4 ModelMatrix        = Transform;
     glm::mat4 ModelViewMatrix    = ViewMatrix * ModelMatrix;
     glm::mat3 ModelView3x3Matrix = glm::mat3(ModelViewMatrix);
     glm::mat4 MVP                = ProjectionMatrix * ViewMatrix * ModelMatrix;
     //glm::mat4 Transform          = glm::mat4(1.0f);
     //Transform                    = glm::translate(Transform,glm::vec3(1.0f,1.0f,1.0f));
-
     shaderProgram->use();
-
     shaderProgram->set_uniform("MVP", MVP);
     shaderProgram->set_uniform("V", ViewMatrix);
     shaderProgram->set_uniform("M", ModelMatrix);
     shaderProgram->set_uniform("MV3x3", ModelView3x3Matrix);
     shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
-    shaderProgram->set_uniform("transform", Transform);
 
     }
 
-    Render_Data *getSwapContext() { return render_data->getData(); };
+    RenderData *getSwapContext() { return render_data->getData(); };
     std::unique_ptr<OGLFrameBuffer> framebuffer;
     glm::vec2 framesize{1366,768};
     IShaderProgram*                 shaderProgram;
@@ -114,11 +166,11 @@ public:
     glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
     glm::mat4 Transform{glm::mat4(1.0f)};
 
+    std::vector<std::shared_ptr<OGLContext>> render_meshes;
     std::shared_ptr<OGLContext>  sphere_context;
-    std::shared_ptr<OGLContext>  teapot_context;
 
 protected:
-    std::shared_ptr<Render_Data> render_data;
+    std::shared_ptr<RenderData> render_data;
     
 };
 
@@ -135,10 +187,10 @@ public:
     void resize(float width, float height);
 
     [[nodiscard]] std::uint32_t getRenderResult() const {
-        return render_context->framebuffer->getImageid();
+        return render_context->framebuffer->getFrameBufferID();
     };
 
-    std::shared_ptr<Render_Context> render_context;
+    std::shared_ptr<RenderContext> render_context;
     
     glm::vec2 size = {1366, 768};
 };

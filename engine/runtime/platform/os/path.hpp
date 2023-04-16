@@ -11,18 +11,17 @@
 
 namespace taixu {
 
-inline std::filesystem::path getRelativePath(
-        const std::filesystem::path& directory,
-        const std::filesystem::path& file_path);
+std::filesystem::path getRelativePath(const std::filesystem::path& directory,
+                                      const std::filesystem::path& file_path);
 
-inline std::filesystem::path fromRelativePath(
+std::filesystem::path fromRelativePath(
         const std::filesystem::path& directory,
         const std::filesystem::path& relative_path);
 
-inline std::filesystem::path fromRelativePath(
+std::filesystem::path fromRelativePath(
         const std::filesystem::path& relative_path);
 
-inline std::vector<std::string> getPathSegments(
+std::vector<std::string> getPathSegments(
         const std::filesystem::path& file_path);
 
 /**
@@ -30,7 +29,7 @@ inline std::vector<std::string> getPathSegments(
  * @param file_path
  * @return
  */
-inline std::vector<std::string> getFileExtensions(
+std::vector<std::string> getFileExtensions(
         const std::filesystem::path& file_path);
 
 /**

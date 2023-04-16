@@ -107,11 +107,7 @@ public:
         if (Zoom > 45.0f) Zoom = 45.0f;
     }
 
-private:
-    // calculates the front vector from the Camera's (updated) Euler Angles
-    glm::mat4 projection_matrix{};
-    float     initial_foV = 45.0f;
-    void      updateCameraVectors() {
+void      updateCameraVectors() {
         // calculate the new Front vector
         float FoV = initial_foV;
         projection_matrix =
@@ -128,6 +124,11 @@ private:
                 WorldUp));// normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
         Up      = glm::normalize(glm::cross(Right, Front));
     }
+private:
+    // calculates the front vector from the Camera's (updated) Euler Angles
+    glm::mat4 projection_matrix{};
+    float     initial_foV = 45.0f;
+    
 };
 
 }// namespace taixu
