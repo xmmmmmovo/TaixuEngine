@@ -1,7 +1,7 @@
 <map id="taixu::editor::Application" name="taixu::editor::Application">
-<area shape="rect" id="node1" title="Application for the whole editor use Singleton pattern." alt="" coords="11,811,202,991"/>
+<area shape="rect" id="node1" title="Application for the whole editor use Singleton pattern." alt="" coords="11,825,202,1005"/>
 <area shape="rect" id="node2" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="5,379,168,529"/>
 <area shape="rect" id="node3" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="57,5,258,141"/>
 <area shape="rect" id="node5" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="145,204,308,355"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="123,553,333,748"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="123,553,333,763"/>
 </map>

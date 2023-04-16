@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['color_1192',['COLOR',['../namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5a04bd834032febb3fda8c6936ee140949',1,'taixu']]],
-  ['compute_1193',['COMPUTE',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3ab86be59142ebc7ff1f2c1720426f5802',1,'taixu']]]
+  ['backward_1359',['BACKWARD',['../namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a6377b4908ae38f9a57fe9120cf179eb1',1,'taixu']]],
+  ['box_1360',['box',['../namespacetaixu.html#a76dd482116d505913bb677a80cbb2895a34be958a921e43d813a2075297d8e862',1,'taixu']]]
 ];

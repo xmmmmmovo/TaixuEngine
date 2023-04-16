@@ -98,34 +98,33 @@ $(document).ready(function(){initNavTree('path_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">inline</span> std::filesystem::path <a class="code" href="namespacetaixu.html#a881dac0713ceac8c69161afa6b6faedc">getRelativePath</a>(</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; directory,</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">inline</span> std::filesystem::path <a class="code" href="namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194">fromRelativePath</a>(</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; directory,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; relative_path);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">inline</span> std::filesystem::path <a class="code" href="namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194">fromRelativePath</a>(</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; relative_path);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="namespacetaixu.html#ac6b2bea29adb7f251249e2af52aaf6ca">getPathSegments</a>(</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="namespacetaixu.html#aa3edf7c7d843186ca8ee41ab8b2a371b">getFileExtensions</a>(</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;std::string <a class="code" href="namespacetaixu.html#aa957f205abdf6df8a3ee560d0da743d0">getLastExtension</a>(<span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;std::string <a class="code" href="namespacetaixu.html#ab19eaf5d7295e86921308f915322a9fe">getFilePureName</a>(<span class="keyword">const</span> std::string&amp;);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;std::filesystem::path <a class="code" href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">getRootPath</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;[[maybe_unused]] std::filesystem::path <a class="code" href="namespacetaixu.html#a57787d8e552695ad3623ad435c8769fb">getDirectoryPath</a>(</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_PATH_HPP</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;std::filesystem::path <a class="code" href="namespacetaixu.html#a881dac0713ceac8c69161afa6b6faedc">getRelativePath</a>(<span class="keyword">const</span> std::filesystem::path&amp; directory,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                      <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;std::filesystem::path <a class="code" href="namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194">fromRelativePath</a>(</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; directory,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; relative_path);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;std::filesystem::path <a class="code" href="namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194">fromRelativePath</a>(</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; relative_path);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;std::vector&lt;std::string&gt; <a class="code" href="namespacetaixu.html#ac6b2bea29adb7f251249e2af52aaf6ca">getPathSegments</a>(</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;std::vector&lt;std::string&gt; <a class="code" href="namespacetaixu.html#aa3edf7c7d843186ca8ee41ab8b2a371b">getFileExtensions</a>(</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;std::string <a class="code" href="namespacetaixu.html#aa957f205abdf6df8a3ee560d0da743d0">getLastExtension</a>(<span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;std::string <a class="code" href="namespacetaixu.html#ab19eaf5d7295e86921308f915322a9fe">getFilePureName</a>(<span class="keyword">const</span> std::string&amp;);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;std::filesystem::path <a class="code" href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">getRootPath</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;[[maybe_unused]] std::filesystem::path <a class="code" href="namespacetaixu.html#a57787d8e552695ad3623ad435c8769fb">getDirectoryPath</a>(</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">const</span> std::filesystem::path&amp; file_path);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_PATH_HPP</span></div>
 <div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:18</div></div>
 <div class="ttc" id="anamespacetaixu_html_a04d29651079899b5a4bcc8b8dcd5c194"><div class="ttname"><a href="namespacetaixu.html#a04d29651079899b5a4bcc8b8dcd5c194">taixu::fromRelativePath</a></div><div class="ttdeci">std::filesystem::path fromRelativePath(const std::filesystem::path &amp;directory, const std::filesystem::path &amp;file_path)</div><div class="ttdef"><b>Definition:</b> path.cpp:46</div></div>
 <div class="ttc" id="anamespacetaixu_html_a47eb4f1e632f585c389145c3e0796793"><div class="ttname"><a href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">taixu::getRootPath</a></div><div class="ttdeci">std::filesystem::path getRootPath()</div><div class="ttdef"><b>Definition:</b> path.cpp:56</div></div>

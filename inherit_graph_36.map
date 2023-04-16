@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtaixu_1_1WindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="5,5,172,32"/>
+<area shape="rect" id="node1" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="5,5,168,47"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1Application.html" title="Application for the whole editor use Singleton pattern." alt="" coords="216,13,399,39"/>
 </map>

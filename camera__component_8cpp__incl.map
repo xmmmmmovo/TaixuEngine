@@ -1,0 +1,13 @@
+<map id="engine/runtime/resource/ecs/entity_component/camera/camera_component.cpp" name="engine/runtime/resource/ecs/entity_component/camera/camera_component.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="199,5,434,61"/>
+<area shape="rect" id="node2" href="$camera__component_8hpp.html" title=" " alt="" coords="227,109,406,136"/>
+<area shape="rect" id="node3" href="$entity__component_8hpp.html" title=" " alt="" coords="65,184,317,225"/>
+<area shape="rect" id="node6" href="$perspective__camera_8hpp.html" title=" " alt="" coords="375,184,578,225"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,273,129,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="153,273,229,300"/>
+<area shape="rect" id="node7" title=" " alt="" coords="253,273,348,300"/>
+<area shape="rect" id="node8" title=" " alt="" coords="372,273,435,300"/>
+<area shape="rect" id="node9" title=" " alt="" coords="459,273,563,300"/>
+<area shape="rect" id="node10" title=" " alt="" coords="588,273,805,300"/>
+<area shape="rect" id="node11" title=" " alt="" coords="829,273,985,300"/>
+</map>

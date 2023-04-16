@@ -2,13 +2,25 @@ var hierarchy =
 [
     [ "taixu::Asset", "structtaixu_1_1Asset.html", null ],
     [ "taixu::AssetManager", "classtaixu_1_1AssetManager.html", null ],
+    [ "BodyActivationListener", null, [
+      [ "taixu::MyBodyActivationListener", "classtaixu_1_1MyBodyActivationListener.html", null ]
+    ] ],
+    [ "JPH::BroadPhaseLayerInterface", null, [
+      [ "taixu::BPLayerInterfaceImpl", "classtaixu_1_1BPLayerInterfaceImpl.html", null ]
+    ] ],
     [ "taixu::BufferElement", "structtaixu_1_1BufferElement.html", null ],
     [ "taixu::BufferLayout", "classtaixu_1_1BufferLayout.html", null ],
+    [ "taixu::CameraComponent", "classtaixu_1_1CameraComponent.html", null ],
     [ "taixu::Clock", "classtaixu_1_1Clock.html", null ],
+    [ "JPH::ContactListener", null, [
+      [ "taixu::MyContactListener", "classtaixu_1_1MyContactListener.html", null ]
+    ] ],
     [ "taixu::ECS", "classtaixu_1_1ECS.html", null ],
     [ "taixu::editor::EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", null ],
     [ "taixu::EntityComponent", "classtaixu_1_1EntityComponent.html", [
-      [ "taixu::MeshComponent", "classtaixu_1_1MeshComponent.html", null ]
+      [ "taixu::MeshComponent", "classtaixu_1_1MeshComponent.html", null ],
+      [ "taixu::RigidBodyComponent", "classtaixu_1_1RigidBodyComponent.html", null ],
+      [ "taixu::TransformComponent", "classtaixu_1_1TransformComponent.html", null ]
     ] ],
     [ "taixu::EntityComponentMap", "classtaixu_1_1EntityComponentMap.html", null ],
     [ "taixu::GameObject", "classtaixu_1_1GameObject.html", null ],
@@ -20,6 +32,8 @@ var hierarchy =
     [ "taixu::IFrameBufferSpecification", "structtaixu_1_1IFrameBufferSpecification.html", null ],
     [ "taixu::editor::ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", null ],
     [ "taixu::ISwapChain", "classtaixu_1_1ISwapChain.html", null ],
+    [ "taixu::JoltParameters", "structtaixu_1_1JoltParameters.html", null ],
+    [ "taixu::JoltPhysics", "structtaixu_1_1JoltPhysics.html", null ],
     [ "taixu::Level", "classtaixu_1_1Level.html", null ],
     [ "std::logic_error", null, [
       [ "taixu::NotImplementedException", "classtaixu_1_1NotImplementedException.html", null ]
@@ -62,8 +76,16 @@ var hierarchy =
         [ "taixu::editor::StatusBarComponent", "classtaixu_1_1editor_1_1StatusBarComponent.html", null ]
       ] ]
     ] ],
+    [ "ObjectLayerPairFilter", null, [
+      [ "taixu::ObjectLayerPairFilterImpl", "classtaixu_1_1ObjectLayerPairFilterImpl.html", null ]
+    ] ],
+    [ "ObjectVsBroadPhaseLayerFilter", null, [
+      [ "taixu::ObjectVsBroadPhaseLayerFilterImpl", "classtaixu_1_1ObjectVsBroadPhaseLayerFilterImpl.html", null ]
+    ] ],
     [ "taixu::OGLContext", "classtaixu_1_1OGLContext.html", null ],
     [ "taixu::PerspectiveCamera", "classtaixu_1_1PerspectiveCamera.html", null ],
+    [ "taixu::PhysicsManager", "classtaixu_1_1PhysicsManager.html", null ],
+    [ "taixu::PhysicsScene", "classtaixu_1_1PhysicsScene.html", null ],
     [ "taixu::Project", "structtaixu_1_1Project.html", null ],
     [ "taixu::ProjectManager", "classtaixu_1_1ProjectManager.html", null ],
     [ "taixu::PublicSingleton< T >", "classtaixu_1_1PublicSingleton.html", null ],
@@ -76,11 +98,12 @@ var hierarchy =
     [ "taixu::PublicSingleton< InputSystem >", "classtaixu_1_1PublicSingleton.html", [
       [ "taixu::InputSystem", "classtaixu_1_1InputSystem.html", null ]
     ] ],
+    [ "taixu::RenderableModelInfo", "structtaixu_1_1RenderableModelInfo.html", null ],
     [ "taixu::RenderContext", "classtaixu_1_1RenderContext.html", null ],
     [ "taixu::RenderData", "classtaixu_1_1RenderData.html", null ],
     [ "taixu::Renderer", "classtaixu_1_1Renderer.html", null ],
+    [ "taixu::RenderUint", "structtaixu_1_1RenderUint.html", null ],
     [ "taixu::Texture", "structtaixu_1_1Texture.html", null ],
-    [ "taixu::TransformComponent", "classtaixu_1_1TransformComponent.html", null ],
     [ "taixu::Vertex", "structtaixu_1_1Vertex.html", null ],
     [ "taixu::editor::ViewModel", "structtaixu_1_1editor_1_1ViewModel.html", null ],
     [ "taixu::WindowContext", "classtaixu_1_1WindowContext.html", null ],

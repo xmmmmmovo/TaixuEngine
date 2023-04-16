@@ -1,5 +1,5 @@
 <map id="taixu::MeshComponent" name="taixu::MeshComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="113,277,287,472"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1EntityComponent.html" title=" " alt="" coords="5,57,181,163"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1TransformComponent.html" title=" " alt="" coords="205,5,408,215"/>
+<area shape="rect" id="node1" title=" " alt="" coords="12,477,185,672"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1EntityComponent.html" title=" " alt="" coords="5,5,181,112"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1TransformComponent.html" title=" " alt="" coords="115,161,317,415"/>
 </map>

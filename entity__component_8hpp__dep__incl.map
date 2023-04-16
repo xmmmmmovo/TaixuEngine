@@ -1,17 +1,25 @@
 <map id="engine/runtime/resource/ecs/entity_component/entity_component.hpp" name="engine/runtime/resource/ecs/entity_component/entity_component.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="610,5,791,61"/>
-<area shape="rect" id="node2" href="$mesh__component_8hpp.html" title=" " alt="" coords="642,213,853,269"/>
-<area shape="rect" id="node4" href="$entity__component__system_8hpp.html" title=" " alt="" coords="514,317,695,373"/>
-<area shape="rect" id="node14" href="$transform__component_8hpp.html" title=" " alt="" coords="738,109,1005,165"/>
-<area shape="rect" id="node3" href="$mesh__component_8cpp.html" title=" " alt="" coords="720,317,929,373"/>
-<area shape="rect" id="node5" href="$engine_8hpp.html" title=" " alt="" coords="399,436,597,463"/>
-<area shape="rect" id="node13" href="$entity__component__system_8cpp.html" title=" " alt="" coords="621,421,802,477"/>
-<area shape="rect" id="node6" href="$application_8hpp.html" title=" " alt="" coords="180,525,392,552"/>
-<area shape="rect" id="node10" href="$main__window_8hpp.html" title=" " alt="" coords="299,689,499,731"/>
-<area shape="rect" id="node12" href="$engine_8cpp.html" title=" " alt="" coords="536,525,732,552"/>
-<area shape="rect" id="node7" href="$application_8cpp.html" title=" " alt="" coords="110,786,321,813"/>
-<area shape="rect" id="node8" href="$main_8cpp.html" title=" " alt="" coords="5,607,177,634"/>
-<area shape="rect" id="node9" href="$menu__component_8hpp.html" title=" " alt="" coords="253,600,461,641"/>
-<area shape="rect" id="node11" href="$main__window_8cpp.html" title=" " alt="" coords="344,779,543,820"/>
-<area shape="rect" id="node15" href="$transform__component_8cpp.html" title=" " alt="" coords="877,213,1143,269"/>
+<area shape="rect" id="node1" title=" " alt="" coords="421,5,603,61"/>
+<area shape="rect" id="node2" href="$camera__component_8hpp.html" title=" " alt="" coords="189,109,425,165"/>
+<area shape="rect" id="node4" href="$mesh__component_8hpp.html" title=" " alt="" coords="264,213,475,269"/>
+<area shape="rect" id="node6" href="$entity__component__system_8hpp.html" title=" " alt="" coords="421,443,603,499"/>
+<area shape="rect" id="node16" href="$rigid__body__component_8hpp.html" title=" " alt="" coords="589,317,771,388"/>
+<area shape="rect" id="node18" href="$transform__component_8hpp.html" title=" " alt="" coords="600,109,867,165"/>
+<area shape="rect" id="node3" href="$camera__component_8cpp.html" title=" " alt="" coords="5,213,240,269"/>
+<area shape="rect" id="node5" href="$mesh__component_8cpp.html" title=" " alt="" coords="214,325,423,381"/>
+<area shape="rect" id="node7" href="$engine_8hpp.html" title=" " alt="" coords="687,569,884,596"/>
+<area shape="rect" id="node15" href="$entity__component__system_8cpp.html" title=" " alt="" coords="421,555,603,611"/>
+<area shape="rect" id="node8" href="$application_8hpp.html" title=" " alt="" coords="679,659,891,685"/>
+<area shape="rect" id="node12" href="$main__window_8hpp.html" title=" " alt="" coords="571,823,771,864"/>
+<area shape="rect" id="node14" href="$engine_8cpp.html" title=" " alt="" coords="915,659,1111,685"/>
+<area shape="rect" id="node9" href="$application_8cpp.html" title=" " alt="" coords="751,919,961,946"/>
+<area shape="rect" id="node10" href="$main_8cpp.html" title=" " alt="" coords="894,741,1066,767"/>
+<area shape="rect" id="node11" href="$menu__component_8hpp.html" title=" " alt="" coords="611,733,819,775"/>
+<area shape="rect" id="node13" href="$main__window_8cpp.html" title=" " alt="" coords="529,912,727,953"/>
+<area shape="rect" id="node17" href="$rigid__body__component_8cpp.html" title=" " alt="" coords="627,436,808,507"/>
+<area shape="rect" id="node19" href="$physics__scene_8hpp.html" title=" " alt="" coords="942,221,1117,262"/>
+<area shape="rect" id="node23" href="$transform__component_8cpp.html" title=" " alt="" coords="601,213,866,269"/>
+<area shape="rect" id="node20" href="$physics__manager_8hpp.html" title=" " alt="" coords="795,332,970,373"/>
+<area shape="rect" id="node22" href="$physics__scene_8cpp.html" title=" " alt="" coords="994,332,1169,373"/>
+<area shape="rect" id="node21" href="$physics__manager_8cpp.html" title=" " alt="" coords="883,451,1058,492"/>
 </map>

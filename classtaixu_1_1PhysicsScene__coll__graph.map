@@ -1,0 +1,9 @@
+<map id="taixu::PhysicsScene" name="taixu::PhysicsScene">
+<area shape="rect" id="node1" title=" " alt="" coords="390,448,589,613"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1ObjectLayerPairFilterImpl.html" title="Class that determines if two object layers can collide." alt="" coords="5,213,232,290"/>
+<area shape="rect" id="node3" title=" " alt="" coords="40,5,197,83"/>
+<area shape="rect" id="node4" href="$structtaixu_1_1JoltParameters.html" title=" " alt="" coords="257,154,477,349"/>
+<area shape="rect" id="node5" href="$structtaixu_1_1JoltPhysics.html" title=" " alt="" coords="501,132,726,371"/>
+<area shape="rect" id="node6" href="$classtaixu_1_1ObjectVsBroadPhaseLayerFilterImpl.html" title=" " alt="" coords="750,205,949,297"/>
+<area shape="rect" id="node7" title=" " alt="" coords="736,5,963,83"/>
+</map>

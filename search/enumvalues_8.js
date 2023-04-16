@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['left_1204',['LEFT',['../namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a684d325a7303f52e64011467ff5c5758',1,'taixu']]]
+  ['idlemode_1373',['IDLEMODE',['../namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ae5cd59ce2a24c6954a3c67dfd4a6c2ed',1,'taixu']]],
+  ['invalid_1374',['invalid',['../namespacetaixu.html#a76dd482116d505913bb677a80cbb2895afedb2d84cafe20862cb4399751a8a7e3',1,'taixu']]]
 ];

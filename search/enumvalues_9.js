@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mesh_5fcomponent_1205',['MESH_COMPONENT',['../namespacetaixu.html#aaec4bf66f7267efd6ed38975e8df9ab5a216e54953a9268abc2dd789dbb7c5c5e',1,'taixu']]],
-  ['model_1206',['MODEL',['../namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba639a04ebc1a05ddf601b9c88883a944b',1,'taixu']]]
+  ['left_1375',['LEFT',['../namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a684d325a7303f52e64011467ff5c5758',1,'taixu']]]
 ];

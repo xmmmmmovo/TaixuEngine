@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['texture_670',['Texture',['../structtaixu_1_1Texture.html',1,'taixu']]],
-  ['transformcomponent_671',['TransformComponent',['../classtaixu_1_1TransformComponent.html',1,'taixu']]]
+  ['statusbarcomponent_765',['StatusBarComponent',['../classtaixu_1_1editor_1_1StatusBarComponent.html',1,'taixu::editor']]]
 ];

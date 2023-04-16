@@ -9,6 +9,7 @@ var classtaixu_1_1Engine =
     [ "PublicSingleton< Engine >", "classtaixu_1_1Engine.html#ac98c32d07778d652e1fe219aa65a4f81", null ],
     [ "_asset_manager", "classtaixu_1_1Engine.html#aaead31559103f31c3e817c761b9163c0", null ],
     [ "_entity_component_system", "classtaixu_1_1Engine.html#a952ce1536f8ac0a05edb82e8634a3500", null ],
+    [ "_physics_manager", "classtaixu_1_1Engine.html#a1e55a52bb33b91fcaa433d098ac34556", null ],
     [ "_project_manager", "classtaixu_1_1Engine.html#a31d75235f9637d6d6c143b7d7b8b7a31", null ],
     [ "_renderer", "classtaixu_1_1Engine.html#ae441372acb59bfce12c59bd94d839042", null ]
 ];

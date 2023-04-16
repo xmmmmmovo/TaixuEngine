@@ -1,6 +1,8 @@
 var namespacetaixu =
 [
+    [ "BroadPhaseLayers", "namespacetaixu_1_1BroadPhaseLayers.html", null ],
     [ "editor", "namespacetaixu_1_1editor.html", "namespacetaixu_1_1editor" ],
+    [ "Layers", "namespacetaixu_1_1Layers.html", null ],
     [ "Clock", "classtaixu_1_1Clock.html", "classtaixu_1_1Clock" ],
     [ "noncopyable", "classtaixu_1_1noncopyable.html", "classtaixu_1_1noncopyable" ],
     [ "IObserver", "classtaixu_1_1IObserver.html", "classtaixu_1_1IObserver" ],
@@ -24,12 +26,23 @@ var namespacetaixu =
     [ "ITexture", "classtaixu_1_1ITexture.html", "classtaixu_1_1ITexture" ],
     [ "IVertexArray", "classtaixu_1_1IVertexArray.html", "classtaixu_1_1IVertexArray" ],
     [ "IVertexBuffer", "classtaixu_1_1IVertexBuffer.html", "classtaixu_1_1IVertexBuffer" ],
+    [ "RenderableModelInfo", "structtaixu_1_1RenderableModelInfo.html", "structtaixu_1_1RenderableModelInfo" ],
+    [ "RenderUint", "structtaixu_1_1RenderUint.html", "structtaixu_1_1RenderUint" ],
     [ "RenderData", "classtaixu_1_1RenderData.html", "classtaixu_1_1RenderData" ],
     [ "RenderContext", "classtaixu_1_1RenderContext.html", "classtaixu_1_1RenderContext" ],
     [ "Renderer", "classtaixu_1_1Renderer.html", "classtaixu_1_1Renderer" ],
     [ "InputSystem", "classtaixu_1_1InputSystem.html", "classtaixu_1_1InputSystem" ],
     [ "IWindow", "classtaixu_1_1IWindow.html", "classtaixu_1_1IWindow" ],
     [ "WindowContext", "classtaixu_1_1WindowContext.html", "classtaixu_1_1WindowContext" ],
+    [ "BPLayerInterfaceImpl", "classtaixu_1_1BPLayerInterfaceImpl.html", "classtaixu_1_1BPLayerInterfaceImpl" ],
+    [ "MyContactListener", "classtaixu_1_1MyContactListener.html", "classtaixu_1_1MyContactListener" ],
+    [ "MyBodyActivationListener", "classtaixu_1_1MyBodyActivationListener.html", "classtaixu_1_1MyBodyActivationListener" ],
+    [ "ObjectLayerPairFilterImpl", "classtaixu_1_1ObjectLayerPairFilterImpl.html", "classtaixu_1_1ObjectLayerPairFilterImpl" ],
+    [ "ObjectVsBroadPhaseLayerFilterImpl", "classtaixu_1_1ObjectVsBroadPhaseLayerFilterImpl.html", "classtaixu_1_1ObjectVsBroadPhaseLayerFilterImpl" ],
+    [ "PhysicsManager", "classtaixu_1_1PhysicsManager.html", "classtaixu_1_1PhysicsManager" ],
+    [ "JoltPhysics", "structtaixu_1_1JoltPhysics.html", "structtaixu_1_1JoltPhysics" ],
+    [ "JoltParameters", "structtaixu_1_1JoltParameters.html", "structtaixu_1_1JoltParameters" ],
+    [ "PhysicsScene", "classtaixu_1_1PhysicsScene.html", "classtaixu_1_1PhysicsScene" ],
     [ "OGLContext", "classtaixu_1_1OGLContext.html", "classtaixu_1_1OGLContext" ],
     [ "OGLElementBuffer", "classtaixu_1_1OGLElementBuffer.html", "classtaixu_1_1OGLElementBuffer" ],
     [ "OGLFrameBuffer", "classtaixu_1_1OGLFrameBuffer.html", "classtaixu_1_1OGLFrameBuffer" ],
@@ -40,9 +53,11 @@ var namespacetaixu =
     [ "OGLVertexBuffer", "classtaixu_1_1OGLVertexBuffer.html", "classtaixu_1_1OGLVertexBuffer" ],
     [ "Asset", "structtaixu_1_1Asset.html", "structtaixu_1_1Asset" ],
     [ "AssetManager", "classtaixu_1_1AssetManager.html", "classtaixu_1_1AssetManager" ],
+    [ "CameraComponent", "classtaixu_1_1CameraComponent.html", "classtaixu_1_1CameraComponent" ],
     [ "EntityComponent", "classtaixu_1_1EntityComponent.html", "classtaixu_1_1EntityComponent" ],
     [ "EntityComponentMap", "classtaixu_1_1EntityComponentMap.html", "classtaixu_1_1EntityComponentMap" ],
     [ "MeshComponent", "classtaixu_1_1MeshComponent.html", "classtaixu_1_1MeshComponent" ],
+    [ "RigidBodyComponent", "classtaixu_1_1RigidBodyComponent.html", "classtaixu_1_1RigidBodyComponent" ],
     [ "TransformComponent", "classtaixu_1_1TransformComponent.html", "classtaixu_1_1TransformComponent" ],
     [ "ECS", "classtaixu_1_1ECS.html", "classtaixu_1_1ECS" ],
     [ "GameObject", "classtaixu_1_1GameObject.html", "classtaixu_1_1GameObject" ],
@@ -91,9 +106,18 @@ var namespacetaixu =
       [ "NONE", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09ab50339a10e1de285ac99d4c3990b8693", null ],
       [ "DEPTH24STENCIL8", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09a7ca3e26e4e5c35e4408bd49c1e32e9a3", null ]
     ] ],
+    [ "oprationType", "namespacetaixu.html#aa81d167ef77c16c91bff85b64953d47a", [
+      [ "ADD", "namespacetaixu.html#aa81d167ef77c16c91bff85b64953d47aab45960709217ede34f9ace64350196b4", null ],
+      [ "CHANGEMODEL", "namespacetaixu.html#aa81d167ef77c16c91bff85b64953d47aaecc8419e3a5047fa93a824f89dc9ea77", null ],
+      [ "TRANSFORM", "namespacetaixu.html#aa81d167ef77c16c91bff85b64953d47aa1697e0a6edc2aaedac8cbd7faa825a15", null ]
+    ] ],
     [ "RenderAPI", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302", [
       [ "NONE", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302ab50339a10e1de285ac99d4c3990b8693", null ],
       [ "OPENGL", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302ac0ad831a34c4633bee584066cfcc5040", null ]
+    ] ],
+    [ "RigidBodyShapeType", "namespacetaixu.html#a76dd482116d505913bb677a80cbb2895", [
+      [ "box", "namespacetaixu.html#a76dd482116d505913bb677a80cbb2895a34be958a921e43d813a2075297d8e862", null ],
+      [ "invalid", "namespacetaixu.html#a76dd482116d505913bb677a80cbb2895afedb2d84cafe20862cb4399751a8a7e3", null ]
     ] ],
     [ "ShaderAPI", "namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8", [
       [ "NONE", "namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8ab50339a10e1de285ac99d4c3990b8693", null ],
@@ -139,6 +163,8 @@ var namespacetaixu =
     [ "mapImageToGLReadType", "namespacetaixu.html#a50b059f197588dff329e7188f511d10e", null ],
     [ "mapToShaderTypeGLenum", "namespacetaixu.html#acaed3ec10be035d59d94c20d504c9aae", null ],
     [ "moveFileOrDirectory", "namespacetaixu.html#a130b718d162392d7986e11dedc51cc90", null ],
+    [ "ObjectvsBroadPhaseCanCollide", "namespacetaixu.html#ad3a482698c12c50284ca452b9ee0a725", null ],
+    [ "ObjectvsObjectCollide", "namespacetaixu.html#ab93b69bb9449fec0e4bd61dfca80b96c", null ],
     [ "openFile", "namespacetaixu.html#ab8a6f66c3e9aa5cf6a63b3cddef321b7", null ],
     [ "openglAPILoader", "namespacetaixu.html#a65841ea64ad9fd1e45ec572bcf0a5d5c", null ],
     [ "operator-", "namespacetaixu.html#a7d32e4469dad517410884a59490b7aa2", null ],

@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtaixu_1_1GameObject.html" title=" " alt="" coords="5,5,149,32"/>
+<area shape="rect" id="node1" href="$classtaixu_1_1EntityComponent.html" title=" " alt="" coords="5,56,181,83"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1MeshComponent.html" title=" " alt="" coords="245,5,418,32"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1RigidBodyComponent.html" title=" " alt="" coords="229,56,433,83"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1TransformComponent.html" title=" " alt="" coords="230,107,433,133"/>
 </map>

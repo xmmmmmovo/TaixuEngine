@@ -1,5 +1,6 @@
 var classtaixu_1_1Model__Data =
 [
+    [ "Model_Data", "classtaixu_1_1Model__Data.html#a45ca4bb049cb94dfa079199504533551", null ],
     [ "Model_Data", "classtaixu_1_1Model__Data.html#ace6225487de1ddf48044ad4ab6c2a7b9", null ],
     [ "Draw", "classtaixu_1_1Model__Data.html#a967cb26e62494f90b67ef79edd59b44e", null ],
     [ "loadMaterialTextures", "classtaixu_1_1Model__Data.html#ad5453ae2ba983eca8ed2944103fd0b56", null ],

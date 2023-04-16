@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertex_1225',['VERTEX',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a4c4c8525ed098cb4d0e1926439f4be9a',1,'taixu']]]
+  ['up_1396',['UP',['../namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8afbaedde498cdead4f2780217646e9ba1',1,'taixu']]]
 ];
