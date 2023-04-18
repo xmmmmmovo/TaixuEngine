@@ -1,4 +1,4 @@
-//
+ï»¿//
 // Created by xmmmmmovo on 2023/2/25.
 //Written by JoeEsong on 2023/4/3
 #include <catch2/catch_test_macros.hpp>
@@ -11,23 +11,23 @@ TEST_CASE("noncopyable") {
     //    taixu::Asset_Manager manager{};
     //    manager.loadAsset("assets/asset.json");
     //    manager.writeAsset();
-    // ´´½¨²âÊÔÊı¾İ
+    // åˆ›å»ºæµ‹è¯•æ•°æ®
     taixu::AssetManager manager;
     manager.loadAsset("models/test_model.obj", taixu::AssetType::MODEL);
     manager.loadAsset("textures/test_texture.png", taixu::AssetType::TEXTURE);
 
-    // Ö´ĞĞº¯Êı
+    // æ‰§è¡Œå‡½æ•°
     std::string file_path   = "test.json";
     manager.asset_file_path = file_path;
     manager.writeAsset();
 
-    // ¶ÁÈ¡Éú³ÉµÄJSONÎÄ¼ş
+    // è¯»å–ç”Ÿæˆçš„JSONæ–‡ä»¶
     std::ifstream     i(file_path);
     std::stringstream buffer{};
     buffer << i.rdbuf();
     std::string json_str = buffer.str();
     i.close();
-    // ¼ì²éÉú³ÉµÄJSONÎÄ¼şÊÇ·ñÕıÈ·
+    // æ£€æŸ¥ç”Ÿæˆçš„JSONæ–‡ä»¶æ˜¯å¦æ­£ç¡®
     std::stringstream ss;
     ss << "{\"assets\":[{\"guid\":\"" << manager.asset_list[0].guid
        << "\",\"name\":\"" << manager.asset_list[0].name << "\",\"location\":\""
@@ -38,6 +38,6 @@ TEST_CASE("noncopyable") {
        << manager.asset_list[1].location << "\",\"type\":\""
        << manager.asset_list[1].type << "\"}]}";
     std::string result = ss.str();
-    
+    printf("ç¼–ç ä¿®æ”¹ä¸ºutf-8");
     REQUIRE(json_str == result);
 }
