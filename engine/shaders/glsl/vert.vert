@@ -7,6 +7,5 @@ uniform mat4 V;
 uniform mat4 M;
 uniform mat3 MV3x3;
 uniform vec3 LightPosition_worldspace;
-uniform mat4 transform;
 
-void main() { gl_Position = MVP * transform * vec4(aPos.x, aPos.y, aPos.z, 1.0); }
+void main() { gl_Position = MVP * vec4(aPos.x, aPos.y, aPos.z, 1.0); }

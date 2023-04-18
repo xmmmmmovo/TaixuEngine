@@ -25,7 +25,7 @@ public:
     void initialize();
     void bindMesh(Mesh mesh) const;
     //void rebindMesh(Mesh mesh) const;
-    void tickbyMesh(Mesh const& mesh);
+    void tickMesh(Mesh const& mesh);
     void drawbyElement(Mesh const& mesh);
     void clear();
 };

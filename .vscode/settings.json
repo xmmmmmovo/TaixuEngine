@@ -8,8 +8,7 @@
         "**/3rdparty": true
     },
     "files.associations": {
-        "*.tsx": "typescriptreact",
-        "iostream": "cpp",
+        "memory": "cpp",
         "algorithm": "cpp",
         "any": "cpp",
         "array": "cpp",
@@ -27,6 +26,7 @@
         "complex": "cpp",
         "concepts": "cpp",
         "condition_variable": "cpp",
+        "coroutine": "cpp",
         "csignal": "cpp",
         "cstdarg": "cpp",
         "cstddef": "cpp",
@@ -48,13 +48,13 @@
         "iomanip": "cpp",
         "ios": "cpp",
         "iosfwd": "cpp",
+        "iostream": "cpp",
         "istream": "cpp",
         "iterator": "cpp",
         "limits": "cpp",
         "list": "cpp",
         "locale": "cpp",
         "map": "cpp",
-        "memory": "cpp",
         "mutex": "cpp",
         "new": "cpp",
         "numeric": "cpp",
@@ -66,6 +66,7 @@
         "ratio": "cpp",
         "regex": "cpp",
         "set": "cpp",
+        "shared_mutex": "cpp",
         "span": "cpp",
         "sstream": "cpp",
         "stack": "cpp",
@@ -100,9 +101,6 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xtree": "cpp",
-        "xutility": "cpp",
-        "*.def": "cpp"
-    },
-    "cmake.configureOnOpen": true,
-    "C_Cpp.errorSquiggles": "enabled"
+        "xutility": "cpp"
+    }
 }
