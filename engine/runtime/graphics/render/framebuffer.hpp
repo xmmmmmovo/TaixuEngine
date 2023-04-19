@@ -5,14 +5,13 @@
 #ifndef TAIXUENGINE_FRAMEBUFFER_HPP
 #define TAIXUENGINE_FRAMEBUFFER_HPP
 
-#endif//TAIXUENGINE_FRAMEBUFFER_HPP
-
 namespace taixu {
 
 enum class FrameColorImageFormat {
     NONE = 0,
 
     RGBA8,
+    RGBA,
     RED_INTEGER,
 };
 
@@ -27,10 +26,12 @@ struct IFrameBufferSpecification {
 };
 
 class IFrameBuffer {
-    virtual void          bind()             = 0;
-    virtual void          unbind()           = 0;
-    virtual std::uint32_t getFrameBufferID() = 0;
+public:
+    virtual void          bind()                        = 0;
+    virtual void          unbind()                      = 0;
+    virtual std::uint32_t getFrameBufferID()            = 0;
+    virtual void          resize(int width, int height) = 0;
 };
-
-
 }// namespace taixu
+
+#endif//TAIXUENGINE_FRAMEBUFFER_HPP

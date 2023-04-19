@@ -10,14 +10,24 @@
 
 namespace taixu {
 class OGLFrameBuffer : public IFrameBuffer {
-public:
-    std::uint32_t fbo{}, rbo{}, bufferTexId{};
+private:
+    int    _width{0}, _height{0};
+    GLuint _fbo{}, _rbo{}, _bufferTexId{};
 
-    void allocate(glm::vec2 frame_size);
+    IFrameBufferSpecification _specification{};
+
+    bool created{false};
+
+    void createFramebuffer();
+
+public:
+    explicit OGLFrameBuffer(const IFrameBufferSpecification &specification)
+        : _specification(specification) {}
 
     void          bind() override;
     void          unbind() override;
     std::uint32_t getFrameBufferID() override;
+    void          resize(int width, int height) override;
 };
 
 

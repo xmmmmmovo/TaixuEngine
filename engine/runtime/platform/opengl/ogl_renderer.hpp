@@ -13,10 +13,10 @@ namespace taixu {
 class OGLRenderer : public BaseRenderer<OGLContext> {
 public:
     void initialize() override;
-    void tick(float delta_time) override;
-    void clear() override;
 
-    IGraphicsContext *getContext() override;
+    void tick(float delta_time) override;
+    
+    void clear() override;
 };
 
 }// namespace taixu

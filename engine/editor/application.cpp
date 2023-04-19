@@ -55,6 +55,7 @@ void Application::initialize(std::vector<std::string> const &args) {
     window_ptr_local->init();
 
     _engine_ptr->init();
+
     window_ptr_local->setEngineRuntime(_engine_ptr);
     this->_window_ptr = std::move(window_ptr_local);
 }

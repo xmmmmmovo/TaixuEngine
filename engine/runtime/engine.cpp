@@ -17,7 +17,6 @@ void Engine::init(RenderAPI api) {
         case RenderAPI::NONE:
             break;
     }
-
     _renderer->initialize();
 
     _project_manager = std::make_unique<ProjectManager>();

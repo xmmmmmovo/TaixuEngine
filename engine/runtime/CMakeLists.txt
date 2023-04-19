@@ -14,10 +14,10 @@ if (USE_PCH)
     target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch.hpp)
 endif ()
 
-
-target_link_libraries(${TARGET_NAME} glm glfw ${OGLLIB} ${FREETYPE_LIBS}
-        glad imgui stb spdlog::spdlog assimp nlohmann_json::nlohmann_json refl-cpp::refl-cpp
-        magic_enum::magic_enum freetype Jolt Threads::Threads)
+target_link_libraries(${TARGET_NAME} PUBLIC Threads::Threads freetype)
+target_link_libraries(${TARGET_NAME} PUBLIC Jolt imgui ${OGLLIB} glad glfw stb glm)
+target_link_libraries(${TARGET_NAME} PUBLIC nlohmann_json::nlohmann_json magic_enum::magic_enum spdlog::spdlog)
+target_link_libraries(${TARGET_NAME} PUBLIC imgui refl-cpp::refl-cpp assimp)
 
 add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET})
 target_include_directories(
