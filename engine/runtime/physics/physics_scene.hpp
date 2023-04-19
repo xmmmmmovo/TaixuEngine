@@ -84,7 +84,7 @@ public:
     JPH::Shape* toShape(RigidBodyShapeType shape, const glm::vec3& scale);
     JPH::BodyID createRigidBodyActor(RigidbodyInfo rgdInfo);
     void createRigidBodyActor();
-    void removeRigidBodyActor(uint32_t body_id);
+    void removeRigidBodyActor(JPH::BodyID body_id);
 
     void tick();
     void updateGlobalTransform(TransformComponent* _transf, JPH::BodyID body_id);

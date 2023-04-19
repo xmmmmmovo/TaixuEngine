@@ -107,7 +107,7 @@ void PhysicsScene::createRigidBodyActor() {
     //return sphere_id.GetIndexAndSequenceNumber();
 }
 
-void PhysicsScene::removeRigidBodyActor(uint32_t body_id) {
+void PhysicsScene::removeRigidBodyActor(JPH::BodyID body_id) {
 
 }
 
