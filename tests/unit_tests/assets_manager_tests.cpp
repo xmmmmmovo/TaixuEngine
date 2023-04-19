@@ -38,6 +38,6 @@ TEST_CASE("noncopyable") {
        << manager.asset_list[1].location << "\",\"type\":\""
        << manager.asset_list[1].type << "\"}]}";
     std::string result = ss.str();
-    printf("编码修改为utf-8");
+ 
     REQUIRE(json_str == result);
 }
