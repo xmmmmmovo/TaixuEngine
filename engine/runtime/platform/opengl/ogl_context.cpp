@@ -1,45 +1,32 @@
-#include "platform/opengl/ogl_context.hpp"
-
 #include "ogl_context.hpp"
+#include "core/base/macro.hpp"
+#include "graphics/render/render_api.hpp"
 
+namespace taixu {
 
-void taixu::OGLContext::initialize() {
-    vertex_array = std::make_unique<OGLVertexArray>();
+constexpr std::array<float, 3> const CLEAR_COLOR{0.5294117647f, 0.8078431373f,
+                                                 0.9215686275f};
+
+void OGLContext::initialize(GLFWwindow *window) {
+    _window = window;
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPENGL_MAJOR_VERSION);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, OPENGL_MINOR_VERSION);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+    glfwMakeContextCurrent(window);
+
+    // TODO: 检测是否正确
+    loadAPI(RenderAPI::OPENGL);
 }
 
-void taixu::OGLContext::bindMesh(Mesh mesh) const {
-    vertex_array->bind();
+void OGLContext::swapBuffers() { glfwSwapBuffers(_window); }
 
-    OGLElementBuffer element_buffer(mesh.indices, GL_STATIC_DRAW);
-
-    std::vector<glm::vec3> vertices(mesh.vertices.size());
-    for (std::size_t i = 0; i < mesh.vertices.size(); ++i) {
-        vertices[i] = mesh.vertices[i].Position;
-    }
-    OGLVertexBuffer buf(vertices.size(), vertices.data(), GL_STATIC_DRAW, 3);
-    vertex_array->addVBO(std::move(buf));
-    vertex_array->setEBO(std::move(element_buffer));
-    
-    vertex_array->unbind();
-}
-
-void taixu::OGLContext::tickMesh(Mesh const&mesh) {
-
-    vertex_array->bind();
-    
-    //Draw as meshes
-    drawbyElement(mesh);
-
-    vertex_array->unbind();
-
-}
-
-void taixu::OGLContext::drawbyElement(Mesh const& mesh) {
-    glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(mesh.indices.size()),
-                   GL_UNSIGNED_INT, 0);
-}
-
-void taixu::OGLContext::clear() {
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+void OGLContext::clear() {
+    glClearColor(CLEAR_COLOR[0], CLEAR_COLOR[1], CLEAR_COLOR[2], 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
+
+}// namespace taixu

@@ -20,6 +20,6 @@ enum class ShaderAPI { NONE, GLSL, HLSL };
 
 [[maybe_unused]] void loadAPI(RenderAPI api);
 
-}// namespace taixu::cg
+}// namespace taixu
 
 #endif//TAIXUENGINE_RENDER_API_HPP

@@ -4,4 +4,12 @@
 
 #include "ogl_renderer.hpp"
 
-namespace taixu {}
+namespace taixu {
+void OGLRenderer::initialize() {}
+
+void OGLRenderer::tick(float delta_time) {}
+
+void OGLRenderer::clear() {}
+
+IGraphicsContext *OGLRenderer::getContext() { return this->context.get(); }
+}// namespace taixu

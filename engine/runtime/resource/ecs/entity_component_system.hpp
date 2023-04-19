@@ -8,39 +8,37 @@
 #include <vector>
 
 #include "game_object.hpp"
+#include "graphics/render_context.hpp"
+#include "physics/physics_manager.hpp"
 #include "resource/ecs/entity_component/entity_component.hpp"
 #include "resource/ecs/entity_component/mesh/mesh_component.hpp"
 #include "resource/ecs/entity_component/rigid_body/rigid_body_component.hpp"
 #include "resource/guid_genenrator.hpp"
 #include "spdlog/spdlog.h"
 #include "world_manager.hpp"
-#include "physics/physics_manager.hpp"
 
 
-namespace taixu
-{
-enum class ComponentType{MESH_COMPONENT,TRANSFORM_COMPONENT};
+namespace taixu {
+enum class ComponentType { MESH_COMPONENT, TRANSFORM_COMPONENT };
 
-class ECS
-{
+class ECS {
 public:
-    
-    std::weak_ptr<RenderContext>data_target;
-    std::weak_ptr<PhysicsScene>scene_target;
-    void initialize();
-    void dataRedirection(std::shared_ptr<RenderContext> render_context);
+    IGraphicsContext           *data_target;
+    std::weak_ptr<PhysicsScene> scene_target;
+    void                        initialize();
+    void dataRedirection(IGraphicsContext *render_context);
     void sceneRedirection(std::shared_ptr<PhysicsScene> physics_scene);
 
-    void reloadWorld(const std::filesystem::path &world_path); 
+    void reloadWorld(const std::filesystem::path &world_path);
 
-    void tick(float delta_time=0.033);
+    void tick(float delta_time = 0.033);
 
 private:
-    std::vector<EntityComponentMap> all_components;
-    std::shared_ptr<WorldManager> taixu_world;
+    std::vector<EntityComponentMap>                  all_components;
+    std::shared_ptr<WorldManager>                    taixu_world;
     std::vector<std::unique_ptr<TransformComponent>> global_transform;
 };
 
-}
+}// namespace taixu
 
 #endif /* TAIXUENGINE_ENTITY_COMPONENT_SYSTEM */

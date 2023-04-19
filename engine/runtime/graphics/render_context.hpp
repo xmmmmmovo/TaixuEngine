@@ -5,6 +5,7 @@
 #ifndef TAIXUENGINE_RENDER_CONTEXT_HPP
 #define TAIXUENGINE_RENDER_CONTEXT_HPP
 
+#include "core/base/noncopyable.hpp"
 #include <GLFW/glfw3.h>
 
 namespace taixu {

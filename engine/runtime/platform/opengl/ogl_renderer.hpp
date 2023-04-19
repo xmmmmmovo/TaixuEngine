@@ -5,8 +5,20 @@
 #ifndef TAIXUENGINE_OGL_RENDERER_HPP
 #define TAIXUENGINE_OGL_RENDERER_HPP
 
+#include "graphics/renderer.hpp"
+#include "ogl_context.hpp"
+
 namespace taixu {
-class OGLRenderer {};
+
+class OGLRenderer : public BaseRenderer<OGLContext> {
+public:
+    void initialize() override;
+    void tick(float delta_time) override;
+    void clear() override;
+
+    IGraphicsContext *getContext() override;
+};
+
 }// namespace taixu
 
 #endif//TAIXUENGINE_OGL_RENDERER_HPP

@@ -43,30 +43,30 @@ void Application::initialize(std::vector<std::string> const &args) {
     initSpdlog();
     initApplicationArgs(args);
 
-    context_ptr = std::make_unique<WindowContext>(
+    _context_ptr = std::make_unique<WindowContext>(
             MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE);
 
-    InputSystem::getInstance().setContext(context_ptr.get());
+    InputSystem::getInstance().setContext(_context_ptr.get());
 
     // init window pointer
     std::unique_ptr<MainWindow> window_ptr_local =
-            std::make_unique<MainWindow>(context_ptr.get());
+            std::make_unique<MainWindow>(_context_ptr.get());
     // init window
     window_ptr_local->init();
 
     _engine_ptr->init();
     window_ptr_local->setEngineRuntime(_engine_ptr);
-    this->window_ptr = std::move(window_ptr_local);
+    this->_window_ptr = std::move(window_ptr_local);
 }
 
 void Application::run() {
-    while (!this->context_ptr->shouldClose()) {
-        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+    while (!this->_context_ptr->shouldClose()) {
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         this->_engine_ptr->update();
-        this->window_ptr->update();
+        this->_window_ptr->update();
     }
 }
 
-void Application::destroy() { this->window_ptr->destroy(); }
+void Application::destroy() { this->_window_ptr->destroy(); }
 }// namespace taixu::editor

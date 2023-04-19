@@ -4,20 +4,29 @@
 
 #include "core/base/public_singleton.hpp"
 #include "gui/input_system.hpp"
+#include "platform/opengl/ogl_renderer.hpp"
 
 namespace taixu {
 
-void Engine::init() {
-    _renderer = std::make_unique<Renderer>();
+void Engine::init(RenderAPI api) {
+    this->_render_api = api;
+    switch (api) {
+        case RenderAPI::OPENGL:
+            _renderer = std::make_unique<OGLRenderer>();
+            break;
+        case RenderAPI::NONE:
+            break;
+    }
+
     _renderer->initialize();
 
-    _project_manager         = std::make_unique<ProjectManager>();
-    _asset_manager           = std::make_unique<AssetManager>();
-    _physics_manager         = std::make_unique<PhysicsManager>();
+    _project_manager = std::make_unique<ProjectManager>();
+    _asset_manager   = std::make_unique<AssetManager>();
+    _physics_manager = std::make_unique<PhysicsManager>();
     _physics_manager->initialize();
-    
+
     _entity_component_system = std::make_unique<ECS>();
-    _entity_component_system->dataRedirection(_renderer->render_context);
+    _entity_component_system->dataRedirection(_renderer->getContext());
     _entity_component_system->sceneRedirection(_physics_manager->current_scene);
     _entity_component_system->initialize();
 }
@@ -31,9 +40,9 @@ void Engine::update() {
 
 void Engine::shutdown() {}
 
-Renderer* Engine::getRenderer() const { return _renderer.get(); }
+AbstractRenderer *Engine::getRenderer() const { return _renderer.get(); }
 
-Status Engine::loadProject(const std::string_view& path) {
+Status Engine::loadProject(const std::string_view &path) {
     spdlog::info("Loading project: {}", path);
     Status const status = _project_manager->openProject(path);
     if (Status::OK != status) {
@@ -47,7 +56,7 @@ Status Engine::loadProject(const std::string_view& path) {
     return Status::OK;
 }
 
-Project* Engine::getOpenedProject() const {
+Project *Engine::getOpenedProject() const {
     return this->_project_manager->getCurrentProject();
 }
 

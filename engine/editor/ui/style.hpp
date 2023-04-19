@@ -18,16 +18,16 @@ struct EditorStyle {
     EditorStyle() = default;
     EditorStyle(ImGuiCol idx, ImVec4 color, bool predicate = true)
         : mSet(predicate) {
-        if (predicate) ImGui::PushStyleColor(idx, color);
+        if (predicate) { ImGui::PushStyleColor(idx, color); }
     }
 
     EditorStyle(ImGuiCol idx, ImU32 color, bool predicate = true)
         : mSet(predicate) {
-        if (predicate) ImGui::PushStyleColor(idx, color);
+        if (predicate) { ImGui::PushStyleColor(idx, color); }
     }
 
     ~EditorStyle() {
-        if (mSet) ImGui::PopStyleColor();
+        if (mSet) { ImGui::PopStyleColor(); }
     }
 
 private:

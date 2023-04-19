@@ -9,7 +9,7 @@ namespace taixu {
 void openglAPILoader() {
     // glad: load all OpenGL function pointers
     // ---------------------------------------
-    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+    if (!gladLoadGLLoader(reinterpret_cast<GLADloadproc>(glfwGetProcAddress))) {
         spdlog::error("Failed to initialize GLAD");
         exit(1);
     }

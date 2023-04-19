@@ -32,8 +32,8 @@ private:
      * so there is just one pointer
      * @see IWindow
      */
-    std::unique_ptr<IWindow>       window_ptr{nullptr};
-    std::unique_ptr<WindowContext> context_ptr{nullptr};
+    std::unique_ptr<IWindow>       _window_ptr{nullptr};
+    std::unique_ptr<WindowContext> _context_ptr{nullptr};
     // get engine instance raw pointer
     Engine                        *_engine_ptr = &Engine::getInstance();
 

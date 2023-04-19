@@ -22,21 +22,21 @@ namespace taixu::editor {
  */
 class MenuComponent : public IUIComponent {
 private:
-    callback<std::string_view const&> onNewProject{nullptr};
-    callback<std::string_view const&> onOpenProject{nullptr};
-    callback<>                        onSaveProject{nullptr};
-    callback<std::string_view const&> onSaveAsProject{nullptr};
+    callback<std::string_view const &> _on_new_project{nullptr};
+    callback<std::string_view const &> _on_open_project{nullptr};
+    callback<>                         _on_save_project{nullptr};
+    callback<std::string_view const &> _on_save_as_project{nullptr};
 
 public:
-    void bindCallbacks(
-            callback<std::string_view const&> const& onNewProject,
-            callback<std::string_view const&> const& onOpenProject,
-            callback<> const&                        onSaveProject,
-            callback<std::string_view const&> const& onSaveAsProject) {
-        this->onNewProject    = onNewProject;
-        this->onOpenProject   = onOpenProject;
-        this->onSaveProject   = onSaveProject;
-        this->onSaveAsProject = onSaveAsProject;
+    void
+    bindCallbacks(callback<std::string_view const &> const &onNewProject,
+                  callback<std::string_view const &> const &onOpenProject,
+                  callback<> const                         &onSaveProject,
+                  callback<std::string_view const &> const &onSaveAsProject) {
+        this->_on_new_project     = onNewProject;
+        this->_on_open_project    = onOpenProject;
+        this->_on_save_project    = onSaveProject;
+        this->_on_save_as_project = onSaveAsProject;
     }
 
     void update() override {
@@ -64,7 +64,7 @@ public:
                     1, nullptr, ImGuiFileDialogFlags_Modal);
         }
         if (ImGui::MenuItem("save project")) {
-            if (onSaveProject) { onSaveProject(); }
+            if (_on_save_project) { _on_save_project(); }
         }
         if (ImGui::MenuItem("save as project")) {
             ImGuiFileDialog::Instance()->OpenDialog(
@@ -73,7 +73,7 @@ public:
                     DEBUG_PATH "/example_proj"
 #else
                     getRootPath().c_str()
-#endif /* ENGINE_EDITOR_UI_COMPONENTS_MENU_COMPONENT */
+#endif /* NDEBUG */
                     ,
                     1, nullptr, ImGuiFileDialogFlags_Modal);
         }
@@ -86,16 +86,16 @@ public:
         }
     }
 
-    static void onDialogOpen(std::string_view const&                  key,
-                      callback<std::string_view const&> const& cb) {
+    static void onDialogOpen(std::string_view const                   &key,
+                             callback<std::string_view const &> const &cb) {
         if (ImGuiFileDialog::Instance()->Display(key.data())) {
             // action if OK
             if (ImGuiFileDialog::Instance()->IsOk()) {
-                std::string filePath =
+                std::string const file_path =
                         ImGuiFileDialog::Instance()->GetCurrentPath();
                 // action
-                spdlog::debug(filePath);
-                if (cb) { cb(filePath); }
+                spdlog::debug(file_path);
+                if (cb) { cb(file_path); }
             }
 
             // close
@@ -105,12 +105,12 @@ public:
 
     void processFileDialog() {
         // display
-        onDialogOpen("NewProjectDlgKey", onNewProject);
-        onDialogOpen("ChooseDirDlgKey", onOpenProject);
-        onDialogOpen("SaveAsDirDlgKey", onSaveAsProject);
+        onDialogOpen("NewProjectDlgKey", _on_new_project);
+        onDialogOpen("ChooseDirDlgKey", _on_open_project);
+        onDialogOpen("SaveAsDirDlgKey", _on_save_as_project);
     }
 };
 
 }// namespace taixu::editor
 
-#endif//TAIXUENGINE_MENU_COMPONENT_HPP
+#endif//ENGINE_EDITOR_UI_COMPONENTS_MENU_COMPONENT
