@@ -1,7 +1,7 @@
 #ifndef TAIXUENGINE_PHYSICS_SCENE
 #define TAIXUENGINE_PHYSICS_SCENE
 
-#include "physics/Jolt_utilities.hpp"
+
 #include <Jolt/Jolt.h>
 
 #include <Jolt/RegisterTypes.h>
@@ -15,8 +15,9 @@
 #include <Jolt/Physics/Body/BodyCreationSettings.h>
 #include <Jolt/Physics/Body/BodyActivationListener.h>
 
-
+#include "physics/Jolt_utilities.hpp"
 #include "resource/ecs/entity_component/transform/transform_component.hpp"
+#include "resource/ecs/entity_component/rigid_body/rigid_body_component.hpp"
 
 namespace taixu
 {
@@ -54,7 +55,16 @@ namespace taixu
         uint32_t m_max_concurrent_job_count {4};
 
         glm::vec3 m_gravity {0.f, 0.f, -9.8f}; 
-    };   
+    };
+
+    // struct PhysicsGOmap
+    // {
+    //     std::uint32_t GO;
+    //     JPH::BodyID shape_id;
+    // };   
+
+    struct RigidbodyInfo;
+    enum class RigidBodyShapeType;
 
 class PhysicsScene
 {
@@ -66,14 +76,18 @@ public:
     ObjectLayerPairFilterImpl object_vs_object_layer_filter;
     JPH::BodyID sphere_id;
     int step =0;
-    void initialize();
+    
+    std::vector<RigidbodyInfo> dirty_rgd;
+    std::vector<JPH::BodyID> current_bodies;
 
-    //uint32_t createRigidBodyActor();
+    void initialize();
+    JPH::Shape* toShape(RigidBodyShapeType shape, const glm::vec3& scale);
+    JPH::BodyID createRigidBodyActor(RigidbodyInfo rgdInfo);
     void createRigidBodyActor();
     void removeRigidBodyActor(uint32_t body_id);
 
     void tick();
-    void updateGlobalTransform(TransformComponent* _transf);
+    void updateGlobalTransform(TransformComponent* _transf, JPH::BodyID body_id);
 };
 
 }

@@ -133,6 +133,7 @@ void MainWindow::setEngineRuntime(Engine* engine_runtime_ptr) {
 
     ImguiSurface::init(context_ptr->_window);
     render_component->_renderer = renderer;
+    context_ptr->_editor_camera.get()->Position = glm::vec3(0.0f,4.0f,20.0f);
     renderer->render_context->_camera           = context_ptr->_editor_camera.get();
 
     InputSystem::getInstance().registerEditorCallback([this](float delta_time) {
