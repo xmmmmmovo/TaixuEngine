@@ -200,6 +200,19 @@ public:
         glUniformMatrix4fv(glGetUniformLocation(_id, name.data()), 1, GL_FALSE,
                            &mat[0][0]);
     }
+
+    /**
+     * @brief
+     * @param name
+     * @param vector
+     */
+    void set_uniform(const std::string_view name,
+                     const std::vector<LightInfo>       &st) const noexcept override {
+
+        glUniform1i(glGetUniformLocation(_id, "numLights"), st.size());
+        glBufferData(GL_UNIFORM_BUFFER, sizeof(LightInfo) * st.size(), st.data(), GL_DYNAMIC_DRAW);
+        
+    }
 };
 
 }// namespace taixu

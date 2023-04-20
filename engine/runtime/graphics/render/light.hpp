@@ -12,22 +12,18 @@ enum class LightSourseType{
     //DIRECTION,
 };
 
-struct LightInfo
-{
-    std::uint32_t light_id;
-    glm::vec4 light_position;
-    glm::vec4 light_color;
-};
-
 class LightSourse
 {
 public:
+    LightSourse() = default;
     LightSourseType type;
     TransformComponent * transform;
+    glm::vec4 light_color;
     std::uint32_t unique_id;
 
     void initialize();
-    void SetPosition();
+    void setPosition(const glm::vec3 &pos);
+    void setcolor(const glm::vec4 &pos);
     
 
 };

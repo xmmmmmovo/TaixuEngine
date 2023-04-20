@@ -11,16 +11,34 @@ void taixu::OGLContext::bindMesh(Mesh mesh) const {
     vertex_array->bind();
 
     OGLElementBuffer element_buffer(mesh.indices, GL_STATIC_DRAW);
-
+    //positions
     std::vector<glm::vec3> vertices(mesh.vertices.size());
     for (std::size_t i = 0; i < mesh.vertices.size(); ++i) {
         vertices[i] = mesh.vertices[i].Position;
     }
-    OGLVertexBuffer buf(vertices.size(), vertices.data(), GL_STATIC_DRAW, 3);
-    vertex_array->addVBO(std::move(buf));
+    OGLVertexBuffer vbuf(vertices.size(), vertices.data(), GL_STATIC_DRAW, 3);
+    vertex_array->addVBO(std::move(vbuf));
+    //normals
+    std::vector<glm::vec3> normals(mesh.vertices.size());
+    for (std::size_t i = 0; i < mesh.vertices.size(); ++i) {
+        normals[i] = mesh.vertices[i].Normal;
+    }
+    OGLVertexBuffer nbuf(normals.size(), normals.data(), GL_STATIC_DRAW, 3);
+    vertex_array->addVBO(std::move(nbuf));
+    //textcoords
+    std::vector<glm::vec2> textcoords(mesh.vertices.size());
+    for (std::size_t i = 0; i < mesh.vertices.size(); ++i) {
+        textcoords[i] = mesh.vertices[i].TexCoords;
+    }
+    OGLVertexBuffer tbuf(textcoords.size(), textcoords.data(), GL_STATIC_DRAW, 3);
+    vertex_array->addVBO(std::move(tbuf));
+
     vertex_array->setEBO(std::move(element_buffer));
     
     vertex_array->unbind();
+
+
+
 }
 
 void taixu::OGLContext::tickMesh(Mesh const&mesh) {

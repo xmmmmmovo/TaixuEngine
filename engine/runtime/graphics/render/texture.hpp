@@ -25,7 +25,7 @@ public:
 
     virtual bool operator==(const ITexture& other) const = 0;
 
-    ~ITexture() override = 0;
+    ~ITexture() override = default;
 };
 
 }// namespace taixu

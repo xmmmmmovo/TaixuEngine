@@ -75,6 +75,9 @@ public:
     virtual void set_uniform(std::string_view name,
                              const glm::mat4 &mat) const noexcept = 0;
 
+    virtual void set_uniform(std::string_view name,
+                             const std::vector<LightInfo> &st) const noexcept = 0;
+
 protected:
     unsigned int _id{0};
 };

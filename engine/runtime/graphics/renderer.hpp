@@ -18,6 +18,8 @@
 #include "graphics/render/texture.hpp"
 #include "platform/opengl/ogl_context.hpp"
 #include "platform/opengl/ogl_shader.hpp"
+#include "platform/opengl/ogl_texture.hpp"
+#include "graphics/render/light.hpp"
 
 namespace taixu {
     enum oprationType{ADD,CHANGEMODEL,TRANSFORM};
@@ -26,6 +28,7 @@ namespace taixu {
     {
         std::uint32_t GO{4294967295}; //Invalid
         const char* file_path{"INVALID"};
+        const char* texture_path{"INVALID"};
         glm::mat4 transform_matrix{glm::mat4(1.0f)};
         oprationType opt;
     };
@@ -34,9 +37,18 @@ namespace taixu {
     {
         std::uint32_t GO{4294967295}; //Invalid
         Model_Data model{};
+        std::uint32_t texture_id;
         std::shared_ptr<OGLContext> GPU;
         bool dirty{false};
         glm::mat4 transform_matrix{glm::mat4(1.0f)};
+    };
+
+    struct LightInfo
+    {
+        //std::uint32_t light_id;
+        glm::vec4 light_position;
+        glm::vec4 light_color;
+        
     };
 
 class RenderData {
@@ -72,10 +84,22 @@ public:
                     auto render_uint = std::make_shared<RenderUint>();
                     render_uint->GO = modinfo.GO;
                     render_uint->model.loadModel(modinfo.file_path);
+
+                   
                     render_uint->transform_matrix = modinfo.transform_matrix;
                     render_uint->GPU = std::make_shared<OGLContext>();
                     render_uint->GPU->initialize();
                     render_uint->GPU->bindMesh(render_uint->model.meshes[0]);
+
+                    if(modinfo.texture_path != "INVALID")
+                    {
+                        std::string tempview (modinfo.texture_path);
+                        auto texture = std::make_unique<OGLTexture>(tempview,GL_LINEAR,GL_REPEAT);
+                        render_uint->texture_id = texture->getTextureID();
+                        prepared_textures.push_back(std::move(texture));
+                        render_uint->GPU->texture = prepared_textures.back().get();
+                    }
+    
                     prepared_models.push_back(render_uint);
                 }
                 else if(modinfo.opt == oprationType::CHANGEMODEL){}
@@ -91,6 +115,18 @@ public:
             dirty_models.clear();
         }
         
+        if(lightisdirty == true)
+        {
+            prepared_light.clear();
+            for(auto& light : light_source)
+            {
+                LightInfo li;
+                li.light_color = light.get()->light_color;
+                li.light_position = glm::vec4(light.get()->transform->position,1.0f);
+                prepared_light.push_back(li);
+            }
+        }
+
 
     }
 
@@ -101,7 +137,12 @@ public:
 
     std::vector<std::shared_ptr<RenderUint>> prepared_models;
 
+    bool lightisdirty = false;
+    std::vector<std::unique_ptr<LightSourse>> light_source;
+
+    std::vector<LightInfo> prepared_light;
     
+    std::vector<std::unique_ptr<OGLTexture>> prepared_textures;
 
 };
 
@@ -135,6 +176,8 @@ public:
         for(auto pm : render_data->prepared_models)
         {
             Transform = pm->transform_matrix;
+            if(pm->GPU->texture != nullptr)
+                pm->GPU->texture->bind(0);
             bindShader();
             pm->GPU->tickMesh(pm->model.meshes[0]);
         }
@@ -155,7 +198,8 @@ public:
     shaderProgram->set_uniform("V", ViewMatrix);
     shaderProgram->set_uniform("M", ModelMatrix);
     shaderProgram->set_uniform("MV3x3", ModelView3x3Matrix);
-    shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
+    //shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
+    //shaderProgram->set_uniform("Light", getSwapContext()->prepared_light);
 
     }
 
@@ -164,7 +208,7 @@ public:
     glm::vec2 framesize{1366,768};
     IShaderProgram*                 shaderProgram;
     PerspectiveCamera* _camera{nullptr};
-    glm::vec3 lightPos = glm::vec3(0, -0.5, -0.5);
+    glm::vec3 lightPos = glm::vec3(0, 0.5, 0.5);
     glm::mat4 Transform{glm::mat4(1.0f)};
 
     std::vector<std::shared_ptr<OGLContext>> render_meshes;

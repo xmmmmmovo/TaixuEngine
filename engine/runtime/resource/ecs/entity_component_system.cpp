@@ -22,7 +22,7 @@ void ECS::initialize()
 
     auto &current_GO = taixu_world->current_level->GOs[0];
     //add
-    auto mesh=std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/cube.obj","material");
+    auto mesh=std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/cube.obj","assets/textures/concreteTexture.png");
     mesh->data_target = data_target;
     
     //transform
@@ -58,7 +58,7 @@ void ECS::initialize()
     //next mesh
     current_GO = taixu_world->current_level->GOs[1];
     
-    auto sphere_mesh = std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/sphere.obj","material");
+    auto sphere_mesh = std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/planet.obj","assets/textures/mars.png");
     sphere_mesh->data_target = data_target;
 
     auto sphere_trans = std::make_unique<TransformComponent>();
@@ -90,7 +90,7 @@ void ECS::initialize()
     //next mesh
     current_GO = taixu_world->current_level->GOs[2];
     
-    auto sphere_mesh1 = std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/sphere.obj","material");
+    auto sphere_mesh1 = std::make_shared<MeshComponent>(true,current_GO.get_id(),"assets/model/sphere.obj","INVALID");
     sphere_mesh1->data_target = data_target;
 
     auto sphere_trans1 = std::make_unique<TransformComponent>();
@@ -116,6 +116,21 @@ void ECS::initialize()
     sphere_mesh1->initialize();
     all_components[1].addComponent(sphere_mesh1);
 
+
+    //light
+    auto light1 = std::make_unique<LightSourse>();
+    light1->unique_id = GUID_Generator::generate_new_guid();
+    auto light_trans = std::make_unique<TransformComponent>();
+    light_trans->GO = light1->unique_id;
+
+    light_trans->setPosition(glm::vec3(10.0f,10.0f,10.0f));
+    //sphere_trans->setScale(glm::vec3(1.f,0.5f,0.5f));
+    
+    global_transform.push_back(std::move(light_trans));
+    TransformComponent *light1_pointer = global_transform.back().get();
+    light1->transform = light1_pointer;
+    
+    data_target.lock()->getSwapContext()->light_source.push_back(std::move(light1));
     
 }
 

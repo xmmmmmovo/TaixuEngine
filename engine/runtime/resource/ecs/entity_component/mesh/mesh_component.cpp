@@ -11,13 +11,15 @@ void MeshComponent::initialize()
     if(visible==true)
     {
         transform_component->makeTransformMatrix();
-        RenderableModelInfo sphere;
+        RenderableModelInfo mInfo;
         
-        sphere.file_path = mesh_path.c_str();
-        sphere.GO = GO;
-        sphere.transform_matrix = transform_component->transform;
-        sphere.opt = oprationType::ADD;
-        data_target.lock()->getSwapContext()->dirty_models.push_back(sphere);
+        mInfo.file_path = mesh_path.c_str();
+        if(texture_path!="INVALID")
+            mInfo.texture_path = texture_path.c_str();
+        mInfo.GO = GO;
+        mInfo.transform_matrix = transform_component->transform;
+        mInfo.opt = oprationType::ADD;
+        data_target.lock()->getSwapContext()->dirty_models.push_back(mInfo);
     }
 }
 

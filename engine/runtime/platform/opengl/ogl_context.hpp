@@ -13,6 +13,7 @@
 #include "platform/opengl/ogl_frameBuffer.hpp"
 #include "platform/opengl/ogl_vertexArray.hpp"
 #include "platform/opengl/ogl_vertexBuffer.hpp"
+#include "platform/opengl/ogl_texture.hpp"
 
 namespace taixu {
 
@@ -21,6 +22,7 @@ public:
     glm::vec2 size = {1366, 768};
 
     std::unique_ptr<OGLVertexArray> vertex_array;
+    OGLTexture * texture{nullptr};
     
     void initialize();
     void bindMesh(Mesh mesh) const;
