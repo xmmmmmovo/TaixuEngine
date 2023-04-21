@@ -276,8 +276,6 @@ public:
         return false;
     }
 
-    inline void swapBuffers() const { glfwSwapBuffers(_window); }
-
     inline void destroy() const {
         glfwDestroyWindow(_window);
         glfwTerminate();

@@ -33,8 +33,6 @@ public:
             ImGui::EndMenuBar();
         }
 
-        _previous_size = _render_size;
-
         _menu_bar_rect = ImGui::GetCurrentWindow()->MenuBarRect();
         _render_size   = ImGui::GetWindowSize();
         _render_size.y -= _menu_bar_rect.GetHeight();
@@ -48,6 +46,7 @@ public:
         _render_rect.Max.y = _render_rect.Min.y + _render_size.y;
 
         if (_previous_size != _render_size) {
+            _previous_size = _render_size;
             _framebuffer->resize(static_cast<int>(_render_size.x),
                                  static_cast<int>(_render_size.y));
         }

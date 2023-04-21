@@ -51,7 +51,7 @@ public:
 
         for (auto &i : data["assets"].items()) {
             Asset              new_asset;
-            std::uint8_t const new_guid = GUID_Generator::generate_new_guid();
+            std::uint8_t const new_guid = GuidGenerator::generateNewGuid();
             new_asset.guid              = new_guid;
             Json const j                = i.value();
             from_json(j, new_asset);

@@ -23,13 +23,14 @@ public:
     std::uint32_t                  GO;
     std::string                    mesh_path{"INVALID"};
     std::string                    material_path{"INVALID"};
-    IGraphicsContext              *data_target;
+    IGraphicsContext              *data_target{};
     std::uint32_t                  getGO() override { return GO; };
-    TransformComponent            *transform_component;
+    TransformComponent            *transform_component{};
     std::optional<CameraComponent> camera_component;
     void                           initialize();
     void                           tick() override;
 };
+
 }// namespace taixu
 
 #endif /* TAIXUENGINE_MESH_COMPONENT */

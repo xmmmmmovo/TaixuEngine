@@ -50,7 +50,7 @@ void PhysicsScene::createRigidBodyActor(){
 	JPH::BodyInterface &body_interface = m_physics.physics_system->GetBodyInterface();
 
 	// Next we can create a rigid body to serve as the floor, we make a large box
-	// Create the settings for the collision volume (the shape). 
+	// Create the settings for the collision volume (the shape).
 	// Note that for simple shapes (like boxes) you can also directly construct a BoxShape.
 	JPH::BoxShapeSettings floor_shape_settings(JPH::Vec3(100.0f, 0.1f, 100.0f));
 
@@ -66,7 +66,7 @@ void PhysicsScene::createRigidBodyActor(){
 
 	// Add it to the world
 	body_interface.AddBody(floor->GetID(), JPH::EActivation::Activate);
-    
+
 	// Now create a dynamic body to bounce on the floor
 	// Note that this uses the shorthand version of creating and adding a body to the world
 	JPH::BodyCreationSettings sphere_settings(new JPH::SphereShape(0.5f), JPH::Vec3Arg(0.0, 4.0, 0.0), JPH::Quat::sIdentity(), JPH::EMotionType::Dynamic, Layers::MOVING);
@@ -87,22 +87,22 @@ void PhysicsScene::tick() {
     //Update()
     JPH::BodyInterface &body_interface = m_physics.physics_system->GetBodyInterface();
     //assert(body_interface.IsActive(sphere_id)==false);
-    
+
     const float time_step = 1.0f / 60.0f;
 
     //for debug
     // step++;
     // Vec3 position = body_interface.GetCenterOfMassPosition(sphere_id);
 	// Vec3 velocity = body_interface.GetLinearVelocity(sphere_id);
-    
+
     // spdlog::debug("Step {}: Position = ( {} , {}, {} ), Velocity = ( {}, {}, {} )",
     // step,position.GetX(),
     // position.GetY(),
     // position.GetZ(),
-    // velocity.GetX(), 
-    // velocity.GetY(), 
+    // velocity.GetX(),
+    // velocity.GetY(),
     // velocity.GetZ());
-	
+
     m_physics.physics_system->Update(time_step,
                                                 m_physics.m_collision_steps,
                                                 m_physics.m_integration_substeps,
@@ -119,7 +119,7 @@ void PhysicsScene::updateGlobalTransform(TransformComponent *_transf) {
 	Vec3 velocity = body_interface.GetLinearVelocity(sphere_id);
     _transf->setPosition(glm::vec3(position.GetX(),position.GetY(),position.GetZ()));
     _transf->setRotation(glm::vec3(glm::degrees(position.GetX()),glm::degrees(position.GetY()),glm::degrees(position.GetZ())));
-    
+
 }
 
 }// namespace taixu

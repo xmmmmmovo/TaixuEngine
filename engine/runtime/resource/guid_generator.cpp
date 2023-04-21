@@ -2,15 +2,15 @@
 
 #include "guid_genenrator.hpp"
 
-namespace taixu
-{
-std::atomic<std::uint32_t> GUID_Generator::next_id{0};
+namespace taixu {
 
-std::uint32_t GUID_Generator::generate_new_guid() 
-{
-    std::atomic<std::uint32_t> new_id = next_id.load();
-    next_id++;
-    if (next_id >= INVALID_GUID) { spdlog::debug("GUID is overflow"); }
+std::atomic<std::uint32_t> GuidGenerator::_next_id{0};
+
+std::uint32_t GuidGenerator::generateNewGuid() {
+    std::atomic<std::uint32_t> const new_id = _next_id.load();
+    _next_id++;
+    if (_next_id >= INVALID_GUID) { spdlog::error("GUID is overflow"); }
     return new_id;
 }
-}
+
+}// namespace taixu

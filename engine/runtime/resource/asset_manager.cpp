@@ -26,7 +26,7 @@ void AssetManager::writeAsset() {
 
 void AssetManager::loadAsset(const std::string &file_path, const AssetType &asset_type) {
     Asset new_asset;
-    new_asset.guid                  = GUID_Generator::generate_new_guid();
+    new_asset.guid                  = GuidGenerator::generateNewGuid();
     new_asset.name     = file_path.substr(file_path.find_last_of('/') + 1);
     new_asset.location = file_path;
         

@@ -120,7 +120,7 @@ bool MainWindow::isCursorInRenderComponent() const {
 void MainWindow::update() {
     preUpdate();
     ImguiSurface::update();
-    _context_ptr->swapBuffers();
+    _renderer->getContext()->swapBuffers();
 }
 
 void MainWindow::destroy() {
@@ -176,11 +176,13 @@ MainWindow::MainWindow(WindowContext *const context_ptr)
 
 // for callbacks
 void MainWindow::onNewProjectCb(std::string_view const &path) {}
+
 void MainWindow::onOpenProjectCb(std::string_view const &path) {
     this->_engine_runtime->loadProject(path);
 }
-void MainWindow::onSaveProjectCb() {}
-void MainWindow::onSaveAsProjectCb(std::string_view const &path) {}
 
+void MainWindow::onSaveProjectCb() {}
+
+void MainWindow::onSaveAsProjectCb(std::string_view const &path) {}
 
 }// namespace taixu::editor
