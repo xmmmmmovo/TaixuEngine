@@ -22,6 +22,7 @@ bool visible;
 std::uint32_t GO;
 std::string mesh_path{"INVALID"};
 std::string texture_path{"INVALID"};
+std::uint32_t material_id;
 //std::shared_ptr<Model_Data>model;
 std::weak_ptr<RenderContext>data_target;
 std::uint32_t getGO(){return GO;};

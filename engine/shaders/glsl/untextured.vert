@@ -16,11 +16,22 @@ uniform mat4 M;
 uniform mat3 MV3x3;
 //uniform vec3 LightPosition_worldspace;
 
+//struct Light {
+//    vec4 position;
+//    vec4 color;
+//};
+
+//layout(std140) uniform Lights {
+//    Light lights[MAX_LIGHTS];
+//    int numLights;
+//};
+
 
 void main() 
 { 
     v2fTexCoord = aTexCoord;
     v3fNormal = MV3x3 * aNormal;
+    //v3fFragPos = (M * vec4(aPos,1.0f)).xyz;
     v3fFragPos = MV3x3 * aPos;
     gl_Position = MVP * vec4(aPos.x, aPos.y, aPos.z, 1.0);
 }

@@ -17,12 +17,14 @@
 
 namespace taixu {
 
+
 class OGLContext {
 public:
     glm::vec2 size = {1366, 768};
 
     std::unique_ptr<OGLVertexArray> vertex_array;
     OGLTexture * texture{nullptr};
+    std::uint32_t material_id;
     
     void initialize();
     void bindMesh(Mesh mesh) const;

@@ -10,6 +10,8 @@
 
 #include "frag_frag.h"
 #include "vert_vert.h"
+#include "untextured_vert.h"
+#include "untextured_frag.h"
 #include "core/base/clock.hpp"
 #include "graphics/render/model.hpp"
 #include "graphics/render/perspective_camera.hpp"
@@ -29,6 +31,7 @@ namespace taixu {
         std::uint32_t GO{4294967295}; //Invalid
         const char* file_path{"INVALID"};
         const char* texture_path{"INVALID"};
+        std::uint32_t material_id;
         glm::mat4 transform_matrix{glm::mat4(1.0f)};
         oprationType opt;
     };
@@ -38,6 +41,7 @@ namespace taixu {
         std::uint32_t GO{4294967295}; //Invalid
         Model_Data model{};
         std::uint32_t texture_id;
+        std::uint32_t material_id;
         std::shared_ptr<OGLContext> GPU;
         bool dirty{false};
         glm::mat4 transform_matrix{glm::mat4(1.0f)};
@@ -46,10 +50,20 @@ namespace taixu {
     struct LightInfo
     {
         //std::uint32_t light_id;
-        glm::vec4 light_position;
-        glm::vec4 light_color;
+        glm::vec4 light_position{};
+        glm::vec4 light_color{};
         
     };
+
+    struct MaterialInfo
+    {
+        float shininess;
+        glm::vec4 ambient;
+        glm::vec4 diffuse;
+        glm::vec4 specular;
+        glm::vec4 emissive;
+    };
+    
 
 class RenderData {
 
@@ -99,7 +113,9 @@ public:
                         prepared_textures.push_back(std::move(texture));
                         render_uint->GPU->texture = prepared_textures.back().get();
                     }
-    
+
+                    render_uint->material_id = modinfo.material_id;
+                    
                     prepared_models.push_back(render_uint);
                 }
                 else if(modinfo.opt == oprationType::CHANGEMODEL){}
@@ -125,6 +141,7 @@ public:
                 li.light_position = glm::vec4(light.get()->transform->position,1.0f);
                 prepared_light.push_back(li);
             }
+            lightisdirty = false;
         }
 
 
@@ -144,6 +161,7 @@ public:
     
     std::vector<std::unique_ptr<OGLTexture>> prepared_textures;
 
+    std::vector<MaterialInfo> prepared_materials;
 };
 
 class RenderContext {
@@ -161,10 +179,23 @@ public:
         framebuffer->allocate(framesize);
         
         shaderProgram       = new OGLShaderProgram(VERT_VERT, FRAG_FRAG);
-        
-        //sphere_context = std::make_shared<OGLContext>();
+        untexturedShaderProgram = new OGLShaderProgram(UNTEXTURED_VERT, UNTEXTURED_FRAG);
 
-        //sphere_context->initialize();
+        MaterialInfo m1;
+        m1.shininess = 96.078443;
+        m1.ambient = glm::vec4(1.0f,1.0f,1.0f,1.0f);
+        m1.diffuse = glm::vec4(0.64f,0.64f,0.64f,1.0f);
+        m1.specular = glm::vec4(0.5f,0.5f,0.5f,1.0f);
+        m1.emissive = glm::vec4(0.f,0.f,0.f,1.0f);
+
+        MaterialInfo m2;
+        m2.shininess = 100;
+        m2.ambient = glm::vec4(1.0f,1.0f,1.0f,1.0f);
+        m2.diffuse = glm::vec4(1.0f,1.0f,1.0f,1.0f);
+        m2.specular = glm::vec4(1.0f,1.0f,1.0f,1.0f);
+        m2.emissive = glm::vec4(0.f,0.f,0.f,1.0f);
+        getSwapContext()->prepared_materials.push_back(m1);
+        getSwapContext()->prepared_materials.push_back(m2);
     };
 
     void resize(float width, float height) {
@@ -176,15 +207,26 @@ public:
         for(auto pm : render_data->prepared_models)
         {
             Transform = pm->transform_matrix;
+            material = getSwapContext()->prepared_materials[pm->material_id];
+
             if(pm->GPU->texture != nullptr)
+            {
+                bindShader(shaderProgram);
+
                 pm->GPU->texture->bind(0);
-            bindShader();
+            }
+            else
+            {
+                bindShader(untexturedShaderProgram);
+            }
+            
+
             pm->GPU->tickMesh(pm->model.meshes[0]);
         }
         //sphere_context = render_data->prepared_models[0]->GPU;
     }
 
-    void        bindShader(){
+    void        bindShader(OGLShaderProgram* shader){
     glm::mat4 ProjectionMatrix   = _camera->getProjectionMatrix();
     glm::mat4 ViewMatrix         = _camera->getViewMatrix();
     glm::mat4 ModelMatrix        = Transform;
@@ -193,11 +235,19 @@ public:
     glm::mat4 MVP                = ProjectionMatrix * ViewMatrix * ModelMatrix;
     //glm::mat4 Transform          = glm::mat4(1.0f);
     //Transform                    = glm::translate(Transform,glm::vec3(1.0f,1.0f,1.0f));
-    shaderProgram->use();
-    shaderProgram->set_uniform("MVP", MVP);
-    shaderProgram->set_uniform("V", ViewMatrix);
-    shaderProgram->set_uniform("M", ModelMatrix);
-    shaderProgram->set_uniform("MV3x3", ModelView3x3Matrix);
+    shader->use();
+    shader->set_uniform("MVP", MVP);
+    shader->set_uniform("V", ViewMatrix);
+    shader->set_uniform("M", ModelMatrix);
+    shader->set_uniform("MV3x3", ModelView3x3Matrix);
+    shader->set_uniform("Lights", getSwapContext()->prepared_light);
+    shader->set_uniform("shininess", material.shininess);
+    shader->set_uniform("ambient", material.ambient);
+    shader->set_uniform("diffuse", material.diffuse);
+    shader->set_uniform("specular", material.specular);
+    shader->set_uniform("emissive", material.emissive);
+    shader->set_uniform("cameraPos", _camera->Position);
+    shader->set_uniform("texturesampler",0);
     //shaderProgram->set_uniform("LightPosition_worldspace", lightPos);
     //shaderProgram->set_uniform("Light", getSwapContext()->prepared_light);
 
@@ -206,11 +256,12 @@ public:
     RenderData *getSwapContext() { return render_data->getData(); };
     std::unique_ptr<OGLFrameBuffer> framebuffer;
     glm::vec2 framesize{1366,768};
-    IShaderProgram*                 shaderProgram;
+    OGLShaderProgram*                 shaderProgram;
+    OGLShaderProgram*                 untexturedShaderProgram;
     PerspectiveCamera* _camera{nullptr};
     glm::vec3 lightPos = glm::vec3(0, 0.5, 0.5);
     glm::mat4 Transform{glm::mat4(1.0f)};
-
+    MaterialInfo material;
     std::vector<std::shared_ptr<OGLContext>> render_meshes;
     std::shared_ptr<OGLContext>  sphere_context;
 

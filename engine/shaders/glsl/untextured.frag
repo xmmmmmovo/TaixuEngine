@@ -3,13 +3,13 @@
 layout (location = 0) in vec3 v3fNormal;
 layout (location = 1) in vec2 v2fTexCoord;
 layout (location = 2) in vec3 v3fFragPos;
+
 #define MAX_LIGHTS 10
 
 struct Light {
    vec4 position;
    vec4 color;
 };
-
 
 uniform float shininess;
 uniform vec4 ambient;
@@ -18,24 +18,23 @@ uniform vec4 specular;
 uniform vec4 emissive;
 
 uniform vec3 cameraPos;
-
 layout (std140) uniform Lights {
     Light lights[MAX_LIGHTS];
     int num;
 };
 
-uniform sampler2D texturesampler;
+//uniform sampler2d texture;
 
 out vec4 FragColor;
 
 void main() 
 { 
-    //FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f); 
-    //FragColor = vec4(v2fTexCoord, 1.0f, 1.0f); 
-    //FragColor = texture(texturesampler,v2fTexCoord).rgba;
-    //FragColor = diffuse;
+    //FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+    //FragColor = lights[0].color;
+    //FragColor = vec4(v2fTexCoord, 1.0f, 1.0f);
+    //FragColor = specular;
 
-    vec3 color = texture(texturesampler,v2fTexCoord).rgb;
+    vec3 color = vec3(1.0f, 0.5f, 0.2f);
     // ambient
     vec3 ambientColor = 0.05 * color;
     // diffuse
@@ -53,5 +52,4 @@ void main()
 
     vec3 specularColor = vec3(0.3) * spec; // assuming bright white light color
     FragColor = vec4(ambientColor + diffuseColor + specularColor + emissive.xyz, 1.0);
-
 }

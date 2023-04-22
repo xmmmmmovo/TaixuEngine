@@ -16,7 +16,11 @@
 
 #include "graphics/render/shader.hpp"
 
+
 namespace taixu {
+
+
+
 
 /**
  * @brief
@@ -53,6 +57,7 @@ public:
  */
 class OGLShaderProgram : public IShaderProgram {
 public:
+
     /**
      * @brief
      * @param vertex_shader
@@ -206,13 +211,46 @@ public:
      * @param name
      * @param vector
      */
-    void set_uniform(const std::string_view name,
-                     const std::vector<LightInfo>       &st) const noexcept override {
+    // void set_uniform(const std::string_view name,
+    //                  const std::vector<LightInfo>       &st)const noexcept override {
 
-        glUniform1i(glGetUniformLocation(_id, "numLights"), st.size());
-        glBufferData(GL_UNIFORM_BUFFER, sizeof(LightInfo) * st.size(), st.data(), GL_DYNAMIC_DRAW);
+    //     //glUniform1i(glGetUniformLocation(_id, "numLights"), st.size());
+    //     //glBufferData(GL_UNIFORM_BUFFER, sizeof(std::vector<LightInfo>::value_type) * st.size(), st.data(), GL_DYNAMIC_DRAW);
+    //     GLuint uboLights;
+    //     glGenBuffers(1, &uboLights);
+    //     glBindBuffer(GL_UNIFORM_BUFFER, uboLights);
+    //     glBufferData(GL_UNIFORM_BUFFER, sizeof(LightInfo) * st.size(), st.data(), GL_DYNAMIC_DRAW);
+    //     glBindBuffer(GL_UNIFORM_BUFFER, 0);
+    //     glBindBufferBase(GL_UNIFORM_BUFFER, 0, uboLights);
+
+    //     GLuint lightsLoc = glGetUniformBlockIndex(_id, "Lights");
+    //     glUniformBlockBinding(_id, lightsLoc, 0);
+    //     glBindBufferRange(GL_UNIFORM_BUFFER, 0, uboLights, 0, sizeof(LightInfo) * st.size());
+
+    //     glUniform1i(glGetUniformLocation(_id, "numLights"), st.size());
+
+    // }
+
+    template <typename T>
+    void set_uniform(const std::string_view name,
+                     const std::vector<T>       &st)
+    {
+        GLuint ubo;
+        glGenBuffers(1, &ubo);
+        glBindBuffer(GL_UNIFORM_BUFFER, ubo);
+        glBufferData(GL_UNIFORM_BUFFER, sizeof(T) * st.size(), st.data(), GL_DYNAMIC_DRAW);
+        glBindBuffer(GL_UNIFORM_BUFFER, 0);
+        glBindBufferBase(GL_UNIFORM_BUFFER, 0, ubo);
+
+        GLuint Loc = glGetUniformBlockIndex(_id, name.data());
+        glUniformBlockBinding(_id, Loc, 0);
         
+        glBindBufferRange(GL_UNIFORM_BUFFER, 0, ubo, 0, sizeof(T) * st.size());
+
+        glUniform1i(glGetUniformLocation(_id, "num"), st.size());
+
     }
+
 };
 
 }// namespace taixu

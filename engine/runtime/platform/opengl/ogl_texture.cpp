@@ -35,10 +35,10 @@ OGLTexture::OGLTexture(const std::string_view &path,
     stbi_set_flip_vertically_on_load(true);
     // 加载并生成纹理
     unsigned char *data =
-            stbi_load(path.data(), &width, &height, &n_channels, 0);
+            stbi_load(path.data(), &width, &height, &n_channels, 4);
 
     if (data) {
-        glTexImage2D(GL_TEXTURE_2D, 0, (4 == n_channels ? GL_RGBA : GL_RGB),
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA,
                      width, height, 0,
                      mapImageToGLReadType(getLastExtension(path)),
                      GL_UNSIGNED_BYTE, data);
@@ -46,7 +46,7 @@ OGLTexture::OGLTexture(const std::string_view &path,
     } else {
         spdlog::error("Failed to load texture");
     }
-
+    
     stbi_image_free(data);
     //unbind
     glBindTexture(GL_TEXTURE_2D, -1);

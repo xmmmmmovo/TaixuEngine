@@ -41,6 +41,7 @@ void ECS::initialize()
     camera.setCameraPosition(glm::vec3{0.0f,0.0f,8.0f});
     mesh->camera_component=std::move(camera);
 
+    mesh->material_id = 1;
     mesh->initialize();
     all_components[1].addComponent(mesh);
 
@@ -81,6 +82,8 @@ void ECS::initialize()
     sphere_rigid_body->initialize(RigidBodyShapeType::SPHERE,MotionType::DYNAMIC);
 
     all_components[0].addComponent(sphere_rigid_body);
+
+    sphere_mesh->material_id = 0;
     sphere_mesh->initialize();
     all_components[1].addComponent(sphere_mesh);
 
@@ -113,6 +116,8 @@ void ECS::initialize()
     sphere_rigid_body1->initialize(RigidBodyShapeType::SPHERE,MotionType::DYNAMIC);
 
     all_components[0].addComponent(sphere_rigid_body1);
+
+    sphere_mesh1->material_id = 0;
     sphere_mesh1->initialize();
     all_components[1].addComponent(sphere_mesh1);
 
@@ -129,9 +134,9 @@ void ECS::initialize()
     global_transform.push_back(std::move(light_trans));
     TransformComponent *light1_pointer = global_transform.back().get();
     light1->transform = light1_pointer;
-    
+    light1->light_color = glm::vec4(0.5f,1.0f,1.0f,1.0f);
     data_target.lock()->getSwapContext()->light_source.push_back(std::move(light1));
-    
+    data_target.lock()->getSwapContext()->lightisdirty = true;
 }
 
 void ECS::dataRedirection(

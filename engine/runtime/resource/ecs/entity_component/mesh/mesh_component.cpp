@@ -19,6 +19,7 @@ void MeshComponent::initialize()
         mInfo.GO = GO;
         mInfo.transform_matrix = transform_component->transform;
         mInfo.opt = oprationType::ADD;
+        mInfo.material_id = material_id;
         data_target.lock()->getSwapContext()->dirty_models.push_back(mInfo);
     }
 }
