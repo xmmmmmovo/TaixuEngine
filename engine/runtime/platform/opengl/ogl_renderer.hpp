@@ -7,16 +7,21 @@
 
 #include "graphics/renderer.hpp"
 #include "ogl_context.hpp"
+#include <memory>
 
 namespace taixu {
 
 class OGLRenderer : public BaseRenderer<OGLContext> {
 public:
-    void initialize() override;
+    OGLRenderer() { _context = std::make_unique<OGLContext>(); }
+
+    void initialize(GLFWwindow *window) override;
 
     void tick(float delta_time) override;
-    
+
     void clear() override;
+
+    void clearSurface() override;
 };
 
 }// namespace taixu

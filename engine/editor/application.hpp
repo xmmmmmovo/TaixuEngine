@@ -34,7 +34,9 @@ private:
      */
     std::unique_ptr<IWindow>       _window_ptr{nullptr};
     std::unique_ptr<WindowContext> _context_ptr{nullptr};
-    // get engine instance raw pointer
+    /**
+     * @brief Engine raw pointer
+     */
     Engine                        *_engine_ptr = &Engine::getInstance();
 
     /**

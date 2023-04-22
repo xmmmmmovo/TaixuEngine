@@ -40,6 +40,7 @@ void Application::initApplicationArgs(std::vector<std::string> const &args) {
 }
 
 void Application::initialize(std::vector<std::string> const &args) {
+    spdlog::info("start initialize the application!");
     initSpdlog();
     initApplicationArgs(args);
 
@@ -54,16 +55,16 @@ void Application::initialize(std::vector<std::string> const &args) {
     // init window
     window_ptr_local->init();
 
-    _engine_ptr->init();
+    _engine_ptr->init(_context_ptr.get());
 
-    window_ptr_local->setEngineRuntime(_engine_ptr);
+    window_ptr_local->initWithEngineRuntime(_engine_ptr);
     this->_window_ptr = std::move(window_ptr_local);
+    spdlog::info("initialize the application finished!");
 }
 
 void Application::run() {
     while (!this->_context_ptr->shouldClose()) {
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        this->_engine_ptr->getRenderer()->clearSurface();
         this->_engine_ptr->update();
         this->_window_ptr->update();
     }

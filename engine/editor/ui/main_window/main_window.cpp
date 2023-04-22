@@ -9,9 +9,8 @@
 
 namespace taixu::editor {
 void MainWindow::init() {
-    spdlog::info("Main window start initWindow!");
+    spdlog::info("Main window init start!");
     _context_ptr->initWindow();
-    _context_ptr->setVsync(true);
 
     _context_ptr->registerOnScrollFn(
             [this](double /*xoffset*/, double yoffset) {
@@ -52,7 +51,7 @@ void MainWindow::init() {
                 }
             });
 
-    spdlog::info("Main window start finished!");
+    spdlog::info("Main window init finished!");
 }
 
 void MainWindow::preUpdate() {
@@ -128,7 +127,7 @@ void MainWindow::destroy() {
     _context_ptr->destroy();
 }
 
-void MainWindow::setEngineRuntime(Engine *engine_runtime_ptr) {
+void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
     this->_engine_runtime = engine_runtime_ptr;
     this->_renderer       = engine_runtime_ptr->getRenderer();
 

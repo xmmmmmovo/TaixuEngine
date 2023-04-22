@@ -8,6 +8,7 @@
 #include <memory>
 #include <vector>
 
+#include "backends/imgui_impl_glfw.h"
 #include "core/base/clock.hpp"
 #include "core/base/noncopyable.hpp"
 #include "frag_frag.h"
@@ -25,9 +26,10 @@ namespace taixu {
 
 class AbstractRenderer : private noncopyable {
 public:
-    virtual void initialize()                     = 0;
+    virtual void initialize(GLFWwindow *window)   = 0;
     virtual void tick(float delta_time = 0.03333) = 0;
     virtual void clear()                          = 0;
+    virtual void clearSurface()                   = 0;
 
     virtual IGraphicsContext *getContext() = 0;
 };

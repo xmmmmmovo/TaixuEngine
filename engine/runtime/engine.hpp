@@ -6,9 +6,11 @@
 #include "graphics/render/render_api.hpp"
 #include "graphics/render_context.hpp"
 #include "graphics/renderer.hpp"
+#include "gui/window_context.hpp"
 #include "physics/physics_manager.hpp"
 #include "resource/ecs/entity_component_system.hpp"
 #include "resource/project_manager.hpp"
+#include <memory>
 
 namespace taixu {
 
@@ -25,7 +27,8 @@ private:
     RenderAPI _render_api{RenderAPI::OPENGL};
 
 public:
-    void init(RenderAPI api = RenderAPI::OPENGL);
+    void init(WindowContext const *context,
+              RenderAPI                       api = RenderAPI::OPENGL);
     void update();
     void shutdown();
 

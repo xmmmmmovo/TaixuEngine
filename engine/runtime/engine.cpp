@@ -8,7 +8,7 @@
 
 namespace taixu {
 
-void Engine::init(RenderAPI api) {
+void Engine::init(WindowContext const *context, RenderAPI api) {
     this->_render_api = api;
     switch (api) {
         case RenderAPI::OPENGL:
@@ -17,7 +17,7 @@ void Engine::init(RenderAPI api) {
         case RenderAPI::NONE:
             break;
     }
-    _renderer->initialize();
+    _renderer->initialize(context->_window);
 
     _project_manager = std::make_unique<ProjectManager>();
     _asset_manager   = std::make_unique<AssetManager>();

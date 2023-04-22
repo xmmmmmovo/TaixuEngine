@@ -91,7 +91,7 @@ public:
     void update() override;
     void destroy() override;
 
-    void setEngineRuntime(Engine *engine_runtime_ptr);
+    void initWithEngineRuntime(Engine *engine_runtime_ptr);
 
 private:
     void preUpdate();
