@@ -70,7 +70,7 @@ private:
     /**
      * @brief initWindow application args
      */
-    void initApplicationArgs(std::vector<std::string> const &args);
+    static void initApplicationArgs(std::vector<std::string> const &args);
 };
 
 }// namespace taixu::editor

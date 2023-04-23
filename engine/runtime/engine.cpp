@@ -3,13 +3,15 @@
 #include <magic_enum.hpp>
 
 #include "core/base/public_singleton.hpp"
+#include "engine_args.hpp"
+#include "graphics/render/render_api.hpp"
 #include "gui/input_system.hpp"
 #include "platform/opengl/ogl_renderer.hpp"
 
 namespace taixu {
 
-void Engine::init(WindowContext const *context, RenderAPI api) {
-    this->_render_api = api;
+void Engine::init(WindowContext const *context) {
+    RenderAPI const api = EngineArgs::getInstance().api;
     switch (api) {
         case RenderAPI::OPENGL:
             _renderer = std::make_unique<OGLRenderer>();

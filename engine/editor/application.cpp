@@ -5,10 +5,13 @@
 #include "application.hpp"
 
 #include <argparse/argparse.hpp>
+#include <string>
 #include <string_view>
 #include <vector>
 
 // <> headers
+#include "engine_args.hpp"
+#include "graphics/render/render_api.hpp"
 #include "spdlog/spdlog.h"
 
 // "" headers
@@ -28,8 +31,27 @@ void initSpdlog() {
 #endif
 }
 
+/**
+ * @brief init the engine args
+ * @param args
+ */
 void Application::initApplicationArgs(std::vector<std::string> const &args) {
     argparse::ArgumentParser program("TaixuEngineEditor");
+
+    program.add_argument("-api", "--graphics_api")
+            .default_value("opengl")
+            .help("Choose a graphics API")
+            .action([](std::string const &val) {
+                EngineArgs &args_ins = EngineArgs::getInstance();
+
+                if ("opengl" == val) {
+                    args_ins.api = RenderAPI::OPENGL;
+                } else {
+                    throw std::runtime_error("Invalid graphics API choice: " +
+                                             val);
+                }
+            });
+
     try {
         program.parse_args(args);
     } catch (const std::runtime_error &err) {

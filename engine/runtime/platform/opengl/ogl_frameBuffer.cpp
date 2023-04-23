@@ -61,9 +61,7 @@ void OGLFrameBuffer::createFramebuffer() {
 
 void OGLFrameBuffer::bind() { glBindFramebuffer(GL_FRAMEBUFFER, _fbo); }
 
-void OGLFrameBuffer::unbind() {
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-}
+void OGLFrameBuffer::unbind() { glBindFramebuffer(GL_FRAMEBUFFER, 0); }
 
 std::uint32_t taixu::OGLFrameBuffer::getFBTextureID() { return _bufferTexId; }
 

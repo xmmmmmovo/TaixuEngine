@@ -24,11 +24,8 @@ private:
     std::unique_ptr<ECS>              _entity_component_system{nullptr};
     std::unique_ptr<PhysicsManager>   _physics_manager{nullptr};
 
-    RenderAPI _render_api{RenderAPI::OPENGL};
-
 public:
-    void init(WindowContext const *context,
-              RenderAPI                       api = RenderAPI::OPENGL);
+    void init(WindowContext const *context);
     void update();
     void shutdown();
 
