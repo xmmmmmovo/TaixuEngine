@@ -25,7 +25,7 @@ private:
     std::unique_ptr<PhysicsManager>   _physics_manager{nullptr};
 
 public:
-    void init(WindowContext const *context);
+    void init();
     void update();
     void shutdown();
 

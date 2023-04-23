@@ -45,7 +45,7 @@ void Application::initApplicationArgs(std::vector<std::string> const &args) {
                 EngineArgs &args_ins = EngineArgs::getInstance();
 
                 if ("opengl" == val) {
-                    args_ins.api = RenderAPI::OPENGL;
+                    args_ins.api = GraphicsAPI::OPENGL;
                 } else {
                     throw std::runtime_error("Invalid graphics API choice: " +
                                              val);
@@ -67,7 +67,8 @@ void Application::initialize(std::vector<std::string> const &args) {
     initApplicationArgs(args);
 
     _context_ptr = std::make_unique<WindowContext>(
-            MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE);
+            MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE,
+            createGraphicsAPILoader(EngineArgs::getInstance().api), true);
 
     InputSystem::getInstance().setContext(_context_ptr.get());
 
@@ -77,10 +78,9 @@ void Application::initialize(std::vector<std::string> const &args) {
     // init window
     window_ptr_local->init();
 
-    _engine_ptr->init(_context_ptr.get());
+    _engine_ptr->init();
     window_ptr_local->initWithEngineRuntime(_engine_ptr);
 
-    _context_ptr->setVsync(true);
     this->_window_ptr = std::move(window_ptr_local);
     spdlog::info("initialize the application finished!");
 }

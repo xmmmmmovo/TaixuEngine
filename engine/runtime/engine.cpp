@@ -10,16 +10,16 @@
 
 namespace taixu {
 
-void Engine::init(WindowContext const *context) {
-    RenderAPI const api = EngineArgs::getInstance().api;
+void Engine::init() {
+    GraphicsAPI const api = EngineArgs::getInstance().api;
     switch (api) {
-        case RenderAPI::OPENGL:
+        case GraphicsAPI::OPENGL:
             _renderer = std::make_unique<OGLRenderer>();
             break;
-        case RenderAPI::NONE:
+        case GraphicsAPI::NONE:
             break;
     }
-    _renderer->initialize(context->_window);
+    _renderer->initialize();
 
     _project_manager = std::make_unique<ProjectManager>();
     _asset_manager   = std::make_unique<AssetManager>();

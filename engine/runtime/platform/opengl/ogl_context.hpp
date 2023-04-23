@@ -14,7 +14,7 @@ private:
     std::unique_ptr<OGLFrameBuffer> _framebuffer{nullptr};
 
 public:
-    void initialize(GLFWwindow *window) override;
+    void initialize() override;
     void swapBuffers() override;
 
     IFrameBuffer *getRenderFramebuffer() override;

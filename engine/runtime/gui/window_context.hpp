@@ -13,6 +13,7 @@
 #include "core/base/macro.hpp"
 #include "graphics/render/perspective_camera.hpp"
 #include "graphics/render/render_api.hpp"
+#include "graphics/render_context.hpp"
 
 namespace taixu {
 /**
@@ -228,25 +229,14 @@ public:
 protected:
     bool is_vsync{false};
 
-public:
-    explicit WindowContext(int32_t width, int32_t height,
-                           std::string_view const &title)
-        : _width(width), _height(height), _title(title) {}
-
-    [[nodiscard]] inline bool getVsync() const { return is_vsync; }
-
-    inline void initWindow() {
+    inline void initWindow(std::unique_ptr<IGraphicsAPILoader> api_loader,
+                           bool                                vsync = false) {
         if (!glfwInit()) {
             spdlog::error("Failed to initialize GLFW!");
             exit(1);
         }
 
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPENGL_MAJOR_VERSION);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, OPENGL_MINOR_VERSION);
-        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-#ifdef __APPLE__
-        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+        api_loader->initLoad();
 
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
@@ -257,6 +247,8 @@ public:
             glfwTerminate();
             exit(1);
         }
+
+        api_loader->apiLoad(_window);
 
         glfwSetWindowUserPointer(_window, this);
         glfwSetKeyCallback(_window, WindowContext::keyCallback);
@@ -272,7 +264,20 @@ public:
         glfwSetWindowCloseCallback(_window, windowCloseCallback);
 
         glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+
+        setVsync(vsync);
     }
+
+public:
+    explicit WindowContext(int32_t width, int32_t height,
+                           std::string_view const             &title,
+                           std::unique_ptr<IGraphicsAPILoader> api_loader,
+                           bool                                vsync = false)
+        : _width(width), _height(height), _title(title) {
+        initWindow(std::move(api_loader), vsync);
+    }
+
+    [[nodiscard]] inline bool getVsync() const { return is_vsync; }
 
     inline void setVsync(bool enable) {
         glfwSwapInterval(enable);

@@ -10,9 +10,7 @@ namespace taixu {
 constexpr std::array<float, 3> CLEAR_COLOR{0.5294117647f, 0.8078431373f,
                                            0.9215686275f};
 
-void OGLRenderer::initialize(GLFWwindow *window) {
-    _context->initialize(window);
-}
+void OGLRenderer::initialize() { _context->initialize(); }
 
 void OGLRenderer::tick(float delta_time) {
     _clock.update();

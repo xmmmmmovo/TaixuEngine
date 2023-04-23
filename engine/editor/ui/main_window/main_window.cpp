@@ -10,8 +10,6 @@
 namespace taixu::editor {
 void MainWindow::init() {
     spdlog::info("Main window init start!");
-    _context_ptr->initWindow();
-
     _context_ptr->registerOnScrollFn(
             [this](double /*xoffset*/, double yoffset) {
                 if (_context_ptr->_state == EngineState::GAMEMODE) {
@@ -65,7 +63,6 @@ void MainWindow::preUpdate() {
 #else
     if (nullptr == _engine_runtime->getOpenedProject()) { return; }
 #endif
-
 
     ImGui::Begin("Editor Menu", nullptr, DOCK_SPACE_FLAGS);
 

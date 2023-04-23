@@ -13,7 +13,7 @@ class EngineArgs : public PublicSingleton<EngineArgs> {
     friend class PublicSingleton<EngineArgs>;
 
 public:
-    RenderAPI api{RenderAPI::OPENGL};
+    GraphicsAPI api{GraphicsAPI::OPENGL};
 };
 
 }// namespace taixu

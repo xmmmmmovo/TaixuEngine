@@ -14,7 +14,7 @@ namespace taixu {
 
 class IGraphicsContext : private noncopyable {
 public:
-    virtual void initialize(GLFWwindow *window)           = 0;
+    virtual void initialize()           = 0;
     virtual void swapBuffers()                            = 0;
 
     virtual IFrameBuffer *getRenderFramebuffer() = 0;

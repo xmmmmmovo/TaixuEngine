@@ -6,10 +6,7 @@ namespace taixu {
 
 void OGLContext::initialize(GLFWwindow *window) {
     _window = window;
-    glfwMakeContextCurrent(_window);
 
-    // TODO: 检测是否正确
-    loadAPI(RenderAPI::OPENGL);
 
     this->_framebuffer = std::make_unique<OGLFrameBuffer>(
             IFrameBufferSpecification{FrameColorImageFormat::RGBA,
