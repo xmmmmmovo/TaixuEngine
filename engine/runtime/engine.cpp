@@ -42,7 +42,7 @@ void Engine::update() {
 
 void Engine::shutdown() {}
 
-AbstractRenderer *Engine::getRenderer() const { return _renderer.get(); }
+IRenderer *Engine::getRenderer() const { return _renderer.get(); }
 
 Status Engine::loadProject(const std::string_view &path) {
     spdlog::info("Loading project: {}", path);

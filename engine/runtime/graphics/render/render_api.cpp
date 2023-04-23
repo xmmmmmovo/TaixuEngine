@@ -8,7 +8,7 @@ namespace taixu {
 /**
  * @brief OpenGL API加载器
  */
-class OGLAPILoader : public IGraphicsAPILoader {
+class OGLAPILoader : public AbstractGraphicsAPILoader {
 public:
     void initLoad() const override {
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPENGL_MAJOR_VERSION);
@@ -19,7 +19,7 @@ public:
 #endif
     }
 
-    void apiLoad(GLFWwindow *window) const override {
+    void apiLoad(GLFWwindow *window) override {
         glfwMakeContextCurrent(window);
 
         // glad: load all OpenGL function pointers
@@ -36,10 +36,15 @@ public:
         spdlog::info("Cull face enabled");
         glEnable(GL_CULL_FACE);
         glCullFace(GL_BACK);
+
+        _window = window;
     }
+
+    void swapBuffers() const override { glfwSwapBuffers(_window); }
 };
 
-std::unique_ptr<IGraphicsAPILoader> createGraphicsAPILoader(GraphicsAPI api) {
+std::unique_ptr<AbstractGraphicsAPILoader>
+createGraphicsAPILoader(GraphicsAPI api) {
     switch (api) {
         case GraphicsAPI::OPENGL:
             return std::make_unique<OGLAPILoader>();

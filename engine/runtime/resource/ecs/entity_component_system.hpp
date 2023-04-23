@@ -8,7 +8,6 @@
 #include <vector>
 
 #include "game_object.hpp"
-#include "graphics/render_context.hpp"
 #include "physics/physics_manager.hpp"
 #include "resource/ecs/entity_component/entity_component.hpp"
 #include "resource/ecs/entity_component/mesh/mesh_component.hpp"

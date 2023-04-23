@@ -6,14 +6,17 @@
 #define TAIXUENGINE_OGL_RENDERER_HPP
 
 #include "graphics/renderer.hpp"
-#include "ogl_context.hpp"
+#include "ogl_frameBuffer.hpp"
 #include <memory>
 
 namespace taixu {
 
-class OGLRenderer : public BaseRenderer<OGLContext> {
+class OGLRenderer : public BaseRenderer {
+private:
+    std::unique_ptr<OGLFrameBuffer> _framebuffer{nullptr};
+
 public:
-    OGLRenderer() { _context = std::make_unique<OGLContext>(); }
+    OGLRenderer() = default;
 
     void initialize() override;
 
@@ -21,6 +24,8 @@ public:
     void clear(const std::array<float, 3> &color) override;
 
     void clearSurface() override;
+
+    IFrameBuffer *getRenderFramebuffer() override;
 };
 
 }// namespace taixu

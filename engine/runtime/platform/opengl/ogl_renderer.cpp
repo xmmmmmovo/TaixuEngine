@@ -10,13 +10,17 @@ namespace taixu {
 constexpr std::array<float, 3> CLEAR_COLOR{0.5294117647f, 0.8078431373f,
                                            0.9215686275f};
 
-void OGLRenderer::initialize() { _context->initialize(); }
+void OGLRenderer::initialize() {
+    this->_framebuffer = std::make_unique<OGLFrameBuffer>(
+            IFrameBufferSpecification{FrameColorImageFormat::RGBA,
+                                      FrameDepthImageFormat::DEPTH24STENCIL8});
+}
 
 void OGLRenderer::tick(float delta_time) {
     _clock.update();
-    _context->getRenderFramebuffer()->bind();
+    _framebuffer->bind();
     clear(CLEAR_COLOR);
-    _context->getRenderFramebuffer()->unbind();
+    _framebuffer->unbind();
 }
 
 void OGLRenderer::clear(const std::array<float, 3> &color) {
@@ -28,5 +32,6 @@ void OGLRenderer::clearSurface() {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 }
+IFrameBuffer *OGLRenderer::getRenderFramebuffer() { return _framebuffer.get(); }
 
 }// namespace taixu

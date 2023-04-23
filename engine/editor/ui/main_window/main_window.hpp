@@ -60,7 +60,7 @@ private:
 
 
 private:
-    AbstractRenderer *_renderer{};
+    IRenderer *_renderer{};
 
     // static raw engine runtime pointer
     // do not need to free

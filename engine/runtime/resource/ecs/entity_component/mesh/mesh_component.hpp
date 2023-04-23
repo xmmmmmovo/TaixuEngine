@@ -1,9 +1,7 @@
 #ifndef TAIXUENGINE_MESH_COMPONENT
 #define TAIXUENGINE_MESH_COMPONENT
 
-#include "../entity_component.hpp"
 #include "graphics/render/model.hpp"
-#include "graphics/render_context.hpp"
 #include "graphics/renderer.hpp"
 #include "resource/ecs/entity_component/camera/camera_component.hpp"
 #include "resource/ecs/entity_component/entity_component.hpp"

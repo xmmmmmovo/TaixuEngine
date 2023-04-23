@@ -13,7 +13,6 @@
 #include "core/base/macro.hpp"
 #include "graphics/render/perspective_camera.hpp"
 #include "graphics/render/render_api.hpp"
-#include "graphics/render_context.hpp"
 
 namespace taixu {
 /**
@@ -227,10 +226,12 @@ public:
             std::make_unique<PerspectiveCamera>()};
 
 protected:
-    bool is_vsync{false};
+    bool                                       is_vsync{false};
+    std::unique_ptr<AbstractGraphicsAPILoader> _api_loader;
 
-    inline void initWindow(std::unique_ptr<IGraphicsAPILoader> api_loader,
-                           bool                                vsync = false) {
+    inline void
+    initWindow(std::unique_ptr<AbstractGraphicsAPILoader> api_loader,
+               bool                                       vsync = false) {
         if (!glfwInit()) {
             spdlog::error("Failed to initialize GLFW!");
             exit(1);
@@ -265,14 +266,15 @@ protected:
 
         glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
+        _api_loader = std::move(api_loader);
         setVsync(vsync);
     }
 
 public:
-    explicit WindowContext(int32_t width, int32_t height,
-                           std::string_view const             &title,
-                           std::unique_ptr<IGraphicsAPILoader> api_loader,
-                           bool                                vsync = false)
+    explicit WindowContext(
+            int32_t width, int32_t height, std::string_view const &title,
+            std::unique_ptr<AbstractGraphicsAPILoader> api_loader,
+            bool                                       vsync = false)
         : _width(width), _height(height), _title(title) {
         initWindow(std::move(api_loader), vsync);
     }
@@ -294,6 +296,8 @@ public:
         glfwDestroyWindow(_window);
         glfwTerminate();
     }
+
+    inline void swapBuffers() const { _api_loader->swapBuffers(); }
 };
 
 }// namespace taixu

@@ -5,6 +5,7 @@
 #ifndef TAIXUENGINE_RENDER_API_HPP
 #define TAIXUENGINE_RENDER_API_HPP
 
+#include "GLFW/glfw3.h"
 #include "core/base/macro.hpp"
 #include "core/base/noncopyable.hpp"
 namespace taixu {
@@ -23,13 +24,18 @@ enum class ShaderAPI { NONE, GLSL, HLSL };
 /**
  * @brief 决定渲染API
  */
-class IGraphicsAPILoader : private noncopyable {
+class AbstractGraphicsAPILoader : private noncopyable {
+protected:
+    GLFWwindow *_window{nullptr};
+
 public:
-    virtual void initLoad() const = 0;
-    virtual void apiLoad(GLFWwindow *window) const  = 0;
+    virtual void initLoad() const            = 0;
+    virtual void apiLoad(GLFWwindow *window) = 0;
+    virtual void swapBuffers() const         = 0;
 };
 
-std::unique_ptr<IGraphicsAPILoader> createGraphicsAPILoader(GraphicsAPI api);
+std::unique_ptr<AbstractGraphicsAPILoader>
+createGraphicsAPILoader(GraphicsAPI api);
 
 }// namespace taixu
 

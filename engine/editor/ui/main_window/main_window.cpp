@@ -116,7 +116,7 @@ bool MainWindow::isCursorInRenderComponent() const {
 void MainWindow::update() {
     preUpdate();
     ImguiSurface::update();
-    _renderer->getContext()->swapBuffers();
+    _context_ptr->swapBuffers();
 }
 
 void MainWindow::destroy() {
@@ -129,8 +129,7 @@ void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
     this->_renderer       = engine_runtime_ptr->getRenderer();
 
     ImguiSurface::init(_context_ptr->_window);
-    render_component->_framebuffer =
-            _renderer->getContext()->getRenderFramebuffer();
+    render_component->_framebuffer = _renderer->getRenderFramebuffer();
 
     InputSystem::getInstance().registerEditorCallback([this](float delta_time) {
         if (glfwGetKey(_context_ptr->_window, GLFW_KEY_W) == GLFW_PRESS) {
