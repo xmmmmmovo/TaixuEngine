@@ -4,6 +4,7 @@
 
 #include "main_window.hpp"
 
+#include "backends/imgui_impl_opengl3.h"
 #include "core/base/path.hpp"
 #include "spdlog/spdlog.h"
 
@@ -128,6 +129,12 @@ void MainWindow::destroy() {
 }
 
 void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
+
+    std::make_unique<OGLFrameBuffer>(
+            IFrameBufferSpecification{FrameColorImageFormat::RGBA,
+                                      FrameDepthImageFormat::DEPTH24STENCIL8});
+
+
     this->_engine_runtime = engine_runtime_ptr;
     this->_renderer       = engine_runtime_ptr->getRenderer();
 

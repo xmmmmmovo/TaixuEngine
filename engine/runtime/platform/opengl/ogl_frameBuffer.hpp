@@ -26,7 +26,7 @@ public:
 
     void          bind() override;
     void          unbind() override;
-    std::uint32_t getFrameBufferID() override;
+    std::uint32_t getFBTextureID() override;
     void          resize(int width, int height) override;
 };
 

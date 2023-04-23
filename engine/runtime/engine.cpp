@@ -31,6 +31,7 @@ void Engine::init(WindowContext const *context, RenderAPI api) {
 }
 
 void Engine::update() {
+    _renderer->clearSurface();
     InputSystem::getInstance().processInput();
     _entity_component_system->tick();
     _physics_manager->tick();

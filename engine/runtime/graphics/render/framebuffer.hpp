@@ -5,6 +5,7 @@
 #ifndef TAIXUENGINE_FRAMEBUFFER_HPP
 #define TAIXUENGINE_FRAMEBUFFER_HPP
 
+#include <array>
 namespace taixu {
 
 enum class FrameColorImageFormat {
@@ -29,7 +30,7 @@ class IFrameBuffer {
 public:
     virtual void          bind()                        = 0;
     virtual void          unbind()                      = 0;
-    virtual std::uint32_t getFrameBufferID()            = 0;
+    virtual std::uint32_t getFBTextureID()            = 0;
     virtual void          resize(int width, int height) = 0;
 };
 }// namespace taixu

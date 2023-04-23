@@ -12,6 +12,7 @@
 
 #include "core/base/macro.hpp"
 #include "graphics/render/perspective_camera.hpp"
+#include "graphics/render/render_api.hpp"
 
 namespace taixu {
 /**
@@ -239,6 +240,14 @@ public:
             spdlog::error("Failed to initialize GLFW!");
             exit(1);
         }
+
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPENGL_MAJOR_VERSION);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, OPENGL_MINOR_VERSION);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+#ifdef __APPLE__
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
         _window = glfwCreateWindow(_width, _height, _title.data(), nullptr,

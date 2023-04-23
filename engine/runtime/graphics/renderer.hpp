@@ -28,7 +28,7 @@ class AbstractRenderer : private noncopyable {
 public:
     virtual void initialize(GLFWwindow *window)   = 0;
     virtual void tick(float delta_time = 0.03333) = 0;
-    virtual void clear()                          = 0;
+    virtual void clear(const std::array<float, 3> &color) = 0;
     virtual void clearSurface()                   = 0;
 
     virtual IGraphicsContext *getContext() = 0;

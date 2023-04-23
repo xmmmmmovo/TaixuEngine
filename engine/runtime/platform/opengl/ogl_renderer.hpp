@@ -18,8 +18,7 @@ public:
     void initialize(GLFWwindow *window) override;
 
     void tick(float delta_time) override;
-
-    void clear() override;
+    void clear(const std::array<float, 3> &color) override;
 
     void clearSurface() override;
 };

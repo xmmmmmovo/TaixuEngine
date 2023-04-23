@@ -120,9 +120,9 @@ void ImguiSurface::init(GLFWwindow *window) {
     style.Colors[ImGuiCol_Border] = ImVec4(0.539f, 0.479f, 0.255f, 0.162f);
     style.FrameBorderSize         = 0.0f;
 
-    style.WindowRounding = 0.0f;
+    style.WindowRounding   = 0.0f;
     style.WindowBorderSize = 0.0f;
-    style.WindowPadding = ImVec2(0.0f, 0.0f);
+    style.WindowPadding    = ImVec2(0.0f, 0.0f);
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(OPENGL_VERSION);
@@ -156,7 +156,7 @@ void ImguiSurface::update() {
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-    ImGuiIO  const&io = ImGui::GetIO();
+    ImGuiIO const &io = ImGui::GetIO();
 
     if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
         GLFWwindow *backup_current_context = glfwGetCurrentContext();

@@ -10,6 +10,7 @@
 #include "graphics/render_context.hpp"
 #include "graphics/renderer.hpp"
 #include "gui/input_system.hpp"
+#include "spdlog/spdlog.h"
 #include "ui/ui_component.hpp"
 
 namespace taixu::editor {
@@ -46,13 +47,15 @@ public:
         _render_rect.Max.y = _render_rect.Min.y + _render_size.y;
 
         if (_previous_size != _render_size) {
+            spdlog::debug("Resize the framebuffer: width {}, height {}",
+                          _render_size.x, _render_size.y);
             _previous_size = _render_size;
             _framebuffer->resize(static_cast<int>(_render_size.x),
                                  static_cast<int>(_render_size.y));
         }
 
         ImGui::Image(
-                reinterpret_cast<ImTextureID>(_framebuffer->getFrameBufferID()),
+                reinterpret_cast<ImTextureID>(_framebuffer->getFBTextureID()),
                 _render_size, ImVec2(0, 1), ImVec2(1, 0));
     }
 };

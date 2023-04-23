@@ -59,11 +59,13 @@ void OGLFrameBuffer::createFramebuffer() {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-void OGLFrameBuffer::bind() { glBindFramebuffer(GL_FRAMEBUFFER, _bufferTexId); }
+void OGLFrameBuffer::bind() { glBindFramebuffer(GL_FRAMEBUFFER, _fbo); }
 
-void OGLFrameBuffer::unbind() { glBindFramebuffer(GL_FRAMEBUFFER, 0); }
+void OGLFrameBuffer::unbind() {
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
 
-std::uint32_t taixu::OGLFrameBuffer::getFrameBufferID() { return _bufferTexId; }
+std::uint32_t taixu::OGLFrameBuffer::getFBTextureID() { return _bufferTexId; }
 
 void OGLFrameBuffer::resize(int width, int height) {
     this->_width  = width;

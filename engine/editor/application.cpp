@@ -56,15 +56,15 @@ void Application::initialize(std::vector<std::string> const &args) {
     window_ptr_local->init();
 
     _engine_ptr->init(_context_ptr.get());
-
     window_ptr_local->initWithEngineRuntime(_engine_ptr);
+
+    _context_ptr->setVsync(true);
     this->_window_ptr = std::move(window_ptr_local);
     spdlog::info("initialize the application finished!");
 }
 
 void Application::run() {
     while (!this->_context_ptr->shouldClose()) {
-        this->_engine_ptr->getRenderer()->clearSurface();
         this->_engine_ptr->update();
         this->_window_ptr->update();
     }
