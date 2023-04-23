@@ -96,7 +96,7 @@ Inheritance diagram for taixu::RigidBodyComponent:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1RigidBodyComponent__inherit__graph.png" border="0" usemap="#ataixu_1_1RigidBodyComponent_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1RigidBodyComponent_inherit__map" id="ataixu_1_1RigidBodyComponent_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,160,209,340"/>
+<area shape="rect" title=" " alt="" coords="5,160,209,355"/>
 <area shape="rect" href="classtaixu_1_1EntityComponent.html" title=" " alt="" coords="19,5,195,112"/>
 </map>
 </div>
@@ -105,7 +105,7 @@ Collaboration diagram for taixu::RigidBodyComponent:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1RigidBodyComponent__coll__graph.png" border="0" usemap="#ataixu_1_1RigidBodyComponent_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1RigidBodyComponent_coll__map" id="ataixu_1_1RigidBodyComponent_coll__map">
-<area shape="rect" title=" " alt="" coords="5,477,209,643"/>
+<area shape="rect" title=" " alt="" coords="5,477,209,657"/>
 <area shape="rect" href="classtaixu_1_1EntityComponent.html" title=" " alt="" coords="14,5,190,112"/>
 <area shape="rect" href="classtaixu_1_1TransformComponent.html" title=" " alt="" coords="123,161,326,415"/>
 </map>
@@ -117,8 +117,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4d9317c19daaa0586c77226cfc7e152d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30255873c77a1935837f11ef24279098"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1RigidBodyComponent.html#a30255873c77a1935837f11ef24279098">RigidBodyComponent</a> (std::uint32_t go, <a class="el" href="classtaixu_1_1TransformComponent.html">TransformComponent</a> *transform, std::weak_ptr&lt; <a class="el" href="classtaixu_1_1PhysicsScene.html">PhysicsScene</a> &gt; physics_scene)</td></tr>
 <tr class="separator:a30255873c77a1935837f11ef24279098"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeb19bd8a64ee108ca21af7d6d74d6fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1RigidBodyComponent.html#aaeb19bd8a64ee108ca21af7d6d74d6fc">initialize</a> ()</td></tr>
-<tr class="separator:aaeb19bd8a64ee108ca21af7d6d74d6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a916f47ba07969b9a5c69c978c8f117d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1RigidBodyComponent.html#a916f47ba07969b9a5c69c978c8f117d2">initialize</a> (<a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895">RigidBodyShapeType</a> stype, <a class="el" href="namespacetaixu.html#a88239a41d78f690655b2aa9bb89ec1bd">MotionType</a> mtype)</td></tr>
+<tr class="separator:a916f47ba07969b9a5c69c978c8f117d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a42d5efb7161ecc7d6062f8cb717c79"><td class="memItemLeft" align="right" valign="top">std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1RigidBodyComponent.html#a2a42d5efb7161ecc7d6062f8cb717c79">getGO</a> ()</td></tr>
 <tr class="separator:a2a42d5efb7161ecc7d6062f8cb717c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9e1be268c52fb515ff7d83fb336bce3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1RigidBodyComponent.html#ac9e1be268c52fb515ff7d83fb336bce3">tick</a> ()</td></tr>
@@ -131,7 +131,9 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5b59f6928155ef343ec3f628475b2662"><td class="memItemLeft" align="right" valign="top">std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1RigidBodyComponent.html#a5b59f6928155ef343ec3f628475b2662">GO</a></td></tr>
 <tr class="separator:a5b59f6928155ef343ec3f628475b2662"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93969fef163b7b40780111dc88caf6fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895">RigidBodyShapeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1RigidBodyComponent.html#a93969fef163b7b40780111dc88caf6fc">type</a> {<a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895afedb2d84cafe20862cb4399751a8a7e3">RigidBodyShapeType::invalid</a>}</td></tr>
+<tr class="memitem:a84c97f863a062a183e86642d4353ec74"><td class="memItemLeft" align="right" valign="top">JPH::BodyID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1RigidBodyComponent.html#a84c97f863a062a183e86642d4353ec74">body_id</a></td></tr>
+<tr class="separator:a84c97f863a062a183e86642d4353ec74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93969fef163b7b40780111dc88caf6fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895">RigidBodyShapeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1RigidBodyComponent.html#a93969fef163b7b40780111dc88caf6fc">type</a> {<a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895accc0377a8afbf50e7094f5c23a8af223">RigidBodyShapeType::INVALID</a>}</td></tr>
 <tr class="separator:a93969fef163b7b40780111dc88caf6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f470f83317678add620de4ce5cbd1a9"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="classtaixu_1_1PhysicsScene.html">PhysicsScene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1RigidBodyComponent.html#a5f470f83317678add620de4ce5cbd1a9">current_scene</a></td></tr>
 <tr class="separator:a5f470f83317678add620de4ce5cbd1a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,8 +236,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aaeb19bd8a64ee108ca21af7d6d74d6fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaeb19bd8a64ee108ca21af7d6d74d6fc">&#9670;&nbsp;</a></span>initialize()</h2>
+<a id="a916f47ba07969b9a5c69c978c8f117d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a916f47ba07969b9a5c69c978c8f117d2">&#9670;&nbsp;</a></span>initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,8 +245,19 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void taixu::RigidBodyComponent::initialize </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895">RigidBodyShapeType</a>&#160;</td>
+          <td class="paramname"><em>stype</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="namespacetaixu.html#a88239a41d78f690655b2aa9bb89ec1bd">MotionType</a>&#160;</td>
+          <td class="paramname"><em>mtype</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -279,6 +292,20 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a84c97f863a062a183e86642d4353ec74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84c97f863a062a183e86642d4353ec74">&#9670;&nbsp;</a></span>body_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">JPH::BodyID taixu::RigidBodyComponent::body_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5f470f83317678add620de4ce5cbd1a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f470f83317678add620de4ce5cbd1a9">&#9670;&nbsp;</a></span>current_scene</h2>
 
@@ -328,7 +355,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895">RigidBodyShapeType</a> taixu::RigidBodyComponent::type {<a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895afedb2d84cafe20862cb4399751a8a7e3">RigidBodyShapeType::invalid</a>}</td>
+          <td class="memname"><a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895">RigidBodyShapeType</a> taixu::RigidBodyComponent::type {<a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895accc0377a8afbf50e7094f5c23a8af223">RigidBodyShapeType::INVALID</a>}</td>
         </tr>
       </table>
 </div><div class="memdoc">

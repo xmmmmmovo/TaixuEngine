@@ -71,6 +71,7 @@ var annotated_dup =
       [ "EntityComponent", "classtaixu_1_1EntityComponent.html", "classtaixu_1_1EntityComponent" ],
       [ "EntityComponentMap", "classtaixu_1_1EntityComponentMap.html", "classtaixu_1_1EntityComponentMap" ],
       [ "MeshComponent", "classtaixu_1_1MeshComponent.html", "classtaixu_1_1MeshComponent" ],
+      [ "RigidbodyInfo", "structtaixu_1_1RigidbodyInfo.html", "structtaixu_1_1RigidbodyInfo" ],
       [ "RigidBodyComponent", "classtaixu_1_1RigidBodyComponent.html", "classtaixu_1_1RigidBodyComponent" ],
       [ "TransformComponent", "classtaixu_1_1TransformComponent.html", "classtaixu_1_1TransformComponent" ],
       [ "ECS", "classtaixu_1_1ECS.html", "classtaixu_1_1ECS" ],

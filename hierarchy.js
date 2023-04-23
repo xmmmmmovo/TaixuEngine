@@ -103,6 +103,7 @@ var hierarchy =
     [ "taixu::RenderData", "classtaixu_1_1RenderData.html", null ],
     [ "taixu::Renderer", "classtaixu_1_1Renderer.html", null ],
     [ "taixu::RenderUint", "structtaixu_1_1RenderUint.html", null ],
+    [ "taixu::RigidbodyInfo", "structtaixu_1_1RigidbodyInfo.html", null ],
     [ "taixu::Texture", "structtaixu_1_1Texture.html", null ],
     [ "taixu::Vertex", "structtaixu_1_1Vertex.html", null ],
     [ "taixu::editor::ViewModel", "structtaixu_1_1editor_1_1ViewModel.html", null ],

@@ -57,6 +57,7 @@ var namespacetaixu =
     [ "EntityComponent", "classtaixu_1_1EntityComponent.html", "classtaixu_1_1EntityComponent" ],
     [ "EntityComponentMap", "classtaixu_1_1EntityComponentMap.html", "classtaixu_1_1EntityComponentMap" ],
     [ "MeshComponent", "classtaixu_1_1MeshComponent.html", "classtaixu_1_1MeshComponent" ],
+    [ "RigidbodyInfo", "structtaixu_1_1RigidbodyInfo.html", "structtaixu_1_1RigidbodyInfo" ],
     [ "RigidBodyComponent", "classtaixu_1_1RigidBodyComponent.html", "classtaixu_1_1RigidBodyComponent" ],
     [ "TransformComponent", "classtaixu_1_1TransformComponent.html", "classtaixu_1_1TransformComponent" ],
     [ "ECS", "classtaixu_1_1ECS.html", "classtaixu_1_1ECS" ],
@@ -106,6 +107,10 @@ var namespacetaixu =
       [ "NONE", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09ab50339a10e1de285ac99d4c3990b8693", null ],
       [ "DEPTH24STENCIL8", "namespacetaixu.html#a2713c41d83518b460b4c64b749d8ac09a7ca3e26e4e5c35e4408bd49c1e32e9a3", null ]
     ] ],
+    [ "MotionType", "namespacetaixu.html#a88239a41d78f690655b2aa9bb89ec1bd", [
+      [ "STATIC", "namespacetaixu.html#a88239a41d78f690655b2aa9bb89ec1bdafe6f99ef1ec99efbdc19a9786cf1facc", null ],
+      [ "DYNAMIC", "namespacetaixu.html#a88239a41d78f690655b2aa9bb89ec1bda0fcc90da4811c877ba9f9c12f7d60bc9", null ]
+    ] ],
     [ "oprationType", "namespacetaixu.html#aa81d167ef77c16c91bff85b64953d47a", [
       [ "ADD", "namespacetaixu.html#aa81d167ef77c16c91bff85b64953d47aab45960709217ede34f9ace64350196b4", null ],
       [ "CHANGEMODEL", "namespacetaixu.html#aa81d167ef77c16c91bff85b64953d47aaecc8419e3a5047fa93a824f89dc9ea77", null ],
@@ -116,8 +121,9 @@ var namespacetaixu =
       [ "OPENGL", "namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302ac0ad831a34c4633bee584066cfcc5040", null ]
     ] ],
     [ "RigidBodyShapeType", "namespacetaixu.html#a76dd482116d505913bb677a80cbb2895", [
-      [ "box", "namespacetaixu.html#a76dd482116d505913bb677a80cbb2895a34be958a921e43d813a2075297d8e862", null ],
-      [ "invalid", "namespacetaixu.html#a76dd482116d505913bb677a80cbb2895afedb2d84cafe20862cb4399751a8a7e3", null ]
+      [ "BOX", "namespacetaixu.html#a76dd482116d505913bb677a80cbb2895ae657cce1913c857166b0475f18668ef5", null ],
+      [ "SPHERE", "namespacetaixu.html#a76dd482116d505913bb677a80cbb2895a6f7cea7381e843e2ee0338b4a92b0d43", null ],
+      [ "INVALID", "namespacetaixu.html#a76dd482116d505913bb677a80cbb2895accc0377a8afbf50e7094f5c23a8af223", null ]
     ] ],
     [ "ShaderAPI", "namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8", [
       [ "NONE", "namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8ab50339a10e1de285ac99d4c3990b8693", null ],
