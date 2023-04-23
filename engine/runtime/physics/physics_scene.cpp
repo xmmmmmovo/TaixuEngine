@@ -41,14 +41,42 @@ void PhysicsScene::initialize() {
 	m_physics.physics_system.get()->SetContactListener(m_physics.contact_listener.get());
 
 
-    createRigidBodyActor();
+    //createRigidBodyActor();
 }
 
-void PhysicsScene::createRigidBodyActor(){
+JPH::BodyID PhysicsScene::createRigidBodyActor(RigidbodyInfo rgdInfo) {
+    JPH::Shape* shape = toShape(rgdInfo.stype,rgdInfo.scale);
+    JPH::BodyInterface &body_interface = m_physics.physics_system->GetBodyInterface();
+    JPH::BodyCreationSettings shape_settings;
+    //only DYNAMIC and STATIC
+    if(rgdInfo.mtype==MotionType::DYNAMIC)
+    {
+        shape_settings = JPH::BodyCreationSettings(
+        shape, 
+        JPH::Vec3Arg(rgdInfo.position.x, rgdInfo.position.y, rgdInfo.position.z), 
+        JPH::Quat::sIdentity(), 
+        JPH::EMotionType::Dynamic, 
+        Layers::MOVING);
+    }
+    else
+    {
+        shape_settings = JPH::BodyCreationSettings(
+        shape, 
+        JPH::Vec3Arg(rgdInfo.position.x, rgdInfo.position.y, rgdInfo.position.z), 
+        JPH::Quat::sIdentity(), 
+        JPH::EMotionType::Static, 
+        Layers::NON_MOVING);
+    }
+    JPH::BodyID body_id = body_interface.CreateAndAddBody(shape_settings, JPH::EActivation::Activate);
+    current_bodies.push_back(body_id); 
+    return body_id;
+}
+
+void PhysicsScene::createRigidBodyActor() {
     // The main way to interact with the bodies in the physics system is through the body interface. There is a locking and a non-locking
 	// variant of this. We're going to use the locking version (even though we're not planning to access bodies from multiple threads)
 	JPH::BodyInterface &body_interface = m_physics.physics_system->GetBodyInterface();
-
+    
 	// Next we can create a rigid body to serve as the floor, we make a large box
 	// Create the settings for the collision volume (the shape). 
 	// Note that for simple shapes (like boxes) you can also directly construct a BoxShape.
@@ -79,7 +107,7 @@ void PhysicsScene::createRigidBodyActor(){
     //return sphere_id.GetIndexAndSequenceNumber();
 }
 
-void PhysicsScene::removeRigidBodyActor(uint32_t body_id) {
+void PhysicsScene::removeRigidBodyActor(JPH::BodyID body_id) {
 
 }
 
@@ -111,15 +139,44 @@ void PhysicsScene::tick() {
     //remove
 }
 
-void PhysicsScene::updateGlobalTransform(TransformComponent *_transf) {
+void PhysicsScene::updateGlobalTransform(TransformComponent *_transf, JPH::BodyID body_id) {
     //_transf->setPosition(glm::vec3(1.0f,1.0f,1.0f));
     //_transf->setRotation(glm::vec3(-45.0f,-45.0f,-45.0f));
     JPH::BodyInterface &body_interface = m_physics.physics_system->GetBodyInterface();
-    Vec3 position = body_interface.GetCenterOfMassPosition(sphere_id);
-	Vec3 velocity = body_interface.GetLinearVelocity(sphere_id);
+    Vec3 position = body_interface.GetCenterOfMassPosition(body_id);
+	Vec3 velocity = body_interface.GetLinearVelocity(body_id);
     _transf->setPosition(glm::vec3(position.GetX(),position.GetY(),position.GetZ()));
     _transf->setRotation(glm::vec3(glm::degrees(position.GetX()),glm::degrees(position.GetY()),glm::degrees(position.GetZ())));
     
 }
+
+JPH::Shape* PhysicsScene::toShape(RigidBodyShapeType shape, const glm::vec3& scale)
+    {   
+        
+        //all shapes define to indentity size
+        JPH::Shape* jph_shape = nullptr;
+        if (shape == RigidBodyShapeType::BOX)
+        {
+            JPH::Vec3 jph_box(scale.x,
+                              scale.y,
+                              scale.z);
+            jph_shape = new JPH::BoxShape(jph_box, 0.f);         
+        }
+        else if (shape == RigidBodyShapeType::SPHERE)
+        {
+            jph_shape = new JPH::SphereShape((scale.x + scale.y + scale.z) / 3 * 1);
+        }
+        // else if (shape == RigidBodyShapeType::CAPSULE)
+        // {
+        //     jph_shape = new JPH::CapsuleShape(scale.z,
+        //                                           (scale.x + scale.y) / 2);
+        // }
+        else
+        {
+            spdlog::debug("Unsupported Shape");
+        }
+
+        return jph_shape;
+    }
 
 }// namespace taixu

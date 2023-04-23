@@ -20,9 +20,13 @@ void initialize(){
     cube.set_id(GUID_Generator::generate_new_guid());
     GOs.push_back(cube);
 
-    GameObject teapot;
-    teapot.set_id(GUID_Generator::generate_new_guid());
-    GOs.push_back(teapot);
+    GameObject sphere;
+    sphere.set_id(GUID_Generator::generate_new_guid());
+    GOs.push_back(sphere);
+
+    GameObject another_sphere;
+    another_sphere.set_id(GUID_Generator::generate_new_guid());
+    GOs.push_back(another_sphere);
     };
 void tick(float delta_time=0.33);
 private:

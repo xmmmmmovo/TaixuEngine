@@ -101,6 +101,8 @@ public:
 
     std::vector<std::shared_ptr<RenderUint>> prepared_models;
 
+    
+
 };
 
 class RenderContext {
@@ -135,7 +137,6 @@ public:
             Transform = pm->transform_matrix;
             bindShader();
             pm->GPU->tickMesh(pm->model.meshes[0]);
-            //int a=0;
         }
         //sphere_context = render_data->prepared_models[0]->GPU;
     }
