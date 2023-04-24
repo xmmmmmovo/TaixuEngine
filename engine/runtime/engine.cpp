@@ -27,7 +27,6 @@ void Engine::init() {
     _physics_manager->initialize();
 
     _entity_component_system = std::make_unique<ECS>();
-    _entity_component_system->dataRedirection(_renderer->getContext());
     _entity_component_system->sceneRedirection(_physics_manager->current_scene);
     _entity_component_system->initialize();
 }

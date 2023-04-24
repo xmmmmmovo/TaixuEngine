@@ -6,23 +6,22 @@
 #include "resource/ecs/entity_component/camera/camera_component.hpp"
 #include "resource/ecs/entity_component/entity_component.hpp"
 #include "resource/ecs/entity_component/transform/transform_component.hpp"
+#include <cstdint>
 #include <optional>
 #include <string>
 
 namespace taixu {
 class MeshComponent : public EntityComponent {
+    PROTOTYPE(std::uint32_t, GO, 0);
+
 public:
     MeshComponent(bool renderable, std::uint32_t guid, std::string path1,
                   std::string path2)
-        : visible(renderable), GO(guid), mesh_path(path1),
+        : visible(renderable), _GO(guid), mesh_path(path1),
           material_path(path2) {}
-    //std::string name{};
     bool                           visible;
-    std::uint32_t                  GO;
     std::string                    mesh_path{"INVALID"};
     std::string                    material_path{"INVALID"};
-    IGraphicsContext              *data_target{};
-    std::uint32_t                  getGO() override { return GO; };
     TransformComponent            *transform_component{};
     std::optional<CameraComponent> camera_component;
     void                           initialize();

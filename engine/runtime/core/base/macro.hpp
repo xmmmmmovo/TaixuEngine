@@ -3,6 +3,21 @@
 
 namespace taixu {
 
+#define PROTOTYPE(type, name, default_val)                                     \
+private:                                                                       \
+    type _##name{default_val};                                                 \
+                                                                               \
+public:                                                                        \
+    [[nodiscard]] type name() const { return _##name; }                        \
+    void               set_##name(type const &value) { _##name = value; }
+
+#define PROTOTYPE_ONLY_GETTER(type, name, default_val)                                      \
+private:                                                                       \
+    type _##name{default_val};                                                              \
+                                                                               \
+public:                                                                        \
+    [[nodiscard]] type name() const { return _##name }
+
 /**
  * @brief Define Opengl version
  */
@@ -22,7 +37,7 @@ enum class Status {
     PERMISSION_FAILED,  //access permission failed
     NO_SUCH_FILE_FAILED,//cannot find file path
 
-    NO_OPEN_PROJECT,//no project opened
+    NO_OPEN_PROJECT,    //no project opened
 
     // RENDER STATUS CODES
 

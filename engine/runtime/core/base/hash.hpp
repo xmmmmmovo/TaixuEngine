@@ -17,6 +17,6 @@ inline void hash_combine(std::size_t &seed, const T &v, Ts... rest) {
     if constexpr (sizeof...(Ts) > 1) { hash_combine(seed, rest...); }
 }
 
-}// namespace taixu::core
+}// namespace taixu
 
 #endif /* ENGINE_RUNTIME_CORE_BASE_HASH */

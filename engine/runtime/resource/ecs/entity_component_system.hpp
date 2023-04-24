@@ -22,10 +22,8 @@ enum class ComponentType { MESH_COMPONENT, TRANSFORM_COMPONENT };
 
 class ECS {
 public:
-    IGraphicsContext           *data_target;
     std::weak_ptr<PhysicsScene> scene_target;
     void                        initialize();
-    void dataRedirection(IGraphicsContext *render_context);
     void sceneRedirection(std::shared_ptr<PhysicsScene> physics_scene);
 
     void reloadWorld(const std::filesystem::path &world_path);

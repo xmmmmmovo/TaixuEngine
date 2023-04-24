@@ -7,7 +7,6 @@
 
 #include "core/math/imvec2.hpp"
 #include "graphics/render/framebuffer.hpp"
-#include "graphics/render_context.hpp"
 #include "graphics/renderer.hpp"
 #include "gui/input_system.hpp"
 #include "spdlog/spdlog.h"
