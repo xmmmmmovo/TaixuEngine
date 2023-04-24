@@ -59,3 +59,12 @@ TEST_CASE("shared_ptr new", "[C++ trait tests]") {
     std::cout << a.get() << std::endl;
     std::cout << b.get() << std::endl;
 }
+
+TEST_CASE("unique_pre move test", "[C++ trait tests]") {
+    std::unique_ptr<A> a = std::make_unique<A>();
+    auto               b = a.get();
+    auto               c = std::move(a);
+    REQUIRE(nullptr == a);
+    REQUIRE(c.get() == b);
+    REQUIRE(0 == c->a);
+}

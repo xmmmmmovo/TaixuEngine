@@ -5,17 +5,17 @@
 #include <cstdint>
 #include <limits>
 
-namespace taixu
-{
-constexpr std::uint32_t INVALID_GUID = std::numeric_limits<std::uint32_t>::max();
-class GUID_Generator {
+namespace taixu {
+constexpr std::uint32_t INVALID_GUID =
+        std::numeric_limits<std::uint32_t>::max();
+class GuidGenerator {
 public:
-    static std::uint32_t generate_new_guid();
+    static std::uint32_t generateNewGuid();
 
 private:
-    static std::atomic<std::uint32_t> next_id;
+    static std::atomic<std::uint32_t> _next_id;
 };
 
-}
+}// namespace taixu
 
 #endif /* TAIXUENGINE_GUID_GENERATOR */

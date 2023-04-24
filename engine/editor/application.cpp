@@ -5,10 +5,13 @@
 #include "application.hpp"
 
 #include <argparse/argparse.hpp>
+#include <string>
 #include <string_view>
 #include <vector>
 
 // <> headers
+#include "engine_args.hpp"
+#include "graphics/render/render_api.hpp"
 #include "spdlog/spdlog.h"
 
 // "" headers
@@ -28,8 +31,27 @@ void initSpdlog() {
 #endif
 }
 
+/**
+ * @brief init the engine args
+ * @param args
+ */
 void Application::initApplicationArgs(std::vector<std::string> const &args) {
     argparse::ArgumentParser program("TaixuEngineEditor");
+
+    program.add_argument("-api", "--graphics_api")
+            .default_value("opengl")
+            .help("Choose a graphics API")
+            .action([](std::string const &val) {
+                EngineArgs &args_ins = EngineArgs::getInstance();
+
+                if ("opengl" == val) {
+                    args_ins.api = GraphicsAPI::OPENGL;
+                } else {
+                    throw std::runtime_error("Invalid graphics API choice: " +
+                                             val);
+                }
+            });
+
     try {
         program.parse_args(args);
     } catch (const std::runtime_error &err) {
@@ -40,33 +62,35 @@ void Application::initApplicationArgs(std::vector<std::string> const &args) {
 }
 
 void Application::initialize(std::vector<std::string> const &args) {
+    spdlog::info("start initialize the application!");
     initSpdlog();
     initApplicationArgs(args);
 
-    context_ptr = std::make_unique<WindowContext>(
-            MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE);
+    _context_ptr = std::make_unique<WindowContext>(
+            MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE,
+            createGraphicsAPILoader(EngineArgs::getInstance().api), true);
 
-    InputSystem::getInstance().setContext(context_ptr.get());
+    InputSystem::getInstance().setContext(_context_ptr.get());
 
     // init window pointer
     std::unique_ptr<MainWindow> window_ptr_local =
-            std::make_unique<MainWindow>(context_ptr.get());
+            std::make_unique<MainWindow>(_context_ptr.get());
     // init window
     window_ptr_local->init();
 
     _engine_ptr->init();
-    window_ptr_local->setEngineRuntime(_engine_ptr);
-    this->window_ptr = std::move(window_ptr_local);
+    window_ptr_local->initWithEngineRuntime(_engine_ptr);
+
+    this->_window_ptr = std::move(window_ptr_local);
+    spdlog::info("initialize the application finished!");
 }
 
 void Application::run() {
-    while (!this->context_ptr->shouldClose()) {
-        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+    while (!this->_context_ptr->shouldClose()) {
         this->_engine_ptr->update();
-        this->window_ptr->update();
+        this->_window_ptr->update();
     }
 }
 
-void Application::destroy() { this->window_ptr->destroy(); }
+void Application::destroy() { this->_window_ptr->destroy(); }
 }// namespace taixu::editor

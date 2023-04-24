@@ -5,18 +5,22 @@
 #ifndef TAIXUENGINE_RENDER_COMPONENT_HPP
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
+#include "core/math/imvec2.hpp"
+#include "graphics/render/framebuffer.hpp"
 #include "graphics/renderer.hpp"
 #include "gui/input_system.hpp"
+#include "spdlog/spdlog.h"
 #include "ui/ui_component.hpp"
 
 namespace taixu::editor {
 
 class RenderComponent : public IUIComponent {
 public:
-    Renderer *_renderer;
-    ImVec2    _render_size;
-    ImRect    _render_rect;
-    ImRect    _menu_bar_rect;
+    IFrameBuffer *_framebuffer;
+    ImVec2        _render_size{};
+    ImVec2        _previous_size{};
+    ImRect        _render_rect{};
+    ImRect        _menu_bar_rect{};
 
 public:
     void update() override {
@@ -41,11 +45,16 @@ public:
         _render_rect.Max.x = _render_rect.Min.x + _render_size.x;
         _render_rect.Max.y = _render_rect.Min.y + _render_size.y;
 
-        _renderer->resize(_render_size.x, _render_size.y);
+        if (_previous_size != _render_size) {
+            spdlog::debug("Resize the framebuffer: width {}, height {}",
+                          _render_size.x, _render_size.y);
+            _previous_size = _render_size;
+            _framebuffer->resize(static_cast<int>(_render_size.x),
+                                 static_cast<int>(_render_size.y));
+        }
 
-        // Because I use the texture from OpenGL, I need to invert the V from the UV.
         ImGui::Image(
-                reinterpret_cast<ImTextureID>(_renderer->getRenderResult()),
+                reinterpret_cast<ImTextureID>(_framebuffer->getFBTextureID()),
                 _render_size, ImVec2(0, 1), ImVec2(1, 0));
     }
 };

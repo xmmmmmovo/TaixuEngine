@@ -32,9 +32,11 @@ private:
      * so there is just one pointer
      * @see IWindow
      */
-    std::unique_ptr<IWindow>       window_ptr{nullptr};
-    std::unique_ptr<WindowContext> context_ptr{nullptr};
-    // get engine instance raw pointer
+    std::unique_ptr<IWindow>       _window_ptr{nullptr};
+    std::unique_ptr<WindowContext> _context_ptr{nullptr};
+    /**
+     * @brief Engine raw pointer
+     */
     Engine                        *_engine_ptr = &Engine::getInstance();
 
     /**
@@ -68,7 +70,7 @@ private:
     /**
      * @brief initWindow application args
      */
-    void initApplicationArgs(std::vector<std::string> const &args);
+    static void initApplicationArgs(std::vector<std::string> const &args);
 };
 
 }// namespace taixu::editor

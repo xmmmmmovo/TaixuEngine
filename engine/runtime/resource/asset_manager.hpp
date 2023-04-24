@@ -24,7 +24,9 @@ struct Asset {
     std::string  type;
     std::string  location;
 };
+
 enum AssetType { MODEL, TEXTURE };
+
 class AssetManager {
 public:
     AssetManager() = default;
@@ -36,7 +38,7 @@ public:
 
 
     void loadAsset(std::filesystem::path const &file_path) {
-        
+
 
         std::ifstream f(file_path.c_str());
         if (!f.is_open()) {
@@ -51,12 +53,12 @@ public:
 
         for (auto &i : data["assets"].items()) {
             Asset              new_asset;
-            std::uint8_t const new_guid = GUID_Generator::generate_new_guid();
+            std::uint8_t const new_guid = GuidGenerator::generateNewGuid();
             new_asset.guid              = new_guid;
             Json const j                = i.value();
             from_json(j, new_asset);
-            std::filesystem::path temppath =   dir_path / new_asset.location;
-            new_asset.location = temppath.string();
+            std::filesystem::path temppath = dir_path / new_asset.location;
+            new_asset.location             = temppath.string();
             asset_list.push_back(new_asset);
         }
     }

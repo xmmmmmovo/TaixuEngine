@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "GLFW/glfw3.h"
+#include "graphics/renderer.hpp"
 #include "imgui.h"
 #include "imgui_internal.h"
 
@@ -59,14 +60,14 @@ private:
 
 
 private:
-    Renderer* renderer{};
+    IRenderer *_renderer{};
 
     // static raw engine runtime pointer
     // do not need to free
-    Engine* _engine_runtime{nullptr};
+    Engine *_engine_runtime{nullptr};
 
     // context
-    WindowContext* context_ptr{nullptr};
+    WindowContext *_context_ptr{nullptr};
 
     ImVec2 _mouse_pos{0.0f, 0.0f};
     ImVec2 _last_mouse_pos{-1.f, -1.f};
@@ -84,13 +85,13 @@ private:
             ImGuiWindowFlags_NoBringToFrontOnFocus;
 
 public:
-    explicit MainWindow(WindowContext* context_ptr);
+    explicit MainWindow(WindowContext *context_ptr);
 
     void init() override;
     void update() override;
     void destroy() override;
 
-    void setEngineRuntime(Engine* engine_runtime_ptr);
+    void initWithEngineRuntime(Engine *engine_runtime_ptr);
 
 private:
     void preUpdate();
@@ -99,10 +100,10 @@ private:
 
 private:
     // callback functions
-    void onNewProjectCb(std::string_view const& path);
-    void onOpenProjectCb(std::string_view const& path);
+    void onNewProjectCb(std::string_view const &path);
+    void onOpenProjectCb(std::string_view const &path);
     void onSaveProjectCb();
-    void onSaveAsProjectCb(std::string_view const& path);
+    void onSaveAsProjectCb(std::string_view const &path);
 };
 
 }// namespace taixu::editor
