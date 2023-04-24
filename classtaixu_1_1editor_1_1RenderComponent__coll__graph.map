@@ -1,7 +1,6 @@
 <map id="taixu::editor::RenderComponent" name="taixu::editor::RenderComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="91,549,322,656"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="5,365,208,443"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="33,57,180,207"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1Renderer.html" title=" " alt="" coords="232,321,387,487"/>
-<area shape="rect" id="node5" href="$classtaixu_1_1Clock.html" title=" " alt="" coords="226,5,393,259"/>
+<area shape="rect" id="node1" title=" " alt="" coords="139,389,370,511"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="5,227,208,305"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="33,5,180,156"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1IFrameBuffer.html" title=" " alt="" coords="232,205,379,327"/>
 </map>

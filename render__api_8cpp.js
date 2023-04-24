@@ -1,5 +1,5 @@
 var render__api_8cpp =
 [
-    [ "loadAPI", "render__api_8cpp.html#a89647400212a20d45e88e211d5339abd", null ],
-    [ "openglAPILoader", "render__api_8cpp.html#a65841ea64ad9fd1e45ec572bcf0a5d5c", null ]
+    [ "OGLAPILoader", "classtaixu_1_1OGLAPILoader.html", "classtaixu_1_1OGLAPILoader" ],
+    [ "createGraphicsAPILoader", "render__api_8cpp.html#aa1df259076e81d4b12da1685fb689e04", null ]
 ];

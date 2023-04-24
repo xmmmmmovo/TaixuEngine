@@ -1,6 +1,6 @@
 <map id="taixu::EntityComponent" name="taixu::EntityComponent">
 <area shape="rect" id="node1" title=" " alt="" coords="225,5,401,112"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1MeshComponent.html" title=" " alt="" coords="5,182,187,391"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1MeshComponent.html" title=" " alt="" coords="5,197,187,377"/>
 <area shape="rect" id="node3" href="$classtaixu_1_1RigidBodyComponent.html" title=" " alt="" coords="211,189,415,384"/>
 <area shape="rect" id="node4" href="$classtaixu_1_1TransformComponent.html" title=" " alt="" coords="440,160,643,413"/>
 </map>

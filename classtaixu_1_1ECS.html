@@ -97,7 +97,7 @@ Collaboration diagram for taixu::ECS:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1ECS__coll__graph.png" border="0" usemap="#ataixu_1_1ECS_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1ECS_coll__map" id="ataixu_1_1ECS_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,164,200"/>
+<area shape="rect" title=" " alt="" coords="5,5,164,171"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -105,8 +105,6 @@ Collaboration diagram for taixu::ECS:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a971f5af9d6c0f53fbec0023262d0e366"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#a971f5af9d6c0f53fbec0023262d0e366">initialize</a> ()</td></tr>
 <tr class="separator:a971f5af9d6c0f53fbec0023262d0e366"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3c29d09b2a8f57e170736c365123805"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#ab3c29d09b2a8f57e170736c365123805">dataRedirection</a> (std::shared_ptr&lt; <a class="el" href="classtaixu_1_1RenderContext.html">RenderContext</a> &gt; render_context)</td></tr>
-<tr class="separator:ab3c29d09b2a8f57e170736c365123805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a855c15d254ca86b7f2fa26781f6fbce8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#a855c15d254ca86b7f2fa26781f6fbce8">sceneRedirection</a> (std::shared_ptr&lt; <a class="el" href="classtaixu_1_1PhysicsScene.html">PhysicsScene</a> &gt; physics_scene)</td></tr>
 <tr class="separator:a855c15d254ca86b7f2fa26781f6fbce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51ad95c7919aaa45be064cbcc9a7970e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#a51ad95c7919aaa45be064cbcc9a7970e">reloadWorld</a> (const std::filesystem::path &amp;world_path)</td></tr>
@@ -116,8 +114,6 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac151052c78c99576ef8892b2c3053b33"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="classtaixu_1_1RenderContext.html">RenderContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#ac151052c78c99576ef8892b2c3053b33">data_target</a></td></tr>
-<tr class="separator:ac151052c78c99576ef8892b2c3053b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4e2abe7b800b8ddc9d9e02819b00fa5"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="classtaixu_1_1PhysicsScene.html">PhysicsScene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ECS.html#ac4e2abe7b800b8ddc9d9e02819b00fa5">scene_target</a></td></tr>
 <tr class="separator:ac4e2abe7b800b8ddc9d9e02819b00fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -131,24 +127,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a84d3273fcfff963791df29737fdb4c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab3c29d09b2a8f57e170736c365123805"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3c29d09b2a8f57e170736c365123805">&#9670;&nbsp;</a></span>dataRedirection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void taixu::ECS::dataRedirection </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1RenderContext.html">RenderContext</a> &gt;&#160;</td>
-          <td class="paramname"><em>render_context</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a971f5af9d6c0f53fbec0023262d0e366"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a971f5af9d6c0f53fbec0023262d0e366">&#9670;&nbsp;</a></span>initialize()</h2>
 
@@ -239,20 +217,6 @@ Private Attributes</h2></td></tr>
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac151052c78c99576ef8892b2c3053b33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac151052c78c99576ef8892b2c3053b33">&#9670;&nbsp;</a></span>data_target</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::weak_ptr&lt;<a class="el" href="classtaixu_1_1RenderContext.html">RenderContext</a>&gt; taixu::ECS::data_target</td>
-        </tr>
-      </table>
 </div><div class="memdoc">
 
 </div>

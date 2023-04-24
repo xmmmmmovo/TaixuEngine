@@ -1,4 +1,34 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,160,32"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1MyContactListener.html" title=" " alt="" coords="208,5,393,32"/>
+<area shape="rect" id="node1" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="5,364,152,391"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1IVertexArray.html" title=" " alt="" coords="203,5,436,61"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1AbstractGraphicsAPILoader.html" title="决定渲染API" alt="" coords="200,85,439,112"/>
+<area shape="rect" id="node6" href="$classtaixu_1_1IElementBuffer.html" title=" " alt="" coords="239,136,399,163"/>
+<area shape="rect" id="node8" href="$classtaixu_1_1IJsonable.html" title=" " alt="" coords="239,187,399,213"/>
+<area shape="rect" id="node9" href="$classtaixu_1_1IObserver.html" title=" " alt="" coords="256,237,383,264"/>
+<area shape="rect" id="node10" href="$classtaixu_1_1IRenderer.html" title=" " alt="" coords="256,288,383,315"/>
+<area shape="rect" id="node13" href="$classtaixu_1_1IShader.html" title=" " alt="" coords="263,339,375,365"/>
+<area shape="rect" id="node15" href="$classtaixu_1_1IShaderProgram.html" title=" " alt="" coords="236,389,403,416"/>
+<area shape="rect" id="node17" href="$classtaixu_1_1ISubject.html" title=" " alt="" coords="262,440,377,467"/>
+<area shape="rect" id="node18" href="$classtaixu_1_1ITexture.html" title=" " alt="" coords="262,491,377,517"/>
+<area shape="rect" id="node20" href="$classtaixu_1_1IVertexArray.html" title=" " alt="" coords="235,542,404,583"/>
+<area shape="rect" id="node21" href="$classtaixu_1_1IVertexBuffer.html" title=" " alt="" coords="245,608,393,635"/>
+<area shape="rect" id="node23" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="260,659,379,685"/>
+<area shape="rect" id="node25" href="$classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="218,840,421,867"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1OGLVertexArray.html" title=" " alt="" coords="521,20,688,47"/>
+<area shape="rect" id="node5" href="$classtaixu_1_1OGLAPILoader.html" title="OpenGL API加载器" alt="" coords="527,85,683,112"/>
+<area shape="rect" id="node7" href="$classtaixu_1_1OGLElementBuffer.html" title=" " alt="" coords="513,136,696,163"/>
+<area shape="rect" id="node11" href="$classtaixu_1_1BaseRenderer.html" title=" " alt="" coords="527,288,682,315"/>
+<area shape="rect" id="node12" href="$classtaixu_1_1OGLRenderer.html" title=" " alt="" coords="771,288,920,315"/>
+<area shape="rect" id="node14" href="$classtaixu_1_1OGLShader.html" title=" " alt="" coords="537,339,672,365"/>
+<area shape="rect" id="node16" href="$classtaixu_1_1OGLShaderProgram.html" title=" " alt="" coords="509,389,700,416"/>
+<area shape="rect" id="node19" href="$classtaixu_1_1OGLTexture.html" title="OpenGL texture." alt="" coords="536,491,673,517"/>
+<area shape="rect" id="node22" href="$classtaixu_1_1OGLVertexBuffer.html" title=" " alt="" coords="519,608,690,635"/>
+<area shape="rect" id="node24" href="$classtaixu_1_1editor_1_1MainWindow.html" title=" " alt="" coords="508,659,701,685"/>
+<area shape="rect" id="node26" href="$classtaixu_1_1editor_1_1ConsoleComponent.html" title=" " alt="" coords="487,709,723,736"/>
+<area shape="rect" id="node27" href="$classtaixu_1_1editor_1_1DetailComponent.html" title=" " alt="" coords="493,760,716,787"/>
+<area shape="rect" id="node28" href="$classtaixu_1_1editor_1_1FileComponent.html" title=" " alt="" coords="501,811,708,837"/>
+<area shape="rect" id="node29" href="$classtaixu_1_1editor_1_1HierarchyComponent.html" title=" " alt="" coords="519,862,691,903"/>
+<area shape="rect" id="node30" href="$classtaixu_1_1editor_1_1MenuComponent.html" title="菜单栏组件" alt="" coords="495,928,715,955"/>
+<area shape="rect" id="node31" href="$classtaixu_1_1editor_1_1RenderComponent.html" title=" " alt="" coords="489,979,720,1005"/>
+<area shape="rect" id="node32" href="$classtaixu_1_1editor_1_1StatusBarComponent.html" title=" " alt="" coords="519,1030,691,1071"/>
 </map>

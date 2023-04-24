@@ -1,11 +1,10 @@
 <map id="taixu::editor::MainWindow" name="taixu::editor::MainWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="229,1481,480,1969"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="26,916,145,1023"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="5,255,152,406"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1Renderer.html" title=" " alt="" coords="173,887,328,1052"/>
-<area shape="rect" id="node5" href="$classtaixu_1_1Clock.html" title=" " alt="" coords="177,204,343,457"/>
-<area shape="rect" id="node6" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="352,865,563,1074"/>
-<area shape="rect" id="node7" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="376,255,539,406"/>
-<area shape="rect" id="node8" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="357,5,558,141"/>
-<area shape="rect" id="node9" href="$classtaixu_1_1WindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="587,520,805,1419"/>
+<area shape="rect" id="node1" title=" " alt="" coords="233,1380,483,1868"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1IWindow.html" title=" " alt="" coords="5,807,124,914"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="82,204,229,355"/>
+<area shape="rect" id="node8" href="$classtaixu_1_1IRenderer.html" title=" " alt="" coords="148,793,341,929"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="366,756,577,965"/>
+<area shape="rect" id="node5" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="390,204,553,355"/>
+<area shape="rect" id="node6" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="371,5,572,141"/>
+<area shape="rect" id="node7" href="$classtaixu_1_1WindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="601,404,819,1317"/>
 </map>

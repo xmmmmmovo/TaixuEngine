@@ -1,14 +1,16 @@
 var dir_5851a7ad3ffa4b638afd06ca3648a742 =
 [
-    [ "ogl_context.cpp", "ogl__context_8cpp.html", null ],
-    [ "ogl_context.hpp", "ogl__context_8hpp.html", "ogl__context_8hpp" ],
     [ "ogl_elementBuffer.cpp", "ogl__elementBuffer_8cpp.html", null ],
     [ "ogl_elementBuffer.hpp", "ogl__elementBuffer_8hpp.html", [
       [ "OGLElementBuffer", "classtaixu_1_1OGLElementBuffer.html", "classtaixu_1_1OGLElementBuffer" ]
     ] ],
-    [ "ogl_frameBuffer.cpp", "ogl__frameBuffer_8cpp.html", null ],
+    [ "ogl_frameBuffer.cpp", "ogl__frameBuffer_8cpp.html", "ogl__frameBuffer_8cpp" ],
     [ "ogl_frameBuffer.hpp", "ogl__frameBuffer_8hpp.html", [
       [ "OGLFrameBuffer", "classtaixu_1_1OGLFrameBuffer.html", "classtaixu_1_1OGLFrameBuffer" ]
+    ] ],
+    [ "ogl_renderer.cpp", "ogl__renderer_8cpp.html", "ogl__renderer_8cpp" ],
+    [ "ogl_renderer.hpp", "ogl__renderer_8hpp.html", [
+      [ "OGLRenderer", "classtaixu_1_1OGLRenderer.html", "classtaixu_1_1OGLRenderer" ]
     ] ],
     [ "ogl_shader.cpp", "ogl__shader_8cpp.html", "ogl__shader_8cpp" ],
     [ "ogl_shader.hpp", "ogl__shader_8hpp.html", [

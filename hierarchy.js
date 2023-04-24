@@ -24,14 +24,13 @@ var hierarchy =
     ] ],
     [ "taixu::EntityComponentMap", "classtaixu_1_1EntityComponentMap.html", null ],
     [ "taixu::GameObject", "classtaixu_1_1GameObject.html", null ],
-    [ "taixu::GUID_Generator", "classtaixu_1_1GUID__Generator.html", null ],
+    [ "taixu::GuidGenerator", "classtaixu_1_1GuidGenerator.html", null ],
     [ "taixu::editor::HierarchyNode", "structtaixu_1_1editor_1_1HierarchyNode.html", null ],
     [ "taixu::IFrameBuffer", "classtaixu_1_1IFrameBuffer.html", [
       [ "taixu::OGLFrameBuffer", "classtaixu_1_1OGLFrameBuffer.html", null ]
     ] ],
     [ "taixu::IFrameBufferSpecification", "structtaixu_1_1IFrameBufferSpecification.html", null ],
     [ "taixu::editor::ImguiSurface", "classtaixu_1_1editor_1_1ImguiSurface.html", null ],
-    [ "taixu::ISwapChain", "classtaixu_1_1ISwapChain.html", null ],
     [ "taixu::JoltParameters", "structtaixu_1_1JoltParameters.html", null ],
     [ "taixu::JoltPhysics", "structtaixu_1_1JoltPhysics.html", null ],
     [ "taixu::Level", "classtaixu_1_1Level.html", null ],
@@ -44,11 +43,19 @@ var hierarchy =
       [ "taixu::IVertexArray< OGLVertexBuffer, OGLElementBuffer >", "classtaixu_1_1IVertexArray.html", [
         [ "taixu::OGLVertexArray", "classtaixu_1_1OGLVertexArray.html", null ]
       ] ],
+      [ "taixu::AbstractGraphicsAPILoader", "classtaixu_1_1AbstractGraphicsAPILoader.html", [
+        [ "taixu::OGLAPILoader", "classtaixu_1_1OGLAPILoader.html", null ]
+      ] ],
       [ "taixu::IElementBuffer", "classtaixu_1_1IElementBuffer.html", [
         [ "taixu::OGLElementBuffer", "classtaixu_1_1OGLElementBuffer.html", null ]
       ] ],
       [ "taixu::IJsonable< T >", "classtaixu_1_1IJsonable.html", null ],
       [ "taixu::IObserver", "classtaixu_1_1IObserver.html", null ],
+      [ "taixu::IRenderer", "classtaixu_1_1IRenderer.html", [
+        [ "taixu::BaseRenderer", "classtaixu_1_1BaseRenderer.html", [
+          [ "taixu::OGLRenderer", "classtaixu_1_1OGLRenderer.html", null ]
+        ] ]
+      ] ],
       [ "taixu::IShader", "classtaixu_1_1IShader.html", [
         [ "taixu::OGLShader", "classtaixu_1_1OGLShader.html", null ]
       ] ],
@@ -82,7 +89,6 @@ var hierarchy =
     [ "ObjectVsBroadPhaseLayerFilter", null, [
       [ "taixu::ObjectVsBroadPhaseLayerFilterImpl", "classtaixu_1_1ObjectVsBroadPhaseLayerFilterImpl.html", null ]
     ] ],
-    [ "taixu::OGLContext", "classtaixu_1_1OGLContext.html", null ],
     [ "taixu::PerspectiveCamera", "classtaixu_1_1PerspectiveCamera.html", null ],
     [ "taixu::PhysicsManager", "classtaixu_1_1PhysicsManager.html", null ],
     [ "taixu::PhysicsScene", "classtaixu_1_1PhysicsScene.html", null ],
@@ -95,14 +101,12 @@ var hierarchy =
     [ "taixu::PublicSingleton< Engine >", "classtaixu_1_1PublicSingleton.html", [
       [ "taixu::Engine", "classtaixu_1_1Engine.html", null ]
     ] ],
+    [ "taixu::PublicSingleton< EngineArgs >", "classtaixu_1_1PublicSingleton.html", [
+      [ "taixu::EngineArgs", "classtaixu_1_1EngineArgs.html", null ]
+    ] ],
     [ "taixu::PublicSingleton< InputSystem >", "classtaixu_1_1PublicSingleton.html", [
       [ "taixu::InputSystem", "classtaixu_1_1InputSystem.html", null ]
     ] ],
-    [ "taixu::RenderableModelInfo", "structtaixu_1_1RenderableModelInfo.html", null ],
-    [ "taixu::RenderContext", "classtaixu_1_1RenderContext.html", null ],
-    [ "taixu::RenderData", "classtaixu_1_1RenderData.html", null ],
-    [ "taixu::Renderer", "classtaixu_1_1Renderer.html", null ],
-    [ "taixu::RenderUint", "structtaixu_1_1RenderUint.html", null ],
     [ "taixu::RigidbodyInfo", "structtaixu_1_1RigidbodyInfo.html", null ],
     [ "taixu::Texture", "structtaixu_1_1Texture.html", null ],
     [ "taixu::Vertex", "structtaixu_1_1Vertex.html", null ],

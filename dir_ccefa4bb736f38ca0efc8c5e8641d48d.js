@@ -9,5 +9,8 @@ var dir_ccefa4bb736f38ca0efc8c5e8641d48d =
     [ "engine.cpp", "engine_8cpp.html", null ],
     [ "engine.hpp", "engine_8hpp.html", [
       [ "Engine", "classtaixu_1_1Engine.html", "classtaixu_1_1Engine" ]
+    ] ],
+    [ "engine_args.hpp", "engine__args_8hpp.html", [
+      [ "EngineArgs", "classtaixu_1_1EngineArgs.html", "classtaixu_1_1EngineArgs" ]
     ] ]
 ];

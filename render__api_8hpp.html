@@ -82,6 +82,7 @@ $(document).ready(function(){initNavTree('render__api_8hpp.html',''); initResiza
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -89,33 +90,59 @@ $(document).ready(function(){initNavTree('render__api_8hpp.html',''); initResiza
 <div class="title">render_api.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;GLFW/glfw3.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="macro_8hpp_source.html">core/base/macro.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="noncopyable_8hpp_source.html">core/base/noncopyable.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for render_api.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="render__api_8hpp__incl.png" border="0" usemap="#aengine_2runtime_2graphics_2render_2render__api_8hpp" alt=""/></div>
+<map name="aengine_2runtime_2graphics_2render_2render__api_8hpp" id="aengine_2runtime_2graphics_2render_2render__api_8hpp">
+<area shape="rect" title=" " alt="" coords="129,5,309,47"/>
+<area shape="rect" title=" " alt="" coords="5,95,116,121"/>
+<area shape="rect" href="macro_8hpp.html" title=" " alt="" coords="140,95,299,121"/>
+<area shape="rect" href="noncopyable_8hpp.html" title=" " alt="" coords="323,95,523,121"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="render__api_8hpp__dep__incl.png" border="0" usemap="#aengine_2runtime_2graphics_2render_2render__api_8hppdep" alt=""/></div>
 <map name="aengine_2runtime_2graphics_2render_2render__api_8hppdep" id="aengine_2runtime_2graphics_2render_2render__api_8hppdep">
-<area shape="rect" title=" " alt="" coords="186,5,366,47"/>
-<area shape="rect" href="render__api_8cpp.html" title=" " alt="" coords="85,95,265,136"/>
-<area shape="rect" href="renderer_8hpp.html" title=" " alt="" coords="289,95,469,136"/>
-<area shape="rect" href="render__component_8hpp.html" title=" " alt="" coords="5,295,213,337"/>
-<area shape="rect" href="engine_8hpp.html" title=" " alt="" coords="197,407,395,433"/>
-<area shape="rect" href="renderer_8cpp.html" title=" " alt="" coords="289,191,469,233"/>
-<area shape="rect" href="mesh__component_8cpp.html" title=" " alt="" coords="363,288,573,344"/>
-<area shape="rect" href="mesh__component_8hpp.html" title=" " alt="" coords="544,184,755,240"/>
-<area shape="rect" href="main__window_8hpp.html" title=" " alt="" coords="124,660,324,701"/>
-<area shape="rect" href="application_8cpp.html" title=" " alt="" coords="472,757,683,783"/>
-<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="125,749,323,791"/>
-<area shape="rect" href="application_8hpp.html" title=" " alt="" coords="418,496,630,523"/>
-<area shape="rect" href="engine_8cpp.html" title=" " alt="" coords="198,496,394,523"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="198,578,370,605"/>
-<area shape="rect" href="menu__component_8hpp.html" title=" " alt="" coords="395,571,603,612"/>
-<area shape="rect" href="entity__component__system_8hpp.html" title=" " alt="" coords="597,288,779,344"/>
-<area shape="rect" href="entity__component__system_8cpp.html" title=" " alt="" coords="597,392,779,448"/>
+<area shape="rect" title=" " alt="" coords="207,5,387,47"/>
+<area shape="rect" href="application_8cpp.html" title=" " alt="" coords="295,771,505,798"/>
+<area shape="rect" href="engine_8cpp.html" title=" " alt="" coords="166,503,362,530"/>
+<area shape="rect" href="engine_8hpp.html" title=" " alt="" coords="679,407,876,433"/>
+<area shape="rect" href="engine__args_8hpp.html" title=" " alt="" coords="43,399,213,441"/>
+<area shape="rect" href="render__api_8cpp.html" title=" " alt="" coords="335,95,515,136"/>
+<area shape="rect" href="renderer_8hpp.html" title=" " alt="" coords="894,95,1074,136"/>
+<area shape="rect" href="window__context_8hpp.html" title=" " alt="" coords="349,295,509,337"/>
+<area shape="rect" href="application_8hpp.html" title=" " alt="" coords="607,503,819,530"/>
+<area shape="rect" href="main__window_8hpp.html" title=" " alt="" coords="831,675,1031,716"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="721,593,893,619"/>
+<area shape="rect" href="menu__component_8hpp.html" title=" " alt="" coords="488,585,696,627"/>
+<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="831,764,1030,805"/>
+<area shape="rect" href="render__component_8hpp.html" title=" " alt="" coords="968,496,1176,537"/>
+<area shape="rect" href="ogl__renderer_8hpp.html" title=" " alt="" coords="590,191,773,233"/>
+<area shape="rect" href="mesh__component_8cpp.html" title=" " alt="" coords="1054,288,1263,344"/>
+<area shape="rect" href="mesh__component_8hpp.html" title=" " alt="" coords="879,184,1089,240"/>
+<area shape="rect" href="ogl__renderer_8cpp.html" title=" " alt="" coords="590,295,773,337"/>
+<area shape="rect" href="entity__component__system_8hpp.html" title=" " alt="" coords="848,288,1029,344"/>
+<area shape="rect" href="entity__component__system_8cpp.html" title=" " alt="" coords="900,392,1081,448"/>
+<area shape="rect" href="input__system_8hpp.html" title=" " alt="" coords="339,399,485,441"/>
+<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="509,399,654,441"/>
+<area shape="rect" href="input__system_8cpp.html" title=" " alt="" coords="438,496,583,537"/>
 </map>
 </div>
 </div>
 <p><a href="render__api_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1AbstractGraphicsAPILoader.html">taixu::AbstractGraphicsAPILoader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">决定渲染API  <a href="classtaixu_1_1AbstractGraphicsAPILoader.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacetaixu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html">taixu</a></td></tr>
@@ -123,11 +150,11 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a7001e804e459bfbed26ba6caa0dfa302"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302">taixu::RenderAPI</a> { <a class="el" href="namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302ab50339a10e1de285ac99d4c3990b8693">taixu::NONE</a>
-, <a class="el" href="namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302ac0ad831a34c4633bee584066cfcc5040">taixu::OPENGL</a>
+<tr class="memitem:a97242bb28d974f00c15cd3fea6563ed6"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6">taixu::GraphicsAPI</a> { <a class="el" href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6ab50339a10e1de285ac99d4c3990b8693">taixu::NONE</a>
+, <a class="el" href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6ac0ad831a34c4633bee584066cfcc5040">taixu::OPENGL</a>
  }</td></tr>
-<tr class="memdesc:a7001e804e459bfbed26ba6caa0dfa302"><td class="mdescLeft">&#160;</td><td class="mdescRight">决定渲染API I1 版本暂时只有 Opengl  <a href="namespacetaixu.html#a7001e804e459bfbed26ba6caa0dfa302">More...</a><br /></td></tr>
-<tr class="separator:a7001e804e459bfbed26ba6caa0dfa302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a97242bb28d974f00c15cd3fea6563ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">决定渲染API I1 版本暂时只有 Opengl  <a href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6">More...</a><br /></td></tr>
+<tr class="separator:a97242bb28d974f00c15cd3fea6563ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a589ca92628b7a0056ffc9593bc71d8a8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8">taixu::ShaderAPI</a> { <a class="el" href="namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8ab50339a10e1de285ac99d4c3990b8693">taixu::NONE</a>
 , <a class="el" href="namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8a2a2c1392bcbaececf702b611e7d7df25">taixu::GLSL</a>
 , <a class="el" href="namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8acdf45fdd8960ab47314fb33febc95d9f">taixu::HLSL</a>
@@ -137,8 +164,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a89647400212a20d45e88e211d5339abd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a89647400212a20d45e88e211d5339abd">taixu::loadAPI</a> (RenderAPI api)</td></tr>
-<tr class="separator:a89647400212a20d45e88e211d5339abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1df259076e81d4b12da1685fb689e04"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; AbstractGraphicsAPILoader &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa1df259076e81d4b12da1685fb689e04">taixu::createGraphicsAPILoader</a> (GraphicsAPI api)</td></tr>
+<tr class="separator:aa1df259076e81d4b12da1685fb689e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

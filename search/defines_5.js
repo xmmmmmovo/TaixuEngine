@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['taixuengine_5fogl_5fcontext_5fhpp_1435',['TAIXUENGINE_OGL_CONTEXT_HPP',['../ogl__context_8hpp.html#ae83fef632f1a6ac5d7aacba9470ee5f4',1,'ogl_context.hpp']]],
-  ['text_1436',['TEXT',['../imgui__surface_8cpp.html#a91fa3b5abf448de9f0ecff26b8f4a9ef',1,'imgui_surface.cpp']]]
+  ['prototype_1382',['PROTOTYPE',['../macro_8hpp.html#ad50e649a9a4814e57fed379bf2fe9fb2',1,'macro.hpp']]],
+  ['prototype_5fonly_5fgetter_1383',['PROTOTYPE_ONLY_GETTER',['../macro_8hpp.html#a4c7fcdd7ec26b274e8767072e62498dc',1,'macro.hpp']]]
 ];

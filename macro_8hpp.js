@@ -1,5 +1,7 @@
 var macro_8hpp =
 [
+    [ "PROTOTYPE", "macro_8hpp.html#ad50e649a9a4814e57fed379bf2fe9fb2", null ],
+    [ "PROTOTYPE_ONLY_GETTER", "macro_8hpp.html#a4c7fcdd7ec26b274e8767072e62498dc", null ],
     [ "EngineState", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507", [
       [ "EDITORMODE", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b", null ],
       [ "PREVIEWMODE", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507ac62e3d94e99fe5f4fd32c92a61679539", null ],
