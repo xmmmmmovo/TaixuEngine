@@ -12,6 +12,7 @@ void ECS::initialize() {
     EntityComponentMap mesh_component_map;
     EntityComponentMap rigid_body_component_map;
 
+
     //tick order
 
     all_components.push_back(rigid_body_component_map);//0

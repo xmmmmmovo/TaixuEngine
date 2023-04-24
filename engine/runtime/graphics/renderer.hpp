@@ -33,6 +33,7 @@ public:
 };
 
 class BaseRenderer : public IRenderer {
+
 protected:
     Clock _clock{};
 };

@@ -21,6 +21,7 @@ public:
         GameObject teapot;
         teapot.set_id(GuidGenerator::generateNewGuid());
         GOs.push_back(teapot);
+
     };
     void tick(float delta_time = 0.33);
 
