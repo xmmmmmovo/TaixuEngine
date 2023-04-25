@@ -11,8 +11,8 @@ void AssetManager::writeAsset() {
     {
         std::ofstream o(asset_file_path);
         Json write;
-        for (auto count : asset_list) 
-        {   
+        for (auto count : asset_list)
+        {
             Json j;
             //to_json(j, count);
             to_json(j, count);
@@ -29,8 +29,8 @@ void AssetManager::loadAsset(const std::string &file_path, const AssetType &asse
     new_asset.guid                  = GuidGenerator::generateNewGuid();
     new_asset.name     = file_path.substr(file_path.find_last_of('/') + 1);
     new_asset.location = file_path;
-        
-    if (asset_type == MODEL) 
+
+    if (asset_type == MODEL)
         new_asset.type = "Model";
      else if (asset_type==TEXTURE)
         new_asset.type = "Texture";
