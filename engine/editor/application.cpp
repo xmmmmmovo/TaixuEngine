@@ -10,13 +10,11 @@
 #include <vector>
 
 // <> headers
-#include "engine_args.hpp"
-#include "graphics/render/render_api.hpp"
-#include "spdlog/spdlog.h"
+#include <spdlog/spdlog.h>
 
 // "" headers
-#include "gui/input_system.hpp"
 #include "ui/main_window/main_window.hpp"
+#include "engine_args.hpp"
 
 namespace taixu::editor {
 

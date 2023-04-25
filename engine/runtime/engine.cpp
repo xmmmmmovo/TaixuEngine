@@ -4,8 +4,8 @@
 
 #include "core/base/public_singleton.hpp"
 #include "engine_args.hpp"
-#include "graphics/render/render_api.hpp"
-#include "gui/input_system.hpp"
+#include "management/graphics/render/render_api.hpp"
+#include "management/input/input_system.hpp"
 #include "platform/opengl/ogl_renderer.hpp"
 
 namespace taixu {

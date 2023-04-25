@@ -4,8 +4,10 @@
 
 #include "main_window.hpp"
 
+#include <spdlog/spdlog.h>
+
 #include "core/base/path.hpp"
-#include "spdlog/spdlog.h"
+#include "gameplay/gui/imgui_surface.hpp"
 
 namespace taixu::editor {
 void MainWindow::init() {

@@ -6,9 +6,9 @@
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
 #include "core/math/imvec2.hpp"
-#include "graphics/render/framebuffer.hpp"
-#include "graphics/renderer.hpp"
-#include "gui/input_system.hpp"
+#include "management/graphics/render/framebuffer.hpp"
+#include "management/graphics/renderer.hpp"
+#include "management/input/input_system.hpp"
 #include "spdlog/spdlog.h"
 #include "ui/ui_component.hpp"
 

@@ -15,7 +15,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "guid_genenrator.hpp"
+#include "management/ecs/guid_genenrator.hpp"
 #include "platform/os/path.hpp"
 
 namespace taixu {

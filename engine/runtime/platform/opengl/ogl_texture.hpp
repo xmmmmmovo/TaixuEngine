@@ -9,10 +9,9 @@
 
 #include <spdlog/spdlog.h>
 #include <stb_image.h>
-
 #include <string_view>
 
-#include "graphics/render/texture.hpp"
+#include "management/graphics/render/texture.hpp"
 
 namespace taixu {
 

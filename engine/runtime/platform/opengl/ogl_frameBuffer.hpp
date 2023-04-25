@@ -6,7 +6,7 @@
 
 #include <glm/glm.hpp>
 
-#include "graphics/render/framebuffer.hpp"
+#include "management/graphics/render/framebuffer.hpp"
 
 namespace taixu {
 class OGLFrameBuffer : public IFrameBuffer {
