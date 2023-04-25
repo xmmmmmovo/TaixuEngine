@@ -1,13 +1,13 @@
-<map id="engine/runtime/resource/ecs/entity_component/camera/camera_component.cpp" name="engine/runtime/resource/ecs/entity_component/camera/camera_component.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="175,5,410,61"/>
-<area shape="rect" id="node2" href="$camera__component_8hpp.html" title=" " alt="" coords="203,109,382,136"/>
-<area shape="rect" id="node3" href="$entity__component_8hpp.html" title=" " alt="" coords="41,184,293,225"/>
-<area shape="rect" id="node6" href="$perspective__camera_8hpp.html" title=" " alt="" coords="363,184,566,225"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,273,81,300"/>
-<area shape="rect" id="node5" title=" " alt="" coords="105,273,229,300"/>
-<area shape="rect" id="node7" title=" " alt="" coords="253,273,348,300"/>
-<area shape="rect" id="node8" title=" " alt="" coords="372,273,435,300"/>
-<area shape="rect" id="node9" title=" " alt="" coords="459,273,563,300"/>
-<area shape="rect" id="node10" title=" " alt="" coords="588,273,805,300"/>
-<area shape="rect" id="node11" title=" " alt="" coords="829,273,985,300"/>
+<map id="engine/runtime/management/ecs/entity_component/camera/camera_component.cpp" name="engine/runtime/management/ecs/entity_component/camera/camera_component.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="420,5,643,61"/>
+<area shape="rect" id="node2" href="$camera__component_8hpp.html" title=" " alt="" coords="442,109,621,136"/>
+<area shape="rect" id="node3" href="$perspective__camera_8hpp.html" title=" " alt="" coords="251,184,463,225"/>
+<area shape="rect" id="node9" href="$entity__component_8hpp.html" title=" " alt="" coords="673,184,925,225"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,273,100,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="124,273,187,300"/>
+<area shape="rect" id="node6" title=" " alt="" coords="211,273,315,300"/>
+<area shape="rect" id="node7" title=" " alt="" coords="340,273,557,300"/>
+<area shape="rect" id="node8" title=" " alt="" coords="581,273,737,300"/>
+<area shape="rect" id="node10" title=" " alt="" coords="761,273,837,300"/>
+<area shape="rect" id="node11" title=" " alt="" coords="861,273,985,300"/>
 </map>

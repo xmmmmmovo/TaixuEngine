@@ -1,10 +1,10 @@
-<map id="engine/runtime/resource/ecs/entity_component/transform/transform_component.hpp" name="engine/runtime/resource/ecs/entity_component/transform/transform_component.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="340,5,607,61"/>
+<map id="engine/runtime/management/ecs/entity_component/transform/transform_component.hpp" name="engine/runtime/management/ecs/entity_component/transform/transform_component.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="298,5,537,61"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,117,64,143"/>
-<area shape="rect" id="node3" href="$entity__component_8hpp.html" title=" " alt="" coords="89,109,341,151"/>
-<area shape="rect" id="node6" title=" " alt="" coords="365,117,582,143"/>
-<area shape="rect" id="node7" title=" " alt="" coords="607,117,780,143"/>
-<area shape="rect" id="node8" title=" " alt="" coords="804,117,927,143"/>
-<area shape="rect" id="node4" title=" " alt="" coords="114,199,190,225"/>
-<area shape="rect" id="node5" title=" " alt="" coords="214,199,338,225"/>
+<area shape="rect" id="node3" title=" " alt="" coords="89,117,306,143"/>
+<area shape="rect" id="node4" title=" " alt="" coords="331,117,504,143"/>
+<area shape="rect" id="node5" title=" " alt="" coords="528,117,651,143"/>
+<area shape="rect" id="node6" href="$entity__component_8hpp.html" title=" " alt="" coords="675,109,927,151"/>
+<area shape="rect" id="node7" title=" " alt="" coords="701,199,777,225"/>
+<area shape="rect" id="node8" title=" " alt="" coords="801,199,925,225"/>
 </map>

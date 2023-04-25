@@ -1,10 +1,10 @@
-<map id="engine/runtime/graphics/render/vertex_buffer.hpp" name="engine/runtime/graphics/render/vertex_buffer.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="112,5,299,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="18,95,113,121"/>
-<area shape="rect" id="node3" href="$buffer__layout_8hpp.html" title=" " alt="" coords="137,95,273,121"/>
-<area shape="rect" id="node8" href="$noncopyable_8hpp.html" title=" " alt="" coords="297,95,497,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,169,109,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="133,169,192,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="217,169,277,196"/>
-<area shape="rect" id="node7" title=" " alt="" coords="301,169,363,196"/>
+<map id="engine/runtime/management/graphics/render/vertex_buffer.hpp" name="engine/runtime/management/graphics/render/vertex_buffer.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="99,5,311,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="18,109,113,136"/>
+<area shape="rect" id="node3" href="$buffer__layout_8hpp.html" title=" " alt="" coords="137,109,273,136"/>
+<area shape="rect" id="node8" href="$noncopyable_8hpp.html" title=" " alt="" coords="297,109,497,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,184,109,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="133,184,192,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="217,184,277,211"/>
+<area shape="rect" id="node7" title=" " alt="" coords="301,184,363,211"/>
 </map>

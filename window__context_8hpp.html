@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/gui/window_context.hpp File Reference</title>
+<title>TaixuEngine: engine/runtime/gameplay/gui/window_context.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,21 +88,21 @@ $(document).ready(function(){initNavTree('window__context_8hpp.html',''); initRe
 <div class="title">window_context.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;GLFW/glfw3.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;GLFW/glfw3.h&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="macro_8hpp_source.html">core/base/macro.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="perspective__camera_8hpp_source.html">graphics/render/perspective_camera.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="render__api_8hpp_source.html">graphics/render/render_api.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="perspective__camera_8hpp_source.html">gameplay/player/perspective_camera.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="render__api_8hpp_source.html">management/graphics/render/render_api.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for window_context.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="window__context_8hpp__incl.png" border="0" usemap="#aengine_2runtime_2gui_2window__context_8hpp" alt=""/></div>
-<map name="aengine_2runtime_2gui_2window__context_8hpp" id="aengine_2runtime_2gui_2window__context_8hpp">
-<area shape="rect" title=" " alt="" coords="207,5,367,47"/>
+<div class="center"><img src="window__context_8hpp__incl.png" border="0" usemap="#aengine_2runtime_2gameplay_2gui_2window__context_8hpp" alt=""/></div>
+<map name="aengine_2runtime_2gameplay_2gui_2window__context_8hpp" id="aengine_2runtime_2gameplay_2gui_2window__context_8hpp">
+<area shape="rect" title=" " alt="" coords="192,5,383,47"/>
 <area shape="rect" title=" " alt="" coords="5,184,116,211"/>
 <area shape="rect" title=" " alt="" coords="119,102,178,129"/>
 <area shape="rect" href="macro_8hpp.html" title=" " alt="" coords="365,184,524,211"/>
-<area shape="rect" href="perspective__camera_8hpp.html" title=" " alt="" coords="841,95,1043,136"/>
+<area shape="rect" href="perspective__camera_8hpp.html" title=" " alt="" coords="836,95,1048,136"/>
 <area shape="rect" href="render__api_8hpp.html" title=" " alt="" coords="203,95,372,136"/>
 <area shape="rect" title=" " alt="" coords="969,184,1064,211"/>
 <area shape="rect" title=" " alt="" coords="1088,184,1151,211"/>
@@ -115,21 +115,20 @@ Include dependency graph for window_context.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="window__context_8hpp__dep__incl.png" border="0" usemap="#aengine_2runtime_2gui_2window__context_8hppdep" alt=""/></div>
-<map name="aengine_2runtime_2gui_2window__context_8hppdep" id="aengine_2runtime_2gui_2window__context_8hppdep">
-<area shape="rect" title=" " alt="" coords="445,5,605,47"/>
-<area shape="rect" href="engine_8hpp.html" title=" " alt="" coords="426,102,623,129"/>
-<area shape="rect" href="input__system_8hpp.html" title=" " alt="" coords="697,95,843,136"/>
-<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="256,95,401,136"/>
-<area shape="rect" href="application_8hpp.html" title=" " alt="" coords="223,191,435,218"/>
-<area shape="rect" href="main__window_8hpp.html" title=" " alt="" coords="398,363,598,404"/>
-<area shape="rect" href="engine_8cpp.html" title=" " alt="" coords="536,191,732,218"/>
-<area shape="rect" href="application_8cpp.html" title=" " alt="" coords="506,459,717,486"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="5,281,177,307"/>
-<area shape="rect" href="menu__component_8hpp.html" title=" " alt="" coords="253,273,461,315"/>
-<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="284,452,483,493"/>
-<area shape="rect" href="render__component_8hpp.html" title=" " alt="" coords="555,273,763,315"/>
-<area shape="rect" href="input__system_8cpp.html" title=" " alt="" coords="859,184,1004,225"/>
+<div class="center"><img src="window__context_8hpp__dep__incl.png" border="0" usemap="#aengine_2runtime_2gameplay_2gui_2window__context_8hppdep" alt=""/></div>
+<map name="aengine_2runtime_2gameplay_2gui_2window__context_8hppdep" id="aengine_2runtime_2gameplay_2gui_2window__context_8hppdep">
+<area shape="rect" title=" " alt="" coords="490,5,680,47"/>
+<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="378,95,568,136"/>
+<area shape="rect" href="input__system_8hpp.html" title=" " alt="" coords="606,95,818,136"/>
+<area shape="rect" href="application_8hpp.html" title=" " alt="" coords="118,191,330,218"/>
+<area shape="rect" href="main__window_8hpp.html" title=" " alt="" coords="302,363,502,404"/>
+<area shape="rect" href="application_8cpp.html" title=" " alt="" coords="14,459,225,486"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="31,281,203,307"/>
+<area shape="rect" href="menu__component_8hpp.html" title=" " alt="" coords="228,273,436,315"/>
+<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="303,452,502,493"/>
+<area shape="rect" href="render__component_8hpp.html" title=" " alt="" coords="510,273,718,315"/>
+<area shape="rect" href="engine_8cpp.html" title=" " alt="" coords="639,191,835,218"/>
+<area shape="rect" href="input__system_8cpp.html" title=" " alt="" coords="859,184,1071,225"/>
 </map>
 </div>
 </div>
@@ -151,7 +150,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_0d42010045b2a813eecd8911e6432d3f.html">gui</a></li><li class="navelem"><a class="el" href="window__context_8hpp.html">window_context.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_d5fc2bd3cf48e4c96766e23126bb56f6.html">gameplay</a></li><li class="navelem"><a class="el" href="dir_89d42dc10a0a513abc3c0a505bca1a92.html">gui</a></li><li class="navelem"><a class="el" href="window__context_8hpp.html">window_context.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

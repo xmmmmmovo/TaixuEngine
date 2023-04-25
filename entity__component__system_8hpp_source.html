@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/resource/ecs/entity_component_system.hpp Source File</title>
+<title>TaixuEngine: engine/runtime/management/ecs/entity_component_system.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,11 +95,11 @@ $(document).ready(function(){initNavTree('entity__component__system_8hpp_source.
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="game__object_8hpp.html">game_object.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="physics__manager_8hpp.html">physics/physics_manager.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entity__component_8hpp.html">resource/ecs/entity_component/entity_component.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mesh__component_8hpp.html">resource/ecs/entity_component/mesh/mesh_component.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rigid__body__component_8hpp.html">resource/ecs/entity_component/rigid_body/rigid_body_component.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="guid__genenrator_8hpp.html">resource/guid_genenrator.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="guid__genenrator_8hpp.html">guid_genenrator.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entity__component_8hpp.html">management/ecs/entity_component/entity_component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mesh__component_8hpp.html">management/ecs/entity_component/mesh/mesh_component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rigid__body__component_8hpp.html">management/ecs/entity_component/rigid_body/rigid_body_component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="physics__manager_8hpp.html">management/physics/physics_manager.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;spdlog/spdlog.h&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="world__manager_8hpp.html">world_manager.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
@@ -139,7 +139,7 @@ $(document).ready(function(){initNavTree('entity__component__system_8hpp_source.
 <div class="ttc" id="agame__object_8hpp_html"><div class="ttname"><a href="game__object_8hpp.html">game_object.hpp</a></div></div>
 <div class="ttc" id="aguid__genenrator_8hpp_html"><div class="ttname"><a href="guid__genenrator_8hpp.html">guid_genenrator.hpp</a></div></div>
 <div class="ttc" id="amesh__component_8hpp_html"><div class="ttname"><a href="mesh__component_8hpp.html">mesh_component.hpp</a></div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:21</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:19</div></div>
 <div class="ttc" id="anamespacetaixu_html_aaec4bf66f7267efd6ed38975e8df9ab5"><div class="ttname"><a href="namespacetaixu.html#aaec4bf66f7267efd6ed38975e8df9ab5">taixu::ComponentType</a></div><div class="ttdeci">ComponentType</div><div class="ttdef"><b>Definition:</b> entity_component_system.hpp:21</div></div>
 <div class="ttc" id="anamespacetaixu_html_aaec4bf66f7267efd6ed38975e8df9ab5a216e54953a9268abc2dd789dbb7c5c5e"><div class="ttname"><a href="namespacetaixu.html#aaec4bf66f7267efd6ed38975e8df9ab5a216e54953a9268abc2dd789dbb7c5c5e">taixu::ComponentType::MESH_COMPONENT</a></div><div class="ttdeci">@ MESH_COMPONENT</div></div>
 <div class="ttc" id="anamespacetaixu_html_aaec4bf66f7267efd6ed38975e8df9ab5a39521ade3b9182632f75911be4fdbdcb"><div class="ttname"><a href="namespacetaixu.html#aaec4bf66f7267efd6ed38975e8df9ab5a39521ade3b9182632f75911be4fdbdcb">taixu::ComponentType::TRANSFORM_COMPONENT</a></div><div class="ttdeci">@ TRANSFORM_COMPONENT</div></div>
@@ -151,7 +151,7 @@ $(document).ready(function(){initNavTree('entity__component__system_8hpp_source.
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_62623fadb18e76a276166b2f13d7c4c1.html">resource</a></li><li class="navelem"><a class="el" href="dir_082dcba338adf3001ee2fde3096d7366.html">ecs</a></li><li class="navelem"><a class="el" href="entity__component__system_8hpp.html">entity_component_system.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_2e743e866fb37056f41fd9fa9b68e330.html">management</a></li><li class="navelem"><a class="el" href="dir_1ee1a190a4098a38c779ee0b5bb961e2.html">ecs</a></li><li class="navelem"><a class="el" href="entity__component__system_8hpp.html">entity_component_system.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

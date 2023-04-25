@@ -1,5 +1,5 @@
-<map id="engine/runtime/gui/imgui_surface.cpp" name="engine/runtime/gui/imgui_surface.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="529,5,675,47"/>
+<map id="engine/runtime/gameplay/gui/imgui_surface.cpp" name="engine/runtime/gameplay/gui/imgui_surface.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="507,5,697,47"/>
 <area shape="rect" id="node2" href="$imgui__surface_8hpp.html" title=" " alt="" coords="111,102,253,129"/>
 <area shape="rect" id="node5" title=" " alt="" coords="259,184,329,211"/>
 <area shape="rect" id="node6" title=" " alt="" coords="330,102,498,129"/>

@@ -67,8 +67,8 @@ var NAVTREEINDEX =
 "Jolt__utilities_8cpp.html",
 "classtaixu_1_1OGLRenderer.html#a46fd5d52050afa000b2e23a264f553b5",
 "classtaixu_1_1editor_1_1MainWindow.html#a0eae47267d9f94fa449a32481ff325e7",
-"macro_8hpp.html#aa70335f91ba6491f07f3f620fa030857a3a73e888cfbb60942a7e422b526d98eb",
-"structtaixu_1_1JoltParameters.html#a23928b48bb1f4e525f7ae4be78a6eda2"
+"macro_8hpp.html#aa70335f91ba6491f07f3f620fa030857",
+"structtaixu_1_1JoltParameters.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

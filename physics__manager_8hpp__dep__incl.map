@@ -1,14 +1,14 @@
-<map id="engine/runtime/physics/physics_manager.hpp" name="engine/runtime/physics/physics_manager.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="515,5,690,47"/>
-<area shape="rect" id="node2" href="$engine_8hpp.html" title=" " alt="" coords="436,213,633,240"/>
-<area shape="rect" id="node10" href="$physics__manager_8cpp.html" title=" " alt="" coords="515,102,690,143"/>
-<area shape="rect" id="node11" href="$entity__component__system_8hpp.html" title=" " alt="" coords="715,95,896,151"/>
-<area shape="rect" id="node3" href="$application_8hpp.html" title=" " alt="" coords="179,303,391,329"/>
-<area shape="rect" id="node7" href="$main__window_8hpp.html" title=" " alt="" coords="293,467,493,508"/>
-<area shape="rect" id="node9" href="$engine_8cpp.html" title=" " alt="" coords="573,303,769,329"/>
-<area shape="rect" id="node4" href="$application_8cpp.html" title=" " alt="" coords="5,563,216,590"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="93,385,265,411"/>
-<area shape="rect" id="node6" href="$menu__component_8hpp.html" title=" " alt="" coords="289,377,497,419"/>
-<area shape="rect" id="node8" href="$main__window_8cpp.html" title=" " alt="" coords="294,556,493,597"/>
-<area shape="rect" id="node12" href="$entity__component__system_8cpp.html" title=" " alt="" coords="715,199,896,255"/>
+<map id="engine/runtime/management/physics/physics_manager.hpp" name="engine/runtime/management/physics/physics_manager.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="589,5,809,47"/>
+<area shape="rect" id="node2" href="$engine_8hpp.html" title=" " alt="" coords="436,191,633,218"/>
+<area shape="rect" id="node10" href="$entity__component__system_8hpp.html" title=" " alt="" coords="572,95,825,136"/>
+<area shape="rect" id="node12" href="$physics__manager_8cpp.html" title=" " alt="" coords="849,95,1068,136"/>
+<area shape="rect" id="node3" href="$application_8hpp.html" title=" " alt="" coords="179,273,391,300"/>
+<area shape="rect" id="node7" href="$main__window_8hpp.html" title=" " alt="" coords="293,437,493,479"/>
+<area shape="rect" id="node9" href="$engine_8cpp.html" title=" " alt="" coords="573,273,769,300"/>
+<area shape="rect" id="node4" href="$application_8cpp.html" title=" " alt="" coords="5,534,216,561"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="93,355,265,382"/>
+<area shape="rect" id="node6" href="$menu__component_8hpp.html" title=" " alt="" coords="289,348,497,389"/>
+<area shape="rect" id="node8" href="$main__window_8cpp.html" title=" " alt="" coords="294,527,493,568"/>
+<area shape="rect" id="node11" href="$entity__component__system_8cpp.html" title=" " alt="" coords="658,184,910,225"/>
 </map>

@@ -1,6 +1,6 @@
-<map id="engine/runtime/graphics/render/element_buffer.hpp" name="engine/runtime/graphics/render/element_buffer.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="56,5,255,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,100,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="124,95,187,121"/>
-<area shape="rect" id="node4" href="$noncopyable_8hpp.html" title=" " alt="" coords="210,95,410,121"/>
+<map id="engine/runtime/management/graphics/render/element_buffer.hpp" name="engine/runtime/management/graphics/render/element_buffer.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="49,5,261,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,109,100,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="124,109,187,136"/>
+<area shape="rect" id="node4" href="$noncopyable_8hpp.html" title=" " alt="" coords="210,109,410,136"/>
 </map>

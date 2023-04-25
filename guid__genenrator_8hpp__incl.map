@@ -1,5 +1,5 @@
-<map id="engine/runtime/resource/guid_genenrator.hpp" name="engine/runtime/resource/guid_genenrator.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="39,5,220,47"/>
+<map id="engine/runtime/management/ecs/guid_genenrator.hpp" name="engine/runtime/management/ecs/guid_genenrator.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="23,5,235,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,95,72,121"/>
 <area shape="rect" id="node3" title=" " alt="" coords="96,95,163,121"/>
 <area shape="rect" id="node4" title=" " alt="" coords="187,95,245,121"/>

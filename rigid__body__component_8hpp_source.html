@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/resource/ecs/entity_component/rigid_body/rigid_body_component.hpp Source File</title>
+<title>TaixuEngine: engine/runtime/management/ecs/entity_component/rigid_body/rigid_body_component.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,11 +88,11 @@ $(document).ready(function(){initNavTree('rigid__body__component_8hpp_source.htm
 <a href="rigid__body__component_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_RIGID_BODY_COMPONENT</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TAIXUENGINE_RIGID_BODY_COMPONENT</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;Jolt/Jolt.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Jolt/Jolt.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entity__component_8hpp.html">resource/ecs/entity_component/entity_component.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transform__component_8hpp.html">resource/ecs/entity_component/transform/transform_component.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="physics__scene_8hpp.html">physics/physics_scene.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entity__component_8hpp.html">management/ecs/entity_component/entity_component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transform__component_8hpp.html">management/ecs/entity_component/transform/transform_component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="physics__scene_8hpp.html">management/physics/physics_scene.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a></div>
@@ -165,7 +165,7 @@ $(document).ready(function(){initNavTree('rigid__body__component_8hpp_source.htm
 <div class="ttc" id="aclasstaixu_1_1RigidBodyComponent_html_ac9e1be268c52fb515ff7d83fb336bce3"><div class="ttname"><a href="classtaixu_1_1RigidBodyComponent.html#ac9e1be268c52fb515ff7d83fb336bce3">taixu::RigidBodyComponent::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> rigid_body_component.cpp:16</div></div>
 <div class="ttc" id="aclasstaixu_1_1TransformComponent_html"><div class="ttname"><a href="classtaixu_1_1TransformComponent.html">taixu::TransformComponent</a></div><div class="ttdef"><b>Definition:</b> transform_component.hpp:11</div></div>
 <div class="ttc" id="aentity__component_8hpp_html"><div class="ttname"><a href="entity__component_8hpp.html">entity_component.hpp</a></div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:21</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:19</div></div>
 <div class="ttc" id="anamespacetaixu_html_a76dd482116d505913bb677a80cbb2895"><div class="ttname"><a href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895">taixu::RigidBodyShapeType</a></div><div class="ttdeci">RigidBodyShapeType</div><div class="ttdef"><b>Definition:</b> rigid_body_component.hpp:14</div></div>
 <div class="ttc" id="anamespacetaixu_html_a76dd482116d505913bb677a80cbb2895a6f7cea7381e843e2ee0338b4a92b0d43"><div class="ttname"><a href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895a6f7cea7381e843e2ee0338b4a92b0d43">taixu::RigidBodyShapeType::SPHERE</a></div><div class="ttdeci">@ SPHERE</div></div>
 <div class="ttc" id="anamespacetaixu_html_a76dd482116d505913bb677a80cbb2895accc0377a8afbf50e7094f5c23a8af223"><div class="ttname"><a href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895accc0377a8afbf50e7094f5c23a8af223">taixu::RigidBodyShapeType::INVALID</a></div><div class="ttdeci">@ INVALID</div></div>
@@ -187,7 +187,7 @@ $(document).ready(function(){initNavTree('rigid__body__component_8hpp_source.htm
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_62623fadb18e76a276166b2f13d7c4c1.html">resource</a></li><li class="navelem"><a class="el" href="dir_082dcba338adf3001ee2fde3096d7366.html">ecs</a></li><li class="navelem"><a class="el" href="dir_1c58dcf1bd3c63d0305e825424309427.html">entity_component</a></li><li class="navelem"><a class="el" href="dir_33499cc04aa4c8e723bb3037c6bb139c.html">rigid_body</a></li><li class="navelem"><a class="el" href="rigid__body__component_8hpp.html">rigid_body_component.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_2e743e866fb37056f41fd9fa9b68e330.html">management</a></li><li class="navelem"><a class="el" href="dir_1ee1a190a4098a38c779ee0b5bb961e2.html">ecs</a></li><li class="navelem"><a class="el" href="dir_c1ced8f2659909cc91f1ed9300fa6a8c.html">entity_component</a></li><li class="navelem"><a class="el" href="dir_09fe80a4455facb3b1f6acd4f7f3f8c4.html">rigid_body</a></li><li class="navelem"><a class="el" href="rigid__body__component_8hpp.html">rigid_body_component.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

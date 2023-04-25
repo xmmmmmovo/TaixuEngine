@@ -42,6 +42,6 @@ var searchData=
   ['_5fstate_39',['_state',['../classtaixu_1_1WindowContext.html#ad767f0da39a050a04ba817a4ca258a88',1,'taixu::WindowContext']]],
   ['_5ftitle_40',['_title',['../classtaixu_1_1WindowContext.html#ac5a079d553021fd13701178366a3f92d',1,'taixu::WindowContext']]],
   ['_5fwidth_41',['_width',['../classtaixu_1_1WindowContext.html#a758c4f22128367d747be573423d6ddde',1,'taixu::WindowContext::_width()'],['../classtaixu_1_1OGLFrameBuffer.html#ae653c4c30382343f6fae3ac197cd0356',1,'taixu::OGLFrameBuffer::_width()']]],
-  ['_5fwindow_42',['_window',['../classtaixu_1_1AbstractGraphicsAPILoader.html#a75d5748deeff12a0d83e552774b4d50c',1,'taixu::AbstractGraphicsAPILoader::_window()'],['../classtaixu_1_1WindowContext.html#a2c7acb651a0c7c086c6ff173383ca8b8',1,'taixu::WindowContext::_window()']]],
+  ['_5fwindow_42',['_window',['../classtaixu_1_1WindowContext.html#a2c7acb651a0c7c086c6ff173383ca8b8',1,'taixu::WindowContext::_window()'],['../classtaixu_1_1AbstractGraphicsAPILoader.html#a75d5748deeff12a0d83e552774b4d50c',1,'taixu::AbstractGraphicsAPILoader::_window()']]],
   ['_5fwindow_5fptr_43',['_window_ptr',['../classtaixu_1_1editor_1_1Application.html#aad5d054b7e04502bbff5c71dfb98e66b',1,'taixu::editor::Application']]]
 ];

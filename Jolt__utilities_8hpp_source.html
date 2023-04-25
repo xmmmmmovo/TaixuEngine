@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/physics/Jolt_utilities.hpp Source File</title>
+<title>TaixuEngine: engine/runtime/management/physics/Jolt_utilities.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,21 +93,21 @@ $(document).ready(function(){initNavTree('Jolt__utilities_8hpp_source.html','');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// #include &quot;Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;Jolt/Jolt.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Jolt/Jolt.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// Jolt includes</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;Jolt/Core/Factory.h&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;Jolt/Core/JobSystemThreadPool.h&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;Jolt/Core/TempAllocator.h&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;Jolt/Physics/Body/BodyActivationListener.h&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;Jolt/Physics/Body/BodyCreationSettings.h&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;Jolt/Physics/Collision/Shape/BoxShape.h&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;Jolt/Physics/Collision/Shape/SphereShape.h&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;Jolt/Physics/PhysicsSettings.h&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;Jolt/Physics/PhysicsSystem.h&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;Jolt/RegisterTypes.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;Jolt/Core/Factory.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;Jolt/Core/JobSystemThreadPool.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;Jolt/Core/TempAllocator.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;Jolt/Physics/Body/BodyActivationListener.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;Jolt/Physics/Body/BodyCreationSettings.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;Jolt/Physics/Collision/Shape/BoxShape.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;Jolt/Physics/Collision/Shape/SphereShape.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;Jolt/Physics/PhysicsSettings.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;Jolt/Physics/PhysicsSystem.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;Jolt/RegisterTypes.h&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;spdlog/spdlog.h&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1Layers.html">   26</a></span>&#160;<span class="keyword">namespace </span>Layers {</div>
@@ -269,13 +269,13 @@ $(document).ready(function(){initNavTree('Jolt__utilities_8hpp_source.html','');
 <div class="ttc" id="aclasstaixu_1_1ObjectLayerPairFilterImpl_html_a2ce2952d96b45f91119878a927d4ea99"><div class="ttname"><a href="classtaixu_1_1ObjectLayerPairFilterImpl.html#a2ce2952d96b45f91119878a927d4ea99">taixu::ObjectLayerPairFilterImpl::ShouldCollide</a></div><div class="ttdeci">virtual bool ShouldCollide(ObjectLayer inObject1, ObjectLayer inObject2) const override</div><div class="ttdef"><b>Definition:</b> Jolt_utilities.hpp:125</div></div>
 <div class="ttc" id="aclasstaixu_1_1ObjectVsBroadPhaseLayerFilterImpl_html"><div class="ttname"><a href="classtaixu_1_1ObjectVsBroadPhaseLayerFilterImpl.html">taixu::ObjectVsBroadPhaseLayerFilterImpl</a></div><div class="ttdef"><b>Definition:</b> Jolt_utilities.hpp:148</div></div>
 <div class="ttc" id="aclasstaixu_1_1ObjectVsBroadPhaseLayerFilterImpl_html_ad65cc4864db35601041e47112adb8d4b"><div class="ttname"><a href="classtaixu_1_1ObjectVsBroadPhaseLayerFilterImpl.html#ad65cc4864db35601041e47112adb8d4b">taixu::ObjectVsBroadPhaseLayerFilterImpl::ShouldCollide</a></div><div class="ttdeci">virtual bool ShouldCollide(ObjectLayer inLayer1, BroadPhaseLayer inLayer2) const override</div><div class="ttdef"><b>Definition:</b> Jolt_utilities.hpp:150</div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:21</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_8be9dceabecfa52dabc149083ef1e653.html">physics</a></li><li class="navelem"><a class="el" href="Jolt__utilities_8hpp.html">Jolt_utilities.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_2e743e866fb37056f41fd9fa9b68e330.html">management</a></li><li class="navelem"><a class="el" href="dir_ee606b89d105e3bcab4a52eda2d2ad74.html">physics</a></li><li class="navelem"><a class="el" href="Jolt__utilities_8hpp.html">Jolt_utilities.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/gui/window_context.hpp Source File</title>
+<title>TaixuEngine: engine/runtime/gameplay/gui/window_context.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,13 +93,13 @@ $(document).ready(function(){initNavTree('window__context_8hpp_source.html','');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_WINDOW_CONTEXT_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;GLFW/glfw3.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;GLFW/glfw3.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="macro_8hpp.html">core/base/macro.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="perspective__camera_8hpp.html">graphics/render/perspective_camera.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="render__api_8hpp.html">graphics/render/render_api.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="perspective__camera_8hpp.html">gameplay/player/perspective_camera.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="render__api_8hpp.html">management/graphics/render/render_api.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classtaixu_1_1WindowContext.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1WindowContext.html">WindowContext</a> {</div>
@@ -456,7 +456,7 @@ $(document).ready(function(){initNavTree('window__context_8hpp_source.html','');
 <div class="ttc" id="aclasstaixu_1_1WindowContext_html_afd30880d04b744b53189429ea8acfa51"><div class="ttname"><a href="classtaixu_1_1WindowContext.html#afd30880d04b744b53189429ea8acfa51">taixu::WindowContext::on_char_mods_fns</a></div><div class="ttdeci">std::vector&lt; on_char_mods_fn &gt; on_char_mods_fns</div><div class="ttdef"><b>Definition:</b> window_context.hpp:38</div></div>
 <div class="ttc" id="aclasstaixu_1_1WindowContext_html_affafae7ac5e26fcdca79cbb525a36774"><div class="ttname"><a href="classtaixu_1_1WindowContext.html#affafae7ac5e26fcdca79cbb525a36774">taixu::WindowContext::onDrop</a></div><div class="ttdeci">void onDrop(int count, const char **paths)</div><div class="ttdef"><b>Definition:</b> window_context.hpp:157</div></div>
 <div class="ttc" id="amacro_8hpp_html"><div class="ttname"><a href="macro_8hpp.html">macro.hpp</a></div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:21</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:19</div></div>
 <div class="ttc" id="anamespacetaixu_html_a0019e688317bd524b76edd73df8a4507"><div class="ttname"><a href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507">taixu::EngineState</a></div><div class="ttdeci">EngineState</div><div class="ttdoc">editor status enum</div><div class="ttdef"><b>Definition:</b> macro.hpp:58</div></div>
 <div class="ttc" id="anamespacetaixu_html_a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b"><div class="ttname"><a href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b">taixu::EngineState::EDITORMODE</a></div><div class="ttdeci">@ EDITORMODE</div></div>
 <div class="ttc" id="aperspective__camera_8hpp_html"><div class="ttname"><a href="perspective__camera_8hpp.html">perspective_camera.hpp</a></div></div>
@@ -466,7 +466,7 @@ $(document).ready(function(){initNavTree('window__context_8hpp_source.html','');
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_0d42010045b2a813eecd8911e6432d3f.html">gui</a></li><li class="navelem"><a class="el" href="window__context_8hpp.html">window_context.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_d5fc2bd3cf48e4c96766e23126bb56f6.html">gameplay</a></li><li class="navelem"><a class="el" href="dir_89d42dc10a0a513abc3c0a505bca1a92.html">gui</a></li><li class="navelem"><a class="el" href="window__context_8hpp.html">window_context.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
