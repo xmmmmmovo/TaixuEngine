@@ -1,17 +1,17 @@
 #ifndef TAIXUENGINE_MESH_COMPONENT
 #define TAIXUENGINE_MESH_COMPONENT
 
-#include "management/graphics/renderer.hpp"
 #include "management/ecs/entity_component/camera/camera_component.hpp"
 #include "management/ecs/entity_component/entity_component.hpp"
 #include "management/ecs/entity_component/transform/transform_component.hpp"
+#include "management/graphics/renderer.hpp"
 #include <cstdint>
 #include <optional>
 #include <string>
 
 namespace taixu {
 class MeshComponent : public EntityComponent {
-    PROTOTYPE(std::uint32_t, GO, 0);
+    PROTOTYPE_DFT(private, std::uint32_t, GO, 0);
 
 public:
     MeshComponent(bool renderable, std::uint32_t guid, std::string path1,

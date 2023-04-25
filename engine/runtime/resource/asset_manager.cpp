@@ -4,4 +4,10 @@
 
 #include "asset_manager.hpp"
 
-namespace taixu {}// namespace taixu
+namespace taixu {
+
+void AssetManager::loadAsset(const std::filesystem::path &file_path) {
+
+}
+
+}// namespace taixu

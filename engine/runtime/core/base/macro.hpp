@@ -6,8 +6,8 @@ namespace taixu {
 /**
  * @brief 简化getter setter
  */
-#define PROTOTYPE(type, name, default_val)                                     \
-private:                                                                       \
+#define PROTOTYPE_DFT(access, type, name, default_val)                                 \
+access:                                                                       \
     type _##name{default_val};                                                 \
                                                                                \
 public:                                                                        \
@@ -15,14 +15,37 @@ public:                                                                        \
     void               set_##name(type const &value) { _##name = value; }
 
 /**
+ * @brief 简化getter setter
+ */
+#define PROTOTYPE(access, type, name, default_val)                                     \
+access:                                                                       \
+    type _##name{};                                                            \
+                                                                               \
+public:                                                                        \
+    [[nodiscard]] type name() const { return _##name; }                        \
+    void               set_##name(type const &value) { _##name = value; }
+
+
+/**
  * @brief 简化getter
  */
-#define PROTOTYPE_ONLY_GETTER(type, name, default_val)                         \
-private:                                                                       \
+#define PROTOTYPE_DFT_ONLY_GETTER(access, type, name, default_val)                     \
+access:                                                                       \
     type _##name{default_val};                                                 \
                                                                                \
 public:                                                                        \
-    [[nodiscard]] type name() const { return _##name }
+    [[nodiscard]] type name() const { return _##name; }
+
+/**
+ * @brief 简化getter
+ */
+#define PROTOTYPE_ONLY_GETTER(access, type, name)                                      \
+access:                                                                       \
+    type _##name{};                                                            \
+                                                                               \
+public:                                                                        \
+    [[nodiscard]] type name() const { return _##name; }
+
 
 /**
  * @brief Define Opengl version

@@ -17,23 +17,19 @@
 
 #include "management/ecs/guid_genenrator.hpp"
 #include "platform/os/path.hpp"
+#include "resource/raw_data/mesh.hpp"
+#include "resource/raw_data/texture.hpp"
 
 namespace taixu {
 
-struct BaseAsset {
-    std::string name{};
-    std::string location{};
-};
-
-class TextureAsset : public BaseAsset {};
-
 class AssetManager {
-    //    PROTOTYPE_ONLY_GETTER(std::unordered_map<std::filesystem::path>);
+    using TextureMapType = std::unordered_map<std::string, Texture>;
+    PROTOTYPE_ONLY_GETTER(private, TextureMapType, textures);
+    using MeshMapType = std::unordered_map<std::string, Mesh>;
+    PROTOTYPE_ONLY_GETTER(private, MeshMapType, meshes);
 
 public:
-    using Json = nlohmann::json;
-
-    void loadAsset(std::filesystem::path const &file_path) { return; }
+    void loadAsset(std::filesystem::path const &file_path);
 };
 }// namespace taixu
 
