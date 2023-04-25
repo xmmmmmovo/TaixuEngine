@@ -12,7 +12,6 @@ void ECS::initialize() {
     EntityComponentMap mesh_component_map;
     EntityComponentMap rigid_body_component_map;
 
-
     //tick order
 
     all_components.push_back(rigid_body_component_map);//0
@@ -32,4 +31,5 @@ void ECS::tick(float delta_time) {
         for (auto &cpnt : map.map) { cpnt->tick(); }
     }
 }
+
 }// namespace taixu

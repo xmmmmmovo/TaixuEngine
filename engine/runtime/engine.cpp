@@ -39,7 +39,7 @@ void Engine::update() {
     _renderer->tick();
 }
 
-void Engine::shutdown() {}
+void Engine::destroy() {}
 
 IRenderer *Engine::getRenderer() const { return _renderer.get(); }
 

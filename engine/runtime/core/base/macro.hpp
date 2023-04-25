@@ -3,6 +3,9 @@
 
 namespace taixu {
 
+/**
+ * @brief 简化getter setter
+ */
 #define PROTOTYPE(type, name, default_val)                                     \
 private:                                                                       \
     type _##name{default_val};                                                 \
@@ -11,9 +14,12 @@ public:                                                                        \
     [[nodiscard]] type name() const { return _##name; }                        \
     void               set_##name(type const &value) { _##name = value; }
 
-#define PROTOTYPE_ONLY_GETTER(type, name, default_val)                                      \
+/**
+ * @brief 简化getter
+ */
+#define PROTOTYPE_ONLY_GETTER(type, name, default_val)                         \
 private:                                                                       \
-    type _##name{default_val};                                                              \
+    type _##name{default_val};                                                 \
                                                                                \
 public:                                                                        \
     [[nodiscard]] type name() const { return _##name }
@@ -31,7 +37,9 @@ constexpr std::int32_t OPENGL_MAJOR_VERSION = 4;
  */
 constexpr std::int32_t OPENGL_MINOR_VERSION = 1;
 
-// Define status enum
+/**
+ * @brief status enum
+ */
 enum class Status {
     OK,                 //access allowed
     PERMISSION_FAILED,  //access permission failed

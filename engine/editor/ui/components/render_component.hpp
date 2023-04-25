@@ -17,8 +17,8 @@ namespace taixu::editor {
 class RenderComponent : public IUIComponent {
 public:
     IFrameBuffer *_framebuffer;
-    ImVec2        _render_size{};
-    ImVec2        _previous_size{};
+    ImVec2        _render_size{0, 0};
+    ImVec2        _previous_size{0, 0};
     ImRect        _render_rect{};
     ImRect        _menu_bar_rect{};
 

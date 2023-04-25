@@ -5,13 +5,13 @@
 #include <unordered_map>
 
 namespace taixu {
+
 class EntityComponent {
 public:
     virtual std::uint32_t getGO() = 0;
     virtual void          tick()  = 0;
     virtual ~EntityComponent()    = default;
 };
-
 
 class EntityComponentMap {
 public:
@@ -21,9 +21,11 @@ public:
     getComponent(std::uint32_t guid) {
         int mark = 0;
         for (auto &component : map) {
-            if (component->getGO() == guid) break;
-            else
+            if (component->getGO() == guid) {
+                break;
+            } else {
                 mark++;
+            }
         }
         return map[mark];
     }

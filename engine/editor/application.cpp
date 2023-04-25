@@ -92,5 +92,8 @@ void Application::run() {
     }
 }
 
-void Application::destroy() { this->_window_ptr->destroy(); }
+void Application::destroy() {
+    this->_engine_ptr->destroy();
+    this->_window_ptr->destroy();
+}
 }// namespace taixu::editor

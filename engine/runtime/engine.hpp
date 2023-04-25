@@ -17,16 +17,16 @@ class Engine : public PublicSingleton<Engine> {
     friend class PublicSingleton<Engine>;
 
 private:
-    std::unique_ptr<IRenderer> _renderer{nullptr};
-    std::unique_ptr<AssetManager>     _asset_manager{nullptr};
-    std::unique_ptr<ProjectManager>   _project_manager{nullptr};
-    std::unique_ptr<ECS>              _entity_component_system{nullptr};
-    std::unique_ptr<PhysicsManager>   _physics_manager{nullptr};
+    std::unique_ptr<IRenderer>      _renderer{nullptr};
+    std::unique_ptr<AssetManager>   _asset_manager{nullptr};
+    std::unique_ptr<ProjectManager> _project_manager{nullptr};
+    std::unique_ptr<ECS>            _entity_component_system{nullptr};
+    std::unique_ptr<PhysicsManager> _physics_manager{nullptr};
 
 public:
     void init();
     void update();
-    void shutdown();
+    void destroy();
 
     Status loadProject(std::string_view const &path);
 
