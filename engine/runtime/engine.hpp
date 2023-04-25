@@ -7,6 +7,7 @@
 #include "graphics/renderer.hpp"
 #include "gui/window_context.hpp"
 #include "physics/physics_manager.hpp"
+#include "resource/asset_manager.hpp"
 #include "resource/ecs/entity_component_system.hpp"
 #include "resource/project_manager.hpp"
 #include <memory>

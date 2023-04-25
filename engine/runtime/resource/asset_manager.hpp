@@ -5,6 +5,7 @@
 #ifndef TAIXUENGINE_RESOURCE_MANAGER_HPP
 #define TAIXUENGINE_RESOURCE_MANAGER_HPP
 
+#include <filesystem>
 #include <spdlog/spdlog.h>
 
 #include <fstream>
@@ -19,26 +20,20 @@
 
 namespace taixu {
 
-enum class AssetType { UNDEFINED, MODEL, TEXTURE };
-
-template<typename Data>
-struct Asset {
+struct BaseAsset {
     std::string name{};
-    AssetType   type{AssetType::UNDEFINED};
     std::string location{};
-    Data        data{};
 };
 
+class TextureAsset : public BaseAsset {};
 
 class AssetManager {
-    //    PROTOTYPE_ONLY_GETTER(std::unordered_map<>)
+    //    PROTOTYPE_ONLY_GETTER(std::unordered_map<std::filesystem::path>);
 
 public:
     using Json = nlohmann::json;
 
     void loadAsset(std::filesystem::path const &file_path) { return; }
-
-    void loadAsset(const std::string &file_path, const AssetType &asset_type);
 };
 }// namespace taixu
 
