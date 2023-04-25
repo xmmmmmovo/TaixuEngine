@@ -10,8 +10,6 @@
 #include <vector>
 
 #include "core/base/macro.hpp"
-#include "graphics/render/mesh.hpp"
-#include "graphics/render/model.hpp"
 
 namespace taixu {
 

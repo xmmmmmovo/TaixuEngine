@@ -3,5 +3,5 @@
 # install the vcpkg
 git clone https://github.com/Microsoft/vcpkg.git
 ./vcpkg/bootstrap-vcpkg.sh -disableMetrics
-cd vcpkg
+cd vcpkg || return
 ./vcpkg install

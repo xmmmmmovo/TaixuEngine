@@ -13,7 +13,6 @@
 #include "core/base/noncopyable.hpp"
 #include "frag_frag.h"
 #include "graphics/render/framebuffer.hpp"
-#include "graphics/render/model.hpp"
 #include "graphics/render/perspective_camera.hpp"
 #include "graphics/render/render_api.hpp"
 #include "graphics/render/shader.hpp"
