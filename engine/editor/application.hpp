@@ -12,7 +12,7 @@
 // "" include headers
 #include "core/base/public_singleton.hpp"
 #include "engine.hpp"
-#include "gui/window.hpp"
+#include "gameplay/gui/window.hpp"
 
 namespace taixu::editor {
 

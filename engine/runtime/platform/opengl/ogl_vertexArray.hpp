@@ -9,7 +9,7 @@
 
 #include <memory>
 
-#include "graphics/render/vertex_array.hpp"
+#include "management/graphics/render/vertex_array.hpp"
 #include "ogl_elementBuffer.hpp"
 #include "ogl_vertexBuffer.hpp"
 

@@ -5,7 +5,7 @@
 #ifndef TAIXUENGINE_OGL_RENDERER_HPP
 #define TAIXUENGINE_OGL_RENDERER_HPP
 
-#include "graphics/renderer.hpp"
+#include "management/graphics/renderer.hpp"
 #include "ogl_frameBuffer.hpp"
 #include <memory>
 

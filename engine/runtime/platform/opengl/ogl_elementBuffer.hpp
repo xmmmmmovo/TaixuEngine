@@ -7,7 +7,7 @@
 
 #include <glad/glad.h>
 
-#include "graphics/render/element_buffer.hpp"
+#include "management/graphics/render/element_buffer.hpp"
 
 namespace taixu {
 

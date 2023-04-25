@@ -10,13 +10,13 @@
 #include <memory>
 
 #include "GLFW/glfw3.h"
-#include "graphics/renderer.hpp"
 #include "imgui.h"
 #include "imgui_internal.h"
 
 // "" headers
 #include "engine.hpp"
-#include "gui/imgui_surface.hpp"
+#include "gameplay/gui/window.hpp"
+#include "management/graphics/renderer.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"

@@ -14,7 +14,7 @@
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 
-#include "graphics/render/shader.hpp"
+#include "management/graphics/render/shader.hpp"
 
 namespace taixu {
 

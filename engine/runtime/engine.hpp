@@ -3,12 +3,10 @@
 
 #include "core/base/macro.hpp"
 #include "core/base/public_singleton.hpp"
-#include "graphics/render/render_api.hpp"
-#include "graphics/renderer.hpp"
-#include "gui/window_context.hpp"
-#include "physics/physics_manager.hpp"
+#include "management/ecs/entity_component_system.hpp"
+#include "management/graphics/renderer.hpp"
+#include "management/physics/physics_manager.hpp"
 #include "resource/asset_manager.hpp"
-#include "resource/ecs/entity_component_system.hpp"
 #include "resource/project_manager.hpp"
 #include <memory>
 
