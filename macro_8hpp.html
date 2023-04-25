@@ -136,8 +136,10 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ad50e649a9a4814e57fed379bf2fe9fb2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macro_8hpp.html#ad50e649a9a4814e57fed379bf2fe9fb2">PROTOTYPE</a>(type,  name,  default_val)</td></tr>
+<tr class="memdesc:ad50e649a9a4814e57fed379bf2fe9fb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">简化getter setter  <a href="macro_8hpp.html#ad50e649a9a4814e57fed379bf2fe9fb2">More...</a><br /></td></tr>
 <tr class="separator:ad50e649a9a4814e57fed379bf2fe9fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c7fcdd7ec26b274e8767072e62498dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macro_8hpp.html#a4c7fcdd7ec26b274e8767072e62498dc">PROTOTYPE_ONLY_GETTER</a>(type,  name,  default_val)</td></tr>
+<tr class="memdesc:a4c7fcdd7ec26b274e8767072e62498dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">简化getter  <a href="macro_8hpp.html#a4c7fcdd7ec26b274e8767072e62498dc">More...</a><br /></td></tr>
 <tr class="separator:a4c7fcdd7ec26b274e8767072e62498dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -147,6 +149,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857a3a73e888cfbb60942a7e422b526d98eb">taixu::NO_SUCH_FILE_FAILED</a>
 , <a class="el" href="namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857a6aca231caf4349e8c720a0e8afe9e273">taixu::NO_OPEN_PROJECT</a>
  }</td></tr>
+<tr class="memdesc:aa70335f91ba6491f07f3f620fa030857"><td class="mdescLeft">&#160;</td><td class="mdescRight">status enum  <a href="namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857">More...</a><br /></td></tr>
 <tr class="separator:aa70335f91ba6491f07f3f620fa030857"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0019e688317bd524b76edd73df8a4507"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507">taixu::EngineState</a> { <a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b">taixu::EDITORMODE</a>
 , <a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ac62e3d94e99fe5f4fd32c92a61679539">taixu::PREVIEWMODE</a>
@@ -207,6 +210,8 @@ Variables</h2></td></tr>
 <div class="line">    [[nodiscard]] type name()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _##name; }                        \</div>
 <div class="line">    void               set_##name(type <span class="keyword">const</span> &amp;value) { _##name = value; }</div>
 </div><!-- fragment -->
+<p>简化getter setter </p>
+
 </div>
 </div>
 <a id="a4c7fcdd7ec26b274e8767072e62498dc"></a>
@@ -241,11 +246,13 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><span class="keyword">private</span>:                                                                       \</div>
-<div class="line">    type _##name{default_val};                                                              \</div>
+<div class="line">    type _##name{default_val};                                                 \</div>
 <div class="line">                                                                               \</div>
 <div class="line">public:                                                                        \</div>
 <div class="line">    [[nodiscard]] type name()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _##name }</div>
 </div><!-- fragment -->
+<p>简化getter </p>
+
 </div>
 </div>
 </div><!-- contents -->

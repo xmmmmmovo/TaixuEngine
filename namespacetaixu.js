@@ -16,10 +16,6 @@ var namespacetaixu =
     [ "IElementBuffer", "classtaixu_1_1IElementBuffer.html", "classtaixu_1_1IElementBuffer" ],
     [ "IFrameBufferSpecification", "structtaixu_1_1IFrameBufferSpecification.html", "structtaixu_1_1IFrameBufferSpecification" ],
     [ "IFrameBuffer", "classtaixu_1_1IFrameBuffer.html", "classtaixu_1_1IFrameBuffer" ],
-    [ "Vertex", "structtaixu_1_1Vertex.html", "structtaixu_1_1Vertex" ],
-    [ "Texture", "structtaixu_1_1Texture.html", "structtaixu_1_1Texture" ],
-    [ "Mesh", "classtaixu_1_1Mesh.html", "classtaixu_1_1Mesh" ],
-    [ "Model_Data", "classtaixu_1_1Model__Data.html", "classtaixu_1_1Model__Data" ],
     [ "PerspectiveCamera", "classtaixu_1_1PerspectiveCamera.html", "classtaixu_1_1PerspectiveCamera" ],
     [ "OGLAPILoader", "classtaixu_1_1OGLAPILoader.html", "classtaixu_1_1OGLAPILoader" ],
     [ "AbstractGraphicsAPILoader", "classtaixu_1_1AbstractGraphicsAPILoader.html", "classtaixu_1_1AbstractGraphicsAPILoader" ],
@@ -50,7 +46,8 @@ var namespacetaixu =
     [ "OGLTexture", "classtaixu_1_1OGLTexture.html", "classtaixu_1_1OGLTexture" ],
     [ "OGLVertexArray", "classtaixu_1_1OGLVertexArray.html", "classtaixu_1_1OGLVertexArray" ],
     [ "OGLVertexBuffer", "classtaixu_1_1OGLVertexBuffer.html", "classtaixu_1_1OGLVertexBuffer" ],
-    [ "Asset", "structtaixu_1_1Asset.html", "structtaixu_1_1Asset" ],
+    [ "BaseAsset", "structtaixu_1_1BaseAsset.html", "structtaixu_1_1BaseAsset" ],
+    [ "TextureAsset", "classtaixu_1_1TextureAsset.html", null ],
     [ "AssetManager", "classtaixu_1_1AssetManager.html", "classtaixu_1_1AssetManager" ],
     [ "CameraComponent", "classtaixu_1_1CameraComponent.html", "classtaixu_1_1CameraComponent" ],
     [ "EntityComponent", "classtaixu_1_1EntityComponent.html", "classtaixu_1_1EntityComponent" ],
@@ -69,10 +66,6 @@ var namespacetaixu =
     [ "ProjectManager", "classtaixu_1_1ProjectManager.html", "classtaixu_1_1ProjectManager" ],
     [ "callback", "namespacetaixu.html#a7e05f182aa0b3fe762d619916190ba1e", null ],
     [ "json", "namespacetaixu.html#af876a3b1f89f874d9460dd06234888f6", null ],
-    [ "AssetType", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb", [
-      [ "MODEL", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba639a04ebc1a05ddf601b9c88883a944b", null ],
-      [ "TEXTURE", "namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba85ba69aa0747e7bcca4b4add8ec638eb", null ]
-    ] ],
     [ "AttributeType", "namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5", [
       [ "POSITION", "namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5a90b4ba73224408e82ade8a072a3712c1", null ],
       [ "COLOR", "namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5a04bd834032febb3fda8c6936ee140949", null ],

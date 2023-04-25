@@ -133,14 +133,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IFrameBuffer.html">IFrameBuffer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1Vertex.html">Vertex</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1Texture.html">Texture</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Mesh.html">Mesh</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Model__Data.html">Model_Data</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLAPILoader.html">OGLAPILoader</a></td></tr>
@@ -207,7 +199,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexBuffer.html">OGLVertexBuffer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1Asset.html">Asset</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1BaseAsset.html">BaseAsset</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1TextureAsset.html">TextureAsset</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1AssetManager.html">AssetManager</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -257,6 +251,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857a3a73e888cfbb60942a7e422b526d98eb">NO_SUCH_FILE_FAILED</a>
 , <a class="el" href="namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857a6aca231caf4349e8c720a0e8afe9e273">NO_OPEN_PROJECT</a>
  }</td></tr>
+<tr class="memdesc:aa70335f91ba6491f07f3f620fa030857"><td class="mdescLeft">&#160;</td><td class="mdescRight">status enum  <a href="namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857">More...</a><br /></td></tr>
 <tr class="separator:aa70335f91ba6491f07f3f620fa030857"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0019e688317bd524b76edd73df8a4507"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507">EngineState</a> { <a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b">EDITORMODE</a>
 , <a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ac62e3d94e99fe5f4fd32c92a61679539">PREVIEWMODE</a>
@@ -315,10 +310,6 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a8e161627201589eb79d6ce2083cd46e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">shader type  <a href="namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3">More...</a><br /></td></tr>
 <tr class="separator:a8e161627201589eb79d6ce2083cd46e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3f42d835f57506d65a0964f16d2e5eb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb">AssetType</a> { <a class="el" href="namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba639a04ebc1a05ddf601b9c88883a944b">MODEL</a>
-, <a class="el" href="namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eba85ba69aa0747e7bcca4b4add8ec638eb">TEXTURE</a>
- }</td></tr>
-<tr class="separator:af3f42d835f57506d65a0964f16d2e5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76dd482116d505913bb677a80cbb2895"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895">RigidBodyShapeType</a> { <a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895ae657cce1913c857166b0475f18668ef5">BOX</a>
 , <a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895a6f7cea7381e843e2ee0338b4a92b0d43">SPHERE</a>
 , <a class="el" href="namespacetaixu.html#a76dd482116d505913bb677a80cbb2895accc0377a8afbf50e7094f5c23a8af223">INVALID</a>
@@ -459,24 +450,6 @@ template&lt;typename... Args&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="af3f42d835f57506d65a0964f16d2e5eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3f42d835f57506d65a0964f16d2e5eb">&#9670;&nbsp;</a></span>AssetType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="namespacetaixu.html#af3f42d835f57506d65a0964f16d2e5eb">taixu::AssetType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af3f42d835f57506d65a0964f16d2e5eba639a04ebc1a05ddf601b9c88883a944b"></a>MODEL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af3f42d835f57506d65a0964f16d2e5eba85ba69aa0747e7bcca4b4add8ec638eb"></a>TEXTURE&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 <a id="a12d4544bfb12fa2d6e739321539a47b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12d4544bfb12fa2d6e739321539a47b5">&#9670;&nbsp;</a></span>AttributeType</h2>
 
@@ -799,6 +772,8 @@ template&lt;typename... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>status enum </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa70335f91ba6491f07f3f620fa030857ae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa70335f91ba6491f07f3f620fa030857acaf447f0be418484e7839d12fdcdb76d"></a>PERMISSION_FAILED&#160;</td><td class="fielddoc"></td></tr>

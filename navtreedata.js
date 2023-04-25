@@ -46,7 +46,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", "functions_vars" ],
+        [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
@@ -65,10 +65,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Jolt__utilities_8cpp.html",
-"classtaixu_1_1OGLElementBuffer.html#a093deead2d78d5bf07b54b2eebc6fd8a",
-"classtaixu_1_1editor_1_1Application.html#a2e268c4a28213825b609f6fe6f309b65",
-"guid__genenrator_8hpp.html#a07bf29860b2e3d8da53a4b7b06c29a15",
-"perspective__camera_8hpp_source.html"
+"classtaixu_1_1OGLRenderer.html#a46fd5d52050afa000b2e23a264f553b5",
+"classtaixu_1_1editor_1_1MainWindow.html#a0eae47267d9f94fa449a32481ff325e7",
+"macro_8hpp.html#aa70335f91ba6491f07f3f620fa030857a3a73e888cfbb60942a7e422b526d98eb",
+"structtaixu_1_1JoltParameters.html#a23928b48bb1f4e525f7ae4be78a6eda2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

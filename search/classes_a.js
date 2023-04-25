@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['level_718',['Level',['../classtaixu_1_1Level.html',1,'taixu']]]
+  ['level_682',['Level',['../classtaixu_1_1Level.html',1,'taixu']]]
 ];

@@ -5,12 +5,6 @@ var dir_793f305715bfd7d4f2a17b8a173f6235 =
       [ "IElementBuffer", "classtaixu_1_1IElementBuffer.html", "classtaixu_1_1IElementBuffer" ]
     ] ],
     [ "framebuffer.hpp", "framebuffer_8hpp.html", "framebuffer_8hpp" ],
-    [ "mesh.cpp", "mesh_8cpp.html", null ],
-    [ "mesh.hpp", "mesh_8hpp.html", "mesh_8hpp" ],
-    [ "model.cpp", "model_8cpp.html", null ],
-    [ "model.hpp", "model_8hpp.html", [
-      [ "Model_Data", "classtaixu_1_1Model__Data.html", "classtaixu_1_1Model__Data" ]
-    ] ],
     [ "perspective_camera.cpp", "perspective__camera_8cpp.html", null ],
     [ "perspective_camera.hpp", "perspective__camera_8hpp.html", "perspective__camera_8hpp" ],
     [ "render_api.cpp", "render__api_8cpp.html", "render__api_8cpp" ],

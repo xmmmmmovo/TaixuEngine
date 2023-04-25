@@ -1,10 +1,10 @@
 var classtaixu_1_1Engine =
 [
+    [ "destroy", "classtaixu_1_1Engine.html#a9953074c9262b8882c4e00016b256792", null ],
     [ "getOpenedProject", "classtaixu_1_1Engine.html#aec57044c21ea622e83618008acf49f3f", null ],
     [ "getRenderer", "classtaixu_1_1Engine.html#a1e91620b5c025fedc240c00f5381d253", null ],
     [ "init", "classtaixu_1_1Engine.html#a09ba2b38893667f12059bd3551dd55f7", null ],
     [ "loadProject", "classtaixu_1_1Engine.html#a1e77723d9c8d2546dfa07a7b0f8f766b", null ],
-    [ "shutdown", "classtaixu_1_1Engine.html#a8f453bf6870ce28e4c80bb1eb3e936fe", null ],
     [ "update", "classtaixu_1_1Engine.html#ad956f9eaf65a7af1922be4f10354a238", null ],
     [ "PublicSingleton< Engine >", "classtaixu_1_1Engine.html#ac98c32d07778d652e1fe219aa65a4f81", null ],
     [ "_asset_manager", "classtaixu_1_1Engine.html#aaead31559103f31c3e817c761b9163c0", null ],

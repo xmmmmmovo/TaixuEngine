@@ -1,7 +1,9 @@
 var hierarchy =
 [
-    [ "taixu::Asset", "structtaixu_1_1Asset.html", null ],
     [ "taixu::AssetManager", "classtaixu_1_1AssetManager.html", null ],
+    [ "taixu::BaseAsset", "structtaixu_1_1BaseAsset.html", [
+      [ "taixu::TextureAsset", "classtaixu_1_1TextureAsset.html", null ]
+    ] ],
     [ "BodyActivationListener", null, [
       [ "taixu::MyBodyActivationListener", "classtaixu_1_1MyBodyActivationListener.html", null ]
     ] ],
@@ -37,8 +39,6 @@ var hierarchy =
     [ "std::logic_error", null, [
       [ "taixu::NotImplementedException", "classtaixu_1_1NotImplementedException.html", null ]
     ] ],
-    [ "taixu::Mesh", "classtaixu_1_1Mesh.html", null ],
-    [ "taixu::Model_Data", "classtaixu_1_1Model__Data.html", null ],
     [ "taixu::noncopyable", "classtaixu_1_1noncopyable.html", [
       [ "taixu::IVertexArray< OGLVertexBuffer, OGLElementBuffer >", "classtaixu_1_1IVertexArray.html", [
         [ "taixu::OGLVertexArray", "classtaixu_1_1OGLVertexArray.html", null ]
@@ -108,8 +108,6 @@ var hierarchy =
       [ "taixu::InputSystem", "classtaixu_1_1InputSystem.html", null ]
     ] ],
     [ "taixu::RigidbodyInfo", "structtaixu_1_1RigidbodyInfo.html", null ],
-    [ "taixu::Texture", "structtaixu_1_1Texture.html", null ],
-    [ "taixu::Vertex", "structtaixu_1_1Vertex.html", null ],
     [ "taixu::editor::ViewModel", "structtaixu_1_1editor_1_1ViewModel.html", null ],
     [ "taixu::WindowContext", "classtaixu_1_1WindowContext.html", null ],
     [ "taixu::WorldManager", "classtaixu_1_1WorldManager.html", null ]
