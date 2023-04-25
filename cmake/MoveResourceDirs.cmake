@@ -15,10 +15,12 @@ endif ()
 
 if ((NOT EXISTS ${TARGET_ASSETS_DIR}) OR (${ASSETS_DIR} IS_NEWER_THAN ${TARGET_ASSETS_DIR}))
     message("Move assets dir...")
+    file(REMOVE_RECURSE ${TARGET_ASSETS_DIR})
     file(COPY ${ASSETS_DIR} DESTINATION ${OUTPUT_DIR})
 endif ()
 
 if ((NOT EXISTS ${TARGET_RES_DIR}) OR (${RES_DIR} IS_NEWER_THAN ${TARGET_RES_DIR}))
     message("Move res dir...")
+    file(REMOVE_RECURSE ${TARGET_RES_DIR})
     file(COPY ${RES_DIR} DESTINATION ${OUTPUT_DIR})
 endif ()
