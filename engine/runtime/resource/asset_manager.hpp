@@ -15,6 +15,7 @@
 
 #include "guid_genenrator.hpp"
 #include "platform/os/path.hpp"
+#include "resource/json/world_json.hpp"
 
 namespace taixu {
 
@@ -34,6 +35,8 @@ public:
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Asset, name, type, location);
 
+    std::shared_ptr<jsonWorld> _world;
+
 
     void loadAsset(std::filesystem::path const &file_path) {
         
@@ -48,7 +51,7 @@ public:
         auto dir_path = asset_file_path.parent_path();
 
         Json data = Json::parse(f);
-
+        //std::string a = data.dump(); 
         for (auto &i : data["assets"].items()) {
             Asset              new_asset;
             std::uint8_t const new_guid = GUID_Generator::generate_new_guid();
@@ -62,6 +65,9 @@ public:
     }
     void writeAsset();
     void loadAsset(const std::string &file_path, const AssetType &asset_type);
+
+    void loadWorld(std::filesystem::path const &file_path);
+    void writeWorld();
 };
 }// namespace taixu
 

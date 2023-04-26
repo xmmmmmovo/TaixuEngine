@@ -23,7 +23,7 @@ layout (std140) uniform Lights {
     Light lights[MAX_LIGHTS];
     int num;
 };
-
+uniform mat4 V;
 uniform sampler2D texturesampler;
 
 out vec4 FragColor;
@@ -34,12 +34,12 @@ void main()
     //FragColor = vec4(v2fTexCoord, 1.0f, 1.0f); 
     //FragColor = texture(texturesampler,v2fTexCoord).rgba;
     //FragColor = diffuse;
-
+    mat3 V3X3 = mat3(V);
     vec3 color = texture(texturesampler,v2fTexCoord).rgb;
     // ambient
     vec3 ambientColor = 0.05 * color;
     // diffuse
-    vec3 lightDir = normalize(lights[0].position.xyz - v3fFragPos);
+    vec3 lightDir = normalize(V3X3*lights[0].position.xyz - v3fFragPos);
     vec3 normal = normalize(v3fNormal);
     float diff = max(dot(lightDir, normal), 0.0);
     vec3 diffuseColor = diff * color;

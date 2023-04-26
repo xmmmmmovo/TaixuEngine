@@ -13,11 +13,18 @@ namespace taixu {
 
 using json = nlohmann::json;
 
-template<typename T>
+// template<typename T>
+// class IJsonable : private noncopyable {
+// public:
+//     virtual json toJson(T const& instance)     = 0;
+//     virtual T           fromJson(json const& jsonObj) = 0;
+// };
+
+
 class IJsonable : private noncopyable {
 public:
-    virtual std::string toJson(T const& instance)     = 0;
-    virtual T           fromJson(json const& jsonObj) = 0;
+    virtual void toJson()     = 0;
+    //virtual void fromJson()   = 0;
 };
 
 }// namespace taixu

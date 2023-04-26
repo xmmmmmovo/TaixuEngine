@@ -37,4 +37,24 @@ void AssetManager::loadAsset(const std::string &file_path, const AssetType &asse
 
         asset_list.push_back(new_asset);
 }
-}// namespace taixu::resource
+void AssetManager::loadWorld(std::filesystem::path const &file_path) {}
+void AssetManager::writeWorld() {
+    _world = std::make_shared<jsonWorld>();
+    LevelProperty l1;
+    l1.level_name = "level 1-1";
+    l1.level_path = "";
+    l1.p.vec3 = glm::vec3(0,0,0);
+    l1.type = testEnumType::TYPE1;
+    _world->json_levels.push_back(l1);
+
+    LevelProperty l2;
+    l2.level_name = "level 1-2";
+    l2.level_path = "";
+    l2.p.vec3 = glm::vec3(0,0,0);
+    l2.type = testEnumType::TYPE2;
+    _world->json_levels.push_back(l2);
+    std::string world_path = "taixuworld.json";
+    _world->file_path = asset_file_path.parent_path() / world_path;
+    _world->toJson();
+}
+}// namespace taixu

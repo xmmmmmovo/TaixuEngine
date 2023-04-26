@@ -10,7 +10,7 @@ struct Light {
    vec4 position;
    vec4 color;
 };
-
+uniform mat4 V;
 uniform float shininess;
 uniform vec4 ambient;
 uniform vec4 diffuse;
@@ -34,11 +34,12 @@ void main()
     //FragColor = vec4(v2fTexCoord, 1.0f, 1.0f);
     //FragColor = specular;
 
+    mat3 V3X3 = mat3(V);
     vec3 color = vec3(1.0f, 0.5f, 0.2f);
     // ambient
     vec3 ambientColor = 0.05 * color;
     // diffuse
-    vec3 lightDir = normalize(lights[0].position.xyz - v3fFragPos);
+    vec3 lightDir = normalize(V3X3*lights[0].position.xyz - v3fFragPos);
     vec3 normal = normalize(v3fNormal);
     float diff = max(dot(lightDir, normal), 0.0);
     vec3 diffuseColor = diff * color;
