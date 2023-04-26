@@ -8,28 +8,51 @@
 #include <filesystem>
 #include <spdlog/spdlog.h>
 
-#include <fstream>
 #include <memory>
-#include <nlohmann/json.hpp>
 #include <string>
 #include <unordered_map>
 #include <vector>
 
-#include "management/ecs/guid_genenrator.hpp"
 #include "platform/os/path.hpp"
+#include "raw_data/model.hpp"
 #include "resource/raw_data/mesh.hpp"
 #include "resource/raw_data/texture.hpp"
 
 namespace taixu {
 
 class AssetManager {
-    using TextureMapType = std::unordered_map<std::string, Texture>;
-    PROTOTYPE_ONLY_GETTER(private, TextureMapType, textures);
-    using MeshMapType = std::unordered_map<std::string, Mesh>;
-    PROTOTYPE_ONLY_GETTER(private, MeshMapType, meshes);
+    PROTOTYPE(private, std::filesystem::path, asset_path);
+
+private:
+    std::unordered_map<std::string, Texture> _textures{};
+    std::unordered_map<std::string, Model>   _models{};
+
+    std::optional<Mesh> processMesh(aiMesh *mesh, const aiScene *scene);
+
+    void processNode(aiNode *node, const aiScene *scene, Model &model);
+
+    void processTexture(aiMaterial *material, aiTextureType type,
+                        std::string const &type_name, Model &model);
 
 public:
-    void loadAsset(std::filesystem::path const &file_path);
+    std::optional<Model> loadModel(std::filesystem::path const &relative_path);
+
+    void
+    loadModelAsync(std::filesystem::path const &relative_path,
+                   std::function<void(std::optional<Model>)> const &callback);
+
+    std::optional<Texture>
+    loadTexture(std::filesystem::path const &relative_path);
+
+    void loadTextureAsync(
+            std::filesystem::path const                       &relative_path,
+            std::function<void(std::optional<Texture>)> const &callback);
+
+    void reset(std::filesystem::path const &asset_path) {
+        _asset_path = asset_path;
+        _textures.clear();
+        _models.clear();
+    }
 };
 }// namespace taixu
 
