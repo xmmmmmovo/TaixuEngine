@@ -15,7 +15,7 @@
 
 #include "guid_genenrator.hpp"
 #include "platform/os/path.hpp"
-#include "resource/json/world_json.hpp"
+#include "resource/json/assets_data/world_json.hpp"
 
 namespace taixu {
 
@@ -32,10 +32,9 @@ public:
     std::vector<Asset> asset_list;
     using Json                            = nlohmann::json;
     std::filesystem::path asset_file_path = "INVALID";
-
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Asset, name, type, location);
 
-    std::shared_ptr<jsonWorld> _world;
+    std::shared_ptr<JsonWorld> _world;
 
 
     void loadAsset(std::filesystem::path const &file_path) {
@@ -48,7 +47,7 @@ public:
             asset_file_path = file_path.parent_path();
         }
 
-        auto dir_path = asset_file_path.parent_path();
+        auto project_path = asset_file_path.parent_path();
 
         Json data = Json::parse(f);
         //std::string a = data.dump(); 
@@ -58,7 +57,7 @@ public:
             new_asset.guid              = new_guid;
             Json const j                = i.value();
             from_json(j, new_asset);
-            std::filesystem::path temppath =   dir_path / new_asset.location;
+            std::filesystem::path temppath =   project_path / new_asset.location;
             new_asset.location = temppath.string();
             asset_list.push_back(new_asset);
         }

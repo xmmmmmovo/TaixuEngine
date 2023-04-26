@@ -23,8 +23,8 @@ using json = nlohmann::json;
 
 class IJsonable : private noncopyable {
 public:
-    virtual void toJson()     = 0;
-    //virtual void fromJson()   = 0;
+    virtual void serialize()     = 0;
+    //virtual void deserialize()   = 0;
 };
 
 }// namespace taixu

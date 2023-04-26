@@ -44,7 +44,10 @@ Status Engine::loadProject(const std::string_view& path) {
 
     _asset_manager->loadAsset(
             this->_project_manager->getCurrentProject()->asset_configure_path);
-    _asset_manager->writeWorld();        
+    _asset_manager->writeWorld();
+    _asset_manager->loadWorld(
+        this->_project_manager->getCurrentProject()->asset_configure_path
+    );        
     return Status::OK;
 }
 
