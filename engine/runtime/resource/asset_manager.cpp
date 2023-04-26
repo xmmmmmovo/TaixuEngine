@@ -2,9 +2,6 @@
 // Created by xmmmmmovo on 2023/2/18.
 //
 
-#include <assimp/BaseImporter.h>
-#include <assimp/Importer.hpp>
-#include <assimp/postprocess.h>
 #include <assimp/scene.h>
 #include <cstddef>
 #include <vector>
@@ -18,11 +15,8 @@ namespace taixu {
 void AssetManager::processNode(aiNode *node, const aiScene *scene,
                                Model &model) {
     for (unsigned int i = 0; i < node->mNumMeshes; ++i) {
-        auto mesh     = scene->mMeshes[node->mMeshes[i]];
-        auto opt_mesh = processMesh(mesh, scene);
-        if (opt_mesh.has_value()) {
-            model.meshes.push_back(std::move(opt_mesh.value()));
-        }
+        auto mesh = scene->mMeshes[node->mMeshes[i]];
+        model.meshes.emplace_back(processMesh(mesh, scene));
     }
 
     for (unsigned int i = 0; i < node->mNumChildren; ++i) {
@@ -30,50 +24,44 @@ void AssetManager::processNode(aiNode *node, const aiScene *scene,
     }
 }
 
-std::optional<Mesh> AssetManager::processMesh(aiMesh        *mesh,
-                                              const aiScene *scene) {
-    std::vector<glm::vec3> vertices{};
-    std::vector<glm::vec3> normals{};
-    std::vector<glm::vec2> tex_coords{};
-
-    std::vector<glm::vec3> tangents{};
-    std::vector<glm::vec3> bitangents{};
-
-    std::vector<unsigned int> indices{};
+Mesh AssetManager::processMesh(aiMesh *mesh, const aiScene *scene) {
+    Mesh ret_mesh{};
 
     // 预留存内存 优化性能
     unsigned int const vertex_count = mesh->mNumVertices;
-    vertices.reserve(vertex_count);
-    if (mesh->HasNormals()) { normals.reserve(vertex_count); }
-    if (mesh->mTextureCoords[0]) { tex_coords.reserve(vertex_count); }
+    ret_mesh.vertices.reserve(vertex_count);
+    if (mesh->HasNormals()) { ret_mesh.normals.reserve(vertex_count); }
+    if (mesh->mTextureCoords[0]) { ret_mesh.tex_coords.reserve(vertex_count); }
     if (mesh->HasTangentsAndBitangents()) {
-        tangents.reserve(vertex_count);
-        bitangents.reserve(vertex_count);
+        ret_mesh.tangents.reserve(vertex_count);
+        ret_mesh.bitangents.reserve(vertex_count);
     }
 
     for (unsigned int i = 0; i < vertex_count; ++i) {
-        vertices.emplace_back(mesh->mVertices[i].x, mesh->mVertices[i].y,
-                              mesh->mVertices[i].z);
+        ret_mesh.vertices.emplace_back(mesh->mVertices[i].x,
+                                       mesh->mVertices[i].y,
+                                       mesh->mVertices[i].z);
 
         if (mesh->HasNormals()) {
-            normals.emplace_back(mesh->mNormals[i].x, mesh->mNormals[i].y,
-                                 mesh->mNormals[i].z);
+            ret_mesh.normals.emplace_back(mesh->mNormals[i].x,
+                                          mesh->mNormals[i].y,
+                                          mesh->mNormals[i].z);
         }
 
         if (mesh->mTextureCoords[0]) {
-            tex_coords.emplace_back(mesh->mTextureCoords[0][i].x,
-                                    mesh->mTextureCoords[0][i].y);
+            ret_mesh.tex_coords.emplace_back(mesh->mTextureCoords[0][i].x,
+                                             mesh->mTextureCoords[0][i].y);
 
             if (mesh->HasTangentsAndBitangents()) {
-                tangents.emplace_back(mesh->mTangents[i].x,
-                                      mesh->mTangents[i].y,
-                                      mesh->mTangents[i].z);
-                bitangents.emplace_back(mesh->mBitangents[i].x,
-                                        mesh->mBitangents[i].y,
-                                        mesh->mBitangents[i].z);
+                ret_mesh.tangents.emplace_back(mesh->mTangents[i].x,
+                                               mesh->mTangents[i].y,
+                                               mesh->mTangents[i].z);
+                ret_mesh.bitangents.emplace_back(mesh->mBitangents[i].x,
+                                                 mesh->mBitangents[i].y,
+                                                 mesh->mBitangents[i].z);
             }
         } else {
-            tex_coords.emplace_back(0.0f, 0.0f);
+            ret_mesh.tex_coords.emplace_back(0.0f, 0.0f);
         }
     }
 
@@ -81,9 +69,9 @@ std::optional<Mesh> AssetManager::processMesh(aiMesh        *mesh,
     for (unsigned int i = 0; i < mesh->mNumFaces; ++i) {
         auto face = mesh->mFaces[i];
         faces += face.mNumIndices;
-        indices.reserve(faces);
+        ret_mesh.indices.reserve(faces);
         for (unsigned int j = 0; j < face.mNumIndices; ++j) {
-            indices.push_back(face.mIndices[j]);
+            ret_mesh.indices.push_back(face.mIndices[j]);
         }
     }
 
@@ -91,7 +79,7 @@ std::optional<Mesh> AssetManager::processMesh(aiMesh        *mesh,
 
     std::optional<Texture *> diffuse_map{};
 
-    return std::optional<Mesh>();
+    return ret_mesh;
 }
 
 void AssetManager::processTexture(aiMaterial *material, aiTextureType type,

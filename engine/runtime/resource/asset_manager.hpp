@@ -5,6 +5,10 @@
 #ifndef TAIXUENGINE_RESOURCE_MANAGER_HPP
 #define TAIXUENGINE_RESOURCE_MANAGER_HPP
 
+#include <assimp/BaseImporter.h>
+#include <assimp/Importer.hpp>
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
 #include <filesystem>
 #include <spdlog/spdlog.h>
 
@@ -27,7 +31,7 @@ private:
     std::unordered_map<std::string, Texture> _textures{};
     std::unordered_map<std::string, Model>   _models{};
 
-    std::optional<Mesh> processMesh(aiMesh *mesh, const aiScene *scene);
+    Mesh processMesh(aiMesh *mesh, const aiScene *scene);
 
     void processNode(aiNode *node, const aiScene *scene, Model &model);
 
