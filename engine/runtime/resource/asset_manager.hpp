@@ -36,20 +36,21 @@ private:
 
     void processNode(aiNode *node, const aiScene *scene, Model &model);
 
-    std::vector<Texture>
-    processTexture(aiMaterial *material, aiTextureType type,
-                   std::filesystem::path const &directory_path);
+    Texture *processTexture(aiMaterial *material, aiTextureType type,
+                            std::filesystem::path const &directory_path);
 
 public:
-    std::optional<Model> loadModel(std::filesystem::path const &relative_path);
+    Model *loadModel(std::filesystem::path const &relative_path);
 
+    // TODO: load model async
     void
     loadModelAsync(std::filesystem::path const &relative_path,
                    std::function<void(std::optional<Model>)> const &callback);
 
-    std::optional<Texture>
-    loadTexture(std::filesystem::path const &relative_path, TextureType type);
+    Texture *loadTexture(std::filesystem::path const &relative_path,
+                         TextureType                  type);
 
+    // TODO: load texture async
     void loadTextureAsync(
             std::filesystem::path const                       &relative_path,
             std::function<void(std::optional<Texture>)> const &callback);

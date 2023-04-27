@@ -5,16 +5,18 @@
 #ifndef TAIXUENGINE_RESOURCE_RAW_DATA_MODEL_HPP
 #define TAIXUENGINE_RESOURCE_RAW_DATA_MODEL_HPP
 
-#include "asset_data.hpp"
-#include "core/base/macro.hpp"
-#include "resource/raw_data/mesh.hpp"
 #include <vector>
 
+#include "asset_data.hpp"
+#include "core/base/macro.hpp"
+#include "raw_data/material.hpp"
+#include "resource/raw_data/mesh.hpp"
 
 namespace taixu {
 
 struct Model final : public BaseAssetData {
-    std::vector<Mesh> meshes;
+    std::vector<Mesh>     meshes;
+    std::vector<Material> materials;
 };
 
 }// namespace taixu

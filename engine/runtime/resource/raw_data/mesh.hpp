@@ -5,12 +5,13 @@
 #ifndef TAIXUENGINE_MESH_HPP
 #define TAIXUENGINE_MESH_HPP
 
+#include <cstdint>
 #include <glm/fwd.hpp>
 #include <glm/glm.hpp>
 #include <vector>
 
 #include "asset_data.hpp"
-#include "resource/raw_data/texture.hpp"
+#include "material.hpp"
 
 namespace taixu {
 
@@ -23,9 +24,9 @@ struct Mesh final {
     std::vector<glm::vec3> tangents;
     std::vector<glm::vec3> bitangents;
 
-    std::vector<unsigned int> indices;
+    std::vector<std::uint32_t> indices;
 
-    Texture *diffuse_map{nullptr};
+    std::optional<std::uint32_t> materialId{std::nullopt};
 };
 
 }// namespace taixu

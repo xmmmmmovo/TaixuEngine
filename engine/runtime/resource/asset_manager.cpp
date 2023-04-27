@@ -74,44 +74,44 @@ Mesh AssetManager::processMesh(aiMesh *mesh, const aiScene *scene,
         faces += face.mNumIndices;
         ret_mesh.indices.reserve(faces);
         for (unsigned int j = 0; j < face.mNumIndices; ++j) {
-            ret_mesh.indices.push_back(face.mIndices[j]);
+            ret_mesh.indices.emplace_back(face.mIndices[j]);
         }
     }
 
     aiMaterial *material = scene->mMaterials[mesh->mMaterialIndex];
-    aiString    str{};
-    material->GetTexture(aiTextureType_DIFFUSE, 0, &str);
 
-    std::optional<Texture *> diffuse_map{};
-    processTexture(material, aiTextureType_DIFFUSE, directory_path);
+    ret_mesh.diffuse_map =
+            processTexture(material, aiTextureType_DIFFUSE, directory_path);
 
     return ret_mesh;
 }
 
-std::vector<Texture>
+Texture *
 AssetManager::processTexture(aiMaterial *material, aiTextureType type,
                              std::filesystem::path const &directory_path) {
-    std::vector<Texture> textures;
-    for (unsigned int i = 0; i < material->GetTextureCount(type); ++i) {
+    unsigned int const cnt = material->GetTextureCount(type);
+    for (unsigned int i = 0; i < cnt; ++i) {
         aiString path{};
         material->GetTexture(type, i, &path);
-        Texture texture{};
-        textures.push_back(texture);
+        if (auto tex = loadTexture(directory_path / path.C_Str(),
+                                   textureTypeFromAssimpType(type));
+            nullptr != tex) {
+            return tex;
+        }
     }
-    return textures;
+    return nullptr;
 }
 
-std::optional<Model>
-AssetManager::loadModel(const std::filesystem::path &relative_path) {
+Model *AssetManager::loadModel(const std::filesystem::path &relative_path) {
     auto full_path = fromRelativePath(_asset_path, relative_path);
 
     if (std::filesystem::is_directory(full_path)) {
         spdlog::error("Model path is directory: {}", relative_path.string());
-        return std::nullopt;
+        return nullptr;
     }
 
     if (_models.count(relative_path.string())) {
-        return _models[relative_path.string()];
+        return &_models[relative_path.string()];
     }
 
     Model            ret_model{};
@@ -129,7 +129,7 @@ AssetManager::loadModel(const std::filesystem::path &relative_path) {
     if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE ||
         !scene->mRootNode) {
         spdlog::error("Assimp error: {}", importer.GetErrorString());
-        return std::nullopt;
+        return nullptr;
     }
     ret_model.file_path = relative_path;
 
@@ -137,28 +137,27 @@ AssetManager::loadModel(const std::filesystem::path &relative_path) {
 
     auto [iterator, was_inserted] =
             _models.insert({relative_path.string(), std::move(ret_model)});
-    return iterator->second;
+    return &iterator->second;
 }
 
-std::optional<Texture>
-AssetManager::loadTexture(const std::filesystem::path &relative_path,
-                          TextureType                  type) {
+Texture *AssetManager::loadTexture(const std::filesystem::path &relative_path,
+                                   TextureType                  type) {
     auto full_path = fromRelativePath(_asset_path, relative_path);
 
     if (std::filesystem::is_directory(full_path)) {
         spdlog::error("Texture path is directory");
-        return std::nullopt;
+        return nullptr;
     }
 
     if (_textures.count(relative_path.string())) {
-        return _textures[relative_path.string()];
+        return &_textures[relative_path.string()];
     }
 
     int      width, height, channels;
     stbi_uc *data = load_image(full_path, &width, &height, &channels);
     if (!data) {
         spdlog::error("Load image error, path: {}", relative_path.string());
-        return std::nullopt;
+        return nullptr;
     }
 
     Texture ret_texture{};
@@ -169,7 +168,7 @@ AssetManager::loadTexture(const std::filesystem::path &relative_path,
 
     auto [iterator, was_inserted] =
             _textures.insert({relative_path.string(), std::move(ret_texture)});
-    return iterator->second;
+    return &iterator->second;
 }
 
 void AssetManager::loadModelAsync(
