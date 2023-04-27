@@ -34,7 +34,9 @@ private:
     Mesh processMesh(aiMesh *mesh, const aiScene *scene,
                      std::filesystem::path const &directory_path);
 
-    void processNode(aiNode *node, const aiScene *scene, Model &model);
+    void processNode(aiNode *node, aiScene const *scene, Model &model);
+
+    void processMaterial(aiScene const *scene, Model &model);
 
     Texture *processTexture(aiMaterial *material, aiTextureType type,
                             std::filesystem::path const &directory_path);

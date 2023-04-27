@@ -9,7 +9,7 @@
 
 #include "asset_data.hpp"
 #include "core/base/macro.hpp"
-#include "raw_data/material.hpp"
+#include "material.hpp"
 #include "resource/raw_data/mesh.hpp"
 
 namespace taixu {

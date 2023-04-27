@@ -8,12 +8,13 @@
 
 #include "asset_manager.hpp"
 #include "helper/image_helper.hpp"
+#include "raw_data/material.hpp"
 #include "raw_data/mesh.hpp"
 #include "raw_data/texture.hpp"
 
 namespace taixu {
 
-void AssetManager::processNode(aiNode *node, const aiScene *scene,
+void AssetManager::processNode(aiNode *node, aiScene const *scene,
                                Model &model) {
     for (unsigned int i = 0; i < node->mNumMeshes; ++i) {
         auto mesh = scene->mMeshes[node->mMeshes[i]];
@@ -23,6 +24,15 @@ void AssetManager::processNode(aiNode *node, const aiScene *scene,
 
     for (unsigned int i = 0; i < node->mNumChildren; ++i) {
         processNode(node->mChildren[i], scene, model);
+    }
+}
+
+void AssetManager::processMaterial(aiScene const *scene, Model &model) {
+    model.materials.reserve(scene->mNumMaterials);
+    for (unsigned int i = 0; i < scene->mNumMaterials; ++i) {
+        auto     material = scene->mMaterials[i];
+        Material mat{};
+        model.materials.emplace_back(mat);
     }
 }
 
@@ -77,11 +87,7 @@ Mesh AssetManager::processMesh(aiMesh *mesh, const aiScene *scene,
             ret_mesh.indices.emplace_back(face.mIndices[j]);
         }
     }
-
-    aiMaterial *material = scene->mMaterials[mesh->mMaterialIndex];
-
-    ret_mesh.diffuse_map =
-            processTexture(material, aiTextureType_DIFFUSE, directory_path);
+    ret_mesh.materialId = mesh->mMaterialIndex;
 
     return ret_mesh;
 }
@@ -133,6 +139,7 @@ Model *AssetManager::loadModel(const std::filesystem::path &relative_path) {
     }
     ret_model.file_path = relative_path;
 
+    processMaterial(scene, ret_model);
     processNode(scene->mRootNode, scene, ret_model);
 
     auto [iterator, was_inserted] =

@@ -6,9 +6,16 @@
 #include "core/base/path.hpp"
 #include "resource/asset_manager.hpp"
 
-TEST_CASE("asset manager load model success", "[asset manager tests]") {
+TEST_CASE("asset manager load .obj .mtl success", "[asset manager tests]") {
     taixu::AssetManager am{};
     am.reset(DEBUG_PATH "/example_proj/assets");
     auto model = am.loadModel("models/nanosuit/nanosuit.obj");
+    REQUIRE(model != nullptr);
+}
+
+TEST_CASE("asset manager load only .obj success", "[asset manager tests]") {
+    taixu::AssetManager am{};
+    am.reset(DEBUG_PATH "/example_proj/assets");
+    auto model = am.loadModel("models/model2.obj");
     REQUIRE(model != nullptr);
 }
