@@ -31,12 +31,14 @@ private:
     std::unordered_map<std::string, Texture> _textures{};
     std::unordered_map<std::string, Model>   _models{};
 
-    Mesh processMesh(aiMesh *mesh, const aiScene *scene);
+    Mesh processMesh(aiMesh *mesh, const aiScene *scene,
+                     std::filesystem::path const &directory_path);
 
     void processNode(aiNode *node, const aiScene *scene, Model &model);
 
-    void processTexture(aiMaterial *material, aiTextureType type,
-                        std::string const &type_name, Model &model);
+    std::vector<Texture>
+    processTexture(aiMaterial *material, aiTextureType type,
+                   std::filesystem::path const &directory_path);
 
 public:
     std::optional<Model> loadModel(std::filesystem::path const &relative_path);
@@ -46,7 +48,7 @@ public:
                    std::function<void(std::optional<Model>)> const &callback);
 
     std::optional<Texture>
-    loadTexture(std::filesystem::path const &relative_path);
+    loadTexture(std::filesystem::path const &relative_path, TextureType type);
 
     void loadTextureAsync(
             std::filesystem::path const                       &relative_path,

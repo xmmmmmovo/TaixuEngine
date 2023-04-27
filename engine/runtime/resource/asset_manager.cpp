@@ -2,13 +2,14 @@
 // Created by xmmmmmovo on 2023/2/18.
 //
 
+#include <assimp/material.h>
 #include <assimp/scene.h>
-#include <cstddef>
 #include <vector>
 
 #include "asset_manager.hpp"
-#include "assimp/material.h"
+#include "helper/image_helper.hpp"
 #include "raw_data/mesh.hpp"
+#include "raw_data/texture.hpp"
 
 namespace taixu {
 
@@ -16,7 +17,8 @@ void AssetManager::processNode(aiNode *node, const aiScene *scene,
                                Model &model) {
     for (unsigned int i = 0; i < node->mNumMeshes; ++i) {
         auto mesh = scene->mMeshes[node->mMeshes[i]];
-        model.meshes.emplace_back(processMesh(mesh, scene));
+        model.meshes.emplace_back(
+                processMesh(mesh, scene, model.file_path.parent_path()));
     }
 
     for (unsigned int i = 0; i < node->mNumChildren; ++i) {
@@ -24,7 +26,8 @@ void AssetManager::processNode(aiNode *node, const aiScene *scene,
     }
 }
 
-Mesh AssetManager::processMesh(aiMesh *mesh, const aiScene *scene) {
+Mesh AssetManager::processMesh(aiMesh *mesh, const aiScene *scene,
+                               std::filesystem::path const &directory_path) {
     Mesh ret_mesh{};
 
     // 预留存内存 优化性能
@@ -76,14 +79,27 @@ Mesh AssetManager::processMesh(aiMesh *mesh, const aiScene *scene) {
     }
 
     aiMaterial *material = scene->mMaterials[mesh->mMaterialIndex];
+    aiString    str{};
+    material->GetTexture(aiTextureType_DIFFUSE, 0, &str);
 
     std::optional<Texture *> diffuse_map{};
+    processTexture(material, aiTextureType_DIFFUSE, directory_path);
 
     return ret_mesh;
 }
 
-void AssetManager::processTexture(aiMaterial *material, aiTextureType type,
-                                  const std::string &type_name, Model &model) {}
+std::vector<Texture>
+AssetManager::processTexture(aiMaterial *material, aiTextureType type,
+                             std::filesystem::path const &directory_path) {
+    std::vector<Texture> textures;
+    for (unsigned int i = 0; i < material->GetTextureCount(type); ++i) {
+        aiString path{};
+        material->GetTexture(type, i, &path);
+        Texture texture{};
+        textures.push_back(texture);
+    }
+    return textures;
+}
 
 std::optional<Model>
 AssetManager::loadModel(const std::filesystem::path &relative_path) {
@@ -124,15 +140,33 @@ AssetManager::loadModel(const std::filesystem::path &relative_path) {
 }
 
 std::optional<Texture>
-AssetManager::loadTexture(const std::filesystem::path &relative_path) {
+AssetManager::loadTexture(const std::filesystem::path &relative_path,
+                          TextureType                  type) {
     auto full_path = fromRelativePath(_asset_path, relative_path);
 
     if (std::filesystem::is_directory(full_path)) {
         spdlog::error("Texture path is directory");
         return std::nullopt;
     }
-    Texture ret_texture;
 
+    if (_textures.count(relative_path.string())) {
+        return _textures[relative_path.string()];
+    }
+
+    int      width, height, channels;
+    stbi_uc *data = load_image(full_path, &width, &height, &channels);
+    if (!data) {
+        spdlog::error("Load image error");
+        return std::nullopt;
+    }
+
+    Texture ret_texture{};
+
+    ret_texture.type      = type;
+    ret_texture.file_path = relative_path;
+    ret_texture.data      = data;
+
+    _textures[relative_path.string()] = ret_texture;
     return ret_texture;
 }
 

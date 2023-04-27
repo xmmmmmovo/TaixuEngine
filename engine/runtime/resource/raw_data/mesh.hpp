@@ -25,7 +25,7 @@ struct Mesh final {
 
     std::vector<unsigned int> indices;
 
-    std::optional<Texture *> diffuse_map;
+    Texture *diffuse_map{nullptr};
 };
 
 }// namespace taixu
