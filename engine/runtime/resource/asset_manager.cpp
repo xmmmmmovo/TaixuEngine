@@ -106,7 +106,7 @@ AssetManager::loadModel(const std::filesystem::path &relative_path) {
     auto full_path = fromRelativePath(_asset_path, relative_path);
 
     if (std::filesystem::is_directory(full_path)) {
-        spdlog::error("Model path is directory");
+        spdlog::error("Model path is directory: {}", relative_path.string());
         return std::nullopt;
     }
 
@@ -135,8 +135,9 @@ AssetManager::loadModel(const std::filesystem::path &relative_path) {
 
     processNode(scene->mRootNode, scene, ret_model);
 
-    _models[relative_path.string()] = ret_model;
-    return ret_model;
+    auto [iterator, was_inserted] =
+            _models.insert({relative_path.string(), std::move(ret_model)});
+    return iterator->second;
 }
 
 std::optional<Texture>
@@ -156,7 +157,7 @@ AssetManager::loadTexture(const std::filesystem::path &relative_path,
     int      width, height, channels;
     stbi_uc *data = load_image(full_path, &width, &height, &channels);
     if (!data) {
-        spdlog::error("Load image error");
+        spdlog::error("Load image error, path: {}", relative_path.string());
         return std::nullopt;
     }
 
@@ -166,8 +167,9 @@ AssetManager::loadTexture(const std::filesystem::path &relative_path,
     ret_texture.file_path = relative_path;
     ret_texture.data      = data;
 
-    _textures[relative_path.string()] = ret_texture;
-    return ret_texture;
+    auto [iterator, was_inserted] =
+            _textures.insert({relative_path.string(), std::move(ret_texture)});
+    return iterator->second;
 }
 
 void AssetManager::loadModelAsync(
