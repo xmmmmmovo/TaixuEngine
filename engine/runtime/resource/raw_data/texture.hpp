@@ -10,7 +10,25 @@
 
 namespace taixu {
 
-enum class TextureType { Diffuse, Specular, Normal, Height };
+enum class TextureType {
+    Diffuse,
+    Specular,
+    Normal,
+    Height,
+    Displacement,
+
+    Ambient,
+    Emissive,
+    Shininess,
+    Opacity,
+    Lightmap,
+
+    BaseColor,
+    Metallic,
+    Roughness,
+    AO,
+    EmissiveFactor,
+};
 
 struct Texture final : public BaseAssetData {
     TextureType type{TextureType::Diffuse};
@@ -49,6 +67,28 @@ inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {
             return TextureType::Normal;
         case aiTextureType_HEIGHT:
             return TextureType::Height;
+        case aiTextureType_DISPLACEMENT:
+            return TextureType::Displacement;
+        case aiTextureType_AMBIENT:
+            return TextureType::Ambient;
+        case aiTextureType_EMISSIVE:
+            return TextureType::Emissive;
+        case aiTextureType_SHININESS:
+            return TextureType::Shininess;
+        case aiTextureType_OPACITY:
+            return TextureType::Opacity;
+        case aiTextureType_LIGHTMAP:
+            return TextureType::Lightmap;
+        case aiTextureType_BASE_COLOR:
+            return TextureType::BaseColor;
+        case aiTextureType_METALNESS:
+            return TextureType::Metallic;
+        case aiTextureType_DIFFUSE_ROUGHNESS:
+            return TextureType::Roughness;
+        case aiTextureType_AMBIENT_OCCLUSION:
+            return TextureType::AO;
+        case aiTextureType_EMISSION_COLOR:
+            return TextureType::EmissiveFactor;
         default:
             return TextureType::Diffuse;
     }

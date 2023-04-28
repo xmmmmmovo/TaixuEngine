@@ -282,11 +282,11 @@ Texture *AssetManager::loadTexture(const std::filesystem::path &relative_path,
 }
 
 void AssetManager::loadModelAsync(
-        const std::filesystem::path                     &relative_path,
-        std::function<void(std::optional<Model>)> const &callback) {}
+        const std::filesystem::path        &relative_path,
+        std::function<void(Model *)> const &callback) {}
 
 void AssetManager::loadTextureAsync(
-        const std::filesystem::path                       &relative_path,
-        std::function<void(std::optional<Texture>)> const &callback) {}
+        const std::filesystem::path          &relative_path,
+        std::function<void(Texture *)> const &callback) {}
 
 }// namespace taixu
