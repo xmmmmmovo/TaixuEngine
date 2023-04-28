@@ -24,6 +24,4 @@ jobs:
 
       - name: Fail
         if: steps.linter.outputs.checks-failed != 0
-        run: |
-          echo "some linter checks failed. ${{ steps.linter.outputs.checks-failed }}"
-        # run: exit 1
+        run: exit 1
