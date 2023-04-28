@@ -13,9 +13,9 @@
 namespace taixu {
 
 struct Material final {
-    glm::vec3 ambient{};
     glm::vec3 diffuse{};
     glm::vec3 specular{};
+    glm::vec3 ambient{};
     glm::vec3 emissive{};
     float     opacity{1.0f};
     float     refracti{1.0f};

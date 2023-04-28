@@ -44,17 +44,15 @@ public:
     Model *loadModel(std::filesystem::path const &relative_path);
 
     // TODO: load model async
-    void
-    loadModelAsync(std::filesystem::path const &relative_path,
-                   std::function<void(std::optional<Model>)> const &callback);
+    void loadModelAsync(std::filesystem::path const        &relative_path,
+                        std::function<void(Model *)> const &callback);
 
     Texture *loadTexture(std::filesystem::path const &relative_path,
                          TextureType                  type);
 
     // TODO: load texture async
-    void loadTextureAsync(
-            std::filesystem::path const                       &relative_path,
-            std::function<void(std::optional<Texture>)> const &callback);
+    void loadTextureAsync(std::filesystem::path const          &relative_path,
+                          std::function<void(Texture *)> const &callback);
 
     void reset(std::filesystem::path const &asset_path) {
         _asset_path = asset_path;
