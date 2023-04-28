@@ -16,6 +16,6 @@ TEST_CASE("asset manager load .obj .mtl success", "[asset manager tests]") {
 TEST_CASE("asset manager load only .obj success", "[asset manager tests]") {
     taixu::AssetManager am{};
     am.reset(DEBUG_PATH "/example_proj/assets");
-    auto model = am.loadModel("models/model2.obj");
+    auto model = am.loadModel("models/sphere.obj");
     REQUIRE(model != nullptr);
 }

@@ -31,8 +31,7 @@ private:
     std::unordered_map<std::string, Texture> _textures{};
     std::unordered_map<std::string, Model>   _models{};
 
-    Mesh processMesh(aiMesh *mesh, const aiScene *scene,
-                     std::filesystem::path const &directory_path);
+    static Mesh processMesh(aiMesh *mesh);
 
     void processNode(aiNode *node, aiScene const *scene, Model &model);
 

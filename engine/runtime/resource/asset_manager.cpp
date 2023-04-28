@@ -18,8 +18,7 @@ void AssetManager::processNode(aiNode *node, aiScene const *scene,
                                Model &model) {
     for (unsigned int i = 0; i < node->mNumMeshes; ++i) {
         auto mesh = scene->mMeshes[node->mMeshes[i]];
-        model.meshes.emplace_back(
-                processMesh(mesh, scene, model.file_path.parent_path()));
+        model.meshes.emplace_back(processMesh(mesh));
     }
 
     for (unsigned int i = 0; i < node->mNumChildren; ++i) {
@@ -30,14 +29,118 @@ void AssetManager::processNode(aiNode *node, aiScene const *scene,
 void AssetManager::processMaterial(aiScene const *scene, Model &model) {
     model.materials.reserve(scene->mNumMaterials);
     for (unsigned int i = 0; i < scene->mNumMaterials; ++i) {
-        auto     material = scene->mMaterials[i];
-        Material mat{};
+        auto      material = scene->mMaterials[i];
+        Material  mat{};
+        aiColor4D color{};
+
+        // load material ids
+        if (AI_SUCCESS ==
+            aiGetMaterialColor(material, AI_MATKEY_COLOR_AMBIENT, &color)) {
+            mat.ambient = glm::vec3(color.r, color.g, color.b);
+        }
+
+        if (AI_SUCCESS ==
+            aiGetMaterialColor(material, AI_MATKEY_COLOR_DIFFUSE, &color)) {
+            mat.diffuse = glm::vec3(color.r, color.g, color.b);
+        }
+
+        if (AI_SUCCESS ==
+            aiGetMaterialColor(material, AI_MATKEY_COLOR_SPECULAR, &color)) {
+            mat.specular = glm::vec3(color.r, color.g, color.b);
+        }
+
+        if (AI_SUCCESS ==
+            aiGetMaterialColor(material, AI_MATKEY_COLOR_EMISSIVE, &color)) {
+            mat.emissive = glm::vec3(color.r, color.g, color.b);
+        }
+
+        if (AI_SUCCESS ==
+            aiGetMaterialFloat(material, AI_MATKEY_SHININESS, &mat.shininess)) {
+            mat.shininess /= 4.0f;
+        }
+
+        if (AI_SUCCESS ==
+            aiGetMaterialFloat(material, AI_MATKEY_OPACITY, &mat.opacity)) {
+            mat.opacity = 1.0f - mat.opacity;
+        }
+
+        if (AI_SUCCESS ==
+            aiGetMaterialFloat(material, AI_MATKEY_REFRACTI, &mat.refracti)) {
+            mat.refracti = 1.0f / mat.refracti;
+        }
+
+        if (AI_SUCCESS == aiGetMaterialFloat(material,
+                                             AI_MATKEY_SHININESS_STRENGTH,
+                                             &mat.strength)) {
+            mat.strength /= 4.0f;
+        }
+
+        if (AI_SUCCESS == aiGetMaterialInteger(material,
+                                               AI_MATKEY_ENABLE_WIREFRAME,
+                                               &mat.wireframe)) {
+            mat.wireframe = mat.wireframe ? 1 : 0;
+        }
+
+        if (AI_SUCCESS ==
+            aiGetMaterialInteger(material, AI_MATKEY_TWOSIDED, &mat.twosided)) {
+            mat.twosided = mat.twosided ? 1 : 0;
+        }
+
+        // load material textures
+        mat.diffuse_tex = processTexture(material, aiTextureType_DIFFUSE,
+                                         model.file_path.parent_path());
+
+        mat.specular_tex = processTexture(material, aiTextureType_SPECULAR,
+                                          model.file_path.parent_path());
+
+        mat.normal_tex = processTexture(material, aiTextureType_NORMALS,
+                                        model.file_path.parent_path());
+
+        mat.height_tex = processTexture(material, aiTextureType_HEIGHT,
+                                        model.file_path.parent_path());
+
+        mat.displacement_tex =
+                processTexture(material, aiTextureType_DISPLACEMENT,
+                               model.file_path.parent_path());
+
+        mat.ambient_tex = processTexture(material, aiTextureType_AMBIENT,
+                                         model.file_path.parent_path());
+
+        mat.emissive_tex = processTexture(material, aiTextureType_EMISSIVE,
+                                          model.file_path.parent_path());
+
+        mat.shininess_tex = processTexture(material, aiTextureType_SHININESS,
+                                           model.file_path.parent_path());
+
+        mat.opacity_tex = processTexture(material, aiTextureType_OPACITY,
+                                         model.file_path.parent_path());
+
+        mat.lightmap_tex = processTexture(material, aiTextureType_LIGHTMAP,
+                                          model.file_path.parent_path());
+
+        // PBR
+        mat.base_color_tex = processTexture(material, aiTextureType_BASE_COLOR,
+                                            model.file_path.parent_path());
+
+        mat.metallic_tex = processTexture(material, aiTextureType_METALNESS,
+                                          model.file_path.parent_path());
+
+        mat.roughness_tex =
+                processTexture(material, aiTextureType_DIFFUSE_ROUGHNESS,
+                               model.file_path.parent_path());
+
+        mat.ao_tex = processTexture(material, aiTextureType_AMBIENT_OCCLUSION,
+                                    model.file_path.parent_path());
+
+        mat.emissive_factor_tex =
+                processTexture(material, aiTextureType_EMISSION_COLOR,
+                               model.file_path.parent_path());
+
         model.materials.emplace_back(mat);
     }
 }
 
-Mesh AssetManager::processMesh(aiMesh *mesh, const aiScene *scene,
-                               std::filesystem::path const &directory_path) {
+Mesh AssetManager::processMesh(aiMesh *mesh) {
     Mesh ret_mesh{};
 
     // 预留存内存 优化性能
