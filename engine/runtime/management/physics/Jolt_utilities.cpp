@@ -3,10 +3,10 @@
 namespace taixu {
 BPLayerInterfaceImpl::BPLayerInterfaceImpl() {
     // Create a mapping table from object to broad phase layer
-    m_object_to_broad_phase[Layers::UNUSED1]    = BroadPhaseLayers::UNUSED;
-    m_object_to_broad_phase[Layers::UNUSED2]    = BroadPhaseLayers::UNUSED;
-    m_object_to_broad_phase[Layers::NON_MOVING] = BroadPhaseLayers::NON_MOVING;
-    m_object_to_broad_phase[Layers::MOVING]     = BroadPhaseLayers::MOVING;
+    m_object_to_broad_phase[layers::UNUSED1]    = BroadPhaseLayers::UNUSED;
+    m_object_to_broad_phase[layers::UNUSED2]    = BroadPhaseLayers::UNUSED;
+    m_object_to_broad_phase[layers::NON_MOVING] = BroadPhaseLayers::NON_MOVING;
+    m_object_to_broad_phase[layers::MOVING]     = BroadPhaseLayers::MOVING;
 }
 
 #if defined(JPH_EXTERNAL_PROFILE) || defined(JPH_PROFILE_ENABLED)
@@ -29,14 +29,14 @@ const char *BPLayerInterfaceImpl::GetBroadPhaseLayerName(
 bool ObjectvsObjectCollide(JPH::ObjectLayer inObject1,
                            JPH::ObjectLayer inObject2) {
     switch (inObject1) {
-        case Layers::UNUSED1:
-        case Layers::UNUSED2:
+        case layers::UNUSED1:
+        case layers::UNUSED2:
             return false;
-        case Layers::NON_MOVING:
-            return inObject2 == Layers::MOVING;
-        case Layers::MOVING:
-            return inObject2 == Layers::NON_MOVING ||
-                   inObject2 == Layers::MOVING;
+        case layers::NON_MOVING:
+            return inObject2 == layers::MOVING;
+        case layers::MOVING:
+            return inObject2 == layers::NON_MOVING ||
+                   inObject2 == layers::MOVING;
         default:
             assert(false);
             return false;
@@ -46,9 +46,9 @@ bool ObjectvsObjectCollide(JPH::ObjectLayer inObject1,
 bool ObjectvsBroadPhaseCanCollide(JPH::ObjectLayer     inLayer1,
                                   JPH::BroadPhaseLayer inLayer2) {
     switch (inLayer1) {
-        case Layers::NON_MOVING:
+        case layers::NON_MOVING:
             return inLayer2 == BroadPhaseLayers::MOVING;
-        case Layers::MOVING:
+        case layers::MOVING:
             return inLayer2 == BroadPhaseLayers::NON_MOVING ||
                    inLayer2 == BroadPhaseLayers::MOVING;
         default:

@@ -55,14 +55,14 @@ JPH::BodyID PhysicsScene::createRigidBodyActor(RigidbodyInfo rgdInfo) {
                 JPH::Vec3Arg(rgdInfo.position.x, rgdInfo.position.y,
                              rgdInfo.position.z),
                 JPH::Quat::sIdentity(), JPH::EMotionType::Dynamic,
-                Layers::MOVING);
+                layers::MOVING);
     } else {
         shape_settings = JPH::BodyCreationSettings(
                 shape,
                 JPH::Vec3Arg(rgdInfo.position.x, rgdInfo.position.y,
                              rgdInfo.position.z),
                 JPH::Quat::sIdentity(), JPH::EMotionType::Static,
-                Layers::NON_MOVING);
+                layers::NON_MOVING);
     }
     JPH::BodyID body_id = body_interface.CreateAndAddBody(
             shape_settings, JPH::EActivation::Activate);
@@ -91,7 +91,7 @@ void PhysicsScene::createRigidBodyActor() {
     // Create the settings for the body itself. Note that here you can also set other properties like the restitution / friction.
     JPH::BodyCreationSettings floor_settings(
             floor_shape, JPH::Vec3Arg(0.0, 0.0, 0.0), JPH::Quat::sIdentity(),
-            JPH::EMotionType::Static, Layers::NON_MOVING);
+            JPH::EMotionType::Static, layers::NON_MOVING);
 
     // Create the actual rigid body
     JPH::Body *floor = body_interface.CreateBody(
@@ -104,7 +104,7 @@ void PhysicsScene::createRigidBodyActor() {
     // Note that this uses the shorthand version of creating and adding a body to the world
     JPH::BodyCreationSettings sphere_settings(
             new JPH::SphereShape(0.5f), JPH::Vec3Arg(0.0, 4.0, 0.0),
-            JPH::Quat::sIdentity(), JPH::EMotionType::Dynamic, Layers::MOVING);
+            JPH::Quat::sIdentity(), JPH::EMotionType::Dynamic, layers::MOVING);
     sphere_id = body_interface.CreateAndAddBody(sphere_settings,
                                                 JPH::EActivation::Activate);
 

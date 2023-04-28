@@ -1,0 +1,25 @@
+name: Format Cpp
+
+on:
+  pull_request:
+    paths-ignore: "docs/**"
+
+jobs:
+  format:
+    name: Format Cpp
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: cpp-linter/cpp-linter-action@main
+        id: linter
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.TAIXU_GITHUB_TOKEN }}
+        with:
+          style: file
+          files-changed-only: true
+
+      - name: Fail
+        if: steps.linter.outputs.checks-failed != 0
+        run: exit 1
