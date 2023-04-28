@@ -27,7 +27,7 @@ endif ()
 include(../3rdparty/FindGlad.cmake)
 
 # add freetype
-# include(../3rdparty/FindFreetype.cmake)
+include(../3rdparty/FindFreetype.cmake)
 
 # add glfw3
 include(../3rdparty/FindGlfw3.cmake)
@@ -52,6 +52,20 @@ include(../3rdparty/FindAssimp.cmake)
 
 # add jsoncpp
 include(../3rdparty/FindJsoncpp.cmake)
+
+# add refl cpp
+include(../3rdparty/FindReflCpp.cmake)
+
+# add magic enum
+include(../3rdparty/FindMagicEnum.cmake)
+
+# add argparse
+include(../3rdparty/FindArgparse.cmake)
+
+# add joltpyhsics
+include(../3rdparty/FindJoltPhysics.cmake)
+
+find_package(Threads REQUIRED)
 
 # ------- sub-directories --------
 

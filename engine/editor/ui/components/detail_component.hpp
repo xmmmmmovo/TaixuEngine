@@ -5,12 +5,11 @@
 #ifndef TAIXUENGINE_DETAIL_COMPONENT_HPP
 #define TAIXUENGINE_DETAIL_COMPONENT_HPP
 
-#include "interface/component.hpp"
+#include "ui/ui_component.hpp"
 
 namespace taixu::editor {
 class DetailComponent : public IUIComponent {
 public:
-    void init() override {}
     void update() override {
         if (ImGui::CollapsingHeader("Mesh", ImGuiTreeNodeFlags_DefaultOpen)) {
             if (ImGui::Button("Open...")) {}

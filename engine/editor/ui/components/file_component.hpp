@@ -11,7 +11,8 @@
 #include <string>
 #include <vector>
 
-#include "interface/component.hpp"
+#include "hierarchy_component.hpp"
+#include "ui/ui_component.hpp"
 
 namespace taixu::editor {
 class FileComponent : public IUIComponent {
@@ -23,17 +24,16 @@ private:
     std::filesystem::path root_path{"."};
     std::filesystem::path current_path{root_path};
 
+    HierarchyComponent hierarchy_component{};
+
 public:
-    void init() override {}
     void update() override {
         {
-
             ImGui::BeginChild(
                     "FileTree",
                     ImVec2(ImGui::GetWindowContentRegionWidth() * 0.2f, 0.f),
                     false, window_flags);
-            for (int i = 0; i < 100; i++)
-                ImGui::Text("%04d: scrollable region", i);
+            hierarchy_component.update();
             ImGui::EndChild();
         }
         // Child 1: no border, enable horizontal scrollbar
@@ -41,7 +41,7 @@ public:
         ImGui::SameLine();
         // Child 2: rounded border
         {
-            ImGui::BeginChild("ChildR", ImVec2(0, 260), false, window_flags);
+            ImGui::BeginChild("ChildR", ImVec2(0, 0.f), false, window_flags);
 
             if (current_path != root_path) {
                 if (ImGui::Button("<-")) {

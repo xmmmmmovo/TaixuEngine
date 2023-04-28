@@ -5,8 +5,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 11)
 
 # compile config
-set(USE_CCACHE OFF)
-set(USE_VCPKG OFF)
+option(USE_CCACHE "ccache accelerate the compile" OFF)
+option(USE_VCPKG "vcpkg manager" OFF)
+option(USE_PCH "pre compile" ON)
+option(WARNINGS "warnings" OFF)
 
 # for project properties
 set(ENGINE_VERSION 0.01)
@@ -20,6 +22,10 @@ if (USE_VCPKG)
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 endif ()
 
+if (WARNINGS)
+    add_definitions(-Wall)
+endif ()
+
 project(
         TaixuEngine
         VERSION ${ENGINE_VERSION}
@@ -31,9 +37,13 @@ project(
 # add cmake package manager
 include(cmake/CPM.cmake)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 set(TAIXUENGINE_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_INSTALL_PREFIX "${TAIXUENGINE_ROOT_DIR}/bin")
 set(BINARY_ROOT_DIR "${CMAKE_INSTALL_PREFIX}/")
+
+configure_file(cmake/path.hpp.in ${TAIXUENGINE_ROOT_DIR}/engine/runtime/core/base/path.hpp @ONLY)
 
 add_subdirectory(engine)
 add_subdirectory(docs)

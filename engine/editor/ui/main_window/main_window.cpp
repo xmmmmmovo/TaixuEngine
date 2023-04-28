@@ -4,62 +4,182 @@
 
 #include "main_window.hpp"
 
-#include "spdlog/spdlog.h"
+#include <spdlog/spdlog.h>
 
+#include "core/base/path.hpp"
+#include "gameplay/gui/imgui_surface.hpp"
 
 namespace taixu::editor {
-
-// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
-// ---------------------------------------------------------------------------------------------------------
-void  MainWindow::processInput(GLFWwindow *window) {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        imgui_surface->Input_callback("FORWARD");
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        imgui_surface->Input_callback("BACKWARD");
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        imgui_surface->Input_callback("LEFT");
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        imgui_surface->Input_callback("RIGHT");
-}
-
-// glfw: whenever the window size changed (by OS or user resize) this callback function executes
-// ---------------------------------------------------------------------------------------------
-void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
-    // make sure the viewport matches the new window dimensions; note that width and
-    // height will be significantly larger than specified on retina displays.
-    glViewport(0, 0, width, height);
-}
-
 void MainWindow::init() {
-    ///////////////////////////
-    spdlog::info("Main window start init!");
-    super::init();
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    super::setIsVsync(true);
-    imgui_surface->init(window);
-    spdlog::info("Main window start finished!");
+    spdlog::info("Main window init start!");
+    _context_ptr->registerOnScrollFn(
+            [this](double /*xoffset*/, double yoffset) {
+                if (_context_ptr->_state == EngineState::GAMEMODE) {
+                    _context_ptr->_editor_camera->processMouseScroll(yoffset);
+                }
+            });
+
+    _context_ptr->registerOnCursorPosFn([this](double xpos, double ypos) {
+        if (_last_mouse_pos.x == -1.0F && _last_mouse_pos.y == -1.0F) {
+            _last_mouse_pos.x = xpos;
+            _last_mouse_pos.y = ypos;
+        }
+        _mouse_pos.x = xpos;
+        _mouse_pos.y = ypos;
+        if (_cam_mode) {
+            _context_ptr->_editor_camera->processMouseMovement(
+                    _mouse_pos.x - _last_mouse_pos.x,
+                    _last_mouse_pos.y - _mouse_pos.y);
+        }
+        _last_mouse_pos = _mouse_pos;
+    });
+
+    _context_ptr->registerOnMouseButtonFn(
+            [this](int button, int action, int /*mods*/) {
+                if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
+                    if (_cam_mode) {
+                        _cam_mode = false;
+                        glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
+                                         GLFW_CURSOR_NORMAL);
+                    } else {
+                        if (isCursorInRenderComponent()) {
+                            _cam_mode = true;
+                            glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
+                                             GLFW_CURSOR_DISABLED);
+                        }
+                    }
+                }
+            });
+
+    spdlog::info("Main window init finished!");
+}
+
+void MainWindow::preUpdate() {
+    ImguiSurface::preUpdate();
+
+#ifndef NDEBUG
+    if (nullptr == _engine_runtime->getOpenedProject()) {
+        onOpenProjectCb(DEBUG_PATH "/example_proj");
+        return;
+    }
+#else
+    if (nullptr == _engine_runtime->getOpenedProject()) { return; }
+#endif
+
+    ImGui::Begin("Editor Menu", nullptr, DOCK_SPACE_FLAGS);
+
+    ImGuiID const dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
+
+    ImGui::DockSpace(dock_space_id, ImVec2(0.0F, 0.0F));
+
+    if (ImGui::BeginMenuBar()) {
+        if (ImGui::BeginMenu("Menu")) {
+            menu_component->update();
+            ImGui::EndMenu();
+        }
+        ImGui::EndMenuBar();
+    }
+
+    ImGui::End();
+
+    menu_component->processFileDialog();
+
+    ImguiSurface::addWidget(WORLD_OBJ_COMPONENT_NAME.data(),
+                            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
+                                    world_object_component->update));
+    ImguiSurface::addWidget(
+            RENDER_COMPONENT_NAME.data(),
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component->update),
+            ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_MenuBar);
+    ImguiSurface::addWidget(
+            DETAILS_COMPONENT_NAME.data(),
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component->update));
+    ImguiSurface::addWidget(
+            FILE_COMPONENT_NAME.data(),
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(file_component->update));
+    ImguiSurface::addWidget(
+            STATUS_COMPONENT_NAME.data(),
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(status_component->update));
+    ImguiSurface::addWidget(
+            USEFUL_OBJ_COMPONENT_NAME.data(),
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component->update));
+}
+
+bool MainWindow::isCursorInRenderComponent() const {
+    spdlog::debug("Mouse pos: {}, {}", _mouse_pos.x, _mouse_pos.y);
+    spdlog::debug("Render rect: {}, {}, {}, {}",
+                  render_component->_render_rect.Min.x,
+                  render_component->_render_rect.Min.y,
+                  render_component->_render_rect.Max.x,
+                  render_component->_render_rect.Max.y);
+    return render_component->_render_rect.Contains(_mouse_pos);
 }
 
 void MainWindow::update() {
-    while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        imgui_surface->preUpdate();
-        imgui_surface->update();
-        super::update();
-    }
+    preUpdate();
+    ImguiSurface::update();
+    _context_ptr->swapBuffers();
 }
 
 void MainWindow::destroy() {
-    imgui_surface->destroy();
-    super::destroy();
+    ImguiSurface::destroy();
+    _context_ptr->destroy();
 }
 
-void MainWindow::bindCallbacks() {
+void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
+    this->_engine_runtime = engine_runtime_ptr;
+    this->_renderer       = engine_runtime_ptr->getRenderer();
 
+    ImguiSurface::init(_context_ptr->_window);
+    render_component->_framebuffer = _renderer->getRenderFramebuffer();
+
+    InputSystem::getInstance().registerEditorCallback([this](float delta_time) {
+        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_W) == GLFW_PRESS) {
+            _context_ptr->_editor_camera->processKeyboard(
+                    CameraMovement::FORWARD, delta_time);
+        }
+        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_S) == GLFW_PRESS) {
+            _context_ptr->_editor_camera->processKeyboard(
+                    CameraMovement::BACKWARD, delta_time);
+        }
+        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_A) == GLFW_PRESS) {
+            _context_ptr->_editor_camera->processKeyboard(CameraMovement::LEFT,
+                                                          delta_time);
+        }
+        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_D) == GLFW_PRESS) {
+            _context_ptr->_editor_camera->processKeyboard(CameraMovement::RIGHT,
+                                                          delta_time);
+        }
+
+        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_E) == GLFW_PRESS) {
+            _context_ptr->_editor_camera->processKeyboard(CameraMovement::UP,
+                                                          delta_time);
+        }
+        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_Q) == GLFW_PRESS) {
+            _context_ptr->_editor_camera->processKeyboard(CameraMovement::DOWN,
+                                                          delta_time);
+        }
+    });
 }
+
+MainWindow::MainWindow(WindowContext *const context_ptr)
+    : _context_ptr(context_ptr) {
+    this->menu_component->bindCallbacks(
+            INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
+            INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
+            INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onSaveAsProjectCb));
+}
+
+// for callbacks
+void MainWindow::onNewProjectCb(std::string_view const &path) {}
+
+void MainWindow::onOpenProjectCb(std::string_view const &path) {
+    this->_engine_runtime->loadProject(path);
+}
+
+void MainWindow::onSaveProjectCb() {}
+
+void MainWindow::onSaveAsProjectCb(std::string_view const &path) {}
 
 }// namespace taixu::editor

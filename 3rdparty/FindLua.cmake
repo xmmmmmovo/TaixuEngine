@@ -1,8 +1,8 @@
 CPMAddPackage(
-    NAME lua
-    GIT_REPOSITORY lua/lua
-    VERSION 5.3.5
-    DOWNLOAD_ONLY YES
+        NAME lua
+        GIT_REPOSITORY lua/lua
+        VERSION 5.3.5
+        DOWNLOAD_ONLY YES
 )
 
 if (lua_ADDED)
@@ -12,7 +12,7 @@ if (lua_ADDED)
     add_library(lua STATIC ${lua_sources})
 
     target_include_directories(lua
-        PUBLIC
-        $<BUILD_INTERFACE:${lua_SOURCE_DIR}>
-    )
-endif()
+            PUBLIC
+            $<BUILD_INTERFACE:${lua_SOURCE_DIR}>
+            )
+endif ()

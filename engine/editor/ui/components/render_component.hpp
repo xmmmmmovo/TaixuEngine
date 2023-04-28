@@ -5,37 +5,58 @@
 #ifndef TAIXUENGINE_RENDER_COMPONENT_HPP
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
-#include "graphics/renderer.hpp"
-#include "interface/component.hpp"
+#include "core/math/imvec2.hpp"
+#include "management/graphics/render/framebuffer.hpp"
+#include "management/graphics/renderer.hpp"
+#include "management/input/input_system.hpp"
+#include "spdlog/spdlog.h"
+#include "ui/ui_component.hpp"
 
 namespace taixu::editor {
 
 class RenderComponent : public IUIComponent {
-private:
-    std::shared_ptr<Renderer> m_renderer;
+public:
+    IFrameBuffer *_framebuffer;
+    ImVec2        _render_size{0, 0};
+    ImVec2        _previous_size{0, 0};
+    ImRect        _render_rect{};
+    ImRect        _menu_bar_rect{};
 
 public:
-    const float delta_time = 0.03333;
-    void init() override {
-        m_renderer = std::make_shared<Renderer>();
-        m_renderer->initialize();
-    }
-
-    void preUpdate() {}
-
     void update() override {
-        ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
-        ImVec2 size              = {viewportPanelSize.x, viewportPanelSize.y};
+        if (ImGui::BeginMenuBar()) {
+            float const size = ImGui::GetWindowHeight() - 4.0f;
+            ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) -
+                                 (size * 0.5f));
 
-        m_renderer->resize(size.x, size.y);
-        m_renderer->tick();
-        // Because I use the texture from OpenGL, I need to invert the V from the UV.
-        ImGui::Image(reinterpret_cast<void *>(m_renderer->getRenderResult()),
-                     size, ImVec2(0, 1), ImVec2(1, 0));
+            if (ImGui::Button(ICON_FA_PLAY "Play")) {}
+            ImGui::EndMenuBar();
+        }
+
+        _menu_bar_rect = ImGui::GetCurrentWindow()->MenuBarRect();
+        _render_size   = ImGui::GetWindowSize();
+        _render_size.y -= _menu_bar_rect.GetHeight();
+
+        _render_rect.Min = ImGui::GetWindowPos();
+        _render_rect.Min.x -= ImGui::GetMainViewport()->Pos.x;
+        _render_rect.Min.y -= ImGui::GetMainViewport()->Pos.y;
+        _render_rect.Min.y += _menu_bar_rect.GetHeight();
+
+        _render_rect.Max.x = _render_rect.Min.x + _render_size.x;
+        _render_rect.Max.y = _render_rect.Min.y + _render_size.y;
+
+        if (_previous_size != _render_size) {
+            spdlog::debug("Resize the framebuffer: width {}, height {}",
+                          _render_size.x, _render_size.y);
+            _previous_size = _render_size;
+            _framebuffer->resize(static_cast<int>(_render_size.x),
+                                 static_cast<int>(_render_size.y));
+        }
+
+        ImGui::Image(
+                reinterpret_cast<ImTextureID>(_framebuffer->getFBTextureID()),
+                _render_size, ImVec2(0, 1), ImVec2(1, 0));
     }
-    void processInput(std::string input) { m_renderer->processInput(input);}
-    void processInput(glm::vec2 mouse_pos) { m_renderer->processInput(mouse_pos); }
-    void processInput(float scroll_yoffset) { m_renderer->processInput(scroll_yoffset); }
 };
 
 }// namespace taixu::editor
