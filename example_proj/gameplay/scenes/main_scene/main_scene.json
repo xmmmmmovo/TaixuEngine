@@ -1,0 +1,8 @@
+{
+  "gravity": 9.8,
+  "objects": [
+    {
+      "name": "Cube"
+    }
+  ]
+}

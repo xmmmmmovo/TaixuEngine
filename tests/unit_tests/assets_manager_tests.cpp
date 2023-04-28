@@ -3,14 +3,19 @@
 //
 #include <catch2/catch_test_macros.hpp>
 
-#include "graphics/render/vertex_array.hpp"
-#include "platform/opengl/ogl_vertexArray.hpp"
+#include "core/base/path.hpp"
 #include "resource/asset_manager.hpp"
 
-TEST_CASE("noncopyable") {
-    //    taixu::Asset_Manager manager{};
-    //    manager.loadAsset("assets/asset.json");
-    //    manager.writeAsset();
-    
+TEST_CASE("asset manager load .obj .mtl success", "[asset manager tests]") {
+    taixu::AssetManager am{};
+    am.reset(DEBUG_PATH "/example_proj/assets");
+    auto model = am.loadModel("models/nanosuit/nanosuit.obj");
+    REQUIRE(model != nullptr);
+}
 
+TEST_CASE("asset manager load only .obj success", "[asset manager tests]") {
+    taixu::AssetManager am{};
+    am.reset(DEBUG_PATH "/example_proj/assets");
+    auto model = am.loadModel("models/sphere.obj");
+    REQUIRE(model != nullptr);
 }

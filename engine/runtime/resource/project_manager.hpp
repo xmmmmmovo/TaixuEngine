@@ -16,12 +16,7 @@ namespace taixu {
 struct Project {
 public:
     //name of project
-    std::string_view      name;
-    // //texture list
-    // std::vector<std::string_view> texture_path;
-    // //model list
-    // std::vector<std::string_view> model_path;
-    std::filesystem::path asset_configure_path;
+    std::string_view name;
 };
 
 class ProjectManager {

@@ -11,27 +11,27 @@
 
 namespace taixu {
 
-std::vector<std::filesystem::path> getFiles(
-        const std::filesystem::path& directory);
+std::vector<std::filesystem::path>
+getFiles(const std::filesystem::path &directory);
 
-bool removeFile(std::filesystem::path const& file_path);
+bool removeFile(std::filesystem::path const &file_path);
 
-bool removeDirectory(std::filesystem::path const& directory_path);
+bool removeDirectory(std::filesystem::path const &directory_path);
 
-bool createDirectory(std::filesystem::path const& directory_path);
+bool createDirectory(std::filesystem::path const &directory_path);
 
-bool copyFile(std::filesystem::path const& source,
-              std::filesystem::path const& destination);
+bool copyFile(std::filesystem::path const &source,
+              std::filesystem::path const &destination);
 
-bool copyDirectory(std::filesystem::path const& source,
-                   std::filesystem::path const& destination);
+bool copyDirectory(std::filesystem::path const &source,
+                   std::filesystem::path const &destination);
 
-bool moveFileOrDirectory(std::filesystem::path const& source,
-                         std::filesystem::path const& destination);
+bool moveFileOrDirectory(std::filesystem::path const &source,
+                         std::filesystem::path const &destination);
 
-std::ifstream openFile(std::filesystem::path const& file_path);
+std::ifstream openFile(std::filesystem::path const &file_path);
 
-std::ofstream createFile(std::filesystem::path const& file_path);
+std::ofstream createFile(std::filesystem::path const &file_path);
 
 }// namespace taixu
 

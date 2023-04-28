@@ -8,12 +8,11 @@
 
 namespace taixu {
 
-GLint mapImageToGLReadType(std::string const &ext) {
-    if (".jpg" == ext) {
-        return GL_RGB;
-    } else if (".png" == ext) {
-        return GL_RGBA;
-    }
+GLint mapImageToGLReadType(int channels) {
+    if (1 == channels) { return GL_RED; }
+    if (2 == channels) { return GL_RG; }
+    if (3 == channels) { return GL_RGB; }
+    if (4 == channels) { return GL_RGBA; }
     return 0;
 }
 
@@ -38,9 +37,9 @@ OGLTexture::OGLTexture(const std::string_view &path,
             stbi_load(path.data(), &width, &height, &n_channels, 0);
 
     if (data) {
-        glTexImage2D(GL_TEXTURE_2D, 0, (4 == n_channels ? GL_RGBA : GL_RGB),
-                     width, height, 0,
-                     mapImageToGLReadType(getLastExtension(path)),
+        GLint const format = mapImageToGLReadType(n_channels);
+
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format,
                      GL_UNSIGNED_BYTE, data);
         if (GL_NEAREST != filter_mode) { glGenerateMipmap(GL_TEXTURE_2D); }
     } else {
