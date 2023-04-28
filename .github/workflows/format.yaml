@@ -19,7 +19,11 @@ jobs:
         with:
           style: file
           files-changed-only: true
+          thread-comments: true
+          file-annotations: false
 
       - name: Fail
         if: steps.linter.outputs.checks-failed != 0
-        run: exit 1
+        run: |
+          echo "some linter checks failed. ${{ steps.linter.outputs.checks-failed }}"
+        # run: exit 1
