@@ -13,7 +13,7 @@ namespace taixu {
 using Entity = std::uint32_t;
 
 // Used to define the size of arrays later on
-const Entity MAX_ENTITIES = 5000;
+constexpr Entity MAX_ENTITIES = 5000;
 
 using ComponentType = std::uint8_t;
 
@@ -28,6 +28,14 @@ private:
 
 public:
     explicit EntityManager();
+
+    [[nodiscard]] Entity createEntity();
+
+    void destroyEntity(Entity entity);
+
+    void setSignature(Entity entity, Signature signature);
+
+    [[nodiscard]] Signature getSignature(Entity entity);
 };
 
 }// namespace taixu

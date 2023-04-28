@@ -1,11 +1,6 @@
 #ifndef TAIXUENGINE_JOLT_UTILITIES
 #define TAIXUENGINE_JOLT_UTILITIES
 
-// #include "core/base/macro.hpp"
-// #include "Jolt/Jolt.h"
-// #include "Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h"
-
-
 #include "Jolt/Jolt.h"
 
 // Jolt includes
@@ -23,7 +18,7 @@
 #include "spdlog/spdlog.h"
 
 namespace taixu {
-namespace Layers {
+namespace layers {
     static constexpr uint8_t UNUSED1 =
             0;// 2 unused values so that broadphase layers values don't match with
               // object layer values (otherwise redefiend error)
@@ -31,7 +26,7 @@ namespace Layers {
     static constexpr uint8_t NON_MOVING = 2;
     static constexpr uint8_t MOVING     = 3;
     static constexpr uint8_t NUM_LAYERS = 4;
-};// namespace Layers
+};// namespace layers
 
 /// Broadphase layers
 namespace BroadPhaseLayers {
@@ -46,23 +41,23 @@ class BPLayerInterfaceImpl final : public JPH::BroadPhaseLayerInterface {
 public:
     BPLayerInterfaceImpl();
 
-    uint32_t GetNumBroadPhaseLayers() const override {
+    [[nodiscard]] std::uint32_t GetNumBroadPhaseLayers() const override {
         return BroadPhaseLayers::NUM_LAYERS;
     }
 
-    JPH::BroadPhaseLayer
+    [[nodiscard]] JPH::BroadPhaseLayer
     GetBroadPhaseLayer(JPH::ObjectLayer inLayer) const override {
-        assert(inLayer < Layers::NUM_LAYERS);
+        assert(inLayer < layers::NUM_LAYERS);
         return m_object_to_broad_phase[inLayer];
     }
 
 #if defined(JPH_EXTERNAL_PROFILE) || defined(JPH_PROFILE_ENABLED)
-    const char *
+    [[nodiscard]] const char *
     GetBroadPhaseLayerName(JPH::BroadPhaseLayer inLayer) const override;
 #endif// JPH_EXTERNAL_PROFILE || JPH_PROFILE_ENABLED
 
 private:
-    JPH::BroadPhaseLayer m_object_to_broad_phase[Layers::NUM_LAYERS];
+    JPH::BroadPhaseLayer m_object_to_broad_phase[layers::NUM_LAYERS];
 };
 
 using namespace JPH;
@@ -70,7 +65,7 @@ using namespace JPH;
 class MyContactListener : public JPH::ContactListener {
 public:
     // See: ContactListener
-    virtual ValidateResult
+    ValidateResult
     OnContactValidate(const Body &inBody1, const Body &inBody2,
                       Vec3Arg                   inBaseOffset,
                       const CollideShapeResult &inCollisionResult) override {
@@ -81,22 +76,21 @@ public:
         return ValidateResult::AcceptAllContactsForThisBodyPair;
     }
 
-    virtual void OnContactAdded(const Body &inBody1, const Body &inBody2,
-                                const ContactManifold &inManifold,
-                                ContactSettings       &ioSettings) override {
+    void OnContactAdded(const Body &inBody1, const Body &inBody2,
+                        const ContactManifold &inManifold,
+                        ContactSettings       &ioSettings) override {
         //cout << "A contact was added" << endl;
         spdlog::debug("A contact was added");
     }
 
-    virtual void OnContactPersisted(const Body &inBody1, const Body &inBody2,
-                                    const ContactManifold &inManifold,
-                                    ContactSettings &ioSettings) override {
+    void OnContactPersisted(const Body &inBody1, const Body &inBody2,
+                            const ContactManifold &inManifold,
+                            ContactSettings       &ioSettings) override {
         //cout << "A contact was persisted" << endl;
         spdlog::debug("A contact was persisted");
     }
 
-    virtual void
-    OnContactRemoved(const SubShapeIDPair &inSubShapePair) override {
+    void OnContactRemoved(const SubShapeIDPair &inSubShapePair) override {
         //cout << "A contact was removed" << endl;
         spdlog::debug("A contact was removed");
     }
@@ -105,64 +99,60 @@ public:
 // An example activation listener
 class MyBodyActivationListener : public BodyActivationListener {
 public:
-    virtual void OnBodyActivated(const BodyID &inBodyID,
-                                 uint64        inBodyUserData) override {
+    void OnBodyActivated(const BodyID &inBodyID,
+                         uint64        inBodyUserData) override {
         //cout << "A body got activated" << endl;
         spdlog::debug("A body got activated");
     }
 
-    virtual void OnBodyDeactivated(const BodyID &inBodyID,
-                                   uint64        inBodyUserData) override {
+    void OnBodyDeactivated(const BodyID &inBodyID,
+                           uint64        inBodyUserData) override {
         //cout << "A body went to sleep" << endl;
         spdlog::debug("A body went to sleep");
     }
 };
 
 /// Class that determines if two object layers can collide
-class ObjectLayerPairFilterImpl : public ObjectLayerPairFilter
-{
+class ObjectLayerPairFilterImpl : public ObjectLayerPairFilter {
 public:
-	virtual bool					ShouldCollide(ObjectLayer inObject1, ObjectLayer inObject2) const override
-	{
-		switch (inObject1)
-        {
-            case Layers::UNUSED1:
-            case Layers::UNUSED2:
+    [[nodiscard]] bool ShouldCollide(ObjectLayer inObject1,
+                                     ObjectLayer inObject2) const override {
+        switch (inObject1) {
+            case layers::UNUSED1:
+            case layers::UNUSED2:
                 return false;
-            case Layers::NON_MOVING:
-                return inObject2 == Layers::MOVING;
-            case Layers::MOVING:
-                return inObject2 == Layers::NON_MOVING || inObject2 == Layers::MOVING;
-            default:
-                {
-                    spdlog::debug("IVALID");
-                    assert(false);
-                    return false;
-                }
+            case layers::NON_MOVING:
+                return inObject2 == layers::MOVING;
+            case layers::MOVING:
+                return inObject2 == layers::NON_MOVING ||
+                       inObject2 == layers::MOVING;
+            default: {
+                spdlog::debug("IVALID");
+                assert(false);
+                return false;
+            }
         }
-	}
+    }
 };
 
 
-class ObjectVsBroadPhaseLayerFilterImpl : public ObjectVsBroadPhaseLayerFilter
-{
+class ObjectVsBroadPhaseLayerFilterImpl : public ObjectVsBroadPhaseLayerFilter {
 public:
-	virtual bool				ShouldCollide(ObjectLayer inLayer1, BroadPhaseLayer inLayer2) const override
-	{
-        switch (inLayer1)
-        {
-            case Layers::NON_MOVING:
+    bool ShouldCollide(ObjectLayer     inLayer1,
+                       BroadPhaseLayer inLayer2) const override {
+        switch (inLayer1) {
+            case layers::NON_MOVING:
                 return inLayer2 == BroadPhaseLayers::MOVING;
-            case Layers::MOVING:
-                return inLayer2 == BroadPhaseLayers::NON_MOVING || inLayer2 == BroadPhaseLayers::MOVING;
-           default:
-                {
-                    spdlog::debug("IVALID");
-                    assert(false);
-                    return false;
-                }
+            case layers::MOVING:
+                return inLayer2 == BroadPhaseLayers::NON_MOVING ||
+                       inLayer2 == BroadPhaseLayers::MOVING;
+            default: {
+                spdlog::debug("IVALID");
+                assert(false);
+                return false;
+            }
         }
-	}
+    }
 };
 
 }// namespace taixu
