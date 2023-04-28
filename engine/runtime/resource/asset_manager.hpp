@@ -24,7 +24,7 @@
 
 namespace taixu {
 
-class AssetManager {
+class AssetManager final {
     PROTOTYPE(private, std::filesystem::path, asset_path);
 
 private:

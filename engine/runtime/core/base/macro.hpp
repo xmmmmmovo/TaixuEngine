@@ -11,9 +11,9 @@ namespace taixu {
     type _##name{default_val};                                                 \
                                                                                \
 public:                                                                        \
-    [[nodiscard]] type const &name() const { return _##name; }                 \
-    [[nodiscard]] type       &name() { return _##name; }                       \
-    void                      set_##name(type const &value) { _##name = value; }
+    [[nodiscard]] inline type const &name() const { return _##name; }          \
+    [[nodiscard]] inline type       &name() { return _##name; }                \
+    inline void set_##name(type const &value) { _##name = value; }
 
 /**
  * @brief 简化getter setter
@@ -23,9 +23,9 @@ public:                                                                        \
     type _##name{};                                                            \
                                                                                \
 public:                                                                        \
-    [[nodiscard]] type const &name() const { return _##name; }                 \
-    [[nodiscard]] type       &name() { return _##name; }                       \
-    void                      set_##name(type const &value) { _##name = value; }
+    [[nodiscard]] inline type const &name() const { return _##name; }          \
+    [[nodiscard]] inline type       &name() { return _##name; }                \
+    inline void set_##name(type const &value) { _##name = value; }
 
 
 /**
@@ -36,8 +36,8 @@ public:                                                                        \
     type _##name{default_val};                                                 \
                                                                                \
 public:                                                                        \
-    [[nodiscard]] type const &name() const { return _##name; }                 \
-    [[nodiscard]] type       &name() { return _##name; }
+    [[nodiscard]] inline type const &name() const { return _##name; }          \
+    [[nodiscard]] inline type       &name() { return _##name; }
 
 /**
  * @brief 简化getter
@@ -47,8 +47,8 @@ public:                                                                        \
     type _##name{};                                                            \
                                                                                \
 public:                                                                        \
-    [[nodiscard]] type const &name() const { return _##name; }                 \
-    [[nodiscard]] type       &name() { return _##name; }
+    [[nodiscard]] inline type const &name() const { return _##name; }          \
+    [[nodiscard]] inline type       &name() { return _##name; }
 
 /**
  * @brief Define Opengl version

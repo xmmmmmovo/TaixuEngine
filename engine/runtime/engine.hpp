@@ -3,7 +3,6 @@
 
 #include "core/base/macro.hpp"
 #include "core/base/public_singleton.hpp"
-#include "management/ecs/entity_component_system.hpp"
 #include "management/graphics/renderer.hpp"
 #include "management/physics/physics_manager.hpp"
 #include "resource/asset_manager.hpp"
@@ -19,7 +18,6 @@ private:
     std::unique_ptr<IRenderer>      _renderer{nullptr};
     std::unique_ptr<AssetManager>   _asset_manager{nullptr};
     std::unique_ptr<ProjectManager> _project_manager{nullptr};
-    std::unique_ptr<ECS>            _entity_component_system{nullptr};
     std::unique_ptr<PhysicsManager> _physics_manager{nullptr};
 
 public:

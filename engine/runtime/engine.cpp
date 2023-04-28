@@ -25,16 +25,11 @@ void Engine::init() {
     _asset_manager   = std::make_unique<AssetManager>();
     _physics_manager = std::make_unique<PhysicsManager>();
     _physics_manager->initialize();
-
-    _entity_component_system = std::make_unique<ECS>();
-    _entity_component_system->sceneRedirection(_physics_manager->current_scene);
-    _entity_component_system->initialize();
 }
 
 void Engine::update() {
     _renderer->clearSurface();
     InputSystem::getInstance().processInput();
-    _entity_component_system->tick();
     _physics_manager->tick();
     _renderer->tick();
 }

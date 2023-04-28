@@ -10,7 +10,7 @@
 #include <string>
 
 namespace taixu {
-class MeshComponent : public EntityComponent {
+class MeshComponent : public AbstractEntityComponent {
     PROTOTYPE_DFT(private, std::uint32_t, GO, 0);
 
 public:

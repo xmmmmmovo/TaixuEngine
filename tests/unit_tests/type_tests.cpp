@@ -68,3 +68,11 @@ TEST_CASE("unique_pre move test", "[C++ trait tests]") {
     REQUIRE(c.get() == b);
     REQUIRE(0 == c->a);
 }
+
+TEST_CASE("plus test", "[C++ trait tests]") {
+    int a = 0;
+    a++;
+    REQUIRE(a == 1);
+    ++a;
+    REQUIRE(a == 2);
+}
