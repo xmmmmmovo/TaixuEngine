@@ -1,8 +1,8 @@
 #ifndef TAIXUENGINE_MESH_COMPONENT
 #define TAIXUENGINE_MESH_COMPONENT
 
+#include "management/ecs/entity_component.hpp"
 #include "management/ecs/entity_component/camera/camera_component.hpp"
-#include "management/ecs/entity_component/entity_component.hpp"
 #include "management/ecs/entity_component/transform/transform_component.hpp"
 #include "management/graphics/renderer.hpp"
 #include <cstdint>

@@ -6,7 +6,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/quaternion.hpp"
 #include "glm/matrix.hpp"
-#include "management/ecs/entity_component/entity_component.hpp"
+#include "management/ecs/entity_component.hpp"
 namespace taixu {
 class TransformComponent : public AbstractEntityComponent {
 public:

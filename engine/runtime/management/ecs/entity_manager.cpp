@@ -4,10 +4,13 @@
 
 #include "entity_manager.hpp"
 
-taixu::EntityManager::EntityManager() {
+namespace taixu {
+
+EntityManager::EntityManager() {
     for (auto i = 0; i < MAX_ENTITIES; ++i) { _available_entities.push(i); }
 }
-taixu::Entity taixu::EntityManager::createEntity() {
+
+Entity EntityManager::createEntity() {
     assert(_living_entity_count < MAX_ENTITIES &&
            "Too many entities in existence.");
 
@@ -19,7 +22,7 @@ taixu::Entity taixu::EntityManager::createEntity() {
     return id;
 }
 
-void taixu::EntityManager::destroyEntity(taixu::Entity entity) {
+void EntityManager::destroyEntity(Entity entity) {
     assert(entity < MAX_ENTITIES && "Entity out of range.");
 
     // Invalidate the destroyed entity's signature
@@ -30,15 +33,16 @@ void taixu::EntityManager::destroyEntity(taixu::Entity entity) {
     --_living_entity_count;
 }
 
-void taixu::EntityManager::setSignature(taixu::Entity    entity,
-                                        taixu::Signature signature) {
+void EntityManager::setSignature(Entity entity, Signature signature) {
     assert(entity < MAX_ENTITIES && "Entity out of range.");
 
     _signatures[entity] = signature;
 }
 
-taixu::Signature taixu::EntityManager::getSignature(taixu::Entity entity) {
+Signature EntityManager::getSignature(Entity entity) {
     assert(entity < MAX_ENTITIES && "Entity out of range.");
 
     return _signatures[entity];
 }
+
+}// namespace taixu
