@@ -2,7 +2,7 @@
 
 namespace taixu {
 
-void PhysicsScene::initialize() {
+void PhysicsScene::init() {
     // Register allocation hook
     RegisterDefaultAllocator();
     JPH::Factory::sInstance = new JPH::Factory();

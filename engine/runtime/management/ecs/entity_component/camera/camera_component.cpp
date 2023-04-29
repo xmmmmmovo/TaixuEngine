@@ -1,6 +1,6 @@
 #include "camera_component.hpp"
 
-void taixu::CameraComponent::initialize() {
+void taixu::CameraComponent::init() {
     character_camera=std::make_unique<PerspectiveCamera>();
     
 }

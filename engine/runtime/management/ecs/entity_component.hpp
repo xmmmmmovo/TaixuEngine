@@ -5,14 +5,15 @@
 #include <typeinfo>
 #include <unordered_map>
 
-#include "entity_manager.hpp"
-
 #include "core/base/macro.hpp"
+#include "management/ecs/system/entity_manager.hpp"
+#include "system/guid_genenrator.hpp"
 
 namespace taixu {
 
 class AbstractEntityComponent {
-    PROTOTYPE_DFT_ONLY_GETTER(protected, std::uint32_t, GO, 0);
+    PROTOTYPE_DFT_ONLY_GETTER(protected, std::uint32_t, GO,
+                              GuidGenerator::generateNewGuid());
 
 public:
     virtual void tick()                = 0;

@@ -9,7 +9,7 @@ public:
     CameraComponent() = default;
 
     std::unique_ptr<PerspectiveCamera> character_camera{nullptr};
-    void                               initialize();
+    void                               init();
     void                               setCameraPosition(glm::vec3 position);
     void                               setCameraLookAt();
 };

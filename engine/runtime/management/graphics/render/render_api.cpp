@@ -26,7 +26,7 @@ public:
         // ---------------------------------------
         if (!gladLoadGLLoader(
                     reinterpret_cast<GLADloadproc>(glfwGetProcAddress))) {
-            spdlog::error("Failed to initialize GLAD");
+            spdlog::error("Failed to init GLAD");
             exit(1);
         }
 

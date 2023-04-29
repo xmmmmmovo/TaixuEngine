@@ -10,7 +10,7 @@ namespace taixu {
 constexpr std::array<float, 3> CLEAR_COLOR{0.5294117647f, 0.8078431373f,
                                            0.9215686275f};
 
-void OGLRenderer::initialize() {
+void OGLRenderer::init() {
     this->_framebuffer = std::make_unique<OGLFrameBuffer>(
             IFrameBufferSpecification{FrameColorImageFormat::RGBA,
                                       FrameDepthImageFormat::DEPTH24STENCIL8});

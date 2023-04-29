@@ -1,7 +1,7 @@
 #include "rigid_body_component.hpp"
 
 namespace taixu {
-void RigidBodyComponent::initialize(RigidBodyShapeType stype,
+void RigidBodyComponent::init(RigidBodyShapeType stype,
                                     MotionType         mtype) {
     RigidbodyInfo rgdInfo;
     rgdInfo.GO       = _GO;

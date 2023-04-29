@@ -23,7 +23,7 @@ public:
     std::string                    material_path{"INVALID"};
     TransformComponent            *transform_component{};
     std::optional<CameraComponent> camera_component;
-    void                           initialize();
+    void                           init();
     void                           tick() override;
 };
 

@@ -19,12 +19,15 @@ void Engine::init() {
         case GraphicsAPI::NONE:
             break;
     }
-    _renderer->initialize();
+    _renderer->init();
 
+    _ecs_coordinator = std::make_unique<ECSCoordinator>();
     _project_manager = std::make_unique<ProjectManager>();
     _asset_manager   = std::make_unique<AssetManager>();
     _physics_manager = std::make_unique<PhysicsManager>();
-    _physics_manager->initialize();
+
+    _ecs_coordinator->init();
+    _physics_manager->init();
 }
 
 void Engine::update() {

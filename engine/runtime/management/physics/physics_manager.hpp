@@ -9,7 +9,7 @@ class PhysicsManager {
 public:
     PhysicsManager() = default;
 
-    void initialize();
+    void init();
 
     void tick();
 

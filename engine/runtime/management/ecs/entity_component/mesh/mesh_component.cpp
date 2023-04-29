@@ -3,7 +3,7 @@
 
 namespace taixu {
 
-void MeshComponent::initialize() {}
+void MeshComponent::init() {}
 
 void MeshComponent::tick() {}
 

@@ -235,7 +235,7 @@ protected:
     initWindow(std::unique_ptr<AbstractGraphicsAPILoader> api_loader,
                bool                                       vsync = false) {
         if (!glfwInit()) {
-            spdlog::error("Failed to initialize GLFW!");
+            spdlog::error("Failed to init GLFW!");
             exit(1);
         }
 

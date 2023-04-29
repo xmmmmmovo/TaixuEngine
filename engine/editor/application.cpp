@@ -59,8 +59,8 @@ void Application::initApplicationArgs(std::vector<std::string> const &args) {
     }
 }
 
-void Application::initialize(std::vector<std::string> const &args) {
-    spdlog::info("start initialize the application!");
+void Application::init(std::vector<std::string> const &args) {
+    spdlog::info("start init the application!");
     initSpdlog();
     initApplicationArgs(args);
 
@@ -80,7 +80,7 @@ void Application::initialize(std::vector<std::string> const &args) {
     window_ptr_local->initWithEngineRuntime(_engine_ptr);
 
     this->_window_ptr = std::move(window_ptr_local);
-    spdlog::info("initialize the application finished!");
+    spdlog::info("init the application finished!");
 }
 
 void Application::run() {

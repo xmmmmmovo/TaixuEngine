@@ -45,7 +45,7 @@ public:
     TransformComponent         *transform_component;
 
 
-    void initialize(RigidBodyShapeType stype, MotionType mtype);
+    void init(RigidBodyShapeType stype, MotionType mtype);
     void tick();
 };
 

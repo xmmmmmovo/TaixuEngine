@@ -56,7 +56,7 @@ public:
     /**
      * @brief initWindow application
      */
-    void initialize(std::vector<std::string> const &args);
+    void init(std::vector<std::string> const &args);
     /**
      * @brief main run function
      */

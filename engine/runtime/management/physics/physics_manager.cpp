@@ -2,9 +2,9 @@
 
 namespace taixu {
 
-void PhysicsManager::initialize() {
+void PhysicsManager::init() {
     current_scene = std::make_shared<PhysicsScene>();
-    current_scene->initialize();
+    current_scene->init();
 }
 
 void PhysicsManager::tick() { current_scene->tick(); }

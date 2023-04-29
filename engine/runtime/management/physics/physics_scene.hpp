@@ -79,7 +79,7 @@ public:
     std::vector<RigidbodyInfo> dirty_rgd;
     std::vector<JPH::BodyID>   current_bodies;
 
-    void        initialize();
+    void        init();
     JPH::Shape *toShape(RigidBodyShapeType shape, const glm::vec3 &scale);
     JPH::BodyID createRigidBodyActor(RigidbodyInfo rgdInfo);
     void        createRigidBodyActor();
