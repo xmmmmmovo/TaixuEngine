@@ -76,3 +76,5 @@ TEST_CASE("plus test", "[C++ trait tests]") {
     ++a;
     REQUIRE(a == 2);
 }
+
+TEST_CASE("test c++", "[C++ trait tests]") {}

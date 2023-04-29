@@ -5,20 +5,11 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_ENTITY_MANAGER_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_ENTITY_MANAGER_HPP
 
+#include "ecs_types.hpp"
 #include <cstdint>
 #include <queue>
 
 namespace taixu {
-// A simple type alias
-using Entity = std::uint32_t;
-
-// Used to define the size of arrays later on
-constexpr Entity MAX_ENTITIES = 5000;
-
-using ComponentType = std::uint8_t;
-
-constexpr ComponentType MAX_COMPONENTS = 32;
-using Signature                        = std::bitset<MAX_COMPONENTS>;
 
 class EntityManager final {
 private:

@@ -20,7 +20,7 @@ namespace taixu::editor {
  * @brief Application for the whole editor
  *        use Singleton pattern
  */
-class Application : public PublicSingleton<Application> {
+class Application final : public PublicSingleton<Application> {
     /*
       For User to use
     */

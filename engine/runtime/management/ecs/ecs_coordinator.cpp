@@ -8,5 +8,4 @@ namespace taixu {
 
 void ECSCoordinator::init() {}
 
-
 }// namespace taixu

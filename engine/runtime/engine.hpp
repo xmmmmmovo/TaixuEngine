@@ -12,7 +12,7 @@
 
 namespace taixu {
 
-class Engine : public PublicSingleton<Engine> {
+class Engine final : public PublicSingleton<Engine> {
     friend class PublicSingleton<Engine>;
 
 private:
