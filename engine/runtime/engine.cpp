@@ -6,6 +6,7 @@
 #include "engine_args.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/input/input_system.hpp"
+#include "management/scene/scene.hpp"
 #include "platform/opengl/ogl_renderer.hpp"
 
 namespace taixu {
@@ -21,19 +22,18 @@ void Engine::init() {
     }
     _renderer->init();
 
-    _ecs_coordinator = std::make_unique<ECSCoordinator>();
     _project_manager = std::make_unique<ProjectManager>();
     _asset_manager   = std::make_unique<AssetManager>();
-    _physics_manager = std::make_unique<PhysicsManager>();
+    _scene_manager   = std::make_unique<SceneManager>();
 
-    _ecs_coordinator->init();
-    _physics_manager->init();
+    // TODO: remove this test code
+    _scene_manager->addScene("MainScene", std::make_unique<Scene>());
+    _scene_manager->setCurrentScene("MainScene");
 }
 
 void Engine::update() {
     _renderer->clearSurface();
     InputSystem::getInstance().processInput();
-    _physics_manager->tick();
     _renderer->tick();
 }
 

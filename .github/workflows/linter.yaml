@@ -5,8 +5,8 @@ on:
     paths-ignore: "docs/**"
 
 jobs:
-  format:
-    name: Format Cpp
+  lint:
+    name: Lint Cpp
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

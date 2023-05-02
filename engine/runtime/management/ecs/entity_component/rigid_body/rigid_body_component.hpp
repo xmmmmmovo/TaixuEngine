@@ -3,7 +3,7 @@
 
 #include "Jolt/Jolt.h"
 
-#include "management/ecs/entity_component.hpp"
+#include "management/ecs/entity_component/entity_component.hpp"
 #include "management/ecs/entity_component/transform/transform_component.hpp"
 #include "management/physics/physics_scene.hpp"
 

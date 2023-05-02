@@ -14,7 +14,6 @@ public:
     void tick();
 
     std::shared_ptr<PhysicsScene> current_scene;
-    //std::vector<PhysicsScene>
 };
 
 }// namespace taixu

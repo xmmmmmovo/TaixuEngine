@@ -6,6 +6,8 @@
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/graphics/renderer.hpp"
 #include "management/physics/physics_manager.hpp"
+#include "management/scene/scene.hpp"
+#include "management/scene/scene_manager.hpp"
 #include "resource/asset_manager.hpp"
 #include "resource/project_manager.hpp"
 #include <memory>
@@ -18,9 +20,10 @@ class Engine final : public PublicSingleton<Engine> {
 private:
     std::unique_ptr<IRenderer>      _renderer{nullptr};
     std::unique_ptr<AssetManager>   _asset_manager{nullptr};
-    std::unique_ptr<ECSCoordinator> _ecs_coordinator{nullptr};
     std::unique_ptr<ProjectManager> _project_manager{nullptr};
-    std::unique_ptr<PhysicsManager> _physics_manager{nullptr};
+    std::unique_ptr<SceneManager>   _scene_manager{nullptr};
+
+    Scene *_now_scene{nullptr};
 
 public:
     void init();

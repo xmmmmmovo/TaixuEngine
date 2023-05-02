@@ -5,7 +5,7 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_ECS_COMPONENT_MANAGER_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_COMPONENT_MANAGER_HPP
 
-#include "management/ecs/entity_component.hpp"
+#include "management/ecs/entity_component/entity_component.hpp"
 
 namespace taixu {
 class ComponentManager {

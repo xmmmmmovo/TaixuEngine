@@ -6,8 +6,8 @@
 #include <unordered_map>
 
 #include "core/base/macro.hpp"
+#include "management/ecs/guid_genenrator.hpp"
 #include "management/ecs/system/entity_manager.hpp"
-#include "system/guid_genenrator.hpp"
 
 namespace taixu {
 
@@ -92,7 +92,7 @@ private:
     std::unordered_map<size_t, Entity> mIndexToEntityMap;
 
     // Total size of valid entries in the array.
-    size_t mSize;
+    size_t mSize{};
 };
 
 }// namespace taixu
