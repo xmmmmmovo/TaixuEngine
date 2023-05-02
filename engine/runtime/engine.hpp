@@ -23,8 +23,6 @@ private:
     std::unique_ptr<ProjectManager> _project_manager{nullptr};
     std::unique_ptr<SceneManager>   _scene_manager{nullptr};
 
-    Scene *_now_scene{nullptr};
-
 public:
     void init();
     void update();

@@ -20,6 +20,7 @@ void OGLRenderer::tick(float delta_time) {
     _clock.update();
     _framebuffer->bind();
     clear(CLEAR_COLOR);
+    if (_current_scene != nullptr) {}
     _framebuffer->unbind();
 }
 
@@ -32,6 +33,7 @@ void OGLRenderer::clearSurface() {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 }
+
 IFrameBuffer *OGLRenderer::getRenderFramebuffer() { return _framebuffer.get(); }
 
 }// namespace taixu

@@ -29,6 +29,8 @@ void Engine::init() {
     // TODO: remove this test code
     _scene_manager->addScene("MainScene", std::make_unique<Scene>());
     _scene_manager->setCurrentScene("MainScene");
+
+    _renderer->bindScene(_scene_manager->getCurrentScene());
 }
 
 void Engine::update() {
