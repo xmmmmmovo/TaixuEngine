@@ -4,8 +4,4 @@
 
 #include "ecs_coordinator.hpp"
 
-namespace taixu {
-
-void ECSCoordinator::init() {}
-
-}// namespace taixu
+namespace taixu {}// namespace taixu

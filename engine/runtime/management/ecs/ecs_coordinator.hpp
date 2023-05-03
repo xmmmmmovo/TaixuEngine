@@ -27,7 +27,6 @@ public:
         mEntityManager    = std::make_unique<EntityManager>();
     }
 
-
     // Entity methods
     Entity CreateEntity() { return mEntityManager->createEntity(); }
 
