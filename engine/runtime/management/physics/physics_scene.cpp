@@ -32,11 +32,11 @@ void PhysicsScene::init() {
 
     m_physics.body_activation_listener =
             std::make_unique<MyBodyActivationListener>();
-    m_physics.physics_system.get()->SetBodyActivationListener(
+    m_physics.physics_system->SetBodyActivationListener(
             m_physics.body_activation_listener.get());
 
     m_physics.contact_listener = std::make_unique<MyContactListener>();
-    m_physics.physics_system.get()->SetContactListener(
+    m_physics.physics_system->SetContactListener(
             m_physics.contact_listener.get());
 
 

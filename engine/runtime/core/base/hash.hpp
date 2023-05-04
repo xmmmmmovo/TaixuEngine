@@ -30,15 +30,18 @@ inline void hash_combine(std::size_t &seed, const T &v, Ts... rest) {
     if constexpr (sizeof...(Ts) > 1) { hash_combine(seed, rest...); }
 }
 
+using hash32_t = std::uint32_t;
+using hash64_t = std::uint64_t;
+
 // From: https://gist.github.com/Lee-R/3839813
-inline constexpr std::uint32_t fnv1a_32(char const *s, std::size_t count) {
+inline constexpr hash32_t fnv1a_32(char const *s, std::size_t count) {
     return ((count ? fnv1a_32(s, count - 1)
                    : 2166136261u)// NOLINT (hicpp-signed-bitwise)
             ^ s[count]) *
            16777619u;            // NOLINT (hicpp-signed-bitwise)
 }
 
-inline constexpr std::uint64_t fnv1a_64(char const *s, std::size_t count) {
+inline constexpr hash64_t fnv1a_64(char const *s, std::size_t count) {
     return ((count ? fnv1a_64(s, count - 1)
                    : 14695981039346656037ULL)// NOLINT (hicpp-signed-bitwise)
             ^ s[count]) *
@@ -46,11 +49,11 @@ inline constexpr std::uint64_t fnv1a_64(char const *s, std::size_t count) {
            1099511628211ULL;// NOLINT (hicpp-signed-bitwise)
 }
 
-constexpr std::uint32_t operator"" _hash32(char const *s, std::size_t count) {
+constexpr hash32_t operator"" _hash32(char const *s, std::size_t count) {
     return fnv1a_32(s, count);
 }
 
-constexpr std::uint64_t operator"" _hash64(char const *s, std::size_t count) {
+constexpr hash64_t operator"" _hash64(char const *s, std::size_t count) {
     return fnv1a_64(s, count);
 }
 

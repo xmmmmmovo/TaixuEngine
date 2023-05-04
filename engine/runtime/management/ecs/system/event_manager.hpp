@@ -19,14 +19,16 @@ private:
 public:
     EventManager() = default;
 
-    void AddListener(EventIdType                         event_type,
+    void addListener(EventIdType                         event_type,
                      const std::function<void(Event &)> &listener);
 
-    void RemoveListener(EventIdType event_type);
+    void removeListener(EventIdType event_type);
 
-    void AddEvent(Event const &&event);
+    void addEvent(Event const &event);
 
-    void ProcessEvents() ;
+    void addEvent(EventIdType event_type);
+
+    void processEvents();
 };
 
 }// namespace taixu

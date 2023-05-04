@@ -23,10 +23,14 @@ Scene *SceneManager::getScene(std::string_view const &name) {
 
 void SceneManager::clear() { _scenes.clear(); }
 
-Scene *SceneManager::getCurrentScene() { return _now_scene; }
+Scene *SceneManager::getCurrentScene() { return _current_scene; }
 
 void SceneManager::setCurrentScene(const std::string_view &name) {
-    _now_scene = getScene(name);
+    _current_scene = getScene(name);
+}
+
+void SceneManager::update() {
+    if (_current_scene != nullptr) { _current_scene->ecs_coordinator.update(); }
 }
 
 }// namespace taixu

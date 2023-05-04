@@ -6,9 +6,9 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/quaternion.hpp"
 #include "glm/matrix.hpp"
-#include "management/ecs/entity_component/entity_component.hpp"
+#include "management/ecs/system/component_array.hpp"
 namespace taixu {
-class TransformComponent : public AbstractEntityComponent {
+class TransformComponent {
 public:
     glm::vec3 position{0.f, 0.f, 0.f};
     glm::vec3 scale{1.f, 1.f, 1.f};
@@ -19,7 +19,7 @@ public:
         : position(pos), scale(scale), rotation(rotate) {}
 
 
-    void tick() override;
+    void tick();
 
     void setPosition(glm::vec3 pos);
     void setScale(glm::vec3 scl);

@@ -2,8 +2,8 @@
 // Created by xmmmmmovo on 2023/2/14.
 //
 
-#ifndef TAIXUENGINE_RENDERER_HPP
-#define TAIXUENGINE_RENDERER_HPP
+#ifndef TAIXUENGINE_RUNTIME_MANAGEMENT_GRAPHICS_RENDERER_HPP
+#define TAIXUENGINE_RUNTIME_MANAGEMENT_GRAPHICS_RENDERER_HPP
 
 #include <memory>
 #include <vector>
@@ -26,7 +26,7 @@ namespace taixu {
 class IRenderer : private noncopyable {
 public:
     virtual void init()                                   = 0;
-    virtual void tick(float delta_time = 0.03333f)        = 0;
+    virtual void update()                                   = 0;
     virtual void clear(const std::array<float, 3> &color) = 0;
     virtual void clearSurface()                           = 0;
 
@@ -37,12 +37,12 @@ public:
 
 class BaseRenderer : public IRenderer {
 protected:
-    Clock _clock{};
-    Scene _current_scene{nullptr};
+    Clock  _clock{};
+    Scene *_current_scene{nullptr};
 
     void bindScene(Scene *scene) override { _current_scene = scene; };
 };
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_RENDERER_HPP
+#endif//TAIXUENGINE_RUNTIME_MANAGEMENT_GRAPHICS_RENDERER_HPP

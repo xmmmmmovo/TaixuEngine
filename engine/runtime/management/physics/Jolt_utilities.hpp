@@ -135,7 +135,6 @@ public:
     }
 };
 
-
 class ObjectVsBroadPhaseLayerFilterImpl : public ObjectVsBroadPhaseLayerFilter {
 public:
     bool ShouldCollide(ObjectLayer     inLayer1,

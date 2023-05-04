@@ -6,19 +6,23 @@
 
 namespace taixu {
 
-void EventManager::AddListener(EventIdType                         event_type,
+void EventManager::addListener(EventIdType                         event_type,
                                const std::function<void(Event &)> &listener) {
 
     _listeners[event_type] = listener;
 }
 
-void EventManager::RemoveListener(EventIdType event_type) {
+void EventManager::removeListener(EventIdType event_type) {
     _listeners.erase(event_type);
 }
 
-void EventManager::AddEvent(const Event &&event) { _event_queue.push(event); }
+void EventManager::addEvent(const Event &event) { _event_queue.push(event); }
 
-void EventManager::ProcessEvents() {
+void EventManager::addEvent(EventIdType event_type) {
+    _event_queue.emplace(event_type);
+}
+
+void EventManager::processEvents() {
     while (!_event_queue.empty()) {
         auto &event = _event_queue.front();
 

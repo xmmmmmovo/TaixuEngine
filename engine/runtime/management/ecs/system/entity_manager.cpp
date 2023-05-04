@@ -10,20 +10,20 @@ EntityManager::EntityManager() {
     for (auto i = 0; i < MAX_ENTITIES; ++i) { _available_entities.push(i); }
 }
 
-Entity EntityManager::createEntity() {
+EntityType EntityManager::createEntity() {
     assert(_living_entity_count < MAX_ENTITIES &&
            "Too many entities in existence.");
 
     // Take an ID from the front of the queue
-    Entity const id = _available_entities.front();
+    EntityType const id = _available_entities.front();
     _available_entities.pop();
     ++_living_entity_count;
 
     return id;
 }
 
-void EntityManager::destroyEntity(Entity entity) {
-    assert(entity < MAX_ENTITIES && "Entity out of range.");
+void EntityManager::destroyEntity(EntityType entity) {
+    assert(entity < MAX_ENTITIES && "EntityType out of range.");
 
     // Invalidate the destroyed entity's signature
     _signatures[entity].reset();
@@ -33,14 +33,15 @@ void EntityManager::destroyEntity(Entity entity) {
     --_living_entity_count;
 }
 
-void EntityManager::setSignature(Entity entity, Signature signature) {
-    assert(entity < MAX_ENTITIES && "Entity out of range.");
+void EntityManager::setSignature(EntityType           entity,
+                                 SignatureType const &signature) {
+    assert(entity < MAX_ENTITIES && "EntityType out of range.");
 
     _signatures[entity] = signature;
 }
 
-Signature EntityManager::getSignature(Entity entity) {
-    assert(entity < MAX_ENTITIES && "Entity out of range.");
+SignatureType EntityManager::getSignature(EntityType entity) {
+    assert(entity < MAX_ENTITIES && "EntityType out of range.");
 
     return _signatures[entity];
 }

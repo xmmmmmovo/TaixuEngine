@@ -6,31 +6,22 @@
 #include <unordered_map>
 
 #include "core/base/macro.hpp"
-#include "management/ecs/guid_genenrator.hpp"
+#include "management/ecs/object/guid_genenrator.hpp"
 #include "management/ecs/system/entity_manager.hpp"
 
 namespace taixu {
 
-class AbstractEntityComponent {
-    PROTOTYPE_DFT_ONLY_GETTER(protected, std::uint32_t, GO,
-                              GuidGenerator::generateNewGuid());
-
-public:
-    virtual void tick()                = 0;
-    virtual ~AbstractEntityComponent() = default;
-};
-
 class IComponentArray {
 public:
     virtual ~IComponentArray()                  = default;
-    virtual void EntityDestroyed(Entity entity) = 0;
+    virtual void entityDestroyed(EntityType entity) = 0;
 };
 
 
 template<typename T>
 class ComponentArray : public IComponentArray {
 public:
-    void InsertData(Entity entity, T component) {
+    void InsertData(EntityType entity, T component) {
         assert(mEntityToIndexMap.find(entity) == mEntityToIndexMap.end() &&
                "Component added to same entity more than once.");
 
@@ -42,7 +33,7 @@ public:
         ++mSize;
     }
 
-    void RemoveData(Entity entity) {
+    void RemoveData(EntityType entity) {
         assert(mEntityToIndexMap.find(entity) != mEntityToIndexMap.end() &&
                "Removing non-existent component.");
 
@@ -53,7 +44,7 @@ public:
                 mComponentArray[indexOfLastElement];
 
         // Update map to point to moved spot
-        Entity entityOfLastElement = mIndexToEntityMap[indexOfLastElement];
+        EntityType entityOfLastElement = mIndexToEntityMap[indexOfLastElement];
         mEntityToIndexMap[entityOfLastElement]  = indexOfRemovedEntity;
         mIndexToEntityMap[indexOfRemovedEntity] = entityOfLastElement;
 
@@ -63,7 +54,7 @@ public:
         --mSize;
     }
 
-    T &GetData(Entity entity) {
+    T &GetData(EntityType entity) {
         assert(mEntityToIndexMap.find(entity) != mEntityToIndexMap.end() &&
                "Retrieving non-existent component.");
 
@@ -71,7 +62,7 @@ public:
         return mComponentArray[mEntityToIndexMap[entity]];
     }
 
-    void EntityDestroyed(Entity entity) override {
+    void entityDestroyed(EntityType entity) override {
         if (mEntityToIndexMap.find(entity) != mEntityToIndexMap.end()) {
             // Remove the entity's component if it existed
             RemoveData(entity);
@@ -86,10 +77,10 @@ private:
     std::array<T, MAX_ENTITIES> mComponentArray;
 
     // Map from an entity ID to an array index.
-    std::unordered_map<Entity, size_t> mEntityToIndexMap;
+    std::unordered_map<EntityType, size_t> mEntityToIndexMap;
 
     // Map from an array index to an entity ID.
-    std::unordered_map<size_t, Entity> mIndexToEntityMap;
+    std::unordered_map<size_t, EntityType> mIndexToEntityMap;
 
     // Total size of valid entries in the array.
     size_t mSize{};

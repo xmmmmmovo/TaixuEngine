@@ -36,7 +36,8 @@ void Engine::init() {
 void Engine::update() {
     _renderer->clearSurface();
     InputSystem::getInstance().processInput();
-    _renderer->tick();
+    _scene_manager->update();
+    _renderer->update();
 }
 
 void Engine::destroy() {}

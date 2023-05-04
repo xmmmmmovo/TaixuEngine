@@ -7,8 +7,10 @@
 
 #include <memory>
 
-#include "management/ecs/entity_component/entity_component.hpp"
+#include "management/ecs/system/component_array.hpp"
 #include "management/ecs/system/component_manager.hpp"
+#include "management/ecs/system/event.hpp"
+#include "management/ecs/system/event_manager.hpp"
 #include "system/component_manager.hpp"
 #include "system/entity_manager.hpp"
 
@@ -22,86 +24,70 @@ namespace taixu {
  */
 class ECSCoordinator {
 public:
-    void Init() {
-        mComponentManager = std::make_unique<ComponentManager>();
-        mEntityManager    = std::make_unique<EntityManager>();
+    void init() {
+        _component_manager = std::make_unique<ComponentManager>();
+        _entity_manager    = std::make_unique<EntityManager>();
+        _event_manager     = std::make_unique<EventManager>();
     }
 
     // Entity methods
-    Entity CreateEntity() { return mEntityManager->createEntity(); }
+    EntityType CreateEntity() { return _entity_manager->createEntity(); }
 
-    void DestroyEntity(Entity entity) {
-        mEntityManager->destroyEntity(entity);
-
-        mComponentManager->EntityDestroyed(entity);
+    void DestroyEntity(EntityType entity) {
+        _entity_manager->destroyEntity(entity);
+        _component_manager->entityDestroyed(entity);
     }
-
 
     // Component methods
     template<typename T>
     void RegisterComponent() {
-        mComponentManager->RegisterComponent<T>();
+        _component_manager->registerComponent<T>();
     }
 
     template<typename T>
-    void AddComponent(Entity entity, T component) {
-        mComponentManager->AddComponent<T>(entity, component);
+    void AddComponent(EntityType entity, T component) {
+        _component_manager->AddComponent<T>(entity, component);
 
-        auto signature = mEntityManager->getSignature(entity);
-        signature.set(mComponentManager->GetComponentType<T>(), true);
-        mEntityManager->setSignature(entity, signature);
-
-        mSystemManager->EntitySignatureChanged(entity, signature);
+        auto signature = _entity_manager->getSignature(entity);
+        signature.set(_component_manager->GetComponentType<T>(), true);
+        _entity_manager->setSignature(entity, signature);
     }
 
     template<typename T>
-    void RemoveComponent(Entity entity) {
-        mComponentManager->RemoveComponent<T>(entity);
+    void RemoveComponent(EntityType entity) {
+        _component_manager->RemoveComponent<T>(entity);
 
-        auto signature = mEntityManager->getSignature(entity);
-        signature.set(mComponentManager->GetComponentType<T>(), false);
-        mEntityManager->setSignature(entity, signature);
-
-        mSystemManager->EntitySignatureChanged(entity, signature);
+        auto signature = _entity_manager->getSignature(entity);
+        signature.set(_component_manager->GetComponentType<T>(), false);
+        _entity_manager->setSignature(entity, signature);
     }
 
     template<typename T>
-    T &GetComponent(Entity entity) {
-        return mComponentManager->GetComponent<T>(entity);
+    T &GetComponent(EntityType entity) {
+        return _component_manager->getComponent<T>(entity);
     }
 
     template<typename T>
     ComponentType GetComponentType() {
-        return mComponentManager->GetComponentType<T>();
+        return _component_manager->GetComponentType<T>();
     }
-
-    // System methods
-    template<typename T>
-    std::shared_ptr<T> RegisterSystem() {
-        return mSystemManager->RegisterSystem<T>();
-    }
-
-    template<typename T>
-    void SetSystemSignature(Signature signature) {
-        mSystemManager->SetSignature<T>(signature);
-    }
-
 
     // Event methods
-    void AddEventListener(EventId                             eventId,
-                          std::function<void(Event &)> const &listener) {
-        mEventManager->AddListener(eventId, listener);
-    }
+    void AddEventListener(EventIdType                         eventId,
+                          std::function<void(Event &)> const &listener);
 
-    void SendEvent(Event &event) { mEventManager->SendEvent(event); }
+    void removeEventListener(EventIdType eventId);
 
-    void SendEvent(EventId eventId) { mEventManager->SendEvent(eventId); }
+    void sendEvent(Event &event);
+
+    void sendEvent(EventIdType eventId);
+
+    void update();
 
 private:
-    std::unique_ptr<ComponentManager> mComponentManager;
-    std::unique_ptr<EntityManager>    mEntityManager;
-    std::unique_ptr<EventManager>     mEventManager;
-    std::unique_ptr<SystemManager>    mSystemManager;
+    std::unique_ptr<ComponentManager> _component_manager{nullptr};
+    std::unique_ptr<EntityManager>    _entity_manager{nullptr};
+    std::unique_ptr<EventManager>     _event_manager{nullptr};
 };
 
 }// namespace taixu

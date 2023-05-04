@@ -3,8 +3,8 @@
 
 #include "Jolt/Jolt.h"
 
-#include "management/ecs/entity_component/entity_component.hpp"
 #include "management/ecs/entity_component/transform/transform_component.hpp"
+#include "management/ecs/system/component_array.hpp"
 #include "management/physics/physics_scene.hpp"
 
 
@@ -28,23 +28,20 @@ struct RigidbodyInfo {
 };
 class PhysicsScene;
 
-class RigidBodyComponent : public AbstractEntityComponent {
+class RigidBodyComponent {
 public:
     RigidBodyComponent() = default;
     RigidBodyComponent(std::uint32_t go, TransformComponent *transform,
                        std::weak_ptr<PhysicsScene> physics_scene)
         : transform_component(std::move(transform)),
-          current_scene(physics_scene) {
-        _GO = go;
-    }
+          current_scene(physics_scene) {}
 
     JPH::BodyID        body_id;
     RigidBodyShapeType type{RigidBodyShapeType::INVALID};
 
     std::weak_ptr<PhysicsScene> current_scene;
     TransformComponent         *transform_component;
-
-
+    
     void init(RigidBodyShapeType stype, MotionType mtype);
     void tick();
 };

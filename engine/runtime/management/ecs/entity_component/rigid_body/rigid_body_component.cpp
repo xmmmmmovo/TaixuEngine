@@ -4,7 +4,6 @@ namespace taixu {
 void RigidBodyComponent::init(RigidBodyShapeType stype,
                                     MotionType         mtype) {
     RigidbodyInfo rgdInfo;
-    rgdInfo.GO       = _GO;
     rgdInfo.stype    = stype;
     rgdInfo.mtype    = mtype;
     rgdInfo.position = transform_component->position;

@@ -16,7 +16,7 @@ void OGLRenderer::init() {
                                       FrameDepthImageFormat::DEPTH24STENCIL8});
 }
 
-void OGLRenderer::tick(float delta_time) {
+void OGLRenderer::update() {
     _clock.update();
     _framebuffer->bind();
     clear(CLEAR_COLOR);
