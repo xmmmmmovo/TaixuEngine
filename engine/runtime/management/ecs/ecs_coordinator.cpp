@@ -6,7 +6,7 @@
 
 namespace taixu {
 
-void ECSCoordinator::AddEventListener(
+void ECSCoordinator::addEventListener(
         EventIdType eventId, const std::function<void(Event &)> &listener) {
     _event_manager->addListener(eventId, listener);
 }

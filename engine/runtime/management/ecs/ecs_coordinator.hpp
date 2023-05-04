@@ -46,7 +46,7 @@ public:
 
     template<typename T>
     void AddComponent(EntityType entity, T component) {
-        _component_manager->AddComponent<T>(entity, component);
+        _component_manager->addComponent<T>(entity, component);
 
         auto signature = _entity_manager->getSignature(entity);
         signature.set(_component_manager->GetComponentType<T>(), true);
@@ -55,7 +55,7 @@ public:
 
     template<typename T>
     void RemoveComponent(EntityType entity) {
-        _component_manager->RemoveComponent<T>(entity);
+        _component_manager->removeComponent<T>(entity);
 
         auto signature = _entity_manager->getSignature(entity);
         signature.set(_component_manager->GetComponentType<T>(), false);
@@ -73,7 +73,7 @@ public:
     }
 
     // Event methods
-    void AddEventListener(EventIdType                         eventId,
+    void addEventListener(EventIdType                         eventId,
                           std::function<void(Event &)> const &listener);
 
     void removeEventListener(EventIdType eventId);

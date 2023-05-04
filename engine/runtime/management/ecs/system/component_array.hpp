@@ -13,7 +13,7 @@ namespace taixu {
 
 class IComponentArray {
 public:
-    virtual ~IComponentArray()                  = default;
+    virtual ~IComponentArray()                      = default;
     virtual void entityDestroyed(EntityType entity) = 0;
 };
 
@@ -21,51 +21,55 @@ public:
 template<typename T>
 class ComponentArray : public IComponentArray {
 public:
-    void InsertData(EntityType entity, T component) {
-        assert(mEntityToIndexMap.find(entity) == mEntityToIndexMap.end() &&
+    void insertData(EntityType entity, T component) {
+        assert(_entity_to_index_map.find(entity) ==
+                       _entity_to_index_map.end() &&
                "Component added to same entity more than once.");
 
         // Put new entry at end and update the maps
-        size_t newIndex             = mSize;
-        mEntityToIndexMap[entity]   = newIndex;
-        mIndexToEntityMap[newIndex] = entity;
-        mComponentArray[newIndex]   = component;
-        ++mSize;
+        size_t newIndex                = _size;
+        _entity_to_index_map[entity]   = newIndex;
+        _index_to_entity_map[newIndex] = entity;
+        _component_array[newIndex]     = component;
+        ++_size;
     }
 
-    void RemoveData(EntityType entity) {
-        assert(mEntityToIndexMap.find(entity) != mEntityToIndexMap.end() &&
+    void removeData(EntityType entity) {
+        assert(_entity_to_index_map.find(entity) !=
+                       _entity_to_index_map.end() &&
                "Removing non-existent component.");
 
         // Copy element at end into deleted element's place to maintain density
-        size_t indexOfRemovedEntity = mEntityToIndexMap[entity];
-        size_t indexOfLastElement   = mSize - 1;
-        mComponentArray[indexOfRemovedEntity] =
-                mComponentArray[indexOfLastElement];
+        size_t indexOfRemovedEntity = _entity_to_index_map[entity];
+        size_t indexOfLastElement   = _size - 1;
+        _component_array[indexOfRemovedEntity] =
+                _component_array[indexOfLastElement];
 
         // Update map to point to moved spot
-        EntityType entityOfLastElement = mIndexToEntityMap[indexOfLastElement];
-        mEntityToIndexMap[entityOfLastElement]  = indexOfRemovedEntity;
-        mIndexToEntityMap[indexOfRemovedEntity] = entityOfLastElement;
+        EntityType entityOfLastElement =
+                _index_to_entity_map[indexOfLastElement];
+        _entity_to_index_map[entityOfLastElement]  = indexOfRemovedEntity;
+        _index_to_entity_map[indexOfRemovedEntity] = entityOfLastElement;
 
-        mEntityToIndexMap.erase(entity);
-        mIndexToEntityMap.erase(indexOfLastElement);
+        _entity_to_index_map.erase(entity);
+        _index_to_entity_map.erase(indexOfLastElement);
 
-        --mSize;
+        --_size;
     }
 
-    T &GetData(EntityType entity) {
-        assert(mEntityToIndexMap.find(entity) != mEntityToIndexMap.end() &&
+    T &getData(EntityType entity) {
+        assert(_entity_to_index_map.find(entity) !=
+                       _entity_to_index_map.end() &&
                "Retrieving non-existent component.");
 
         // Return a reference to the entity's component
-        return mComponentArray[mEntityToIndexMap[entity]];
+        return _component_array[_entity_to_index_map[entity]];
     }
 
     void entityDestroyed(EntityType entity) override {
-        if (mEntityToIndexMap.find(entity) != mEntityToIndexMap.end()) {
+        if (_entity_to_index_map.find(entity) != _entity_to_index_map.end()) {
             // Remove the entity's component if it existed
-            RemoveData(entity);
+            removeData(entity);
         }
     }
 
@@ -74,16 +78,16 @@ private:
     // set to a specified maximum amount, matching the maximum number
     // of entities allowed to exist simultaneously, so that each entity
     // has a unique spot.
-    std::array<T, MAX_ENTITIES> mComponentArray;
+    std::array<T, MAX_ENTITIES> _component_array;
 
     // Map from an entity ID to an array index.
-    std::unordered_map<EntityType, size_t> mEntityToIndexMap;
+    std::unordered_map<EntityType, size_t> _entity_to_index_map;
 
     // Map from an array index to an entity ID.
-    std::unordered_map<size_t, EntityType> mIndexToEntityMap;
+    std::unordered_map<size_t, EntityType> _index_to_entity_map;
 
     // Total size of valid entries in the array.
-    size_t mSize{};
+    size_t _size{};
 };
 
 }// namespace taixu

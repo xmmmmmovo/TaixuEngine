@@ -14,33 +14,16 @@ public:
     void registerComponent();
 
     template<typename T>
-    ComponentType GetComponentType() {
-        const char *type_name = typeid(T).name();
-
-        assert(_component_types.find(type_name) != _component_types.end() &&
-               "Component not registered before use.");
-
-        // Return this component's type - used for creating signatures
-        return _component_types[type_name];
-    }
+    ComponentType GetComponentType();
 
     template<typename T>
-    void AddComponent(EntityType entity, T component) {
-        // Add a component to the array for an entity
-        getComponentArray<T>()->InsertData(entity, component);
-    }
+    void addComponent(EntityType entity, T component);
 
     template<typename T>
-    void RemoveComponent(EntityType entity) {
-        // Remove a component from the array for an entity
-        getComponentArray<T>()->RemoveData(entity);
-    }
+    void removeComponent(EntityType entity);
 
     template<typename T>
-    T &getComponent(EntityType entity) {
-        // Get a reference to a component from the array for an entity
-        return getComponentArray<T>()->GetData(entity);
-    }
+    T &getComponent(EntityType entity);
 
     void entityDestroyed(EntityType entity);
 
@@ -53,7 +36,7 @@ private:
             _component_arrays{};
 
     // The component type to be assigned to the next registered component - starting at 0
-    ComponentType _next_component_type{};
+    ComponentType _next_component_type{0};
 
     // Convenience function to get the statically cast pointer to the ComponentArray of type T.
     template<typename T>

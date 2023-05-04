@@ -20,6 +20,35 @@ void ComponentManager::registerComponent() {
     ++_next_component_type;
 }
 
+template<typename T>
+ComponentType ComponentManager::GetComponentType() {
+    const char *type_name = typeid(T).name();
+
+    assert(_component_types.find(type_name) != _component_types.end() &&
+           "Component not registered before use.");
+
+    // Return this component's type - used for creating signatures
+    return _component_types[type_name];
+}
+
+template<typename T>
+void ComponentManager::addComponent(EntityType entity, T component) {
+    // Add a component to the array for an entity
+    getComponentArray<T>()->insertData(entity, component);
+}
+
+template<typename T>
+void ComponentManager::removeComponent(EntityType entity) {
+    // Remove a component from the array for an entity
+    getComponentArray<T>()->removeData(entity);
+}
+
+template<typename T>
+T &ComponentManager::getComponent(EntityType entity) {
+    // Get a reference to a component from the array for an entity
+    return getComponentArray<T>()->getData(entity);
+}
+
 inline void ComponentManager::entityDestroyed(EntityType entity) {
     // Notify each component array that an entity has been destroyed
     // If it has a component for that entity, it will remove it
