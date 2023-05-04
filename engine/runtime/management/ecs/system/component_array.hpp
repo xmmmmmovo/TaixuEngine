@@ -91,4 +91,7 @@ private:
 };
 
 }// namespace taixu
+
+#include "component_array.inl"
+
 #endif /* TAIXUENGINE_ENTITY_COMPONENT */
