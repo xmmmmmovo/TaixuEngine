@@ -2,16 +2,21 @@
 
 #include <magic_enum.hpp>
 
+#include "core/base/path.hpp"
 #include "core/base/public_singleton.hpp"
 #include "engine_args.hpp"
+#include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/input/input_system.hpp"
 #include "management/scene/scene.hpp"
 #include "platform/opengl/ogl_renderer.hpp"
+#include "resource/raw_data/model.hpp"
 
 namespace taixu {
 
-void Engine::init() {
+void Engine::init(std::unique_ptr<WindowContext> context) {
+    _context_ptr = std::move(context);
+
     GraphicsAPI const api = EngineArgs::getInstance().api;
     switch (api) {
         case GraphicsAPI::OPENGL:
@@ -27,15 +32,68 @@ void Engine::init() {
     _scene_manager   = std::make_unique<SceneManager>();
 
     // TODO: remove this test code
-    _scene_manager->addScene("MainScene", std::make_unique<Scene>());
+    ////////////////////////////////////////////////////////////////////////////
+    auto scene      = std::make_unique<Scene>();
+    auto entity     = scene->createEntity();
+    auto renderable = RenderableComponent();
+    auto model      = _asset_manager->loadModel(
+            DEBUG_PATH "/example_proj/assets/models/nanosuit/nanosuit.obj");
+
+    renderable.meshes    = transferCPUModel2GPU(model);
+    renderable.materials = model->materials;
+
+    scene->ecs_coordinator.addComponent(entity, std::move(renderable));
+
+    _scene_manager->addScene("MainScene", std::move(scene));
     _scene_manager->setCurrentScene("MainScene");
 
     _renderer->bindScene(_scene_manager->getCurrentScene());
+
+    ////////////////////////////////////////////////////////////////////////////
+
+    _context_ptr->registerOnScrollFn([this](double /*xoffset*/,
+                                            double yoffset) {
+        if (_scene_manager->getCurrentScene() == nullptr ||
+            _scene_manager->getCurrentScene()->_camera == nullptr) {
+            return;
+        }
+
+        if (_context_ptr->_state == EngineState::GAMEMODE) {
+            _scene_manager->getCurrentScene()->_camera->processMouseScroll(
+                    yoffset);
+        }
+    });
+
+    _context_ptr->registerOnCursorPosFn([this](double xpos, double ypos) {
+        if (_scene_manager->getCurrentScene() == nullptr ||
+            _scene_manager->getCurrentScene()->_camera == nullptr) {
+            return;
+        }
+
+        if (_context_ptr->_last_mouse_pos.x == -1.0F &&
+            _context_ptr->_last_mouse_pos.y == -1.0F) {
+            _context_ptr->_last_mouse_pos.x = xpos;
+            _context_ptr->_last_mouse_pos.y = ypos;
+        }
+        _context_ptr->_mouse_pos.x = xpos;
+        _context_ptr->_mouse_pos.y = ypos;
+        if (_context_ptr->_cam_mode) {
+            _scene_manager->getCurrentScene()->_camera->processMouseMovement(
+                    _context_ptr->_mouse_pos.x -
+                            _context_ptr->_last_mouse_pos.x,
+                    _context_ptr->_last_mouse_pos.y -
+                            _context_ptr->_mouse_pos.y);
+        }
+        _context_ptr->_last_mouse_pos = _context_ptr->_mouse_pos;
+    });
+
+    _clock.reset();
 }
 
 void Engine::update() {
+    _clock.update();
     _renderer->clearSurface();
-    InputSystem::getInstance().processInput();
+    InputSystem::getInstance().processInput(_clock.getDeltaTime());
     _scene_manager->update();
     _renderer->update();
 }

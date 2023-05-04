@@ -12,38 +12,17 @@
 namespace taixu::editor {
 void MainWindow::init() {
     spdlog::info("Main window init start!");
-    _context_ptr->registerOnScrollFn(
-            [this](double /*xoffset*/, double yoffset) {
-                if (_context_ptr->_state == EngineState::GAMEMODE) {
-                    _context_ptr->_editor_camera->processMouseScroll(yoffset);
-                }
-            });
-
-    _context_ptr->registerOnCursorPosFn([this](double xpos, double ypos) {
-        if (_last_mouse_pos.x == -1.0F && _last_mouse_pos.y == -1.0F) {
-            _last_mouse_pos.x = xpos;
-            _last_mouse_pos.y = ypos;
-        }
-        _mouse_pos.x = xpos;
-        _mouse_pos.y = ypos;
-        if (_cam_mode) {
-            _context_ptr->_editor_camera->processMouseMovement(
-                    _mouse_pos.x - _last_mouse_pos.x,
-                    _last_mouse_pos.y - _mouse_pos.y);
-        }
-        _last_mouse_pos = _mouse_pos;
-    });
 
     _context_ptr->registerOnMouseButtonFn(
             [this](int button, int action, int /*mods*/) {
                 if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-                    if (_cam_mode) {
-                        _cam_mode = false;
+                    if (_context_ptr->_cam_mode) {
+                        _context_ptr->_cam_mode = false;
                         glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
                                          GLFW_CURSOR_NORMAL);
                     } else {
                         if (isCursorInRenderComponent()) {
-                            _cam_mode = true;
+                            _context_ptr->_cam_mode = true;
                             glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
                                              GLFW_CURSOR_DISABLED);
                         }
@@ -106,13 +85,14 @@ void MainWindow::preUpdate() {
 }
 
 bool MainWindow::isCursorInRenderComponent() const {
-    spdlog::debug("Mouse pos: {}, {}", _mouse_pos.x, _mouse_pos.y);
+    spdlog::debug("Mouse pos: {}, {}", _context_ptr->_mouse_pos.x,
+                  _context_ptr->_mouse_pos.y);
     spdlog::debug("Render rect: {}, {}, {}, {}",
                   render_component->_render_rect.Min.x,
                   render_component->_render_rect.Min.y,
                   render_component->_render_rect.Max.x,
                   render_component->_render_rect.Max.y);
-    return render_component->_render_rect.Contains(_mouse_pos);
+    return render_component->_render_rect.Contains(_context_ptr->_mouse_pos);
 }
 
 void MainWindow::update() {
@@ -132,34 +112,6 @@ void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
 
     ImguiSurface::init(_context_ptr->_window);
     render_component->_framebuffer = _renderer->getRenderFramebuffer();
-
-    InputSystem::getInstance().registerEditorCallback([this](float delta_time) {
-        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_W) == GLFW_PRESS) {
-            _context_ptr->_editor_camera->processKeyboard(
-                    CameraMovement::FORWARD, delta_time);
-        }
-        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_S) == GLFW_PRESS) {
-            _context_ptr->_editor_camera->processKeyboard(
-                    CameraMovement::BACKWARD, delta_time);
-        }
-        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_A) == GLFW_PRESS) {
-            _context_ptr->_editor_camera->processKeyboard(CameraMovement::LEFT,
-                                                          delta_time);
-        }
-        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_D) == GLFW_PRESS) {
-            _context_ptr->_editor_camera->processKeyboard(CameraMovement::RIGHT,
-                                                          delta_time);
-        }
-
-        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_E) == GLFW_PRESS) {
-            _context_ptr->_editor_camera->processKeyboard(CameraMovement::UP,
-                                                          delta_time);
-        }
-        if (glfwGetKey(_context_ptr->_window, GLFW_KEY_Q) == GLFW_PRESS) {
-            _context_ptr->_editor_camera->processKeyboard(CameraMovement::DOWN,
-                                                          delta_time);
-        }
-    });
 }
 
 MainWindow::MainWindow(WindowContext *const context_ptr)
@@ -181,5 +133,7 @@ void MainWindow::onOpenProjectCb(std::string_view const &path) {
 void MainWindow::onSaveProjectCb() {}
 
 void MainWindow::onSaveAsProjectCb(std::string_view const &path) {}
+
+bool MainWindow::shouldClose() const { return _context_ptr->shouldClose(); }
 
 }// namespace taixu::editor

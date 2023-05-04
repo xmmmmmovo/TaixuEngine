@@ -26,7 +26,7 @@ struct Mesh final {
 
     std::vector<std::uint32_t> indices;
 
-    std::optional<std::uint32_t> materialId{std::nullopt};
+    std::optional<std::uint32_t> material_id{std::nullopt};
 };
 
 }// namespace taixu

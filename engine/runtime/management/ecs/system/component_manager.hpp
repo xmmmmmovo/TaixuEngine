@@ -17,7 +17,7 @@ public:
     ComponentType GetComponentType();
 
     template<typename T>
-    void addComponent(EntityType entity, T component);
+    void addComponent(EntityType entity, T &&component);
 
     template<typename T>
     void removeComponent(EntityType entity);

@@ -17,13 +17,6 @@ public:
     explicit TransformComponent(glm::vec3 const &pos, glm::vec3 const &scale,
                                 glm::quat const &rotate)
         : position(pos), scale(scale), rotation(rotate) {}
-
-
-    void tick();
-
-    void setPosition(glm::vec3 pos);
-    void setScale(glm::vec3 scl);
-    void setRotation(glm::quat rotate);
 };
 }// namespace taixu
 

@@ -15,22 +15,22 @@ namespace taixu {
 class InputSystem : public PublicSingleton<InputSystem> {
     friend class PublicSingleton<InputSystem>;
 
-    using inputCallback = std::function<void(float)>;
+    using inputCallback = std::function<void(float, WindowContext *)>;
 
 private:
-    WindowContext*             _context{nullptr};
+    WindowContext             *_context{nullptr};
     std::vector<inputCallback> _editor_callbacks;
     std::vector<inputCallback> _game_callbacks;
 
 public:
-    void setContext(WindowContext * context);
-    void processInput(float delta_time = 0.03333);
+    void setContext(WindowContext *context);
+    void processInput(float delta_time);
 
-    inline void registerEditorCallback(inputCallback const& callback) {
+    inline void registerEditorCallback(inputCallback const &callback) {
         _editor_callbacks.push_back(callback);
     }
 
-    inline void registerGameCallback(inputCallback const& callback) {
+    inline void registerGameCallback(inputCallback const &callback) {
         _game_callbacks.push_back(callback);
     }
 

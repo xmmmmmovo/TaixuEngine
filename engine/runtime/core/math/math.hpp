@@ -5,7 +5,7 @@
 
 namespace taixu {
 
-static const float epsilonFloat = std::numeric_limits<float>::epsilon();
+static const float EPSILON_FLOAT = std::numeric_limits<float>::epsilon();
 
 }
 

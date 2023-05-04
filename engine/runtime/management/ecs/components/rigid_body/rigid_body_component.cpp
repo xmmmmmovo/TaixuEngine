@@ -1,6 +1,7 @@
 #include "rigid_body_component.hpp"
 
 namespace taixu {
+
 void RigidBodyComponent::init(RigidBodyShapeType stype,
                                     MotionType         mtype) {
     RigidbodyInfo rgdInfo;
@@ -17,4 +18,5 @@ void RigidBodyComponent::init(RigidBodyShapeType stype,
 void RigidBodyComponent::tick() {
     current_scene.lock()->updateGlobalTransform(transform_component, body_id);
 }
+
 }// namespace taixu

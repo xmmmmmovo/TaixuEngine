@@ -13,8 +13,8 @@
 #include <spdlog/spdlog.h>
 
 // "" headers
-#include "ui/main_window/main_window.hpp"
 #include "engine_args.hpp"
+#include "ui/main_window/main_window.hpp"
 
 namespace taixu::editor {
 
@@ -64,19 +64,19 @@ void Application::init(std::vector<std::string> const &args) {
     initSpdlog();
     initApplicationArgs(args);
 
-    _context_ptr = std::make_unique<WindowContext>(
+    auto context_ptr = std::make_unique<WindowContext>(
             MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE,
             createGraphicsAPILoader(EngineArgs::getInstance().api), true);
 
-    InputSystem::getInstance().setContext(_context_ptr.get());
+    InputSystem::getInstance().setContext(context_ptr.get());
 
     // init window pointer
     std::unique_ptr<MainWindow> window_ptr_local =
-            std::make_unique<MainWindow>(_context_ptr.get());
+            std::make_unique<MainWindow>(context_ptr.get());
     // init window
     window_ptr_local->init();
 
-    _engine_ptr->init();
+    _engine_ptr->init(std::move(context_ptr));
     window_ptr_local->initWithEngineRuntime(_engine_ptr);
 
     this->_window_ptr = std::move(window_ptr_local);
@@ -84,7 +84,7 @@ void Application::init(std::vector<std::string> const &args) {
 }
 
 void Application::run() {
-    while (!this->_context_ptr->shouldClose()) {
+    while (!this->_window_ptr->shouldClose()) {
         this->_engine_ptr->update();
         this->_window_ptr->update();
     }

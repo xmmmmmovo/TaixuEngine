@@ -8,6 +8,7 @@
 #include <glad/glad.h>
 
 #include "management/graphics/render/element_buffer.hpp"
+#include <cstdint>
 
 namespace taixu {
 
@@ -17,22 +18,23 @@ private:
 
 public:
     OGLElementBuffer();
-    OGLElementBuffer(const std::vector<std::uint32_t>& indices, GLenum usage);
 
-    void bind() override;
-    void unbind() override;
-    unsigned int getbufferID(){return EBO;};
-    void setData(const std::vector<std::uint32_t>& indices,
+    OGLElementBuffer(const std::vector<std::uint32_t> &indices, GLenum usage);
+
+    void                        bind() override;
+    void                        unbind() override;
+    [[nodiscard]] std::uint32_t getbufferID() const { return EBO; };
+    void setData(const std::vector<std::uint32_t> &indices,
                  GLenum                            usage) override;
-    void setDataInner(const std::vector<std::uint32_t>& indices, GLenum usage);
+    void setDataInner(const std::vector<std::uint32_t> &indices, GLenum usage);
 
     ~OGLElementBuffer() override;
 
-    OGLElementBuffer(OGLElementBuffer&& other) noexcept : EBO(other.EBO) {
+    OGLElementBuffer(OGLElementBuffer &&other) noexcept : EBO(other.EBO) {
         other.EBO = 0;
     }
 
-    OGLElementBuffer& operator=(OGLElementBuffer&& other) noexcept {
+    OGLElementBuffer &operator=(OGLElementBuffer &&other) noexcept {
         if (this != &other) {
             EBO       = other.EBO;
             other.EBO = 0;

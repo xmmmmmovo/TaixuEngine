@@ -24,29 +24,23 @@ namespace taixu {
  */
 class ECSCoordinator {
 public:
-    void init() {
-        _component_manager = std::make_unique<ComponentManager>();
-        _entity_manager    = std::make_unique<EntityManager>();
-        _event_manager     = std::make_unique<EventManager>();
-    }
+    void init();
 
     // Entity methods
-    EntityType createEntity() { return _entity_manager->createEntity(); }
+    EntityType createEntity();
 
-    void destroyEntity(EntityType entity) {
-        _entity_manager->destroyEntity(entity);
-        _component_manager->entityDestroyed(entity);
-    }
+    void destroyEntity(EntityType entity);
 
-    // Component methods
+    /// Component methods ///
+
     template<typename T>
     void registerComponent() {
         _component_manager->registerComponent<T>();
     }
 
     template<typename T>
-    void addComponent(EntityType entity, T component) {
-        _component_manager->addComponent<T>(entity, component);
+    void addComponent(EntityType entity, T &&component) {
+        _component_manager->addComponent<T>(entity, std::forward<T>(component));
 
         auto signature = _entity_manager->getSignature(entity);
         signature.set(_component_manager->GetComponentType<T>(), true);

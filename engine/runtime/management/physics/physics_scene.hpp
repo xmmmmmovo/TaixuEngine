@@ -16,8 +16,8 @@
 #include "Jolt/RegisterTypes.h"
 
 #include "Jolt_utilities.hpp"
-#include "management/ecs/entity_component/rigid_body/rigid_body_component.hpp"
-#include "management/ecs/entity_component/transform/transform_component.hpp"
+#include "management/ecs/components/rigid_body/rigid_body_component.hpp"
+#include "management/ecs/components/transform/transform_component.hpp"
 
 namespace taixu {
 struct JoltPhysics {

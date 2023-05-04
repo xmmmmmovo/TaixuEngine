@@ -6,7 +6,7 @@
 
 namespace taixu {
 
-void InputSystem::setContext(WindowContext* const context) {
+void InputSystem::setContext(WindowContext *const context) {
     this->_context = context;
 }
 
@@ -21,11 +21,15 @@ void InputSystem::processInput(float delta_time) {
 }
 
 void InputSystem::editorInput(float delta_time) {
-    for (auto const& callback : _editor_callbacks) { callback(delta_time); }
+    for (auto const &callback : _editor_callbacks) {
+        callback(delta_time, _context);
+    }
 }
 
 void InputSystem::gameInput(float delta_time) {
-    for (auto const& callback : _game_callbacks) { callback(delta_time); }
+    for (auto const &callback : _game_callbacks) {
+        callback(delta_time, _context);
+    }
 }
 
 }// namespace taixu

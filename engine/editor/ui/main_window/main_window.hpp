@@ -69,10 +69,6 @@ private:
     // context
     WindowContext *_context_ptr{nullptr};
 
-    ImVec2 _mouse_pos{0.0f, 0.0f};
-    ImVec2 _last_mouse_pos{-1.f, -1.f};
-    bool   _cam_mode{false};
-
 private:
     /**
      * 一些const代码
@@ -90,6 +86,8 @@ public:
     void init() override;
     void update() override;
     void destroy() override;
+
+    [[nodiscard]] bool shouldClose() const override;
 
     void initWithEngineRuntime(Engine *engine_runtime_ptr);
 

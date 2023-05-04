@@ -224,9 +224,6 @@ public:
      */
     EngineState _state{EngineState::EDITORMODE};
 
-    std::unique_ptr<PerspectiveCamera> _editor_camera{
-            std::make_unique<PerspectiveCamera>()};
-
 protected:
     bool                                       is_vsync{false};
     std::unique_ptr<AbstractGraphicsAPILoader> _api_loader;
@@ -300,6 +297,11 @@ public:
     }
 
     inline void swapBuffers() const { _api_loader->swapBuffers(); }
+
+public:
+    ImVec2 _mouse_pos{0.0f, 0.0f};
+    ImVec2 _last_mouse_pos{-1.f, -1.f};
+    bool   _cam_mode{false};
 };
 
 }// namespace taixu
