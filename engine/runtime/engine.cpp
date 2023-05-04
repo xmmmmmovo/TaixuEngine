@@ -2,12 +2,15 @@
 
 #include <magic_enum.hpp>
 
+#include "core/base/path.hpp"
 #include "core/base/public_singleton.hpp"
 #include "engine_args.hpp"
+#include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/input/input_system.hpp"
 #include "management/scene/scene.hpp"
 #include "platform/opengl/ogl_renderer.hpp"
+#include "resource/raw_data/model.hpp"
 
 namespace taixu {
 
@@ -27,7 +30,18 @@ void Engine::init() {
     _scene_manager   = std::make_unique<SceneManager>();
 
     // TODO: remove this test code
-    _scene_manager->addScene("MainScene", std::make_unique<Scene>());
+    auto scene      = std::make_unique<Scene>();
+    auto entity     = scene->createEntity();
+    auto renderable = RenderableComponent();
+    auto model      = _asset_manager->loadModel(
+            DEBUG_PATH "/example_proj/assets/models/nanosuit/nanosuit.obj");
+
+    renderable.meshes    = transferCPUModel2GPU(model);
+    renderable.materials = model->materials;
+
+    scene->ecs_coordinator.addComponent(entity, std::move(renderable));
+
+    _scene_manager->addScene("MainScene", std::move(scene));
     _scene_manager->setCurrentScene("MainScene");
 
     _renderer->bindScene(_scene_manager->getCurrentScene());

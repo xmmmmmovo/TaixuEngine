@@ -15,7 +15,8 @@
 
 namespace taixu {
 
-class OGLVertexArray : public IVertexArray<OGLVertexBuffer, OGLElementBuffer> {
+class OGLVertexArray
+    : public AbstractVertexArray<OGLVertexBuffer, OGLElementBuffer> {
 private:
     std::uint32_t                VAO{0};
     /**
@@ -34,13 +35,10 @@ public:
     void addVBO(OGLVertexBuffer &&vbo) override;
     void setEBO(OGLElementBuffer &&ebo) override;
 
-    void clear()
-    {
-        // GLuint vboID=VBO[0].getAlign();
-        // glDeleteBuffers(1, &vboID);
+    void clear() {
         VBO.clear();
-        GLuint eboID=EBO.getbufferID();
-        glDeleteBuffers(1, &eboID);
+        GLuint const ebo_id = EBO.getbufferID();
+        glDeleteBuffers(1, &ebo_id);
     };
 };
 

@@ -190,7 +190,7 @@ Mesh AssetManager::processMesh(aiMesh *mesh) {
             ret_mesh.indices.emplace_back(face.mIndices[j]);
         }
     }
-    ret_mesh.materialId = mesh->mMaterialIndex;
+    ret_mesh.material_id = mesh->mMaterialIndex;
 
     return ret_mesh;
 }

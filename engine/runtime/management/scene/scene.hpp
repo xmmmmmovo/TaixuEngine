@@ -5,6 +5,7 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 
+#include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/ecs/system/ecs_types.hpp"
 #include "management/graphics/render/shader.hpp"
@@ -12,7 +13,8 @@
 
 namespace taixu {
 
-struct Scene {
+class Scene {
+public:
     ECSCoordinator          ecs_coordinator{};
     PhysicsManager          physics_manager{};
     IShaderProgram         *shader_program{nullptr};
@@ -20,7 +22,14 @@ struct Scene {
 
     explicit Scene() {
         ecs_coordinator.init();
+        ecs_coordinator.registerComponent<RenderableComponent>();
         physics_manager.init();
+    }
+
+    EntityType createEntity() {
+        auto tmp_ent = ecs_coordinator.createEntity();
+        entities.emplace_back(tmp_ent);
+        return tmp_ent;
     }
 };
 

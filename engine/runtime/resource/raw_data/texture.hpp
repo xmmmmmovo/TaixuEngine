@@ -5,33 +5,34 @@
 #define TAIXUENGINE_RESOURCE_RAW_DATA_TEXTURE_HPP
 
 #include <stb_image.h>
+#include <assimp/material.h>
 
 #include "asset_data.hpp"
 
 namespace taixu {
 
 enum class TextureType {
-    Diffuse,
-    Specular,
-    Normal,
-    Height,
-    Displacement,
+    DIFFUSE,
+    SPECULAR,
+    NORMAL,
+    HEIGHT,
+    DISPLACEMENT,
 
-    Ambient,
-    Emissive,
-    Shininess,
-    Opacity,
-    Lightmap,
+    AMBIENT,
+    EMISSIVE,
+    SHININESS,
+    OPACITY,
+    LIGHTMAP,
 
-    BaseColor,
-    Metallic,
-    Roughness,
+    BASE_COLOR,
+    METALLIC,
+    ROUGHNESS,
     AO,
-    EmissiveFactor,
+    EMISSIVE_FACTOR,
 };
 
 struct Texture final : public BaseAssetData {
-    TextureType type{TextureType::Diffuse};
+    TextureType type{TextureType::DIFFUSE};
     stbi_uc    *data{nullptr};
 
     explicit Texture() = default;
@@ -60,37 +61,37 @@ struct Texture final : public BaseAssetData {
 inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {
     switch (aitype) {
         case aiTextureType_DIFFUSE:
-            return TextureType::Diffuse;
+            return TextureType::DIFFUSE;
         case aiTextureType_SPECULAR:
-            return TextureType::Specular;
+            return TextureType::SPECULAR;
         case aiTextureType_NORMALS:
-            return TextureType::Normal;
+            return TextureType::NORMAL;
         case aiTextureType_HEIGHT:
-            return TextureType::Height;
+            return TextureType::HEIGHT;
         case aiTextureType_DISPLACEMENT:
-            return TextureType::Displacement;
+            return TextureType::DISPLACEMENT;
         case aiTextureType_AMBIENT:
-            return TextureType::Ambient;
+            return TextureType::AMBIENT;
         case aiTextureType_EMISSIVE:
-            return TextureType::Emissive;
+            return TextureType::EMISSIVE;
         case aiTextureType_SHININESS:
-            return TextureType::Shininess;
+            return TextureType::SHININESS;
         case aiTextureType_OPACITY:
-            return TextureType::Opacity;
+            return TextureType::OPACITY;
         case aiTextureType_LIGHTMAP:
-            return TextureType::Lightmap;
+            return TextureType::LIGHTMAP;
         case aiTextureType_BASE_COLOR:
-            return TextureType::BaseColor;
+            return TextureType::BASE_COLOR;
         case aiTextureType_METALNESS:
-            return TextureType::Metallic;
+            return TextureType::METALLIC;
         case aiTextureType_DIFFUSE_ROUGHNESS:
-            return TextureType::Roughness;
+            return TextureType::ROUGHNESS;
         case aiTextureType_AMBIENT_OCCLUSION:
             return TextureType::AO;
         case aiTextureType_EMISSION_COLOR:
-            return TextureType::EmissiveFactor;
+            return TextureType::EMISSIVE_FACTOR;
         default:
-            return TextureType::Diffuse;
+            return TextureType::DIFFUSE;
     }
 }
 
