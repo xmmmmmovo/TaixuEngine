@@ -18,9 +18,9 @@ private:
 public:
     OGLRenderer() = default;
 
-    void initialize() override;
+    void init() override;
 
-    void tick(float delta_time) override;
+    void update() override;
     void clear(const std::array<float, 3> &color) override;
 
     void clearSurface() override;

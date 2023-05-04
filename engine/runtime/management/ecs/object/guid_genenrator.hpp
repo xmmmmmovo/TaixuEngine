@@ -6,14 +6,17 @@
 #include <limits>
 
 namespace taixu {
+
 constexpr std::uint32_t INVALID_GUID =
         std::numeric_limits<std::uint32_t>::max();
+using GUID = std::uint32_t;
+
 class GuidGenerator {
 public:
-    static std::uint32_t generateNewGuid();
+    static GUID generateNewGuid();
 
 private:
-    static std::atomic<std::uint32_t> _next_id;
+    static std::atomic<GUID> _next_id;
 };
 
 }// namespace taixu

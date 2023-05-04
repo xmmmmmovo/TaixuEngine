@@ -21,9 +21,9 @@ target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:
 target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime)
 target_link_libraries(${TARGET_NAME} PRIVATE argparse)
 
-if(USE_PCH)
+if (USE_PCH)
     target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch.hpp)
-endif()
+endif ()
 
 if ("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
     set(OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR})
@@ -40,6 +40,7 @@ add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         )
 
 if (${CMAKE_BUILD_TYPE})
+    message(STATUS "CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
     if (${CMAKE_BUILD_TYPE} NOT STREQUAL "Debug")
         add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
                 COMMAND ${CMAKE_COMMAND} -E make_directory "${BINARY_ROOT_DIR}"

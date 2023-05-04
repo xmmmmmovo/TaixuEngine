@@ -6,7 +6,9 @@
 #define TAIXUENGINE_WINDOW_CONTEXT_HPP
 
 
-#include "GLFW/glfw3.h"
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <spdlog/spdlog.h>
 
 #include <string>
 
@@ -233,7 +235,7 @@ protected:
     initWindow(std::unique_ptr<AbstractGraphicsAPILoader> api_loader,
                bool                                       vsync = false) {
         if (!glfwInit()) {
-            spdlog::error("Failed to initialize GLFW!");
+            spdlog::error("Failed to init GLFW!");
             exit(1);
         }
 

@@ -6,30 +6,24 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/quaternion.hpp"
 #include "glm/matrix.hpp"
-#include "management/ecs/entity_component/entity_component.hpp"
+#include "management/ecs/system/component_array.hpp"
 namespace taixu {
-class TransformComponent : public EntityComponent {
+class TransformComponent {
 public:
     glm::vec3 position{0.f, 0.f, 0.f};
     glm::vec3 scale{1.f, 1.f, 1.f};
-    glm::vec3 rotation_degrees{0.f, 0.f, 0.f};
-    glm::mat4 transform{glm::mat4(1.0f)};
-    //glm::mat4 lastTransform{glm::mat4(1.0f)};
+    glm::quat rotation{glm::quat(1.0f, 0.0f, 0.0f, 0.0f)};
 
-    TransformComponent() = default;
-    TransformComponent(glm::vec3 pos, glm::vec3 scale, glm::vec3 rotate)
-        : position(pos), scale(scale), rotation_degrees(rotate) {}
+    explicit TransformComponent(glm::vec3 const &pos, glm::vec3 const &scale,
+                                glm::quat const &rotate)
+        : position(pos), scale(scale), rotation(rotate) {}
 
-    std::uint32_t GO;
-    std::uint32_t getGO() { return GO; };
 
     void tick();
 
-    void      setPosition(glm::vec3 pos);
-    void      setScale(glm::vec3 scl);
-    void      setRotation(glm::vec3 rotate);
-    glm::mat4 getTransformMatrix();
-    void      makeTransformMatrix();
+    void setPosition(glm::vec3 pos);
+    void setScale(glm::vec3 scl);
+    void setRotation(glm::quat rotate);
 };
 }// namespace taixu
 

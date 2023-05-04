@@ -20,7 +20,7 @@ namespace taixu::editor {
  * @brief Application for the whole editor
  *        use Singleton pattern
  */
-class Application : public PublicSingleton<Application> {
+class Application final : public PublicSingleton<Application> {
     /*
       For User to use
     */
@@ -56,7 +56,7 @@ public:
     /**
      * @brief initWindow application
      */
-    void initialize(std::vector<std::string> const &args);
+    void init(std::vector<std::string> const &args);
     /**
      * @brief main run function
      */
