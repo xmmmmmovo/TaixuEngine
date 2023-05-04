@@ -31,21 +31,21 @@ public:
     }
 
     // Entity methods
-    EntityType CreateEntity() { return _entity_manager->createEntity(); }
+    EntityType createEntity() { return _entity_manager->createEntity(); }
 
-    void DestroyEntity(EntityType entity) {
+    void destroyEntity(EntityType entity) {
         _entity_manager->destroyEntity(entity);
         _component_manager->entityDestroyed(entity);
     }
 
     // Component methods
     template<typename T>
-    void RegisterComponent() {
+    void registerComponent() {
         _component_manager->registerComponent<T>();
     }
 
     template<typename T>
-    void AddComponent(EntityType entity, T component) {
+    void addComponent(EntityType entity, T component) {
         _component_manager->addComponent<T>(entity, component);
 
         auto signature = _entity_manager->getSignature(entity);
@@ -54,7 +54,7 @@ public:
     }
 
     template<typename T>
-    void RemoveComponent(EntityType entity) {
+    void removeComponent(EntityType entity) {
         _component_manager->removeComponent<T>(entity);
 
         auto signature = _entity_manager->getSignature(entity);
@@ -63,12 +63,12 @@ public:
     }
 
     template<typename T>
-    T &GetComponent(EntityType entity) {
+    T &getComponent(EntityType entity) {
         return _component_manager->getComponent<T>(entity);
     }
 
     template<typename T>
-    ComponentType GetComponentType() {
+    ComponentType getComponentType() {
         return _component_manager->GetComponentType<T>();
     }
 
