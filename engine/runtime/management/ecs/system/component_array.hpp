@@ -27,10 +27,10 @@ public:
                "Component added to same entity more than once.");
 
         // Put new entry at end and update the maps
-        size_t newIndex                = _size;
-        _entity_to_index_map[entity]   = newIndex;
-        _index_to_entity_map[newIndex] = entity;
-        _component_array[newIndex]     = component;
+        size_t new_index                = _size;
+        _entity_to_index_map[entity]   = new_index;
+        _index_to_entity_map[new_index] = entity;
+        _component_array[new_index]     = component;
         ++_size;
     }
 
@@ -40,19 +40,19 @@ public:
                "Removing non-existent component.");
 
         // Copy element at end into deleted element's place to maintain density
-        size_t indexOfRemovedEntity = _entity_to_index_map[entity];
-        size_t indexOfLastElement   = _size - 1;
-        _component_array[indexOfRemovedEntity] =
-                _component_array[indexOfLastElement];
+        size_t index_of_removed_entity = _entity_to_index_map[entity];
+        size_t index_of_last_element   = _size - 1;
+        _component_array[index_of_removed_entity] =
+                _component_array[index_of_last_element];
 
         // Update map to point to moved spot
-        EntityType entityOfLastElement =
-                _index_to_entity_map[indexOfLastElement];
-        _entity_to_index_map[entityOfLastElement]  = indexOfRemovedEntity;
-        _index_to_entity_map[indexOfRemovedEntity] = entityOfLastElement;
+        EntityType entity_of_last_element =
+                _index_to_entity_map[index_of_last_element];
+        _entity_to_index_map[entity_of_last_element]  = index_of_removed_entity;
+        _index_to_entity_map[index_of_removed_entity] = entity_of_last_element;
 
         _entity_to_index_map.erase(entity);
-        _index_to_entity_map.erase(indexOfLastElement);
+        _index_to_entity_map.erase(index_of_last_element);
 
         --_size;
     }
