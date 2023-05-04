@@ -18,6 +18,7 @@ private:
 
 public:
     OGLElementBuffer();
+
     OGLElementBuffer(const std::vector<std::uint32_t> &indices, GLenum usage);
 
     void                        bind() override;

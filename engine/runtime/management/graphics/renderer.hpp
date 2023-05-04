@@ -12,7 +12,6 @@
 
 #include "core/base/clock.hpp"
 #include "core/base/noncopyable.hpp"
-#include "frag_frag.h"
 #include "gameplay/player/perspective_camera.hpp"
 #include "management/graphics/render/framebuffer.hpp"
 #include "management/graphics/render/render_api.hpp"
@@ -37,7 +36,6 @@ public:
 
 class BaseRenderer : public IRenderer {
 protected:
-    Clock  _clock{};
     Scene *_current_scene{nullptr};
 
     void bindScene(Scene *scene) override { _current_scene = scene; };

@@ -15,6 +15,8 @@ public:
     virtual void init()    = 0;
     virtual void update()  = 0;
     virtual void destroy() = 0;
+
+    virtual bool shouldClose() const = 0;
 };
 
 }// namespace taixu

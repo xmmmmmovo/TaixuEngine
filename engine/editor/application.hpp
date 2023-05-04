@@ -33,7 +33,6 @@ private:
      * @see IWindow
      */
     std::unique_ptr<IWindow>       _window_ptr{nullptr};
-    std::unique_ptr<WindowContext> _context_ptr{nullptr};
     /**
      * @brief Engine raw pointer
      */

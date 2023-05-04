@@ -22,6 +22,7 @@ struct Model final : public BaseAssetData {
 
 struct ModelGPU final {
     std::unique_ptr<IVertexArray> vao;
+    std::uint32_t                 index_count{};
     std::optional<std::uint32_t>  mat_index{};
 };
 
@@ -67,7 +68,8 @@ inline std::vector<ModelGPU> transferCPUModel2GPU(Model const *model) {
             model_gpu.vao = std::move(vao);
         }
 
-        model_gpu.mat_index = mesh.material_id;
+        model_gpu.index_count = mesh.indices.size();
+        model_gpu.mat_index   = mesh.material_id;
 
         ret.push_back(std::move(model_gpu));
     }

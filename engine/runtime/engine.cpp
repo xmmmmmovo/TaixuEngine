@@ -14,7 +14,9 @@
 
 namespace taixu {
 
-void Engine::init() {
+void Engine::init(std::unique_ptr<WindowContext> context) {
+    _context_ptr = std::move(context);
+
     GraphicsAPI const api = EngineArgs::getInstance().api;
     switch (api) {
         case GraphicsAPI::OPENGL:
@@ -30,6 +32,7 @@ void Engine::init() {
     _scene_manager   = std::make_unique<SceneManager>();
 
     // TODO: remove this test code
+    ////////////////////////////////////////////////////////////////////////////
     auto scene      = std::make_unique<Scene>();
     auto entity     = scene->createEntity();
     auto renderable = RenderableComponent();
@@ -45,11 +48,52 @@ void Engine::init() {
     _scene_manager->setCurrentScene("MainScene");
 
     _renderer->bindScene(_scene_manager->getCurrentScene());
+
+    ////////////////////////////////////////////////////////////////////////////
+
+    _context_ptr->registerOnScrollFn([this](double /*xoffset*/,
+                                            double yoffset) {
+        if (_scene_manager->getCurrentScene() == nullptr ||
+            _scene_manager->getCurrentScene()->_camera == nullptr) {
+            return;
+        }
+
+        if (_context_ptr->_state == EngineState::GAMEMODE) {
+            _scene_manager->getCurrentScene()->_camera->processMouseScroll(
+                    yoffset);
+        }
+    });
+
+    _context_ptr->registerOnCursorPosFn([this](double xpos, double ypos) {
+        if (_scene_manager->getCurrentScene() == nullptr ||
+            _scene_manager->getCurrentScene()->_camera == nullptr) {
+            return;
+        }
+
+        if (_context_ptr->_last_mouse_pos.x == -1.0F &&
+            _context_ptr->_last_mouse_pos.y == -1.0F) {
+            _context_ptr->_last_mouse_pos.x = xpos;
+            _context_ptr->_last_mouse_pos.y = ypos;
+        }
+        _context_ptr->_mouse_pos.x = xpos;
+        _context_ptr->_mouse_pos.y = ypos;
+        if (_context_ptr->_cam_mode) {
+            _scene_manager->getCurrentScene()->_camera->processMouseMovement(
+                    _context_ptr->_mouse_pos.x -
+                            _context_ptr->_last_mouse_pos.x,
+                    _context_ptr->_last_mouse_pos.y -
+                            _context_ptr->_mouse_pos.y);
+        }
+        _context_ptr->_last_mouse_pos = _context_ptr->_mouse_pos;
+    });
+
+    _clock.reset();
 }
 
 void Engine::update() {
+    _clock.update();
     _renderer->clearSurface();
-    InputSystem::getInstance().processInput();
+    InputSystem::getInstance().processInput(_clock.getDeltaTime());
     _scene_manager->update();
     _renderer->update();
 }

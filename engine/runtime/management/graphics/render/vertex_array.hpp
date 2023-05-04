@@ -5,6 +5,7 @@
 #ifndef TAIXUENGINE_GRAPHICS_RENDER_VERTEX_ARRAY_HPP
 #define TAIXUENGINE_GRAPHICS_RENDER_VERTEX_ARRAY_HPP
 
+#include <cstdint>
 #include <vector>
 
 #include "core/base/noncopyable.hpp"
@@ -21,7 +22,8 @@ public:
     virtual void unbind() = 0;
 };
 
-template<typename VboType = IVertexBuffer, typename EboType = IElementBuffer>
+template<typename VboType = IVertexBuffer,
+         typename EboType = IElementBuffer>
 class AbstractVertexArray : public IVertexArray {
 public:
     virtual void addVBO(VboType &&vbo) = 0;

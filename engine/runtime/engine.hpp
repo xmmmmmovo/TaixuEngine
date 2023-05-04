@@ -3,6 +3,7 @@
 
 #include "core/base/macro.hpp"
 #include "core/base/public_singleton.hpp"
+#include "gameplay/gui/window_context.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/graphics/renderer.hpp"
 #include "management/physics/physics_manager.hpp"
@@ -23,8 +24,12 @@ private:
     std::unique_ptr<ProjectManager> _project_manager{nullptr};
     std::unique_ptr<SceneManager>   _scene_manager{nullptr};
 
+    std::unique_ptr<WindowContext> _context_ptr{nullptr};
+
+    Clock _clock{};
+
 public:
-    void init();
+    void init(std::unique_ptr<WindowContext> context);
     void update();
     void destroy();
 
