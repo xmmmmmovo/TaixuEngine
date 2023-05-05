@@ -12,7 +12,7 @@
 
 namespace taixu {
 
-class OGLElementBuffer : public IElementBuffer {
+class OGLElementBuffer final : public IElementBuffer {
 private:
     unsigned int EBO{0};
 
@@ -26,7 +26,6 @@ public:
     [[nodiscard]] std::uint32_t getbufferID() const { return EBO; };
     void setData(const std::vector<std::uint32_t> &indices,
                  GLenum                            usage) override;
-    void setDataInner(const std::vector<std::uint32_t> &indices, GLenum usage);
 
     ~OGLElementBuffer() override;
 

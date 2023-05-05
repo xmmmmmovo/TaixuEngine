@@ -36,7 +36,7 @@ inline std::vector<ModelGPU> transferCPUModel2GPU(Model const *model) {
         if (EngineArgs::getInstance().api == GraphicsAPI::OPENGL) {
             auto vao = std::make_unique<OGLVertexArray>();
 
-            auto vbo = std::make_unique<OGLVertexBuffer>();
+            vao->bind();
             vao->addVBO(OGLVertexBuffer{mesh.vertices.size(),
                                         &mesh.vertices.front(), GL_STATIC_DRAW,
                                         3});

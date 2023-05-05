@@ -11,7 +11,7 @@
 
 namespace taixu {
 
-class OGLVertexBuffer : public IVertexBuffer {
+class OGLVertexBuffer final : public IVertexBuffer {
 private:
     unsigned int VBO{};
     GLint        stride{0};
@@ -24,12 +24,9 @@ public:
 
     void          bind() override;
     void          unbind() override;
-    std::uint32_t getbufferID() { return VBO; };
+    [[nodiscard]] std::uint32_t getbufferID() const { return VBO; }
     void          setData(std::size_t size, const void *data, GLenum usage,
                           GLint align) override;
-
-    void setDataInner(std::size_t size, const void *data, GLenum usage,
-                      GLint align);
 
     [[nodiscard]] GLint getAlign() const override;
     [[nodiscard]] GLint getStride() const override;
