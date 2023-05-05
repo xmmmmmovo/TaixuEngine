@@ -19,6 +19,7 @@ uniform mat3 MV3x3;
 
 void main() {
     gl_Position = MVP * vec4(position, 1.0f);
+//    gl_Position = vec4(position, 1.0f);
     vs_out.FragPos = vec3(M * vec4(position, 1.0));
     vs_out.TexCoords = texCoords;
 }

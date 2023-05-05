@@ -20,10 +20,10 @@ void OGLVertexArray::unbind() {
 
 void OGLVertexArray::addVBO(OGLVertexBuffer &&vbo) {
     std::size_t const idx = VBO.size();
+    glEnableVertexAttribArray(idx);
     vbo.bind();
     glVertexAttribPointer(idx, vbo.getAlign(), GL_FLOAT, GL_FALSE, 0, nullptr);
     this->VBO.push_back(std::move(vbo));
-    glEnableVertexAttribArray(idx);
 }
 
 void OGLVertexArray::setEBO(OGLElementBuffer &&ebo) {

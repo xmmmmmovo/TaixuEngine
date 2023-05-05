@@ -20,10 +20,13 @@ class IVertexArray : private noncopyable {
 public:
     virtual void bind()   = 0;
     virtual void unbind() = 0;
+
+    virtual void clear() = 0;
+
+    virtual void draw(std::uint32_t cnt) = 0;
 };
 
-template<typename VboType = IVertexBuffer,
-         typename EboType = IElementBuffer>
+template<typename VboType = IVertexBuffer, typename EboType = IElementBuffer>
 class AbstractVertexArray : public IVertexArray {
 public:
     virtual void addVBO(VboType &&vbo) = 0;

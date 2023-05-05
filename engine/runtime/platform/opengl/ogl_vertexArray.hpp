@@ -7,6 +7,7 @@
 
 #include <glad/glad.h>
 
+#include <cstdint>
 #include <memory>
 
 #include "management/graphics/render/vertex_array.hpp"
@@ -35,11 +36,18 @@ public:
     void addVBO(OGLVertexBuffer &&vbo) override;
     void setEBO(OGLElementBuffer &&ebo) override;
 
-    void clear() {
+    void clear() override {
         VBO.clear();
         GLuint const ebo_id = EBO.getbufferID();
         glDeleteBuffers(1, &ebo_id);
     };
+
+    void draw(std::uint32_t cnt) override {
+        bind();
+        glDrawElements(GL_TRIANGLES, static_cast<std::int32_t>(cnt),
+                       GL_UNSIGNED_INT, nullptr);
+        unbind();
+    }
 };
 
 }// namespace taixu
