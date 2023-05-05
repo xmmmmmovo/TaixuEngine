@@ -14,8 +14,14 @@
 
 namespace taixu {
 
-void Engine::init(std::unique_ptr<WindowContext> context) {
+void Engine::loadParams(const std::vector<std::string> &args) {
+    EngineArgs::getInstance().loadParams(args);
+}
+
+void Engine::init(std::unique_ptr<WindowContext> context,
+                  std::unique_ptr<IWindow>       window) {
     _context_ptr = std::move(context);
+    _window_ptr  = std::move(window);
 
     GraphicsAPI const api = EngineArgs::getInstance().api;
     switch (api) {
@@ -87,18 +93,28 @@ void Engine::init(std::unique_ptr<WindowContext> context) {
         _context_ptr->_last_mouse_pos = _context_ptr->_mouse_pos;
     });
 
+    _window_ptr->initWithEngineRuntime(this);
+
     _clock.reset();
 }
 
 void Engine::update() {
     _clock.update();
     _renderer->clearSurface();
-    InputSystem::getInstance().processInput(_clock.getDeltaTime());
+    InputSystem::getInstance().processInput(_clock.getDeltaTime(), _context_ptr.get());
     _scene_manager->update();
     _renderer->update();
 }
 
-void Engine::destroy() {}
+void Engine::run() {
+    while (!_context_ptr->shouldClose()) {
+        update();
+        _window_ptr->update();
+        _context_ptr->swapBuffers();
+    }
+}
+
+void Engine::destroy() { this->_window_ptr->destroy(); }
 
 IRenderer *Engine::getRenderer() const { return _renderer.get(); }
 

@@ -46,7 +46,7 @@ public:
         _render_rect.Max.y = _render_rect.Min.y + _render_size.y;
 
         if (_previous_size != _render_size) {
-            spdlog::debug("Resize the framebuffer: width {}, height {}",
+            spdlog::debug("Resize the framebuffer: _width {}, _height {}",
                           _render_size.x, _render_size.y);
             _previous_size = _render_size;
             _framebuffer->resize(static_cast<int>(_render_size.x),

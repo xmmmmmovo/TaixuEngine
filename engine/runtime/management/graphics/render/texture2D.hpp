@@ -15,7 +15,7 @@
 
 namespace taixu {
 
-class ITexture : private noncopyable {
+class ITexture2D : private noncopyable {
 public:
     virtual int      getWidth() const     = 0;
     virtual int      getHeight() const    = 0;
@@ -23,9 +23,9 @@ public:
 
     virtual void bind(uint32_t slot = 0) const = 0;
 
-    virtual bool operator==(const ITexture& other) const = 0;
+    virtual bool operator==(const ITexture2D &other) const = 0;
 
-    ~ITexture() override = 0;
+    ~ITexture2D() override = 0;
 };
 
 }// namespace taixu

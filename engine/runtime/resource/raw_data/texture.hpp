@@ -4,8 +4,8 @@
 #ifndef TAIXUENGINE_RESOURCE_RAW_DATA_TEXTURE_HPP
 #define TAIXUENGINE_RESOURCE_RAW_DATA_TEXTURE_HPP
 
-#include <stb_image.h>
 #include <assimp/material.h>
+#include <stb_image.h>
 
 #include "asset_data.hpp"
 
@@ -31,31 +31,11 @@ enum class TextureType {
     EMISSIVE_FACTOR,
 };
 
-struct Texture final : public BaseAssetData {
+struct Texture2D final : public BaseAssetData {
     TextureType type{TextureType::DIFFUSE};
     stbi_uc    *data{nullptr};
 
-    explicit Texture() = default;
-
-    // move constructor
-    Texture(Texture &&other) noexcept : type(other.type), data(other.data) {
-        other.data = nullptr;
-        file_path  = other.file_path;
-    }
-
-    // move assignment
-    Texture &operator=(Texture &&other) noexcept {
-        if (this == &other) { return *this; }
-        type       = other.type;
-        data       = other.data;
-        file_path  = other.file_path;
-        other.data = nullptr;
-        return *this;
-    }
-
-    ~Texture() {
-        if (data) { stbi_image_free(data); }
-    }
+    explicit Texture2D() = default;
 };
 
 inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {

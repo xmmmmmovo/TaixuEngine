@@ -16,7 +16,7 @@
 #include "management/graphics/render/framebuffer.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/graphics/render/shader.hpp"
-#include "management/graphics/render/texture.hpp"
+#include "management/graphics/render/texture2D.hpp"
 #include "management/scene/scene.hpp"
 #include "platform/opengl/ogl_shader.hpp"
 
@@ -25,7 +25,7 @@ namespace taixu {
 class IRenderer : private noncopyable {
 public:
     virtual void init()                                   = 0;
-    virtual void update()                                   = 0;
+    virtual void update()                                 = 0;
     virtual void clear(const std::array<float, 3> &color) = 0;
     virtual void clearSurface()                           = 0;
 

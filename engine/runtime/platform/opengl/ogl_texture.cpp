@@ -5,6 +5,7 @@
 #include "ogl_texture.hpp"
 
 #include "platform/os/path.hpp"
+#include "resource/helper/image_helper.hpp"
 
 namespace taixu {
 
@@ -16,11 +17,36 @@ GLint mapImageToGLReadType(int channels) {
     return 0;
 }
 
-OGLTexture::OGLTexture(const std::string_view &path,
-                       GLint                   filter_mode = GL_LINEAR,
-                       GLint what_happens_at_edge          = GL_REPEAT) {
-    glGenTextures(1, &texture_id);
-    glBindTexture(GL_TEXTURE_2D, texture_id);
+OGLTexture::OGLTexture(const std::string_view &path, GLint filter_mode,
+                       GLint what_happens_at_edge) {
+    stbi_uc *data = loadImage(path, &_width, &_height, &_n_channels);
+    if (data == nullptr) {
+        spdlog::error("OGLTexture::OGLTexture: load image failed");
+        return;
+    }
+    createTexture(data, _width, _height, _n_channels, filter_mode,
+                  what_happens_at_edge);
+    stbi_image_free(data);
+}
+
+OGLTexture::OGLTexture(stbi_uc *data, int width, int height, int n_channels,
+                       GLint filter_mode, GLint what_happens_at_edge)
+    : _width(width), _height(height), _n_channels(n_channels) {
+    if (data == nullptr) {
+        spdlog::error("OGLTexture::OGLTexture: load image failed");
+        return;
+    }
+    createTexture(data, width, height, n_channels, filter_mode,
+                  what_happens_at_edge);
+    stbi_image_free(data);
+}
+
+void OGLTexture::createTexture(stbi_uc *data, int width, int height,
+                               int n_channels, GLint filter_mode,
+                               GLint what_happens_at_edge) {
+
+    glGenTextures(1, &_texture_id);
+    glBindTexture(GL_TEXTURE_2D, _texture_id);
 
     // 为当前绑定的纹理对象设置环绕、过滤方式
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, what_happens_at_edge);
@@ -30,39 +56,29 @@ OGLTexture::OGLTexture(const std::string_view &path,
 
     // Give the image to OpenGL
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-
-    stbi_set_flip_vertically_on_load(true);
     // 加载并生成纹理
-    unsigned char *data =
-            stbi_load(path.data(), &width, &height, &n_channels, 0);
+    GLint const format = mapImageToGLReadType(_n_channels);
 
-    if (data) {
-        GLint const format = mapImageToGLReadType(n_channels);
-
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format,
-                     GL_UNSIGNED_BYTE, data);
-        if (GL_NEAREST != filter_mode) { glGenerateMipmap(GL_TEXTURE_2D); }
-    } else {
-        spdlog::error("Failed to load texture");
-    }
-
-    stbi_image_free(data);
+    glTexImage2D(GL_TEXTURE_2D, 0, format, _width, _height, 0, format,
+                 GL_UNSIGNED_BYTE, data);
+    if (GL_NEAREST != filter_mode) { glGenerateMipmap(GL_TEXTURE_2D); }
     //unbind
     glBindTexture(GL_TEXTURE_2D, -1);
 }
 
-int      OGLTexture::getWidth() const { return width; }
-int      OGLTexture::getHeight() const { return height; }
-uint32_t OGLTexture::getTextureID() const { return texture_id; }
+int      OGLTexture::getWidth() const { return _width; }
+int      OGLTexture::getHeight() const { return _height; }
+uint32_t OGLTexture::getTextureID() const { return _texture_id; }
 
 void OGLTexture::bind(uint32_t slot) const {
     glActiveTexture(GL_TEXTURE0 + slot);// 在绑定纹理之前先激活纹理单元
-    glBindTexture(GL_TEXTURE_2D, texture_id);
+    glBindTexture(GL_TEXTURE_2D, _texture_id);
 }
 
-bool OGLTexture::operator==(const ITexture &other) const {
-    return this->texture_id == other.getTextureID();
+bool OGLTexture::operator==(const ITexture2D &other) const {
+    return this->_texture_id == other.getTextureID();
 }
 
-OGLTexture::~OGLTexture() { glDeleteTextures(1, &texture_id); }
+OGLTexture::~OGLTexture() { glDeleteTextures(1, &_texture_id); }
+
 }// namespace taixu

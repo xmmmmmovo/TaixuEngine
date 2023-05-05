@@ -19,7 +19,6 @@ target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:
 
 # link libraries
 target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime)
-target_link_libraries(${TARGET_NAME} PRIVATE argparse)
 
 if (USE_PCH)
     target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch.hpp)

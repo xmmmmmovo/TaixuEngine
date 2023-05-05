@@ -195,7 +195,7 @@ Mesh AssetManager::processMesh(aiMesh *mesh) {
     return ret_mesh;
 }
 
-Texture *
+Texture2D *
 AssetManager::processTexture(aiMaterial *material, aiTextureType type,
                              std::filesystem::path const &directory_path) {
     unsigned int const cnt = material->GetTextureCount(type);
@@ -250,12 +250,12 @@ Model *AssetManager::loadModel(const std::filesystem::path &relative_path) {
     return &iterator->second;
 }
 
-Texture *AssetManager::loadTexture(const std::filesystem::path &relative_path,
+Texture2D *AssetManager::loadTexture(const std::filesystem::path &relative_path,
                                    TextureType                  type) {
     auto full_path = fromRelativePath(_asset_path, relative_path);
 
     if (std::filesystem::is_directory(full_path)) {
-        spdlog::error("Texture path is directory");
+        spdlog::error("Texture2D path is directory");
         return nullptr;
     }
 
@@ -264,13 +264,13 @@ Texture *AssetManager::loadTexture(const std::filesystem::path &relative_path,
     }
 
     int      width, height, channels;
-    stbi_uc *data = load_image(full_path, &width, &height, &channels);
+    stbi_uc *data = loadImage(full_path, &width, &height, &channels);
     if (!data) {
         spdlog::error("Load image error, path: {}", relative_path.string());
         return nullptr;
     }
 
-    Texture ret_texture{};
+    Texture2D ret_texture{};
 
     ret_texture.type      = type;
     ret_texture.file_path = relative_path;
@@ -287,6 +287,6 @@ void AssetManager::loadModelAsync(
 
 void AssetManager::loadTextureAsync(
         const std::filesystem::path          &relative_path,
-        std::function<void(Texture *)> const &callback) {}
+        std::function<void(Texture2D *)> const &callback) {}
 
 }// namespace taixu

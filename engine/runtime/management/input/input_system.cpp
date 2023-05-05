@@ -6,29 +6,25 @@
 
 namespace taixu {
 
-void InputSystem::setContext(WindowContext *const context) {
-    this->_context = context;
-}
+void InputSystem::processInput(float delta_time, WindowContext *context) {
+    if (context->_state == EngineState::IDLEMODE) { return; }
 
-void InputSystem::processInput(float delta_time) {
-    if (_context->_state == EngineState::IDLEMODE) { return; }
-
-    if (_context->_state == EngineState::EDITORMODE) {
-        editorInput(delta_time);
-    } else if (_context->_state == EngineState::GAMEMODE) {
-        gameInput(delta_time);
+    if (context->_state == EngineState::EDITORMODE) {
+        editorInput(delta_time, context);
+    } else if (context->_state == EngineState::GAMEMODE) {
+        gameInput(delta_time, context);
     }
 }
 
-void InputSystem::editorInput(float delta_time) {
+void InputSystem::editorInput(float delta_time, WindowContext *context) {
     for (auto const &callback : _editor_callbacks) {
-        callback(delta_time, _context);
+        callback(delta_time, context);
     }
 }
 
-void InputSystem::gameInput(float delta_time) {
+void InputSystem::gameInput(float delta_time, WindowContext *context) {
     for (auto const &callback : _game_callbacks) {
-        callback(delta_time, _context);
+        callback(delta_time, context);
     }
 }
 

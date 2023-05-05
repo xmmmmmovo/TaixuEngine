@@ -28,7 +28,7 @@ class AssetManager final {
     PROTOTYPE(private, std::filesystem::path, asset_path);
 
 private:
-    std::unordered_map<std::string, Texture> _textures{};
+    std::unordered_map<std::string, Texture2D> _textures{};
     std::unordered_map<std::string, Model>   _models{};
 
     static Mesh processMesh(aiMesh *mesh);
@@ -37,7 +37,7 @@ private:
 
     void processMaterial(aiScene const *scene, Model &model);
 
-    Texture *processTexture(aiMaterial *material, aiTextureType type,
+    Texture2D *processTexture(aiMaterial *material, aiTextureType type,
                             std::filesystem::path const &directory_path);
 
 public:
@@ -47,12 +47,12 @@ public:
     void loadModelAsync(std::filesystem::path const        &relative_path,
                         std::function<void(Model *)> const &callback);
 
-    Texture *loadTexture(std::filesystem::path const &relative_path,
+    Texture2D *loadTexture(std::filesystem::path const &relative_path,
                          TextureType                  type);
 
     // TODO: load texture async
     void loadTextureAsync(std::filesystem::path const          &relative_path,
-                          std::function<void(Texture *)> const &callback);
+                          std::function<void(Texture2D *)> const &callback);
 
     void reset(std::filesystem::path const &asset_path) {
         _asset_path = asset_path;
