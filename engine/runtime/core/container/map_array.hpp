@@ -32,7 +32,7 @@ private:
     std::size_t                          _size{0};
 
 public:
-    void insertData(const Key &key, const Value &value) {
+    void insertData(const Key &key, const Value &value) noexcept {
         if (contains(key)) {
             _values[_key_to_index_map[key]] = value;
             return;
@@ -43,7 +43,7 @@ public:
         _values[new_idx]           = value;
     }
 
-    void insertData(const Key &key, Value &&value) {
+    void insertData(const Key &key, Value &&value) noexcept {
         if (contains(key)) {
             _values[_key_to_index_map[key]] = std::move(value);
             return;
@@ -55,14 +55,20 @@ public:
     }
 
     void removeData(const Key &key) {
+        assert(contains(key) && "Key does not exist.");
         std::size_t idx_of_removed_element = _key_to_index_map[key];
         std::size_t idx_of_last_element    = _size - 1;
-        _values[idx_of_removed_element] =
-                std::move(_values[idx_of_last_element]);
 
-        Key key_of_last_element = _index_to_key_map[idx_of_last_element];
-        _key_to_index_map[key_of_last_element]    = idx_of_removed_element;
-        _index_to_key_map[idx_of_removed_element] = key_of_last_element;
+        if (idx_of_removed_element == idx_of_last_element) {
+            _values[idx_of_removed_element].~Value();
+        } else {
+            _values[idx_of_removed_element] =
+                    std::move(_values[idx_of_last_element]);
+
+            Key key_of_last_element = _index_to_key_map[idx_of_last_element];
+            _key_to_index_map[key_of_last_element]    = idx_of_removed_element;
+            _index_to_key_map[idx_of_removed_element] = key_of_last_element;
+        }
 
         _key_to_index_map.erase(key);
         _index_to_key_map.erase(idx_of_last_element);
@@ -70,9 +76,13 @@ public:
         --_size;
     }
 
-    Value &getData(const Key &key) { return _values[_key_to_index_map[key]]; }
+    Value &getData(const Key &key) {
+        assert(contains(key) && "Key does not exist.");
+        return _values[_key_to_index_map[key]];
+    }
 
     Value const &getData(const Key &key) const {
+        assert(contains(key) && "Key does not exist.");
         return _values[_key_to_index_map[key]];
     }
 

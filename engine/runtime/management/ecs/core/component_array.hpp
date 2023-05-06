@@ -29,19 +29,9 @@ public:
         _map_array.insertData(entity, std::move(component));
     }
 
-    void removeData(Entity entity) {
-        assert(_map_array.contains(entity) &&
-               "Removing non-existent component.");
+    void removeData(Entity entity) { _map_array.removeData(entity); }
 
-        _map_array.removeData(entity);
-    }
-
-    T &getData(Entity entity) {
-        assert(_map_array.contains(entity) &&
-               "Retrieving non-existent component.");
-
-        return _map_array.getData(entity);
-    }
+    T &getData(Entity entity) { return _map_array.getData(entity); }
 
     void entityDestroyed(Entity entity) override {
         if (_map_array.contains(entity)) { _map_array.removeData(entity); }
