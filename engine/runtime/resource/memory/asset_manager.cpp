@@ -2,15 +2,15 @@
 // Created by xmmmmmovo on 2023/2/18.
 //
 
-#include <assimp/material.h>
-#include <assimp/scene.h>
+#include "assimp/material.h"
+#include "assimp/scene.h"
 #include <vector>
 
 #include "asset_manager.hpp"
-#include "helper/image_helper.hpp"
-#include "raw_data/material.hpp"
-#include "raw_data/mesh.hpp"
-#include "raw_data/texture.hpp"
+#include "resource/helper/image_helper.hpp"
+#include "resource/raw_data/material.hpp"
+#include "resource/raw_data/mesh.hpp"
+#include "resource/raw_data/texture.hpp"
 
 namespace taixu {
 
@@ -274,7 +274,7 @@ Texture2D *AssetManager::loadTexture(const std::filesystem::path &relative_path,
 
     ret_texture.type      = type;
     ret_texture.file_path = relative_path;
-    ret_texture.data      = data;
+//    ret_texture.data      = data;
 
     auto [iterator, was_inserted] =
             _textures.insert({relative_path.string(), std::move(ret_texture)});

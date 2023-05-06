@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 2023/2/23.
 //
 
-#include "ogl_texture.hpp"
+#include "ogl_texture2d.hpp"
 
 #include "platform/os/path.hpp"
 #include "resource/helper/image_helper.hpp"
@@ -17,7 +17,7 @@ GLint mapImageToGLReadType(int channels) {
     return 0;
 }
 
-OGLTexture::OGLTexture(const std::string_view &path, GLint filter_mode,
+OGLTexture2D::OGLTexture2D(const std::string_view &path, GLint filter_mode,
                        GLint what_happens_at_edge) {
     stbi_uc *data = loadImage(path, &_width, &_height, &_n_channels);
     if (data == nullptr) {
@@ -29,7 +29,7 @@ OGLTexture::OGLTexture(const std::string_view &path, GLint filter_mode,
     stbi_image_free(data);
 }
 
-OGLTexture::OGLTexture(stbi_uc *data, int width, int height, int n_channels,
+OGLTexture2D::OGLTexture2D(stbi_uc *data, int width, int height, int n_channels,
                        GLint filter_mode, GLint what_happens_at_edge)
     : _width(width), _height(height), _n_channels(n_channels) {
     if (data == nullptr) {
@@ -41,7 +41,7 @@ OGLTexture::OGLTexture(stbi_uc *data, int width, int height, int n_channels,
     stbi_image_free(data);
 }
 
-void OGLTexture::createTexture(stbi_uc *data, int width, int height,
+void OGLTexture2D::createTexture(stbi_uc *data, int width, int height,
                                int n_channels, GLint filter_mode,
                                GLint what_happens_at_edge) {
 
@@ -66,19 +66,19 @@ void OGLTexture::createTexture(stbi_uc *data, int width, int height,
     glBindTexture(GL_TEXTURE_2D, -1);
 }
 
-int      OGLTexture::getWidth() const { return _width; }
-int      OGLTexture::getHeight() const { return _height; }
-uint32_t OGLTexture::getTextureID() const { return _texture_id; }
+int      OGLTexture2D::getWidth() const { return _width; }
+int      OGLTexture2D::getHeight() const { return _height; }
+uint32_t OGLTexture2D::getTextureID() const { return _texture_id; }
 
-void OGLTexture::bind(uint32_t slot) const {
+void OGLTexture2D::bind(uint32_t slot) const {
     glActiveTexture(GL_TEXTURE0 + slot);// 在绑定纹理之前先激活纹理单元
     glBindTexture(GL_TEXTURE_2D, _texture_id);
 }
 
-bool OGLTexture::operator==(const ITexture2D &other) const {
+bool OGLTexture2D::operator==(const ITexture2D &other) const {
     return this->_texture_id == other.getTextureID();
 }
 
-OGLTexture::~OGLTexture() { glDeleteTextures(1, &_texture_id); }
+OGLTexture2D::~OGLTexture2D() { glDeleteTextures(1, &_texture_id); }
 
 }// namespace taixu

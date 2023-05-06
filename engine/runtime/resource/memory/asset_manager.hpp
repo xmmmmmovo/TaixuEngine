@@ -5,12 +5,12 @@
 #ifndef TAIXUENGINE_RESOURCE_MANAGER_HPP
 #define TAIXUENGINE_RESOURCE_MANAGER_HPP
 
-#include <assimp/BaseImporter.h>
-#include <assimp/Importer.hpp>
-#include <assimp/postprocess.h>
-#include <assimp/scene.h>
+#include "assimp/BaseImporter.h"
+#include "assimp/Importer.hpp"
+#include "assimp/postprocess.h"
+#include "assimp/scene.h"
+#include "spdlog/spdlog.h"
 #include <filesystem>
-#include <spdlog/spdlog.h>
 
 #include <memory>
 #include <string>
@@ -18,8 +18,8 @@
 #include <vector>
 
 #include "platform/os/path.hpp"
-#include "raw_data/model.hpp"
 #include "resource/raw_data/mesh.hpp"
+#include "resource/raw_data/model.hpp"
 #include "resource/raw_data/texture.hpp"
 
 namespace taixu {

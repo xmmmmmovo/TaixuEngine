@@ -5,9 +5,12 @@
 #define TAIXUENGINE_RESOURCE_RAW_DATA_TEXTURE_HPP
 
 #include <assimp/material.h>
+#include <memory>
 #include <stb_image.h>
 
 #include "asset_data.hpp"
+#include "management/graphics/render/texture2d.hpp"
+#include "platform/opengl/ogl_texture2d.hpp"
 
 namespace taixu {
 
@@ -29,13 +32,6 @@ enum class TextureType {
     ROUGHNESS,
     AO,
     EMISSIVE_FACTOR,
-};
-
-struct Texture2D final : public BaseAssetData {
-    TextureType type{TextureType::DIFFUSE};
-    stbi_uc    *data{nullptr};
-
-    explicit Texture2D() = default;
 };
 
 inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {
@@ -73,6 +69,25 @@ inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {
         default:
             return TextureType::DIFFUSE;
     }
+}
+
+struct Texture2D final : public BaseAssetData {
+    TextureType                 type{TextureType::DIFFUSE};
+    std::unique_ptr<ITexture2D> texture{nullptr};
+};
+
+inline std::unique_ptr<ITexture2D> transferCPUTextureToGPU(unsigned char *data,
+                                                           int            width,
+                                                           int height,
+                                                           int channels) {
+//    if (EngineArgs::getInstance().api == GraphicsAPI::OPENGL) {
+//        auto texture = std::make_unique<OGLTexture2D>();
+//        texture->texture =
+//                std::make_unique<RenderTexture2D>(width, height, channels);
+//        texture->texture->setData(data, width, height, channels);
+//        return texture->texture;
+//    }
+    return nullptr;
 }
 
 }// namespace taixu

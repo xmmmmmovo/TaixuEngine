@@ -1,0 +1,12 @@
+//
+// Created by xmmmmmovo on 2023/5/6.
+//
+
+#ifndef ENGINE_RUNTIME_RESOURCE_GPU_DATA_MANAGER_HPP
+#define ENGINE_RUNTIME_RESOURCE_GPU_DATA_MANAGER_HPP
+
+namespace taixu {
+
+}
+
+#endif//ENGINE_RUNTIME_RESOURCE_GPU_DATA_MANAGER_HPP
