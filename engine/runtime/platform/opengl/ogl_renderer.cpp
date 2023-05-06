@@ -28,8 +28,8 @@ void OGLRenderer::update() {
         glm::mat4       m    = glm::mat4(1.0f);
         m                    = glm::translate(m, glm::vec3(0.0f, 0.0f, 0.0f));
         glm::mat3 const mv33 = glm::mat3(v * m);
-        glm::mat4 const MVP  = p * v * m;
-        _current_scene->shader_program->set_uniform("MVP", MVP);
+        glm::mat4 const mvp  = p * v * m;
+        _current_scene->shader_program->set_uniform("MVP", mvp);
         _current_scene->shader_program->set_uniform("MV3x3", mv33);
         _current_scene->shader_program->set_uniform("M", m);
         _current_scene->shader_program->set_uniform("V", v);
