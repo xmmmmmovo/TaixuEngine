@@ -10,7 +10,7 @@
 namespace taixu {
 class NotImplementedException : public std::logic_error {
 public:
-    [[nodiscard]] char const* what() const noexcept override {
+    [[nodiscard]] char const *what() const noexcept override {
         return "Function not yet implemented.";
     }
 };
