@@ -22,11 +22,11 @@ public:
     OGLVertexBuffer(std::size_t size, const void *data, GLenum usage,
                     GLint align);
 
-    void          bind() override;
-    void          unbind() override;
+    void                        bind() override;
+    void                        unbind() override;
     [[nodiscard]] std::uint32_t getbufferID() const { return VBO; }
-    void          setData(std::size_t size, const void *data, GLenum usage,
-                          GLint align) override;
+    void setData(std::size_t size, const void *data, GLenum usage,
+                 GLint align) override;
 
     [[nodiscard]] GLint getAlign() const override;
     [[nodiscard]] GLint getStride() const override;
@@ -41,14 +41,14 @@ public:
     }
 
     OGLVertexBuffer &operator=(OGLVertexBuffer &&other) noexcept {
-        if (this != &other) {
-            VBO          = other.VBO;
-            stride       = other.stride;
-            align        = other.align;
-            other.VBO    = 0;
-            other.stride = 0;
-            other.align  = 0;
-        }
+        if (this == &other) { return *this; }
+
+        VBO          = other.VBO;
+        stride       = other.stride;
+        align        = other.align;
+        other.VBO    = 0;
+        other.stride = 0;
+        other.align  = 0;
         return *this;
     }
 };

@@ -98,7 +98,6 @@ bool MainWindow::isCursorInRenderComponent() const {
 void MainWindow::update() {
     preUpdate();
     ImguiSurface::update();
-    _context_ptr->swapBuffers();
 }
 
 void MainWindow::destroy() {
@@ -133,7 +132,5 @@ void MainWindow::onOpenProjectCb(std::string_view const &path) {
 void MainWindow::onSaveProjectCb() {}
 
 void MainWindow::onSaveAsProjectCb(std::string_view const &path) {}
-
-bool MainWindow::shouldClose() const { return _context_ptr->shouldClose(); }
 
 }// namespace taixu::editor

@@ -34,7 +34,7 @@ void OGLRenderer::update() {
         _current_scene->shader_program->set_uniform("M", m);
         _current_scene->shader_program->set_uniform("V", v);
 
-        for (auto const &entity : _current_scene->_renderable_entities) {
+        for (auto const &entity : _renderable_category->entities()) {
             auto &renderable =
                     _current_scene->ecs_coordinator
                             .getComponent<RenderableComponent>(entity);

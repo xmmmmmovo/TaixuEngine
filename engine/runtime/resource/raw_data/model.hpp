@@ -10,8 +10,8 @@
 #include "resource/raw_data/asset_data.hpp"
 
 #include <cstdint>
+#include <mutex>
 #include <vector>
-
 
 namespace taixu {
 

@@ -6,7 +6,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/quaternion.hpp"
 #include "glm/matrix.hpp"
-#include "management/ecs/system/component_array.hpp"
+
 namespace taixu {
 class TransformComponent {
 public:

@@ -12,7 +12,7 @@
 
 namespace taixu {
 
-class RenderableComponent : public AbstractComponent {
+class RenderableComponent {
 public:
     std::vector<ModelGPU> meshes{};
     std::vector<Material> materials{};

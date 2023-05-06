@@ -18,13 +18,11 @@ class InputSystem : public PublicSingleton<InputSystem> {
     using inputCallback = std::function<void(float, WindowContext *)>;
 
 private:
-    WindowContext             *_context{nullptr};
     std::vector<inputCallback> _editor_callbacks;
     std::vector<inputCallback> _game_callbacks;
 
 public:
-    void setContext(WindowContext *context);
-    void processInput(float delta_time);
+    void processInput(float delta_time, WindowContext *context);
 
     inline void registerEditorCallback(inputCallback const &callback) {
         _editor_callbacks.push_back(callback);
@@ -35,8 +33,8 @@ public:
     }
 
 private:
-    inline void editorInput(float delta_time);
-    inline void gameInput(float delta_time);
+    inline void editorInput(float delta_time, WindowContext *context);
+    inline void gameInput(float delta_time, WindowContext *context);
 };
 
 }// namespace taixu

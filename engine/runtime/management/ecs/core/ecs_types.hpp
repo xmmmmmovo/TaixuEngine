@@ -11,14 +11,16 @@
 namespace taixu {
 
 // ECS
-using EntityType                  = std::uint32_t;
+using Entity                  = std::uint32_t;
 // TODO: 后续改为动态分配
-constexpr EntityType MAX_ENTITIES = 65535;
+constexpr Entity MAX_ENTITIES = 65535;
 
 using ComponentType = std::uint8_t;
 
 constexpr ComponentType MAX_COMPONENTS = 32;
-using SignatureType                    = std::bitset<MAX_COMPONENTS>;
+using Signature                        = std::bitset<MAX_COMPONENTS>;
+
+using CategoryIdType = std::uint64_t;
 
 }// namespace taixu
 

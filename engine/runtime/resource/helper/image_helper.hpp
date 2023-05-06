@@ -12,7 +12,7 @@ namespace taixu {
 /**
  * @brief 加载图片
  */
-stbi_uc *load_image(std::filesystem::path const &path, int *width, int *height,
+stbi_uc *loadImage(std::filesystem::path const &path, int *width, int *height,
                     int *channels, int desired_channels = 4);
 
 

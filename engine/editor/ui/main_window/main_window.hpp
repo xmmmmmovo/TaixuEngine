@@ -87,9 +87,7 @@ public:
     void update() override;
     void destroy() override;
 
-    [[nodiscard]] bool shouldClose() const override;
-
-    void initWithEngineRuntime(Engine *engine_runtime_ptr);
+    void initWithEngineRuntime(Engine *engine_runtime_ptr) override;
 
 private:
     void preUpdate();

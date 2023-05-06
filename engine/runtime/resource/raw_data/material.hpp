@@ -26,26 +26,26 @@ struct Material final {
     int twosided{0};
 
     // legacy & PBR
-    Texture *diffuse_tex{nullptr};
-    Texture *specular_tex{nullptr};
-    // normal mapping texture
-    Texture *normal_tex{nullptr};
-    Texture *height_tex{nullptr};
-    Texture *displacement_tex{nullptr};
+    Texture2D *diffuse_tex{nullptr};
+    Texture2D *specular_tex{nullptr};
+    // normal mapping Texture2D
+    Texture2D *normal_tex{nullptr};
+    Texture2D *height_tex{nullptr};
+    Texture2D *displacement_tex{nullptr};
 
     // lagacy
-    Texture *ambient_tex{nullptr};
-    Texture *emissive_tex{nullptr};
-    Texture *shininess_tex{nullptr};
-    Texture *opacity_tex{nullptr};
-    Texture *lightmap_tex{nullptr};
+    Texture2D *ambient_tex{nullptr};
+    Texture2D *emissive_tex{nullptr};
+    Texture2D *shininess_tex{nullptr};
+    Texture2D *opacity_tex{nullptr};
+    Texture2D *lightmap_tex{nullptr};
 
     // PBR
-    Texture *base_color_tex{nullptr};
-    Texture *metallic_tex{nullptr};
-    Texture *roughness_tex{nullptr};
-    Texture *ao_tex{nullptr};
-    Texture *emissive_factor_tex{nullptr};
+    Texture2D *base_color_tex{nullptr};
+    Texture2D *metallic_tex{nullptr};
+    Texture2D *roughness_tex{nullptr};
+    Texture2D *ao_tex{nullptr};
+    Texture2D *emissive_factor_tex{nullptr};
 };
 
 }// namespace taixu

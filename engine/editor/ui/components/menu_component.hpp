@@ -9,7 +9,7 @@
 #include <imgui.h>
 #include <spdlog/spdlog.h>
 
-#include "application.hpp"
+#include "GLFW/glfw3.h"
 #include "core/base/path.hpp"
 #include "core/utils/function_utils.hpp"
 #include "platform/os/path.hpp"
@@ -81,7 +81,7 @@ public:
         ImGui::Separator();
 
         if (ImGui::MenuItem("Exit")) {
-            Application::getInstance().destroy();
+            glfwSetWindowShouldClose(glfwGetCurrentContext(), GLFW_TRUE);
             exit(0);
         }
     }

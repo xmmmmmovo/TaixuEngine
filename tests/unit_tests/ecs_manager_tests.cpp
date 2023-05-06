@@ -8,11 +8,46 @@
 #include "management/graphics/render/render_api.hpp"
 
 TEST_CASE("ecs tests", "[ecs manager tests]") {
-    auto _context = taixu::WindowContext(
-            1366, 768, "Test",
-            createGraphicsAPILoader(taixu::GraphicsAPI::OPENGL), true);
-
     auto coordinator = taixu::ECSCoordinator();
+}
 
-    while (!_context.shouldClose()) { _context.swapBuffers(); }
+TEST_CASE("ecs category tests", "[ecs category tests]") {
+    auto category = taixu::Category();
+
+    category.addEntity(1);
+
+    REQUIRE(category.hasEntity(1));
+
+    category.removeEntity(1);
+
+    REQUIRE(!category.hasEntity(1));
+
+    category.addEntity(1);
+    category.addEntity(2);
+
+    REQUIRE(category.entities().size() == 2);
+
+    category.addEntity(1);
+    REQUIRE(category.entities().size() == 2);
+
+    category.removeEntity(1);
+    REQUIRE(category.entities().size() == 1);
+
+    category.removeEntity(1);
+    REQUIRE(category.entities().size() == 1);
+
+    category.addEntity(2);
+    category.addEntity(3);
+    category.addEntity(4);
+    category.addEntity(5);
+    category.addEntity(6);
+    category.addEntity(7);
+    category.addEntity(8);
+    REQUIRE(category.entities().size() == 7);
+
+    category.removeEntity(2);
+    REQUIRE(category.entities().size() == 6);
+
+    category.removeEntity(3);
+    REQUIRE(category.entities().size() == 5);
 }
