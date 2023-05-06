@@ -1,0 +1,27 @@
+name: Lint Cpp
+
+on:
+  pull_request:
+    paths:
+      - "engine/**"
+
+jobs:
+  lint:
+    name: Lint Cpp
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DoozyX/clang-format-lint-action@v0.16.1
+        with:
+          source: './engine'
+          exclude: './engine/assets ./engine/shaders'
+          extensions: 'hpp,cpp,inl'
+          clangFormatVersion: 16
+#          inplace: True
+#      - uses: EndBug/add-and-commit@v9
+#        with:
+#          author_name: Clang Robot
+#          author_email: robot@example.com
+#          message: 'Committing clang-format changes'
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.TAIXU_GITHUB_TOKEN }}
