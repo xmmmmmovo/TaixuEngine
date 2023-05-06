@@ -4,7 +4,6 @@
 #include "Jolt/Jolt.h"
 
 #include "management/ecs/components/transform/transform_component.hpp"
-#include "management/ecs/system/component_array.hpp"
 #include "management/physics/physics_scene.hpp"
 
 

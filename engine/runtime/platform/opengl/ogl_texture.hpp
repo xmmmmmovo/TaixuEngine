@@ -36,19 +36,38 @@ public:
      * @param filter_mode if not use in render, please use GL_NEAREST, default value is GL_LINEAR
      * @param what_happens_at_edge default value is GL_REPEAT
      */
-    explicit OGLTexture(const std::string_view &path, GLint                   filter_mode = GL_LINEAR,
+    explicit OGLTexture(const std::string_view &path,
+                        GLint                   filter_mode = GL_LINEAR,
                         GLint what_happens_at_edge          = GL_REPEAT);
 
-    explicit OGLTexture(stbi_uc *data, int width, int height, int n_channels,GLint                   filter_mode = GL_LINEAR,
-                        GLint what_happens_at_edge          = GL_REPEAT);
+    explicit OGLTexture(stbi_uc *data, int width, int height, int n_channels,
+                        GLint filter_mode          = GL_LINEAR,
+                        GLint what_happens_at_edge = GL_REPEAT);
 
-    int      getWidth() const override;
-    int      getHeight() const override;
-    uint32_t getTextureID() const override;
-    void     bind(uint32_t slot) const override;
-    bool     operator==(const ITexture2D &other) const override;
+    [[nodiscard]] int      getWidth() const override;
+    [[nodiscard]] int      getHeight() const override;
+    [[nodiscard]] uint32_t getTextureID() const override;
+    void                   bind(uint32_t slot) const override;
+    bool                   operator==(const ITexture2D &other) const override;
 
     ~OGLTexture() override;
+
+    OGLTexture(OGLTexture &&other) noexcept
+        : _width(other._width), _height(other._height),
+          _n_channels(other._n_channels), _texture_id(other._texture_id) {
+        other._texture_id = 0;
+    }
+
+    OGLTexture &operator=(OGLTexture &&other) noexcept {
+        if (this == &other) { return *this; }
+        
+        _width            = other._width;
+        _height           = other._height;
+        _n_channels       = other._n_channels;
+        _texture_id       = other._texture_id;
+        other._texture_id = 0;
+        return *this;
+    }
 };
 
 }// namespace taixu

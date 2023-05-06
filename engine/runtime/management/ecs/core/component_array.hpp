@@ -7,27 +7,27 @@
 
 #include "core/base/macro.hpp"
 #include "management/ecs/object/guid_genenrator.hpp"
-#include "management/ecs/system/entity_manager.hpp"
+#include "management/ecs/core/entity_manager.hpp"
 
 namespace taixu {
 
 class IComponentArray {
 public:
     virtual ~IComponentArray()                      = default;
-    virtual void entityDestroyed(EntityType entity) = 0;
+    virtual void entityDestroyed(Entity entity) = 0;
 };
 
 
 template<typename T>
 class ComponentArray : public IComponentArray {
 public:
-    void insertData(EntityType entity, T &&component);
+    void insertData(Entity entity, T &&component);
 
-    void removeData(EntityType entity);
+    void removeData(Entity entity);
 
-    T &getData(EntityType entity);
+    T &getData(Entity entity);
 
-    void entityDestroyed(EntityType entity) override {
+    void entityDestroyed(Entity entity) override {
         if (_entity_to_index_map.find(entity) != _entity_to_index_map.end()) {
             // Remove the entity's component if it existed
             removeData(entity);
@@ -42,10 +42,10 @@ private:
     std::array<T, MAX_ENTITIES> _component_array;
 
     // Map from an entity ID to an array index.
-    std::unordered_map<EntityType, size_t> _entity_to_index_map;
+    std::unordered_map<Entity, size_t> _entity_to_index_map;
 
     // Map from an array index to an entity ID.
-    std::unordered_map<size_t, EntityType> _index_to_entity_map;
+    std::unordered_map<size_t, Entity> _index_to_entity_map;
 
     // Total size of valid entries in the array.
     size_t _size{};

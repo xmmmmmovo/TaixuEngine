@@ -7,8 +7,8 @@
 
 #include "gameplay/player/perspective_camera.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
+#include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
-#include "management/ecs/system/ecs_types.hpp"
 #include "management/graphics/render/shader.hpp"
 #include "management/input/input_system.hpp"
 #include "management/physics/physics_manager.hpp"
@@ -26,14 +26,13 @@ public:
     std::unique_ptr<IShaderProgram> shader_program{
             std::make_unique<OGLShaderProgram>(VERT_VERT, FRAG_FRAG)};
 
-    std::vector<EntityType> _renderable_entities{};
-
     std::unique_ptr<PerspectiveCamera> _camera{
             std::make_unique<PerspectiveCamera>()};
 
     explicit Scene() {
         ecs_coordinator.init();
         ecs_coordinator.registerComponent<RenderableComponent>();
+
         physics_manager.init();
 
         InputSystem::getInstance().registerEditorCallback(
@@ -72,12 +71,6 @@ public:
                                                  delta_time);
                     }
                 });
-    }
-
-    EntityType createEntity() {
-        auto tmp_ent = ecs_coordinator.createEntity();
-        _renderable_entities.emplace_back(tmp_ent);
-        return tmp_ent;
     }
 };
 

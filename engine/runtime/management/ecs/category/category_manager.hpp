@@ -1,0 +1,61 @@
+//
+// Created by xmmmmmovo on 2023/5/5.
+//
+
+#ifndef ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_MANAGER_HPP
+#define ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_MANAGER_HPP
+
+#include <cstdint>
+#include <memory>
+#include <unordered_map>
+
+#include "category.hpp"
+
+namespace taixu {
+
+class CategoryManager final {
+private:
+    std::unordered_map<CategoryIdType, Signature>                 _signatures{};
+    std::unordered_map<CategoryIdType, std::unique_ptr<Category>> _categories{};
+
+public:
+    Category *registerCategory(CategoryIdType const key) {
+        assert(_categories.find(key) == _categories.end() &&
+               "Registering system more than once.");
+
+        auto [iter, was_insert] =
+                _categories.insert({key, std::make_unique<Category>()});
+        return iter->second.get();
+    }
+
+    void setSignature(CategoryIdType const key, Signature signature) {
+        assert(_categories.find(key) != _categories.end() &&
+               "System used before registered.");
+        _signatures.insert({key, signature});
+    }
+
+    void entityDestroyed(Entity entity) {
+        for (auto const &pair : _categories) {
+            auto const &cate = pair.second;
+            cate->removeEntity(entity);
+        }
+    }
+
+    void entitySignatureChanged(Entity entity, Signature entitySignature) {
+        for (auto const &pair : _categories) {
+            auto const &key                = pair.first;
+            auto const &category           = pair.second;
+            auto const &category_signature = _signatures[key];
+
+            if ((entitySignature & category_signature) == category_signature) {
+                category->addEntity(entity);
+            } else {
+                category->addEntity(entity);
+            }
+        }
+    }
+};
+
+}// namespace taixu
+
+#endif//ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_MANAGER_HPP

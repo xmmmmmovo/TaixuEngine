@@ -32,24 +32,24 @@ ComponentType ComponentManager::GetComponentType() {
 }
 
 template<typename T>
-void ComponentManager::addComponent(EntityType entity, T &&component) {
+void ComponentManager::addComponent(Entity entity, T &&component) {
     // Add a component to the array for an entity
     getComponentArray<T>().lock()->insertData(entity, std::forward<T>(component));
 }
 
 template<typename T>
-void ComponentManager::removeComponent(EntityType entity) {
+void ComponentManager::removeComponent(Entity entity) {
     // Remove a component from the array for an entity
     getComponentArray<T>().lock()->removeData(entity);
 }
 
 template<typename T>
-T &ComponentManager::getComponent(EntityType entity) {
+T &ComponentManager::getComponent(Entity entity) {
     // Get a reference to a component from the array for an entity
     return getComponentArray<T>().lock()->getData(entity);
 }
 
-inline void ComponentManager::entityDestroyed(EntityType entity) {
+inline void ComponentManager::entityDestroyed(Entity entity) {
     // Notify each component array that an entity has been destroyed
     // If it has a component for that entity, it will remove it
     for (auto const &pair : _component_arrays) {

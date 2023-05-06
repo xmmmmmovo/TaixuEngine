@@ -40,7 +40,12 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     // TODO: remove this test code
     ////////////////////////////////////////////////////////////////////////////
     auto scene      = std::make_unique<Scene>();
-    auto entity     = scene->createEntity();
+    auto scene_rawp = scene.get();
+    _scene_manager->addScene("MainScene", std::move(scene));
+    _scene_manager->setCurrentScene("MainScene");
+    _renderer->bindScene(_scene_manager->getCurrentScene());
+
+    auto entity     = scene_rawp->ecs_coordinator.createEntity();
     auto renderable = RenderableComponent();
     auto model      = _asset_manager->loadModel(
             DEBUG_PATH "/example_proj/assets/models/nanosuit/nanosuit.obj");
@@ -48,12 +53,8 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     renderable.meshes    = transferCPUModel2GPU(model);
     renderable.materials = model->materials;
 
-    scene->ecs_coordinator.addComponent(entity, std::move(renderable));
+    scene_rawp->ecs_coordinator.addComponent(entity, std::move(renderable));
 
-    _scene_manager->addScene("MainScene", std::move(scene));
-    _scene_manager->setCurrentScene("MainScene");
-
-    _renderer->bindScene(_scene_manager->getCurrentScene());
 
     ////////////////////////////////////////////////////////////////////////////
 
@@ -101,7 +102,8 @@ void Engine::init(std::unique_ptr<WindowContext> context,
 void Engine::update() {
     _clock.update();
     _renderer->clearSurface();
-    InputSystem::getInstance().processInput(_clock.getDeltaTime(), _context_ptr.get());
+    InputSystem::getInstance().processInput(_clock.getDeltaTime(),
+                                            _context_ptr.get());
     _scene_manager->update();
     _renderer->update();
 }

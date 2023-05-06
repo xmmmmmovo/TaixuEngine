@@ -10,6 +10,8 @@
 #include <GLFW/glfw3.h>
 #include <spdlog/spdlog.h>
 
+#include <imgui.h>
+
 #include <string>
 
 #include "core/base/macro.hpp"

@@ -13,20 +13,20 @@ namespace taixu {
 
 class EntityManager final {
 private:
-    std::queue<EntityType>                  _available_entities{};
-    std::array<SignatureType, MAX_ENTITIES> _signatures{};
+    std::queue<Entity>                  _available_entities{};
+    std::array<Signature, MAX_ENTITIES> _signatures{};
     std::uint32_t                           _living_entity_count{};
 
 public:
     explicit EntityManager();
 
-    [[nodiscard]] EntityType createEntity();
+    [[nodiscard]] Entity createEntity();
 
-    void destroyEntity(EntityType entity);
+    void destroyEntity(Entity entity);
 
-    void setSignature(EntityType entity, SignatureType const &signature);
+    void setSignature(Entity entity, Signature const &signature);
 
-    [[nodiscard]] SignatureType getSignature(EntityType entity);
+    [[nodiscard]] Signature getSignature(Entity entity);
 };
 
 }// namespace taixu

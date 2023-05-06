@@ -7,12 +7,14 @@
 
 #include <memory>
 
-#include "management/ecs/system/component_array.hpp"
-#include "management/ecs/system/component_manager.hpp"
-#include "management/ecs/system/event.hpp"
-#include "management/ecs/system/event_manager.hpp"
-#include "system/component_manager.hpp"
-#include "system/entity_manager.hpp"
+#include "core/component_manager.hpp"
+#include "core/entity_manager.hpp"
+#include "management/ecs/category/category.hpp"
+#include "management/ecs/category/category_manager.hpp"
+#include "management/ecs/core/component_array.hpp"
+#include "management/ecs/core/component_manager.hpp"
+#include "management/ecs/core/event.hpp"
+#include "management/ecs/core/event_manager.hpp"
 
 namespace taixu {
 
@@ -27,9 +29,9 @@ public:
     void init();
 
     // Entity methods
-    EntityType createEntity();
+    Entity createEntity();
 
-    void destroyEntity(EntityType entity);
+    void destroyEntity(Entity entity);
 
     /// Component methods ///
 
@@ -39,25 +41,29 @@ public:
     }
 
     template<typename T>
-    void addComponent(EntityType entity, T &&component) {
+    void addComponent(Entity entity, T &&component) {
         _component_manager->addComponent<T>(entity, std::forward<T>(component));
 
         auto signature = _entity_manager->getSignature(entity);
         signature.set(_component_manager->GetComponentType<T>(), true);
         _entity_manager->setSignature(entity, signature);
+
+        _category_manager->entitySignatureChanged(entity, signature);
     }
 
     template<typename T>
-    void removeComponent(EntityType entity) {
+    void removeComponent(Entity entity) {
         _component_manager->removeComponent<T>(entity);
 
         auto signature = _entity_manager->getSignature(entity);
         signature.set(_component_manager->GetComponentType<T>(), false);
         _entity_manager->setSignature(entity, signature);
+
+        _category_manager->entitySignatureChanged(entity, signature);
     }
 
     template<typename T>
-    T &getComponent(EntityType entity) {
+    T &getComponent(Entity entity) {
         return _component_manager->getComponent<T>(entity);
     }
 
@@ -65,6 +71,10 @@ public:
     ComponentType getComponentType() {
         return _component_manager->GetComponentType<T>();
     }
+
+    Category *registerCategory(CategoryIdType categoryId);
+
+    void setCategorySignature(CategoryIdType categoryId, Signature signature);
 
     // Event methods
     void addEventListener(EventIdType                         eventId,
@@ -82,6 +92,7 @@ private:
     std::unique_ptr<ComponentManager> _component_manager{nullptr};
     std::unique_ptr<EntityManager>    _entity_manager{nullptr};
     std::unique_ptr<EventManager>     _event_manager{nullptr};
+    std::unique_ptr<CategoryManager>  _category_manager{nullptr};
 };
 
 }// namespace taixu

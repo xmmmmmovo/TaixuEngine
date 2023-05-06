@@ -2,7 +2,7 @@
 namespace taixu {
 
 template<typename T>
-void ComponentArray<T>::insertData(EntityType entity, T &&component) {
+void ComponentArray<T>::insertData(Entity entity, T &&component) {
     assert(_entity_to_index_map.find(entity) == _entity_to_index_map.end() &&
            "Component added to same entity more than once.");
 
@@ -15,7 +15,7 @@ void ComponentArray<T>::insertData(EntityType entity, T &&component) {
 }
 
 template<typename T>
-void ComponentArray<T>::removeData(EntityType entity) {
+void ComponentArray<T>::removeData(Entity entity) {
     assert(_entity_to_index_map.find(entity) != _entity_to_index_map.end() &&
            "Removing non-existent component.");
 
@@ -27,7 +27,7 @@ void ComponentArray<T>::removeData(EntityType entity) {
             std::move(_component_array[index_of_last_element]);
 
     // Update map to point to moved spot
-    EntityType entity_of_last_element =
+    Entity entity_of_last_element =
             _index_to_entity_map[index_of_last_element];
     _entity_to_index_map[entity_of_last_element]  = index_of_removed_entity;
     _index_to_entity_map[index_of_removed_entity] = entity_of_last_element;
@@ -39,7 +39,7 @@ void ComponentArray<T>::removeData(EntityType entity) {
 }
 
 template<typename T>
-T &ComponentArray<T>::getData(EntityType entity) {
+T &ComponentArray<T>::getData(Entity entity) {
     assert(_entity_to_index_map.find(entity) != _entity_to_index_map.end() &&
            "Retrieving non-existent component.");
 

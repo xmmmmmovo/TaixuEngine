@@ -17,15 +17,15 @@ public:
     ComponentType GetComponentType();
 
     template<typename T>
-    void addComponent(EntityType entity, T &&component);
+    void addComponent(Entity entity, T &&component);
 
     template<typename T>
-    void removeComponent(EntityType entity);
+    void removeComponent(Entity entity);
 
     template<typename T>
-    T &getComponent(EntityType entity);
+    T &getComponent(Entity entity);
 
-    void entityDestroyed(EntityType entity);
+    void entityDestroyed(Entity entity);
 
 private:
     // Map from type string pointer to a component type
