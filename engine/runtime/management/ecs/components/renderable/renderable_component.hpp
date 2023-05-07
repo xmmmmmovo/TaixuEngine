@@ -14,8 +14,7 @@ namespace taixu {
 
 class RenderableComponent {
 public:
-    std::vector<ModelGPU> meshes{};
-    std::vector<Material> materials{};
+    Model *model{nullptr};
 };
 
 }// namespace taixu

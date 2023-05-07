@@ -11,6 +11,7 @@
 #include "asset_data.hpp"
 #include "management/graphics/render/texture2d.hpp"
 #include "platform/opengl/ogl_texture2d.hpp"
+#include "platform/os/path.hpp"
 
 namespace taixu {
 
@@ -71,23 +72,25 @@ inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {
     }
 }
 
-struct Texture2D final : public BaseAssetData {
+struct Texture2DAsset final : public BaseAssetData {
     TextureType                 type{TextureType::DIFFUSE};
-    std::unique_ptr<ITexture2D> texture{nullptr};
+    std::shared_ptr<ITexture2D> texture{nullptr};
 };
 
-inline std::unique_ptr<ITexture2D> transferCPUTextureToGPU(unsigned char *data,
-                                                           int            width,
-                                                           int height,
-                                                           int channels) {
-//    if (EngineArgs::getInstance().api == GraphicsAPI::OPENGL) {
-//        auto texture = std::make_unique<OGLTexture2D>();
-//        texture->texture =
-//                std::make_unique<RenderTexture2D>(width, height, channels);
-//        texture->texture->setData(data, width, height, channels);
-//        return texture->texture;
-//    }
-    return nullptr;
+inline Texture2DAsset
+transferCPUTextureToGPU(std::filesystem::path const &asset_path,
+                        std::filesystem::path const &relative_path,
+                        TextureType                  type) {
+    Texture2DAsset texture{};
+
+    texture.type      = type;
+    texture.file_path = relative_path;
+
+    if (EngineArgs::getInstance().api == GraphicsAPI::OPENGL) {
+        texture.texture = std::make_shared<OGLTexture2D>(
+                fromRelativePath(asset_path, relative_path));
+    }
+    return texture;
 }
 
 }// namespace taixu

@@ -16,22 +16,6 @@ public:                                                                        \
     inline void set_##name(type const &value) { _##name = value; }
 
 /**
- * @brief 简化getter setter
- */
-#define PROTOTYPE_DFT(access, type, name, default_val)                         \
-    access:                                                                    \
-    type _##name{default_val};                                                 \
-                                                                               \
-    PROTOTYPE_GETTER(type, name)                                               \
-    PROTOTYPE_CONST_GETTER(type, name)                                         \
-    PROTOTYPE_SETTER(type, name)
-
-/**
- * @brief 简化getter setter
- */
-#define PROTOTYPE(access, type, name) PROTOTYPE_DFT(access, type, name, )
-
-/**
  * @brief 简化const getter
  */
 #define PROTOTYPE_DFT_ONLY_GETTER_CONST(access, type, name, default_val)       \
@@ -60,6 +44,18 @@ public:                                                                        \
  */
 #define PROTOTYPE_ONLY_GETTER(access, type, name)                              \
     PROTOTYPE_DFT_ONLY_GETTER(access, type, name, )
+
+/**
+ * @brief 简化getter setter
+ */
+#define PROTOTYPE_DFT(access, type, name, default_val)                         \
+    PROTOTYPE_DFT_ONLY_GETTER(access, type, name, default_val)                 \
+    PROTOTYPE_SETTER(type, name)
+
+/**
+ * @brief 简化getter setter
+ */
+#define PROTOTYPE(access, type, name) PROTOTYPE_DFT(access, type, name, )
 
 /**
  * @brief Define Opengl version

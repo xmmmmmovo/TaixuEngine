@@ -195,7 +195,7 @@ Mesh AssetManager::processMesh(aiMesh *mesh) {
     return ret_mesh;
 }
 
-Texture2D *
+Texture2DAsset *
 AssetManager::processTexture(aiMaterial *material, aiTextureType type,
                              std::filesystem::path const &directory_path) {
     unsigned int const cnt = material->GetTextureCount(type);
@@ -219,7 +219,7 @@ Model *AssetManager::loadModel(const std::filesystem::path &relative_path) {
         return nullptr;
     }
 
-    if (_models.count(relative_path.string())) {
+    if (_models.contains(relative_path.string())) {
         return &_models[relative_path.string()];
     }
 
@@ -245,40 +245,29 @@ Model *AssetManager::loadModel(const std::filesystem::path &relative_path) {
     processMaterial(scene, ret_model);
     processNode(scene->mRootNode, scene, ret_model);
 
-    auto [iterator, was_inserted] =
-            _models.insert({relative_path.string(), std::move(ret_model)});
-    return &iterator->second;
+    Model &model_ref =
+            _models.insertData(relative_path.string(), std::move(ret_model));
+    return &model_ref;
 }
 
-Texture2D *AssetManager::loadTexture(const std::filesystem::path &relative_path,
-                                   TextureType                  type) {
+Texture2DAsset *
+AssetManager::loadTexture(const std::filesystem::path &relative_path,
+                          TextureType                  type) {
     auto full_path = fromRelativePath(_asset_path, relative_path);
 
     if (std::filesystem::is_directory(full_path)) {
-        spdlog::error("Texture2D path is directory");
+        spdlog::error("Texture2DAsset path is directory");
         return nullptr;
     }
 
-    if (_textures.count(relative_path.string())) {
+    if (_textures.contains(relative_path.string())) {
         return &_textures[relative_path.string()];
     }
 
-    int      width, height, channels;
-    stbi_uc *data = loadImage(full_path, &width, &height, &channels);
-    if (!data) {
-        spdlog::error("Load image error, path: {}", relative_path.string());
-        return nullptr;
-    }
-
-    Texture2D ret_texture{};
-
-    ret_texture.type      = type;
-    ret_texture.file_path = relative_path;
-//    ret_texture.data      = data;
-
-    auto [iterator, was_inserted] =
-            _textures.insert({relative_path.string(), std::move(ret_texture)});
-    return &iterator->second;
+    Texture2DAsset &tex_ref = _textures.insertData(
+            relative_path.string(),
+            transferCPUTextureToGPU(full_path, relative_path, type));
+    return &tex_ref;
 }
 
 void AssetManager::loadModelAsync(
@@ -286,7 +275,7 @@ void AssetManager::loadModelAsync(
         std::function<void(Model *)> const &callback) {}
 
 void AssetManager::loadTextureAsync(
-        const std::filesystem::path          &relative_path,
-        std::function<void(Texture2D *)> const &callback) {}
+        const std::filesystem::path                 &relative_path,
+        std::function<void(Texture2DAsset *)> const &callback) {}
 
 }// namespace taixu

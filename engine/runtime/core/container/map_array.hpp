@@ -91,6 +91,13 @@ public:
     bool contains(const Key &key) const {
         return _key_to_index_map.find(key) != _key_to_index_map.end();
     }
+
+    void clear() {
+        for (std::size_t i = 0; i < _size; ++i) { _values[i].~Value(); }
+        _key_to_index_map.clear();
+        _index_to_key_map.clear();
+        _size = 0;
+    }
 };
 
 }// namespace taixu

@@ -35,10 +35,13 @@ void OGLRenderer::update() {
         _current_scene->shader_program->set_uniform("V", v);
 
         for (auto const &entity : _renderable_category->entities()) {
-            auto &renderable =
+            auto const &renderable =
                     _current_scene->ecs_coordinator
                             .getComponent<RenderableComponent>(entity);
-            for (auto &mesh : renderable.meshes) {
+            if (renderable.model->gpu_data.has_value()) {
+                transferCPUModelToGPU(renderable.model);
+            }
+            for (auto &mesh : renderable.model->gpu_data.value().meshes) {
                 mesh.vao->draw(mesh.index_count);
             }
         }

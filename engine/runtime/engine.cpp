@@ -1,6 +1,7 @@
 #include "engine.hpp"
 
 #include <magic_enum.hpp>
+#include <optional>
 
 #include "core/base/path.hpp"
 #include "core/base/public_singleton.hpp"
@@ -50,11 +51,12 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     auto model      = _asset_manager->loadModel(
             DEBUG_PATH "/example_proj/assets/models/nanosuit/nanosuit.obj");
 
-    renderable.meshes    = transferCPUModel2GPU(model);
-    renderable.materials = model->materials;
+    if (model->gpu_data == std::nullopt) { transferCPUModelToGPU(model); }
 
-    scene_rawp->ecs_coordinator.addComponent(entity, std::move(renderable));
+    renderable.model = model;
 
+    scene_rawp->ecs_coordinator.addComponent(
+            entity, std::forward<RenderableComponent &&>(renderable));
 
     ////////////////////////////////////////////////////////////////////////////
 

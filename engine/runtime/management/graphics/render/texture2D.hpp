@@ -24,8 +24,6 @@ public:
     virtual void bind(uint32_t slot = 0) const = 0;
 
     virtual bool operator==(const ITexture2D &other) const = 0;
-
-    ~ITexture2D() override = 0;
 };
 
 }// namespace taixu

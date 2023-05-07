@@ -10,8 +10,8 @@
 #include "management/physics/physics_manager.hpp"
 #include "management/scene/scene.hpp"
 #include "management/scene/scene_manager.hpp"
-#include "resource/memory/asset_manager.hpp"
-#include "resource/memory/project_manager.hpp"
+#include "resource/manager/asset_manager.hpp"
+#include "resource/manager/project_manager.hpp"
 
 #include <memory>
 

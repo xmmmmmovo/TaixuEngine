@@ -4,8 +4,8 @@
 
 #include "ogl_texture2d.hpp"
 
-#include "platform/os/path.hpp"
 #include "resource/helper/image_helper.hpp"
+#include <filesystem>
 
 namespace taixu {
 
@@ -17,8 +17,8 @@ GLint mapImageToGLReadType(int channels) {
     return 0;
 }
 
-OGLTexture2D::OGLTexture2D(const std::string_view &path, GLint filter_mode,
-                       GLint what_happens_at_edge) {
+OGLTexture2D::OGLTexture2D(const std::filesystem::path &path, GLint filter_mode,
+                           GLint what_happens_at_edge) {
     stbi_uc *data = loadImage(path, &_width, &_height, &_n_channels);
     if (data == nullptr) {
         spdlog::error("OGLTexture::OGLTexture: load image failed");
@@ -30,7 +30,7 @@ OGLTexture2D::OGLTexture2D(const std::string_view &path, GLint filter_mode,
 }
 
 OGLTexture2D::OGLTexture2D(stbi_uc *data, int width, int height, int n_channels,
-                       GLint filter_mode, GLint what_happens_at_edge)
+                           GLint filter_mode, GLint what_happens_at_edge)
     : _width(width), _height(height), _n_channels(n_channels) {
     if (data == nullptr) {
         spdlog::error("OGLTexture::OGLTexture: load image failed");
@@ -42,8 +42,8 @@ OGLTexture2D::OGLTexture2D(stbi_uc *data, int width, int height, int n_channels,
 }
 
 void OGLTexture2D::createTexture(stbi_uc *data, int width, int height,
-                               int n_channels, GLint filter_mode,
-                               GLint what_happens_at_edge) {
+                                 int n_channels, GLint filter_mode,
+                                 GLint what_happens_at_edge) {
 
     glGenTextures(1, &_texture_id);
     glBindTexture(GL_TEXTURE_2D, _texture_id);
@@ -78,7 +78,5 @@ void OGLTexture2D::bind(uint32_t slot) const {
 bool OGLTexture2D::operator==(const ITexture2D &other) const {
     return this->_texture_id == other.getTextureID();
 }
-
-OGLTexture2D::~OGLTexture2D() { glDeleteTextures(1, &_texture_id); }
 
 }// namespace taixu

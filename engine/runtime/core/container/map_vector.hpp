@@ -21,21 +21,23 @@ private:
     std::unordered_map<std::size_t, Key> _index_to_key_map{};
 
 public:
-    void insertData(const Key &key, const Value &value) {
+    Value &insertData(const Key &key, const Value &value) {
         if (contains(key)) { _values[_key_to_index_map[key]] = value; }
 
         _key_to_index_map[key]            = _values.size();
         _index_to_key_map[_values.size()] = key;
         _values.push_back(value);
+        return _values.back();
     }
 
-    void insertData(const Key &key, Value &&value) {
+    Value &insertData(const Key &key, Value &&value) {
         if (contains(key)) {
             _values[_key_to_index_map[key]] = std::move(value);
         }
         _key_to_index_map[key]            = _values.size();
         _index_to_key_map[_values.size()] = key;
         _values.push_back(std::move(value));
+        return _values.back();
     }
 
     void removeData(const Key &key) {
@@ -67,10 +69,18 @@ public:
         return _values[_key_to_index_map[key]];
     }
 
+    Value &operator[](const Key &key) { return getData(key); }
+
     [[nodiscard]] std::size_t size() const { return _values.size(); }
 
     [[nodiscard]] bool contains(const Key &key) const {
         return _key_to_index_map.find(key) != _key_to_index_map.end();
+    }
+
+    void clear() {
+        _values.clear();
+        _key_to_index_map.clear();
+        _index_to_key_map.clear();
     }
 };
 

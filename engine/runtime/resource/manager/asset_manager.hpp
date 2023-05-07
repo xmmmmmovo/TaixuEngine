@@ -9,6 +9,7 @@
 #include "assimp/Importer.hpp"
 #include "assimp/postprocess.h"
 #include "assimp/scene.h"
+#include "core/container/map_vector.hpp"
 #include "spdlog/spdlog.h"
 #include <filesystem>
 
@@ -28,8 +29,8 @@ class AssetManager final {
     PROTOTYPE(private, std::filesystem::path, asset_path);
 
 private:
-    std::unordered_map<std::string, Texture2D> _textures{};
-    std::unordered_map<std::string, Model>     _models{};
+    MapVector<std::string, Texture2DAsset> _textures{};
+    MapVector<std::string, Model>          _models{};
 
     static Mesh processMesh(aiMesh *mesh);
 
@@ -37,8 +38,8 @@ private:
 
     void processMaterial(aiScene const *scene, Model &model);
 
-    Texture2D *processTexture(aiMaterial *material, aiTextureType type,
-                              std::filesystem::path const &directory_path);
+    Texture2DAsset *processTexture(aiMaterial *material, aiTextureType type,
+                                   std::filesystem::path const &directory_path);
 
 public:
     Model *loadModel(std::filesystem::path const &relative_path);
@@ -47,12 +48,13 @@ public:
     void loadModelAsync(std::filesystem::path const        &relative_path,
                         std::function<void(Model *)> const &callback);
 
-    Texture2D *loadTexture(std::filesystem::path const &relative_path,
-                           TextureType                  type);
+    Texture2DAsset *loadTexture(std::filesystem::path const &relative_path,
+                                TextureType                  type);
 
     // TODO: load texture async
-    void loadTextureAsync(std::filesystem::path const            &relative_path,
-                          std::function<void(Texture2D *)> const &callback);
+    void
+    loadTextureAsync(std::filesystem::path const                 &relative_path,
+                     std::function<void(Texture2DAsset *)> const &callback);
 
     void reset(std::filesystem::path const &asset_path) {
         _asset_path = asset_path;
