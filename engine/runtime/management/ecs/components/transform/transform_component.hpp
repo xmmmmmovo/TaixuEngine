@@ -10,13 +10,14 @@
 namespace taixu {
 class TransformComponent {
 public:
-    glm::vec3 position{0.f, 0.f, 0.f};
-    glm::vec3 scale{1.f, 1.f, 1.f};
-    glm::quat rotation{glm::quat(1.0f, 0.0f, 0.0f, 0.0f)};
+    glm::vec3 _position{0.f, 0.f, 0.f};
+    glm::vec3 _scale{1.f, 1.f, 1.f};
+    glm::vec3 _rotation{0.0f, 0.0f, 0.0f};
 
-    explicit TransformComponent(glm::vec3 const &pos, glm::vec3 const &scale,
-                                glm::quat const &rotate)
-        : position(pos), scale(scale), rotation(rotate) {}
+    template<typename T>
+    explicit TransformComponent(T &&pos, T &&scale, T &&rotate)
+        : _position(std::forward<T>(pos)), _scale(std::forward<T>(scale)),
+          _rotation(std::forward<T>(rotate)) {}
 };
 }// namespace taixu
 

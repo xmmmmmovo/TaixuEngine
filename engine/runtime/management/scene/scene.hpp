@@ -70,6 +70,15 @@ public:
                         _camera->processKeyboard(CameraMovement::DOWN,
                                                  delta_time);
                     }
+
+                    if (glfwGetKey(context->_window, GLFW_KEY_LEFT_SHIFT) ==
+                        GLFW_PRESS) {
+                        _camera->accelerate();
+                    } else if (glfwGetKey(context->_window,
+                                          GLFW_KEY_LEFT_SHIFT) ==
+                               GLFW_RELEASE) {
+                        _camera->decelerate();
+                    }
                 });
     }
 };
