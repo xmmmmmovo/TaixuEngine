@@ -17,7 +17,7 @@ enum class CameraMovement { FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN };
 static constexpr float YAW          = -90.0f;
 static constexpr float PITCH        = 0.0f;
 static constexpr float NORMAL_SPEED = 2.5f;
-static constexpr float FASTS_PEED   = 2.5f;
+static constexpr float FASTS_PEED   = 5.0f;
 static constexpr float SENSITIVITY  = 0.1f;
 static constexpr float ZOOM         = 45.0f;
 
@@ -76,7 +76,10 @@ public:
         if (direction == CameraMovement::DOWN) { Position -= Up * velocity; }
     }
 
-    void accelerate(float deltaTime) { MovementSpeed = FASTS_PEED; }
+    void accelerate() { MovementSpeed = FASTS_PEED; }
+    void decelerate() {
+        if (MovementSpeed == FASTS_PEED) { MovementSpeed = NORMAL_SPEED; }
+    }
 
     // processes input received from a mouse input system. Expects the offset value in both the x and y direction.
     void processMouseMovement(float xoffset, float yoffset,

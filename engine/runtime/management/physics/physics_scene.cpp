@@ -153,9 +153,9 @@ void PhysicsScene::updateGlobalTransform(TransformComponent *_transf,
             m_physics.physics_system->GetBodyInterface();
     Vec3 position = body_interface.GetCenterOfMassPosition(body_id);
     Vec3 velocity = body_interface.GetLinearVelocity(body_id);
-    _transf->position =
+    _transf->_position =
             glm::vec3(position.GetX(), position.GetY(), position.GetZ());
-    _transf->rotation = glm::vec3(glm::degrees(position.GetX()),
+    _transf->_rotation = glm::vec3(glm::degrees(position.GetX()),
                                   glm::degrees(position.GetY()),
                                   glm::degrees(position.GetZ()));
 }
