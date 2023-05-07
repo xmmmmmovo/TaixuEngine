@@ -4,7 +4,7 @@
 #include <catch2/catch_test_macros.hpp>
 
 #include "core/base/path.hpp"
-#include "resource/asset_manager.hpp"
+#include "resource/memory/asset_manager.hpp"
 
 TEST_CASE("asset manager load .obj .mtl success", "[asset manager tests]") {
     taixu::AssetManager am{};

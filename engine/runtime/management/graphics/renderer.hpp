@@ -20,7 +20,7 @@
 #include "management/graphics/render/framebuffer.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/graphics/render/shader.hpp"
-#include "management/graphics/render/texture2D.hpp"
+#include "management/graphics/render/texture2d.hpp"
 #include "management/scene/scene.hpp"
 #include "platform/opengl/ogl_shader.hpp"
 

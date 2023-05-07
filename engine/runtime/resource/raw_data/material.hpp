@@ -26,26 +26,26 @@ struct Material final {
     int twosided{0};
 
     // legacy & PBR
-    Texture2D *diffuse_tex{nullptr};
-    Texture2D *specular_tex{nullptr};
+    Texture2DAsset *diffuse_tex{nullptr};
+    Texture2DAsset *specular_tex{nullptr};
     // normal mapping Texture2D
-    Texture2D *normal_tex{nullptr};
-    Texture2D *height_tex{nullptr};
-    Texture2D *displacement_tex{nullptr};
+    Texture2DAsset *normal_tex{nullptr};
+    Texture2DAsset *height_tex{nullptr};
+    Texture2DAsset *displacement_tex{nullptr};
 
     // lagacy
-    Texture2D *ambient_tex{nullptr};
-    Texture2D *emissive_tex{nullptr};
-    Texture2D *shininess_tex{nullptr};
-    Texture2D *opacity_tex{nullptr};
-    Texture2D *lightmap_tex{nullptr};
+    Texture2DAsset *ambient_tex{nullptr};
+    Texture2DAsset *emissive_tex{nullptr};
+    Texture2DAsset *shininess_tex{nullptr};
+    Texture2DAsset *opacity_tex{nullptr};
+    Texture2DAsset *lightmap_tex{nullptr};
 
     // PBR
-    Texture2D *base_color_tex{nullptr};
-    Texture2D *metallic_tex{nullptr};
-    Texture2D *roughness_tex{nullptr};
-    Texture2D *ao_tex{nullptr};
-    Texture2D *emissive_factor_tex{nullptr};
+    Texture2DAsset *base_color_tex{nullptr};
+    Texture2DAsset *metallic_tex{nullptr};
+    Texture2DAsset *roughness_tex{nullptr};
+    Texture2DAsset *ao_tex{nullptr};
+    Texture2DAsset *emissive_factor_tex{nullptr};
 };
 
 }// namespace taixu
