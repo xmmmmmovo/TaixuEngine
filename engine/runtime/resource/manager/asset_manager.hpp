@@ -19,15 +19,15 @@
 #include <vector>
 
 #include "platform/os/path.hpp"
-#include "resource/raw_data/mesh.hpp"
-#include "resource/raw_data/model.hpp"
-#include "resource/raw_data/texture.hpp"
-#include "resource/json/json_type/world_json.hpp"
+#include "resource/json/json_type/game_object_json.hpp"
 #include "resource/json/json_type/level_json.hpp"
 #include "resource/json/json_type/mesh_json.hpp"
 #include "resource/json/json_type/rigid_body_json.hpp"
-#include "resource/json/json_type/game_object_json.hpp"
 #include "resource/json/json_type/transform_json.hpp"
+#include "resource/json/json_type/world_json.hpp"
+#include "resource/raw_data/mesh.hpp"
+#include "resource/raw_data/model.hpp"
+#include "resource/raw_data/texture.hpp"
 
 namespace taixu {
 
@@ -68,11 +68,11 @@ public:
         _models.clear();
     }
 
-    std::filesystem::path project_file_path = "INVALID";
+    std::filesystem::path      project_file_path = "INVALID";
     std::unique_ptr<JsonWorld> _world;
     std::unique_ptr<JsonWorld> taixuworld;
-    void AssetManager::loadWorld(std::filesystem::path const &file_path);
-    void AssetManager::witeWorld();
+    void loadWorld(std::filesystem::path const &file_path);
+    void witeWorld();
 };
 }// namespace taixu
 

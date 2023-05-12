@@ -11,7 +11,7 @@
 #include <stb_image.h>
 #include <string_view>
 
-#include "management/graphics/render/texture2d.hpp"
+#include "management/graphics/render/texture_2d.hpp"
 
 namespace taixu {
 

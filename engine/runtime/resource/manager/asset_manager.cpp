@@ -280,7 +280,7 @@ void AssetManager::loadTextureAsync(
 
 void AssetManager::loadWorld(std::filesystem::path const &file_path) {
     taixuworld = std::make_unique<JsonWorld>();
-    taixuworld->file_path = "gameplay\\taixuworld.json";
+    taixuworld->file_path = "gameplay/taixuworld.json";
     taixuworld->project_file_path = project_file_path;
     taixuworld->deserialize();
 }
@@ -366,7 +366,6 @@ void AssetManager::witeWorld() {
     std::string world_path = "gameplay\\taixuworld.json";
     _world->file_path = world_path;
     _world->serialize();
-
 }
 
 }// namespace taixu
