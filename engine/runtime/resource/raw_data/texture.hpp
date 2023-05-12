@@ -9,7 +9,7 @@
 #include <stb_image.h>
 
 #include "asset_data.hpp"
-#include "management/graphics/render/texture2d.hpp"
+#include "management/graphics/render/texture_2d.hpp"
 #include "platform/opengl/ogl_texture2d.hpp"
 #include "platform/os/path.hpp"
 
