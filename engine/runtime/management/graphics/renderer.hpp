@@ -42,8 +42,11 @@ class BaseRenderer : public IRenderer {
 protected:
     Scene                          *_current_scene{nullptr};
     Category                       *_renderable_category{nullptr};
+    //Category                       *_transform_category{nullptr};
     static constexpr CategoryIdType _renderable_category_id =
             "renderable"_hash64;
+    // static constexpr CategoryIdType _transform_category_id =
+    //         "transform"_hash64;
 
     void bindScene(Scene *scene) override {
         _current_scene = scene;
@@ -52,12 +55,19 @@ protected:
             _renderable_category =
                     coordinator.registerCategory(_renderable_category_id);
             {
-                Signature signature;
-                signature.set(
+                Signature render_signature;
+                render_signature.set(
                         coordinator.getComponentType<RenderableComponent>());
                 coordinator.setCategorySignature(_renderable_category_id,
-                                                 signature);
+                                                 render_signature);
+
+                //Signature trans_signature;
+                render_signature.set(
+                        coordinator.getComponentType<TransformComponent>());
+                coordinator.setCategorySignature(_renderable_category_id,
+                                                 render_signature);
             }
+
         } else {
             _renderable_category = nullptr;
         }

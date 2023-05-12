@@ -47,7 +47,7 @@ inline MeshGPU transferCPUMesh2GPU(Mesh const &mesh) {
         vao->bind();
         vao->addVBO(OGLVertexBuffer{mesh.vertices.size(),
                                     &mesh.vertices.front(), GL_STATIC_DRAW, 3});
-
+        
         if (!mesh.normals.empty()) {
             vao->addVBO(OGLVertexBuffer{mesh.normals.size(),
                                         &mesh.normals.front(), GL_STATIC_DRAW,

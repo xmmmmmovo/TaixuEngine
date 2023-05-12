@@ -46,18 +46,19 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _scene_manager->setCurrentScene("MainScene");
     _renderer->bindScene(_scene_manager->getCurrentScene());
 
-    auto entity     = scene_rawp->ecs_coordinator.createEntity();
-    auto renderable = RenderableComponent();
-    auto model      = _asset_manager->loadModel(
-            DEBUG_PATH "/example_proj/assets/models/nanosuit/nanosuit.obj");
+    // auto entity     = scene_rawp->ecs_coordinator.createEntity();
+    // auto renderable = RenderableComponent();
+    // auto model      = _asset_manager->loadModel(
+    //         DEBUG_PATH "/example_proj/assets/models/nanosuit/nanosuit.obj");
 
-    if (model->gpu_data == std::nullopt) { transferCPUModelToGPU(model); }
+    // if (model->gpu_data == std::nullopt) { transferCPUModelToGPU(model); }
 
-    renderable.model = model;
+    // renderable.model = model;
 
-    scene_rawp->ecs_coordinator.addComponent(
-            entity, std::forward<RenderableComponent &&>(renderable));
+    // scene_rawp->ecs_coordinator.addComponent(
+    //         entity, std::forward<RenderableComponent &&>(renderable));
 
+    
     ////////////////////////////////////////////////////////////////////////////
 
     _context_ptr->registerOnScrollFn([this](double /*xoffset*/,
@@ -130,6 +131,16 @@ Status Engine::loadProject(const std::string_view &path) {
                       magic_enum::enum_name(status));
         return status;
     }
+
+    _asset_manager->project_file_path = _project_manager->getCurrentPath();
+     
+    //_asset_manager->witeWorld();
+
+    _asset_manager->loadWorld(_asset_manager->project_file_path);
+    _scene_manager->getCurrentScene()->ecs_coordinator.taixuworld = std::move(_asset_manager->taixuworld);
+    //initialize the first level
+    _scene_manager->getCurrentScene()->ecs_coordinator.loadhelper = _asset_manager.get();
+    _scene_manager->getCurrentScene()->ecs_coordinator.serialize(0);
     return Status::OK;
 }
 
