@@ -71,8 +71,8 @@ public:
     std::filesystem::path project_file_path = "INVALID";
     std::unique_ptr<JsonWorld> _world;
     std::unique_ptr<JsonWorld> taixuworld;
-    void AssetManager::loadWorld(std::filesystem::path const &file_path);
-    void AssetManager::witeWorld();
+    void loadWorld(std::filesystem::path const &file_path);
+    void witeWorld();
 };
 }// namespace taixu
 
