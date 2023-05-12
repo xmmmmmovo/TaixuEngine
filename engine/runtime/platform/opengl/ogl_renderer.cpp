@@ -23,6 +23,12 @@ void OGLRenderer::update() {
     clear(CLEAR_COLOR);
     if (_current_scene != nullptr) {
 
+        // auto renderable1 = _current_scene->ecs_coordinator
+        //                    .getComponent<RenderableComponent>(0);
+
+        // auto renderable2 = _current_scene->ecs_coordinator
+        //                    .getComponent<RenderableComponent>(1);
+
         for (auto const &entity : _renderable_category->entities()) {
             
             auto const &renderable =

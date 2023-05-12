@@ -45,8 +45,6 @@ protected:
     //Category                       *_transform_category{nullptr};
     static constexpr CategoryIdType _renderable_category_id =
             "renderable"_hash64;
-    // static constexpr CategoryIdType _transform_category_id =
-    //         "transform"_hash64;
 
     void bindScene(Scene *scene) override {
         _current_scene = scene;
@@ -58,9 +56,6 @@ protected:
                 Signature render_signature;
                 render_signature.set(
                         coordinator.getComponentType<RenderableComponent>());
-                coordinator.setCategorySignature(_renderable_category_id,
-                                                 render_signature);
-
                 //Signature trans_signature;
                 render_signature.set(
                         coordinator.getComponentType<TransformComponent>());

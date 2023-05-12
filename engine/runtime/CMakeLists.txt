@@ -19,6 +19,7 @@ target_link_libraries(${TARGET_NAME} PUBLIC Jolt imgui ${OGLLIB} glad glfw stb g
 target_link_libraries(${TARGET_NAME} PUBLIC nlohmann_json::nlohmann_json magic_enum::magic_enum spdlog::spdlog)
 target_link_libraries(${TARGET_NAME} PUBLIC imgui refl-cpp::refl-cpp assimp)
 target_link_libraries(${TARGET_NAME} PUBLIC argparse)
+#target_link_libraries(${TARGET_NAME} PUBLIC imguiZmo)
 
 add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET})
 target_include_directories(
