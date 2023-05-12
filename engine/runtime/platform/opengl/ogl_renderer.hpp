@@ -25,6 +25,9 @@ public:
 
     void clearSurface() override;
 
+    void bindShader();
+    glm::mat4 transform;
+
     IFrameBuffer *getRenderFramebuffer() override;
 };
 
