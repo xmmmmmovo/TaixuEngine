@@ -7,9 +7,12 @@
 #include "core/base/public_singleton.hpp"
 #include "engine_args.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
+#include "management/ecs/system/system.hpp"
+#include "management/ecs/core/entity_manager.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/input/input_system.hpp"
 #include "management/scene/scene.hpp"
+#include "management/ecs/ecs_coordinator.hpp"
 #include "platform/opengl/ogl_renderer.hpp"
 #include "resource/raw_data/model.hpp"
 
@@ -45,7 +48,7 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _scene_manager->addScene("MainScene", std::move(scene));
     _scene_manager->setCurrentScene("MainScene");
     _renderer->bindScene(_scene_manager->getCurrentScene());
-    
+
     ////////////////////////////////////////////////////////////////////////////
 
     _context_ptr->registerOnScrollFn([this](double /*xoffset*/,

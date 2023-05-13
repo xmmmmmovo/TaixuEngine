@@ -67,7 +67,7 @@ void ECSCoordinator::serialize(int level_index) {
 
         auto renderable = RenderableComponent();
         auto model =
-                loadhelper->loadModel(parent_path, go.MeshComponent.obj_path);
+            loadhelper->loadModel(parent_path, go.MeshComponent.obj_path);
 
         if (model->gpu_data == std::nullopt) { transferCPUModelToGPU(model); }
 
@@ -81,9 +81,9 @@ void ECSCoordinator::serialize(int level_index) {
 
         trans.makeTransformMatrix();
 
-        addComponent(entity, std::forward<TransformComponent &&>(trans));
+        addComponent(entity, std::forward<TransformComponent &&>(trans));   
+        
     }
-    //int a = 0;
 }
 
 void ECSCoordinator::deserialize(int level_index) {}
