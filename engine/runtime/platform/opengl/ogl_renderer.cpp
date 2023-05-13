@@ -31,11 +31,8 @@ void OGLRenderer::update() {
                             .getComponent<RenderableComponent>(entity);
             if(renderable.visiable == true)
             {
-                if (renderable.model->gpu_data.has_value()) {
-                    transferCPUModelToGPU(renderable.model);
-                }
                 auto const &trans = _current_scene->ecs_coordinator
-                                .getComponent<TransformComponent>(entity);
+                                 .getComponent<TransformComponent>(entity);
                 transform = trans.transform;
             
                 bindShader();
