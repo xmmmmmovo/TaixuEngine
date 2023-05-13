@@ -34,7 +34,8 @@ ComponentType ComponentManager::GetComponentType() {
 template<typename T>
 void ComponentManager::addComponent(Entity entity, T &&component) {
     // Add a component to the array for an entity
-    getComponentArray<T>().lock()->insertData(entity, std::forward<T>(component));
+    getComponentArray<T>().lock()->insertData(entity,
+                                              std::forward<T>(component));
 }
 
 template<typename T>

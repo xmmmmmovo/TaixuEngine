@@ -14,9 +14,9 @@
 #include "core/base/hash.hpp"
 #include "core/base/noncopyable.hpp"
 #include "gameplay/player/perspective_camera.hpp"
-#include "management/ecs/category/category.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
+#include "management/ecs/system/system.hpp"
 #include "management/graphics/render/framebuffer.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/graphics/render/shader.hpp"
@@ -40,31 +40,32 @@ public:
 
 class BaseRenderer : public IRenderer {
 protected:
-    Scene                          *_current_scene{nullptr};
-    Category                       *_renderable_category{nullptr};
+    Scene                        *_current_scene{nullptr};
+    System                       *_renderable_system{nullptr};
     //Category                       *_transform_category{nullptr};
-    static constexpr CategoryIdType _renderable_category_id =
-            "renderable"_hash64;
+
+    static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "renderable"_hash64;
 
     void bindScene(Scene *scene) override {
         _current_scene = scene;
         if (_current_scene != nullptr) {
             auto &coordinator = _current_scene->ecs_coordinator;
-            _renderable_category =
-                    coordinator.registerCategory(_renderable_category_id);
+            _renderable_system =
+                    coordinator.registerSystem(RENDERABLE_SYSTEM_ID);
             {
                 Signature render_signature;
                 render_signature.set(
                         coordinator.getComponentType<RenderableComponent>());
+
                 //Signature trans_signature;
                 render_signature.set(
                         coordinator.getComponentType<TransformComponent>());
-                coordinator.setCategorySignature(_renderable_category_id,
-                                                 render_signature);
+                coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
+                                               render_signature);
             }
 
         } else {
-            _renderable_category = nullptr;
+            _renderable_system = nullptr;
         }
     };
 };

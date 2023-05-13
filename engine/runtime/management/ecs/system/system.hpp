@@ -14,7 +14,7 @@
 
 namespace taixu {
 
-struct Category final {
+struct System final {
     PROTOTYPE_ONLY_GETTER(private, std::vector<Entity>, entities)
 
 private:

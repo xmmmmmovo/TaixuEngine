@@ -2,7 +2,7 @@
     "Components": {
         "MeshComponent": {
             "material_path": "INVALID",
-            "obj_path": "assets/models/nanosuit/nanosuit.obj",
+            "obj_path": "assets/models/sphere.obj",
             "visiable": true
         },
         "RigidBodyComponent": {
