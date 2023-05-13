@@ -45,7 +45,7 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _scene_manager->addScene("MainScene", std::move(scene));
     _scene_manager->setCurrentScene("MainScene");
     _renderer->bindScene(_scene_manager->getCurrentScene());
-
+    _window_ptr->bindScene(_scene_manager->getCurrentScene());
 
     ////////////////////////////////////////////////////////////////////////////
 

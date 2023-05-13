@@ -23,7 +23,7 @@ void OGLRenderer::update() {
     clear(CLEAR_COLOR);
     if (_current_scene != nullptr) {
 
-
+        
         for (auto const &entity : _renderable_system->entities()) {
 
             auto const &renderable =

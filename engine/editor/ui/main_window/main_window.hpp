@@ -26,7 +26,7 @@
 #include "ui/components/statusbar_component.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/scene/scene.hpp"
-#include "management/ecs/category/category.hpp"
+#include "management/ecs/system/system.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 
@@ -65,8 +65,8 @@ private:
             std::make_unique<StatusBarComponent>()};
 
     Scene                          *_current_scene{nullptr};
-    Category                       *_detail_category{nullptr};
-    static constexpr CategoryIdType _detail_category_id =
+    System                       *_detail_system{nullptr};
+    static constexpr SystemIdType _detail_system_id =
             "detail"_hash64;
     Entity lastUsing{0};
 private:

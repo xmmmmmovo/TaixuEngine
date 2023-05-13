@@ -143,7 +143,7 @@ void MainWindow::operationLisen() {
 
 void MainWindow::update() {
     preUpdate();
-    operationLisen();
+    //operationLisen();
     ImguiSurface::update();
 }
 
@@ -164,18 +164,18 @@ void MainWindow::bindScene(Scene *scene) {
     _current_scene = scene;
     if (_current_scene != nullptr) {
             auto &coordinator = _current_scene->ecs_coordinator;
-            _detail_category =
-                    coordinator.registerCategory(_detail_category_id);
+            _detail_system =
+                    coordinator.registerSystem(_detail_system_id);
             {
                 Signature trans_signature;
                 trans_signature.set(
                         coordinator.getComponentType<TransformComponent>());
-                coordinator.setCategorySignature(_detail_category_id,
+                coordinator.setsystemSignature(_detail_system_id,
                                                  trans_signature);
             }
 
         } else {
-            _detail_category = nullptr;
+            _detail_system = nullptr;
         }
     
 }
