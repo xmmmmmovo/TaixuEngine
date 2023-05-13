@@ -3,11 +3,18 @@
 //
 
 #include "main_window.hpp"
-
 #include <spdlog/spdlog.h>
 
 #include "core/base/path.hpp"
 #include "gameplay/gui/imgui_surface.hpp"
+
+#include "ImGuizmo.h"
+#include "ImSequencer.h"
+#include "ImZoomSlider.h"
+#include "ImCurveEdit.h"
+#include "GraphEditor.h"
+//#include "imgui_impl_glfw.h"
+//#include "imgui_impl_opengl3.h"
 
 namespace taixu::editor {
 void MainWindow::init() {
@@ -95,8 +102,48 @@ bool MainWindow::isCursorInRenderComponent() const {
     return render_component->_render_rect.Contains(_context_ptr->_mouse_pos);
 }
 
+void MainWindow::operationLisen() {
+    //if(isCursorInRenderComponent())
+    //{
+        //ImGui::NewFrame();
+        //ImGuizmo::BeginFrame();
+        auto gizmoWindowFlags = detail_component->gizmoWindowFlags;
+        ImGui::Begin("Gizmo", 0, gizmoWindowFlags);
+        float windowWidth = (float)ImGui::GetWindowWidth();
+        float windowHeight = (float)ImGui::GetWindowHeight();
+        ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, windowWidth, windowHeight);
+        ImDrawList* drawList = ImGui::GetWindowDrawList();
+        ImGuizmo::SetDrawlist(drawList);
+        ImVec2 endpoint = ImGui::GetWindowPos();
+        endpoint = ImVec2(endpoint.x+windowWidth, endpoint.y+windowHeight);
+        drawList->AddRect(ImGui::GetWindowPos(),  endpoint, IM_COL32_WHITE);
+        
+        ImGui::End();
+        
+        //ImGui::EndFrame();
+        //ImGuiWindow* window = ImGui::GetCurrentWindow();
+        //gizmoWindowFlags = ImGui::IsWindowHovered() && ImGui::IsMouseHoveringRect(window->InnerRect.Min, window->InnerRect.Max) ? ImGuiWindowFlags_NoMove : 0;
+        // for(auto const &entity : _detail_category->entities())
+        // {
+        //     ImGuizmo::SetID(entity);
+
+        //     auto trans = _current_scene->ecs_coordinator
+        //                         .getComponent<TransformComponent>(entity);
+        //     float* mat = glm::value_ptr(trans.transform);
+        //     detail_component->transformLisen(_current_scene->_camera.get(),mat , lastUsing==entity);
+        //     if (ImGuizmo::IsUsing())
+        //     {
+        //         lastUsing = entity;
+        //     }
+        // }
+    //}
+    
+       
+}
+
 void MainWindow::update() {
     preUpdate();
+    operationLisen();
     ImguiSurface::update();
 }
 
@@ -111,6 +158,26 @@ void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
 
     ImguiSurface::init(_context_ptr->_window);
     render_component->_framebuffer = _renderer->getRenderFramebuffer();
+}
+
+void MainWindow::bindScene(Scene *scene) {
+    _current_scene = scene;
+    if (_current_scene != nullptr) {
+            auto &coordinator = _current_scene->ecs_coordinator;
+            _detail_category =
+                    coordinator.registerCategory(_detail_category_id);
+            {
+                Signature trans_signature;
+                trans_signature.set(
+                        coordinator.getComponentType<TransformComponent>());
+                coordinator.setCategorySignature(_detail_category_id,
+                                                 trans_signature);
+            }
+
+        } else {
+            _detail_category = nullptr;
+        }
+    
 }
 
 MainWindow::MainWindow(WindowContext *const context_ptr)
