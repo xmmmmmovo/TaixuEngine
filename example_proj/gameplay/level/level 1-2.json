@@ -1,7 +1,7 @@
 {
     "GOs": [
         {
-            "GO_path": "gameplay\\GO\\floor.json",
+            "GO_path": "gameplay/GO/floor.json",
             "name": "floor"
         }
     ]

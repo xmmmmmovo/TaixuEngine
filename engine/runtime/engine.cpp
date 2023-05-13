@@ -45,19 +45,6 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _scene_manager->addScene("MainScene", std::move(scene));
     _scene_manager->setCurrentScene("MainScene");
     _renderer->bindScene(_scene_manager->getCurrentScene());
-
-    // auto entity     = scene_rawp->ecs_coordinator.createEntity();
-    // auto renderable = RenderableComponent();
-    // auto model      = _asset_manager->loadModel(
-    //         DEBUG_PATH "/example_proj/assets/models/nanosuit/nanosuit.obj");
-
-    // if (model->gpu_data == std::nullopt) { transferCPUModelToGPU(model); }
-
-    // renderable.model = model;
-
-    // scene_rawp->ecs_coordinator.addComponent(
-    //         entity, std::forward<RenderableComponent &&>(renderable));
-
     
     ////////////////////////////////////////////////////////////////////////////
 
@@ -132,11 +119,7 @@ Status Engine::loadProject(const std::string_view &path) {
         return status;
     }
 
-    _asset_manager->project_file_path = _project_manager->getCurrentPath();
-     
-    //_asset_manager->witeWorld();
-
-    _asset_manager->loadWorld(_asset_manager->project_file_path);
+    _asset_manager->loadWorld(_project_manager->getCurrentPath());
     _scene_manager->getCurrentScene()->ecs_coordinator.taixuworld = std::move(_asset_manager->taixuworld);
     //initialize the first level
     _scene_manager->getCurrentScene()->ecs_coordinator.loadhelper = _asset_manager.get();

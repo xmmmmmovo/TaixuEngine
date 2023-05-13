@@ -26,7 +26,9 @@ void AssetManager::processNode(aiNode *node, aiScene const *scene,
     }
 }
 
-void AssetManager::processMaterial(aiScene const *scene, Model &model) {
+void AssetManager::processMaterial(aiScene const               *scene,
+                                   std::filesystem::path const &root_path,
+                                   Model                       &model) {
     model.materials.reserve(scene->mNumMaterials);
     for (unsigned int i = 0; i < scene->mNumMaterials; ++i) {
         auto      material = scene->mMaterials[i];
@@ -87,54 +89,65 @@ void AssetManager::processMaterial(aiScene const *scene, Model &model) {
         }
 
         // load material textures
-        mat.diffuse_tex = processTexture(material, aiTextureType_DIFFUSE,
-                                         model.file_path.parent_path());
-
-        mat.specular_tex = processTexture(material, aiTextureType_SPECULAR,
-                                          model.file_path.parent_path());
-
-        mat.normal_tex = processTexture(material, aiTextureType_NORMALS,
-                                        model.file_path.parent_path());
-
-        mat.height_tex = processTexture(material, aiTextureType_HEIGHT,
-                                        model.file_path.parent_path());
-
-        mat.displacement_tex =
-                processTexture(material, aiTextureType_DISPLACEMENT,
+        mat.diffuse_tex =
+                processTexture(material, aiTextureType_DIFFUSE, root_path,
                                model.file_path.parent_path());
 
-        mat.ambient_tex = processTexture(material, aiTextureType_AMBIENT,
-                                         model.file_path.parent_path());
+        mat.specular_tex =
+                processTexture(material, aiTextureType_SPECULAR, root_path,
+                               model.file_path.parent_path());
 
-        mat.emissive_tex = processTexture(material, aiTextureType_EMISSIVE,
-                                          model.file_path.parent_path());
+        mat.normal_tex =
+                processTexture(material, aiTextureType_NORMALS, root_path,
+                               model.file_path.parent_path());
 
-        mat.shininess_tex = processTexture(material, aiTextureType_SHININESS,
-                                           model.file_path.parent_path());
+        mat.height_tex =
+                processTexture(material, aiTextureType_HEIGHT, root_path,
+                               model.file_path.parent_path());
 
-        mat.opacity_tex = processTexture(material, aiTextureType_OPACITY,
-                                         model.file_path.parent_path());
+        mat.displacement_tex =
+                processTexture(material, aiTextureType_DISPLACEMENT, root_path,
+                               model.file_path.parent_path());
 
-        mat.lightmap_tex = processTexture(material, aiTextureType_LIGHTMAP,
-                                          model.file_path.parent_path());
+        mat.ambient_tex =
+                processTexture(material, aiTextureType_AMBIENT, root_path,
+                               model.file_path.parent_path());
+
+        mat.emissive_tex =
+                processTexture(material, aiTextureType_EMISSIVE, root_path,
+                               model.file_path.parent_path());
+
+        mat.shininess_tex =
+                processTexture(material, aiTextureType_SHININESS, root_path,
+                               model.file_path.parent_path());
+
+        mat.opacity_tex =
+                processTexture(material, aiTextureType_OPACITY, root_path,
+                               model.file_path.parent_path());
+
+        mat.lightmap_tex =
+                processTexture(material, aiTextureType_LIGHTMAP, root_path,
+                               model.file_path.parent_path());
 
         // PBR
-        mat.base_color_tex = processTexture(material, aiTextureType_BASE_COLOR,
-                                            model.file_path.parent_path());
+        mat.base_color_tex =
+                processTexture(material, aiTextureType_BASE_COLOR, root_path,
+                               model.file_path.parent_path());
 
-        mat.metallic_tex = processTexture(material, aiTextureType_METALNESS,
-                                          model.file_path.parent_path());
+        mat.metallic_tex =
+                processTexture(material, aiTextureType_METALNESS, root_path,
+                               model.file_path.parent_path());
 
         mat.roughness_tex =
                 processTexture(material, aiTextureType_DIFFUSE_ROUGHNESS,
-                               model.file_path.parent_path());
+                               root_path, model.file_path.parent_path());
 
         mat.ao_tex = processTexture(material, aiTextureType_AMBIENT_OCCLUSION,
-                                    model.file_path.parent_path());
+                                    root_path, model.file_path.parent_path());
 
         mat.emissive_factor_tex =
                 processTexture(material, aiTextureType_EMISSION_COLOR,
-                               model.file_path.parent_path());
+                               root_path, model.file_path.parent_path());
 
         model.materials.emplace_back(mat);
     }
@@ -197,12 +210,13 @@ Mesh AssetManager::processMesh(aiMesh *mesh) {
 
 Texture2DAsset *
 AssetManager::processTexture(aiMaterial *material, aiTextureType type,
+                             std::filesystem::path const &root_path,
                              std::filesystem::path const &directory_path) {
     unsigned int const cnt = material->GetTextureCount(type);
     for (unsigned int i = 0; i < cnt; ++i) {
         aiString path{};
         material->GetTexture(type, i, &path);
-        if (auto tex = loadTexture(directory_path / path.C_Str(),
+        if (auto tex = loadTexture(root_path, directory_path / path.C_Str(),
                                    textureTypeFromAssimpType(type));
             nullptr != tex) {
             return tex;
@@ -211,15 +225,16 @@ AssetManager::processTexture(aiMaterial *material, aiTextureType type,
     return nullptr;
 }
 
-Model *AssetManager::loadModel(const std::filesystem::path &relative_path) {
-    auto full_path = fromRelativePath(_asset_path, relative_path);
+Model *AssetManager::loadModel(std::filesystem::path const &root_path,
+                               const std::filesystem::path &relative_path) {
+    auto full_path = fromRelativePath(root_path, relative_path);
 
     if (std::filesystem::is_directory(full_path)) {
         spdlog::error("Model path is directory: {}", relative_path.string());
         return nullptr;
     }
 
-    if (_models.contains(relative_path.string())) {
+    if (_models.count(relative_path.string())) {
         return &_models[relative_path.string()];
     }
 
@@ -242,84 +257,87 @@ Model *AssetManager::loadModel(const std::filesystem::path &relative_path) {
     }
     ret_model.file_path = relative_path;
 
-    processMaterial(scene, ret_model);
+    processMaterial(scene, root_path, ret_model);
     processNode(scene->mRootNode, scene, ret_model);
 
-    Model &model_ref =
-            _models.insertData(relative_path.string(), std::move(ret_model));
-    return &model_ref;
+    auto [model_ref, was_ins] =
+            _models.insert({relative_path.string(), std::move(ret_model)});
+    return &model_ref->second;
 }
 
 Texture2DAsset *
-AssetManager::loadTexture(const std::filesystem::path &relative_path,
+AssetManager::loadTexture(std::filesystem::path const &root_path,
+                          const std::filesystem::path &relative_path,
                           TextureType                  type) {
-    auto full_path = fromRelativePath(_asset_path, relative_path);
+    auto full_path = fromRelativePath(root_path, relative_path);
 
     if (std::filesystem::is_directory(full_path)) {
         spdlog::error("Texture2DAsset path is directory");
         return nullptr;
     }
 
-    if (_textures.contains(relative_path.string())) {
+    if (_textures.count(relative_path.string())) {
         return &_textures[relative_path.string()];
     }
 
-    Texture2DAsset &tex_ref = _textures.insertData(
-            relative_path.string(),
-            transferCPUTextureToGPU(full_path, relative_path, type));
-    return &tex_ref;
+    auto [tex_ref, was_ins] = _textures.insert(
+            {relative_path.string(),
+             transferCPUTextureToGPU(root_path, relative_path, type)});
+    return &tex_ref->second;
 }
 
 void AssetManager::loadModelAsync(
+        std::filesystem::path const        &root_path,
         const std::filesystem::path        &relative_path,
         std::function<void(Model *)> const &callback) {}
 
 void AssetManager::loadTextureAsync(
+        std::filesystem::path const                 &root_path,
         const std::filesystem::path                 &relative_path,
         std::function<void(Texture2DAsset *)> const &callback) {}
 
 void AssetManager::loadWorld(std::filesystem::path const &file_path) {
-    taixuworld = std::make_unique<JsonWorld>();
-    taixuworld->file_path = "gameplay/taixuworld.json";
-    taixuworld->project_file_path = project_file_path;
+    taixuworld                    = std::make_unique<JsonWorld>();
+    taixuworld->file_path         = "gameplay/taixuworld.json";
+    taixuworld->project_file_path = file_path;
     taixuworld->deserialize();
 }
 
-void AssetManager::witeWorld() {
+void AssetManager::witeWorld(std::filesystem::path const &root_path) {
     _world = std::make_unique<JsonWorld>();
     JsonLevel l1;
-    l1.level_name = "level 1-1";
-    std::filesystem::path pp1 = "gameplay\\level";
-    std::filesystem::path temp = pp1 / (l1.level_name+".json");
+    l1.level_name              = "level 1-1";
+    std::filesystem::path pp1  = "gameplay\\level";
+    std::filesystem::path temp = pp1 / (l1.level_name + ".json");
     //std::filesystem::path pp2 = asset_file_path.parent_path() / temp;
-    l1.level_path = temp.string();
+    l1.level_path              = temp.string();
     //l1.p.vec3 = glm::vec3(0,0,0);
     //l1.type = testEnumType::TYPE1;
 
     JsonLevel l2;
     l2.level_name = "level 1-2";
-    temp = pp1 / (l2.level_name+".json");
+    temp          = pp1 / (l2.level_name + ".json");
     //pp2 = asset_file_path.parent_path() / temp;
     l2.level_path = temp.string();
 
     JsonGO go1;
-    go1.name = "floor";
-    pp1 = "gameplay\\GO";
-    temp = pp1 / (go1.name+".json");
+    go1.name    = "floor";
+    pp1         = "gameplay\\GO";
+    temp        = pp1 / (go1.name + ".json");
     //pp2 = asset_file_path.parent_path() / temp;
     go1.GO_path = temp.string();
 
     JsonGO go2;
-    go2.name = "planet";
-    pp1 = "gameplay\\GO";
-    temp = pp1 / (go2.name+".json");
+    go2.name    = "planet";
+    pp1         = "gameplay\\GO";
+    temp        = pp1 / (go2.name + ".json");
     //pp2 = asset_file_path.parent_path() / temp;
     go2.GO_path = temp.string();
 
     JsonTransform trans1;
-    trans1.position.vec3 = glm::vec3(0,0,0);
-    trans1.rotation.vec3 = glm::vec3(0,0,0);
-    trans1.scale.vec3 = glm::vec3(10,1,10);
+    trans1.position.vec3 = glm::vec3(0, 0, 0);
+    trans1.rotation.vec3 = glm::vec3(0, 0, 0);
+    trans1.scale.vec3    = glm::vec3(10, 1, 10);
 
     JsonMesh mesh1;
     mesh1.obj_path = "assets/model/cube.obj";
@@ -327,14 +345,14 @@ void AssetManager::witeWorld() {
     mesh1.visiable = true;
 
     JsonRigidBody body1;
-    body1.shapeType = RigidBodyShapeType::BOX;
-    body1.motionType = MotionType::STATIC;
-    body1.rigid_body_scale.vec3 = glm::vec3(1,1,1);
+    body1.shapeType             = RigidBodyShapeType::BOX;
+    body1.motionType            = MotionType::STATIC;
+    body1.rigid_body_scale.vec3 = glm::vec3(1, 1, 1);
 
     JsonTransform trans2;
-    trans2.position.vec3 = glm::vec3(0,6,0);
-    trans2.rotation.vec3 = glm::vec3(0,0,0);
-    trans2.scale.vec3 = glm::vec3(1,1,1);
+    trans2.position.vec3 = glm::vec3(0, 6, 0);
+    trans2.rotation.vec3 = glm::vec3(0, 0, 0);
+    trans2.scale.vec3    = glm::vec3(1, 1, 1);
 
     JsonMesh mesh2;
     mesh2.obj_path = "assets/model/planet.obj";
@@ -342,29 +360,27 @@ void AssetManager::witeWorld() {
     mesh2.visiable = true;
 
     JsonRigidBody body2;
-    body2.shapeType = RigidBodyShapeType::SPHERE;
-    body2.motionType = MotionType::DYNAMIC;
-    body2.rigid_body_scale.vec3 = glm::vec3(1,1,1);
+    body2.shapeType             = RigidBodyShapeType::SPHERE;
+    body2.motionType            = MotionType::DYNAMIC;
+    body2.rigid_body_scale.vec3 = glm::vec3(1, 1, 1);
 
     go1.TransformComponent = trans1;
-    go1.MeshComponent = mesh1;
+    go1.MeshComponent      = mesh1;
     go1.RigidBodyComponent = body1;
 
     go2.TransformComponent = trans2;
-    go2.MeshComponent = mesh2;
+    go2.MeshComponent      = mesh2;
     go2.RigidBodyComponent = body2;
 
     l1.json_game_objects.push_back(go1);
     l1.json_game_objects.push_back(go2);
     l2.json_game_objects.push_back(go1);
 
-    //l2.p.vec3 = glm::vec3(0,0,0);
-    //l2.type = testEnumType::TYPE2;
     _world->json_levels.push_back(l1);
     _world->json_levels.push_back(l2);
-    _world->project_file_path = project_file_path;
-    std::string world_path = "gameplay\\taixuworld.json";
-    _world->file_path = world_path;
+    _world->project_file_path = root_path;
+    std::string world_path    = "gameplay\\taixuworld.json";
+    _world->file_path         = world_path;
     _world->serialize();
 }
 

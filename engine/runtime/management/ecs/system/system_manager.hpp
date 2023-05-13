@@ -9,26 +9,26 @@
 #include <memory>
 #include <unordered_map>
 
-#include "category.hpp"
+#include "system.hpp"
 
 namespace taixu {
 
-class CategoryManager final {
+class SystemManager final {
 private:
-    std::unordered_map<CategoryIdType, Signature>                 _signatures{};
-    std::unordered_map<CategoryIdType, std::unique_ptr<Category>> _categories{};
+    std::unordered_map<SystemIdType, Signature>               _signatures{};
+    std::unordered_map<SystemIdType, std::unique_ptr<System>> _categories{};
 
 public:
-    Category *registerCategory(CategoryIdType const key) {
+    System *registerCategory(SystemIdType const key) {
         assert(_categories.find(key) == _categories.end() &&
                "Registering system more than once.");
 
         auto [iter, was_insert] =
-                _categories.insert({key, std::make_unique<Category>()});
+                _categories.insert({key, std::make_unique<System>()});
         return iter->second.get();
     }
 
-    void setSignature(CategoryIdType const key, Signature signature) {
+    void setSignature(SystemIdType const key, Signature const &signature) {
         assert(_categories.find(key) != _categories.end() &&
                "System used before registered.");
         _signatures.insert({key, signature});
