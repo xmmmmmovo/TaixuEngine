@@ -41,6 +41,7 @@ public:
         _key_to_index_map[key]     = new_idx;
         _index_to_key_map[new_idx] = key;
         _values[new_idx]           = value;
+        _size++;
     }
 
     void insertData(const Key &key, Value &&value) noexcept {
@@ -52,6 +53,7 @@ public:
         _key_to_index_map[key]     = new_idx;
         _index_to_key_map[new_idx] = key;
         _values[new_idx]           = std::move(value);
+        _size++;
     }
 
     void removeData(const Key &key) {

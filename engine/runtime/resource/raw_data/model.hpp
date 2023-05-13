@@ -26,7 +26,7 @@ struct Model final : public BaseAssetData {
 
 inline void transferCPUModelToGPU(Model *model) {
     ModelGPU ret{};
-
+    
     ret.meshes.reserve(model->meshes.size());
     for (auto const &mesh : model->meshes) {
         ret.meshes.push_back(transferCPUMesh2GPU(mesh));

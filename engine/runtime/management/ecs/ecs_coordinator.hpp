@@ -9,13 +9,18 @@
 
 #include "core/component_manager.hpp"
 #include "core/entity_manager.hpp"
-#include "management/ecs/category/category.hpp"
-#include "management/ecs/category/category_manager.hpp"
+#include "management/ecs/components/camera/camera_component.hpp"
+#include "management/ecs/components/renderable/renderable_component.hpp"
+#include "management/ecs/components/rigid_body/rigid_body_component.hpp"
+#include "management/ecs/components/transform/transform_component.hpp"
 #include "management/ecs/core/component_array.hpp"
 #include "management/ecs/core/component_manager.hpp"
 #include "management/ecs/core/event.hpp"
 #include "management/ecs/core/event_manager.hpp"
-
+#include "management/ecs/system/system.hpp"
+#include "management/ecs/system/system_manager.hpp"
+#include "resource/json/json_type/world_json.hpp"
+#include "resource/manager/asset_manager.hpp"
 namespace taixu {
 
 /**
@@ -48,7 +53,7 @@ public:
         signature.set(_component_manager->GetComponentType<T>(), true);
         _entity_manager->setSignature(entity, signature);
 
-        _category_manager->entitySignatureChanged(entity, signature);
+        _system_manager->entitySignatureChanged(entity, signature);
     }
 
     template<typename T>
@@ -59,7 +64,7 @@ public:
         signature.set(_component_manager->GetComponentType<T>(), false);
         _entity_manager->setSignature(entity, signature);
 
-        _category_manager->entitySignatureChanged(entity, signature);
+        _system_manager->entitySignatureChanged(entity, signature);
     }
 
     template<typename T>
@@ -72,9 +77,9 @@ public:
         return _component_manager->GetComponentType<T>();
     }
 
-    Category *registerCategory(CategoryIdType categoryId);
+    System *registerSystem(SystemIdType systemId);
 
-    void setCategorySignature(CategoryIdType categoryId, Signature signature);
+    void setsystemSignature(SystemIdType systemId, Signature const &signature);
 
     // Event methods
     void addEventListener(EventIdType                         eventId,
@@ -88,11 +93,17 @@ public:
 
     void update();
 
+    void                       serialize(int level_index);
+    void                       deserialize(int level_index);
+    std::unique_ptr<JsonWorld> taixuworld;
+    std::string                current_level_name;
+    AssetManager              *loadhelper;
+
 private:
     std::unique_ptr<ComponentManager> _component_manager{nullptr};
     std::unique_ptr<EntityManager>    _entity_manager{nullptr};
     std::unique_ptr<EventManager>     _event_manager{nullptr};
-    std::unique_ptr<CategoryManager>  _category_manager{nullptr};
+    std::unique_ptr<SystemManager>    _system_manager{nullptr};
 };
 
 }// namespace taixu

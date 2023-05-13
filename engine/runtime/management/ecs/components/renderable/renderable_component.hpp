@@ -15,6 +15,7 @@ namespace taixu {
 class RenderableComponent {
 public:
     Model *model{nullptr};
+    bool   visiable{true};
 };
 
 }// namespace taixu

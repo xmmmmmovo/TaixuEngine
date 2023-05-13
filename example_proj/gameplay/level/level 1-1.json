@@ -1,0 +1,12 @@
+{
+  "GOs": [
+    {
+      "GO_path": "gameplay/GO/floor.json",
+      "name": "floor"
+    },
+    {
+      "GO_path": "gameplay/GO/planet.json",
+      "name": "planet"
+    }
+  ]
+}
