@@ -21,6 +21,16 @@ public:
     ImVec2        _previous_size{0, 0};
     ImRect        _render_rect{};
     ImRect        _menu_bar_rect{};
+    ImTextureID   _textureID;
+    ImDrawList*   _drawList{nullptr};
+    ImVec2 imagePos;
+    ImVec2 imageEndPos;
+    bool drawGrid{false};
+    bool firstround{true};
+    glm::mat4 viewmatrix{glm::mat4(0.0f)};
+    glm::mat4 projectionmatrix{glm::mat4(0.0f)};
+    glm::mat4 identity{glm::mat4(1.0f)};
+    glm::mat4 selectedObjectTranform;
 
 public:
     void update() override {
@@ -53,12 +63,80 @@ public:
                                  static_cast<int>(_render_size.y));
         }
 
-        ImGui::Image(
+        //_textureID = reinterpret_cast<ImTextureID>(_framebuffer->getFBTextureID());
+
+        
+
+        // if(_drawList == nullptr)
+        // {
+        //     _drawList = ImGui::GetWindowDrawList();
+        //     imagePos = ImGui::GetCursorScreenPos();
+        //     imageEndPos;
+        //     imageEndPos.x = imagePos.x + _render_size.x;
+        //     imageEndPos.y = imagePos.y + _render_size.y;
+        // }
+        //if(drawGrid)
+        //{
+            _drawList = ImGui::GetWindowDrawList();
+            imagePos = ImGui::GetCursorScreenPos();
+            imageEndPos;
+            imageEndPos.x = imagePos.x + _render_size.x;
+            imageEndPos.y = imagePos.y + _render_size.y;
+
+            ImGui::Image(
                 reinterpret_cast<ImTextureID>(_framebuffer->getFBTextureID()),
                 _render_size, ImVec2(0, 1), ImVec2(1, 0));
-    }
-};
+            if(drawGrid)
+                updateImagewithGrid();
+            // // 绘制网格
+            // float gridSize = 10.0f;
+            // ImVec2 gridPos = ImVec2((int)imagePos.x, (int)imagePos.y);
+            // while (gridPos.y < imageEndPos.y)
+            // {
+            //     _drawList->AddLine(ImVec2(gridPos.x, gridPos.y), ImVec2(imageEndPos.x, gridPos.y), IM_COL32(255, 255, 255, 100));
+            //     gridPos.y += gridSize;
+            // }
+            // while (gridPos.x < imageEndPos.x)
+            // {
+            //     _drawList->AddLine(ImVec2(gridPos.x, gridPos.y), ImVec2(gridPos.x, imageEndPos.y), IM_COL32(255, 255, 255, 100));
+            //     gridPos.x += gridSize;
+            // }
+        //}
 
+        }
+
+        void updateImagewithGrid()
+        {
+            ImGuizmo::SetDrawlist(_drawList);
+            ImGuizmo::SetRect(
+            imagePos.x,imagePos.y,
+            imageEndPos.x,imageEndPos.y
+            );
+            //glm::mat4 model(1.0f);
+            //model[3] = selectedObjectTranform[3];
+            float *cameraView = glm::value_ptr(viewmatrix);
+            float *cameraProjection = glm::value_ptr(projectionmatrix);
+            float *identityMatrix = glm::value_ptr(identity);
+            float *modelMatrix = glm::value_ptr(selectedObjectTranform);
+            //ImGuizmo::DrawCubes(cameraView, cameraProjection, modelMatrix, 1);
+            //ImGuizmo::DrawGrid(cameraView, cameraProjection, identityMatrix, 100.f);
+
+            // // 绘制网格
+            // float gridSize = 10.0f;
+            // ImVec2 gridPos = ImVec2((int)imagePos.x, (int)imagePos.y);
+            // while (gridPos.y < imageEndPos.y)
+            // {
+            //     _drawList->AddLine(ImVec2(gridPos.x, gridPos.y), ImVec2(imageEndPos.x, gridPos.y), IM_COL32(255, 255, 255, 100));
+            //     gridPos.y += gridSize;
+            // }
+            // while (gridPos.x < imageEndPos.x)
+            // {
+            //     _drawList->AddLine(ImVec2(gridPos.x, gridPos.y), ImVec2(gridPos.x, imageEndPos.y), IM_COL32(255, 255, 255, 100));
+            //     gridPos.x += gridSize;
+            // }
+        }
+
+    };
 }// namespace taixu::editor
 
 #endif//TAIXUENGINE_RENDER_COMPONENT_HPP

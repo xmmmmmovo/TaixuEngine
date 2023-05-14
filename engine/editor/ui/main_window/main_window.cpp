@@ -103,22 +103,34 @@ bool MainWindow::isCursorInRenderComponent() const {
 }
 
 void MainWindow::operationLisen() {
+        
+        //if(render_component->firstround)
+            render_component-> viewmatrix = _current_scene->_camera->getViewMatrix();
+        //if(render_component->firstround)
+            render_component-> projectionmatrix = _current_scene->_camera->getProjectionMatrix();
+        //render_component-> identity = glm::mat4(1.0f);
+        render_component->drawGrid = true;
+        render_component->firstround = false;
+        auto trans = _current_scene->ecs_coordinator
+                                 .getComponent<TransformComponent>(0);
+        render_component->selectedObjectTranform = trans.getTransformMatrix();
+
     //if(isCursorInRenderComponent())
     //{
         //ImGui::NewFrame();
         //ImGuizmo::BeginFrame();
-        auto gizmoWindowFlags = detail_component->gizmoWindowFlags;
-        ImGui::Begin("Gizmo", 0, gizmoWindowFlags);
-        float windowWidth = (float)ImGui::GetWindowWidth();
-        float windowHeight = (float)ImGui::GetWindowHeight();
-        ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, windowWidth, windowHeight);
-        ImDrawList* drawList = ImGui::GetWindowDrawList();
-        ImGuizmo::SetDrawlist(drawList);
-        ImVec2 endpoint = ImGui::GetWindowPos();
-        endpoint = ImVec2(endpoint.x+windowWidth, endpoint.y+windowHeight);
-        drawList->AddRect(ImGui::GetWindowPos(),  endpoint, IM_COL32_WHITE);
+        // auto gizmoWindowFlags = detail_component->gizmoWindowFlags;
+        // ImGui::Begin("Gizmo", 0, gizmoWindowFlags);
+        // float windowWidth = (float)ImGui::GetWindowWidth();
+        // float windowHeight = (float)ImGui::GetWindowHeight();
+        // ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, windowWidth, windowHeight);
+        // ImDrawList* drawList = ImGui::GetWindowDrawList();
+        // ImGuizmo::SetDrawlist(drawList);
+        // ImVec2 endpoint = ImGui::GetWindowPos();
+        // endpoint = ImVec2(endpoint.x+windowWidth, endpoint.y+windowHeight);
+        // drawList->AddRect(ImGui::GetWindowPos(),  endpoint, IM_COL32_WHITE);
         
-        ImGui::End();
+        // ImGui::End();
         
         //ImGui::EndFrame();
         //ImGuiWindow* window = ImGui::GetCurrentWindow();
@@ -143,7 +155,7 @@ void MainWindow::operationLisen() {
 
 void MainWindow::update() {
     preUpdate();
-    //operationLisen();
+    operationLisen();
     ImguiSurface::update();
 }
 
