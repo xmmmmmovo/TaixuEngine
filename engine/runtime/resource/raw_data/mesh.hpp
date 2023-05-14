@@ -14,7 +14,7 @@
 #include "asset_data.hpp"
 #include "management/graphics/render/vertex_array.hpp"
 #include "material.hpp"
-#include "platform/opengl/ogl_vertexArray.hpp"
+#include "platform/opengl/ogl_vertex_array.hpp"
 
 namespace taixu {
 

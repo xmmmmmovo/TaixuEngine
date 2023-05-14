@@ -1,6 +1,9 @@
 #ifndef TAIXUENGINE_TRANSFORM_JSON_HPP
 #define TAIXUENGINE_TRANSFORM_JSON_HPP
 
+#include <glm/vec3.hpp>
+#include <nlohmann/json.hpp>
+
 namespace taixu {
 
 class Vec3 {

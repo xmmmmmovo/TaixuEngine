@@ -65,7 +65,7 @@ public:
                      std::filesystem::path const                 &relative_path,
                      std::function<void(Texture2DAsset *)> const &callback);
 
-    void reset(std::filesystem::path const &asset_path) {
+    void reset() {
         _textures.clear();
         _models.clear();
     }

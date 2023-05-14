@@ -12,14 +12,16 @@ out VS_OUT {
     vec2 TexCoords;
 } vs_out;
 
-uniform mat4 MVP;
-uniform mat4 V;
-uniform mat4 M;
-uniform mat3 MV3x3;
+layout (std140) uniform Matrices {
+    mat4 projection;
+    mat4 view;
+    mat4 vp;
+};
+
+uniform mat4 model;
 
 void main() {
-    gl_Position = MVP * vec4(position, 1.0f);
-//    gl_Position = vec4(position, 1.0f);
-    vs_out.FragPos = vec3(M * vec4(position, 1.0));
+    gl_Position = vp * model * vec4(position, 1.0f);
+    vs_out.FragPos = vec3(model * vec4(position, 1.0));
     vs_out.TexCoords = texCoords;
 }
