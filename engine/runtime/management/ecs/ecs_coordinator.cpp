@@ -55,37 +55,4 @@ void ECSCoordinator::sendEvent(EventIdType eventId) {
 
 void ECSCoordinator::update() { this->_event_manager->processEvents(); }
 
-void ECSCoordinator::serialize(int level_index) {
-    if (taixuworld->json_levels.empty()) {
-        spdlog::debug("There is no level in the project");
-    }
-
-    auto currentlevel_json = taixuworld->json_levels[level_index];
-    auto parent_path       = taixuworld->project_file_path;
-    for (auto go : currentlevel_json.json_game_objects) {
-        auto entity = createEntity();
-
-        auto renderable = RenderableComponent();
-        auto model =
-            loadhelper->loadModel(parent_path, go.MeshComponent.obj_path);
-
-        if (model->gpu_data == std::nullopt) { transferCPUModelToGPU(model); }
-
-        renderable.model    = model;
-        renderable.visiable = go.MeshComponent.visiable;
-        addComponent(entity, std::forward<RenderableComponent>(renderable));
-
-        auto trans = TransformComponent(go.TransformComponent.position.vec3,
-                                        go.TransformComponent.scale.vec3,
-                                        go.TransformComponent.rotation.vec3);
-
-        trans.makeTransformMatrix();
-
-        addComponent(entity, std::forward<TransformComponent &&>(trans));   
-        
-    }
-}
-
-void ECSCoordinator::deserialize(int level_index) {}
-
 }// namespace taixu

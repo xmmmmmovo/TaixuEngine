@@ -48,7 +48,7 @@ protected:
     void bindScene(Scene *scene) override {
         _current_scene = scene;
         if (_current_scene != nullptr) {
-            auto &coordinator = _current_scene->ecs_coordinator;
+            auto &coordinator = _current_scene->_ecs_coordinator;
             _renderable_system =
                     coordinator.registerSystem(RENDERABLE_SYSTEM_ID);
             {

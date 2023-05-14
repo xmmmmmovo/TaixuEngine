@@ -93,12 +93,6 @@ public:
 
     void update();
 
-    void                       serialize(int level_index);
-    void                       deserialize(int level_index);
-    std::unique_ptr<JsonWorld> taixuworld;
-    std::string                current_level_name;
-    AssetManager              *loadhelper;
-
 private:
     std::unique_ptr<ComponentManager> _component_manager{nullptr};
     std::unique_ptr<EntityManager>    _entity_manager{nullptr};

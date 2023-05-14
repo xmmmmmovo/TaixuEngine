@@ -3,12 +3,10 @@
 
 
 #include "game_object_json.hpp"
-#include "resource/json/json_parser.hpp"
 #include "transform_json.hpp"
 namespace taixu {
 
 enum class testEnumType { TYPE1, TYPE2, TYPE3 };
-
 
 class JsonLevel {
 public:
