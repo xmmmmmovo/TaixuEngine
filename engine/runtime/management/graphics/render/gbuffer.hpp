@@ -1,0 +1,12 @@
+//
+// Created by xmmmmmovo on 2023/5/14.
+//
+
+#ifndef ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_RENDER_GBUFFER_HPP
+#define ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_RENDER_GBUFFER_HPP
+
+namespace taixu {
+class AbstractGBuffer {};
+}// namespace taixu
+
+#endif//ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_RENDER_GBUFFER_HPP

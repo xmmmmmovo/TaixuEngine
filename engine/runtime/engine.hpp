@@ -29,6 +29,9 @@ private:
     std::unique_ptr<WindowContext> _context_ptr{nullptr};
     std::unique_ptr<IWindow>       _window_ptr{nullptr};
 
+    Scene *_current_scene{nullptr};
+    std::unique_ptr<JsonWorld> taixuworld;
+
     Clock _clock{};
 
     void update();

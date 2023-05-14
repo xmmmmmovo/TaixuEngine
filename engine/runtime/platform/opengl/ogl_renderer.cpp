@@ -26,12 +26,12 @@ void OGLRenderer::update() {
         for (auto const &entity : _renderable_system->entities()) {
             
             auto const &renderable =
-                    _current_scene->ecs_coordinator
+                    _current_scene->_ecs_coordinator
                             .getComponent<RenderableComponent>(entity);
             if(renderable.visiable == true)
             {
-                auto const &trans = _current_scene->ecs_coordinator
-                                 .getComponent<TransformComponent>(entity);
+                auto const &trans = _current_scene->_ecs_coordinator
+                                .getComponent<TransformComponent>(entity);
                 transform = trans.transform;
             
                 bindShader();

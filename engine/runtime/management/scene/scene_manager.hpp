@@ -21,7 +21,6 @@ namespace taixu {
 class SceneManager final {
 private:
     std::unordered_map<std::string_view, std::unique_ptr<Scene>> _scenes;
-    Scene *_current_scene{nullptr};
 
 public:
     void addScene(std::string_view const &name, std::unique_ptr<Scene> scene);
@@ -30,13 +29,7 @@ public:
 
     Scene *getScene(std::string_view const &name);
 
-    Scene *getCurrentScene();
-
-    void setCurrentScene(std::string_view const &name);
-
     void clear();
-
-    void update();
 };
 
 }// namespace taixu

@@ -2,6 +2,7 @@
 #define ENGINE_RUNTIME_GRAPHICS_SHADER
 
 #include "core/base/noncopyable.hpp"
+#include "management/graphics/render/render_types.hpp"
 
 namespace taixu {
 
