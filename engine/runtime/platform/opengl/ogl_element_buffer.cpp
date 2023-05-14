@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 2023/2/25.
 //
 
-#include "ogl_elementBuffer.hpp"
+#include "ogl_element_buffer.hpp"
 
 #include "spdlog/spdlog.h"
 

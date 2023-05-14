@@ -17,6 +17,7 @@
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/system/system.hpp"
+#include "management/graphics/frontend/matrices.hpp"
 #include "management/graphics/render/framebuffer.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/graphics/render/shader.hpp"
@@ -42,12 +43,15 @@ class BaseRenderer : public IRenderer {
 protected:
     Scene                        *_current_scene{nullptr};
     System                       *_renderable_system{nullptr};
-    //Category                       *_transform_category{nullptr};
     static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "renderable"_hash64;
+
+    Matrices _matrices{};
 
     void bindScene(Scene *scene) override {
         _current_scene = scene;
         if (_current_scene != nullptr) {
+            _current_scene->shader_program->bind_uniform_block("Matrices", 0);
+
             auto &coordinator = _current_scene->_ecs_coordinator;
             _renderable_system =
                     coordinator.registerSystem(RENDERABLE_SYSTEM_ID);

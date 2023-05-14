@@ -4,6 +4,7 @@
 #include "mesh_json.hpp"
 #include "rigid_body_json.hpp"
 #include "transform_json.hpp"
+#include <fstream>
 
 namespace taixu {
 

@@ -7,6 +7,7 @@
 
 #include <glad/glad.h>
 
+#include <cstdint>
 #include <spdlog/spdlog.h>
 
 #include <glm/mat3x3.hpp>
@@ -199,6 +200,12 @@ public:
                      const glm::mat4       &mat) const noexcept override {
         glUniformMatrix4fv(glGetUniformLocation(_id, name.data()), 1, GL_FALSE,
                            &mat[0][0]);
+    }
+    
+    void bind_uniform_block(const std::string_view &name,
+                            std::uint32_t idx) const noexcept override {
+        glUniformBlockBinding(_id, glGetUniformBlockIndex(_id, name.data()),
+                              idx);
     }
 };
 

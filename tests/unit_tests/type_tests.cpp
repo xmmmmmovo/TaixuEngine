@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <glm/glm.hpp>
 
 struct A {
     int a{0};
@@ -73,4 +74,11 @@ TEST_CASE("plus test", "[C++ trait tests]") {
     REQUIRE(a == 2);
 }
 
-TEST_CASE("test c++", "[C++ trait tests]") {}
+TEST_CASE("test c++", "[C++ trait tests]") {
+    glm::vec3 v{1, 2, 3};
+
+    float *ptr = &v[0];
+    float *raw_ptr = reinterpret_cast<float *>(&v);
+
+    REQUIRE(ptr == raw_ptr);
+}
