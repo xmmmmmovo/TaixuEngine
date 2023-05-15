@@ -45,13 +45,16 @@ protected:
     System                       *_renderable_system{nullptr};
     static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "renderable"_hash64;
 
+    std::unique_ptr<IShaderProgram> _render_shader{nullptr};
+    std::unique_ptr<IShaderProgram> _skybox_shader{nullptr};
+
     Matrices _matrices{};
 
     void bindScene(Scene *scene) override {
         _current_scene = scene;
         if (_current_scene != nullptr) {
-            _current_scene->_shader_program->use();
-            _current_scene->_shader_program->bind_uniform_block("Matrices", 0);
+            _render_shader->use();
+            _render_shader->bind_uniform_block("Matrices", 0);
 
             auto &coordinator = _current_scene->_ecs_coordinator;
             _renderable_system =
