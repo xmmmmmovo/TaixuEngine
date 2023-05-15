@@ -3,6 +3,7 @@
 //
 
 #include "ogl_renderer.hpp"
+#include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "ogl_vertex_array.hpp"
 #include "spdlog/spdlog.h"
 

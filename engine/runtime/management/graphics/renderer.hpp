@@ -15,6 +15,7 @@
 #include "core/base/noncopyable.hpp"
 #include "gameplay/player/perspective_camera.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
+#include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/system/system.hpp"
 #include "management/graphics/frontend/matrices.hpp"
@@ -63,10 +64,6 @@ protected:
                 Signature render_signature;
                 render_signature.set(
                         coordinator.getComponentType<RenderableComponent>());
-                coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
-                                               render_signature);
-
-                //Signature trans_signature;
                 render_signature.set(
                         coordinator.getComponentType<TransformComponent>());
                 coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
