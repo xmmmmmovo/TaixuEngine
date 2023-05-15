@@ -150,12 +150,12 @@ public:
         skybox_shader->set_uniform("skybox", 0);
 
         _skybox = Skybox(std::make_unique<OGLTextureCube>(
-                                 world->project_file_path / global_render.posx,
-                                 world->project_file_path / global_render.negx,
-                                 world->project_file_path / global_render.posy,
-                                 world->project_file_path / global_render.negy,
-                                 world->project_file_path / global_render.posz,
-                                 world->project_file_path / global_render.negz),
+                                 (world->project_file_path / global_render.posx).string(),
+                                 (world->project_file_path / global_render.negx).string(),
+                                 (world->project_file_path / global_render.posy).string(),
+                                 (world->project_file_path / global_render.negy).string(),
+                                 (world->project_file_path / global_render.posz).string(),
+                                 (world->project_file_path / global_render.negz).string()),
                          std::move(skybox_shader));
     }
 };
