@@ -10,6 +10,7 @@
 #include "core/base/macro.hpp"
 #include "imgui.h"
 #include "imgui_internal.h"
+#include "ImGuizmo.h"
 
 namespace taixu::editor {
 
@@ -133,7 +134,7 @@ void ImguiSurface::preUpdate() {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
-
+    
     ImGuiViewport *viewport = ImGui::GetMainViewport();
     ImGui::SetNextWindowPos(viewport->Pos);
     ImGui::SetNextWindowSize(viewport->Size);

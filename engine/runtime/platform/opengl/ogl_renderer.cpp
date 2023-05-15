@@ -31,10 +31,12 @@ void OGLRenderer::update() {
                             .getComponent<RenderableComponent>(entity);
             if(renderable.visiable == true)
             {
-                auto const &trans = _current_scene->ecs_coordinator
+                auto &trans = _current_scene->ecs_coordinator
                                  .getComponent<TransformComponent>(entity);
+                //if(entity == 0)
+                trans.makeTransformMatrix();
                 transform = trans.transform;
-            
+
                 bindShader();
                 for (auto &mesh : renderable.model->gpu_data.value().meshes) {
                     mesh.vao->draw(mesh.index_count);

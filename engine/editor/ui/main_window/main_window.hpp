@@ -107,6 +107,8 @@ private:
     [[nodiscard]] inline bool isCursorInRenderComponent() const;
     
     void operationLisen();
+
+    void operationCallback();
 private:
     // callback functions
     void onNewProjectCb(std::string_view const &path);

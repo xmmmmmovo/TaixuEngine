@@ -111,7 +111,7 @@ public:
         // calculate the new Front vector
         float const FoV = initial_foV;
         projection_matrix =
-                glm::perspective(glm::radians(FoV), 4.0f / 3.0f, 0.1f, 500.0f);
+                glm::perspective(glm::radians(FoV), 4.0f / 3.0f, 0.01f, 500.0f);
 
         glm::vec3 front;
         front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));

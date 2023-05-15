@@ -11,6 +11,12 @@
 #include "management/input/input_system.hpp"
 #include "spdlog/spdlog.h"
 #include "ui/ui_component.hpp"
+#include "ImGuizmo.h"
+#include "imgui.h"
+#include "backends/imgui_impl_opengl3.h"
+#include "management/scene/scene.hpp"
+#include "glm/glm.hpp"
+#include "glm/gtx/matrix_decompose.hpp"
 
 namespace taixu::editor {
 
@@ -25,15 +31,20 @@ public:
     ImDrawList*   _drawList{nullptr};
     ImVec2 imagePos;
     ImVec2 imageEndPos;
-    bool drawGrid{false};
-    bool firstround{true};
     glm::mat4 viewmatrix{glm::mat4(0.0f)};
     glm::mat4 projectionmatrix{glm::mat4(0.0f)};
     glm::mat4 identity{glm::mat4(1.0f)};
     glm::mat4 selectedObjectTranform;
+    ImGuizmo::OPERATION mCurrentGizmoOperation {ImGuizmo::OPERATION::TRANSLATE};
+    ImGuizmo::MODE mCurrentGizmoMode{ImGuizmo::MODE::WORLD};
+    float matrixTranslation[3], matrixRotation[3], matrixScale[3];
+    glm::mat4 delta{glm::mat4(1.0)};
+    Scene* current_scene{nullptr};
 
 public:
     void update() override {
+        
+
         if (ImGui::BeginMenuBar()) {
             float const size = ImGui::GetWindowHeight() - 4.0f;
             ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) -
@@ -62,78 +73,97 @@ public:
             _framebuffer->resize(static_cast<int>(_render_size.x),
                                  static_cast<int>(_render_size.y));
         }
-
-        //_textureID = reinterpret_cast<ImTextureID>(_framebuffer->getFBTextureID());
-
         
-
-        // if(_drawList == nullptr)
-        // {
-        //     _drawList = ImGui::GetWindowDrawList();
-        //     imagePos = ImGui::GetCursorScreenPos();
-        //     imageEndPos;
-        //     imageEndPos.x = imagePos.x + _render_size.x;
-        //     imageEndPos.y = imagePos.y + _render_size.y;
-        // }
-        //if(drawGrid)
-        //{
-            _drawList = ImGui::GetWindowDrawList();
-            imagePos = ImGui::GetCursorScreenPos();
-            imageEndPos;
-            imageEndPos.x = imagePos.x + _render_size.x;
-            imageEndPos.y = imagePos.y + _render_size.y;
-
-            ImGui::Image(
-                reinterpret_cast<ImTextureID>(_framebuffer->getFBTextureID()),
-                _render_size, ImVec2(0, 1), ImVec2(1, 0));
-            if(drawGrid)
-                updateImagewithGrid();
-            // // 绘制网格
-            // float gridSize = 10.0f;
-            // ImVec2 gridPos = ImVec2((int)imagePos.x, (int)imagePos.y);
-            // while (gridPos.y < imageEndPos.y)
-            // {
-            //     _drawList->AddLine(ImVec2(gridPos.x, gridPos.y), ImVec2(imageEndPos.x, gridPos.y), IM_COL32(255, 255, 255, 100));
-            //     gridPos.y += gridSize;
-            // }
-            // while (gridPos.x < imageEndPos.x)
-            // {
-            //     _drawList->AddLine(ImVec2(gridPos.x, gridPos.y), ImVec2(gridPos.x, imageEndPos.y), IM_COL32(255, 255, 255, 100));
-            //     gridPos.x += gridSize;
-            // }
-        //}
+        //float ratio = _render_size.x/_render_size.y;
+        _drawList = ImGui::GetWindowDrawList();
+        imagePos = ImGui::GetCursorScreenPos();
+        imageEndPos;
+        imageEndPos.x = imagePos.x + _render_size.x;
+        imageEndPos.y = imagePos.y + _render_size.y;
+            
+        ImGui::Image(
+            reinterpret_cast<ImTextureID>(_framebuffer->getFBTextureID()),
+            _render_size, ImVec2(0, 1), ImVec2(1, 0));
+            
+            
+        //ImGuizmo::BeginFrame();
+            
+        updateTrans();    
 
         }
 
-        void updateImagewithGrid()
+        void updateTrans()
         {
+            ImGuizmo::BeginFrame();
             ImGuizmo::SetDrawlist(_drawList);
+            ImGuiIO& io = ImGui::GetIO();
+            
+        
             ImGuizmo::SetRect(
             imagePos.x,imagePos.y,
             imageEndPos.x,imageEndPos.y
             );
-            //glm::mat4 model(1.0f);
-            //model[3] = selectedObjectTranform[3];
+
             float *cameraView = glm::value_ptr(viewmatrix);
             float *cameraProjection = glm::value_ptr(projectionmatrix);
             float *identityMatrix = glm::value_ptr(identity);
             float *modelMatrix = glm::value_ptr(selectedObjectTranform);
-            //ImGuizmo::DrawCubes(cameraView, cameraProjection, modelMatrix, 1);
-            //ImGuizmo::DrawGrid(cameraView, cameraProjection, identityMatrix, 100.f);
 
-            // // 绘制网格
-            // float gridSize = 10.0f;
-            // ImVec2 gridPos = ImVec2((int)imagePos.x, (int)imagePos.y);
-            // while (gridPos.y < imageEndPos.y)
-            // {
-            //     _drawList->AddLine(ImVec2(gridPos.x, gridPos.y), ImVec2(imageEndPos.x, gridPos.y), IM_COL32(255, 255, 255, 100));
-            //     gridPos.y += gridSize;
-            // }
-            // while (gridPos.x < imageEndPos.x)
-            // {
-            //     _drawList->AddLine(ImVec2(gridPos.x, gridPos.y), ImVec2(gridPos.x, imageEndPos.y), IM_COL32(255, 255, 255, 100));
-            //     gridPos.x += gridSize;
-            // }
+            glm::mat4 MVP = selectedObjectTranform*viewmatrix*projectionmatrix;
+            
+            float* mvp = glm::value_ptr(MVP);
+            float deltaMatrix[16] =
+            { 
+            1.f, 0.f, 0.f, 0.f,
+            0.f, 1.f, 0.f, 0.f,
+            0.f, 0.f, 1.f, 0.f,
+            0.f, 0.f, 0.f, 1.f 
+            }; 
+            
+            ImGuizmo::Manipulate(
+                cameraView,cameraProjection,
+                mCurrentGizmoOperation,mCurrentGizmoMode,
+                modelMatrix,deltaMatrix
+                );
+            
+            if(mCurrentGizmoOperation==ImGuizmo::OPERATION::ROTATE)
+                delta = glm::make_mat4(deltaMatrix);
+            else   
+                delta = glm::make_mat4(modelMatrix);
+            if(current_scene != nullptr)
+            {
+                operationCallback();
+            }
+            
+        }
+
+        void operationCallback() {
+            auto &trans = current_scene->ecs_coordinator
+                                 .getComponent<TransformComponent>(0);
+            
+            if(_drawList!=nullptr)
+            {
+            
+                glm::mat4 temp = delta;
+
+                glm::vec3 translate,scale,skew;
+                glm::vec4 tempPerspective;
+                glm::quat tempOrientation;
+                glm::decompose(temp,scale,tempOrientation,translate,skew,tempPerspective);
+                if(mCurrentGizmoOperation==ImGuizmo::OPERATION::TRANSLATE)
+                {
+                    //translate = translate + trans._position;
+                    trans.setPosition(translate);
+                }
+                else if(mCurrentGizmoOperation==ImGuizmo::OPERATION::ROTATE)
+                {
+                    trans.setRotation(temp);
+                }
+                else if(mCurrentGizmoOperation==ImGuizmo::OPERATION::SCALE)
+                {
+                    trans.setScale(scale);
+                }
+            }   
         }
 
     };

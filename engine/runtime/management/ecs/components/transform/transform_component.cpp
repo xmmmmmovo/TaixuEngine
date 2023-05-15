@@ -4,9 +4,34 @@ namespace taixu{
 
 void TransformComponent::setPosition(glm::vec3 pos) {_position=pos;}
 
-void TransformComponent::setScale(glm::vec3 scl) {_scale=scl;}
+void TransformComponent::addPosition(glm::vec3 pos) {_position += pos;}
 
-void TransformComponent::setRotation(glm::vec3 rotate) {_rotation=rotate;}
+void TransformComponent::setScale(glm::vec3 scl) {_scale = scl;}
+
+void TransformComponent::Scale(glm::vec3 scl) {_scale *= scl;}
+
+
+void TransformComponent::setRotation(glm::vec3 rotate) {_rotation = rotate;}
+
+void TransformComponent::setRotation(glm::quat q) {
+    glm::mat4 rotation = glm::mat4_cast(q);
+    float x,y,z;
+    glm::extractEulerAngleXYZ(rotation,x,y,z);
+    _rotation = glm::vec3(x,y,z);
+}
+
+void TransformComponent::setRotation(glm::mat4 r) {
+    float x=0,y=0,z=0;
+    glm::extractEulerAngleXYZ(r,x,y,z);
+    
+    
+     _rotation.x += glm::degrees(x);
+     _rotation.y += glm::degrees(y);
+     _rotation.z += glm::degrees(z);
+     if(x>0.5)
+         int a=0;
+
+}
 
 glm::mat4 TransformComponent::getTransformMatrix(){return transform;}
 void TransformComponent::makeTransformMatrix() { 
