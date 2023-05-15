@@ -28,13 +28,22 @@ void OGLRenderer::update() {
     if (_current_scene != nullptr) {
 
         _matrices.projection = _current_scene->_camera->getProjectionMatrix();
-        _matrices.view       = _current_scene->_camera->getViewMatrix();
-        _matrices.vp         = _matrices.projection * _matrices.view;
+        auto view            = _current_scene->_camera->getViewMatrix();
+
+        _matrices.view = glm::mat4(glm::mat3(view));
+        _matrices.vp   = _matrices.projection * _matrices.view;
+
         _matrices_ubo.bind();
         _matrices_ubo.updateData(_matrices, 0);
         _matrices_ubo.unbind();
 
         _current_scene->_skybox->draw();
+
+        _matrices.view = view;
+        _matrices.vp   = _matrices.projection * _matrices.view;
+        _matrices_ubo.bind();
+        _matrices_ubo.updateData(_matrices, 0);
+        _matrices_ubo.unbind();
 
         _current_scene->_shader_program->use();
         for (auto const &entity : _renderable_system->entities()) {

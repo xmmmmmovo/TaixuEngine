@@ -142,16 +142,21 @@ public:
 
         auto const &global_render = world->global_json.render_global_json;
 
-        _skybox = Skybox(
-                std::make_unique<OGLTextureCube>(
-                        world->project_file_path / global_render.posx,
-                        world->project_file_path / global_render.negx,
-                        world->project_file_path / global_render.posy,
-                        world->project_file_path / global_render.negy,
-                        world->project_file_path / global_render.posz,
-                        world->project_file_path / global_render.negz),
-                std::make_unique<OGLShaderProgram>(SKYBOX_VERT, SKYBOX_FRAG));
-        _skybox.value().bind_uniform_block("Matrices", 0);
+
+        auto skybox_shader =
+                std::make_unique<OGLShaderProgram>(SKYBOX_VERT, SKYBOX_FRAG);
+        skybox_shader->use();
+        skybox_shader->bind_uniform_block("Matrices", 0);
+        skybox_shader->set_uniform("skybox", 0);
+
+        _skybox = Skybox(std::make_unique<OGLTextureCube>(
+                                 world->project_file_path / global_render.posx,
+                                 world->project_file_path / global_render.negx,
+                                 world->project_file_path / global_render.posy,
+                                 world->project_file_path / global_render.negy,
+                                 world->project_file_path / global_render.posz,
+                                 world->project_file_path / global_render.negz),
+                         std::move(skybox_shader));
     }
 };
 
