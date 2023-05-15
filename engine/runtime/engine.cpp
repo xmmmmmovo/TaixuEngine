@@ -121,6 +121,7 @@ Status Engine::loadProject(const std::string_view &path) {
 
     _current_scene->_asset_manager = _asset_manager.get();
     _current_scene->fromWorld(_asset_manager->taixuworld.get());
+    _window_ptr->bindScene(_scene_manager->getCurrentScene());
 
     return Status::OK;
 }

@@ -44,6 +44,7 @@ class BaseRenderer : public IRenderer {
 protected:
     Scene                        *_current_scene{nullptr};
     System                       *_renderable_system{nullptr};
+
     static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "renderable"_hash64;
 
     std::unique_ptr<IShaderProgram> _render_shader{nullptr};
