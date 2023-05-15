@@ -6,7 +6,8 @@
 namespace taixu
 {
     enum class LightSourseType{
-    POINT
+    POINT,
+    INVALID
     //DIRECTION,
     };
 
@@ -14,8 +15,8 @@ class LightComponent
 {
 public:
     LightComponent() = default;
-    LightSourseType type;
-    glm::vec3 light_color;
+    LightSourseType type{LightSourseType::INVALID};
+    glm::vec3 light_color{glm::vec3(0.0,0.0,0.0)};
 
     void setcolor(const glm::vec3 &color)
     {

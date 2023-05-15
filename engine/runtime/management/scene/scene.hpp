@@ -38,7 +38,7 @@ private:
 
 public:
     ECSCoordinator _ecs_coordinator{};
-    PhysicsManager physics_manager{};
+    PhysicsManager _physics_manager{};
 
     std::unique_ptr<IShaderProgram> _shader_program{
             std::make_unique<OGLShaderProgram>(VERT_VERT, FRAG_FRAG)};
@@ -55,7 +55,7 @@ public:
         _ecs_coordinator.registerComponent<TransformComponent>();
         _ecs_coordinator.registerComponent<LightComponent>();
 
-        physics_manager.init();
+        _physics_manager.init();
         _camera->Position = glm::vec3(0.0f, 4.0f, 20.0f);
         InputSystem::getInstance().registerEditorCallback(
                 [this](float delta_time, WindowContext *const context) {

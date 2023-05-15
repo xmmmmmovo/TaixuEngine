@@ -19,6 +19,7 @@ void OGLRenderer::init() {
     _matrices_ubo.bind();
     _matrices_ubo.setData(_matrices, 0);
     _matrices_ubo.unbind();
+    
 }
 
 void OGLRenderer::update() {
@@ -44,6 +45,34 @@ void OGLRenderer::update() {
         _matrices_ubo.bind();
         _matrices_ubo.updateData(_matrices, 0);
         _matrices_ubo.unbind();
+        
+        for (auto const &entity : _renderable_system->entities()) {
+            auto light = _current_scene->_ecs_coordinator.getComponent<LightComponent>(entity);
+            if(light.type!=LightSourseType::INVALID)
+            {
+                auto light_trans = _current_scene->_ecs_coordinator.getComponent<TransformComponent>(entity);
+                LightsInfo lightInfo;
+                lightInfo.light_position = light_trans._position;
+                lightInfo.light_color = light.light_color;
+                lightInfo.camera_position = _current_scene->_camera->Position;
+                _lights_ubo.bind();
+                _lights_ubo.setData(lightInfo,1);
+                _lights_ubo.unbind();
+                break;
+            }
+        }
+        ///////////////////////////////////////////////////////////////////////
+        MaterialInfo m;
+        m.shininess = 96.078443;
+        m.ambient = glm::vec4(1.0f,1.0f,1.0f,1.0f);
+        m.diffuse = glm::vec4(0.64f,0.64f,0.64f,1.0f);
+        m.specular = glm::vec4(0.5f,0.5f,0.5f,1.0f);
+        m.emissive = glm::vec4(0.f,0.f,0.f,1.0f);
+
+        _material_ubo.bind();
+        _material_ubo.setData(m,2);
+        _material_ubo.unbind();
+        ///////////////////////////////////////////////////////////////////////
 
         _current_scene->_shader_program->use();
         for (auto const &entity : _renderable_system->entities()) {

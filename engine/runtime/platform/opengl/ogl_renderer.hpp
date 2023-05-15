@@ -20,7 +20,8 @@ private:
     std::unique_ptr<OGLFrameBuffer> _framebuffer{nullptr};
 
     OGLUniformBuffer                _matrices_ubo{};
-
+    OGLUniformBuffer                _lights_ubo{};
+    OGLUniformBuffer                _material_ubo{};
 public:
     OGLRenderer() = default;
 

@@ -18,6 +18,8 @@
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/system/system.hpp"
 #include "management/graphics/frontend/matrices.hpp"
+#include "management/graphics/frontend/lightsInfo.hpp"
+#include "management/graphics/frontend/materialInfo.hpp"
 #include "management/graphics/render/framebuffer.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/graphics/render/shader.hpp"
@@ -52,6 +54,8 @@ protected:
         if (_current_scene != nullptr) {
             _current_scene->_shader_program->use();
             _current_scene->_shader_program->bind_uniform_block("Matrices", 0);
+            _current_scene->_shader_program->bind_uniform_block("LightSourse", 1);
+            _current_scene->_shader_program->bind_uniform_block("Material", 2);
 
             auto &coordinator = _current_scene->_ecs_coordinator;
             _renderable_system =
@@ -63,9 +67,13 @@ protected:
                 coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
                                                render_signature);
 
-                //Signature trans_signature;
                 render_signature.set(
                         coordinator.getComponentType<TransformComponent>());
+                coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
+                                               render_signature);
+                
+                render_signature.set(
+                        coordinator.getComponentType<LightComponent>());
                 coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
                                                render_signature);
             }
