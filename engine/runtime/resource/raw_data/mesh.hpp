@@ -14,7 +14,7 @@
 #include "asset_data.hpp"
 #include "management/graphics/render/vertex_array.hpp"
 #include "material.hpp"
-#include "platform/opengl/ogl_vertexArray.hpp"
+#include "platform/opengl/ogl_vertex_array.hpp"
 
 namespace taixu {
 
@@ -47,7 +47,7 @@ inline MeshGPU transferCPUMesh2GPU(Mesh const &mesh) {
         vao->bind();
         vao->addVBO(OGLVertexBuffer{mesh.vertices.size(),
                                     &mesh.vertices.front(), GL_STATIC_DRAW, 3});
-        
+
         if (!mesh.normals.empty()) {
             vao->addVBO(OGLVertexBuffer{mesh.normals.size(),
                                         &mesh.normals.front(), GL_STATIC_DRAW,
@@ -69,7 +69,8 @@ inline MeshGPU transferCPUMesh2GPU(Mesh const &mesh) {
                                         GL_STATIC_DRAW, 3});
         }
 
-        vao->setEBO(OGLElementBuffer{mesh.indices, GL_STATIC_DRAW});
+        vao->setEBO(OGLElementBuffer{mesh.indices.size(), &mesh.indices.front(),
+                                     GL_STATIC_DRAW});
 
         vao->unbind();
         mesh_gpu.vao = std::move(vao);

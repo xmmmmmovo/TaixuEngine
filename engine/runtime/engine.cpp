@@ -7,12 +7,13 @@
 #include "core/base/public_singleton.hpp"
 #include "engine_args.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
-#include "management/ecs/system/system.hpp"
 #include "management/ecs/core/entity_manager.hpp"
+#include "management/ecs/ecs_coordinator.hpp"
+#include "management/ecs/object/game_object.hpp"
+#include "management/ecs/system/system.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/input/input_system.hpp"
 #include "management/scene/scene.hpp"
-#include "management/ecs/ecs_coordinator.hpp"
 #include "platform/opengl/ogl_renderer.hpp"
 #include "resource/raw_data/model.hpp"
 
@@ -41,35 +42,19 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _asset_manager   = std::make_unique<AssetManager>();
     _scene_manager   = std::make_unique<SceneManager>();
 
-    // TODO: remove this test code
-    ////////////////////////////////////////////////////////////////////////////
-    auto scene      = std::make_unique<Scene>();
-    auto scene_rawp = scene.get();
-    _scene_manager->addScene("MainScene", std::move(scene));
-    _scene_manager->setCurrentScene("MainScene");
-    _renderer->bindScene(_scene_manager->getCurrentScene());
-
-    _window_ptr->bindScene(_scene_manager->getCurrentScene());
-
-
-    ////////////////////////////////////////////////////////////////////////////
-
     _context_ptr->registerOnScrollFn([this](double /*xoffset*/,
                                             double yoffset) {
-        if (_scene_manager->getCurrentScene() == nullptr ||
-            _scene_manager->getCurrentScene()->_camera == nullptr) {
+        if (_current_scene == nullptr || _current_scene->_camera == nullptr) {
             return;
         }
 
         if (_context_ptr->_state == EngineState::GAMEMODE) {
-            _scene_manager->getCurrentScene()->_camera->processMouseScroll(
-                    yoffset);
+            _current_scene->_camera->processMouseScroll(yoffset);
         }
     });
 
     _context_ptr->registerOnCursorPosFn([this](double xpos, double ypos) {
-        if (_scene_manager->getCurrentScene() == nullptr ||
-            _scene_manager->getCurrentScene()->_camera == nullptr) {
+        if (_current_scene == nullptr || _current_scene->_camera == nullptr) {
             return;
         }
 
@@ -81,7 +66,7 @@ void Engine::init(std::unique_ptr<WindowContext> context,
         _context_ptr->_mouse_pos.x = xpos;
         _context_ptr->_mouse_pos.y = ypos;
         if (_context_ptr->_cam_mode) {
-            _scene_manager->getCurrentScene()->_camera->processMouseMovement(
+            _current_scene->_camera->processMouseMovement(
                     _context_ptr->_mouse_pos.x -
                             _context_ptr->_last_mouse_pos.x,
                     _context_ptr->_last_mouse_pos.y -
@@ -100,7 +85,9 @@ void Engine::update() {
     _renderer->clearSurface();
     InputSystem::getInstance().processInput(_clock.getDeltaTime(),
                                             _context_ptr.get());
-    _scene_manager->update();
+    if (_current_scene != nullptr) {
+        _current_scene->_ecs_coordinator.update();
+    }
     _renderer->update();
 }
 
@@ -126,15 +113,25 @@ Status Engine::loadProject(const std::string_view &path) {
     }
 
     _asset_manager->loadWorld(_project_manager->getCurrentPath());
-    _scene_manager->getCurrentScene()->ecs_coordinator.taixuworld = std::move(_asset_manager->taixuworld);
-    //initialize the first level
-    _scene_manager->getCurrentScene()->ecs_coordinator.loadhelper = _asset_manager.get();
-    _scene_manager->getCurrentScene()->ecs_coordinator.serialize(0);
+
+    auto scene = std::make_unique<Scene>();
+    _scene_manager->addScene("MainScene", std::move(scene));
+    _current_scene = _scene_manager->getScene("MainScene");
+    _renderer->bindScene(_current_scene);
+
+    _current_scene->_asset_manager = _asset_manager.get();
+    _current_scene->fromWorld(_asset_manager->taixuworld.get());
+    _window_ptr->bindScene(_scene_manager->getCurrentScene());
+
     return Status::OK;
 }
 
 Project *Engine::getOpenedProject() const {
     return this->_project_manager->getCurrentProject();
+}
+
+std::vector<GameObject> const &Engine::getGameObjects() {
+    return _current_scene->game_objs();
 }
 
 }// namespace taixu

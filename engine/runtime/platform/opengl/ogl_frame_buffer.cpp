@@ -1,4 +1,4 @@
-#include "ogl_frameBuffer.hpp"
+#include "ogl_frame_buffer.hpp"
 
 namespace taixu {
 

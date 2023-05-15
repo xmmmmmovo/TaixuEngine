@@ -11,8 +11,8 @@
 #include <memory>
 
 #include "management/graphics/render/vertex_array.hpp"
-#include "ogl_elementBuffer.hpp"
-#include "ogl_vertexBuffer.hpp"
+#include "ogl_element_buffer.hpp"
+#include "ogl_vertex_buffer.hpp"
 
 namespace taixu {
 

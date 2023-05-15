@@ -38,6 +38,10 @@ public:
         spdlog::info("Cull face enabled");
         // Cull triangles which normal is not towards the camera
         glEnable(GL_CULL_FACE);
+        // Keeps front faces
+        glCullFace(GL_FRONT);
+        // Uses counter clock-wise standard
+        glFrontFace(GL_CCW);
 
         _window = window;
     }

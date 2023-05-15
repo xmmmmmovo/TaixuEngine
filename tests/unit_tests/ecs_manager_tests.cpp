@@ -5,6 +5,7 @@
 
 #include "gameplay/gui/window_context.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
+#include "management/ecs/system/system.hpp"
 #include "management/graphics/render/render_api.hpp"
 
 TEST_CASE("ecs tests", "[ecs manager tests]") {
@@ -12,7 +13,7 @@ TEST_CASE("ecs tests", "[ecs manager tests]") {
 }
 
 TEST_CASE("ecs category tests", "[ecs category tests]") {
-    auto category = taixu::Category();
+    auto category = taixu::System();
 
     category.addEntity(1);
 

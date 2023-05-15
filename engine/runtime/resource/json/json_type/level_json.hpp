@@ -3,12 +3,10 @@
 
 
 #include "game_object_json.hpp"
-#include "resource/json/json_parser.hpp"
 #include "transform_json.hpp"
 namespace taixu {
 
 enum class testEnumType { TYPE1, TYPE2, TYPE3 };
-
 
 class JsonLevel {
 public:
@@ -17,17 +15,15 @@ public:
     std::filesystem::path project_file_path{"INVALID"};
 
     std::vector<JsonGO> json_game_objects;
-    //Vec3 p;
-    //testEnumType type;
-    void                to_json(nlohmann::json &j, JsonLevel lp) {
+
+    void to_json(nlohmann::json &j, JsonLevel lp) {
         j = nlohmann::json{{"level_name", lp.level_name},
-                                          {"level_path", lp.level_path}};
+                           {"level_path", lp.level_path}};
     }
 
     void from_json(const nlohmann::json &j, JsonLevel &lp) {
         j.at("level_name").get_to(lp.level_name);
         j.at("level_path").get_to(lp.level_path);
-        //j.at("type").get_to(lp.type);
     }
 
     void serialize() {
