@@ -8,6 +8,7 @@
 #include <glad/glad.h>
 
 #include "management/graphics/render/element_buffer.hpp"
+#include <cstddef>
 #include <cstdint>
 
 namespace taixu {
@@ -19,13 +20,16 @@ private:
 public:
     OGLElementBuffer();
 
-    OGLElementBuffer(const std::vector<std::uint32_t> &indices, GLenum usage);
+    OGLElementBuffer(std::size_t size,const std::uint32_t *indices,
+                     GLenum usage);
 
     void                        bind() override;
     void                        unbind() override;
     [[nodiscard]] std::uint32_t getbufferID() const { return EBO; };
-    void setData(const std::vector<std::uint32_t> &indices,
-                 GLenum                            usage) override;
+
+
+    void setData(std::size_t size, const std::uint32_t *indices,
+                 GLenum usage) override;
 
     ~OGLElementBuffer() override;
 

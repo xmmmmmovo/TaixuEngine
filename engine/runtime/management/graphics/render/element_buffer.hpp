@@ -18,8 +18,8 @@ public:
     virtual void bind()   = 0;
     virtual void unbind() = 0;
 
-    virtual void setData(const std::vector<std::uint32_t> &indices,
-                         GLenum                            usage) = 0;
+    virtual void setData(std::size_t size, const std::uint32_t *indices,
+                         GLenum usage) = 0;
 };
 
 }// namespace taixu

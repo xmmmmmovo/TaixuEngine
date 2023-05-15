@@ -50,7 +50,8 @@ protected:
     void bindScene(Scene *scene) override {
         _current_scene = scene;
         if (_current_scene != nullptr) {
-            _current_scene->shader_program->bind_uniform_block("Matrices", 0);
+            _current_scene->_shader_program->use();
+            _current_scene->_shader_program->bind_uniform_block("Matrices", 0);
 
             auto &coordinator = _current_scene->_ecs_coordinator;
             _renderable_system =
@@ -68,7 +69,6 @@ protected:
                 coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
                                                render_signature);
             }
-
         } else {
             _renderable_system = nullptr;
         }

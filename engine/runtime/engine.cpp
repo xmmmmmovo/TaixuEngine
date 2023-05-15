@@ -113,8 +113,7 @@ Status Engine::loadProject(const std::string_view &path) {
 
     _asset_manager->loadWorld(_project_manager->getCurrentPath());
 
-    auto scene      = std::make_unique<Scene>();
-    auto scene_rawp = scene.get();
+    auto scene = std::make_unique<Scene>();
     _scene_manager->addScene("MainScene", std::move(scene));
     _current_scene = _scene_manager->getScene("MainScene");
     _renderer->bindScene(_current_scene);

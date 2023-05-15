@@ -13,13 +13,18 @@
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/ecs/object/game_object.hpp"
-#include "management/graphics/render/shader.hpp"
 #include "management/input/input_system.hpp"
 #include "management/physics/physics_manager.hpp"
 #include "platform/opengl/ogl_shader.hpp"
 
-#include "frag_frag.h"
+#include "management/graphics/frontend/skybox.hpp"
+#include "platform/opengl/ogl_texture_cube.hpp"
 #include "resource/manager/asset_manager.hpp"
+
+#include "skybox_frag.h"
+#include "skybox_vert.h"
+
+#include "frag_frag.h"
 #include "vert_vert.h"
 
 namespace taixu {
@@ -34,8 +39,11 @@ public:
     ECSCoordinator _ecs_coordinator{};
     PhysicsManager physics_manager{};
 
-    std::unique_ptr<IShaderProgram> shader_program{
+    std::unique_ptr<IShaderProgram> _shader_program{
             std::make_unique<OGLShaderProgram>(VERT_VERT, FRAG_FRAG)};
+
+    std::optional<Skybox> _skybox{};
+
     std::unique_ptr<PerspectiveCamera> _camera{
             std::make_unique<PerspectiveCamera>()};
     AssetManager *_asset_manager{nullptr};
@@ -131,6 +139,19 @@ public:
                 _game_objs.push_back(game_object);
             }
         }
+
+        auto const &global_render = world->global_json.render_global_json;
+
+        _skybox = Skybox(
+                std::make_unique<OGLTextureCube>(
+                        world->project_file_path / global_render.posx,
+                        world->project_file_path / global_render.negx,
+                        world->project_file_path / global_render.posy,
+                        world->project_file_path / global_render.negy,
+                        world->project_file_path / global_render.posz,
+                        world->project_file_path / global_render.negz),
+                std::make_unique<OGLShaderProgram>(SKYBOX_VERT, SKYBOX_FRAG));
+        _skybox.value().bind_uniform_block("Matrices", 0);
     }
 };
 
