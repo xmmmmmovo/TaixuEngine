@@ -24,11 +24,12 @@ public:
 
         auto load_and_bind = [](std::string const &path, GLenum target) {
             int  width, height, channels;
-            auto data = loadImage(path, &width, &height, &channels);
+            auto data = loadImage(path, &width, &height, &channels, 0, false);
             if (data) {
                 glTexImage2D(target, 0, mapImageToGLReadType(channels), width,
                              height, 0, mapImageToGLReadType(channels),
                              GL_UNSIGNED_BYTE, data);
+                stbi_image_free(data);
             } else {
                 spdlog::error("Unable to load image: {}", path);
                 stbi_image_free(data);
