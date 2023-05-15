@@ -20,9 +20,7 @@ namespace taixu {
 
 class Skybox {
 private:
-    std::unique_ptr<IShaderProgram> _sky_box_shader{nullptr};
-    std::unique_ptr<ITextureCube>   _sky_box_texture{nullptr};
-    std::unique_ptr<IVertexArray>   _sky_box_vertex_array{nullptr};
+    std::unique_ptr<IVertexArray> _sky_box_vertex_array{nullptr};
 
     static constexpr std::size_t CUBE_VERTEX_COUNT  = 24;
     static constexpr std::size_t CUBE_ELEMENT_COUNT = 36;
@@ -53,10 +51,7 @@ private:
                     3, 7, 6, 6, 2, 3};
 
 public:
-    explicit Skybox(std::unique_ptr<ITextureCube>   cube,
-                    std::unique_ptr<IShaderProgram> shader)
-        : _sky_box_texture(std::move(cube)),
-          _sky_box_shader(std::move(shader)) {
+    explicit Skybox() {
         auto va = std::make_unique<OGLVertexArray>();
         va->bind();
         va->addVBO(OGLVertexBuffer{CUBE_VERTEX_COUNT / 3,
@@ -66,17 +61,16 @@ public:
         _sky_box_vertex_array = std::move(va);
     }
 
-    void draw() const {
+    void draw(IShaderProgram *shader, ITextureCube *cubetexture) const {
         glDepthFunc(
                 GL_LEQUAL);// change depth function so depth test passes when values are equal to depth buffer's content
-        _sky_box_shader->use();
+        shader->use();
         _sky_box_vertex_array->bind();
-        _sky_box_texture->bind();
+        cubetexture->bind();
         _sky_box_vertex_array->draw(CUBE_ELEMENT_COUNT);
         glDepthFunc(GL_LESS);// set depth function back to default
     }
 };
-
 }// namespace taixu
 
 #endif//ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_FRONTEND_SKYBOX_HPP

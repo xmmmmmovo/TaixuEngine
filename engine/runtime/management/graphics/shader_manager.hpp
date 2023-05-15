@@ -12,28 +12,7 @@
 
 namespace taixu {
 
-class ShaderManager final {
-private:
-    std::unordered_map<std::uint64_t, std::unique_ptr<IShaderProgram>> _shaders;
-
-public:
-    void addShader(std::uint64_t id, std::unique_ptr<IShaderProgram> shader) {
-        _shaders[id] = std::move(shader);
-    }
-
-    void removeShader(std::uint64_t id) {
-        if (contains(id)) { _shaders.erase(id); }
-    }
-
-    IShaderProgram *getShader(std::uint64_t id) {
-        if (contains(id)) { return _shaders[id].get(); }
-        return nullptr;
-    }
-
-    bool contains(std::uint64_t id) { return _shaders.count(id); }
-
-    void clear() { _shaders.clear(); }
-};
+class ShaderManager final {};
 
 }// namespace taixu
 
