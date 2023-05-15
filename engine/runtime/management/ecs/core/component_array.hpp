@@ -33,6 +33,10 @@ public:
 
     T &getData(Entity entity) { return _map_array.getData(entity); }
 
+    [[nodiscard]] bool contains(Entity entity) const {
+        return _map_array.contains(entity);
+    }
+
     void entityDestroyed(Entity entity) override {
         if (_map_array.contains(entity)) { _map_array.removeData(entity); }
     }

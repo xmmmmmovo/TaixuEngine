@@ -15,6 +15,7 @@
 #include "management/ecs/components/transform/transform_component.hpp"
 #include "management/ecs/core/component_array.hpp"
 #include "management/ecs/core/component_manager.hpp"
+#include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/core/event.hpp"
 #include "management/ecs/core/event_manager.hpp"
 #include "management/ecs/system/system.hpp"
@@ -50,7 +51,7 @@ public:
         _component_manager->addComponent<T>(entity, std::forward<T>(component));
 
         auto signature = _entity_manager->getSignature(entity);
-        signature.set(_component_manager->GetComponentType<T>(), true);
+        signature.set(_component_manager->getComponentType<T>(), true);
         _entity_manager->setSignature(entity, signature);
 
         _system_manager->entitySignatureChanged(entity, signature);
@@ -61,7 +62,7 @@ public:
         _component_manager->removeComponent<T>(entity);
 
         auto signature = _entity_manager->getSignature(entity);
-        signature.set(_component_manager->GetComponentType<T>(), false);
+        signature.set(_component_manager->getComponentType<T>(), false);
         _entity_manager->setSignature(entity, signature);
 
         _system_manager->entitySignatureChanged(entity, signature);
@@ -72,9 +73,16 @@ public:
         return _component_manager->getComponent<T>(entity);
     }
 
+    template<typename... Type>
+    [[nodiscard]] bool anyOf(const Entity entity) const {
+        return (_component_manager->contains<std::remove_const_t<Type>>(
+                        entity) ||
+                ...);
+    }
+
     template<typename T>
     ComponentType getComponentType() {
-        return _component_manager->GetComponentType<T>();
+        return _component_manager->getComponentType<T>();
     }
 
     System *registerSystem(SystemIdType systemId);

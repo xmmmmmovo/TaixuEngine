@@ -52,6 +52,7 @@ public:
         _ecs_coordinator.init();
         _ecs_coordinator.registerComponent<RenderableComponent>();
         _ecs_coordinator.registerComponent<TransformComponent>();
+        _ecs_coordinator.registerComponent<RigidBodyComponent>();
 
         physics_manager.init();
         _camera->Position = glm::vec3(0.0f, 4.0f, 20.0f);
