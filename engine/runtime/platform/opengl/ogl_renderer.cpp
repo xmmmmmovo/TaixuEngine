@@ -3,7 +3,6 @@
 //
 
 #include "ogl_renderer.hpp"
-#include "glm/fwd.hpp"
 #include "ogl_vertex_array.hpp"
 #include "spdlog/spdlog.h"
 
@@ -35,7 +34,9 @@ void OGLRenderer::update() {
         _matrices_ubo.updateData(_matrices, 0);
         _matrices_ubo.unbind();
 
-        _current_scene->shader_program->use();
+        _current_scene->_skybox->draw();
+
+        _current_scene->_shader_program->use();
         for (auto const &entity : _renderable_system->entities()) {
             auto const &renderable =
                     _current_scene->_ecs_coordinator
@@ -44,8 +45,8 @@ void OGLRenderer::update() {
                 auto const &trans =
                         _current_scene->_ecs_coordinator
                                 .getComponent<TransformComponent>(entity);
-                _current_scene->shader_program->set_uniform("model",
-                                                            trans.transform);
+                _current_scene->_shader_program->set_uniform("model",
+                                                             trans.transform);
                 for (auto &mesh : renderable.model->gpu_data.value().meshes) {
                     mesh.vao->draw(mesh.index_count);
                 }

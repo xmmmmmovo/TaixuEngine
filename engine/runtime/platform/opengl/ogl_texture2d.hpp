@@ -15,6 +15,14 @@
 
 namespace taixu {
 
+inline GLint mapImageToGLReadType(int channels) {
+    if (1 == channels) { return GL_RED; }
+    if (2 == channels) { return GL_RG; }
+    if (3 == channels) { return GL_RGB; }
+    if (4 == channels) { return GL_RGBA; }
+    return 0;
+}
+
 /**
  * @brief OpenGL texture
  */

@@ -1,0 +1,10 @@
+{
+  "skybox_specular": {
+    "posx": "assets/textures/skybox/split_skybox_sky_cloud/right.png",
+    "negx": "assets/textures/skybox/split_skybox_sky_cloud/left.png",
+    "posy": "assets/textures/skybox/split_skybox_sky_cloud/top.png",
+    "negy": "assets/textures/skybox/split_skybox_sky_cloud/bottom.png",
+    "posz": "assets/textures/skybox/split_skybox_sky_cloud/front.png",
+    "negz": "assets/textures/skybox/split_skybox_sky_cloud/back.png"
+  }
+}

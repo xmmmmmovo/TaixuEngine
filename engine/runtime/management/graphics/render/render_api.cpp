@@ -37,7 +37,7 @@ public:
         glDepthFunc(GL_LESS);
         spdlog::info("Cull face enabled");
         // Cull triangles which normal is not towards the camera
-        glEnable(GL_CULL_FACE);
+//        glEnable(GL_CULL_FACE);
 
         _window = window;
     }

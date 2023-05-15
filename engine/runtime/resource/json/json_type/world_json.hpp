@@ -2,6 +2,7 @@
 #define TAIXUENGINE_WORLD_JSON
 
 #include "level_json.hpp"
+#include "resource/json/json_type/global_json.hpp"
 
 namespace taixu {
 
@@ -10,10 +11,12 @@ public:
     JsonWorld() = default;
 
     std::vector<JsonLevel> json_levels;
+    GlobalJson             global_json;
 
     std::filesystem::path file_path{"INVALID"};
     std::filesystem::path project_file_path{"INVALID"};
-    void                  serialize() {
+
+    void serialize() {
         if (file_path != "INVALID") {
             std::ofstream o((project_file_path / file_path).c_str());
             json          write;
@@ -25,7 +28,7 @@ public:
                 write += j;
                 count.serialize();
             }
-            json levels{{"levels", write}};
+            json const levels{{"levels", write}};
             o << std::setw(4) << levels;
             o.close();
         }
@@ -43,11 +46,17 @@ public:
             json const j = i.value();
             JsonLevel  level;
             level.from_json(j, level);
-            //std::filesystem::path temppath =   dir_path / new_asset.location;
             level.project_file_path = project_file_path;
             level.deserialize();
             json_levels.push_back(level);
         }
+
+        auto const &global_raw_json = data["global"];
+
+        global_json.project_file_path = project_file_path;
+        global_json.render_global_path =
+                global_raw_json["render"].get<std::filesystem::path>();
+        global_json.deserialize();
     }
 };
 
