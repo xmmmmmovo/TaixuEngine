@@ -5,18 +5,13 @@
 #include "glm/gtx/matrix_decompose.hpp"
 
 #include "main_window.hpp"
+#include <imgui.h>
 #include <spdlog/spdlog.h>
 
 #include "core/base/path.hpp"
 #include "gameplay/gui/imgui_surface.hpp"
 
-#include "ImGuizmo.h"
-#include "ImSequencer.h"
-#include "ImZoomSlider.h"
-#include "ImCurveEdit.h"
 #include "GraphEditor.h"
-//#include "imgui_impl_glfw.h"
-//#include "imgui_impl_opengl3.h"
 
 namespace taixu::editor {
 void MainWindow::init() {
@@ -105,24 +100,26 @@ bool MainWindow::isCursorInRenderComponent() const {
 }
 
 void MainWindow::operationLisen() {
-        
-        render_component-> viewmatrix = _current_scene->_camera->getViewMatrix();
-        render_component-> projectionmatrix = _current_scene->_camera->getProjectionMatrix();
-        
-        auto &trans = _current_scene->ecs_coordinator
-                                 .getComponent<TransformComponent>(0);
-        render_component->selectedObjectTranform = trans.getTransformMatrix();
-        render_component->mCurrentGizmoMode = detail_component->mCurrentGizmoMode;
-        render_component->mCurrentGizmoOperation = detail_component->mCurrentGizmoOperation;
-        render_component->current_scene = _current_scene;
-       
+
+    render_component->viewmatrix = _current_scene->_camera->getViewMatrix();
+    render_component->projectionmatrix =
+            _current_scene->_camera->getProjectionMatrix();
+
+    auto &trans =
+            _current_scene->_ecs_coordinator.getComponent<TransformComponent>(
+                    0);
+    render_component->selectedObjectTranform = trans.getTransformMatrix();
+    render_component->mCurrentGizmoMode = detail_component->mCurrentGizmoMode;
+    render_component->mCurrentGizmoOperation =
+            detail_component->mCurrentGizmoOperation;
+    render_component->current_scene = _current_scene;
 }
 
 
 void MainWindow::update() {
     preUpdate();
     operationLisen();
-    
+
     ImguiSurface::update();
     //render_component->updateTrans();
 }
@@ -143,21 +140,17 @@ void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
 void MainWindow::bindScene(Scene *scene) {
     _current_scene = scene;
     if (_current_scene != nullptr) {
-            auto &coordinator = _current_scene->ecs_coordinator;
-            _detail_system =
-                    coordinator.registerSystem(_detail_system_id);
-            {
-                Signature trans_signature;
-                trans_signature.set(
-                        coordinator.getComponentType<TransformComponent>());
-                coordinator.setsystemSignature(_detail_system_id,
-                                                 trans_signature);
-            }
-
-        } else {
-            _detail_system = nullptr;
+        auto &coordinator = _current_scene->_ecs_coordinator;
+        _detail_system    = coordinator.registerSystem(_detail_system_id);
+        {
+            Signature trans_signature;
+            trans_signature.set(
+                    coordinator.getComponentType<TransformComponent>());
+            coordinator.setsystemSignature(_detail_system_id, trans_signature);
         }
-    
+    } else {
+        _detail_system = nullptr;
+    }
 }
 
 MainWindow::MainWindow(WindowContext *const context_ptr)
