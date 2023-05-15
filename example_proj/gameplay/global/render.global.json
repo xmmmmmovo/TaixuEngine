@@ -1,10 +1,10 @@
 {
-  "skybox_specular": {
-    "posx": "assets/textures/skybox/split_skybox_sky_cloud/right.png",
-    "negx": "assets/textures/skybox/split_skybox_sky_cloud/left.png",
-    "posy": "assets/textures/skybox/split_skybox_sky_cloud/top.png",
-    "negy": "assets/textures/skybox/split_skybox_sky_cloud/bottom.png",
-    "posz": "assets/textures/skybox/split_skybox_sky_cloud/front.png",
-    "negz": "assets/textures/skybox/split_skybox_sky_cloud/back.png"
-  }
+    "skybox_specular": {
+        "negx": "assets/textures/skybox/split_skybox_sky_cloud/left.png",
+        "negy": "assets/textures/skybox/split_skybox_sky_cloud/bottom.png",
+        "negz": "assets/textures/skybox/split_skybox_sky_cloud/back.png",
+        "posx": "assets/textures/skybox/split_skybox_sky_cloud/right.png",
+        "posy": "assets/textures/skybox/split_skybox_sky_cloud/top.png",
+        "posz": "assets/textures/skybox/split_skybox_sky_cloud/front.png"
+    }
 }

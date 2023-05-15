@@ -13,7 +13,7 @@ public:
 
     void tick();
 
-    std::shared_ptr<PhysicsScene> current_scene;
+    std::shared_ptr<PhysicsScene> current_physics_scene;
 };
 
 }// namespace taixu

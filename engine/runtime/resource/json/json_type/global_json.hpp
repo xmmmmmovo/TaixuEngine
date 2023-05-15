@@ -25,6 +25,27 @@ public:
     std::filesystem::path render_global_path{"INVALID"};
     std::filesystem::path project_file_path{"INVALID"};
 
+    void serialize()
+    {
+        if(render_global_path!="INVALID")
+        {
+            std::ofstream o(project_file_path / render_global_path);
+            json j;
+            j = nlohmann::json{{"posx", "assets/textures/skybox/split_skybox_sky_cloud/right.png"},
+                                {"negx", "assets/textures/skybox/split_skybox_sky_cloud/left.png"},
+                                {"posy", "assets/textures/skybox/split_skybox_sky_cloud/top.png"},
+                                {"negy", "assets/textures/skybox/split_skybox_sky_cloud/bottom.png"},
+                                {"posz", "assets/textures/skybox/split_skybox_sky_cloud/front.png"},
+                                {"negz", "assets/textures/skybox/split_skybox_sky_cloud/back.png"}
+                                };
+            json write;
+            write["skybox_specular"] = j;
+            o << std::setw(4) << write;
+            o.close();
+        }
+        
+    }
+
     void deserialize() {
         std::ifstream f(project_file_path / render_global_path);
         if (!f.is_open()) {

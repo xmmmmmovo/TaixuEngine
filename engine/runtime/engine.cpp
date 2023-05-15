@@ -111,6 +111,7 @@ Status Engine::loadProject(const std::string_view &path) {
         return status;
     }
 
+    //_asset_manager->writeWorld(_project_manager->getCurrentPath());
     _asset_manager->loadWorld(_project_manager->getCurrentPath());
 
     auto scene = std::make_unique<Scene>();

@@ -262,6 +262,7 @@ Model *AssetManager::loadModel(std::filesystem::path const &root_path,
 
     auto [model_ref, was_ins] =
             _models.insert({relative_path.string(), std::move(ret_model)});
+    
     return &model_ref->second;
 }
 
@@ -303,7 +304,7 @@ void AssetManager::loadWorld(std::filesystem::path const &file_path) {
     taixuworld->deserialize();
 }
 
-void AssetManager::witeWorld(std::filesystem::path const &root_path) {
+void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     _world = std::make_unique<JsonWorld>();
     JsonLevel l1;
     l1.level_name              = "level 1-1";
@@ -340,7 +341,7 @@ void AssetManager::witeWorld(std::filesystem::path const &root_path) {
     trans1.scale.vec3    = glm::vec3(10, 1, 10);
 
     JsonMesh mesh1;
-    mesh1.obj_path = "assets/model/cube.obj";
+    mesh1.obj_path = "assets\\models\\cube.obj";
     //mesh1.material_path = "assets/textures/concreteTexture.png";
     mesh1.visiable = true;
 
@@ -355,7 +356,7 @@ void AssetManager::witeWorld(std::filesystem::path const &root_path) {
     trans2.scale.vec3    = glm::vec3(1, 1, 1);
 
     JsonMesh mesh2;
-    mesh2.obj_path = "assets/model/planet.obj";
+    mesh2.obj_path = "assets\\models\\planet.obj";
     //mesh1.material_path = "assets/textures/concreteTexture.png";
     mesh2.visiable = true;
 
@@ -376,11 +377,44 @@ void AssetManager::witeWorld(std::filesystem::path const &root_path) {
     l1.json_game_objects.push_back(go2);
     l2.json_game_objects.push_back(go1);
 
+    JsonTransform trans3;
+    trans3.position.vec3 = glm::vec3(5, 5, 5);
+    trans3.rotation.vec3 = glm::vec3(0, 0, 0);
+    trans3.scale.vec3    = glm::vec3(1, 1, 1);
+
+    JsonLight light1;
+    light1.light_color.vec3 = glm::vec3(1.0,1.0,1.0);
+    light1.light_type = LightSourseType::POINT;
+    light1.TransformComponent = trans3;
+    light1.name    = "light1";
+    pp1         = "gameplay\\GO";
+    temp        = pp1 / (light1.name + ".json");
+    light1.light_path = temp.string();
+
+    JsonLight light2;
+    light2.light_color.vec3 = glm::vec3(1.0,0.0,0.0);
+    light2.light_type = LightSourseType::POINT;
+    light2.TransformComponent = trans3;
+    light2.name    = "light2";
+    pp1         = "gameplay\\GO";
+    temp        = pp1 / (light2.name + ".json");
+    light2.light_path = temp.string();
+
+    l1.json_lights.push_back(light1);
+    l1.json_lights.push_back(light2);
+    l2.json_lights.push_back(light1);
+
     _world->json_levels.push_back(l1);
     _world->json_levels.push_back(l2);
     _world->project_file_path = root_path;
     std::string world_path    = "gameplay\\taixuworld.json";
     _world->file_path         = world_path;
+
+    GlobalJson global;
+    global.project_file_path = root_path;
+    global.render_global_path = "gameplay/global/render.global.json";
+
+    _world->global_json = global;
     _world->serialize();
 }
 

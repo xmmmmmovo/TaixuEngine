@@ -32,12 +32,8 @@ struct JoltPhysics {
             nullptr};
     std::unique_ptr<MyBodyActivationListener> body_activation_listener{nullptr};
     std::unique_ptr<MyContactListener>        contact_listener{nullptr};
-    // JPH::PhysicsSystem*            physics_system {nullptr};
-    // JPH::JobSystem*                job_system {nullptr};
-    // JPH::TempAllocator*            temp_allocator {nullptr};
-    // JPH::BroadPhaseLayerInterface* broad_phase_layer_interface {nullptr};
-    // MyBodyActivationListener*      body_activation_listener{nullptr};
-    // MyContactListener*             contact_listener{nullptr};
+
+
     int                                       m_collision_steps{1};
     int                                       m_integration_substeps{1};
 };

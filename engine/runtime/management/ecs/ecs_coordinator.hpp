@@ -13,6 +13,7 @@
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
+#include "management/ecs/components/Light/light_component.hpp"
 #include "management/ecs/core/component_array.hpp"
 #include "management/ecs/core/component_manager.hpp"
 #include "management/ecs/core/event.hpp"

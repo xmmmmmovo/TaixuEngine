@@ -10,6 +10,7 @@
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
+#include "management/ecs/components/Light/light_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/ecs/object/game_object.hpp"
@@ -52,6 +53,7 @@ public:
         _ecs_coordinator.init();
         _ecs_coordinator.registerComponent<RenderableComponent>();
         _ecs_coordinator.registerComponent<TransformComponent>();
+        _ecs_coordinator.registerComponent<LightComponent>();
 
         physics_manager.init();
         _camera->Position = glm::vec3(0.0f, 4.0f, 20.0f);
@@ -137,6 +139,30 @@ public:
                 game_object.entities.push_back(entity);
 
                 _game_objs.push_back(game_object);
+            }
+            //lights
+            for(auto const&light : levels.json_lights)
+            {
+                auto entity = _ecs_coordinator.createEntity();
+
+                auto trans = TransformComponent(light.TransformComponent.position.vec3,
+                                           light.TransformComponent.scale.vec3,
+                                           light.TransformComponent.rotation.vec3);
+
+                trans.makeTransformMatrix();
+                _ecs_coordinator.addComponent(
+                        entity, std::forward<TransformComponent &&>(trans));
+
+                auto light_component = LightComponent();
+                light_component.light_color = light.light_color.vec3;
+                light_component.type = light.light_type;
+
+                _ecs_coordinator.addComponent(
+                        entity, std::forward<LightComponent&&>(light_component));
+
+                auto test = _ecs_coordinator.getComponent<LightComponent>(entity);
+                auto test1 = _ecs_coordinator.getComponent<TransformComponent>(entity);
+
             }
         }
 

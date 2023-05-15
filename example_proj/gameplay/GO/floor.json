@@ -2,7 +2,7 @@
     "Components": {
         "MeshComponent": {
             "material_path": "INVALID",
-            "obj_path": "assets/models/sphere.obj",
+            "obj_path": "assets\\models\\cube.obj",
             "visiable": true
         },
         "RigidBodyComponent": {

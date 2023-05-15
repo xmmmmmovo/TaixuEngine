@@ -3,10 +3,10 @@
 namespace taixu {
 
 void PhysicsManager::init() {
-    current_scene = std::make_shared<PhysicsScene>();
-    current_scene->init();
+    current_physics_scene = std::make_shared<PhysicsScene>();
+    current_physics_scene->init();
 }
 
-void PhysicsManager::tick() { current_scene->tick(); }
+void PhysicsManager::tick() { current_physics_scene->tick(); }
 
 }// namespace taixu
