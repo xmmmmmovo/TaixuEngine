@@ -57,10 +57,10 @@ protected:
         _current_scene = scene;
         if (_current_scene != nullptr) {
 
-            _current_scene->_shader_program->use();
-            _current_scene->_shader_program->bind_uniform_block("Matrices", 0);
-            _current_scene->_shader_program->bind_uniform_block("LightSourse", 1);
-            _current_scene->_shader_program->bind_uniform_block("Material", 2);
+            //_current_scene->_shader_program->use();
+            //_current_scene->_shader_program->bind_uniform_block("Matrices", 0);
+            //_current_scene->_shader_program->bind_uniform_block("LightSourse", 1);
+            //_current_scene->_shader_program->bind_uniform_block("Material", 2);
 
 
             auto &coordinator = _current_scene->_ecs_coordinator;
