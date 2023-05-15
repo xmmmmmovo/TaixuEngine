@@ -15,6 +15,7 @@
 #include "core/base/noncopyable.hpp"
 #include "gameplay/player/perspective_camera.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
+#include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/system/system.hpp"
 #include "management/graphics/frontend/matrices.hpp"
@@ -47,15 +48,20 @@ protected:
     System                       *_renderable_system{nullptr};
     static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "renderable"_hash64;
 
+    std::unique_ptr<IShaderProgram> _render_shader{nullptr};
+    std::unique_ptr<IShaderProgram> _skybox_shader{nullptr};
+
     Matrices _matrices{};
 
     void bindScene(Scene *scene) override {
         _current_scene = scene;
         if (_current_scene != nullptr) {
+
             _current_scene->_shader_program->use();
             _current_scene->_shader_program->bind_uniform_block("Matrices", 0);
             _current_scene->_shader_program->bind_uniform_block("LightSourse", 1);
             _current_scene->_shader_program->bind_uniform_block("Material", 2);
+
 
             auto &coordinator = _current_scene->_ecs_coordinator;
             _renderable_system =
@@ -64,8 +70,6 @@ protected:
                 Signature render_signature;
                 render_signature.set(
                         coordinator.getComponentType<RenderableComponent>());
-                coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
-                                               render_signature);
 
                 render_signature.set(
                         coordinator.getComponentType<TransformComponent>());

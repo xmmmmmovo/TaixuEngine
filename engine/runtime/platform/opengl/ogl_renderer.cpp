@@ -3,6 +3,7 @@
 //
 
 #include "ogl_renderer.hpp"
+#include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "ogl_vertex_array.hpp"
 #include "spdlog/spdlog.h"
 
@@ -19,7 +20,14 @@ void OGLRenderer::init() {
     _matrices_ubo.bind();
     _matrices_ubo.setData(_matrices, 0);
     _matrices_ubo.unbind();
-    
+
+    _render_shader = std::make_unique<OGLShaderProgram>(VERT_VERT, FRAG_FRAG);
+    _skybox_shader =
+            std::make_unique<OGLShaderProgram>(SKYBOX_VERT, SKYBOX_FRAG);
+    _skybox_shader->use();
+    _skybox_shader->bind_uniform_block("Matrices", 0);
+    _skybox_shader->set_uniform("skybox", 0);
+
 }
 
 void OGLRenderer::update() {
@@ -38,7 +46,8 @@ void OGLRenderer::update() {
         _matrices_ubo.updateData(_matrices, 0);
         _matrices_ubo.unbind();
 
-        _current_scene->_skybox->draw();
+        _current_scene->_skybox.draw(_skybox_shader.get(),
+                                     _current_scene->_skybox_texture.get());
 
         _matrices.view = view;
         _matrices.vp   = _matrices.projection * _matrices.view;
@@ -61,6 +70,7 @@ void OGLRenderer::update() {
                 break;
             }
         }
+        
         ///////////////////////////////////////////////////////////////////////
         MaterialInfo m;
         m.shininess = 96.078443;
@@ -74,7 +84,7 @@ void OGLRenderer::update() {
         _material_ubo.unbind();
         ///////////////////////////////////////////////////////////////////////
 
-        _current_scene->_shader_program->use();
+        _render_shader->use();
         for (auto const &entity : _renderable_system->entities()) {
             auto const &renderable =
                     _current_scene->_ecs_coordinator
@@ -83,8 +93,7 @@ void OGLRenderer::update() {
                 auto const &trans =
                         _current_scene->_ecs_coordinator
                                 .getComponent<TransformComponent>(entity);
-                _current_scene->_shader_program->set_uniform("model",
-                                                             trans.transform);
+                _render_shader->set_uniform("model", trans.transform);
                 for (auto &mesh : renderable.model->gpu_data.value().meshes) {
                     mesh.vao->draw(mesh.index_count);
                 }

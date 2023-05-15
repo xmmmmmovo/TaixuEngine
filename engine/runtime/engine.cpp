@@ -9,6 +9,7 @@
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/core/entity_manager.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
+#include "management/ecs/object/game_object.hpp"
 #include "management/ecs/system/system.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/input/input_system.hpp"
@@ -127,6 +128,10 @@ Status Engine::loadProject(const std::string_view &path) {
 
 Project *Engine::getOpenedProject() const {
     return this->_project_manager->getCurrentProject();
+}
+
+std::vector<GameObject> const &Engine::getGameObjects() {
+    return _current_scene->game_objs();
 }
 
 }// namespace taixu

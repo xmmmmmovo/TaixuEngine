@@ -28,7 +28,7 @@ void ECSCoordinator::destroyEntity(Entity entity) {
 }
 
 System *ECSCoordinator::registerSystem(SystemIdType systemId) {
-    return _system_manager->registerCategory(systemId);
+    return _system_manager->registerSystem(systemId);
 }
 
 void ECSCoordinator::setsystemSignature(SystemIdType     systemId,

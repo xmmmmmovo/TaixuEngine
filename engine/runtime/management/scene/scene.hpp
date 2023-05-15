@@ -14,6 +14,7 @@
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/ecs/object/game_object.hpp"
+#include "management/graphics/render/texture_cube.hpp"
 #include "management/input/input_system.hpp"
 #include "management/physics/physics_manager.hpp"
 #include "platform/opengl/ogl_shader.hpp"
@@ -27,6 +28,7 @@
 
 #include "frag_frag.h"
 #include "vert_vert.h"
+#include <memory>
 
 namespace taixu {
 
@@ -40,10 +42,8 @@ public:
     ECSCoordinator _ecs_coordinator{};
     PhysicsManager _physics_manager{};
 
-    std::unique_ptr<IShaderProgram> _shader_program{
-            std::make_unique<OGLShaderProgram>(VERT_VERT, FRAG_FRAG)};
-
-    std::optional<Skybox> _skybox{};
+    Skybox                        _skybox{};
+    std::unique_ptr<ITextureCube> _skybox_texture{nullptr};
 
     std::unique_ptr<PerspectiveCamera> _camera{
             std::make_unique<PerspectiveCamera>()};
@@ -54,6 +54,7 @@ public:
         _ecs_coordinator.registerComponent<RenderableComponent>();
         _ecs_coordinator.registerComponent<TransformComponent>();
         _ecs_coordinator.registerComponent<LightComponent>();
+        _ecs_coordinator.registerComponent<RigidBodyComponent>();
 
         _physics_manager.init();
         _camera->Position = glm::vec3(0.0f, 4.0f, 20.0f);
@@ -168,21 +169,13 @@ public:
 
         auto const &global_render = world->global_json.render_global_json;
 
-
-        auto skybox_shader =
-                std::make_unique<OGLShaderProgram>(SKYBOX_VERT, SKYBOX_FRAG);
-        skybox_shader->use();
-        skybox_shader->bind_uniform_block("Matrices", 0);
-        skybox_shader->set_uniform("skybox", 0);
-
-        _skybox = Skybox(std::make_unique<OGLTextureCube>(
-                                 (world->project_file_path / global_render.posx).string(),
-                                 (world->project_file_path / global_render.negx).string(),
-                                 (world->project_file_path / global_render.posy).string(),
-                                 (world->project_file_path / global_render.negy).string(),
-                                 (world->project_file_path / global_render.posz).string(),
-                                 (world->project_file_path / global_render.negz).string()),
-                         std::move(skybox_shader));
+        _skybox_texture = std::make_unique<OGLTextureCube>(
+                (world->project_file_path / global_render.posx).string(),
+                (world->project_file_path / global_render.negx).string(),
+                (world->project_file_path / global_render.posy).string(),
+                (world->project_file_path / global_render.negy).string(),
+                (world->project_file_path / global_render.posz).string(),
+                (world->project_file_path / global_render.negz).string());
     }
 };
 
