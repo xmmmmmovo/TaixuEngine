@@ -6,6 +6,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/quaternion.hpp"
 #include "glm/matrix.hpp"
+#include "glm/gtx/euler_angles.hpp"
 
 namespace taixu {
 class TransformComponent {
@@ -22,8 +23,12 @@ public:
           _rotation(std::forward<T>(rotate)) {}
 
     void setPosition(glm::vec3 pos);
+    void addPosition(glm::vec3 pos);
     void setScale(glm::vec3 scl);
+    void Scale(glm::vec3 scl);
     void setRotation(glm::vec3 rotate);
+    void setRotation(glm::quat);
+    void setRotation(glm::mat4 r);
     glm::mat4 getTransformMatrix();
     void makeTransformMatrix();
 };

@@ -119,6 +119,7 @@ Status Engine::loadProject(const std::string_view &path) {
     _scene_manager->addScene("MainScene", std::move(scene));
     _current_scene = _scene_manager->getScene("MainScene");
     _renderer->bindScene(_current_scene);
+    _window_ptr->bindScene(_current_scene);
 
     _current_scene->_asset_manager = _asset_manager.get();
     _current_scene->fromWorld(_asset_manager->taixuworld.get());

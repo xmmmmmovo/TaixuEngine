@@ -57,7 +57,7 @@ public:
         _ecs_coordinator.registerComponent<RigidBodyComponent>();
 
         _physics_manager.init();
-        _camera->Position = glm::vec3(0.0f, 4.0f, 20.0f);
+
         InputSystem::getInstance().registerEditorCallback(
                 [this](float delta_time, WindowContext *const context) {
                     if (_camera == nullptr) { return; }
