@@ -6,8 +6,8 @@
 #define TAIXUENGINE_WINDOW_HPP
 
 #include "core/base/noncopyable.hpp"
-#include "window_context.hpp"
 #include "management/scene/scene.hpp"
+#include "window_context.hpp"
 namespace taixu {
 
 class Engine;
@@ -19,8 +19,6 @@ public:
     virtual void destroy() = 0;
 
     virtual void initWithEngineRuntime(Engine *engine_runtime_ptr) = 0;
-
-    virtual void bindScene(Scene *scene) = 0;
 };
 
 }// namespace taixu

@@ -80,6 +80,14 @@ public:
                 ...);
     }
 
+
+    template<typename... Type>
+    [[nodiscard]] bool allOf(const Entity entity) const {
+        return (_component_manager->contains<std::remove_const_t<Type>>(
+                        entity) &&
+                ...);
+    }
+
     template<typename T>
     ComponentType getComponentType() {
         return _component_manager->getComponentType<T>();
