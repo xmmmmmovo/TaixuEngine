@@ -16,7 +16,12 @@
 // "" headers
 #include "engine.hpp"
 #include "gameplay/gui/window.hpp"
+#include "management/ecs/components/transform/transform_component.hpp"
+#include "management/ecs/core/ecs_types.hpp"
+#include "management/ecs/ecs_coordinator.hpp"
+#include "management/ecs/system/system.hpp"
 #include "management/graphics/renderer.hpp"
+#include "management/scene/scene.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
@@ -24,11 +29,6 @@
 #include "ui/components/menu_component.hpp"
 #include "ui/components/render_component.hpp"
 #include "ui/components/statusbar_component.hpp"
-#include "management/ecs/ecs_coordinator.hpp"
-#include "management/scene/scene.hpp"
-#include "management/ecs/system/system.hpp"
-#include "management/ecs/components/transform/transform_component.hpp"
-#include "management/ecs/core/ecs_types.hpp"
 
 
 namespace taixu::editor {
@@ -64,11 +64,6 @@ private:
     std::unique_ptr<StatusBarComponent> status_bar_component{
             std::make_unique<StatusBarComponent>()};
 
-    Scene                          *_current_scene{nullptr};
-    System                       *_detail_system{nullptr};
-    static constexpr SystemIdType _detail_system_id =
-            "detail"_hash64;
-    Entity lastUsing{0};
 private:
     IRenderer *_renderer{};
 
@@ -99,16 +94,13 @@ public:
 
     void initWithEngineRuntime(Engine *engine_runtime_ptr) override;
 
-    void bindScene(Scene *scene) override;
-
 private:
     void preUpdate();
-    
+
     [[nodiscard]] inline bool isCursorInRenderComponent() const;
-    
+
     void operationLisen();
 
-    void operationCallback();
 private:
     // callback functions
     void onNewProjectCb(std::string_view const &path);
