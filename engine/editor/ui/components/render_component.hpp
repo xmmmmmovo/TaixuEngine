@@ -93,9 +93,9 @@ public:
 
     void updateTrans() {
         ImGuizmo::BeginFrame();
-        ImGuizmo::SetDrawlist(_drawList);
+        ImGuizmo::SetDrawlist();
         ImGuiIO &io = ImGui::GetIO();
-
+        
 
         ImGuizmo::SetRect(imagePos.x, imagePos.y, imageEndPos.x, imageEndPos.y);
 

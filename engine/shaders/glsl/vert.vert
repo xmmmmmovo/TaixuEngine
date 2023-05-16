@@ -24,7 +24,9 @@ uniform mat4 model;
 
 void main() {
     gl_Position = vp * model * vec4(position, 1.0f);
-    vs_out.FragPos = vec3(view * model * vec4(position, 1.0));
+    vs_out.FragPos = vec3(model * vec4(position, 1.0));
+    //vs_out.FragPos = position;
     vs_out.TexCoords = texCoords;
-    vs_out.Normal = vec3(view * model * vec4(normal, 1.0));
+    vs_out.Normal = vec3(model * vec4(normal, 1.0));
+    //vs_out.Normal = normal;
 }

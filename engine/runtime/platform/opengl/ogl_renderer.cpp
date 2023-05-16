@@ -98,9 +98,10 @@ void OGLRenderer::update() {
                         _current_scene->_ecs_coordinator
                                 .getComponent<RenderableComponent>(entity);
                 if (renderable.visiable) {
-                    auto const &trans =
+                    auto &trans =
                             _current_scene->_ecs_coordinator
                                 .getComponent<TransformComponent>(entity);
+                    trans.makeTransformMatrix();
                     _render_shader->set_uniform("model", trans.transform);
                     _render_shader->set_uniform("textureSampler", 0);
                     ////////////////////////////////////////////////////

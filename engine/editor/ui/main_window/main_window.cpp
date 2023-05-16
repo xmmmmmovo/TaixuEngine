@@ -103,7 +103,11 @@ void MainWindow::operationLisen() {
     render_component->mCurrentGizmoMode = detail_component->mCurrentGizmoMode;
     render_component->mCurrentGizmoOperation =
             detail_component->mCurrentGizmoOperation;
-    render_component->current_scene = _engine_runtime->getScene();
+    //render_component->current_scene = _engine_runtime->getScene();
+    auto trans = _engine_runtime->getScene()->_ecs_coordinator.getComponent<TransformComponent>(0);
+    render_component->selectedObjectTranform = trans.transform;
+    render_component->viewmatrix = _engine_runtime->getScene()->_camera->getViewMatrix();
+    render_component->projectionmatrix = _engine_runtime->getScene()->_camera->getProjectionMatrix();
 }
 
 
