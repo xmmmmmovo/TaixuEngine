@@ -1,4 +1,14 @@
 {
+    "Textures": [
+        {
+            "texture_name": "mars",
+            "texture_path": "assets/textures/mars.png"
+        },
+        {
+            "texture_name": "concrete",
+            "texture_path": "assets/textures/concreteTexture.png"
+        }
+    ],
     "skybox_specular": {
         "negx": "assets/textures/skybox/split_skybox_sky_cloud/left.png",
         "negy": "assets/textures/skybox/split_skybox_sky_cloud/bottom.png",

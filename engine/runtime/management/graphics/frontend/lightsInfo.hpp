@@ -6,9 +6,9 @@
 namespace taixu {
 
 struct LightsInfo {
-    glm::vec3 light_position;
-    glm::vec3 light_color;
-    glm::vec3 camera_position;
+    glm::vec4 light_position;
+    glm::vec4 light_color;
+    glm::vec4 camera_position;
 };
 
 }// namespace taixu

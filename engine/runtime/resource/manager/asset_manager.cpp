@@ -378,7 +378,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     l2.json_game_objects.push_back(go1);
 
     JsonTransform trans3;
-    trans3.position.vec3 = glm::vec3(5, 5, 5);
+    trans3.position.vec3 = glm::vec3(10, 10, 10);
     trans3.rotation.vec3 = glm::vec3(0, 0, 0);
     trans3.scale.vec3    = glm::vec3(1, 1, 1);
 
@@ -413,6 +413,17 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     GlobalJson global;
     global.project_file_path = root_path;
     global.render_global_path = "gameplay/global/render.global.json";
+
+    JsonTexture p;
+    p.name = "mars";
+    p.texture_path = "assets/textures/mars.png";
+
+    JsonTexture con;
+    con.name = "concrete";
+    con.texture_path = "assets/textures/concreteTexture.png";
+
+    global.json_textures.push_back(p);
+    global.json_textures.push_back(con);
 
     _world->global_json = global;
     _world->serialize();

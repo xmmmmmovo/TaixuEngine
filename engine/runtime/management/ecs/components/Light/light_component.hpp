@@ -16,9 +16,9 @@ class LightComponent
 public:
     LightComponent() = default;
     LightSourseType type{LightSourseType::INVALID};
-    glm::vec3 light_color{glm::vec3(0.0,0.0,0.0)};
+    glm::vec4 light_color{glm::vec4(0.0,0.0,0.0,1.0)};
 
-    void setcolor(const glm::vec3 &color)
+    void setcolor(const glm::vec4 &color)
     {
         light_color = color;
     }

@@ -18,13 +18,30 @@ public:
     std::filesystem::path negz;
 };
 
+class JsonTexture
+{
+public:
+    std::string name;
+    std::filesystem::path texture_path;
+
+    void to_json(nlohmann::json &j, JsonTexture tx) {
+        j = nlohmann::json{{"texture_name", tx.name},
+                           {"texture_path", tx.texture_path}};
+    }
+
+    void from_json(const nlohmann::json &j, JsonTexture &tx) {
+        j.at("texture_name").get_to(tx.name);
+        j.at("texture_path").get_to(tx.texture_path);
+    }
+};
+
 class GlobalJson {
 public:
     RenderGlobalJson render_global_json;
-
+    
     std::filesystem::path render_global_path{"INVALID"};
     std::filesystem::path project_file_path{"INVALID"};
-
+    std::vector<JsonTexture>json_textures;
     void serialize()
     {
         if(render_global_path!="INVALID")
@@ -40,6 +57,14 @@ public:
                                 };
             json write;
             write["skybox_specular"] = j;
+
+            json textures;
+            for (auto count : json_textures) {
+                json j;
+                count.to_json(j, count);
+                textures += j;
+            }
+            write["Textures"] = textures;
             o << std::setw(4) << write;
             o.close();
         }
@@ -68,6 +93,13 @@ public:
                 skybox_spec["posz"].get<std::filesystem::path>();
         render_global_json.negz =
                 skybox_spec["negz"].get<std::filesystem::path>();
+
+        for (auto &k : data["Textures"].items()) {
+            json const j = k.value();
+            JsonTexture     tex;
+            tex.from_json(j, tex);
+            json_textures.push_back(tex);
+        }
     }
 };
 

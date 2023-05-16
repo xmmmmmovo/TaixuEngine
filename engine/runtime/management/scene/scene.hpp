@@ -21,7 +21,9 @@
 
 #include "management/graphics/frontend/skybox.hpp"
 #include "platform/opengl/ogl_texture_cube.hpp"
+#include "platform/opengl/ogl_texture2d.hpp"
 #include "resource/manager/asset_manager.hpp"
+#include "management/graphics/render/texture_2d.hpp"
 
 #include "skybox_frag.h"
 #include "skybox_vert.h"
@@ -44,6 +46,8 @@ public:
 
     Skybox                        _skybox{};
     std::unique_ptr<ITextureCube> _skybox_texture{nullptr};
+
+    std::vector<std::unique_ptr<ITexture2D>> _textures2D;
 
     std::unique_ptr<PerspectiveCamera> _camera{
             std::make_unique<PerspectiveCamera>()};
@@ -155,7 +159,7 @@ public:
                         entity, std::forward<TransformComponent &&>(trans));
 
                 auto light_component = LightComponent();
-                light_component.light_color = light.light_color.vec3;
+                light_component.light_color = glm::vec4(light.light_color.vec3,1.0f);
                 light_component.type = light.light_type;
 
                 _ecs_coordinator.addComponent(
@@ -176,6 +180,16 @@ public:
                 (world->project_file_path / global_render.negy).string(),
                 (world->project_file_path / global_render.posz).string(),
                 (world->project_file_path / global_render.negz).string());
+        
+        for(auto const &tx: world->global_json.json_textures)
+        {
+            auto tempview = world->project_file_path/tx.texture_path;
+            auto textures2D = std::make_unique<OGLTexture2D>(tempview.string(), GL_LINEAR,GL_REPEAT);
+            _textures2D.push_back(std::move(textures2D));
+        }
+        /////////////////////////////////////////
+        std::swap(_textures2D[0],_textures2D[1]);
+        /////////////////////////////////////////    
     }
 };
 

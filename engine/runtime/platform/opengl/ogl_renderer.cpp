@@ -28,6 +28,10 @@ void OGLRenderer::init() {
     _skybox_shader->bind_uniform_block("Matrices", 0);
     _skybox_shader->set_uniform("skybox", 0);
 
+    //_render_shader->bind_uniform_block("Matrices", 0);
+    _render_shader->bind_uniform_block("LightSourse", 1);
+    _render_shader->bind_uniform_block("Material", 2);
+
 }
 
 void OGLRenderer::update() {
@@ -55,49 +59,57 @@ void OGLRenderer::update() {
         _matrices_ubo.updateData(_matrices, 0);
         _matrices_ubo.unbind();
         
-        // for (auto const &entity : _renderable_system->entities()) {
-        //     if(_current_scene->_ecs_coordinator.anyOf<LightComponent>(entity))
-        //     {
-        //         auto light = _current_scene->_ecs_coordinator.getComponent<LightComponent>(entity);
+        for (auto const &entity : _renderable_system->entities()) {
+            if(_current_scene->_ecs_coordinator.anyOf<LightComponent>(entity))
+            {
+                auto light = _current_scene->_ecs_coordinator.getComponent<LightComponent>(entity);
 
-        //         auto light_trans = _current_scene->_ecs_coordinator.getComponent<TransformComponent>(entity);
-        //         LightsInfo lightInfo;
-        //         lightInfo.light_position = light_trans._position;
-        //         lightInfo.light_color = light.light_color;
-        //         lightInfo.camera_position = _current_scene->_camera->Position;
-        //         _lights_ubo.bind();
-        //         _lights_ubo.setData(lightInfo,1);
-        //         _lights_ubo.unbind();
-        //         break;
-        //     }
+                auto light_trans = _current_scene->_ecs_coordinator.getComponent<TransformComponent>(entity);
+                LightsInfo lightInfo;
+                lightInfo.light_position = glm::vec4(light_trans._position,1.0f);
+                lightInfo.light_color = light.light_color;
+                lightInfo.camera_position = glm::vec4(_current_scene->_camera->Position,1.0f);
+                _lights_ubo.bind();
+                _lights_ubo.setData(lightInfo,1);
+                _lights_ubo.unbind();
+                break;
+            }
             
-        // }
+        }
 
         // ///////////////////////////////////////////////////////////////////////
-        // MaterialInfo m;
-        // m.shininess = 96.078443;
-        // m.ambient = glm::vec4(1.0f,1.0f,1.0f,1.0f);
-        // m.diffuse = glm::vec4(0.64f,0.64f,0.64f,1.0f);
-        // m.specular = glm::vec4(0.5f,0.5f,0.5f,1.0f);
-        // m.emissive = glm::vec4(0.f,0.f,0.f,1.0f);
+        MaterialInfo m;
+        m.shininess = 32;
+        m.ambient = glm::vec4(1.0f,0.5f,0.31f,1.0f);
+        m.diffuse = glm::vec4(1.0f,0.5f,0.31f,1.0f);
+        m.specular = glm::vec4(0.5f,0.5f,0.5f,1.0f);
+        m.emissive = glm::vec4(0.f,0.f,0.f,1.0f);
 
-        // _material_ubo.bind();
-        // _material_ubo.setData(m,2);
-        // _material_ubo.unbind();
+        _material_ubo.bind();
+        _material_ubo.setData(m,2);
+        _material_ubo.unbind();
         ///////////////////////////////////////////////////////////////////////
 
         _render_shader->use();
         for (auto const &entity : _renderable_system->entities()) {
-            auto const &renderable =
-                    _current_scene->_ecs_coordinator
-                            .getComponent<RenderableComponent>(entity);
-            if (renderable.visiable) {
-                auto const &trans =
+            if(_current_scene->_ecs_coordinator.anyOf<RenderableComponent>(entity))
+            {
+                auto const &renderable =
                         _current_scene->_ecs_coordinator
+                                .getComponent<RenderableComponent>(entity);
+                if (renderable.visiable) {
+                    auto const &trans =
+                            _current_scene->_ecs_coordinator
                                 .getComponent<TransformComponent>(entity);
-                _render_shader->set_uniform("model", trans.transform);
-                for (auto &mesh : renderable.model->gpu_data.value().meshes) {
-                    mesh.vao->draw(mesh.index_count);
+                    _render_shader->set_uniform("model", trans.transform);
+                    _render_shader->set_uniform("textureSampler", 0);
+                    ////////////////////////////////////////////////////
+                     if(entity<_current_scene->_textures2D.size())
+                         _current_scene->_textures2D[entity].get()->bind(0);
+                    ////////////////////////////////////////////////////
+                    for (auto &mesh : renderable.model->gpu_data.value().meshes) {
+                        mesh.vao->draw(mesh.index_count);
+                    }
                 }
             }
         }
@@ -116,6 +128,7 @@ void OGLRenderer::clearSurface() {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 }
+
 
 IFrameBuffer *OGLRenderer::getRenderFramebuffer() { return _framebuffer.get(); }
 

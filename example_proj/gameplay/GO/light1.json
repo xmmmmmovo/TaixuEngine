@@ -7,9 +7,9 @@
     "LightSourseType": 0,
     "TransformComponent": {
         "position": {
-            "x": 5.0,
-            "y": 5.0,
-            "z": 5.0
+            "x": 10.0,
+            "y": 10.0,
+            "z": 10.0
         },
         "rotation": {
             "x": 0.0,
