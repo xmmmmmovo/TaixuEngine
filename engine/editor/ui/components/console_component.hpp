@@ -8,7 +8,7 @@
 #include "ui/ui_component.hpp"
 
 namespace taixu::editor {
-class ConsoleComponent : public IUIComponent {
+class ConsoleComponent : public AbstractUIComponent {
 public:
     void update() override {}
 };

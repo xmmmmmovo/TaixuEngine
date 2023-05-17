@@ -9,7 +9,7 @@
 
 namespace taixu::editor {
 
-class StatusBarComponent : public IUIComponent {
+class StatusBarComponent : public AbstractUIComponent {
 public:
     void update() override {
         float const&   statusWindowHeight = ImGui::GetFrameHeight() * 1.3f;

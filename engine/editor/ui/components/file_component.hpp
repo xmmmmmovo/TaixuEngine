@@ -15,7 +15,7 @@
 #include "ui/ui_component.hpp"
 
 namespace taixu::editor {
-class FileComponent : public IUIComponent {
+class FileComponent : public AbstractUIComponent {
 private:
     std::vector<std::string_view> file_tree;
     static ImGuiWindowFlags constexpr window_flags =

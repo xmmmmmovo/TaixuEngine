@@ -21,10 +21,11 @@ class Engine final : public PublicSingleton<Engine> {
     friend class PublicSingleton<Engine>;
 
 private:
-    std::unique_ptr<IRenderer>      _renderer{nullptr};
-    std::unique_ptr<AssetManager>   _asset_manager{nullptr};
-    std::unique_ptr<ProjectManager> _project_manager{nullptr};
-    std::unique_ptr<SceneManager>   _scene_manager{nullptr};
+    std::unique_ptr<AbstractRenderer> _renderer{nullptr};
+    std::unique_ptr<AssetManager>     _asset_manager{nullptr};
+    std::unique_ptr<ProjectManager>   _project_manager{nullptr};
+    std::unique_ptr<SceneManager>     _scene_manager{nullptr};
+    std::unique_ptr<PhysicsManager>   _physics_manager{nullptr};
 
     std::unique_ptr<WindowContext> _context_ptr{nullptr};
     std::unique_ptr<IWindow>       _window_ptr{nullptr};
@@ -48,7 +49,7 @@ public:
 
     Status loadProject(std::string_view const &path);
 
-    [[nodiscard]] IRenderer *getRenderer() const;
+    [[nodiscard]] AbstractRenderer *getRenderer() const;
 
     [[nodiscard]] Project *getOpenedProject() const;
 
