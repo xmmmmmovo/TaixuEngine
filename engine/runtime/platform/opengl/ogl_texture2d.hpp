@@ -38,6 +38,7 @@ private:
                        GLint filter_mode, GLint what_happens_at_edge);
 
 public:
+    OGLTexture2D() = default;
     /**
      * @brief OpenGL Texture constructor
      * @param path image path

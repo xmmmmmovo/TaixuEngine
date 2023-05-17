@@ -5,9 +5,9 @@
 #include "management/ecs/system/system.hpp"
 #include "management/scene/scene.hpp"
 #include "physics_scene.hpp"
-
+#include "management/ecs/system/system.hpp"
 namespace taixu {
-
+class Scene;
 class PhysicsManager {
 public:
     PhysicsManager() = default;
@@ -22,6 +22,7 @@ public:
     Scene                        *_current_scene{nullptr};
     static constexpr hash64_t     PHYSICS_SYSTEM_ID = "physics_system"_hash64;
     System                       *_physics_system{nullptr};
+
 };
 
 }// namespace taixu

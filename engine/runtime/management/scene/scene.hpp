@@ -10,16 +10,22 @@
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
+#include "management/ecs/components/Light/light_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/ecs/object/game_object.hpp"
 #include "management/graphics/render/texture_cube.hpp"
 #include "management/input/input_system.hpp"
+
 #include "platform/opengl/ogl_shader.hpp"
 
 #include "management/graphics/frontend/skybox.hpp"
 #include "platform/opengl/ogl_texture_cube.hpp"
+#include "platform/opengl/ogl_texture2d.hpp"
 #include "resource/manager/asset_manager.hpp"
+#include "management/graphics/render/texture_2d.hpp"
+
+#include "management/physics/physics_manager.hpp"
 
 #include "skybox_frag.h"
 #include "skybox_vert.h"
@@ -29,7 +35,8 @@
 #include <memory>
 
 namespace taixu {
-
+class PhysicsManger;
+class PhysicsScene;
 class Scene {
 private:
     using go_vec_t = std::vector<GameObject>;
@@ -42,25 +49,31 @@ public:
     Skybox                        _skybox{};
     std::unique_ptr<ITextureCube> _skybox_texture{nullptr};
 
+    std::vector<std::unique_ptr<ITexture2D>> _textures2D;
+
     std::unique_ptr<PerspectiveCamera> _camera{
             std::make_unique<PerspectiveCamera>()};
     AssetManager *_asset_manager{nullptr};
+    std::weak_ptr<PhysicsScene> _physics_scene;
 
     explicit Scene() {
         _ecs_coordinator.init();
         _ecs_coordinator.registerComponent<RenderableComponent>();
         _ecs_coordinator.registerComponent<TransformComponent>();
+        _ecs_coordinator.registerComponent<LightComponent>();
         _ecs_coordinator.registerComponent<RigidBodyComponent>();
+
     }
 
-    void fromWorld(JsonWorld *world) {
+    void fromWorld(JsonWorld *world, int levelIndex) {
         if (world->json_levels.empty()) {
             spdlog::debug("There is no level in the project");
         }
 
-        for (auto const &levels : world->json_levels) {
-            auto parent_path = world->project_file_path;
-            for (const auto &go : levels.json_game_objects) {
+        //for (auto const &levels : world->json_levels) {
+        auto parent_path = world->project_file_path;
+        auto current_level = world->json_levels[levelIndex];
+            for (const auto &go : current_level.json_game_objects) {
                 auto entity = _ecs_coordinator.createEntity();
 
                 auto renderable = RenderableComponent();
@@ -81,15 +94,50 @@ public:
                                            go.TransformComponent.scale.vec3,
                                            go.TransformComponent.rotation.vec3);
                 trans.makeTransformMatrix();
+                
+                if(go.RigidBodyComponent.shapeType!=RigidBodyShapeType::INVALID)
+                {
+                     auto rigid_body = RigidBodyComponent();
+                     rigid_body.init(
+                         go.RigidBodyComponent.shapeType,
+                         go.RigidBodyComponent.motionType,
+                         trans._position,
+                         go.RigidBodyComponent.rigid_body_scale.vec3,
+                         entity,
+                         _physics_scene);
+                    _ecs_coordinator.addComponent(
+                        entity, std::forward<RigidBodyComponent>(rigid_body));
+                }
+
                 _ecs_coordinator.addComponent(
-                        entity, std::forward<TransformComponent &&>(trans));
+                        entity, std::forward<TransformComponent >(trans));
 
                 GameObject game_object{};
                 game_object.entities.push_back(entity);
 
                 _game_objs.push_back(game_object);
             }
-        }
+            //lights
+            for(auto light : current_level.json_lights)
+            {
+                auto light_entity = _ecs_coordinator.createEntity();
+
+                auto trans = TransformComponent(light.TransformComponent.position.vec3,
+                                           light.TransformComponent.scale.vec3,
+                                           light.TransformComponent.rotation.vec3);
+
+                _ecs_coordinator.addComponent(
+                        light_entity, std::forward<TransformComponent>(trans));
+
+                auto light_component = LightComponent();
+                light_component.light_color = glm::vec4(light.light_color.vec3,1.0f);
+                light_component.type = light.light_type;
+
+                _ecs_coordinator.addComponent(
+                        light_entity, std::forward<LightComponent>(light_component));
+
+            }
+        //}
 
         auto const &global_render = world->global_json.render_global_json;
 
@@ -100,6 +148,16 @@ public:
                 (world->project_file_path / global_render.negy).string(),
                 (world->project_file_path / global_render.posz).string(),
                 (world->project_file_path / global_render.negz).string());
+        
+        for(auto const &tx: world->global_json.json_textures)
+        {
+            auto tempview = world->project_file_path/tx.texture_path;
+            auto textures2D = std::make_unique<OGLTexture2D>(tempview.string(), GL_LINEAR,GL_REPEAT);
+            _textures2D.push_back(std::move(textures2D));
+        }
+        /////////////////////////////////////////
+        std::swap(_textures2D[0],_textures2D[1]);
+        /////////////////////////////////////////    
     }
 };
 

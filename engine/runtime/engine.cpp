@@ -44,7 +44,7 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _physics_manager = std::make_unique<PhysicsManager>();
 
     _physics_manager->init();
-
+    
     InputSystem::getInstance().initCallbacks(_context_ptr.get());
 
     _window_ptr->initWithEngineRuntime(this);
@@ -57,7 +57,9 @@ void Engine::update() {
     _renderer->clearSurface();
     if (_current_scene != nullptr) {
         _current_scene->_ecs_coordinator.update();
+        //_current_scene->_physics_manager.update();
     }
+    _physics_manager->update();
     _renderer->update(_clock.getDeltaTime());
 }
 
@@ -82,16 +84,18 @@ Status Engine::loadProject(const std::string_view &path) {
         return status;
     }
 
+    _asset_manager->writeWorld(_project_manager->getCurrentPath());
     _asset_manager->loadWorld(_project_manager->getCurrentPath());
 
     auto scene = std::make_unique<Scene>();
     _renderer->bindScene(scene.get());
     _physics_manager->bindScene(scene.get());
+    scene->_physics_scene = _physics_manager->_physics_scene;
     _scene_manager->addScene("MainScene", std::move(scene));
     _current_scene = _scene_manager->getScene("MainScene");
 
     _current_scene->_asset_manager = _asset_manager.get();
-    _current_scene->fromWorld(_asset_manager->taixuworld.get());
+    _current_scene->fromWorld(_asset_manager->taixuworld.get(),0);
 
     return Status::OK;
 }

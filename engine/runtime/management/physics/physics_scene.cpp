@@ -40,10 +40,11 @@ void PhysicsScene::init() {
             m_physics.contact_listener.get());
 
 
-    //createRigidBodyActor();
+    //add components
+
 }
 
-JPH::BodyID PhysicsScene::createRigidBodyActor(RigidbodyInfo rgdInfo) {
+JPH::BodyID PhysicsScene::createRigidBodyActor(const RigidbodyInfo &rgdInfo) {
     JPH::Shape         *shape = toShape(rgdInfo.stype, rgdInfo.scale);
     JPH::BodyInterface &body_interface =
             m_physics.physics_system->GetBodyInterface();
@@ -117,7 +118,12 @@ void PhysicsScene::createRigidBodyActor() {
 
 void PhysicsScene::removeRigidBodyActor(JPH::BodyID body_id) {}
 
-void PhysicsScene::tick() {
+// void PhysicsScene::bindScene(ECSCoordinator *scene) {
+//     ecsInterface = scene;
+//     auto test = ecsInterface->getComponent<RigidBodyComponent>(0);
+// }
+
+void PhysicsScene::update() {
     //Update()
     JPH::BodyInterface &body_interface =
             m_physics.physics_system->GetBodyInterface();
@@ -142,6 +148,8 @@ void PhysicsScene::tick() {
                                      m_physics.m_integration_substeps,
                                      m_physics.temp_allocator.get(),
                                      m_physics.job_system.get());
+
+    
     //remove
 }
 

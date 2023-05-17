@@ -28,7 +28,13 @@ public:
                 write += j;
                 count.serialize();
             }
-            json const levels{{"levels", write}};
+            json global;
+            global_json.serialize();
+            
+            json levels{{"levels", write}};
+            json render;
+            render["render"] = global_json.render_global_path;;
+            levels["global"] = render;
             o << std::setw(4) << levels;
             o.close();
         }
