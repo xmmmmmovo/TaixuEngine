@@ -20,6 +20,8 @@
 #include "management/ecs/components/transform/transform_component.hpp"
 
 namespace taixu {
+class Scene;
+class ECSCoordinator;
 struct JoltPhysics {
     std::unique_ptr<JPH::PhysicsSystem>            physics_system{nullptr};
     std::unique_ptr<JPH::JobSystem>                job_system{nullptr};
@@ -32,12 +34,8 @@ struct JoltPhysics {
             nullptr};
     std::unique_ptr<MyBodyActivationListener> body_activation_listener{nullptr};
     std::unique_ptr<MyContactListener>        contact_listener{nullptr};
-    // JPH::PhysicsSystem*            physics_system {nullptr};
-    // JPH::JobSystem*                job_system {nullptr};
-    // JPH::TempAllocator*            temp_allocator {nullptr};
-    // JPH::BroadPhaseLayerInterface* broad_phase_layer_interface {nullptr};
-    // MyBodyActivationListener*      body_activation_listener{nullptr};
-    // MyContactListener*             contact_listener{nullptr};
+
+
     int                                       m_collision_steps{1};
     int                                       m_integration_substeps{1};
 };
@@ -81,11 +79,13 @@ public:
 
     void        init();
     JPH::Shape *toShape(RigidBodyShapeType shape, const glm::vec3 &scale);
-    JPH::BodyID createRigidBodyActor(RigidbodyInfo rgdInfo);
+    JPH::BodyID createRigidBodyActor(const RigidbodyInfo &rgdInfo);
     void        createRigidBodyActor();
     void        removeRigidBodyActor(JPH::BodyID body_id);
-
-    void tick();
+    
+    //ECSCoordinator* ecsInterface{nullptr};
+    //void bindScene(ECSCoordinator* scene);
+    void update();
     void updateGlobalTransform(TransformComponent *_transf,
                                JPH::BodyID         body_id);
 };

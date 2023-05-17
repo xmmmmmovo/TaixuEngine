@@ -9,7 +9,7 @@
 #include "ogl_frame_buffer.hpp"
 #include "ogl_shader.hpp"
 #include "ogl_uniform_buffer.hpp"
-
+#include "ogl_texture2d.hpp"
 
 #include <memory>
 
@@ -20,7 +20,10 @@ private:
     std::unique_ptr<OGLFrameBuffer> _framebuffer{nullptr};
 
     OGLUniformBuffer                _matrices_ubo{};
+    OGLUniformBuffer                _lights_ubo{};
+    OGLUniformBuffer                _material_ubo{};
 
+    //std::vector<std::unique_ptr<OGLTexture2D>> textures;
 public:
     OGLRenderer() = default;
 
@@ -31,6 +34,7 @@ public:
 
     void clearSurface() override;
 
+    //void addTextures(std::unique_ptr<OGLTexture2D> texture);
     IFrameBuffer *getRenderFramebuffer() override;
 };
 

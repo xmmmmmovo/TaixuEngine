@@ -94,12 +94,17 @@ public:
 
     void updateTrans() {
         ImGuizmo::BeginFrame();
-        ImGuizmo::SetDrawlist(_drawList);
+        ImGuizmo::SetDrawlist();
         ImGuiIO &io = ImGui::GetIO();
-
-
+        
+        
+        current_scene->_camera->aspectRatio = _render_size.x/_render_size.y;
+        current_scene->_camera->Position = glm::vec3(0,4,20);
+        current_scene->_camera->updateCameraVectors();
+        viewmatrix = current_scene->_camera->getViewMatrix();
+        projectionmatrix = current_scene->_camera->getProjectionMatrix();
         ImGuizmo::SetRect(imagePos.x, imagePos.y, imageEndPos.x, imageEndPos.y);
-
+        
         float *cameraView       = glm::value_ptr(viewmatrix);
         float *cameraProjection = glm::value_ptr(projectionmatrix);
         float *identityMatrix   = glm::value_ptr(identity);

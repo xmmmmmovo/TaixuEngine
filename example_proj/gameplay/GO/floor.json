@@ -2,15 +2,15 @@
     "Components": {
         "MeshComponent": {
             "material_path": "INVALID",
-            "obj_path": "assets/models/cube.obj",
+            "obj_path": "assets\\models\\cube.obj",
             "visiable": true
         },
         "RigidBodyComponent": {
             "motionType": 0,
             "rigid_body_scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
+                "x": 20.0,
+                "y": 0.5,
+                "z": 20.0
             },
             "shapeType": 0
         },
@@ -26,9 +26,9 @@
                 "z": 0.0
             },
             "scale": {
-                "x": 10.0,
-                "y": 1.0,
-                "z": 10.0
+                "x": 20.0,
+                "y": 0.5,
+                "z": 20.0
             }
         }
     }
