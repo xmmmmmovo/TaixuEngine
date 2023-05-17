@@ -20,7 +20,7 @@
 
 namespace taixu::editor {
 
-class RenderComponent : public IUIComponent {
+class RenderComponent : public AbstractUIComponent {
 public:
     IFrameBuffer       *_framebuffer;
     ImVec2              _render_size{0, 0};
@@ -44,13 +44,15 @@ public:
 public:
     void update() override {
 
-
         if (ImGui::BeginMenuBar()) {
-            float const size = ImGui::GetWindowHeight() - 4.0f;
-            ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) -
-                                 (size * 0.5f));
+            ImGui::SetCursorPosX(ImGui::GetWindowContentRegionMax().x * 0.6f -
+                                 ImGui::GetWindowHeight());
 
             if (ImGui::Button(ICON_FA_PLAY "Play")) {}
+            if (ImGui::Button(ICON_FA_ARROWS_SPIN "Rotate")) {}
+            if (ImGui::Button(ICON_FA_RIGHT_LEFT "Transform")) {}
+            if (ImGui::Button(ICON_FA_MAGNIFYING_GLASS "Zoom")) {}
+
             ImGui::EndMenuBar();
         }
 
@@ -74,7 +76,6 @@ public:
                                  static_cast<int>(_render_size.y));
         }
 
-        //float ratio = _render_size.x/_render_size.y;
         _drawList = ImGui::GetWindowDrawList();
         imagePos  = ImGui::GetCursorScreenPos();
 

@@ -5,36 +5,69 @@
 #ifndef TAIXUENGINE_INPUT_SYSTEM_HPP
 #define TAIXUENGINE_INPUT_SYSTEM_HPP
 
+#include <cstddef>
+#include <cstdint>
+#include <limits>
 #include <memory>
 
+#include "core/base/macro.hpp"
 #include "core/base/public_singleton.hpp"
 #include "gameplay/gui/window_context.hpp"
+#include "input_state.hpp"
 
 namespace taixu {
 
-class InputSystem : public PublicSingleton<InputSystem> {
+class InputSystem final : public PublicSingleton<InputSystem> {
     friend class PublicSingleton<InputSystem>;
 
-    using inputCallback = std::function<void(float, WindowContext *)>;
-
 private:
-    std::vector<inputCallback> _editor_callbacks;
-    std::vector<inputCallback> _game_callbacks;
+    PROTOTYPE_ONLY_GETTER_CONST(private, InputState, state)
 
 public:
-    void processInput(float delta_time, WindowContext *context);
+    void initCallbacks(WindowContext *context) {
+        context->registerOnKeyFn(
+                [this](int key, int scancode, int action, int mods) {
+                    if (action == GLFW_PRESS) {
+                        _state.keys[key] = 1;
+                    } else if (action == GLFW_RELEASE) {
+                        _state.keys[key] = 0;
+                    }
+                });
 
-    inline void registerEditorCallback(inputCallback const &callback) {
-        _editor_callbacks.push_back(callback);
+        context->registerOnMouseButtonFn(
+                [this](int button, int action, int mods) {
+                    if (action == GLFW_PRESS) {
+                        _state.keys[button] = 1;
+                    } else if (action == GLFW_RELEASE) {
+                        _state.keys[button] = 0;
+                    }
+                });
+
+        context->registerOnCursorPosFn([this](double xpos, double ypos) {
+            _state.mouse_x          = static_cast<float>(xpos);
+            _state.mouse_y          = static_cast<float>(ypos);
+        });
+
+        context->registerOnScrollFn([this](double xoffset, double yoffset) {
+            if (static_cast<float>(xoffset) == _state.mouse_scroll_offset_x &&
+                static_cast<float>(yoffset) == _state.mouse_scroll_offset_y) {
+                _state.was_mouse_scrolling = false;
+                return;
+            }
+
+            if (!_state.was_mouse_scrolling) {
+                _state.was_mouse_scrolling = true;
+            }
+            _state.mouse_scroll_offset_x = static_cast<float>(xoffset);
+            _state.mouse_scroll_offset_y = static_cast<float>(yoffset);
+        });
+
+        context->_input_state = &_state;
     }
 
-    inline void registerGameCallback(inputCallback const &callback) {
-        _game_callbacks.push_back(callback);
+    [[nodiscard]] bool getInputState(int key) const {
+        return _state.keys[key] == 1;
     }
-
-private:
-    inline void editorInput(float delta_time, WindowContext *context);
-    inline void gameInput(float delta_time, WindowContext *context);
 };
 
 }// namespace taixu

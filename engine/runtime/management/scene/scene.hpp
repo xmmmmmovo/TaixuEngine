@@ -5,7 +5,7 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 
-#include "gameplay/player/perspective_camera.hpp"
+#include "gameplay/player/camera/perspective_camera.hpp"
 #include "management/ecs/components/camera/camera_component.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
@@ -45,7 +45,6 @@ private:
 
 public:
     ECSCoordinator _ecs_coordinator{};
-    PhysicsManager _physics_manager{};
 
     Skybox                        _skybox{};
     std::unique_ptr<ITextureCube> _skybox_texture{nullptr};
@@ -63,54 +62,6 @@ public:
         _ecs_coordinator.registerComponent<LightComponent>();
         _ecs_coordinator.registerComponent<RigidBodyComponent>();
 
-        _physics_manager.init();
-        //_physics_manager.current_physics_scene->bindScene(&_ecs_coordinator);
-        _camera->Position = glm::vec3(0.0f,4.0f,20.0f);
-        InputSystem::getInstance().registerEditorCallback(
-                [this](float delta_time, WindowContext *const context) {
-                    if (_camera == nullptr) { return; }
-
-                    if (glfwGetKey(context->_window, GLFW_KEY_W) ==
-                        GLFW_PRESS) {
-                        _camera->processKeyboard(CameraMovement::FORWARD,
-                                                 delta_time);
-                    }
-                    if (glfwGetKey(context->_window, GLFW_KEY_S) ==
-                        GLFW_PRESS) {
-                        _camera->processKeyboard(CameraMovement::BACKWARD,
-                                                 delta_time);
-                    }
-                    if (glfwGetKey(context->_window, GLFW_KEY_A) ==
-                        GLFW_PRESS) {
-                        _camera->processKeyboard(CameraMovement::LEFT,
-                                                 delta_time);
-                    }
-                    if (glfwGetKey(context->_window, GLFW_KEY_D) ==
-                        GLFW_PRESS) {
-                        _camera->processKeyboard(CameraMovement::RIGHT,
-                                                 delta_time);
-                    }
-
-                    if (glfwGetKey(context->_window, GLFW_KEY_E) ==
-                        GLFW_PRESS) {
-                        _camera->processKeyboard(CameraMovement::UP,
-                                                 delta_time);
-                    }
-                    if (glfwGetKey(context->_window, GLFW_KEY_Q) ==
-                        GLFW_PRESS) {
-                        _camera->processKeyboard(CameraMovement::DOWN,
-                                                 delta_time);
-                    }
-
-                    if (glfwGetKey(context->_window, GLFW_KEY_LEFT_SHIFT) ==
-                        GLFW_PRESS) {
-                        _camera->accelerate();
-                    } else if (glfwGetKey(context->_window,
-                                          GLFW_KEY_LEFT_SHIFT) ==
-                               GLFW_RELEASE) {
-                        _camera->decelerate();
-                    }
-                });
     }
 
     void fromWorld(JsonWorld *world, int levelIndex) {

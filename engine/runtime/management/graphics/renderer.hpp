@@ -13,7 +13,7 @@
 #include "core/base/clock.hpp"
 #include "core/base/hash.hpp"
 #include "core/base/noncopyable.hpp"
-#include "gameplay/player/perspective_camera.hpp"
+#include "gameplay/player/camera/perspective_camera.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
@@ -30,10 +30,12 @@
 
 namespace taixu {
 
-class IRenderer : private noncopyable {
+class AbstractRenderer : private noncopyable {
+    PROTOTYPE_DFT(protected, bool, move_mode, false)
+
 public:
     virtual void init()                                   = 0;
-    virtual void update()                                 = 0;
+    virtual void update(float delta_time)                 = 0;
     virtual void clear(const std::array<float, 3> &color) = 0;
     virtual void clearSurface()                           = 0;
 
@@ -42,10 +44,11 @@ public:
     virtual void bindScene(Scene *scene) = 0;
 };
 
-class BaseRenderer : public IRenderer {
+class BaseRenderer : public AbstractRenderer {
+
 protected:
-    Scene                        *_current_scene{nullptr};
-    System                       *_renderable_system{nullptr};
+    Scene  *_current_scene{nullptr};
+    System *_renderable_system{nullptr};
 
     static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "renderable"_hash64;
 
@@ -53,6 +56,59 @@ protected:
     std::unique_ptr<IShaderProgram> _skybox_shader{nullptr};
 
     Matrices _matrices{};
+
+    float _last_mouse_x{0.0f}, _last_mouse_y{0.0f};
+
+    void updateCamera(float delta_time) {
+        if (_current_scene->_camera != nullptr) {
+            auto const &inputsystem = InputSystem::getInstance();
+
+            if (inputsystem.getInputState(GLFW_KEY_W)) {
+                _current_scene->_camera->processKeyboard(
+                        CameraMovement::FORWARD, delta_time);
+            }
+            if (inputsystem.getInputState(GLFW_KEY_S)) {
+                _current_scene->_camera->processKeyboard(
+                        CameraMovement::BACKWARD, delta_time);
+            }
+            if (inputsystem.getInputState(GLFW_KEY_A)) {
+                _current_scene->_camera->processKeyboard(CameraMovement::LEFT,
+                                                         delta_time);
+            }
+            if (inputsystem.getInputState(GLFW_KEY_D)) {
+                _current_scene->_camera->processKeyboard(CameraMovement::RIGHT,
+                                                         delta_time);
+            }
+
+            if (inputsystem.getInputState(GLFW_KEY_E)) {
+                _current_scene->_camera->processKeyboard(CameraMovement::UP,
+                                                         delta_time);
+            }
+            if (inputsystem.getInputState(GLFW_KEY_Q)) {
+                _current_scene->_camera->processKeyboard(CameraMovement::DOWN,
+                                                         delta_time);
+            }
+
+            if (inputsystem.getInputState(GLFW_KEY_LEFT_SHIFT)) {
+                _current_scene->_camera->accelerate();
+            } else {
+                _current_scene->_camera->decelerate();
+            }
+
+            if (_move_mode) {
+                _current_scene->_camera->processMouseMovement(
+                        inputsystem.state().mouse_x - _last_mouse_x,
+                        _last_mouse_y - inputsystem.state().mouse_y);
+            }
+            _last_mouse_x = inputsystem.state().mouse_x;
+            _last_mouse_y = inputsystem.state().mouse_y;
+
+            if (inputsystem.state().was_mouse_scrolling) {
+                _current_scene->_camera->processMouseScroll(
+                        inputsystem.state().mouse_scroll_offset_y);
+            }
+        }
+    }
 
     void bindScene(Scene *scene) override {
         _current_scene = scene;

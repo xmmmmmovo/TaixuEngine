@@ -15,8 +15,9 @@
 #include <string>
 
 #include "core/base/macro.hpp"
-#include "gameplay/player/perspective_camera.hpp"
+#include "gameplay/player/camera/perspective_camera.hpp"
 #include "management/graphics/render/render_api.hpp"
+#include "management/input/input_state.hpp"
 
 namespace taixu {
 /**
@@ -253,7 +254,7 @@ protected:
         api_loader->apiLoad(_window);
 
         glfwSetWindowUserPointer(_window, this);
-        glfwSetKeyCallback(_window, WindowContext::keyCallback);
+        glfwSetKeyCallback(_window, keyCallback);
         glfwSetErrorCallback(errorCallBack);
         glfwSetCharCallback(_window, charCallback);
         glfwSetCharModsCallback(_window, charModsCallback);
@@ -301,9 +302,7 @@ public:
     inline void swapBuffers() const { _api_loader->swapBuffers(); }
 
 public:
-    ImVec2 _mouse_pos{0.0f, 0.0f};
-    ImVec2 _last_mouse_pos{-1.f, -1.f};
-    bool   _cam_mode{false};
+    InputState const *_input_state{nullptr};
 };
 
 }// namespace taixu

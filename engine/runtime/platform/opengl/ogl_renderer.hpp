@@ -29,7 +29,7 @@ public:
 
     void init() override;
 
-    void update() override;
+    void update(float delta_time) override;
     void clear(const std::array<float, 3> &color) override;
 
     void clearSurface() override;

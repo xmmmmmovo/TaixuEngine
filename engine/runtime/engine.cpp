@@ -41,39 +41,11 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _project_manager = std::make_unique<ProjectManager>();
     _asset_manager   = std::make_unique<AssetManager>();
     _scene_manager   = std::make_unique<SceneManager>();
+    _physics_manager = std::make_unique<PhysicsManager>();
 
-    _context_ptr->registerOnScrollFn([this](double /*xoffset*/,
-                                            double yoffset) {
-        if (_current_scene == nullptr || _current_scene->_camera == nullptr) {
-            return;
-        }
+    _physics_manager->init();
 
-        if (_context_ptr->_state == EngineState::GAMEMODE) {
-            _current_scene->_camera->processMouseScroll(yoffset);
-        }
-    });
-
-    _context_ptr->registerOnCursorPosFn([this](double xpos, double ypos) {
-        if (_current_scene == nullptr || _current_scene->_camera == nullptr) {
-            return;
-        }
-
-        if (_context_ptr->_last_mouse_pos.x == -1.0F &&
-            _context_ptr->_last_mouse_pos.y == -1.0F) {
-            _context_ptr->_last_mouse_pos.x = xpos;
-            _context_ptr->_last_mouse_pos.y = ypos;
-        }
-        _context_ptr->_mouse_pos.x = xpos;
-        _context_ptr->_mouse_pos.y = ypos;
-        if (_context_ptr->_cam_mode) {
-            _current_scene->_camera->processMouseMovement(
-                    _context_ptr->_mouse_pos.x -
-                            _context_ptr->_last_mouse_pos.x,
-                    _context_ptr->_last_mouse_pos.y -
-                            _context_ptr->_mouse_pos.y);
-        }
-        _context_ptr->_last_mouse_pos = _context_ptr->_mouse_pos;
-    });
+    InputSystem::getInstance().initCallbacks(_context_ptr.get());
 
     _window_ptr->initWithEngineRuntime(this);
 
@@ -83,13 +55,11 @@ void Engine::init(std::unique_ptr<WindowContext> context,
 void Engine::update() {
     _clock.update();
     _renderer->clearSurface();
-    InputSystem::getInstance().processInput(_clock.getDeltaTime(),
-                                            _context_ptr.get());
     if (_current_scene != nullptr) {
         _current_scene->_ecs_coordinator.update();
         //_current_scene->_physics_manager.update();
     }
-    _renderer->update();
+    _renderer->update(_clock.getDeltaTime());
 }
 
 void Engine::run() {
@@ -102,7 +72,7 @@ void Engine::run() {
 
 void Engine::destroy() { this->_window_ptr->destroy(); }
 
-IRenderer *Engine::getRenderer() const { return _renderer.get(); }
+AbstractRenderer *Engine::getRenderer() const { return _renderer.get(); }
 
 Status Engine::loadProject(const std::string_view &path) {
     spdlog::info("Loading project: {}", path);
@@ -117,9 +87,10 @@ Status Engine::loadProject(const std::string_view &path) {
     _asset_manager->loadWorld(_project_manager->getCurrentPath());
 
     auto scene = std::make_unique<Scene>();
+    _renderer->bindScene(scene.get());
+    _physics_manager->bindScene(scene.get());
     _scene_manager->addScene("MainScene", std::move(scene));
     _current_scene = _scene_manager->getScene("MainScene");
-    _renderer->bindScene(_current_scene);
 
     _current_scene->_asset_manager = _asset_manager.get();
     _current_scene->fromWorld(_asset_manager->taixuworld.get(),0);

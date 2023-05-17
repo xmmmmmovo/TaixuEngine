@@ -20,7 +20,7 @@ namespace taixu::editor {
 /**
  * @brief 菜单栏组件
  */
-class MenuComponent : public IUIComponent {
+class MenuComponent : public AbstractUIComponent {
 private:
     callback<std::string_view const &> _on_new_project{nullptr};
     callback<std::string_view const &> _on_open_project{nullptr};

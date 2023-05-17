@@ -29,7 +29,7 @@
 #include "ui/components/menu_component.hpp"
 #include "ui/components/render_component.hpp"
 #include "ui/components/statusbar_component.hpp"
-
+#include "ui/view_model.hpp"
 
 namespace taixu::editor {
 
@@ -47,25 +47,17 @@ private:
             "Useful Objects"};
 
     // components
-    std::unique_ptr<MenuComponent> menu_component{
-            std::make_unique<MenuComponent>()};
-    std::unique_ptr<RenderComponent> render_component{
-            std::make_unique<RenderComponent>()};
-    std::unique_ptr<HierarchyComponent> world_object_component{
-            std::make_unique<HierarchyComponent>()};
-    std::unique_ptr<DetailComponent> detail_component{
-            std::make_unique<DetailComponent>()};
-    std::unique_ptr<FileComponent> file_component{
-            std::make_unique<FileComponent>()};
-    std::unique_ptr<ConsoleComponent> status_component{
-            std::make_unique<ConsoleComponent>()};
-    std::unique_ptr<HierarchyComponent> useful_obj_component{
-            std::make_unique<HierarchyComponent>()};
-    std::unique_ptr<StatusBarComponent> status_bar_component{
-            std::make_unique<StatusBarComponent>()};
+    MenuComponent      menu_component{};
+    RenderComponent    render_component{};
+    HierarchyComponent world_object_component{};
+    DetailComponent    detail_component{};
+    FileComponent      file_component{};
+    ConsoleComponent   status_component{};
+    HierarchyComponent useful_obj_component{};
+    StatusBarComponent status_bar_component{};
 
 private:
-    IRenderer *_renderer{};
+    AbstractRenderer *_renderer{};
 
     // static raw engine runtime pointer
     // do not need to free
@@ -73,6 +65,8 @@ private:
 
     // context
     WindowContext *_context_ptr{nullptr};
+
+    ViewModel _view_model{};
 
 private:
     /**

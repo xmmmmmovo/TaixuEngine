@@ -61,10 +61,14 @@ public:
         updateCameraVectors();
     }
 
-    glm::mat4 getViewMatrix();
-    glm::mat4 getProjectionMatrix();
+    glm::mat4 getViewMatrix() {
+        return glm::lookAt(Position, Position + Front, Up);
+    }
+
+    glm::mat4 getProjectionMatrix() { return projection_matrix; }
+
     // processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
-    void      processKeyboard(CameraMovement direction, float deltaTime) {
+    void processKeyboard(CameraMovement direction, float deltaTime) {
         float const velocity = MovementSpeed * deltaTime;
         if (direction == CameraMovement::FORWARD) {
             Position += Front * velocity;

@@ -1,7 +1,7 @@
 #ifndef TAIXUENGINE_CAMERA_COMPONENT
 #define TAIXUENGINE_CAMERA_COMPONENT
 
-#include "gameplay/player/perspective_camera.hpp"
+#include "gameplay/player/camera/perspective_camera.hpp"
 
 namespace taixu {
 class CameraComponent {
