@@ -9,7 +9,7 @@ void PhysicsManager::init() {
     _physics_scene->init();
 }
 
-void PhysicsManager::update() { _physics_scene->tick(); }
+void PhysicsManager::update() { _physics_scene->update(); }
 
 void PhysicsManager::bindScene(Scene *scene) {
     _current_scene = scene;

@@ -338,7 +338,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     JsonTransform trans1;
     trans1.position.vec3 = glm::vec3(0, 0, 0);
     trans1.rotation.vec3 = glm::vec3(0, 0, 0);
-    trans1.scale.vec3    = glm::vec3(1, 1, 1);
+    trans1.scale.vec3    = glm::vec3(20, 0.5, 20);
 
     JsonMesh mesh1;
     mesh1.obj_path = "assets\\models\\cube.obj";

@@ -98,12 +98,12 @@ public:
 
                 if(go.RigidBodyComponent.shapeType!=RigidBodyShapeType::INVALID)
                 {
-                    auto rigid_body = RigidBodyComponent(&trans,_physics_manager.current_physics_scene);
-                    //rigid_body.current_scene = _physics_manager.current_physics_scene;
-                    rigid_body.init(
-                        go.RigidBodyComponent.shapeType,
-                        go.RigidBodyComponent.motionType);
-                    rigid_body.shapeScale = go.RigidBodyComponent.rigid_body_scale.vec3;
+                    // auto rigid_body = RigidBodyComponent(&trans);
+                    // //rigid_body.current_scene = _physics_manager.current_physics_scene;
+                    // rigid_body.init(
+                    //     go.RigidBodyComponent.shapeType,
+                    //     go.RigidBodyComponent.motionType);
+                    // rigid_body.shapeScale = go.RigidBodyComponent.rigid_body_scale.vec3;
                 }
                 GameObject game_object{};
                 game_object.entities.push_back(entity);
@@ -128,9 +128,6 @@ public:
 
                 _ecs_coordinator.addComponent(
                         light_entity, std::forward<LightComponent>(light_component));
-
-                //auto test = _ecs_coordinator.getComponent<LightComponent>(entity);
-                //auto test1 = _ecs_coordinator.getComponent<TransformComponent>(entity);
 
             }
         //}

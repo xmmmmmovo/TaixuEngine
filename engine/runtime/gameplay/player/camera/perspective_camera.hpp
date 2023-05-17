@@ -136,7 +136,7 @@ public:
 private:
     // calculates the front vector from the Camera's (updated) Euler Angles
     glm::mat4 projection_matrix{};
-    float     initial_foV = 27.0f;
+    float     initial_foV = 45.0f;
 };
 
 }// namespace taixu
