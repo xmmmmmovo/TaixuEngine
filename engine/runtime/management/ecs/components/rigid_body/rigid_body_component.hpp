@@ -5,7 +5,7 @@
 
 #include "management/ecs/components/transform/transform_component.hpp"
 #include "management/physics/physics_scene.hpp"
-
+#include "management/ecs/core/ecs_types.hpp"
 
 namespace taixu {
 enum class RigidBodyShapeType {
@@ -30,19 +30,17 @@ class PhysicsScene;
 class RigidBodyComponent {
 public:
     RigidBodyComponent() = default;
-    RigidBodyComponent(TransformComponent *trans,
+    RigidBodyComponent(
                        std::weak_ptr<PhysicsScene> physics_scene)
-        : transform_component(trans),current_scene(physics_scene) {}
+        : current_scene(physics_scene) {}
 
     JPH::BodyID        body_id;
+    Entity             entity;
     RigidBodyShapeType type{RigidBodyShapeType::INVALID};
-    glm::vec3 shapeScale;
 
     std::weak_ptr<PhysicsScene> current_scene;
-    TransformComponent         *transform_component;
     
-    void init(RigidBodyShapeType stype, MotionType mtype/*,TransformComponent *transform_component*/);
-    void tick();
+    void init(RigidBodyShapeType stype, MotionType mtype,glm::vec3 pos,glm::vec3 scl,Entity entt,std::weak_ptr<PhysicsScene> _physics_scene);
 };
 
 }// namespace taixu

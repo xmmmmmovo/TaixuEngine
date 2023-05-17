@@ -9,7 +9,26 @@ void PhysicsManager::init() {
     _physics_scene->init();
 }
 
-void PhysicsManager::update() { _physics_scene->update(); }
+void PhysicsManager::update() { 
+    if(_current_scene!=nullptr&&_physics_scene!=nullptr)
+    {
+        _physics_scene->update(); 
+    for(auto const&entity:_physics_system->entities())
+    {
+        if(_current_scene->_ecs_coordinator.anyOf<RigidBodyComponent>(entity))
+        {
+            auto &trans = _current_scene->_ecs_coordinator.
+                    getComponent<TransformComponent>(entity);
+            auto &rigid_body = _current_scene->_ecs_coordinator.
+                    getComponent<RigidBodyComponent>(entity);
+            _physics_scene->updateGlobalTransform(&trans,rigid_body.body_id);
+            //int a = 0;
+        }
+    }
+    }
+    
+
+}
 
 void PhysicsManager::bindScene(Scene *scene) {
     _current_scene = scene;

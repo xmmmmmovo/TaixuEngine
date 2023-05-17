@@ -3,21 +3,20 @@
 namespace taixu {
 
 void RigidBodyComponent::init(RigidBodyShapeType stype,
-                                    MotionType         mtype
-                                    /*TransformComponent         *transform_component*/) {
+                                    MotionType         mtype,
+                                    glm::vec3 position,
+                                    glm::vec3 scl,
+                                    Entity entt,
+                                    std::weak_ptr<PhysicsScene> _physics_scene
+                            ) 
+{
     RigidbodyInfo rgdInfo;
     rgdInfo.stype    = stype;
     rgdInfo.mtype    = mtype;
-    rgdInfo.position = transform_component->_position;
-    rgdInfo.rotation = glm::vec3(transform_component->_rotation.x,
-                                 transform_component->_rotation.y,
-                                 transform_component->_rotation.z);
-    rgdInfo.scale    = shapeScale;
-    body_id          = current_scene.lock()->createRigidBodyActor(rgdInfo);
+    rgdInfo.position = position;
+    rgdInfo.scale    = scl;
+    body_id          = _physics_scene.lock()->createRigidBodyActor(rgdInfo);
 }
 
-void RigidBodyComponent::tick() {
-    current_scene.lock()->updateGlobalTransform(transform_component, body_id);
-}
 
 }// namespace taixu

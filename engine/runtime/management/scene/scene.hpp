@@ -54,6 +54,7 @@ public:
     std::unique_ptr<PerspectiveCamera> _camera{
             std::make_unique<PerspectiveCamera>()};
     AssetManager *_asset_manager{nullptr};
+    std::weak_ptr<PhysicsScene> _physics_scene;
 
     explicit Scene() {
         _ecs_coordinator.init();
@@ -93,18 +94,24 @@ public:
                                            go.TransformComponent.scale.vec3,
                                            go.TransformComponent.rotation.vec3);
                 trans.makeTransformMatrix();
+                
+                if(go.RigidBodyComponent.shapeType!=RigidBodyShapeType::INVALID)
+                {
+                     auto rigid_body = RigidBodyComponent();
+                     rigid_body.init(
+                         go.RigidBodyComponent.shapeType,
+                         go.RigidBodyComponent.motionType,
+                         trans._position,
+                         go.RigidBodyComponent.rigid_body_scale.vec3,
+                         entity,
+                         _physics_scene);
+                    _ecs_coordinator.addComponent(
+                        entity, std::forward<RigidBodyComponent>(rigid_body));
+                }
+
                 _ecs_coordinator.addComponent(
                         entity, std::forward<TransformComponent >(trans));
 
-                if(go.RigidBodyComponent.shapeType!=RigidBodyShapeType::INVALID)
-                {
-                    // auto rigid_body = RigidBodyComponent(&trans);
-                    // //rigid_body.current_scene = _physics_manager.current_physics_scene;
-                    // rigid_body.init(
-                    //     go.RigidBodyComponent.shapeType,
-                    //     go.RigidBodyComponent.motionType);
-                    // rigid_body.shapeScale = go.RigidBodyComponent.rigid_body_scale.vec3;
-                }
                 GameObject game_object{};
                 game_object.entities.push_back(entity);
 

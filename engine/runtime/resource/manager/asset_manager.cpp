@@ -348,7 +348,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     JsonRigidBody body1;
     body1.shapeType             = RigidBodyShapeType::BOX;
     body1.motionType            = MotionType::STATIC;
-    body1.rigid_body_scale.vec3 = glm::vec3(1, 1, 1);
+    body1.rigid_body_scale.vec3 = glm::vec3(20, 0.5, 20);
 
     JsonTransform trans2;
     trans2.position.vec3 = glm::vec3(0, 6, 0);
