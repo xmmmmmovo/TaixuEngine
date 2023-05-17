@@ -8,13 +8,13 @@
 #include "ui/ui_component.hpp"
 
 #include "ImGuizmo.h"
+#include "gameplay/player/camera/perspective_camera.hpp"
 #include "imgui.h"
 #include "imgui_internal.h"
-#include "gameplay/player/perspective_camera.hpp"
 
 
 namespace taixu::editor {
-class DetailComponent : public IUIComponent {
+class DetailComponent : public AbstractUIComponent {
 public:
     ImGuizmo::OPERATION mCurrentGizmoOperation {ImGuizmo::OPERATION::TRANSLATE};
     ImGuizmo::MODE mCurrentGizmoMode{ImGuizmo::MODE::LOCAL};

@@ -29,11 +29,12 @@ void OGLRenderer::init() {
     _skybox_shader->set_uniform("skybox", 0);
 }
 
-void OGLRenderer::update() {
+void OGLRenderer::update(float delta_time) {
     _framebuffer->bind();
     clear(CLEAR_COLOR);
 
     if (_current_scene != nullptr) {
+        updateCamera(delta_time);
 
         _matrices.projection = _current_scene->_camera->getProjectionMatrix();
         auto view            = _current_scene->_camera->getViewMatrix();

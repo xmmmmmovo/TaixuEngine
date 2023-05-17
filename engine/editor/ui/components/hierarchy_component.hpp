@@ -21,7 +21,7 @@ struct HierarchyNode {
     std::vector<HierarchyNode> childrens;
 };
 
-class HierarchyComponent : public IUIComponent {
+class HierarchyComponent : public AbstractUIComponent {
 private:
     HierarchyNode _root_node;
     HierarchyNode _current_node;

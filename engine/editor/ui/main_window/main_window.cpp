@@ -20,13 +20,13 @@ void MainWindow::init() {
     _context_ptr->registerOnMouseButtonFn(
             [this](int button, int action, int /*mods*/) {
                 if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-                    if (_context_ptr->_cam_mode) {
-                        _context_ptr->_cam_mode = false;
+                    if (_renderer->move_mode()) {
+                        _renderer->set_move_mode(false);
                         glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
                                          GLFW_CURSOR_NORMAL);
                     } else {
                         if (isCursorInRenderComponent()) {
-                            _context_ptr->_cam_mode = true;
+                            _renderer->set_move_mode(true);
                             glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
                                              GLFW_CURSOR_DISABLED);
                         }
@@ -57,7 +57,7 @@ void MainWindow::preUpdate() {
 
     if (ImGui::BeginMenuBar()) {
         if (ImGui::BeginMenu("Menu")) {
-            menu_component->update();
+            menu_component.update();
             ImGui::EndMenu();
         }
         ImGui::EndMenuBar();
@@ -65,45 +65,47 @@ void MainWindow::preUpdate() {
 
     ImGui::End();
 
-    menu_component->processFileDialog();
+    menu_component.processFileDialog();
 
     ImguiSurface::addWidget(WORLD_OBJ_COMPONENT_NAME.data(),
                             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
-                                    world_object_component->update));
+                                    world_object_component.update));
     ImguiSurface::addWidget(
             RENDER_COMPONENT_NAME.data(),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component->update),
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component.update),
             ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_MenuBar);
     ImguiSurface::addWidget(
             DETAILS_COMPONENT_NAME.data(),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component->update));
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component.update));
     ImguiSurface::addWidget(
             FILE_COMPONENT_NAME.data(),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(file_component->update));
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(file_component.update));
     ImguiSurface::addWidget(
             STATUS_COMPONENT_NAME.data(),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(status_component->update));
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(status_component.update));
     ImguiSurface::addWidget(
             USEFUL_OBJ_COMPONENT_NAME.data(),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component->update));
+            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component.update));
 }
 
 bool MainWindow::isCursorInRenderComponent() const {
-    spdlog::debug("Mouse pos: {}, {}", _context_ptr->_mouse_pos.x,
-                  _context_ptr->_mouse_pos.y);
+    spdlog::debug("Mouse pos: {}, {}", _context_ptr->_input_state->mouse_x,
+                  _context_ptr->_input_state->mouse_y);
     spdlog::debug("Render rect: {}, {}, {}, {}",
-                  render_component->_render_rect.Min.x,
-                  render_component->_render_rect.Min.y,
-                  render_component->_render_rect.Max.x,
-                  render_component->_render_rect.Max.y);
-    return render_component->_render_rect.Contains(_context_ptr->_mouse_pos);
+                  render_component._render_rect.Min.x,
+                  render_component._render_rect.Min.y,
+                  render_component._render_rect.Max.x,
+                  render_component._render_rect.Max.y);
+    return render_component._render_rect.Contains(
+            ImVec2{_context_ptr->_input_state->mouse_x,
+                   _context_ptr->_input_state->mouse_y});
 }
 
 void MainWindow::operationLisen() {
-    render_component->mCurrentGizmoMode = detail_component->mCurrentGizmoMode;
-    render_component->mCurrentGizmoOperation =
-            detail_component->mCurrentGizmoOperation;
-    render_component->current_scene = _engine_runtime->getScene();
+    render_component.mCurrentGizmoMode = detail_component.mCurrentGizmoMode;
+    render_component.mCurrentGizmoOperation =
+            detail_component.mCurrentGizmoOperation;
+    render_component.current_scene = _engine_runtime->getScene();
 }
 
 
@@ -123,12 +125,12 @@ void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
     this->_renderer       = engine_runtime_ptr->getRenderer();
 
     ImguiSurface::init(_context_ptr->_window);
-    render_component->_framebuffer = _renderer->getRenderFramebuffer();
+    render_component._framebuffer = _renderer->getRenderFramebuffer();
 }
 
 MainWindow::MainWindow(WindowContext *const context_ptr)
     : _context_ptr(context_ptr) {
-    this->menu_component->bindCallbacks(
+    this->menu_component.bindCallbacks(
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
@@ -140,6 +142,7 @@ void MainWindow::onNewProjectCb(std::string_view const &path) {}
 
 void MainWindow::onOpenProjectCb(std::string_view const &path) {
     this->_engine_runtime->loadProject(path);
+    _view_model._project_path = path;
 }
 
 void MainWindow::onSaveProjectCb() {}
