@@ -28,7 +28,7 @@ void OGLRenderer::init() {
     _skybox_shader->bind_uniform_block("Matrices", 0);
     _skybox_shader->set_uniform("skybox", 0);
 
-    //_render_shader->bind_uniform_block("Matrices", 0);
+    _render_shader->bind_uniform_block("Matrices", 0);
     _render_shader->bind_uniform_block("LightSourse", 1);
     _render_shader->bind_uniform_block("Material", 2);
 

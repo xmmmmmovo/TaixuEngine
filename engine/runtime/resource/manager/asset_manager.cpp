@@ -338,7 +338,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     JsonTransform trans1;
     trans1.position.vec3 = glm::vec3(0, 0, 0);
     trans1.rotation.vec3 = glm::vec3(0, 0, 0);
-    trans1.scale.vec3    = glm::vec3(10, 1, 10);
+    trans1.scale.vec3    = glm::vec3(1, 1, 1);
 
     JsonMesh mesh1;
     mesh1.obj_path = "assets\\models\\cube.obj";
@@ -378,7 +378,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     l2.json_game_objects.push_back(go1);
 
     JsonTransform trans3;
-    trans3.position.vec3 = glm::vec3(0, 7, 0);
+    trans3.position.vec3 = glm::vec3(15, 15, 15);
     trans3.rotation.vec3 = glm::vec3(0, 0, 0);
     trans3.scale.vec3    = glm::vec3(1, 1, 1);
 

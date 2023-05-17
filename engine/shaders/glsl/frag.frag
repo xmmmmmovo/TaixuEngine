@@ -36,7 +36,7 @@ void main()
     //FragColor = vec4(v2fTexCoord, 1.0f, 1.0f); 
     //FragColor = texture(textureSampler,fs_in.TexCoords).rgba;
     //FragColor = camera_position;
-    //mat3 V3X3 = mat3(view);
+    mat3 V3X3 = mat3(view);
     // vec3 color = texture(textureSampler,fs_in.TexCoords).rgb;
     // // ambient
     // vec3 ambient = color * 0.05;
@@ -62,18 +62,24 @@ void main()
     // diffuse
     vec3 lightDir = normalize(light_position.xyz - fs_in.FragPos);
     vec3 normal = normalize(fs_in.Normal);
-    float diff = max(dot(lightDir, normal), 0.0);
-    vec3 diffuse = diff * color;
-    // specular
-    vec3 viewDir = normalize(camera_position.xyz - fs_in.FragPos);
-    vec3 reflectDir = reflect(-lightDir, normal);
-    float spec = 0.0;
 
-    vec3 halfwayDir = normalize(lightDir + viewDir);  
-    spec = pow(max(dot(normal, halfwayDir), 0.0), 32.0);
+    vec3 viewDir = normalize(V3X3*camera_position.xyz - fs_in.FragPos);
+    vec3 halfwayDir = normalize(lightDir + viewDir); 
+
+    //float nol = abs(dot(lightDir, normal));
+    //float noh = abs(dot(normal,halfwayDir ));
+    float nol = dot(lightDir, normal);
+    float noh = dot(normal,halfwayDir);
+
+    float diff = max(nol, 0.0);
+    vec3 diffuse = diff * color;
     
+    // specular
+    float spec = 0.0;
+    spec = pow(max(noh, 0.0), 32.0);
     vec3 specular = vec3(0.3) * spec; // assuming bright white light color
-    FragColor = vec4(ambient + diffuse + specular, 1.0);
-    //FragColor = vec4(viewDir,1.0f);
+
+    FragColor = vec4(ambient + diffuse + specular + emissive.xyz, 1.0);
+    //FragColor = vec4(normal,1.0f);
     //FragColor = light_position;
 }

@@ -30,18 +30,18 @@ class PhysicsScene;
 class RigidBodyComponent {
 public:
     RigidBodyComponent() = default;
-    RigidBodyComponent(std::uint32_t go, TransformComponent *transform,
+    RigidBodyComponent(TransformComponent *trans,
                        std::weak_ptr<PhysicsScene> physics_scene)
-        : transform_component(std::move(transform)),
-          current_scene(physics_scene) {}
+        : transform_component(trans),current_scene(physics_scene) {}
 
     JPH::BodyID        body_id;
     RigidBodyShapeType type{RigidBodyShapeType::INVALID};
+    glm::vec3 shapeScale;
 
     std::weak_ptr<PhysicsScene> current_scene;
     TransformComponent         *transform_component;
     
-    void init(RigidBodyShapeType stype, MotionType mtype);
+    void init(RigidBodyShapeType stype, MotionType mtype/*,TransformComponent *transform_component*/);
     void tick();
 };
 

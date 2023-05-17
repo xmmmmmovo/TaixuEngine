@@ -87,6 +87,7 @@ void Engine::update() {
                                             _context_ptr.get());
     if (_current_scene != nullptr) {
         _current_scene->_ecs_coordinator.update();
+        _current_scene->_physics_manager.update();
     }
     _renderer->update();
 }
@@ -121,7 +122,7 @@ Status Engine::loadProject(const std::string_view &path) {
     _renderer->bindScene(_current_scene);
 
     _current_scene->_asset_manager = _asset_manager.get();
-    _current_scene->fromWorld(_asset_manager->taixuworld.get());
+    _current_scene->fromWorld(_asset_manager->taixuworld.get(),0);
 
     return Status::OK;
 }

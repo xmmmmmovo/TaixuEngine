@@ -3,7 +3,8 @@
 namespace taixu {
 
 void RigidBodyComponent::init(RigidBodyShapeType stype,
-                                    MotionType         mtype) {
+                                    MotionType         mtype
+                                    /*TransformComponent         *transform_component*/) {
     RigidbodyInfo rgdInfo;
     rgdInfo.stype    = stype;
     rgdInfo.mtype    = mtype;
@@ -11,7 +12,7 @@ void RigidBodyComponent::init(RigidBodyShapeType stype,
     rgdInfo.rotation = glm::vec3(transform_component->_rotation.x,
                                  transform_component->_rotation.y,
                                  transform_component->_rotation.z);
-    rgdInfo.scale    = transform_component->_scale;
+    rgdInfo.scale    = shapeScale;
     body_id          = current_scene.lock()->createRigidBodyActor(rgdInfo);
 }
 
