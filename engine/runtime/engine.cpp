@@ -3,6 +3,7 @@
 #include <magic_enum.hpp>
 #include <optional>
 
+#include "core/base/macro.hpp"
 #include "core/base/path.hpp"
 #include "core/base/public_singleton.hpp"
 #include "engine_args.hpp"
@@ -44,7 +45,7 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _physics_manager = std::make_unique<PhysicsManager>();
 
     _physics_manager->init();
-    
+
     InputSystem::getInstance().initCallbacks(_context_ptr.get());
 
     _window_ptr->initWithEngineRuntime(this);
@@ -54,13 +55,14 @@ void Engine::init(std::unique_ptr<WindowContext> context,
 
 void Engine::update() {
     _clock.update();
+    float const delta_time = _clock.getDeltaTime();
+
     _renderer->clearSurface();
+    if (_state != EngineState::EDITORMODE) { _physics_manager->update(); }
+    _renderer->update(delta_time);
     if (_current_scene != nullptr) {
         _current_scene->_ecs_coordinator.update();
-        //_current_scene->_physics_manager.update();
     }
-    _physics_manager->update();
-    _renderer->update(_clock.getDeltaTime());
 }
 
 void Engine::run() {
@@ -91,11 +93,12 @@ Status Engine::loadProject(const std::string_view &path) {
     _renderer->bindScene(scene.get());
     _physics_manager->bindScene(scene.get());
     scene->_physics_scene = _physics_manager->_physics_scene;
+
     _scene_manager->addScene("MainScene", std::move(scene));
     _current_scene = _scene_manager->getScene("MainScene");
 
     _current_scene->_asset_manager = _asset_manager.get();
-    _current_scene->fromWorld(_asset_manager->taixuworld.get(),0);
+    _current_scene->fromWorld(_asset_manager->taixuworld.get(), 0);
 
     return Status::OK;
 }
@@ -109,5 +112,7 @@ std::vector<GameObject> const &Engine::getGameObjects() {
 }
 
 Scene *Engine::getScene() const { return _current_scene; }
+
+EngineState const &Engine::getState() const { return _state; }
 
 }// namespace taixu
