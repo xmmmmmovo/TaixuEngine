@@ -27,6 +27,7 @@
 #include "resource/raw_data/mesh.hpp"
 #include "resource/raw_data/model.hpp"
 #include "resource/raw_data/texture.hpp"
+#include "resource/raw_data/fbx_data.hpp"
 
 namespace taixu {
 
@@ -34,10 +35,18 @@ class AssetManager final {
 private:
     std::unordered_map<std::string, Texture2DAsset> _textures{};
     std::unordered_map<std::string, Model>          _models{};
+    std::unordered_map<std::string, FBXData>          _fbx_files{};
 
     static Mesh processMesh(aiMesh *mesh);
 
-    void processNode(aiNode *node, aiScene const *scene, Model &model);
+    void processNode(aiNode *node, aiScene const *scene, Model &model,bool skeleton);
+
+    static Mesh processSkinnedMesh(aiMesh *mesh);
+
+    void processWeights(std::vector<VertexRelateBoneInfo> &vbrs,
+                                  aiMesh *mesh, const aiScene *scene, 
+                                  std::map<string, BoneInfo> &boneInfoMap,
+	                              int &boneCount);
 
     void processMaterial(aiScene const               *scene,
                          std::filesystem::path const &root_path, Model &model);
@@ -45,6 +54,17 @@ private:
     Texture2DAsset *processTexture(aiMaterial *material, aiTextureType type,
                                    std::filesystem::path const &root_path,
                                    std::filesystem::path const &directory_path);
+
+    static inline glm::mat4 ConvertMatrixToGLMFormat(const aiMatrix4x4& from)
+	{
+		glm::mat4 to;
+		//the a,b,c,d in assimp is the row ; the 1,2,3,4 is the column
+		to[0][0] = from.a1; to[1][0] = from.a2; to[2][0] = from.a3; to[3][0] = from.a4;
+		to[0][1] = from.b1; to[1][1] = from.b2; to[2][1] = from.b3; to[3][1] = from.b4;
+		to[0][2] = from.c1; to[1][2] = from.c2; to[2][2] = from.c3; to[3][2] = from.c4;
+		to[0][3] = from.d1; to[1][3] = from.d2; to[2][3] = from.d3; to[3][3] = from.d4;
+		return to;
+	}
 
 public:
     Model *loadModel(std::filesystem::path const &root_path,
@@ -74,6 +94,13 @@ public:
     std::unique_ptr<JsonWorld> taixuworld;
     void loadWorld(std::filesystem::path const &file_path);
     void writeWorld(std::filesystem::path const &root_path);
+
+
+    //for animation
+    FBXData * loadFBX(std::filesystem::path const &root_path,
+                     std::filesystem::path const &relative_path);
+    
+    Bone processBoneAnimation(aiBone *b);
 
 };
 }// namespace taixu

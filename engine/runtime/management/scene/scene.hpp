@@ -11,6 +11,7 @@
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
 #include "management/ecs/components/Light/light_component.hpp"
+#include "management/ecs/components/animation/skeleton_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/ecs/object/game_object.hpp"
@@ -158,6 +159,9 @@ public:
         /////////////////////////////////////////
         std::swap(_textures2D[0],_textures2D[1]);
         /////////////////////////////////////////    
+        
+
+        ////////////////////////////////////////
     }
 };
 

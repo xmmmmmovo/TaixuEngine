@@ -15,7 +15,7 @@
 #include "management/graphics/render/vertex_array.hpp"
 #include "material.hpp"
 #include "platform/opengl/ogl_vertex_array.hpp"
-
+#include "bone.hpp"
 namespace taixu {
 
 struct MeshGPU final {
@@ -36,6 +36,8 @@ struct Mesh final {
     std::vector<std::uint32_t> indices;
 
     std::optional<std::uint32_t> material_id{std::nullopt};
+
+    std::vector<VertexRelateBoneInfo> related_bones_Info;
 };
 
 inline MeshGPU transferCPUMesh2GPU(Mesh const &mesh) {
