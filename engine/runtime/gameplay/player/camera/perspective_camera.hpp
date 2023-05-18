@@ -5,6 +5,7 @@
 
 #include <vector>
 
+#include "glm/fwd.hpp"
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
@@ -26,7 +27,7 @@ class PerspectiveCamera {
 public:
     // camera Attributes
     glm::vec3 Position{};
-    glm::vec3 Front;
+    glm::vec3 Front{};
     glm::vec3 Up{};
     glm::vec3 Right{};
     glm::vec3 WorldUp{};
@@ -39,8 +40,9 @@ public:
     float     Zoom;
 
     //float l,r,b,t,zn,zf;
-    float aspectRatio;
+    float aspectRatio{};
 
+public:
     // constructor with vectors
     explicit PerspectiveCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
                                glm::vec3 up       = glm::vec3(0.0f, 1.0f, 0.0f),

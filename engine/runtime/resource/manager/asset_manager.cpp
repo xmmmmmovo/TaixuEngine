@@ -262,7 +262,7 @@ Model *AssetManager::loadModel(std::filesystem::path const &root_path,
 
     auto [model_ref, was_ins] =
             _models.insert({relative_path.string(), std::move(ret_model)});
-    
+
     return &model_ref->second;
 }
 
@@ -308,7 +308,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     _world = std::make_unique<JsonWorld>();
     JsonLevel l1;
     l1.level_name              = "level 1-1";
-    std::filesystem::path pp1  = "gameplay\\level";
+    std::filesystem::path pp1  = "gameplay/level";
     std::filesystem::path temp = pp1 / (l1.level_name + ".json");
     //std::filesystem::path pp2 = asset_file_path.parent_path() / temp;
     l1.level_path              = temp.string();
@@ -323,14 +323,14 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
 
     JsonGO go1;
     go1.name    = "floor";
-    pp1         = "gameplay\\GO";
+    pp1         = "gameplay/GO";
     temp        = pp1 / (go1.name + ".json");
     //pp2 = asset_file_path.parent_path() / temp;
     go1.GO_path = temp.string();
 
     JsonGO go2;
     go2.name    = "planet";
-    pp1         = "gameplay\\GO";
+    pp1         = "gameplay/GO";
     temp        = pp1 / (go2.name + ".json");
     //pp2 = asset_file_path.parent_path() / temp;
     go2.GO_path = temp.string();
@@ -341,7 +341,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     trans1.scale.vec3    = glm::vec3(20, 0.5, 20);
 
     JsonMesh mesh1;
-    mesh1.obj_path = "assets\\models\\cube.obj";
+    mesh1.obj_path = "assets/models/cube.obj";
     //mesh1.material_path = "assets/textures/concreteTexture.png";
     mesh1.visiable = true;
 
@@ -356,7 +356,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     trans2.scale.vec3    = glm::vec3(1, 1, 1);
 
     JsonMesh mesh2;
-    mesh2.obj_path = "assets\\models\\planet.obj";
+    mesh2.obj_path = "assets/models/planet.obj";
     //mesh1.material_path = "assets/textures/concreteTexture.png";
     mesh2.visiable = true;
 
@@ -383,22 +383,22 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     trans3.scale.vec3    = glm::vec3(1, 1, 1);
 
     JsonLight light1;
-    light1.light_color.vec3 = glm::vec3(1.0,1.0,1.0);
-    light1.light_type = LightSourseType::POINT;
+    light1.light_color.vec3   = glm::vec3(1.0, 1.0, 1.0);
+    light1.light_type         = LightSourseType::POINT;
     light1.TransformComponent = trans3;
-    light1.name    = "light1";
-    pp1         = "gameplay\\GO";
-    temp        = pp1 / (light1.name + ".json");
-    light1.light_path = temp.string();
+    light1.name               = "light1";
+    pp1                       = "gameplay/GO";
+    temp                      = pp1 / (light1.name + ".json");
+    light1.light_path         = temp.string();
 
     JsonLight light2;
-    light2.light_color.vec3 = glm::vec3(1.0,0.0,0.0);
-    light2.light_type = LightSourseType::POINT;
+    light2.light_color.vec3   = glm::vec3(1.0, 0.0, 0.0);
+    light2.light_type         = LightSourseType::POINT;
     light2.TransformComponent = trans3;
-    light2.name    = "light2";
-    pp1         = "gameplay\\GO";
-    temp        = pp1 / (light2.name + ".json");
-    light2.light_path = temp.string();
+    light2.name               = "light2";
+    pp1                       = "gameplay/GO";
+    temp                      = pp1 / (light2.name + ".json");
+    light2.light_path         = temp.string();
 
     l1.json_lights.push_back(light1);
     l1.json_lights.push_back(light2);
@@ -407,19 +407,19 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     _world->json_levels.push_back(l1);
     _world->json_levels.push_back(l2);
     _world->project_file_path = root_path;
-    std::string world_path    = "gameplay\\taixuworld.json";
+    std::string world_path    = "gameplay/taixuworld.json";
     _world->file_path         = world_path;
 
     GlobalJson global;
-    global.project_file_path = root_path;
+    global.project_file_path  = root_path;
     global.render_global_path = "gameplay/global/render.global.json";
 
     JsonTexture p;
-    p.name = "mars";
+    p.name         = "mars";
     p.texture_path = "assets/textures/mars.png";
 
     JsonTexture con;
-    con.name = "concrete";
+    con.name         = "concrete";
     con.texture_path = "assets/textures/concreteTexture.png";
 
     global.json_textures.push_back(p);
