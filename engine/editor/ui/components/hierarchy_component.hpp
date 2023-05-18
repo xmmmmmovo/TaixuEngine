@@ -27,6 +27,9 @@ private:
     HierarchyNode _current_node;
 
 public:
+    explicit HierarchyComponent(ViewModel *view_model)
+        : AbstractUIComponent(view_model) {}
+
     void update() override {
 
         const bool is_tree = true;

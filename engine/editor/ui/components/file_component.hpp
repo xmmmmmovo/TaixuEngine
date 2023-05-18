@@ -24,9 +24,11 @@ private:
     std::filesystem::path root_path{"."};
     std::filesystem::path current_path{root_path};
 
-    HierarchyComponent hierarchy_component{};
+    HierarchyComponent hierarchy_component{_view_model};
 
 public:
+    explicit FileComponent(ViewModel *view_model) : AbstractUIComponent(view_model) {}
+
     void update() override {
         {
             ImGui::BeginChild(
@@ -60,9 +62,9 @@ public:
             if (ImGui::BeginTable("split", columnCount,
                                   ImGuiTableFlags_Resizable |
                                           ImGuiTableFlags_NoSavedSettings)) {
-                for (auto& directoryEntry :
+                for (auto &directoryEntry :
                      std::filesystem::directory_iterator(current_path)) {
-                    const auto& path = directoryEntry.path();
+                    const auto &path = directoryEntry.path();
                     auto        relativePath =
                             std::filesystem::relative(path, root_path);
                     std::string filenameString =

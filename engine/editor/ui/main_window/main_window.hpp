@@ -47,26 +47,19 @@ private:
             "Useful Objects"};
 
     // components
-    MenuComponent      menu_component{};
-    RenderComponent    render_component{};
-    HierarchyComponent world_object_component{};
-    DetailComponent    detail_component{};
-    FileComponent      file_component{};
-    ConsoleComponent   status_component{};
-    HierarchyComponent useful_obj_component{};
-    StatusBarComponent status_bar_component{};
+    MenuComponent      menu_component{&_view_model};
+    RenderComponent    render_component{&_view_model};
+    HierarchyComponent world_object_component{&_view_model};
+    DetailComponent    detail_component{&_view_model};
+    FileComponent      file_component{&_view_model};
+    ConsoleComponent   status_component{&_view_model};
+    HierarchyComponent useful_obj_component{&_view_model};
+    StatusBarComponent status_bar_component{&_view_model};
 
 private:
-    AbstractRenderer *_renderer{};
-
-    // static raw engine runtime pointer
-    // do not need to free
-    Engine *_engine_runtime{nullptr};
-
     // context
     WindowContext *_context_ptr{nullptr};
-
-    ViewModel _view_model{};
+    ViewModel      _view_model{};
 
 private:
     /**
@@ -92,8 +85,6 @@ private:
     void preUpdate();
 
     [[nodiscard]] inline bool isCursorInRenderComponent() const;
-
-    void operationLisen();
 
 private:
     // callback functions

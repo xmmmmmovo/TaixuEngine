@@ -20,13 +20,13 @@ void MainWindow::init() {
     _context_ptr->registerOnMouseButtonFn(
             [this](int button, int action, int /*mods*/) {
                 if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-                    if (_renderer->move_mode()) {
-                        _renderer->set_move_mode(false);
+                    if (_view_model._renderer->move_mode()) {
+                        _view_model._renderer->set_move_mode(false);
                         glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
                                          GLFW_CURSOR_NORMAL);
                     } else {
                         if (isCursorInRenderComponent()) {
-                            _renderer->set_move_mode(true);
+                            _view_model._renderer->set_move_mode(true);
                             glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
                                              GLFW_CURSOR_DISABLED);
                         }
@@ -41,7 +41,7 @@ void MainWindow::preUpdate() {
     ImguiSurface::preUpdate();
 
 #ifndef NDEBUG
-    if (nullptr == _engine_runtime->getOpenedProject()) {
+    if (nullptr == _view_model._engine_runtime_ptr->getOpenedProject()) {
         onOpenProjectCb(DEBUG_PATH "/example_proj");
         return;
     }
@@ -101,24 +101,8 @@ bool MainWindow::isCursorInRenderComponent() const {
                    _context_ptr->_input_state->mouse_y});
 }
 
-void MainWindow::operationLisen() {
-    render_component.mCurrentGizmoMode = detail_component.mCurrentGizmoMode;
-    render_component.mCurrentGizmoOperation =
-            detail_component.mCurrentGizmoOperation;
-    render_component.current_scene = _engine_runtime->getScene();
-    auto trans = _engine_runtime->getScene()->_ecs_coordinator.getComponent<TransformComponent>(0);
-    render_component.selectedObjectTranform = trans.transform;
-
-    
-    //render_component->viewmatrix = _engine_runtime->getScene()->_camera->getViewMatrix();
-    //render_component->projectionmatrix = _engine_runtime->getScene()->_camera->getProjectionMatrix();
-
-}
-
-
 void MainWindow::update() {
     preUpdate();
-    operationLisen();
     ImguiSurface::update();
 }
 
@@ -128,11 +112,11 @@ void MainWindow::destroy() {
 }
 
 void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
-    this->_engine_runtime = engine_runtime_ptr;
-    this->_renderer       = engine_runtime_ptr->getRenderer();
+    _view_model._engine_runtime_ptr = engine_runtime_ptr;
+    _view_model._renderer           = engine_runtime_ptr->getRenderer();
 
     ImguiSurface::init(_context_ptr->_window);
-    render_component._framebuffer = _renderer->getRenderFramebuffer();
+    _view_model._framebuffer = _view_model._renderer->getRenderFramebuffer();
 }
 
 MainWindow::MainWindow(WindowContext *const context_ptr)
@@ -148,7 +132,7 @@ MainWindow::MainWindow(WindowContext *const context_ptr)
 void MainWindow::onNewProjectCb(std::string_view const &path) {}
 
 void MainWindow::onOpenProjectCb(std::string_view const &path) {
-    this->_engine_runtime->loadProject(path);
+    _view_model._engine_runtime_ptr->loadProject(path);
     _view_model._project_path = path;
 }
 

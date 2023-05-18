@@ -20,6 +20,8 @@ protected:
     ViewModel *_view_model{nullptr};
 
 public:
+    AbstractUIComponent(ViewModel *view_model) : _view_model(view_model) {}
+
     /**
      * @brief render updateWindow
      */
