@@ -222,11 +222,6 @@ public:
 
     std::string_view _title{};
 
-    /**
-     * @brief editor state
-     */
-    EngineState _state{EngineState::EDITORMODE};
-
 protected:
     bool                                       is_vsync{false};
     std::unique_ptr<AbstractGraphicsAPILoader> _api_loader;

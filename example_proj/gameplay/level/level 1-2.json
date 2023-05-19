@@ -1,13 +1,13 @@
 {
     "GOs": [
         {
-            "GO_path": "gameplay\\GO\\floor.json",
+            "GO_path": "gameplay/GO/floor.json",
             "name": "floor"
         }
     ],
     "Lights": [
         {
-            "light_path": "gameplay\\GO\\light1.json",
+            "light_path": "gameplay/GO/light1.json",
             "name": "light1"
         }
     ]

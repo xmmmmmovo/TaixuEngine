@@ -5,6 +5,7 @@
 
 #include <vector>
 
+#include "glm/fwd.hpp"
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
@@ -26,7 +27,7 @@ class PerspectiveCamera {
 public:
     // camera Attributes
     glm::vec3 Position{};
-    glm::vec3 Front;
+    glm::vec3 Front{};
     glm::vec3 Up{};
     glm::vec3 Right{};
     glm::vec3 WorldUp{};
@@ -38,9 +39,7 @@ public:
     float     MouseSensitivity;
     float     Zoom;
 
-    //float l,r,b,t,zn,zf;
-    float aspectRatio;
-
+public:
     // constructor with vectors
     explicit PerspectiveCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
                                glm::vec3 up       = glm::vec3(0.0f, 1.0f, 0.0f),
@@ -61,7 +60,7 @@ public:
         updateCameraVectors();
     }
 
-    glm::mat4 getViewMatrix() {
+    glm::mat4 getViewMatrix() const {
         return glm::lookAt(Position, Position + Front, Up);
     }
 
@@ -100,8 +99,8 @@ public:
 
         // make sure that when pitch is out of bounds, screen doesn't get flipped
         if (constrainPitch) {
-            if (Pitch > 89.0f) { Pitch = 89.0f; }
-            if (Pitch < -89.0f) { Pitch = -89.0f; }
+            if (Pitch > 89.0f) Pitch = 89.0f;
+            if (Pitch < -89.0f) Pitch = -89.0f;
         }
 
         // update Front, Right and Up Vectors using the updated Euler angles
@@ -115,11 +114,12 @@ public:
         if (Zoom > 45.0f) { Zoom = 45.0f; }
     }
 
+    // calculates the front vector from the Camera's (updated) Euler Angles
     void updateCameraVectors() {
         // calculate the new Front vector
         float const FoV = initial_foV;
         projection_matrix =
-                glm::perspective(glm::radians(FoV), aspectRatio, 0.1f, 100.0f);
+                glm::perspective(glm::radians(FoV), 4.0f / 3.0f, 0.01f, 500.0f);
 
         glm::vec3 front;
         front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
@@ -134,9 +134,9 @@ public:
     }
 
 private:
+    float const initial_foV = 45.0f;
     // calculates the front vector from the Camera's (updated) Euler Angles
     glm::mat4 projection_matrix{};
-    float     initial_foV = 45.0f;
 };
 
 }// namespace taixu

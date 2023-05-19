@@ -16,16 +16,35 @@
 namespace taixu::editor {
 class DetailComponent : public AbstractUIComponent {
 public:
-    ImGuizmo::OPERATION mCurrentGizmoOperation {ImGuizmo::OPERATION::TRANSLATE};
-    ImGuizmo::MODE mCurrentGizmoMode{ImGuizmo::MODE::LOCAL};
-    float matrixTranslation[3], matrixRotation[3], matrixScale[3];
-    ImGuiWindowFlags gizmoWindowFlags = 0;
+    explicit DetailComponent(ViewModel *view_model)
+        : AbstractUIComponent(view_model) {}
 
     void update() override {
-        if (ImGui::CollapsingHeader("Mesh", ImGuiTreeNodeFlags_DefaultOpen)) {
-            if (ImGui::Button("Open...")) {}
-            ImGui::SameLine(0, 5.0f);
-            ImGui::Text("aa");
+        if (ImGui::CollapsingHeader("Transform",
+                                    ImGuiTreeNodeFlags_DefaultOpen)) {
+            ImGui::Text("Transform Control");
+
+            // Translation
+            ImGui::Text("Translation");
+            ImGui::DragFloat3("Position",
+                              &_view_model->_selected_transform->translate().x,
+                              0.1f);
+
+            // Rotation
+            ImGui::Text("Rotation");
+            glm::vec3 eulerRotation = glm::degrees(glm::eulerAngles(
+                    _view_model->_selected_transform->rotation()));
+            ImGui::DragFloat3("Rotation", &eulerRotation.x, 0.5f, -360.0f,
+                              360.0f);
+            _view_model->_selected_transform->set_rotation(
+                    glm::quat(glm::radians(eulerRotation)));
+
+            // Scaling
+            ImGui::Text("Scaling");
+            ImGui::DragFloat3("Scale",
+                              &_view_model->_selected_transform->scale().x,
+                              0.1f);
+            ImGui::Separator();
         }
 
         if (ImGui::CollapsingHeader("Material")) {
@@ -44,59 +63,7 @@ public:
             ImGui::Text("Position");
             ImGui::Separator();
         }
-
-        
-        if (ImGui::RadioButton("Translate", mCurrentGizmoOperation == ImGuizmo::TRANSLATE))
-            mCurrentGizmoOperation = ImGuizmo::TRANSLATE;
-        ImGui::SameLine();
-        if (ImGui::RadioButton("Rotate", mCurrentGizmoOperation == ImGuizmo::ROTATE))
-            mCurrentGizmoOperation = ImGuizmo::ROTATE;
-        ImGui::SameLine();
-        if (ImGui::RadioButton("Scale", mCurrentGizmoOperation == ImGuizmo::SCALE))
-            mCurrentGizmoOperation = ImGuizmo::SCALE;
-        if (ImGui::RadioButton("Universal", mCurrentGizmoOperation == ImGuizmo::UNIVERSAL))
-            mCurrentGizmoOperation = ImGuizmo::UNIVERSAL;
-
-        
-        ImGui::InputFloat3("Tr", matrixTranslation);
-        ImGui::InputFloat3("Rt", matrixRotation);
-        ImGui::InputFloat3("Sc", matrixScale);
-        
-
-        if (mCurrentGizmoOperation != ImGuizmo::SCALE)
-        {
-            if (ImGui::RadioButton("Local", mCurrentGizmoMode == ImGuizmo::LOCAL))
-            mCurrentGizmoMode = ImGuizmo::LOCAL;
-            ImGui::SameLine();
-            if (ImGui::RadioButton("World", mCurrentGizmoMode == ImGuizmo::WORLD))
-            mCurrentGizmoMode = ImGuizmo::WORLD;
-        }
     }
-
-    void transformLisen(PerspectiveCamera *current_camera, float* matrix, bool editTransformDecomposition)
-    {
-        //int a= 0;
-        
-        glm::mat4 mat = glm::make_mat4(matrix);
-        ImGuiIO& io = ImGui::GetIO();
-        //float viewManipulateRight = io.DisplaySize.x;
-        //float viewManipulateTop = 0;
-        
-
-        
-        
-        //viewManipulateRight = ImGui::GetWindowPos().x + windowWidth;
-        //viewManipulateTop = ImGui::GetWindowPos().y;
-        
-
-
-        
-        //ImGuizmo::DrawCubes(cameraView, cameraProjection, identityMatrix, 1);
-        //ImGuizmo::DrawGrid(cameraView, cameraProjection, identityMatrix, 100.f);
-
-        
-    }
-
 };
 }// namespace taixu::editor
 
