@@ -39,9 +39,10 @@ private:
 
     static Mesh processMesh(aiMesh *mesh);
 
-    void processNode(aiNode *node, aiScene const *scene, Model &model,bool skeleton);
+    void processNode(aiNode *node, aiScene const *scene, Model &model);
+    void processNode(aiNode *node, aiScene const *scene, Model &model,FBXData *fbx);
 
-    static Mesh processSkinnedMesh(aiMesh *mesh);
+    Mesh processSkinnedMesh(aiMesh *mesh, aiScene const *scene,FBXData *fbx);
 
     void processWeights(std::vector<VertexRelateBoneInfo> &vbrs,
                                   aiMesh *mesh, const aiScene *scene, 
@@ -65,6 +66,12 @@ private:
 		to[0][3] = from.d1; to[1][3] = from.d2; to[2][3] = from.d3; to[3][3] = from.d4;
 		return to;
 	}
+
+    Bone generateBone(std::string name, int id, const aiNodeAnim* channel);
+
+    void ReadMissingBones(const aiAnimation* animation, FBXData *fbx);
+
+    void ReadHierarchyData( const aiNode* src);
 
 public:
     Model *loadModel(std::filesystem::path const &root_path,

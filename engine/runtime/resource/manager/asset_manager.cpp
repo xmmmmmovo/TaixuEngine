@@ -15,142 +15,16 @@
 namespace taixu {
 
 void AssetManager::processNode(aiNode *node, aiScene const *scene,
-                               Model &model,bool skeleton) {
+                               Model &model) {
     for (unsigned int i = 0; i < node->mNumMeshes; ++i) {
         auto mesh = scene->mMeshes[node->mMeshes[i]];
-        if(skeleton)
-        {
-            model.meshes.emplace_back(processSkinnedMesh(mesh));
-        }
-        else
         model.meshes.emplace_back(processMesh(mesh));
     }
 
     for (unsigned int i = 0; i < node->mNumChildren; ++i) {
-        processNode(node->mChildren[i], scene, model,skeleton);
+        processNode(node->mChildren[i], scene, model);
     }
 }
-
-void setdefault(VertexRelateBoneInfo &vrb)
-{
-    for(auto i=0;i<MAX_BONE_INFLUENCE;i++)
-    {
-        vrb.related_bones[i] = -1;
-        vrb.related_bones_weights[i] = 0;
-    }
-}
-
-void setBoneData(VertexRelateBoneInfo &vrb, int boneID, float weight)
-	{
-		for (int i = 0; i < MAX_BONE_INFLUENCE; ++i)
-		{
-			if (vrb.related_bones[i] < 0)
-			{
-				vrb.related_bones_weights[i] = weight;
-				vrb.related_bones[i] = boneID;
-				break;
-			}
-		}
-	}
-
-void AssetManager::processWeights(std::vector<VertexRelateBoneInfo> &vbrs,
-                                  aiMesh *mesh, const aiScene *scene, 
-                                  std::map<string, BoneInfo> &boneInfoMap,
-	                              int &boneCount) {
-
-    for (int boneIndex = 0; boneIndex < mesh->mNumBones; ++boneIndex) {
-            int         boneID   = -1;
-            std::string boneName = mesh->mBones[boneIndex]->mName.C_Str();
-            if (boneInfoMap.find(boneName) == boneInfoMap.end()) {
-                BoneInfo newBoneInfo;
-                newBoneInfo.id     = boneCount;
-                newBoneInfo.offset = ConvertMatrixToGLMFormat(mesh->mBones[boneIndex]->mOffsetMatrix);
-                boneInfoMap[boneName] = newBoneInfo;
-                boneID                = boneCount;
-                boneCount++;
-            } else {
-                boneID = boneInfoMap[boneName].id;
-            }
-            assert(boneID != -1);
-            auto weights    = mesh->mBones[boneIndex]->mWeights;
-            int  numWeights = mesh->mBones[boneIndex]->mNumWeights;
-
-            for (int weightIndex = 0; weightIndex < numWeights; ++weightIndex) {
-                int   vertexId = weights[weightIndex].mVertexId;
-                float weight   = weights[weightIndex].mWeight;
-                assert(vertexId <= vbrs.size());
-                setBoneData(vbrs[vertexId], boneID, weight);
-            }
-    }
-}
-
-Mesh AssetManager::processSkinnedMesh(aiMesh *mesh) { 
-    Mesh ret_mesh{};
-
-    // 预留存内存 优化性能
-    unsigned int const vertex_count = mesh->mNumVertices;
-    ret_mesh.vertices.reserve(vertex_count);
-    if (mesh->HasNormals()) { ret_mesh.normals.reserve(vertex_count); }
-    if (mesh->mTextureCoords[0]) { ret_mesh.tex_coords.reserve(vertex_count); }
-    if (mesh->HasTangentsAndBitangents()) {
-        ret_mesh.tangents.reserve(vertex_count);
-        ret_mesh.bitangents.reserve(vertex_count);
-    }
-
-    for (unsigned int i = 0; i < vertex_count; ++i) {
-        ret_mesh.vertices.emplace_back(mesh->mVertices[i].x,
-                                       mesh->mVertices[i].y,
-                                       mesh->mVertices[i].z);
-
-        if (mesh->HasNormals()) {
-            ret_mesh.normals.emplace_back(mesh->mNormals[i].x,
-                                          mesh->mNormals[i].y,
-                                          mesh->mNormals[i].z);
-        }
-
-        if (mesh->mTextureCoords[0]) {
-            ret_mesh.tex_coords.emplace_back(mesh->mTextureCoords[0][i].x,
-                                             mesh->mTextureCoords[0][i].y);
-
-            if (mesh->HasTangentsAndBitangents()) {
-                ret_mesh.tangents.emplace_back(mesh->mTangents[i].x,
-                                               mesh->mTangents[i].y,
-                                               mesh->mTangents[i].z);
-                ret_mesh.bitangents.emplace_back(mesh->mBitangents[i].x,
-                                                 mesh->mBitangents[i].y,
-                                                 mesh->mBitangents[i].z);
-            }
-        } else {
-            ret_mesh.tex_coords.emplace_back(0.0f, 0.0f);
-        }
-
-        if(mesh->HasBones())
-        {
-            VertexRelateBoneInfo vrb;
-            setdefault(vrb);
-            ret_mesh.related_bones_Info.push_back(vrb);
-        }
-    }
-
-    unsigned int faces = 0;
-    for (unsigned int i = 0; i < mesh->mNumFaces; ++i) {
-        auto face = mesh->mFaces[i];
-        faces += face.mNumIndices;
-        ret_mesh.indices.reserve(faces);
-        for (unsigned int j = 0; j < face.mNumIndices; ++j) {
-            ret_mesh.indices.emplace_back(face.mIndices[j]);
-        }
-    }
-
-    ret_mesh.material_id = mesh->mMaterialIndex;
-
-
-    return ret_mesh;
-    
-}
-
-
-
 
 void AssetManager::processMaterial(aiScene const               *scene,
                                    std::filesystem::path const &root_path,
@@ -351,6 +225,51 @@ AssetManager::processTexture(aiMaterial *material, aiTextureType type,
     return nullptr;
 }
 
+Bone AssetManager::generateBone(std::string name, int id,
+                                const aiNodeAnim *channel) {
+    Bone ret_bone{};
+    ret_bone.m_Name = name;
+    ret_bone.m_ID = id;
+
+    ret_bone.m_NumPositions = channel->mNumPositionKeys;
+
+    for (int positionIndex = 0; positionIndex < ret_bone.m_NumPositions; ++positionIndex) {
+
+        aiVector3D  aiPosition = channel->mPositionKeys[positionIndex].mValue;
+        float       timeStamp  = channel->mPositionKeys[positionIndex].mTime;
+        KeyPosition data;
+        data.position  = glm::vec3(aiPosition.x, aiPosition.y, aiPosition.z);
+        data.timeStamp = timeStamp;
+        ret_bone.m_Positions.push_back(data);
+    }
+
+    ret_bone.m_NumRotations = channel->mNumRotationKeys;
+    for (int rotationIndex = 0; rotationIndex < ret_bone.m_NumRotations; ++rotationIndex) {
+
+        aiQuaternion aiOrientation =
+                channel->mRotationKeys[rotationIndex].mValue;
+        float       timeStamp = channel->mRotationKeys[rotationIndex].mTime;
+        KeyRotation data;
+        data.orientation = glm::quat(aiOrientation.w, aiOrientation.x,
+                                     aiOrientation.y, aiOrientation.z);
+        data.timeStamp   = timeStamp;
+        ret_bone.m_Rotations.push_back(data);
+    }
+
+    ret_bone.m_NumScalings = channel->mNumScalingKeys;
+    for (int keyIndex = 0; keyIndex < ret_bone.m_NumScalings; ++keyIndex) {
+
+        aiVector3D scale     = channel->mScalingKeys[keyIndex].mValue;
+        float      timeStamp = channel->mScalingKeys[keyIndex].mTime;
+        KeyScale   data;
+        data.scale     = glm::vec3(scale.x, scale.y, scale.z);
+        data.timeStamp = timeStamp;
+        ret_bone.m_Scales.push_back(data);
+    }
+
+    return ret_bone;
+}
+
 Model *AssetManager::loadModel(std::filesystem::path const &root_path,
                                const std::filesystem::path &relative_path) {
     auto full_path = fromRelativePath(root_path, relative_path);
@@ -384,7 +303,7 @@ Model *AssetManager::loadModel(std::filesystem::path const &root_path,
     ret_model.file_path = relative_path;
 
     processMaterial(scene, root_path, ret_model);
-    processNode(scene->mRootNode, scene, ret_model,false);
+    processNode(scene->mRootNode, scene, ret_model);
 
     auto [model_ref, was_ins] =
             _models.insert({relative_path.string(), std::move(ret_model)});
@@ -563,45 +482,221 @@ FBXData *AssetManager::loadFBX(std::filesystem::path const &root_path,
         spdlog::error("FBX path is directory: {}", relative_path.string());
         return nullptr;
     }
+    FBXData ret_fbx{};
 
     if (_fbx_files.count(relative_path.string())) {
         return &_fbx_files[relative_path.string()];
     }
 
-
-
-    Model            ret_model{};
-    Assimp::Importer importer{};
-    aiScene const   *scene = importer.ReadFile(
-            full_path.string(),
-            // optimize indexing
-            aiProcess_JoinIdenticalVertices | aiProcess_Triangulate |
-                    // normal
-                    aiProcess_GenSmoothNormals |
-                    // opengl uv different
-                    aiProcess_FlipUVs |
-                    // tangent
-                    aiProcess_CalcTangentSpace);
-    if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE ||
-        !scene->mRootNode) {
-        spdlog::error("Assimp error: {}", importer.GetErrorString());
-        return nullptr;
+    if (_models.count(relative_path.string())) {
+        ret_fbx.model = &_models[relative_path.string()];
     }
-    ret_model.file_path = relative_path;
+    else
+    {
 
-    //processMaterial(scene, root_path, ret_model);
-    processNode(scene->mRootNode, scene, ret_model,true);
+        Model            ret_model{};
+        Assimp::Importer importer{};
+        aiScene const   *scene = importer.ReadFile(
+                full_path.string(),
+                // optimize indexing
+                aiProcess_JoinIdenticalVertices | aiProcess_Triangulate |
+                        // normal
+                        aiProcess_GenSmoothNormals |
+                        // opengl uv different
+                        aiProcess_FlipUVs |
+                        // tangent
+                        aiProcess_CalcTangentSpace);
+        if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE ||
+            !scene->mRootNode) {
+            spdlog::error("Assimp error: {}", importer.GetErrorString());
+            return nullptr;
+        }
 
-    auto [model_ref, was_ins] =
+        ret_model.file_path = relative_path;
+        ret_fbx.file_path = relative_path;
+
+        //processMaterial(scene, root_path, ret_model);
+        processNode(scene->mRootNode, scene, ret_model,&ret_fbx);
+
+        auto [model_ref, was_ins] =
             _models.insert({relative_path.string(), std::move(ret_model)});
+        ret_fbx.model = &model_ref->second;
+    }
 
-    FBXData ret_fbx{};
-    ret_fbx.model = &model_ref->second; 
-    ret_fbx.file_path = relative_path;
-
+    //animation
 
 
     return nullptr;
 }
 
+void AssetManager::processNode(aiNode *node, aiScene const *scene,
+                               Model &model,FBXData *fbx) {
+    for (unsigned int i = 0; i < node->mNumMeshes; ++i) {
+        auto mesh = scene->mMeshes[node->mMeshes[i]];
+        model.meshes.emplace_back(processSkinnedMesh(mesh,scene,fbx));
+    }
+
+    for (unsigned int i = 0; i < node->mNumChildren; ++i) {
+        processNode(node->mChildren[i], scene, model,fbx);
+    }
+}
+
+void setdefault(VertexRelateBoneInfo &vrb)
+{
+    for(auto i=0;i<MAX_BONE_INFLUENCE;i++)
+    {
+        vrb.related_bones[i] = -1;
+        vrb.related_bones_weights[i] = 0;
+    }
+}
+
+void setBoneData(VertexRelateBoneInfo &vrb, int boneID, float weight)
+	{
+		for (int i = 0; i < MAX_BONE_INFLUENCE; ++i)
+		{
+			if (vrb.related_bones[i] < 0)
+			{
+				vrb.related_bones_weights[i] = weight;
+				vrb.related_bones[i] = boneID;
+				break;
+			}
+		}
+	}
+
+void AssetManager::processWeights(std::vector<VertexRelateBoneInfo> &vbrs,
+                                  aiMesh *mesh, const aiScene *scene, 
+                                  std::map<string, BoneInfo> &boneInfoMap,
+	                              int &boneCount) {
+
+    for (int boneIndex = 0; boneIndex < mesh->mNumBones; ++boneIndex) {
+            int         boneID   = -1;
+            std::string boneName = mesh->mBones[boneIndex]->mName.C_Str();
+            if (boneInfoMap.find(boneName) == boneInfoMap.end()) {
+                BoneInfo newBoneInfo;
+                newBoneInfo.id     = boneCount;
+                newBoneInfo.offset = ConvertMatrixToGLMFormat(mesh->mBones[boneIndex]->mOffsetMatrix);
+                boneInfoMap[boneName] = newBoneInfo;
+                boneID                = boneCount;
+                boneCount++;
+            } else {
+                boneID = boneInfoMap[boneName].id;
+            }
+            assert(boneID != -1);
+            auto weights    = mesh->mBones[boneIndex]->mWeights;
+            int  numWeights = mesh->mBones[boneIndex]->mNumWeights;
+
+            for (int weightIndex = 0; weightIndex < numWeights; ++weightIndex) {
+                int   vertexId = weights[weightIndex].mVertexId;
+                float weight   = weights[weightIndex].mWeight;
+                assert(vertexId <= vbrs.size());
+                setBoneData(vbrs[vertexId], boneID, weight);
+            }
+    }
+}
+
+Mesh AssetManager::processSkinnedMesh(aiMesh *mesh, aiScene const *scene, FBXData *fbx) { 
+    Mesh ret_mesh{};
+
+    // 预留存内存 优化性能
+    unsigned int const vertex_count = mesh->mNumVertices;
+    ret_mesh.vertices.reserve(vertex_count);
+    if (mesh->HasNormals()) { ret_mesh.normals.reserve(vertex_count); }
+    if (mesh->mTextureCoords[0]) { ret_mesh.tex_coords.reserve(vertex_count); }
+    if (mesh->HasTangentsAndBitangents()) {
+        ret_mesh.tangents.reserve(vertex_count);
+        ret_mesh.bitangents.reserve(vertex_count);
+    }
+
+    for (unsigned int i = 0; i < vertex_count; ++i) {
+        ret_mesh.vertices.emplace_back(mesh->mVertices[i].x,
+                                       mesh->mVertices[i].y,
+                                       mesh->mVertices[i].z);
+
+        if (mesh->HasNormals()) {
+            ret_mesh.normals.emplace_back(mesh->mNormals[i].x,
+                                          mesh->mNormals[i].y,
+                                          mesh->mNormals[i].z);
+        }
+
+        if (mesh->mTextureCoords[0]) {
+            ret_mesh.tex_coords.emplace_back(mesh->mTextureCoords[0][i].x,
+                                             mesh->mTextureCoords[0][i].y);
+
+            if (mesh->HasTangentsAndBitangents()) {
+                ret_mesh.tangents.emplace_back(mesh->mTangents[i].x,
+                                               mesh->mTangents[i].y,
+                                               mesh->mTangents[i].z);
+                ret_mesh.bitangents.emplace_back(mesh->mBitangents[i].x,
+                                                 mesh->mBitangents[i].y,
+                                                 mesh->mBitangents[i].z);
+            }
+        } else {
+            ret_mesh.tex_coords.emplace_back(0.0f, 0.0f);
+        }
+
+        if(mesh->HasBones())
+        {
+            VertexRelateBoneInfo vrb;
+            setdefault(vrb);
+            ret_mesh.related_bones_Info.push_back(vrb);
+        }
+    }
+
+    unsigned int faces = 0;
+    for (unsigned int i = 0; i < mesh->mNumFaces; ++i) {
+        auto face = mesh->mFaces[i];
+        faces += face.mNumIndices;
+        ret_mesh.indices.reserve(faces);
+        for (unsigned int j = 0; j < face.mNumIndices; ++j) {
+            ret_mesh.indices.emplace_back(face.mIndices[j]);
+        }
+    }
+
+    ret_mesh.material_id = mesh->mMaterialIndex;
+
+    processWeights(ret_mesh.related_bones_Info,mesh,scene,fbx->m_BoneInfoMap,fbx->m_BoneCounter);
+    return ret_mesh;
+    
+}
+
+
+void AssetManager::ReadMissingBones(const aiAnimation* animation, FBXData *fbx)
+	{
+		int size = animation->mNumChannels;
+
+
+		//reading channels(bones engaged in an animation and their keyframes)
+		for (int i = 0; i < size; i++)
+		{
+			auto channel = animation->mChannels[i];
+			std::string boneName = channel->mNodeName.data;
+
+			if (fbx->m_BoneInfoMap.find(boneName) == fbx->m_BoneInfoMap.end())
+			{
+				fbx->m_BoneInfoMap[boneName].id = fbx->m_BoneCounter;
+				fbx->m_BoneCounter++;
+			}
+            Bone bone = generateBone(channel->mNodeName.data,
+				fbx->m_BoneInfoMap[channel->mNodeName.data].id, channel);
+            
+			fbx->skeleton.push_back(bone);
+		}
+
+	}
+
+	// void ReadHierarchyData(AssimpNodeData& dest, const aiNode* src)
+	// {
+	// 	assert(src);
+
+	// 	dest.name = src->mName.data;
+	// 	dest.transformation = AssimpGLMHelpers::ConvertMatrixToGLMFormat(src->mTransformation);
+	// 	dest.childrenCount = src->mNumChildren;
+
+	// 	for (int i = 0; i < src->mNumChildren; i++)
+	// 	{
+	// 		AssimpNodeData newData;
+	// 		ReadHierarchyData(newData, src->mChildren[i]);
+	// 		dest.children.push_back(newData);
+	// 	}
+	// }
 }// namespace taixu

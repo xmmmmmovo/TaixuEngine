@@ -159,8 +159,8 @@ public:
         /////////////////////////////////////////
         std::swap(_textures2D[0],_textures2D[1]);
         /////////////////////////////////////////    
-        
-
+        //auto fbx = _asset_manager->loadFBX(parent_path, "assets/fbx/phroah_character_rig.fbx");
+        auto fbx = _asset_manager->loadFBX(parent_path, "assets/fbx/dancing_vampire.dae");
         ////////////////////////////////////////
     }
 };

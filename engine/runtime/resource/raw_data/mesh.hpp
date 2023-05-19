@@ -71,6 +71,13 @@ inline MeshGPU transferCPUMesh2GPU(Mesh const &mesh) {
                                         GL_STATIC_DRAW, 3});
         }
 
+        if (!mesh.related_bones_Info.empty()) {
+            vao->addVBO(OGLVertexBuffer{mesh.related_bones_Info.size(),
+                                        &mesh.related_bones_Info.front(), GL_STATIC_DRAW,
+                                        4});
+        }
+
+
         vao->setEBO(OGLElementBuffer{mesh.indices.size(), &mesh.indices.front(),
                                      GL_STATIC_DRAW});
 
