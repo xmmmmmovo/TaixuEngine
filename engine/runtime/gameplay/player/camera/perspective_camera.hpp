@@ -10,6 +10,8 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
+#include "core/base/macro.hpp"
+
 namespace taixu {
 
 enum class CameraMovement { FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN };
@@ -22,8 +24,9 @@ static constexpr float FASTS_PEED   = 15.0f;
 static constexpr float SENSITIVITY  = 0.1f;
 static constexpr float ZOOM         = 45.0f;
 
-
 class PerspectiveCamera {
+    PROTOTYPE_DFT_ONLY_GETTER_CONST(private, float, aspect_ratio, 16.0f / 9.0f);
+
 public:
     // camera Attributes
     glm::vec3 Position{};
@@ -99,8 +102,8 @@ public:
 
         // make sure that when pitch is out of bounds, screen doesn't get flipped
         if (constrainPitch) {
-            if (Pitch > 89.0f) Pitch = 89.0f;
-            if (Pitch < -89.0f) Pitch = -89.0f;
+            if (Pitch > 89.0f) { Pitch = 89.0f; }
+            if (Pitch < -89.0f) { Pitch = -89.0f; }
         }
 
         // update Front, Right and Up Vectors using the updated Euler angles
@@ -117,9 +120,9 @@ public:
     // calculates the front vector from the Camera's (updated) Euler Angles
     void updateCameraVectors() {
         // calculate the new Front vector
-        float const FoV = initial_foV;
-        projection_matrix =
-                glm::perspective(glm::radians(FoV), 4.0f / 3.0f, 0.01f, 500.0f);
+        float const FoV   = initial_foV;
+        projection_matrix = glm::perspective(glm::radians(FoV), _aspect_ratio,
+                                             0.01f, 500.0f);
 
         glm::vec3 front;
         front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
@@ -134,9 +137,9 @@ public:
     }
 
 private:
-    float const initial_foV = 45.0f;
+    float const initial_foV = 90.0f;
     // calculates the front vector from the Camera's (updated) Euler Angles
-    glm::mat4 projection_matrix{};
+    glm::mat4   projection_matrix{};
 };
 
 }// namespace taixu

@@ -8,6 +8,7 @@
 #include "ImGuizmo.h"
 #include "engine.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
+#include "management/ecs/core/ecs_types.hpp"
 #include "management/graphics/renderer.hpp"
 #include <filesystem>
 #include <string>
@@ -21,7 +22,7 @@ struct ViewModel {
     ImGuizmo::MODE      _guizmo_mode{ImGuizmo::MODE::LOCAL};
     ImGuizmo::OPERATION _guizmo_operation{ImGuizmo::OPERATION::TRANSLATE};
 
-    TransformComponent *_selected_transform{nullptr};
+    Entity _selected_entity{0};
 
     Engine           *_engine_runtime_ptr{nullptr};
     AbstractRenderer *_renderer{nullptr};

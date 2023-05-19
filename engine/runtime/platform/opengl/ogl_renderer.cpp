@@ -63,10 +63,10 @@ void OGLRenderer::update(float delta_time) {
         for (auto const &entity : _renderable_system->entities()) {
             if (_current_scene->_ecs_coordinator.anyOf<LightComponent>(
                         entity)) {
-                auto light = _current_scene->_ecs_coordinator
+                auto &light = _current_scene->_ecs_coordinator
                                      .getComponent<LightComponent>(entity);
 
-                auto light_trans =
+                auto &light_trans =
                         _current_scene->_ecs_coordinator
                                 .getComponent<TransformComponent>(entity);
                 LightsInfo lightInfo;
