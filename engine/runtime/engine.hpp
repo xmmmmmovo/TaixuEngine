@@ -58,8 +58,6 @@ public:
 
     [[nodiscard]] Project *getOpenedProject() const;
 
-    std::vector<GameObject> const &getGameObjects();
-
     [[nodiscard]] Scene *getScene() const;
 
     [[nodiscard]] EngineState const &getState() const;

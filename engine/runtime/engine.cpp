@@ -107,10 +107,6 @@ Project *Engine::getOpenedProject() const {
     return this->_project_manager->getCurrentProject();
 }
 
-std::vector<GameObject> const &Engine::getGameObjects() {
-    return _current_scene->game_objs();
-}
-
 Scene *Engine::getScene() const { return _current_scene; }
 
 EngineState const &Engine::getState() const { return _state; }

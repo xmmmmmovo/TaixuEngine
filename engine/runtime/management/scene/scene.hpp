@@ -41,7 +41,7 @@ class Scene {
 private:
     using go_vec_t = std::vector<GameObject>;
 
-    PROTOTYPE_ONLY_GETTER_CONST(private, go_vec_t, game_objs)
+    PROTOTYPE_ONLY_GETTER(private, go_vec_t, game_objs)
 
 public:
     ECSCoordinator _ecs_coordinator{};
@@ -110,6 +110,7 @@ public:
                     entity, std::forward<TransformComponent>(trans));
 
             GameObject game_object{};
+            game_object.set_name(go.name);
             game_object.entities.push_back(entity);
 
             _game_objs.push_back(game_object);

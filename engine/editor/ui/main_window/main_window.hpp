@@ -25,6 +25,7 @@
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
+#include "ui/components/go_hierarchy_component.hpp"
 #include "ui/components/hierarchy_component.hpp"
 #include "ui/components/menu_component.hpp"
 #include "ui/components/render_component.hpp"
@@ -47,14 +48,14 @@ private:
             "Useful Objects"};
 
     // components
-    MenuComponent      menu_component{&_view_model};
-    RenderComponent    render_component{&_view_model};
-    HierarchyComponent world_object_component{&_view_model};
-    DetailComponent    detail_component{&_view_model};
-    FileComponent      file_component{&_view_model};
-    ConsoleComponent   status_component{&_view_model};
-    HierarchyComponent useful_obj_component{&_view_model};
-    StatusBarComponent status_bar_component{&_view_model};
+    MenuComponent        menu_component{&_view_model};
+    RenderComponent      render_component{&_view_model};
+    GoHierarchyComponent world_object_component{&_view_model};
+    DetailComponent      detail_component{&_view_model};
+    FileComponent        file_component{&_view_model};
+    ConsoleComponent     status_component{&_view_model};
+    HierarchyComponent   useful_obj_component{&_view_model};
+    StatusBarComponent   status_bar_component{&_view_model};
 
 private:
     // context
