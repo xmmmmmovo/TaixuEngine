@@ -27,6 +27,10 @@ void ECSCoordinator::destroyEntity(Entity entity) {
     _system_manager->entityDestroyed(entity);
 }
 
+std::uint32_t ECSCoordinator::getEntityCount() const {
+    return _entity_manager->livingEntityCount();
+}
+
 System *ECSCoordinator::registerSystem(SystemIdType systemId) {
     return _system_manager->registerSystem(systemId);
 }

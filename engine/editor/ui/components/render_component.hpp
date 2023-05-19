@@ -33,10 +33,6 @@ public:
         : AbstractUIComponent(view_model){};
 
     void update() override {
-        _view_model->_selected_transform =
-                &_view_model->_engine_runtime_ptr->getScene()
-                         ->_ecs_coordinator.getComponent<TransformComponent>(0);
-
         if (ImGui::BeginMenuBar()) {
             ImGui::SetCursorPosX(ImGui::GetWindowContentRegionMax().x * 0.6f -
                                  ImGui::GetWindowHeight());

@@ -5,6 +5,7 @@
 #ifndef TAIXUENGINE_DETAIL_COMPONENT_HPP
 #define TAIXUENGINE_DETAIL_COMPONENT_HPP
 
+#include "management/ecs/components/transform/transform_component.hpp"
 #include "ui/ui_component.hpp"
 
 #include "ImGuizmo.h"
@@ -20,32 +21,41 @@ public:
         : AbstractUIComponent(view_model) {}
 
     void update() override {
-        if (ImGui::CollapsingHeader("Transform",
-                                    ImGuiTreeNodeFlags_DefaultOpen)) {
-            ImGui::Text("Transform Control");
+        auto ecs = _view_model->_engine_runtime_ptr->getECSCoordinator();
 
-            // Translation
-            ImGui::Text("Translation");
-            ImGui::DragFloat3("Position",
-                              &_view_model->_selected_transform->translate().x,
-                              0.1f);
+        if (ecs == nullptr || ecs->getEntityCount() == 0) { return; }
 
-            // Rotation
-            ImGui::Text("Rotation");
-            glm::vec3 eulerRotation = glm::degrees(glm::eulerAngles(
-                    _view_model->_selected_transform->rotation()));
-            ImGui::DragFloat3("Rotation", &eulerRotation.x, 0.5f, -360.0f,
-                              360.0f);
-            _view_model->_selected_transform->set_rotation(
-                    glm::quat(glm::radians(eulerRotation)));
-
-            // Scaling
-            ImGui::Text("Scaling");
-            ImGui::DragFloat3("Scale",
-                              &_view_model->_selected_transform->scale().x,
-                              0.1f);
-            ImGui::Separator();
+        if (ecs->getEntityCount() < _view_model->_selected_entity) {
+            _view_model->_selected_entity = 0;
         }
+
+        if (ecs->anyOf<TransformComponent>(_view_model->_selected_entity)) {
+            auto &trans = ecs->getComponent<TransformComponent>(
+                    _view_model->_selected_entity);
+
+            if (ImGui::CollapsingHeader("Transform",
+                                        ImGuiTreeNodeFlags_DefaultOpen)) {
+                ImGui::Text("Transform Control");
+
+                // Translation
+                ImGui::Text("Translation");
+                ImGui::DragFloat3("Position", &trans.translate().x, 0.1f);
+
+                // Rotation
+                ImGui::Text("Rotation");
+                glm::vec3 eulerRotation =
+                        glm::degrees(glm::eulerAngles(trans.rotation()));
+                ImGui::DragFloat3("Rotation", &eulerRotation.x, 0.5f, -360.0f,
+                                  360.0f);
+                trans.set_rotation(glm::quat(glm::radians(eulerRotation)));
+
+                // Scaling
+                ImGui::Text("Scaling");
+                ImGui::DragFloat3("Scale", &trans.scale().x, 0.1f);
+                ImGui::Separator();
+            }
+        }
+
 
         if (ImGui::CollapsingHeader("Material")) {
             float color[3] = {1.0f, 2.0f, 3.0f};

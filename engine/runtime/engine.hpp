@@ -63,6 +63,8 @@ public:
     [[nodiscard]] Scene *getScene() const;
 
     [[nodiscard]] EngineState const &getState() const;
+
+    [[nodiscard]] ECSCoordinator *getECSCoordinator() const;
 };
 
 }// namespace taixu

@@ -9,11 +9,11 @@
 
 #include "core/component_manager.hpp"
 #include "core/entity_manager.hpp"
+#include "management/ecs/components/Light/light_component.hpp"
 #include "management/ecs/components/camera/camera_component.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
-#include "management/ecs/components/Light/light_component.hpp"
 #include "management/ecs/core/component_array.hpp"
 #include "management/ecs/core/component_manager.hpp"
 #include "management/ecs/core/ecs_types.hpp"
@@ -35,10 +35,12 @@ class ECSCoordinator {
 public:
     void init();
 
-    // Entity methods
+    /// Entity methods ///
     Entity createEntity();
 
     void destroyEntity(Entity entity);
+
+    std::uint32_t getEntityCount() const;
 
     /// Component methods ///
 
@@ -74,6 +76,11 @@ public:
         return _component_manager->getComponent<T>(entity);
     }
 
+    template<typename T>
+    ComponentType getComponentType() {
+        return _component_manager->getComponentType<T>();
+    }
+
     template<typename... Type>
     [[nodiscard]] bool anyOf(const Entity entity) const {
         return (_component_manager->contains<std::remove_const_t<Type>>(
@@ -89,11 +96,8 @@ public:
                 ...);
     }
 
-    template<typename T>
-    ComponentType getComponentType() {
-        return _component_manager->getComponentType<T>();
-    }
 
+    /// System methods ///
     System *registerSystem(SystemIdType systemId);
 
     void setsystemSignature(SystemIdType systemId, Signature const &signature);

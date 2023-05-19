@@ -18,15 +18,14 @@ layout (std140) uniform Matrices {
     mat4 vp;
 };
 
-
-
 uniform mat4 model;
+uniform mat3 invModel3x3;
 
 void main() {
     gl_Position = vp * model * vec4(position, 1.0f);
     vs_out.FragPos = vec3(model * vec4(position, 1.0));
 
     vs_out.TexCoords = texCoords;
-    vs_out.Normal = vec3(model * vec4(normal, 1.0));
+    vs_out.Normal = invModel3x3 * normal;
 
 }

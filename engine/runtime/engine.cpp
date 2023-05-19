@@ -115,4 +115,9 @@ Scene *Engine::getScene() const { return _current_scene; }
 
 EngineState const &Engine::getState() const { return _state; }
 
+ECSCoordinator *Engine::getECSCoordinator() const {
+    if (_current_scene == nullptr) { return nullptr; }
+    return &_current_scene->_ecs_coordinator;
+}
+
 }// namespace taixu

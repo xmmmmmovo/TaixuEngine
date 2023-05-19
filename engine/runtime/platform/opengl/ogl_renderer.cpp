@@ -63,10 +63,10 @@ void OGLRenderer::update(float delta_time) {
         for (auto const &entity : _renderable_system->entities()) {
             if (_current_scene->_ecs_coordinator.anyOf<LightComponent>(
                         entity)) {
-                auto light = _current_scene->_ecs_coordinator
-                                     .getComponent<LightComponent>(entity);
+                auto &light = _current_scene->_ecs_coordinator
+                                      .getComponent<LightComponent>(entity);
 
-                auto light_trans =
+                auto &light_trans =
                         _current_scene->_ecs_coordinator
                                 .getComponent<TransformComponent>(entity);
                 LightsInfo lightInfo;
@@ -108,6 +108,11 @@ void OGLRenderer::update(float delta_time) {
                                     .getComponent<TransformComponent>(entity);
                     trans.makeTransformMatrix();
                     _render_shader->set_uniform("model", trans.transform());
+                    _render_shader->set_uniform(
+                            "invModel3x3",
+                            glm::mat3(glm::transpose(
+                                    glm::inverse(trans.transform()))));
+
                     _render_shader->set_uniform("textureSampler", 0);
                     ////////////////////////////////////////////////////
                     if (entity < _current_scene->_textures2D.size())
