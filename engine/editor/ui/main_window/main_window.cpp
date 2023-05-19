@@ -20,13 +20,13 @@ void MainWindow::init() {
     _context_ptr->registerOnMouseButtonFn(
             [this](int button, int action, int /*mods*/) {
                 if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-                    if (_view_model._renderer->move_mode()) {
-                        _view_model._renderer->set_move_mode(false);
+                    if (_view_model.renderer->move_mode()) {
+                        _view_model.renderer->set_move_mode(false);
                         glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
                                          GLFW_CURSOR_NORMAL);
                     } else {
                         if (isCursorInRenderComponent()) {
-                            _view_model._renderer->set_move_mode(true);
+                            _view_model.renderer->set_move_mode(true);
                             glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
                                              GLFW_CURSOR_DISABLED);
                         }
@@ -41,7 +41,7 @@ void MainWindow::preUpdate() {
     ImguiSurface::preUpdate();
 
 #ifndef NDEBUG
-    if (nullptr == _view_model._engine_runtime_ptr->getOpenedProject()) {
+    if (nullptr == _view_model.engine_runtime_ptr->getOpenedProject()) {
         onOpenProjectCb(DEBUG_PATH "/example_proj");
         return;
     }
@@ -112,11 +112,11 @@ void MainWindow::destroy() {
 }
 
 void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
-    _view_model._engine_runtime_ptr = engine_runtime_ptr;
-    _view_model._renderer           = engine_runtime_ptr->getRenderer();
+    _view_model.engine_runtime_ptr  = engine_runtime_ptr;
+    _view_model.renderer            = engine_runtime_ptr->getRenderer();
 
     ImguiSurface::init(_context_ptr->_window);
-    _view_model._framebuffer = _view_model._renderer->getRenderFramebuffer();
+    _view_model.framebuffer = _view_model.renderer->getRenderFramebuffer();
 }
 
 MainWindow::MainWindow(WindowContext *const context_ptr)
@@ -132,8 +132,8 @@ MainWindow::MainWindow(WindowContext *const context_ptr)
 void MainWindow::onNewProjectCb(std::string_view const &path) {}
 
 void MainWindow::onOpenProjectCb(std::string_view const &path) {
-    _view_model._engine_runtime_ptr->loadProject(path);
-    _view_model._project_path = path;
+    _view_model.engine_runtime_ptr->loadProject(path);
+    _view_model.project_path = path;
 }
 
 void MainWindow::onSaveProjectCb() {}

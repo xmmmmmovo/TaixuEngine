@@ -37,11 +37,12 @@ public:
             ImGui::SetCursorPosX(ImGui::GetWindowContentRegionMax().x * 0.6f -
                                  ImGui::GetWindowHeight());
 
-            if (ImGui::Button(ICON_FA_PLAY "Play")) {}
-            if (ImGui::Button(ICON_FA_ARROWS_SPIN "Rotate")) {}
-            if (ImGui::Button(ICON_FA_RIGHT_LEFT "Transform")) {}
-            if (ImGui::Button(ICON_FA_MAGNIFYING_GLASS "Zoom")) {}
-
+            if (_view_model->engine_runtime_ptr->getState() ==
+                EngineState::EDITORMODE) {
+                if (ImGui::Button(ICON_FA_PLAY "Play")) {}
+            } else {
+                if (ImGui::Button(ICON_FA_STOP "Stop")) {}
+            }
             ImGui::EndMenuBar();
         }
 
@@ -61,12 +62,12 @@ public:
             spdlog::debug("Resize the framebuffer: _width {}, _height {}",
                           _render_size.x, _render_size.y);
             _previous_size = _render_size;
-            _view_model->_framebuffer->resize(static_cast<int>(_render_size.x),
+            _view_model->framebuffer->resize(static_cast<int>(_render_size.x),
                                               static_cast<int>(_render_size.y));
         }
 
         ImGui::Image(reinterpret_cast<ImTextureID>(
-                             _view_model->_framebuffer->getFBTextureID()),
+                             _view_model->framebuffer->getFBTextureID()),
                      _render_size, ImVec2(0, 1), ImVec2(1, 0));
     }
 };
