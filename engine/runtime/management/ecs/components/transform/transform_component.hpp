@@ -3,20 +3,17 @@
 
 #include <string>
 
-#include "glm/gtc/matrix_transform.hpp"
-#include "glm/gtc/quaternion.hpp"
-#include "glm/gtx/euler_angles.hpp"
-#include "glm/matrix.hpp"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/quaternion.hpp>
 
 #include "core/base/macro.hpp"
 
 namespace taixu {
 class TransformComponent {
-    PROTOTYPE(private, glm::vec3, position);
+    PROTOTYPE(private, glm::vec3, translate);
     PROTOTYPE(private, glm::vec3, scale);
     PROTOTYPE(private, glm::quat, rotation);
-
-    PROTOTYPE(private, glm::vec3, eular_rotation);
 
     PROTOTYPE(private, glm::mat4, transform);
 
@@ -24,11 +21,11 @@ public:
     TransformComponent() = default;
     template<typename T>
     explicit TransformComponent(T &&pos, T &&scale, T &&rotate)
-        : _position(std::forward<T>(pos)), _scale(std::forward<T>(scale)),
+        : _translate(std::forward<T>(pos)), _scale(std::forward<T>(scale)),
           _rotation(std::forward<T>(rotate)) {}
 
-    void addPosition(glm::vec3 pos) { _position += pos; }
-    void applyScale(glm::vec3 scl) { _scale *= scl; }
+    void applyTranslate(glm::vec3 translate) { translate += translate; }
+    void applyScale(glm::vec3 scale) { _scale *= scale; }
 
     void setRotation(glm::vec3 rotate) {
         _rotation.x = rotate.x;
@@ -36,36 +33,12 @@ public:
         _rotation.z = rotate.z;
     }
 
-    void setRotation(glm::mat4 r) {
-        float x = 0, y = 0, z = 0;
-        glm::extractEulerAngleXYZ(r, x, y, z);
-
-        _rotation.x += glm::degrees(x);
-        _rotation.y += glm::degrees(y);
-        _rotation.z += glm::degrees(z);
-    }
-
     void makeTransformMatrix() {
-        {
-            //scale
-            _transform = glm::mat4(1.0f);
-            _transform = glm::scale(_transform, _scale);
-            //rotation
-            glm::quat rotation{1.0f, 0.0f, 0.0f, 0.0f};
-            glm::quat rotateX        = glm::angleAxis(glm::radians(_rotation.x),
-                                                      glm::vec3(1.0f, 0.0f, 0.0f));
-            glm::quat rotateY        = glm::angleAxis(glm::radians(_rotation.y),
-                                                      glm::vec3(0.0f, 1.0f, 0.0f));
-            glm::quat rotateZ        = glm::angleAxis(glm::radians(_rotation.z),
-                                                      glm::vec3(0.0f, 0.0f, 1.0f));
-            rotation                 = rotateZ * rotateY * rotateX;
-            glm::mat4 RotationMatrix = glm::mat4_cast(rotation);
-            //tranlation
-            glm::mat4 TranslateMatrix = glm::mat4(1.0f);
-            TranslateMatrix = glm::translate(TranslateMatrix, _position);
-
-            _transform = TranslateMatrix * RotationMatrix * _transform;
-        }
+        glm::mat4 const translation_matrix =
+                glm::translate(glm::mat4(1.0f), _translate);
+        glm::mat4 const rotation_matrix = glm::toMat4(_rotation);
+        glm::mat4 const scaling_matrix  = glm::scale(glm::mat4(1.0f), _scale);
+        _transform = translation_matrix * rotation_matrix * scaling_matrix;
     }
 };
 }// namespace taixu

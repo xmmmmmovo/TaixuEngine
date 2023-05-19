@@ -28,15 +28,6 @@ public:
     ImRect _render_rect{};
     ImRect _menu_bar_rect{};
 
-
-    ImDrawList *_drawList{nullptr};
-    ImVec2      imagePos;
-    ImVec2      imageEndPos;
-    glm::mat4   viewmatrix{glm::mat4(0.0f)};
-    glm::mat4   projectionmatrix{glm::mat4(0.0f)};
-    glm::mat4   identity{glm::mat4(1.0f)};
-    glm::mat4   delta{glm::mat4(1.0)};
-
 public:
     explicit RenderComponent(ViewModel *view_model)
         : AbstractUIComponent(view_model){};

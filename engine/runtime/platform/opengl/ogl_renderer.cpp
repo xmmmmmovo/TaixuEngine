@@ -71,7 +71,7 @@ void OGLRenderer::update(float delta_time) {
                                 .getComponent<TransformComponent>(entity);
                 LightsInfo lightInfo;
                 lightInfo.light_position =
-                        glm::vec4(light_trans.position(), 1.0f);
+                        glm::vec4(light_trans.translate(), 1.0f);
                 lightInfo.light_color = light.light_color;
                 lightInfo.camera_position =
                         glm::vec4(_current_scene->_camera->Position, 1.0f);

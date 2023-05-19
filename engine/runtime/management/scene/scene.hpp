@@ -99,7 +99,7 @@ public:
                 auto rigid_body = RigidBodyComponent();
                 rigid_body.init(go.RigidBodyComponent.shapeType,
                                 go.RigidBodyComponent.motionType,
-                                trans.position(),
+                                trans.translate(),
                                 go.RigidBodyComponent.rigid_body_scale.vec3,
                                 entity, _physics_scene);
                 _ecs_coordinator.addComponent(
