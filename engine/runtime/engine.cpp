@@ -61,13 +61,13 @@ void Engine::update() {
 
     _renderer->clearSurface();
     if (_state != EngineState::EDITORMODE) { _physics_manager->update(); }
+    _animation_manager->update(_clock.getDeltaTime());
     _renderer->update(delta_time);
     if (_current_scene != nullptr) {
         _current_scene->_ecs_coordinator.update();
     }
-    // _physics_manager->update();
-    // _animation_manager->update(_clock.getDeltaTime());
-    // _renderer->update(_clock.getDeltaTime());
+   
+
 
 }
 

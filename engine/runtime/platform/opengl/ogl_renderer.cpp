@@ -35,10 +35,7 @@ void OGLRenderer::init() {
     _skybox_shader->bind_uniform_block("Matrices", 0);
     _skybox_shader->set_uniform("skybox", 0);
 
-    //_render_shader->bind_uniform_block("Matrices", 0);
-    //_render_shader->bind_uniform_block("LightSourse", 1);
-    //_render_shader->bind_uniform_block("Material", 2);
-
+    _animation_shader->use();
     _animation_shader->bind_uniform_block("Matrices", 0);
 
 }
@@ -146,7 +143,8 @@ void OGLRenderer::update(float delta_time) {
                                 .getComponent<TransformComponent>(entity);
                     trans.makeTransformMatrix();
 
-                    _animation_shader->set_uniform("model", trans.transform);
+                    _animation_shader->set_uniform("model", trans.transform());
+
                     auto transforms = skeleton.m_FinalBoneMatrices;
 		            for (int i = 0; i < transforms.size(); ++i)
 			            _animation_shader->setMat4Array("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);

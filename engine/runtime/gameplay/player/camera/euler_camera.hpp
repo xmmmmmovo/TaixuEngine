@@ -115,17 +115,9 @@ public:
         if (Zoom > 45.0f) { Zoom = 45.0f; }
     }
 
-<<<<<<< HEAD:engine/runtime/gameplay/player/camera/perspective_camera.hpp
-    void updateCameraVectors() {
-        // calculate the new Front vector
-        float const FoV = initial_foV;
-        projection_matrix =
-                glm::perspective(glm::radians(FoV), aspectRatio, 0.1f, 300.0f);
-=======
     [[nodiscard]] glm::mat4 const &getViewMatrix() const {
         return _view_matrix;
     }
->>>>>>> 61c6e611c26f0bfecf0822e9b51144ed54124d4f:engine/runtime/gameplay/player/camera/euler_camera.hpp
 
     [[nodiscard]] glm::mat4 const &getProjectionMatrix() {
         return _projection_matrix;

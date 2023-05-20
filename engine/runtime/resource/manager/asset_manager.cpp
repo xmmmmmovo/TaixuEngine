@@ -405,7 +405,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     JsonMesh mesh2;
     mesh2.obj_path = "assets/models/planet.obj";
     //mesh1.material_path = "assets/textures/concreteTexture.png";
-    mesh2.visiable = false;
+    mesh2.visiable = true;
 
     JsonRigidBody body2;
     body2.shapeType             = RigidBodyShapeType::SPHERE;

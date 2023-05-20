@@ -11,11 +11,9 @@
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
-<<<<<<< HEAD
 #include "management/ecs/components/Light/light_component.hpp"
 #include "management/ecs/components/animation/skeleton_component.hpp"
-=======
->>>>>>> 61c6e611c26f0bfecf0822e9b51144ed54124d4f
+
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/ecs/object/game_object.hpp"
@@ -164,13 +162,12 @@ public:
             _textures2D.push_back(std::move(textures2D));
         }
         /////////////////////////////////////////
-<<<<<<< HEAD
         std::swap(_textures2D[0],_textures2D[1]);
         /////////////////////////////////////////    
-        auto fbx1 = _asset_manager->loadFBX(parent_path, "assets/fbx/phroah_character_rig.fbx");
+        //auto fbx1 = _asset_manager->loadFBX(parent_path, "assets/fbx/phroah_character_rig.fbx");
         auto fbx2 = _asset_manager->loadFBX(parent_path, "assets/fbx/dancing_vampire.dae");
         
-        fbx2->model = fbx1->model;
+        //fbx2->model = fbx1->model;
         auto vampire_entity = _ecs_coordinator.createEntity();
         auto skeleton = SkeletonComponent();
         skeleton.fbx = fbx2;
@@ -195,10 +192,7 @@ public:
         _ecs_coordinator.addComponent(
                 vampire_entity, std::forward<SkeletonComponent>(skeleton));
         ////////////////////////////////////////
-=======
-        std::swap(_textures2D[0], _textures2D[1]);
-        /////////////////////////////////////////
->>>>>>> 61c6e611c26f0bfecf0822e9b51144ed54124d4f
+
     }
 };
 
