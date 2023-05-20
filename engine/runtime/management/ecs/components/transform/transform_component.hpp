@@ -11,11 +11,14 @@
 
 namespace taixu {
 class TransformComponent {
-    PROTOTYPE(private, glm::vec3, translate);
-    PROTOTYPE(private, glm::vec3, scale);
-    PROTOTYPE(private, glm::quat, rotation);
+    PROTOTYPE_DFT(private, glm::vec3, translate, glm::vec3(0.0f));
+    PROTOTYPE_DFT(private, glm::vec3, scale, glm::vec3(1.0f));
+    PROTOTYPE_DFT(private, glm::quat, rotation,
+                  glm::quat(1.0f, 0.0f, 0.0f, 0.0f));
 
-    PROTOTYPE(private, glm::mat4, transform);
+    PROTOTYPE_DFT(private, glm::mat4, transform, glm::mat4(1.0f));
+
+    PROTOTYPE_DFT(private, bool, inversed, false);
 
 public:
     TransformComponent() = default;
@@ -24,7 +27,7 @@ public:
         : _translate(std::forward<T>(pos)), _scale(std::forward<T>(scale)),
           _rotation(std::forward<T>(rotate)) {}
 
-    void applyTranslate(glm::vec3 translate) { translate += translate; }
+    void applyTranslate(glm::vec3 translate) { _translate += translate; }
     void applyScale(glm::vec3 scale) { _scale *= scale; }
 
     void setRotation(glm::vec3 rotate) {
