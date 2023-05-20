@@ -5,12 +5,14 @@
 #ifndef TAIXUENGINE_RENDER_COMPONENT_HPP
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
-#include "ImGuizmo.h"
-#include "backends/imgui_impl_opengl3.h"
+#include <ImGuizmo.h>
+#include <backends/imgui_impl_opengl3.h>
+#include <glm/glm.hpp>
+#include <glm/gtx/matrix_decompose.hpp>
+#include <imgui.h>
+
 #include "core/math/imvec2.hpp"
-#include "glm/glm.hpp"
-#include "glm/gtx/matrix_decompose.hpp"
-#include "imgui.h"
+#include "management/ecs/components/transform/transform_component.hpp"
 #include "management/graphics/render/framebuffer.hpp"
 #include "management/graphics/renderer.hpp"
 #include "management/input/input_system.hpp"
@@ -27,6 +29,8 @@ public:
     ImVec2 _previous_size{0, 0};
     ImRect _render_rect{};
     ImRect _menu_bar_rect{};
+
+    float _aspect_ratio{0.0f};
 
 public:
     explicit RenderComponent(ViewModel *view_model)
@@ -63,12 +67,55 @@ public:
                           _render_size.x, _render_size.y);
             _previous_size = _render_size;
             _view_model->framebuffer->resize(static_cast<int>(_render_size.x),
-                                              static_cast<int>(_render_size.y));
+                                             static_cast<int>(_render_size.y));
+            _aspect_ratio = _render_size.x / _render_size.y;
         }
 
         ImGui::Image(reinterpret_cast<ImTextureID>(
                              _view_model->framebuffer->getFBTextureID()),
                      _render_size, ImVec2(0, 1), ImVec2(1, 0));
+
+        if (_view_model->is_entity_selected) {
+            ImGuizmo::SetOrthographic(false);
+            ImGuizmo::SetDrawlist();
+
+            ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y,
+                              _render_size.x, _render_size.y);
+
+            // Camera
+            auto *camera =
+                    _view_model->engine_runtime_ptr->getScene()->_camera.get();
+
+            if (camera->aspect_ratio() != _aspect_ratio) {
+                camera->set_aspect_ratio(_aspect_ratio);
+            }
+
+            const glm::mat4 &camera_projection = camera->getProjectionMatrix();
+            const glm::mat4 &camera_view       = camera->getViewMatrix();
+
+            // Entity transform
+            auto &tc =
+                    _view_model->engine_runtime_ptr->getScene()
+                            ->_ecs_coordinator.getComponent<TransformComponent>(
+                                    _view_model->selected_entity);
+            glm::mat4 &transform = tc.transform();
+
+            // 绘制的时候, 需要传入camera的v和p矩阵, 再传入要看物体的transform矩阵即可, 就会绘制出
+            // 其localGizmos
+            ImGuizmo::Manipulate(glm::value_ptr(camera_view),
+                                 glm::value_ptr(camera_projection),
+                                 _view_model->guizmo_operation,
+                                 _view_model->guizmo_mode,
+                                 glm::value_ptr(transform));
+
+            if (ImGuizmo::IsUsing()) {
+                static glm::vec3 unused1;
+                static glm::vec4 unused2;
+
+                glm::decompose(transform, tc.scale(), tc.rotation(),
+                               tc.translate(), unused1, unused2);
+            }
+        }
     }
 };
 }// namespace taixu::editor

@@ -39,7 +39,19 @@ public:
         auto &gos = _view_model->engine_runtime_ptr->getScene()->game_objs();
 
         for (auto &go : gos) {
-            auto tree_node = ImGui::TreeNodeEx(go.name().c_str(), parent_flags);
+            // TODO: 增加一层scene层级
+            ImGuiTreeNodeFlags flags_select = ImGuiTreeNodeFlags_Leaf;
+            if (_view_model->is_entity_selected &&
+                go.entity() == _view_model->selected_entity) {
+                flags_select |= ImGuiTreeNodeFlags_Selected;
+            }
+
+            auto tree_node = ImGui::TreeNodeEx(go.name().c_str(), flags_select);
+
+            if (ImGui::IsItemClicked()) {
+                _view_model->selected_entity    = go.entity();
+                _view_model->is_entity_selected = true;
+            }
 
             // right click menu
             auto const go_popup_name =
@@ -97,28 +109,7 @@ public:
             }
             // end rename modal popup
 
-            if (tree_node) {
-                for (auto const &entity : go.entities) {
-                    ImGuiTreeNodeFlags leaf_flags_select = leaf_flags;
-                    if (_view_model->is_entity_selected &&
-                        entity == _view_model->selected_entity) {
-                        leaf_flags_select |= ImGuiTreeNodeFlags_Selected;
-                    }
-                    auto const entity_popup_name =
-                            fmt::format("EntityPopup{}", entity);
-                    ImGui::TreeNodeEx(fmt::format("Entity: {}", entity).c_str(),
-                                      leaf_flags_select);
-                    if (ImGui::IsItemClicked()) {
-                        _view_model->selected_entity    = entity;
-                        _view_model->is_entity_selected = true;
-                    }
-                    if (ImGui::IsItemClicked(1)) {
-                        spdlog::info("Right Clicked on Entity: {}", entity);
-                        ImGui::OpenPopup(entity_popup_name.c_str());
-                    }
-                }
-                ImGui::TreePop();
-            }
+            if (tree_node) { ImGui::TreePop(); }
         }
     }
 };

@@ -5,12 +5,14 @@
 
 #include <vector>
 
+#include "glm/ext/matrix_clip_space.hpp"
 #include "glm/fwd.hpp"
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
 #include "core/base/macro.hpp"
+#include "spdlog/spdlog.h"
 
 namespace taixu {
 
@@ -19,13 +21,13 @@ enum class CameraMovement { FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN };
 // Default camera values
 static constexpr float YAW          = -90.0f;
 static constexpr float PITCH        = 0.0f;
-static constexpr float NORMAL_SPEED = 7.5f;
-static constexpr float FASTS_PEED   = 15.0f;
+static constexpr float NORMAL_SPEED = 10.0f;
+static constexpr float FASTS_PEED   = 20.0f;
 static constexpr float SENSITIVITY  = 0.1f;
 static constexpr float ZOOM         = 45.0f;
 
-class PerspectiveCamera {
-    PROTOTYPE_DFT_ONLY_GETTER_CONST(private, float, aspect_ratio, 16.0f / 9.0f);
+class EulerCamera {
+    PROTOTYPE_DFT(private, float, aspect_ratio, 16.0f / 9.0f);
 
 public:
     // camera Attributes
@@ -44,30 +46,24 @@ public:
 
 public:
     // constructor with vectors
-    explicit PerspectiveCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
-                               glm::vec3 up       = glm::vec3(0.0f, 1.0f, 0.0f),
-                               float yaw = YAW, float pitch = PITCH)
+    explicit EulerCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
+                         glm::vec3 up       = glm::vec3(0.0f, 1.0f, 0.0f),
+                         float yaw = YAW, float pitch = PITCH)
         : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(NORMAL_SPEED),
           MouseSensitivity(SENSITIVITY), Zoom(ZOOM), Position(position),
           WorldUp(up), Yaw(yaw), Pitch(pitch) {
-        updateCameraVectors();
+        updateCameraVectorsPerspective();
     }
 
     // constructor with scalar values
-    PerspectiveCamera(float posX, float posY, float posZ, float upX, float upY,
-                      float upZ, float yaw, float pitch)
+    EulerCamera(float posX, float posY, float posZ, float upX, float upY,
+                float upZ, float yaw, float pitch)
         : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(NORMAL_SPEED),
           MouseSensitivity(SENSITIVITY), Zoom(ZOOM),
           Position(glm::vec3(posX, posY, posZ)),
           WorldUp(glm::vec3(upX, upY, upZ)), Yaw(yaw), Pitch(pitch) {
-        updateCameraVectors();
+        updateCameraVectorsPerspective();
     }
-
-    glm::mat4 getViewMatrix() const {
-        return glm::lookAt(Position, Position + Front, Up);
-    }
-
-    glm::mat4 getProjectionMatrix() { return projection_matrix; }
 
     // processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
     void processKeyboard(CameraMovement direction, float deltaTime) {
@@ -107,7 +103,7 @@ public:
         }
 
         // update Front, Right and Up Vectors using the updated Euler angles
-        updateCameraVectors();
+        updateCameraVectorsPerspective();
     }
 
     // processes input received from a mouse scroll-wheel event. Only requires input on the vertical wheel-axis
@@ -117,29 +113,51 @@ public:
         if (Zoom > 45.0f) { Zoom = 45.0f; }
     }
 
-    // calculates the front vector from the Camera's (updated) Euler Angles
-    void updateCameraVectors() {
-        // calculate the new Front vector
-        float const FoV   = initial_foV;
-        projection_matrix = glm::perspective(glm::radians(FoV), _aspect_ratio,
-                                             0.01f, 500.0f);
+    [[nodiscard]] glm::mat4 const &getViewMatrix() const {
+        return _view_matrix;
+    }
 
-        glm::vec3 front;
-        front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
-        front.y = sin(glm::radians(Pitch));
-        front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
-        Front   = glm::normalize(front);
-        // also re-calculate the Right and Up vector
-        Right   = glm::normalize(glm::cross(
-                Front,
-                WorldUp));// normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
-        Up      = glm::normalize(glm::cross(Right, Front));
+    [[nodiscard]] glm::mat4 const &getProjectionMatrix() {
+        return _projection_matrix;
+    }
+
+    void updateCameraVectorsOrtho(float width, float height) {
+        _projection_matrix =
+                glm::ortho(-width * 0.5f, width * 0.5f, -height * 0.5f,
+                           height * 0.5f, Z_NEAR, Z_FAR);
+        updateViewMat();
+    }
+
+    // calculates the front vector from the Camera's (updated) Euler Angles
+    void updateCameraVectorsPerspective() {
+        // calculate the new Front vector
+        _projection_matrix = glm::perspective(glm::radians(_fov), _aspect_ratio,
+                                              Z_NEAR, Z_FAR);
+        updateViewMat();
     }
 
 private:
-    float const initial_foV = 90.0f;
+    void updateViewMat() {
+        glm::vec3 front;
+        front.x      = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
+        front.y      = sin(glm::radians(Pitch));
+        front.z      = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
+        Front        = glm::normalize(front);
+        // also re-calculate the Right and Up vector
+        Right        = glm::normalize(glm::cross(
+                Front,
+                WorldUp));// normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
+        Up           = glm::normalize(glm::cross(Right, Front));
+        _view_matrix = glm::lookAt(Position, Position + Front, Up);
+    }
+
+private:
+    float static constexpr Z_NEAR = 0.01f;
+    float static constexpr Z_FAR  = 500.0f;
+    float     _fov                = 90.0f;
     // calculates the front vector from the Camera's (updated) Euler Angles
-    glm::mat4   projection_matrix{};
+    glm::mat4 _projection_matrix{};
+    glm::mat4 _view_matrix{};
 };
 
 }// namespace taixu

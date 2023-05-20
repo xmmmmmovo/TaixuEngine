@@ -9,9 +9,10 @@
 #include "ui/ui_component.hpp"
 
 #include "ImGuizmo.h"
-#include "gameplay/player/camera/perspective_camera.hpp"
+#include "gameplay/player/camera/euler_camera.hpp"
 #include "imgui.h"
 #include "imgui_internal.h"
+#include "ui/widgets/slider.hpp"
 
 
 namespace taixu::editor {
@@ -19,6 +20,7 @@ class DetailComponent : public AbstractUIComponent {
 public:
     explicit DetailComponent(ViewModel *view_model)
         : AbstractUIComponent(view_model) {}
+
 
     void update() override {
         if (!_view_model->is_entity_selected) { return; }
@@ -28,7 +30,7 @@ public:
         if (ecs == nullptr || ecs->getEntityCount() == 0) { return; }
 
         if (ecs->getEntityCount() < _view_model->selected_entity) {
-            _view_model->selected_entity = 0;
+            _view_model->is_entity_selected = false;
         }
 
         if (ecs->anyOf<TransformComponent>(_view_model->selected_entity)) {
@@ -66,7 +68,6 @@ public:
                         "Scale",
                         reinterpret_cast<int *>(&_view_model->guizmo_operation),
                         ImGuizmo::OPERATION::SCALE);
-                ImGui::SameLine();
                 ImGui::RadioButton(
                         "ScaleUniversal",
                         reinterpret_cast<int *>(&_view_model->guizmo_operation),
@@ -79,24 +80,48 @@ public:
                 ImGui::Separator();
 
                 // Translation
-                ImGui::Text("Translation");
-                ImGui::DragFloat3("Position", &trans.translate().x, 0.1f);
+                buildVec3Slider("Translation", trans.translate());
 
                 // Rotation
-                ImGui::Text("Rotation");
-                glm::vec3 eulerRotation =
+                glm::vec3 euler_rotation =
                         glm::degrees(glm::eulerAngles(trans.rotation()));
-                ImGui::DragFloat3("Rotation", &eulerRotation.x, 0.5f, -360.0f,
-                                  360.0f);
-                trans.set_rotation(glm::quat(glm::radians(eulerRotation)));
+                glm::vec3 const euler_rotation_old = euler_rotation;
+
+                bool const r_changed =
+                        buildVec3Slider("Rotation", euler_rotation);
+
+                // 判断是否需要翻转
+                if (r_changed) {
+                    float new_y_rot = euler_rotation.y;
+
+                    if (trans.inversed()) {
+                        glm::vec3 rotDiff = euler_rotation_old - euler_rotation;
+                        rotDiff *= -1.f;
+                        euler_rotation = euler_rotation_old - rotDiff;
+                        new_y_rot      = euler_rotation.y;
+                    }
+
+                    if (new_y_rot < -90.f) {
+                        trans.set_inversed(!trans.inversed());
+                        euler_rotation.x -= 180.f;
+                        euler_rotation.y += 180.f;
+                        euler_rotation.y *= -1.f;
+                        euler_rotation.z += 180.f;
+                    } else if (new_y_rot > 90.f) {
+                        trans.set_inversed(!trans.inversed());
+                        euler_rotation.x -= -180.f;
+                        euler_rotation.y += -180.f;
+                        euler_rotation.y *= -1.f;
+                        euler_rotation.z += -180.f;
+                    }
+                    trans.set_rotation(glm::quat(glm::radians(euler_rotation)));
+                }
 
                 // Scaling
-                ImGui::Text("Scaling");
-                ImGui::DragFloat3("Scale", &trans.scale().x, 0.1f);
+                buildVec3Slider("Scaling", trans.scale(), glm::vec3{1.0f});
                 ImGui::Separator();
             }
         }
-
 
         if (ImGui::CollapsingHeader("Material")) {
             float color[3] = {1.0f, 2.0f, 3.0f};

@@ -15,7 +15,7 @@
 #include <string>
 
 #include "core/base/macro.hpp"
-#include "gameplay/player/camera/perspective_camera.hpp"
+#include "gameplay/player/camera/euler_camera.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/input/input_state.hpp"
 

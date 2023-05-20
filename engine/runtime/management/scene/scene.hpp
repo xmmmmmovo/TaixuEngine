@@ -5,7 +5,7 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 
-#include "gameplay/player/camera/perspective_camera.hpp"
+#include "gameplay/player/camera/euler_camera.hpp"
 #include "management/ecs/components/Light/light_component.hpp"
 #include "management/ecs/components/camera/camera_component.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
@@ -51,8 +51,8 @@ public:
 
     std::vector<std::unique_ptr<ITexture2D>> _textures2D;
 
-    std::unique_ptr<PerspectiveCamera> _camera{
-            std::make_unique<PerspectiveCamera>(glm::vec3(0.0f, 2.0f, 10.5f))};
+    std::unique_ptr<EulerCamera> _camera{
+            std::make_unique<EulerCamera>(glm::vec3(0.0f, 2.0f, 10.5f))};
     AssetManager               *_asset_manager{nullptr};
     std::weak_ptr<PhysicsScene> _physics_scene;
 
@@ -111,7 +111,7 @@ public:
 
             GameObject game_object{};
             game_object.set_name(go.name);
-            game_object.entities.push_back(entity);
+            game_object.set_entity(entity);
 
             _game_objs.push_back(game_object);
         }
