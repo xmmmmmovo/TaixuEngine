@@ -41,7 +41,6 @@ void PhysicsScene::init() {
 
 
     //add components
-
 }
 
 JPH::BodyID PhysicsScene::createRigidBodyActor(const RigidbodyInfo &rgdInfo) {
@@ -148,8 +147,6 @@ void PhysicsScene::update() {
                                      m_physics.m_integration_substeps,
                                      m_physics.temp_allocator.get(),
                                      m_physics.job_system.get());
-
-    
     //remove
 }
 
@@ -161,11 +158,11 @@ void PhysicsScene::updateGlobalTransform(TransformComponent *_transf,
             m_physics.physics_system->GetBodyInterface();
     Vec3 position = body_interface.GetCenterOfMassPosition(body_id);
     Vec3 velocity = body_interface.GetLinearVelocity(body_id);
-    _transf->_position =
-            glm::vec3(position.GetX(), position.GetY(), position.GetZ());
-    _transf->_rotation = glm::vec3(glm::degrees(position.GetX()),
-                                  glm::degrees(position.GetY()),
-                                  glm::degrees(position.GetZ()));
+    _transf->set_translate(
+            glm::vec3(position.GetX(), position.GetY(), position.GetZ()));
+    _transf->setRotation(glm::vec3(glm::degrees(position.GetX()),
+                                   glm::degrees(position.GetY()),
+                                   glm::degrees(position.GetZ())));
 }
 
 JPH::Shape *PhysicsScene::toShape(RigidBodyShapeType shape,
@@ -178,13 +175,7 @@ JPH::Shape *PhysicsScene::toShape(RigidBodyShapeType shape,
         jph_shape = new JPH::BoxShape(jph_box, 0.f);
     } else if (shape == RigidBodyShapeType::SPHERE) {
         jph_shape = new JPH::SphereShape((scale.x + scale.y + scale.z) / 3 * 1);
-    }
-    // else if (shape == RigidBodyShapeType::CAPSULE)
-    // {
-    //     jph_shape = new JPH::CapsuleShape(scale.z,
-    //                                           (scale.x + scale.y) / 2);
-    // }
-    else {
+    } else {
         spdlog::debug("Unsupported Shape");
     }
 

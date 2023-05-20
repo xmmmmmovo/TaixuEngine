@@ -3,34 +3,46 @@
 
 #include <string>
 
-#include "glm/gtc/matrix_transform.hpp"
-#include "glm/gtc/quaternion.hpp"
-#include "glm/matrix.hpp"
-#include "glm/gtx/euler_angles.hpp"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/quaternion.hpp>
+
+#include "core/base/macro.hpp"
 
 namespace taixu {
 class TransformComponent {
-public:
-    glm::vec3 _position{0.f, 0.f, 0.f};
-    glm::vec3 _scale{1.f, 1.f, 1.f};
-    glm::vec3 _rotation{0.0f, 0.0f, 0.0f};
-    glm::mat4 transform{glm::mat4(1.0f)};
+    PROTOTYPE_DFT(private, glm::vec3, translate, glm::vec3(0.0f));
+    PROTOTYPE_DFT(private, glm::vec3, scale, glm::vec3(1.0f));
+    PROTOTYPE_DFT(private, glm::quat, rotation,
+                  glm::quat(1.0f, 0.0f, 0.0f, 0.0f));
 
+    PROTOTYPE_DFT(private, glm::mat4, transform, glm::mat4(1.0f));
+
+    PROTOTYPE_DFT(private, bool, inversed, false);
+
+public:
     TransformComponent() = default;
     template<typename T>
     explicit TransformComponent(T &&pos, T &&scale, T &&rotate)
-        : _position(std::forward<T>(pos)), _scale(std::forward<T>(scale)),
+        : _translate(std::forward<T>(pos)), _scale(std::forward<T>(scale)),
           _rotation(std::forward<T>(rotate)) {}
 
-    void setPosition(glm::vec3 pos);
-    void addPosition(glm::vec3 pos);
-    void setScale(glm::vec3 scl);
-    void Scale(glm::vec3 scl);
-    void setRotation(glm::vec3 rotate);
-    void setRotation(glm::quat);
-    void setRotation(glm::mat4 r);
-    glm::mat4 getTransformMatrix();
-    void makeTransformMatrix();
+    void applyTranslate(glm::vec3 translate) { _translate += translate; }
+    void applyScale(glm::vec3 scale) { _scale *= scale; }
+
+    void setRotation(glm::vec3 rotate) {
+        _rotation.x = rotate.x;
+        _rotation.y = rotate.y;
+        _rotation.z = rotate.z;
+    }
+
+    void makeTransformMatrix() {
+        glm::mat4 const translation_matrix =
+                glm::translate(glm::mat4(1.0f), _translate);
+        glm::mat4 const rotation_matrix = glm::toMat4(_rotation);
+        glm::mat4 const scaling_matrix  = glm::scale(glm::mat4(1.0f), _scale);
+        _transform = translation_matrix * rotation_matrix * scaling_matrix;
+    }
 };
 }// namespace taixu
 

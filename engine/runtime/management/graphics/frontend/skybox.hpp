@@ -62,6 +62,7 @@ public:
     }
 
     void draw(IShaderProgram *shader, ITextureCube *cubetexture) const {
+        glCullFace(GL_FRONT);
         glDepthFunc(
                 GL_LEQUAL);// change depth function so depth test passes when values are equal to depth buffer's content
         shader->use();
@@ -69,6 +70,7 @@ public:
         cubetexture->bind();
         _sky_box_vertex_array->draw(CUBE_ELEMENT_COUNT);
         glDepthFunc(GL_LESS);// set depth function back to default
+        glCullFace(GL_BACK);
     }
 };
 }// namespace taixu

@@ -10,6 +10,9 @@
 namespace taixu::editor {
 class ConsoleComponent : public AbstractUIComponent {
 public:
+    explicit ConsoleComponent(ViewModel *view_model)
+        : AbstractUIComponent(view_model) {}
+
     void update() override {}
 };
 }// namespace taixu::editor

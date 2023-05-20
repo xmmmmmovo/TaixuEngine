@@ -28,6 +28,9 @@ private:
     callback<std::string_view const &> _on_save_as_project{nullptr};
 
 public:
+    explicit MenuComponent(ViewModel *view_model)
+        : AbstractUIComponent(view_model) {}
+
     void
     bindCallbacks(callback<std::string_view const &> const &onNewProject,
                   callback<std::string_view const &> const &onOpenProject,
@@ -86,8 +89,9 @@ public:
         }
     }
 
-    static void onDialogOpen(std::string_view const                   &key,
-                             callback<std::string_view const &> const &cb) {
+    static void
+    onDialogOpen(std::string_view const                   &key,
+                 callback<std::string_view const &> const &callback) {
         if (ImGuiFileDialog::Instance()->Display(key.data())) {
             // action if OK
             if (ImGuiFileDialog::Instance()->IsOk()) {
@@ -95,7 +99,7 @@ public:
                         ImGuiFileDialog::Instance()->GetCurrentPath();
                 // action
                 spdlog::debug(file_path);
-                if (cb) { cb(file_path); }
+                if (callback) { callback(file_path); }
             }
 
             // close

@@ -308,6 +308,7 @@ Model *AssetManager::loadModel(std::filesystem::path const &root_path,
     auto [model_ref, was_ins] =
             _models.insert({relative_path.generic_string(), std::move(ret_model)});
     
+
     return &model_ref->second;
 }
 
@@ -429,22 +430,26 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     trans3.scale.vec3    = glm::vec3(1, 1, 1);
 
     JsonLight light1;
-    light1.light_color.vec3 = glm::vec3(1.0,1.0,1.0);
-    light1.light_type = LightSourseType::POINT;
+    light1.light_color.vec3   = glm::vec3(1.0, 1.0, 1.0);
+    light1.light_type         = LightSourseType::POINT;
     light1.TransformComponent = trans3;
+
     light1.name    = "light1";
     pp1         = "gameplay/GO";
     temp        = pp1 / (light1.name + ".json");
     light1.light_path = temp.generic_string();
 
+
     JsonLight light2;
-    light2.light_color.vec3 = glm::vec3(1.0,0.0,0.0);
-    light2.light_type = LightSourseType::POINT;
+    light2.light_color.vec3   = glm::vec3(1.0, 0.0, 0.0);
+    light2.light_type         = LightSourseType::POINT;
     light2.TransformComponent = trans3;
+
     light2.name    = "light2";
     pp1         = "gameplay/GO";
     temp        = pp1 / (light2.name + ".json");
     light2.light_path = temp.generic_string();
+
 
     l1.json_lights.push_back(light1);
     l1.json_lights.push_back(light2);
@@ -457,15 +462,15 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     _world->file_path         = world_path;
 
     GlobalJson global;
-    global.project_file_path = root_path;
+    global.project_file_path  = root_path;
     global.render_global_path = "gameplay/global/render.global.json";
 
     JsonTexture p;
-    p.name = "mars";
+    p.name         = "mars";
     p.texture_path = "assets/textures/mars.png";
 
     JsonTexture con;
-    con.name = "concrete";
+    con.name         = "concrete";
     con.texture_path = "assets/textures/concreteTexture.png";
 
     global.json_textures.push_back(p);

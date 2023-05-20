@@ -24,7 +24,6 @@ public:                                                                        \
                                                                                \
     PROTOTYPE_CONST_GETTER(type, name)
 
-
 /**
  * @brief 简化getter
  */

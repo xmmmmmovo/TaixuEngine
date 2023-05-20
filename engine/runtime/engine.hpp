@@ -35,6 +35,11 @@ private:
     Scene                     *_current_scene{nullptr};
     std::unique_ptr<JsonWorld> taixuworld;
 
+    /**
+     * @brief editor state
+     */
+    EngineState _state{EngineState::EDITORMODE};
+
     Clock _clock{};
 
     void update();
@@ -55,9 +60,11 @@ public:
 
     [[nodiscard]] Project *getOpenedProject() const;
 
-    std::vector<GameObject> const &getGameObjects();
-
     [[nodiscard]] Scene *getScene() const;
+
+    [[nodiscard]] EngineState const &getState() const;
+
+    [[nodiscard]] ECSCoordinator *getECSCoordinator() const;
 };
 
 }// namespace taixu

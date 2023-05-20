@@ -4,6 +4,7 @@
 #include "mesh_json.hpp"
 #include "rigid_body_json.hpp"
 #include "transform_json.hpp"
+#include "animation_json.hpp"
 #include <fstream>
 
 namespace taixu {
@@ -18,6 +19,7 @@ public:
     JsonTransform         TransformComponent;
     JsonMesh              MeshComponent;
     JsonRigidBody         RigidBodyComponent;
+    //JsonAnimation         SkeletonComponent;
 
     void to_json(nlohmann::json &j, const JsonGO &go) {
         j = nlohmann::json{{"name", go.name}, {"GO_path", go.GO_path}};

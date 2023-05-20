@@ -15,7 +15,7 @@
 #include <string>
 
 #include "core/base/macro.hpp"
-#include "gameplay/player/camera/perspective_camera.hpp"
+#include "gameplay/player/camera/euler_camera.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/input/input_state.hpp"
 
@@ -221,11 +221,6 @@ public:
     std::int32_t _height{0};
 
     std::string_view _title{};
-
-    /**
-     * @brief editor state
-     */
-    EngineState _state{EngineState::EDITORMODE};
 
 protected:
     bool                                       is_vsync{false};

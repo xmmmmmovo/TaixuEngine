@@ -3,7 +3,7 @@
         "MeshComponent": {
             "material_path": "INVALID",
             "obj_path": "assets/models/planet.obj",
-            "visiable": false
+            "visiable": true
         },
         "RigidBodyComponent": {
             "motionType": 1,

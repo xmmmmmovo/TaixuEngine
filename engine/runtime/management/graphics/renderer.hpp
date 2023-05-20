@@ -13,15 +13,15 @@
 #include "core/base/clock.hpp"
 #include "core/base/hash.hpp"
 #include "core/base/noncopyable.hpp"
-#include "gameplay/player/camera/perspective_camera.hpp"
+#include "gameplay/player/camera/euler_camera.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/components/animation/skeleton_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/system/system.hpp"
-#include "management/graphics/frontend/matrices.hpp"
 #include "management/graphics/frontend/lightsInfo.hpp"
 #include "management/graphics/frontend/materialInfo.hpp"
+#include "management/graphics/frontend/matrices.hpp"
 #include "management/graphics/render/framebuffer.hpp"
 #include "management/graphics/render/render_api.hpp"
 #include "management/graphics/render/shader.hpp"
@@ -115,7 +115,6 @@ protected:
     void bindScene(Scene *scene) override {
         _current_scene = scene;
         if (_current_scene != nullptr) {
-
             auto &coordinator = _current_scene->_ecs_coordinator;
             _renderable_system =
                     coordinator.registerSystem(RENDERABLE_SYSTEM_ID);
