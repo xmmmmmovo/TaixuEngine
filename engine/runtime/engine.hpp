@@ -8,6 +8,7 @@
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/graphics/renderer.hpp"
 #include "management/physics/physics_manager.hpp"
+#include "management/animation/animation_manager.hpp"
 #include "management/scene/scene.hpp"
 #include "management/scene/scene_manager.hpp"
 #include "resource/manager/asset_manager.hpp"
@@ -26,6 +27,7 @@ private:
     std::unique_ptr<ProjectManager>   _project_manager{nullptr};
     std::unique_ptr<SceneManager>     _scene_manager{nullptr};
     std::unique_ptr<PhysicsManager>   _physics_manager{nullptr};
+    std::unique_ptr<AnimationManager>   _animation_manager{nullptr};
 
     std::unique_ptr<WindowContext> _context_ptr{nullptr};
     std::unique_ptr<IWindow>       _window_ptr{nullptr};

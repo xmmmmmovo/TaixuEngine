@@ -16,6 +16,7 @@
 #include "management/scene/scene.hpp"
 #include "platform/opengl/ogl_renderer.hpp"
 #include "resource/raw_data/model.hpp"
+ 
 
 namespace taixu {
 
@@ -42,6 +43,7 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _asset_manager   = std::make_unique<AssetManager>();
     _scene_manager   = std::make_unique<SceneManager>();
     _physics_manager = std::make_unique<PhysicsManager>();
+    _animation_manager = std::make_unique<AnimationManager>();
 
     _physics_manager->init();
     
@@ -60,6 +62,7 @@ void Engine::update() {
         //_current_scene->_physics_manager.update();
     }
     _physics_manager->update();
+    _animation_manager->update(_clock.getDeltaTime());
     _renderer->update(_clock.getDeltaTime());
 }
 
@@ -90,6 +93,8 @@ Status Engine::loadProject(const std::string_view &path) {
     auto scene = std::make_unique<Scene>();
     _renderer->bindScene(scene.get());
     _physics_manager->bindScene(scene.get());
+    _animation_manager->bindScene(scene.get());
+
     scene->_physics_scene = _physics_manager->_physics_scene;
     _scene_manager->addScene("MainScene", std::move(scene));
     _current_scene = _scene_manager->getScene("MainScene");

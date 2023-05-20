@@ -16,6 +16,7 @@
 #include "gameplay/player/camera/perspective_camera.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
+#include "management/ecs/components/animation/skeleton_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/system/system.hpp"
 #include "management/graphics/frontend/matrices.hpp"
@@ -54,6 +55,7 @@ protected:
 
     std::unique_ptr<IShaderProgram> _render_shader{nullptr};
     std::unique_ptr<IShaderProgram> _skybox_shader{nullptr};
+    std::unique_ptr<IShaderProgram> _animation_shader{nullptr};
 
     Matrices _matrices{};
 
@@ -131,6 +133,11 @@ protected:
                         coordinator.getComponentType<LightComponent>());
                 coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
                                                render_signature);
+                                            
+                render_signature.set(
+                        coordinator.getComponentType<SkeletonComponent>());
+                coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
+                                               render_signature);                                  
             }
         } else {
             _renderable_system = nullptr;

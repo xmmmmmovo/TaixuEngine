@@ -29,7 +29,7 @@ public:
 template<typename VboType = IVertexBuffer, typename EboType = IElementBuffer>
 class AbstractVertexArray : public IVertexArray {
 public:
-    virtual void addVBO(VboType &&vbo) = 0;
+    virtual void addVBO(VboType &&vbo,GLenum type) = 0;
     virtual void setEBO(EboType &&ebo) = 0;
 };
 

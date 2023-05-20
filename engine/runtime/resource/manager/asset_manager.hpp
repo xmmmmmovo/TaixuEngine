@@ -28,6 +28,7 @@
 #include "resource/raw_data/model.hpp"
 #include "resource/raw_data/texture.hpp"
 #include "resource/raw_data/fbx_data.hpp"
+#include "glm/gtc/type_ptr.hpp"
 
 namespace taixu {
 
@@ -44,10 +45,13 @@ private:
 
     Mesh processSkinnedMesh(aiMesh *mesh, aiScene const *scene,FBXData *fbx);
 
-    void processWeights(std::vector<VertexRelateBoneInfo> &vbrs,
-                                  aiMesh *mesh, const aiScene *scene, 
-                                  std::map<string, BoneInfo> &boneInfoMap,
-	                              int &boneCount);
+    void processWeights(std::vector<glm::ivec4> &ids,
+                        std::vector<glm::vec4> &weights,
+                        //const std::vector<std::uint32_t>&indices, 
+                        aiMesh *mesh,
+                        const aiScene              *scene,
+                        std::map<string, BoneInfo> &boneInfoMap,
+                        int                        &boneCount);
 
     void processMaterial(aiScene const               *scene,
                          std::filesystem::path const &root_path, Model &model);
@@ -69,9 +73,9 @@ private:
 
     Bone generateBone(std::string name, int id, const aiNodeAnim* channel);
 
-    void ReadMissingBones(const aiAnimation* animation, FBXData *fbx);
+    void AssetManager::ReadMissingBones(const aiAnimation* animation, FBXData *fbx);
 
-    void ReadHierarchyData( const aiNode* src);
+    void ReadHierarchyData(AssimpNodeData& dest, const aiNode* src);
 
 public:
     Model *loadModel(std::filesystem::path const &root_path,
@@ -106,8 +110,6 @@ public:
     //for animation
     FBXData * loadFBX(std::filesystem::path const &root_path,
                      std::filesystem::path const &relative_path);
-    
-    Bone processBoneAnimation(aiBone *b);
 
 };
 }// namespace taixu

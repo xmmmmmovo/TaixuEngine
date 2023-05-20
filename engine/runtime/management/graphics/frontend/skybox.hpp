@@ -55,7 +55,7 @@ public:
         auto va = std::make_unique<OGLVertexArray>();
         va->bind();
         va->addVBO(OGLVertexBuffer{CUBE_VERTEX_COUNT / 3,
-                                   &CUBE_VERTICES.front(), GL_STATIC_DRAW, 3});
+                                   &CUBE_VERTICES.front(), GL_STATIC_DRAW, 3},GL_FLOAT);
         va->setEBO(OGLElementBuffer{CUBE_ELEMENT_COUNT, &CUBE_ELEMENTS.front(),
                                     GL_STATIC_DRAW});
         _sky_box_vertex_array = std::move(va);

@@ -39,6 +39,14 @@ struct VertexRelateBoneInfo
     float related_bones_weights[MAX_BONE_INFLUENCE];
 };
 
+struct AssimpNodeData
+{
+    glm::mat4 transformation;
+    std::string name;
+    int childrenCount;
+    std::vector<AssimpNodeData> children;
+};
+
 class Bone
 {
 public:
@@ -53,6 +61,7 @@ public:
     std::string m_Name;
     int m_ID;
 
+    Bone() = default;
     /*interpolates  b/w positions,rotations & scaling keys based on the curren time of 
     the animation and prepares the local transformation matrix by combining all keys 
     tranformations*/
@@ -79,6 +88,7 @@ public:
                 return index;
         }
         assert(0);
+        return -1;
     }
 
     /* Gets the current index on mKeyRotations to interpolate to based on the 
@@ -91,6 +101,7 @@ public:
                 return index;
         }
         assert(0);
+        return -1;
     }
 
     /* Gets the current index on mKeyScalings to interpolate to based on the 
@@ -103,6 +114,7 @@ public:
                 return index;
         }
         assert(0);
+        return -1;
     }
 
 private:

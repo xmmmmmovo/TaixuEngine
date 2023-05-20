@@ -18,6 +18,9 @@ public:
     int m_TicksPerSecond;
     std::vector<Bone> skeleton;
 
+    AssimpNodeData m_RootNode;
+
+    bool hasAnimation{false};
     void bindSkinedMesh(Model *m){
         model = m;
     }

@@ -19,8 +19,8 @@ void UpdateAnimation(float dt) {
     if (fbx) {
         m_CurrentTime += fbx->GetTicksPerSecond() * dt;
         m_CurrentTime = fmod(m_CurrentTime, fbx->GetDuration());
-        // CalculateBoneTransform(&m_CurrentAnimation->GetRootNode(),
-        //                        glm::mat4(1.0f));
+        CalculateBoneTransform(&fbx->m_RootNode,
+                               glm::mat4(1.0f));
     }
 }
 
@@ -29,29 +29,29 @@ void PlayAnimation(FBXData *pAnimation) {
     m_CurrentTime      = 0.0f;
 }
 
-// void CalculateBoneTransform(Bone
-//                             glm::mat4             parentTransform) {
-//     std::string nodeName      = node->name;
-//     glm::mat4   nodeTransform = node->transformation;
+void CalculateBoneTransform(const AssimpNodeData* node,
+                            glm::mat4             parentTransform) {
+    std::string nodeName      = node->name;
+    glm::mat4   nodeTransform = node->transformation;
 
-//     Bone *Bone = fbx->FindBone(nodeName);
+    Bone *Bone = fbx->FindBone(nodeName);
 
-//     if (Bone) {
-//         Bone->Update(m_CurrentTime);
-//         nodeTransform = Bone->GetLocalTransform();
-//     }
+    if (Bone!=nullptr) {
+        Bone->Update(m_CurrentTime);
+        nodeTransform = Bone->GetLocalTransform();
+    }
 
-//     glm::mat4 globalTransformation = parentTransform * nodeTransform;
+    glm::mat4 globalTransformation = parentTransform * nodeTransform;
 
-//     if (fbx->m_BoneInfoMap.find(nodeName) != fbx->m_BoneInfoMap.end()) {
-//         int       index            = fbx->m_BoneInfoMap[nodeName].id;
-//         glm::mat4 offset           = fbx->m_BoneInfoMap[nodeName].offset;
-//         m_FinalBoneMatrices[index] = globalTransformation * offset;
-//     }
+    if (fbx->m_BoneInfoMap.find(nodeName) != fbx->m_BoneInfoMap.end()) {
+        int       index            = fbx->m_BoneInfoMap[nodeName].id;
+        glm::mat4 offset           = fbx->m_BoneInfoMap[nodeName].offset;
+        m_FinalBoneMatrices[index] = globalTransformation * offset;
+    }
 
-//     for (int i = 0; i < node->childrenCount; i++)
-//         CalculateBoneTransform(&node->children[i], globalTransformation);
-// }
+    for (int i = 0; i < node->childrenCount; i++)
+        CalculateBoneTransform(&node->children[i], globalTransformation);
+}
 };
 
 }

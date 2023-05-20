@@ -33,7 +33,7 @@ public:
 
     void bind() override;
     void unbind() override;
-    void addVBO(OGLVertexBuffer &&vbo) override;
+    void addVBO(OGLVertexBuffer &&vbo,GLenum type) override;
     void setEBO(OGLElementBuffer &&ebo) override;
 
     void clear() override {

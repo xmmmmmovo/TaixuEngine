@@ -275,18 +275,18 @@ Model *AssetManager::loadModel(std::filesystem::path const &root_path,
     auto full_path = fromRelativePath(root_path, relative_path);
 
     if (std::filesystem::is_directory(full_path)) {
-        spdlog::error("Model path is directory: {}", relative_path.string());
+        spdlog::error("Model path is directory: {}", relative_path.generic_string());
         return nullptr;
     }
 
-    if (_models.count(relative_path.string())) {
-        return &_models[relative_path.string()];
+    if (_models.count(relative_path.generic_string())) {
+        return &_models[relative_path.generic_string()];
     }
 
     Model            ret_model{};
     Assimp::Importer importer{};
     aiScene const   *scene = importer.ReadFile(
-            full_path.string(),
+            full_path.generic_string(),
             // optimize indexing
             aiProcess_JoinIdenticalVertices | aiProcess_Triangulate |
                     // normal
@@ -306,7 +306,7 @@ Model *AssetManager::loadModel(std::filesystem::path const &root_path,
     processNode(scene->mRootNode, scene, ret_model);
 
     auto [model_ref, was_ins] =
-            _models.insert({relative_path.string(), std::move(ret_model)});
+            _models.insert({relative_path.generic_string(), std::move(ret_model)});
     
     return &model_ref->second;
 }
@@ -322,12 +322,12 @@ AssetManager::loadTexture(std::filesystem::path const &root_path,
         return nullptr;
     }
 
-    if (_textures.count(relative_path.string())) {
-        return &_textures[relative_path.string()];
+    if (_textures.count(relative_path.generic_string())) {
+        return &_textures[relative_path.generic_string()];
     }
 
     auto [tex_ref, was_ins] = _textures.insert(
-            {relative_path.string(),
+            {relative_path.generic_string(),
              transferCPUTextureToGPU(root_path, relative_path, type)});
     return &tex_ref->second;
 }
@@ -353,32 +353,33 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     _world = std::make_unique<JsonWorld>();
     JsonLevel l1;
     l1.level_name              = "level 1-1";
-    std::filesystem::path pp1  = "gameplay\\level";
+    std::filesystem::path pp1  = "gameplay/level";
     std::filesystem::path temp = pp1 / (l1.level_name + ".json");
     //std::filesystem::path pp2 = asset_file_path.parent_path() / temp;
-    l1.level_path              = temp.string();
+    l1.level_path              = temp.generic_string();
     //l1.p.vec3 = glm::vec3(0,0,0);
     //l1.type = testEnumType::TYPE1;
+    spdlog::debug(temp.generic_string());
 
     JsonLevel l2;
     l2.level_name = "level 1-2";
     temp          = pp1 / (l2.level_name + ".json");
     //pp2 = asset_file_path.parent_path() / temp;
-    l2.level_path = temp.string();
+    l2.level_path = temp.generic_string();
 
     JsonGO go1;
     go1.name    = "floor";
-    pp1         = "gameplay\\GO";
+    pp1         = "gameplay/GO";
     temp        = pp1 / (go1.name + ".json");
     //pp2 = asset_file_path.parent_path() / temp;
-    go1.GO_path = temp.string();
+    go1.GO_path = temp.generic_string();
 
     JsonGO go2;
     go2.name    = "planet";
-    pp1         = "gameplay\\GO";
+    pp1         = "gameplay/GO";
     temp        = pp1 / (go2.name + ".json");
     //pp2 = asset_file_path.parent_path() / temp;
-    go2.GO_path = temp.string();
+    go2.GO_path = temp.generic_string();
 
     JsonTransform trans1;
     trans1.position.vec3 = glm::vec3(0, 0, 0);
@@ -386,7 +387,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     trans1.scale.vec3    = glm::vec3(20, 0.5, 20);
 
     JsonMesh mesh1;
-    mesh1.obj_path = "assets\\models\\cube.obj";
+    mesh1.obj_path = "assets/models/cube.obj";
     //mesh1.material_path = "assets/textures/concreteTexture.png";
     mesh1.visiable = true;
 
@@ -401,9 +402,9 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     trans2.scale.vec3    = glm::vec3(1, 1, 1);
 
     JsonMesh mesh2;
-    mesh2.obj_path = "assets\\models\\planet.obj";
+    mesh2.obj_path = "assets/models/planet.obj";
     //mesh1.material_path = "assets/textures/concreteTexture.png";
-    mesh2.visiable = true;
+    mesh2.visiable = false;
 
     JsonRigidBody body2;
     body2.shapeType             = RigidBodyShapeType::SPHERE;
@@ -432,18 +433,18 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     light1.light_type = LightSourseType::POINT;
     light1.TransformComponent = trans3;
     light1.name    = "light1";
-    pp1         = "gameplay\\GO";
+    pp1         = "gameplay/GO";
     temp        = pp1 / (light1.name + ".json");
-    light1.light_path = temp.string();
+    light1.light_path = temp.generic_string();
 
     JsonLight light2;
     light2.light_color.vec3 = glm::vec3(1.0,0.0,0.0);
     light2.light_type = LightSourseType::POINT;
     light2.TransformComponent = trans3;
     light2.name    = "light2";
-    pp1         = "gameplay\\GO";
+    pp1         = "gameplay/GO";
     temp        = pp1 / (light2.name + ".json");
-    light2.light_path = temp.string();
+    light2.light_path = temp.generic_string();
 
     l1.json_lights.push_back(light1);
     l1.json_lights.push_back(light2);
@@ -452,7 +453,7 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
     _world->json_levels.push_back(l1);
     _world->json_levels.push_back(l2);
     _world->project_file_path = root_path;
-    std::string world_path    = "gameplay\\taixuworld.json";
+    std::string world_path    = "gameplay/taixuworld.json";
     _world->file_path         = world_path;
 
     GlobalJson global;
@@ -476,28 +477,22 @@ void AssetManager::writeWorld(std::filesystem::path const &root_path) {
 
 FBXData *AssetManager::loadFBX(std::filesystem::path const &root_path,
                                std::filesystem::path const &relative_path) {
-      auto full_path = fromRelativePath(root_path, relative_path);
+    auto full_path = fromRelativePath(root_path, relative_path);
 
     if (std::filesystem::is_directory(full_path)) {
-        spdlog::error("FBX path is directory: {}", relative_path.string());
+        spdlog::error("FBX path is directory: {}", relative_path.generic_string());
         return nullptr;
     }
+
     FBXData ret_fbx{};
 
-    if (_fbx_files.count(relative_path.string())) {
-        return &_fbx_files[relative_path.string()];
+    if (_fbx_files.count(relative_path.generic_string())) {
+        return &_fbx_files[relative_path.generic_string()];
     }
 
-    if (_models.count(relative_path.string())) {
-        ret_fbx.model = &_models[relative_path.string()];
-    }
-    else
-    {
-
-        Model            ret_model{};
-        Assimp::Importer importer{};
+    Assimp::Importer importer{};
         aiScene const   *scene = importer.ReadFile(
-                full_path.string(),
+                full_path.generic_string(),
                 // optimize indexing
                 aiProcess_JoinIdenticalVertices | aiProcess_Triangulate |
                         // normal
@@ -512,22 +507,41 @@ FBXData *AssetManager::loadFBX(std::filesystem::path const &root_path,
             return nullptr;
         }
 
+    if (_models.count(relative_path.generic_string())) {
+        ret_fbx.model = &_models[relative_path.generic_string()];
+    }
+    else
+    {
+
+        Model            ret_model{};
         ret_model.file_path = relative_path;
         ret_fbx.file_path = relative_path;
-
         //processMaterial(scene, root_path, ret_model);
         processNode(scene->mRootNode, scene, ret_model,&ret_fbx);
 
-        auto [model_ref, was_ins] =
-            _models.insert({relative_path.string(), std::move(ret_model)});
+
+        int a = 0;
+        auto [model_ref, model_was_ins] =
+            _models.insert({relative_path.generic_string(), std::move(ret_model)});
         ret_fbx.model = &model_ref->second;
     }
 
     //animation
+    if(scene->HasAnimations())
+    {
+        auto animation = scene->mAnimations[0];
+        ReadHierarchyData(ret_fbx.m_RootNode,scene->mRootNode);
+        ret_fbx.m_Duration = animation->mDuration;
+        ret_fbx.m_TicksPerSecond = animation->mTicksPerSecond;
+        ReadMissingBones(animation, &ret_fbx);
+    }
+    
+    auto [fbx_ref, fbx_was_ins] =
+            _fbx_files.insert({relative_path.generic_string(), std::move(ret_fbx)});
 
-
-    return nullptr;
+    return &fbx_ref->second;
 }
+
 
 void AssetManager::processNode(aiNode *node, aiScene const *scene,
                                Model &model,FBXData *fbx) {
@@ -541,29 +555,22 @@ void AssetManager::processNode(aiNode *node, aiScene const *scene,
     }
 }
 
-void setdefault(VertexRelateBoneInfo &vrb)
-{
-    for(auto i=0;i<MAX_BONE_INFLUENCE;i++)
-    {
-        vrb.related_bones[i] = -1;
-        vrb.related_bones_weights[i] = 0;
-    }
-}
-
-void setBoneData(VertexRelateBoneInfo &vrb, int boneID, float weight)
+void setBoneData(glm::ivec4 &ids,glm::vec4 &weights, int boneID, float weight)
 	{
 		for (int i = 0; i < MAX_BONE_INFLUENCE; ++i)
 		{
-			if (vrb.related_bones[i] < 0)
+			if (ids[i] < 0)
 			{
-				vrb.related_bones_weights[i] = weight;
-				vrb.related_bones[i] = boneID;
+				weights[i] = weight;
+				ids[i] = boneID;
 				break;
 			}
 		}
 	}
 
-void AssetManager::processWeights(std::vector<VertexRelateBoneInfo> &vbrs,
+void AssetManager::processWeights(std::vector<glm::ivec4> &bone_ids,
+                                  std::vector<glm::vec4> &bone_weights,
+                                  //const std::vector<std::uint32_t>&indices,
                                   aiMesh *mesh, const aiScene *scene, 
                                   std::map<string, BoneInfo> &boneInfoMap,
 	                              int &boneCount) {
@@ -588,10 +595,12 @@ void AssetManager::processWeights(std::vector<VertexRelateBoneInfo> &vbrs,
             for (int weightIndex = 0; weightIndex < numWeights; ++weightIndex) {
                 int   vertexId = weights[weightIndex].mVertexId;
                 float weight   = weights[weightIndex].mWeight;
-                assert(vertexId <= vbrs.size());
-                setBoneData(vbrs[vertexId], boneID, weight);
+                assert(vertexId <= bone_ids.size());
+                setBoneData(bone_ids[vertexId],bone_weights[vertexId], boneID, weight);
             }
+            //int a = 0;
     }
+
 }
 
 Mesh AssetManager::processSkinnedMesh(aiMesh *mesh, aiScene const *scene, FBXData *fbx) { 
@@ -600,6 +609,7 @@ Mesh AssetManager::processSkinnedMesh(aiMesh *mesh, aiScene const *scene, FBXDat
     // 预留存内存 优化性能
     unsigned int const vertex_count = mesh->mNumVertices;
     ret_mesh.vertices.reserve(vertex_count);
+    std::vector<VertexRelateBoneInfo> related_bones_Info;
     if (mesh->HasNormals()) { ret_mesh.normals.reserve(vertex_count); }
     if (mesh->mTextureCoords[0]) { ret_mesh.tex_coords.reserve(vertex_count); }
     if (mesh->HasTangentsAndBitangents()) {
@@ -636,9 +646,11 @@ Mesh AssetManager::processSkinnedMesh(aiMesh *mesh, aiScene const *scene, FBXDat
 
         if(mesh->HasBones())
         {
-            VertexRelateBoneInfo vrb;
-            setdefault(vrb);
-            ret_mesh.related_bones_Info.push_back(vrb);
+            glm::ivec4 ids = glm::ivec4(-1,-1,-1,-1);
+            glm::vec4 weights = glm::vec4(0,0,0,0);
+
+            ret_mesh.related_bones_id.push_back(ids);
+            ret_mesh.related_bones_weights.push_back(weights);
         }
     }
 
@@ -654,7 +666,10 @@ Mesh AssetManager::processSkinnedMesh(aiMesh *mesh, aiScene const *scene, FBXDat
 
     ret_mesh.material_id = mesh->mMaterialIndex;
 
-    processWeights(ret_mesh.related_bones_Info,mesh,scene,fbx->m_BoneInfoMap,fbx->m_BoneCounter);
+    processWeights(ret_mesh.related_bones_id, ret_mesh.related_bones_weights,
+                   //ret_mesh.indices,
+                   mesh, scene, fbx->m_BoneInfoMap, fbx->m_BoneCounter);
+
     return ret_mesh;
     
 }
@@ -663,8 +678,6 @@ Mesh AssetManager::processSkinnedMesh(aiMesh *mesh, aiScene const *scene, FBXDat
 void AssetManager::ReadMissingBones(const aiAnimation* animation, FBXData *fbx)
 	{
 		int size = animation->mNumChannels;
-
-
 		//reading channels(bones engaged in an animation and their keyframes)
 		for (int i = 0; i < size; i++)
 		{
@@ -676,27 +689,24 @@ void AssetManager::ReadMissingBones(const aiAnimation* animation, FBXData *fbx)
 				fbx->m_BoneInfoMap[boneName].id = fbx->m_BoneCounter;
 				fbx->m_BoneCounter++;
 			}
-            Bone bone = generateBone(channel->mNodeName.data,
-				fbx->m_BoneInfoMap[channel->mNodeName.data].id, channel);
-            
-			fbx->skeleton.push_back(bone);
+            fbx->skeleton.emplace_back(generateBone(channel->mNodeName.data,
+				fbx->m_BoneInfoMap[channel->mNodeName.data].id, channel));
 		}
-
 	}
 
-	// void ReadHierarchyData(AssimpNodeData& dest, const aiNode* src)
-	// {
-	// 	assert(src);
+	void AssetManager::ReadHierarchyData(AssimpNodeData& dest, const aiNode* src)
+	{
+		assert(src);
 
-	// 	dest.name = src->mName.data;
-	// 	dest.transformation = AssimpGLMHelpers::ConvertMatrixToGLMFormat(src->mTransformation);
-	// 	dest.childrenCount = src->mNumChildren;
+		dest.name = src->mName.data;
+		dest.transformation = ConvertMatrixToGLMFormat(src->mTransformation);
+		dest.childrenCount = src->mNumChildren;
 
-	// 	for (int i = 0; i < src->mNumChildren; i++)
-	// 	{
-	// 		AssimpNodeData newData;
-	// 		ReadHierarchyData(newData, src->mChildren[i]);
-	// 		dest.children.push_back(newData);
-	// 	}
-	// }
+		for (int i = 0; i < src->mNumChildren; i++)
+		{
+			AssimpNodeData newData;
+			ReadHierarchyData(newData, src->mChildren[i]);
+			dest.children.push_back(newData);
+		}
+	}
 }// namespace taixu

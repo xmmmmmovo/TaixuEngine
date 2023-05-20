@@ -18,11 +18,14 @@ void OGLVertexArray::unbind() {
     glBindVertexArray(0);// Unbined VAO
 }
 
-void OGLVertexArray::addVBO(OGLVertexBuffer &&vbo) {
+void OGLVertexArray::addVBO(OGLVertexBuffer &&vbo,GLenum type) {
     std::size_t const idx = VBO.size();
     glEnableVertexAttribArray(idx);
     vbo.bind();
-    glVertexAttribPointer(idx, vbo.getAlign(), GL_FLOAT, GL_FALSE, 0, nullptr);
+    if(type == GL_INT)
+        glVertexAttribIPointer(idx, vbo.getAlign(), GL_INT, 0, nullptr);
+    else
+        glVertexAttribPointer(idx, vbo.getAlign(), GL_FLOAT, GL_FALSE, 0, nullptr);
     this->VBO.push_back(std::move(vbo));
 }
 

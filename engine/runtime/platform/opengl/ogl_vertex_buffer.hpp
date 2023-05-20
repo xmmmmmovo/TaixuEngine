@@ -28,6 +28,16 @@ public:
     void setData(std::size_t size, const void *data, GLenum usage,
                  GLint align) override;
 
+    void OGLVertexBuffer::setIntData(std::size_t size, const void *data, GLenum usage,
+                              GLint align);
+
+    template<typename T>
+    void setCustomData(std::size_t size, const void *data,
+                                    GLenum usage, GLint align);
+
+    template<typename T>
+    void setVertexAttribPointer(int index);
+
     [[nodiscard]] GLint getAlign() const override;
     [[nodiscard]] GLint getStride() const override;
 

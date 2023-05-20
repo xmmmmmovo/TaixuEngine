@@ -39,7 +39,7 @@ public:
     float     Zoom;
 
     //float l,r,b,t,zn,zf;
-    float aspectRatio;
+    float aspectRatio {4/3} ;
 
     // constructor with vectors
     explicit PerspectiveCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
@@ -119,7 +119,7 @@ public:
         // calculate the new Front vector
         float const FoV = initial_foV;
         projection_matrix =
-                glm::perspective(glm::radians(FoV), aspectRatio, 0.1f, 100.0f);
+                glm::perspective(glm::radians(FoV), aspectRatio, 0.1f, 300.0f);
 
         glm::vec3 front;
         front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));

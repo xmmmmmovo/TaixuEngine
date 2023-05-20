@@ -5,7 +5,7 @@
 #include "management/ecs/system/system.hpp"
 #include "management/scene/scene.hpp"
 #include "physics_scene.hpp"
-#include "management/ecs/system/system.hpp"
+
 namespace taixu {
 class Scene;
 class PhysicsManager {

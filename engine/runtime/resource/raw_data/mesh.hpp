@@ -37,7 +37,9 @@ struct Mesh final {
 
     std::optional<std::uint32_t> material_id{std::nullopt};
 
-    std::vector<VertexRelateBoneInfo> related_bones_Info;
+    std::vector<glm::ivec4> related_bones_id;
+
+    std::vector<glm::vec4> related_bones_weights;
 };
 
 inline MeshGPU transferCPUMesh2GPU(Mesh const &mesh) {
@@ -48,35 +50,38 @@ inline MeshGPU transferCPUMesh2GPU(Mesh const &mesh) {
 
         vao->bind();
         vao->addVBO(OGLVertexBuffer{mesh.vertices.size(),
-                                    &mesh.vertices.front(), GL_STATIC_DRAW, 3});
+                                    &mesh.vertices.front(), GL_STATIC_DRAW, 3},GL_FLOAT);
 
         if (!mesh.normals.empty()) {
             vao->addVBO(OGLVertexBuffer{mesh.normals.size(),
                                         &mesh.normals.front(), GL_STATIC_DRAW,
-                                        3});
+                                        3},GL_FLOAT);
         }
 
         if (!mesh.tex_coords.empty()) {
             vao->addVBO(OGLVertexBuffer{mesh.tex_coords.size(),
                                         &mesh.tex_coords.front(),
-                                        GL_STATIC_DRAW, 2});
+                                        GL_STATIC_DRAW, 2},GL_FLOAT);
         }
 
         if (!mesh.tangents.empty()) {
             vao->addVBO(OGLVertexBuffer{mesh.tangents.size(),
                                         &mesh.tangents.front(), GL_STATIC_DRAW,
-                                        3});
+                                        3},GL_FLOAT);
             vao->addVBO(OGLVertexBuffer{mesh.bitangents.size(),
                                         &mesh.bitangents.front(),
-                                        GL_STATIC_DRAW, 3});
+                                        GL_STATIC_DRAW, 3},GL_FLOAT);
         }
 
-        if (!mesh.related_bones_Info.empty()) {
-            vao->addVBO(OGLVertexBuffer{mesh.related_bones_Info.size(),
-                                        &mesh.related_bones_Info.front(), GL_STATIC_DRAW,
-                                        4});
-        }
+        if (!mesh.related_bones_id.empty()) {
+            vao->addVBO(OGLVertexBuffer{mesh.related_bones_id.size(),
+                                        &mesh.related_bones_id.front(), GL_STATIC_DRAW,
+                                        4},GL_INT);
 
+            vao->addVBO(OGLVertexBuffer{mesh.related_bones_weights.size(),
+                                        &mesh.related_bones_weights.front(), GL_STATIC_DRAW,
+                                        4},GL_FLOAT);                           
+        }
 
         vao->setEBO(OGLElementBuffer{mesh.indices.size(), &mesh.indices.front(),
                                      GL_STATIC_DRAW});

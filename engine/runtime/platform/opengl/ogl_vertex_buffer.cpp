@@ -15,7 +15,7 @@ OGLVertexBuffer::OGLVertexBuffer(std::size_t size, const void *data,
                                  GLenum usage, GLint align)
     : OGLVertexBuffer() {
     bind();
-    setData(size, data, usage, align);
+        setData(size, data, usage, align);
     unbind();
 }
 
