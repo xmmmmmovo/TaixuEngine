@@ -65,9 +65,6 @@ include(../3rdparty/FindArgparse.cmake)
 # add joltpyhsics
 include(../3rdparty/FindJoltPhysics.cmake)
 
-# add imguiZmo
-include(../3rdparty/FindimguiZmo.cmake)
-
 find_package(Threads REQUIRED)
 
 # ------- sub-directories --------

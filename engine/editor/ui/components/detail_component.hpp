@@ -5,7 +5,6 @@
 #ifndef TAIXUENGINE_DETAIL_COMPONENT_HPP
 #define TAIXUENGINE_DETAIL_COMPONENT_HPP
 
-#include "management/ecs/components/Light/light_component.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
 #include "ui/components/render_component.hpp"

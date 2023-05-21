@@ -7,9 +7,10 @@
 
 namespace taixu {
 
-void SceneManager::addScene(const string_view     &name,
-                            std::unique_ptr<Scene> scene) {
-    _scenes.emplace(name, std::move(scene));
+Scene *SceneManager::addScene(const string_view     &name,
+                              std::unique_ptr<Scene> scene) {
+    auto [iter, insed] = _scenes.emplace(name, std::move(scene));
+    return iter->second.get();
 }
 
 void SceneManager::removeScene(std::string_view const &name) {

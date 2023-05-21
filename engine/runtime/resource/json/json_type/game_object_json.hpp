@@ -1,10 +1,12 @@
 #ifndef TAIXUENGINE_GAME_OBJECT_JSON_HPP
 #define TAIXUENGINE_GAME_OBJECT_JSON_HPP
 
-#include "mesh_json.hpp"
+#include "animation_json.hpp"
+#include "renderable_json.hpp"
+#include "resource/json/json_type/light_json.hpp"
 #include "rigid_body_json.hpp"
 #include "transform_json.hpp"
-#include "animation_json.hpp"
+
 #include <fstream>
 
 namespace taixu {
@@ -16,10 +18,11 @@ public:
     std::string           name;
     std::string           GO_path{"INVALID"};
     std::filesystem::path project_file_path{"INVALID"};
-    JsonTransform         TransformComponent;
-    JsonMesh              MeshComponent;
-    JsonRigidBody         RigidBodyComponent;
-    //JsonAnimation         SkeletonComponent;
+
+    std::optional<JsonTransform>  transform_component;
+    std::optional<JsonRenderable> renderable_component;
+    std::optional<JsonRigidBody>  RigidBodyComponent;
+    std::optional<JsonLight>      light_component;
 
     void to_json(nlohmann::json &j, const JsonGO &go) {
         j = nlohmann::json{{"name", go.name}, {"GO_path", go.GO_path}};
@@ -36,14 +39,15 @@ public:
 
             json t, m, r;
 
-            TransformComponent.to_json(t, TransformComponent);
+            transform_component.value().to_json(t, transform_component.value());
 
-            MeshComponent.to_json(m, MeshComponent);
+            renderable_component.value().to_json(m,
+                                                 renderable_component.value());
 
-            RigidBodyComponent.to_json(r, RigidBodyComponent);
+            RigidBodyComponent.value().to_json(r, RigidBodyComponent.value());
 
-            json write{{"TransformComponent", t},
-                       {"MeshComponent", m},
+            json write{{"transform_component", t},
+                       {"renderable_component", m},
                        {"RigidBodyComponent", r}};
             json GOs{{"Components", write}};
             o << std::setw(4) << GOs;
@@ -60,11 +64,39 @@ public:
         json data       = json::parse(f);
         json components = data["Components"];
 
-        TransformComponent.from_json(components["TransformComponent"],
-                                     TransformComponent);
-        MeshComponent.from_json(components["MeshComponent"], MeshComponent);
-        RigidBodyComponent.from_json(components["RigidBodyComponent"],
-                                     RigidBodyComponent);
+        if (components["TransformComponent"].is_null()) {
+            transform_component = std::nullopt;
+        } else {
+            auto json_trans = JsonTransform();
+            json_trans.from_json(components["TransformComponent"], json_trans);
+            transform_component = json_trans;
+        }
+
+        if (components["RenderableComponent"].is_null()) {
+            renderable_component = std::nullopt;
+        } else {
+            auto json_renderable = JsonRenderable();
+            json_renderable.from_json(components["RenderableComponent"],
+                                      json_renderable);
+            renderable_component = json_renderable;
+        }
+
+        if (components["RigidBodyComponent"].is_null()) {
+            RigidBodyComponent = std::nullopt;
+        } else {
+            auto json_rigidbody = JsonRigidBody();
+            json_rigidbody.from_json(components["RigidBodyComponent"],
+                                     json_rigidbody);
+            RigidBodyComponent = json_rigidbody;
+        }
+
+        if (components["LightComponent"].is_null()) {
+            light_component = std::nullopt;
+        } else {
+            auto json_light = JsonLight();
+            json_light.from_json(components["LightComponent"], json_light);
+            light_component = json_light;
+        }
     }
 };
 

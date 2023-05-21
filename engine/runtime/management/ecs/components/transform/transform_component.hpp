@@ -23,10 +23,11 @@ class TransformComponent {
 
 public:
     TransformComponent() = default;
-    template<typename T>
-    explicit TransformComponent(T &&pos, T &&scale, T &&rotate)
+
+    template<typename T, typename RT>
+    explicit TransformComponent(T &&pos, T &&scale, RT &&rotate)
         : _translate(std::forward<T>(pos)), _scale(std::forward<T>(scale)),
-          _rotation(std::forward<T>(rotate)) {}
+          _rotation(std::forward<RT>(rotate)) {}
 
     void applyTranslate(glm::vec3 translate) { _translate += translate; }
     void applyScale(glm::vec3 scale) { _scale *= scale; }

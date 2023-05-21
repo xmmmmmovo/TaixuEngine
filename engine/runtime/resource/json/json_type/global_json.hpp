@@ -18,10 +18,9 @@ public:
     std::filesystem::path negz;
 };
 
-class JsonTexture
-{
+class JsonTexture {
 public:
-    std::string name;
+    std::string           name;
     std::filesystem::path texture_path;
 
     void to_json(nlohmann::json &j, JsonTexture tx) {
@@ -38,23 +37,27 @@ public:
 class GlobalJson {
 public:
     RenderGlobalJson render_global_json;
-    
-    std::filesystem::path render_global_path{"INVALID"};
-    std::filesystem::path project_file_path{"INVALID"};
-    std::vector<JsonTexture>json_textures;
-    void serialize()
-    {
-        if(render_global_path!="INVALID")
-        {
+
+    std::filesystem::path    render_global_path{"INVALID"};
+    std::filesystem::path    project_file_path{"INVALID"};
+    std::vector<JsonTexture> json_textures;
+    void                     serialize() {
+        if (render_global_path != "INVALID") {
             std::ofstream o(project_file_path / render_global_path);
-            json j;
-            j = nlohmann::json{{"posx", "assets/textures/skybox/split_skybox_sky_cloud/right.png"},
-                                {"negx", "assets/textures/skybox/split_skybox_sky_cloud/left.png"},
-                                {"posy", "assets/textures/skybox/split_skybox_sky_cloud/top.png"},
-                                {"negy", "assets/textures/skybox/split_skybox_sky_cloud/bottom.png"},
-                                {"posz", "assets/textures/skybox/split_skybox_sky_cloud/front.png"},
-                                {"negz", "assets/textures/skybox/split_skybox_sky_cloud/back.png"}
-                                };
+            json          j;
+            j = nlohmann::json{
+                                        {"posx",
+                                         "assets/textures/skybox/split_skybox_sky_cloud/right.png"},
+                                        {"negx",
+                                         "assets/textures/skybox/split_skybox_sky_cloud/left.png"},
+                                        {"posy",
+                                         "assets/textures/skybox/split_skybox_sky_cloud/top.png"},
+                                        {"negy", "assets/textures/skybox/split_skybox_sky_cloud/"
+                                                                     "bottom.png"},
+                                        {"posz",
+                                         "assets/textures/skybox/split_skybox_sky_cloud/front.png"},
+                                        {"negz",
+                                         "assets/textures/skybox/split_skybox_sky_cloud/back.png"}};
             json write;
             write["skybox_specular"] = j;
 
@@ -68,7 +71,6 @@ public:
             o << std::setw(4) << write;
             o.close();
         }
-        
     }
 
     void deserialize() {
@@ -95,8 +97,8 @@ public:
                 skybox_spec["negz"].get<std::filesystem::path>();
 
         for (auto &k : data["Textures"].items()) {
-            json const j = k.value();
-            JsonTexture     tex;
+            json const  j = k.value();
+            JsonTexture tex;
             tex.from_json(j, tex);
             json_textures.push_back(tex);
         }

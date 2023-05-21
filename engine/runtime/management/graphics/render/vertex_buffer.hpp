@@ -17,11 +17,10 @@ public:
     virtual void bind()   = 0;
     virtual void unbind() = 0;
 
-    virtual void setData(std::size_t size, const void* data, GLenum usage,
-                         GLint align) = 0;
+    virtual void setData(std::size_t size, const void *data, GLenum usage,
+                         GLint align, GLint size_of_type) = 0;
 
-    [[nodiscard]] virtual GLint getAlign() const  = 0;
-    [[nodiscard]] virtual GLint getStride() const = 0;
+    [[nodiscard]] virtual GLint getAlign() const = 0;
 };
 
 }// namespace taixu

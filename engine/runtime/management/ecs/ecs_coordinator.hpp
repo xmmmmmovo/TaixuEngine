@@ -9,7 +9,6 @@
 
 #include "core/component_manager.hpp"
 #include "core/entity_manager.hpp"
-#include "management/ecs/components/Light/light_component.hpp"
 #include "management/ecs/components/camera/camera_component.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"

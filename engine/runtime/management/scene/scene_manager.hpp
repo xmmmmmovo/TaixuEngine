@@ -23,7 +23,7 @@ private:
     std::unordered_map<std::string_view, std::unique_ptr<Scene>> _scenes;
 
 public:
-    void addScene(std::string_view const &name, std::unique_ptr<Scene> scene);
+    Scene *addScene(std::string_view const &name, std::unique_ptr<Scene> scene);
 
     void removeScene(std::string_view const &name);
 
