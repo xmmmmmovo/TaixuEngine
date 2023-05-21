@@ -34,6 +34,7 @@ void main()
 { 
  
     vec3 color = texture(textureSampler,fs_in.TexCoords).rgb;
+    //vec3 color = vec3(1.0,0.5,0.2);
     // ambient
     vec3 ambient = 0.05 * color;
     // diffuse

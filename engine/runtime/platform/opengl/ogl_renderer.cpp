@@ -29,9 +29,15 @@ void OGLRenderer::init() {
 
     _skybox_shader =
             std::make_unique<OGLShaderProgram>(SKYBOX_VERT, SKYBOX_FRAG);
+    _animation_shader = std::make_unique<OGLShaderProgram>(SKELETON_VERT, SKELETON_FRAG);
+
     _skybox_shader->use();
     _skybox_shader->bind_uniform_block("Matrices", 0);
     _skybox_shader->set_uniform("skybox", 0);
+
+    _animation_shader->use();
+    _animation_shader->bind_uniform_block("Matrices", 0);
+
 }
 
 void OGLRenderer::update(float delta_time) {
@@ -107,6 +113,7 @@ void OGLRenderer::update(float delta_time) {
                             _current_scene->_ecs_coordinator
                                     .getComponent<TransformComponent>(entity);
                     trans.makeTransformMatrix();
+
                     _render_shader->set_uniform("model", trans.transform());
                     _render_shader->set_uniform(
                             "invModel3x3",
@@ -122,6 +129,28 @@ void OGLRenderer::update(float delta_time) {
                          renderable.model->gpu_data.value().meshes) {
                         mesh.vao->draw(mesh.index_count);
                     }
+                }
+            }
+            else if(_current_scene->_ecs_coordinator.anyOf<SkeletonComponent>(entity))
+            {
+                _animation_shader->use();
+                auto const &skeleton =
+                        _current_scene->_ecs_coordinator
+                                .getComponent<SkeletonComponent>(entity);
+                
+                auto &trans =
+                            _current_scene->_ecs_coordinator
+                                .getComponent<TransformComponent>(entity);
+                    trans.makeTransformMatrix();
+
+                    _animation_shader->set_uniform("model", trans.transform());
+
+                    auto transforms = skeleton.m_FinalBoneMatrices;
+		            for (int i = 0; i < transforms.size(); ++i)
+			            _animation_shader->setMat4Array("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
+                
+                for (auto &mesh : skeleton.fbx->model->gpu_data.value().meshes) {
+                        mesh.vao->draw(mesh.index_count);
                 }
             }
         }
