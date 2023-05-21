@@ -11,6 +11,9 @@
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
+#include "management/ecs/components/Light/light_component.hpp"
+#include "management/ecs/components/animation/skeleton_component.hpp"
+
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/ecs/object/game_object.hpp"
@@ -32,6 +35,9 @@
 
 #include "frag_frag.h"
 #include "vert_vert.h"
+
+#include "skeleton_frag.h"
+#include "skeleton_vert.h"
 #include <memory>
 
 namespace taixu {
@@ -62,6 +68,8 @@ public:
         _ecs_coordinator.registerComponent<TransformComponent>();
         _ecs_coordinator.registerComponent<LightComponent>();
         _ecs_coordinator.registerComponent<RigidBodyComponent>();
+        _ecs_coordinator.registerComponent<SkeletonComponent>();
+
     }
 
     void fromWorld(JsonWorld *world, int levelIndex) {
@@ -154,8 +162,37 @@ public:
             _textures2D.push_back(std::move(textures2D));
         }
         /////////////////////////////////////////
-        std::swap(_textures2D[0], _textures2D[1]);
-        /////////////////////////////////////////
+        std::swap(_textures2D[0],_textures2D[1]);
+        /////////////////////////////////////////    
+        //auto fbx1 = _asset_manager->loadFBX(parent_path, "assets/fbx/phroah_character_rig.fbx");
+        auto fbx2 = _asset_manager->loadFBX(parent_path, "assets/fbx/dancing_vampire.dae");
+        
+        //fbx2->model = fbx1->model;
+        auto vampire_entity = _ecs_coordinator.createEntity();
+        auto skeleton = SkeletonComponent();
+        skeleton.fbx = fbx2;
+
+        skeleton.m_CurrentTime = 0.0;
+        skeleton.m_FinalBoneMatrices.reserve(100);
+		for (int i = 0; i < 100; i++)
+			skeleton.m_FinalBoneMatrices.push_back(glm::mat4(1.0f));
+
+        if (skeleton.fbx->model->gpu_data == std::nullopt) {
+                    transferCPUModelToGPU(skeleton.fbx->model);
+                }
+        
+        auto trans =
+                        TransformComponent(glm::vec3(0,0,0),
+                                           glm::vec3(3,3,3),
+                                           glm::vec3(0,0,0));
+        
+        _ecs_coordinator.addComponent(
+                        vampire_entity, std::forward<TransformComponent>(trans));
+                        
+        _ecs_coordinator.addComponent(
+                vampire_entity, std::forward<SkeletonComponent>(skeleton));
+        ////////////////////////////////////////
+
     }
 };
 
