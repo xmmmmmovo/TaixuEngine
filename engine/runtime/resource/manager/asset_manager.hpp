@@ -31,9 +31,14 @@
 namespace taixu {
 
 class AssetManager final {
+    PROTOTYPE_DFT_ONLY_GETTER_CONST(private, Texture2DAsset *,
+                                    default_texture_rgba, nullptr);
+    PROTOTYPE_DFT_ONLY_GETTER_CONST(private, Texture2DAsset *,
+                                    default_texture_r, nullptr);
+
 private:
-    std::unordered_map<std::string, Texture2DAsset> _textures{};
-    std::unordered_map<std::string, Model>          _models{};
+    std::unordered_map<char *, Texture2DAsset> _textures{};
+    std::unordered_map<char *, Model>          _models{};
 
     static Mesh processMesh(aiMesh *mesh);
 
@@ -47,6 +52,9 @@ private:
                                    std::filesystem::path const &directory_path);
 
 public:
+    void init();
+
+
     Model *loadModel(std::filesystem::path const &root_path,
                      std::filesystem::path const &relative_path);
 
@@ -74,7 +82,6 @@ public:
     std::unique_ptr<JsonWorld> taixuworld;
     void loadWorld(std::filesystem::path const &file_path);
     void writeWorld(std::filesystem::path const &root_path);
-
 };
 }// namespace taixu
 

@@ -153,6 +153,13 @@ void AssetManager::processMaterial(aiScene const               *scene,
     }
 }
 
+void AssetManager::init() {
+    _default_texture_r =
+            loadTexture(".", "assets/texture/r1.png", TextureType::COMMON);
+    _default_texture_rgba = loadTexture(".", "assets/texture/rgba1111.png",
+                                        TextureType::COMMON);
+}
+
 Mesh AssetManager::processMesh(aiMesh *mesh) {
     Mesh ret_mesh{};
 
@@ -234,8 +241,8 @@ Model *AssetManager::loadModel(std::filesystem::path const &root_path,
         return nullptr;
     }
 
-    if (_models.count(relative_path.string())) {
-        return &_models[relative_path.string()];
+    if (_models.count(relative_path.string().data())) {
+        return &_models[relative_path.string().data()];
     }
 
     Model            ret_model{};
@@ -260,8 +267,8 @@ Model *AssetManager::loadModel(std::filesystem::path const &root_path,
     processMaterial(scene, root_path, ret_model);
     processNode(scene->mRootNode, scene, ret_model);
 
-    auto [model_ref, was_ins] =
-            _models.insert({relative_path.string(), std::move(ret_model)});
+    auto [model_ref, was_ins] = _models.insert(
+            {relative_path.string().data(), std::move(ret_model)});
 
     return &model_ref->second;
 }
@@ -277,12 +284,12 @@ AssetManager::loadTexture(std::filesystem::path const &root_path,
         return nullptr;
     }
 
-    if (_textures.count(relative_path.string())) {
-        return &_textures[relative_path.string()];
+    if (_textures.count(full_path.string().data())) {
+        return &_textures[relative_path.string().data()];
     }
 
     auto [tex_ref, was_ins] = _textures.insert(
-            {relative_path.string(),
+            {full_path.string().data(),
              transferCPUTextureToGPU(root_path, relative_path, type)});
     return &tex_ref->second;
 }

@@ -5,7 +5,10 @@
 #ifndef TAIXUENGINE_DETAIL_COMPONENT_HPP
 #define TAIXUENGINE_DETAIL_COMPONENT_HPP
 
+#include "management/ecs/components/Light/light_component.hpp"
+#include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
+#include "ui/components/render_component.hpp"
 #include "ui/ui_component.hpp"
 
 #include "ImGuizmo.h"
@@ -123,22 +126,9 @@ public:
             }
         }
 
-        if (ImGui::CollapsingHeader("Material")) {
-            float color[3] = {1.0f, 2.0f, 3.0f};
-            float f1       = 0.0f;
-            float f2       = 0.0f;
-            ImGui::ColorPicker3("Color", color,
-                                ImGuiColorEditFlags_PickerHueWheel |
-                                        ImGuiColorEditFlags_DisplayRGB);
-            ImGui::SliderFloat("Roughness", &f1, 0.0f, 1.0f);
-            ImGui::SliderFloat("Metallic", &f2, 0.0f, 1.0f);
-        }
+        if (ecs->anyOf<RenderableComponent>(_view_model->selected_entity)) {}
 
-        if (ImGui::CollapsingHeader("Light")) {
-            ImGui::Separator();
-            ImGui::Text("Position");
-            ImGui::Separator();
-        }
+        if (ecs->anyOf<LightComponent>(_view_model->selected_entity)) {}
     }
 };
 }// namespace taixu::editor

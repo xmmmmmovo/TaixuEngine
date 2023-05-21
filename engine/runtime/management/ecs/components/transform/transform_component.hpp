@@ -10,6 +10,7 @@
 #include "core/base/macro.hpp"
 
 namespace taixu {
+
 class TransformComponent {
     PROTOTYPE_DFT(private, glm::vec3, translate, glm::vec3(0.0f));
     PROTOTYPE_DFT(private, glm::vec3, scale, glm::vec3(1.0f));
