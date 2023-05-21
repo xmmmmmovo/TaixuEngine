@@ -51,7 +51,7 @@ protected:
     Scene  *_current_scene{nullptr};
     System *_renderable_system{nullptr};
 
-    static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "renderable"_hash64;
+    static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "renderable_component"_hash64;
 
     std::unique_ptr<IShaderProgram> _render_shader{nullptr};
     std::unique_ptr<IShaderProgram> _skybox_shader{nullptr};

@@ -33,6 +33,8 @@ enum class TextureType {
     ROUGHNESS,
     AO,
     EMISSIVE_FACTOR,
+
+    COMMON
 };
 
 inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {
@@ -74,7 +76,7 @@ inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {
 
 struct Texture2DAsset final : public BaseAssetData {
     TextureType                 type{TextureType::DIFFUSE};
-    std::shared_ptr<ITexture2D> texture{nullptr};
+    std::unique_ptr<ITexture2D> texture{nullptr};
 };
 
 inline Texture2DAsset
@@ -87,7 +89,7 @@ transferCPUTextureToGPU(std::filesystem::path const &asset_path,
     texture.file_path = relative_path;
 
     if (EngineArgs::getInstance().api == GraphicsAPI::OPENGL) {
-        texture.texture = std::make_shared<OGLTexture2D>(
+        texture.texture = std::make_unique<OGLTexture2D>(
                 fromRelativePath(asset_path, relative_path));
     }
     return texture;

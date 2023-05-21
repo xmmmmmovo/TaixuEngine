@@ -15,7 +15,7 @@ OGLVertexBuffer::OGLVertexBuffer(std::size_t size, const void *data,
                                  GLenum usage, GLint align)
     : OGLVertexBuffer() {
     bind();
-        setData(size, data, usage, align);
+    setData(size, data, usage, align);
     unbind();
 }
 
@@ -28,19 +28,15 @@ void OGLVertexBuffer::unbind() {
 }
 
 void OGLVertexBuffer::setData(std::size_t size, const void *data, GLenum usage,
-                              GLint align) {
+                              GLint align, GLint size_of_type) {
     glBufferData(GL_ARRAY_BUFFER,
-                 static_cast<GLsizeiptr>(size) * align * sizeof(float), data,
+                 static_cast<GLsizeiptr>(size) * align * size_of_type, data,
                  usage);
-    this->align = align;
+    this->align        = align;
 }
-
-GLint OGLVertexBuffer::getStride() const { return this->stride; }
 
 GLint OGLVertexBuffer::getAlign() const { return this->align; }
 
-OGLVertexBuffer::~OGLVertexBuffer() {
-    glDeleteBuffers(1, &VBO);
-}
+OGLVertexBuffer::~OGLVertexBuffer() { glDeleteBuffers(1, &VBO); }
 
 }// namespace taixu

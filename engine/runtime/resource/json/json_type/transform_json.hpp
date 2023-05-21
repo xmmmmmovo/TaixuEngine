@@ -21,10 +21,29 @@ public:
     }
 };
 
+class Quat {
+public:
+    glm::quat quat;
+
+    void to_json(nlohmann::json &j, const Quat &q) {
+        j = nlohmann::json{{"x", q.quat.x},
+                           {"y", q.quat.y},
+                           {"z", q.quat.z},
+                           {"w", q.quat.w}};
+    }
+
+    void from_json(const nlohmann::json &j, Quat &q) {
+        j.at("x").get_to(q.quat.x);
+        j.at("y").get_to(q.quat.x);
+        j.at("z").get_to(q.quat.x);
+        j.at("w").get_to(q.quat.x);
+    }
+};
+
 class JsonTransform {
 public:
     Vec3 position;
-    Vec3 rotation;
+    Quat rotation;
     Vec3 scale;
 
     void to_json(nlohmann::json &j, JsonTransform &trans) {

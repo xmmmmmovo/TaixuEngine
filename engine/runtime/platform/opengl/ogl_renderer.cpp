@@ -29,7 +29,8 @@ void OGLRenderer::init() {
 
     _skybox_shader =
             std::make_unique<OGLShaderProgram>(SKYBOX_VERT, SKYBOX_FRAG);
-    _animation_shader = std::make_unique<OGLShaderProgram>(SKELETON_VERT, SKELETON_FRAG);
+    _animation_shader =
+            std::make_unique<OGLShaderProgram>(SKELETON_VERT, SKELETON_FRAG);
 
     _skybox_shader->use();
     _skybox_shader->bind_uniform_block("Matrices", 0);
@@ -37,7 +38,6 @@ void OGLRenderer::init() {
 
     _animation_shader->use();
     _animation_shader->bind_uniform_block("Matrices", 0);
-
 }
 
 void OGLRenderer::update(float delta_time) {
@@ -121,36 +121,34 @@ void OGLRenderer::update(float delta_time) {
                                     glm::inverse(trans.transform()))));
 
                     _render_shader->set_uniform("textureSampler", 0);
-                    ////////////////////////////////////////////////////
-                    if (entity < _current_scene->_textures2D.size())
-                        _current_scene->_textures2D[entity].get()->bind(0);
-                    ////////////////////////////////////////////////////
+
                     for (auto &mesh :
                          renderable.model->gpu_data.value().meshes) {
                         mesh.vao->draw(mesh.index_count);
                     }
                 }
-            }
-            else if(_current_scene->_ecs_coordinator.anyOf<SkeletonComponent>(entity))
-            {
+            } else if (_current_scene->_ecs_coordinator
+                               .anyOf<SkeletonComponent>(entity)) {
                 _animation_shader->use();
                 auto const &skeleton =
                         _current_scene->_ecs_coordinator
                                 .getComponent<SkeletonComponent>(entity);
-                
-                auto &trans =
-                            _current_scene->_ecs_coordinator
-                                .getComponent<TransformComponent>(entity);
-                    trans.makeTransformMatrix();
 
-                    _animation_shader->set_uniform("model", trans.transform());
+                auto &trans = _current_scene->_ecs_coordinator
+                                      .getComponent<TransformComponent>(entity);
+                trans.makeTransformMatrix();
 
-                    auto transforms = skeleton.m_FinalBoneMatrices;
-		            for (int i = 0; i < transforms.size(); ++i)
-			            _animation_shader->setMat4Array("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
-                
-                for (auto &mesh : skeleton.fbx->model->gpu_data.value().meshes) {
-                        mesh.vao->draw(mesh.index_count);
+                _animation_shader->set_uniform("model", trans.transform());
+
+                auto transforms = skeleton.m_FinalBoneMatrices;
+                for (int i = 0; i < transforms.size(); ++i)
+                    _animation_shader->setMat4Array(
+                            "finalBonesMatrices[" + std::to_string(i) + "]",
+                            transforms[i]);
+
+                for (auto &mesh :
+                     skeleton.fbx->model->gpu_data.value().meshes) {
+                    mesh.vao->draw(mesh.index_count);
                 }
             }
         }

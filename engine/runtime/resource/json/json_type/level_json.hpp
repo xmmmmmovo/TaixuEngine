@@ -15,7 +15,6 @@ public:
     std::filesystem::path project_file_path{"INVALID"};
 
     std::vector<JsonGO> json_game_objects;
-    std::vector<JsonLight> json_lights;
 
     void to_json(nlohmann::json &j, JsonLevel lp) {
         j = nlohmann::json{{"level_name", lp.level_name},
@@ -39,16 +38,8 @@ public:
                 count.serialize();
             }
 
-            json          lwrite;
-            for (auto count : json_lights) {
-                json j;
-                count.to_json(j, count);
-                count.project_file_path = project_file_path;
-                lwrite += j;
-                count.serialize();
-            }
-            json info{{"GOs", write},
-                {"Lights", lwrite}};
+
+            json info{{"GOs", write}};
             o << std::setw(4) << info;
 
             o.close();
@@ -70,15 +61,6 @@ public:
             go.project_file_path = project_file_path;
             go.deserialize();
             json_game_objects.push_back(go);
-        }
-
-        for (auto &k : data["Lights"].items()) {
-            json const j = k.value();
-            JsonLight     light;
-            light.from_json(j, light);
-            light.project_file_path = project_file_path;
-            light.deserialize();
-            json_lights.push_back(light);
         }
     }
 };

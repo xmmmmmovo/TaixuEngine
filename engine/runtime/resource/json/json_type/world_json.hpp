@@ -3,6 +3,8 @@
 
 #include "level_json.hpp"
 #include "resource/json/json_type/global_json.hpp"
+#include "spdlog/spdlog.h"
+#include <string>
 
 namespace taixu {
 
@@ -10,6 +12,7 @@ class JsonWorld {
 public:
     JsonWorld() = default;
 
+    std::string            name;
     std::vector<JsonLevel> json_levels;
     GlobalJson             global_json;
 
@@ -30,10 +33,10 @@ public:
             }
             json global;
             global_json.serialize();
-            
+
             json levels{{"levels", write}};
             json render;
-            render["render"] = global_json.render_global_path;;
+            render["render"] = global_json.render_global_path;
             levels["global"] = render;
             o << std::setw(4) << levels;
             o.close();
@@ -48,10 +51,13 @@ public:
 
         json data = json::parse(f);
 
+        name = data["name"].get<std::string>();
+
         for (auto &i : data["levels"].items()) {
             json const j = i.value();
             JsonLevel  level;
             level.from_json(j, level);
+            spdlog::info("load level: {}", level.level_name);
             level.project_file_path = project_file_path;
             level.deserialize();
             json_levels.push_back(level);

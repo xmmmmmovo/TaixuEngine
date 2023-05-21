@@ -14,7 +14,6 @@ namespace taixu {
 class OGLVertexBuffer final : public IVertexBuffer {
 private:
     unsigned int VBO{};
-    GLint        stride{0};
     GLint        align{0};
 
 public:
@@ -25,40 +24,27 @@ public:
     void                        bind() override;
     void                        unbind() override;
     [[nodiscard]] std::uint32_t getbufferID() const { return VBO; }
-    void setData(std::size_t size, const void *data, GLenum usage,
-                 GLint align) override;
 
-    void OGLVertexBuffer::setIntData(std::size_t size, const void *data, GLenum usage,
-                              GLint align);
-
-    template<typename T>
-    void setCustomData(std::size_t size, const void *data,
-                                    GLenum usage, GLint align);
-
-    template<typename T>
-    void setVertexAttribPointer(int index);
+    void setData(std::size_t size, const void *data, GLenum usage, GLint align,
+                 GLint size_of_type = sizeof(float)) override;
 
     [[nodiscard]] GLint getAlign() const override;
-    [[nodiscard]] GLint getStride() const override;
 
     ~OGLVertexBuffer() override;
 
     OGLVertexBuffer(OGLVertexBuffer &&other) noexcept
-        : VBO(other.VBO), stride(other.stride), align(other.align) {
-        other.VBO    = 0;
-        other.stride = 0;
-        other.align  = 0;
+        : VBO(other.VBO), align(other.align) {
+        other.VBO   = 0;
+        other.align = 0;
     }
 
     OGLVertexBuffer &operator=(OGLVertexBuffer &&other) noexcept {
         if (this == &other) { return *this; }
 
-        VBO          = other.VBO;
-        stride       = other.stride;
-        align        = other.align;
-        other.VBO    = 0;
-        other.stride = 0;
-        other.align  = 0;
+        VBO         = other.VBO;
+        align       = other.align;
+        other.VBO   = 0;
+        other.align = 0;
         return *this;
     }
 };
