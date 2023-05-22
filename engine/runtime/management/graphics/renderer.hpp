@@ -14,9 +14,9 @@
 #include "core/base/hash.hpp"
 #include "core/base/noncopyable.hpp"
 #include "gameplay/player/camera/euler_camera.hpp"
+#include "management/ecs/components/animation/skeleton_component.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
 #include "management/ecs/components/rigid_body/rigid_body_component.hpp"
-#include "management/ecs/components/animation/skeleton_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/system/system.hpp"
 #include "management/graphics/frontend/lightsInfo.hpp"
@@ -32,7 +32,8 @@
 namespace taixu {
 
 class AbstractRenderer : private noncopyable {
-    PROTOTYPE_DFT(protected, bool, move_mode, false)
+    PROTOTYPE_DFT(protected, bool, move_mode, false);
+    PROTOTYPE_DFT(protected, ITexture2D *, default_texture, nullptr);
 
 public:
     virtual void init()                                   = 0;
@@ -50,14 +51,18 @@ class BaseRenderer : public AbstractRenderer {
 protected:
     Scene  *_current_scene{nullptr};
     System *_renderable_system{nullptr};
+    System *_light_system{nullptr};
 
-    static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "renderable_component"_hash64;
+    static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "render_system"_hash64;
+    static constexpr SystemIdType LIGHT_SYSTEM_ID      = "light_system"_hash64;
 
     std::unique_ptr<IShaderProgram> _render_shader{nullptr};
     std::unique_ptr<IShaderProgram> _skybox_shader{nullptr};
     std::unique_ptr<IShaderProgram> _animation_shader{nullptr};
 
-    Matrices _matrices{};
+    Matrices     _matrices{};
+    LightsInfo   _lights{};
+    MaterialInfo _material{};
 
     float _last_mouse_x{0.0f}, _last_mouse_y{0.0f};
 
@@ -127,19 +132,27 @@ protected:
                         coordinator.getComponentType<TransformComponent>());
                 coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
                                                render_signature);
-                
-                render_signature.set(
-                        coordinator.getComponentType<LightComponent>());
-                coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
-                                               render_signature);
-                                            
+
                 render_signature.set(
                         coordinator.getComponentType<SkeletonComponent>());
                 coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
-                                               render_signature);                                  
+                                               render_signature);
             }
+
+            _light_system = coordinator.registerSystem(LIGHT_SYSTEM_ID);
+            {
+                Signature light_signature;
+                light_signature.set(
+                        coordinator.getComponentType<LightComponent>());
+                light_signature.set(
+                        coordinator.getComponentType<TransformComponent>());
+                coordinator.setsystemSignature(LIGHT_SYSTEM_ID,
+                                               light_signature);
+            }
+
         } else {
             _renderable_system = nullptr;
+            _light_system      = nullptr;
         }
     };
 };

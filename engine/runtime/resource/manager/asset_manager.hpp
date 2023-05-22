@@ -34,10 +34,10 @@ namespace taixu {
 
 class AssetManager final {
 private:
-    std::unordered_map<const char *, Texture2DAsset> _textures{};
-    std::unordered_map<const char *, Model>          _models{};
-    std::unordered_map<const char *, FBXData>        _fbx_files{};
-    std::unique_ptr<JsonWorld>                       _taixu_world;
+    std::unordered_map<std::string_view, Texture2DAsset> _textures{};
+    std::unordered_map<std::string_view, Model>          _models{};
+    std::unordered_map<std::string_view, FBXData>        _fbx_files{};
+    std::unique_ptr<JsonWorld>                           _taixu_world;
 
     static Mesh processMesh(aiMesh *mesh);
 
@@ -100,7 +100,7 @@ public:
 
     Texture2DAsset *loadTexture(std::filesystem::path const &root_path,
                                 std::filesystem::path const &relative_path,
-                                TextureType                  type);
+                                TextureType type = TextureType::COMMON);
 
     // TODO: load texture async
     void

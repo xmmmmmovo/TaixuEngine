@@ -160,9 +160,6 @@ void PhysicsScene::updateGlobalTransform(TransformComponent *_transf,
     Vec3 velocity = body_interface.GetLinearVelocity(body_id);
     _transf->set_translate(
             glm::vec3(position.GetX(), position.GetY(), position.GetZ()));
-    _transf->setRotation(glm::vec3(glm::degrees(position.GetX()),
-                                   glm::degrees(position.GetY()),
-                                   glm::degrees(position.GetZ())));
 }
 
 JPH::Shape *PhysicsScene::toShape(RigidBodyShapeType shape,

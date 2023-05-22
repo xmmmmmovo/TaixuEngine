@@ -13,9 +13,13 @@
 
 namespace taixu::editor {
 
+
 class HierarchyComponent : public AbstractUIComponent {
-private:
-    ImGuiTreeNodeFlags const flags = ImGuiTreeNodeFlags_SpanAvailWidth;
+protected:
+    ImGuiTreeNodeFlags const parent_flags = ImGuiTreeNodeFlags_SpanAvailWidth;
+    ImGuiTreeNodeFlags const leaf_flags   = ImGuiTreeNodeFlags_SpanAvailWidth |
+                                          ImGuiTreeNodeFlags_Leaf |
+                                          ImGuiTreeNodeFlags_NoTreePushOnOpen;
 
 public:
     explicit HierarchyComponent(ViewModel *view_model)

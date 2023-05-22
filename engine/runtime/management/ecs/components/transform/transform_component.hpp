@@ -29,15 +29,6 @@ public:
         : _translate(std::forward<T>(pos)), _scale(std::forward<T>(scale)),
           _rotation(std::forward<RT>(rotate)) {}
 
-    void applyTranslate(glm::vec3 translate) { _translate += translate; }
-    void applyScale(glm::vec3 scale) { _scale *= scale; }
-
-    void setRotation(glm::vec3 rotate) {
-        _rotation.x = rotate.x;
-        _rotation.y = rotate.y;
-        _rotation.z = rotate.z;
-    }
-
     void makeTransformMatrix() {
         glm::mat4 const translation_matrix =
                 glm::translate(glm::mat4(1.0f), _translate);

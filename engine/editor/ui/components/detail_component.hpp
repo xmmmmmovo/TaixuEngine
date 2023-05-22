@@ -82,7 +82,8 @@ public:
                 ImGui::Separator();
 
                 // Translation
-                buildVec3Slider("Translation", trans.translate());
+                bool const t_changed =
+                        buildVec3Slider("Translation", trans.translate());
 
                 // Rotation
                 glm::vec3 euler_rotation =
@@ -120,8 +121,13 @@ public:
                 }
 
                 // Scaling
-                buildVec3Slider("Scaling", trans.scale(), glm::vec3{1.0f});
+                bool const s_changed = buildVec3Slider("Scaling", trans.scale(),
+                                                       glm::vec3{1.0f});
                 ImGui::Separator();
+
+                if (t_changed || r_changed || s_changed) {
+                    trans.makeTransformMatrix();
+                }
             }
         }
 

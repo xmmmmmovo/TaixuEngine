@@ -73,6 +73,9 @@ private:
             ImGuiConfigFlags_NoMouseCursorChange |
             ImGuiWindowFlags_NoBringToFrontOnFocus;
 
+private:
+    void buildUpUsefulObjHierachy();
+
 public:
     explicit MainWindow(WindowContext *context_ptr);
 

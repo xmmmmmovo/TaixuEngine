@@ -6,11 +6,11 @@
 namespace taixu {
 
 struct MaterialInfo {
-    glm::vec4 ambient;
-    glm::vec4 diffuse;
-    glm::vec4 specular;
-    glm::vec4 emissive;
-    float shininess;
+    glm::vec4 ambient{};
+    glm::vec4 diffuse{};
+    glm::vec4 specular{};
+    glm::vec4 emissive{};
+    float     shininess{0.0f};
 };
 
 }// namespace taixu

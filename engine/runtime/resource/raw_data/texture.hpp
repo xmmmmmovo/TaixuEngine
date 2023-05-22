@@ -75,7 +75,7 @@ inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {
 }
 
 struct Texture2DAsset final : public BaseAssetData {
-    TextureType                 type{TextureType::DIFFUSE};
+    TextureType                 type{TextureType::COMMON};
     std::unique_ptr<ITexture2D> texture{nullptr};
 };
 

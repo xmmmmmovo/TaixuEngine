@@ -5,11 +5,12 @@
 #ifndef TAIXUENGINE_OGL_RENDERER_HPP
 #define TAIXUENGINE_OGL_RENDERER_HPP
 
+#include "management/graphics/frontend/cube_renderable.hpp"
 #include "management/graphics/renderer.hpp"
 #include "ogl_frame_buffer.hpp"
 #include "ogl_shader.hpp"
-#include "ogl_uniform_buffer.hpp"
 #include "ogl_texture2d.hpp"
+#include "ogl_uniform_buffer.hpp"
 
 #include <memory>
 
@@ -19,11 +20,12 @@ class OGLRenderer : public BaseRenderer {
 private:
     std::unique_ptr<OGLFrameBuffer> _framebuffer{nullptr};
 
-    OGLUniformBuffer                _matrices_ubo{};
-    OGLUniformBuffer                _lights_ubo{};
-    OGLUniformBuffer                _material_ubo{};
+    OGLUniformBuffer _matrices_ubo{};
+    OGLUniformBuffer _lights_ubo{};
+    OGLUniformBuffer _material_ubo{};
 
-    //std::vector<std::unique_ptr<OGLTexture2D>> textures;
+    CubeRenderable *_cube_renderable{nullptr};
+
 public:
     OGLRenderer() = default;
 

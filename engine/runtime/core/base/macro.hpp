@@ -54,7 +54,9 @@ public:                                                                        \
 /**
  * @brief 简化getter setter
  */
-#define PROTOTYPE(access, type, name) PROTOTYPE_DFT(access, type, name, )
+#define PROTOTYPE(access, type, name)                                          \
+    PROTOTYPE_DFT_ONLY_GETTER(access, type, name, )                            \
+    PROTOTYPE_SETTER(type, name)
 
 /**
  * @brief Define Opengl version
