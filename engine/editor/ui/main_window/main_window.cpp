@@ -12,16 +12,58 @@
 #include "gameplay/gui/imgui_surface.hpp"
 
 #include "GraphEditor.h"
+#include "platform/os/path.hpp"
 
 namespace taixu::editor {
 
 void MainWindow::buildUpUsefulObjHierachy() {
-    auto &uoh = _view_model.useful_objs_hierarchy;
-    uoh.data = "Objects";
-    uoh.children.push_back({"Cube", "Sphere"});
-
+    _view_model.useful_objs_hierarchy = {
+            {
+                    .name = "Objects",
+                    .data = "",
+                    .children =
+                            {
+                                    {
+                                            .name     = "Cube",
+                                            .children = {},
+                                    },
+                                    {
+                                            .name     = "Sphere",
+                                            .children = {},
+                                    },
+                            },
+            },
+            {.name     = "Lights",
+             .data     = "",
+             .children = {{
+                                  .name     = "PointLight",
+                                  .children = {},
+                          },
+                          {
+                                  .name     = "DirectionalLight",
+                                  .children = {},
+                          }}}};
 }
 
+void MainWindow::buildUpPathHierachy() {
+    _view_model.selected_path = "";
+    _view_model.selected_node = nullptr;
+
+    _view_model.path_hierarchy.clear();
+    for (auto &directory_entry :
+         std::filesystem::directory_iterator(_view_model.project_path)) {
+        const auto &path = directory_entry.path();
+        if (path.filename() == ".git" || path.filename() == ".gitignore") {
+            continue;
+        }
+        if (directory_entry.is_directory()) {
+            _view_model.path_hierarchy.push_back(
+                    {.name = path.filename().generic_string(),
+                     .data = getRelativePath(_view_model.project_path, path),
+                     .children = {}});
+        }
+    }
+}
 
 void MainWindow::init() {
     spdlog::info("Main window init start!");
@@ -145,6 +187,7 @@ void MainWindow::onNewProjectCb(std::string_view const &path) {}
 void MainWindow::onOpenProjectCb(std::string_view const &path) {
     _view_model.engine_runtime_ptr->loadProject(path);
     _view_model.project_path = path;
+    buildUpPathHierachy();
 }
 
 void MainWindow::onSaveProjectCb() {}
