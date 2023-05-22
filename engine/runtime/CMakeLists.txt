@@ -18,6 +18,7 @@ target_link_libraries(${TARGET_NAME} PUBLIC Threads::Threads freetype)
 target_link_libraries(${TARGET_NAME} PUBLIC Jolt imgui ${OGLLIB} glad glfw stb glm)
 target_link_libraries(${TARGET_NAME} PUBLIC nlohmann_json::nlohmann_json magic_enum::magic_enum spdlog::spdlog)
 target_link_libraries(${TARGET_NAME} PUBLIC imgui refl-cpp::refl-cpp assimp)
+target_link_libraries(${TARGET_NAME} PUBLIC argparse)
 
 add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET})
 target_include_directories(

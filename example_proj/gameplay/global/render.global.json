@@ -1,0 +1,20 @@
+{
+    "Textures": [
+        {
+            "texture_name": "mars",
+            "texture_path": "assets/textures/mars.png"
+        },
+        {
+            "texture_name": "concrete",
+            "texture_path": "assets/textures/concreteTexture.png"
+        }
+    ],
+    "skybox_specular": {
+        "negx": "assets/textures/skybox/split_skybox_sky_cloud/left.png",
+        "negy": "assets/textures/skybox/split_skybox_sky_cloud/bottom.png",
+        "negz": "assets/textures/skybox/split_skybox_sky_cloud/back.png",
+        "posx": "assets/textures/skybox/split_skybox_sky_cloud/right.png",
+        "posy": "assets/textures/skybox/split_skybox_sky_cloud/top.png",
+        "posz": "assets/textures/skybox/split_skybox_sky_cloud/front.png"
+    }
+}

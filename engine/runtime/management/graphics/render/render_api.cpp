@@ -26,16 +26,19 @@ public:
         // ---------------------------------------
         if (!gladLoadGLLoader(
                     reinterpret_cast<GLADloadproc>(glfwGetProcAddress))) {
-            spdlog::error("Failed to initialize GLAD");
+            spdlog::error("Failed to init GLAD");
             exit(1);
         }
 
         // configure global opengl state
         // -----------------------------
         glEnable(GL_DEPTH_TEST);
+        // Accept fragment if it closer to the camera than the former one
+        glDepthFunc(GL_LESS);
+
         spdlog::info("Cull face enabled");
+        // Cull triangles which normal is not towards the camera
         glEnable(GL_CULL_FACE);
-        glCullFace(GL_BACK);
 
         _window = window;
     }

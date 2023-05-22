@@ -9,21 +9,25 @@
 
 namespace taixu::editor {
 
-class StatusBarComponent : public IUIComponent {
+class StatusBarComponent : public AbstractUIComponent {
 public:
+    explicit StatusBarComponent(ViewModel *view_model)
+        : AbstractUIComponent(view_model) {}
+
     void update() override {
-        float const&   statusWindowHeight = ImGui::GetFrameHeight() * 1.3f;
-        ImGuiViewport* viewport           = ImGui::GetMainViewport();
-        ImGui::SetNextWindowPos(ImVec2(
-                viewport->Pos.x,
-                viewport->Pos.y + viewport->Size.y - statusWindowHeight));
-        ImGui::SetNextWindowSize(ImVec2(viewport->Size.x, statusWindowHeight));
+        float const   &status_window_height = ImGui::GetFrameHeight() * 1.3f;
+        ImGuiViewport *viewport             = ImGui::GetMainViewport();
+        ImGui::SetNextWindowPos(
+                ImVec2(viewport->Pos.x, viewport->Pos.y + viewport->Size.y -
+                                                status_window_height));
+        ImGui::SetNextWindowSize(
+                ImVec2(viewport->Size.x, status_window_height));
         ImGui::SetNextWindowViewport(viewport->ID);
 
-        ImGuiWindowFlags windowFlags =
+        ImGuiWindowFlags const window_flags =
                 ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoDocking;
-        ImGui::Begin("StatusBar", nullptr, windowFlags);
-        float dy = ImGui::GetFontSize() * 0.15f;
+        ImGui::Begin("StatusBar", nullptr, window_flags);
+        float const dy = ImGui::GetFontSize() * 0.15f;
 
         ImGui::SameLine(ImGui::GetIO().DisplaySize.x -
                         14.f * ImGui::GetFontSize());

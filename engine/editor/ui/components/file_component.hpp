@@ -11,79 +11,152 @@
 #include <string>
 #include <vector>
 
-#include "hierarchy_component.hpp"
 #include "ui/ui_component.hpp"
+#include "ui/view_model.hpp"
+#include "useful_obj_hierarchy_component.hpp"
 
 namespace taixu::editor {
-class FileComponent : public IUIComponent {
+
+class FileComponent : public AbstractUIComponent {
 private:
-    std::vector<std::string_view> file_tree;
     static ImGuiWindowFlags constexpr window_flags =
             ImGuiWindowFlags_HorizontalScrollbar;
+    ImGuiTreeNodeFlags const parent_flags = ImGuiTreeNodeFlags_SpanAvailWidth;
+    ImGuiTreeNodeFlags const leaf_flags   = ImGuiTreeNodeFlags_SpanAvailWidth |
+                                          ImGuiTreeNodeFlags_Leaf |
+                                          ImGuiTreeNodeFlags_NoTreePushOnOpen;
 
-    std::filesystem::path root_path{"."};
-    std::filesystem::path current_path{root_path};
+private:
+    void expandTreeNode(HierarchyNode<std::filesystem::path> &entry) {
+        auto full_path = _view_model->project_path / entry.data;
+        for (auto &directory_entry :
+             std::filesystem::directory_iterator(full_path)) {
+            const auto &path = directory_entry.path();
+            if (path.filename() == ".git" || path.filename() == ".gitignore") {
+                continue;
+            }
+            if (directory_entry.is_directory()) {
+                entry.children.push_back(
+                        {.name     = path.filename().generic_string(),
+                         .data     = getRelativePath(_view_model->project_path,
+                                                     path),
+                         .children = {}});
+            }
+        }
+    }
 
-    HierarchyComponent hierarchy_component{};
+    void buildUpTreeNode(HierarchyNode<std::filesystem::path> &node) {
+        if (node.expanded) {
+            for (auto &child : node.children) {
+                auto flag = parent_flags;
+                if (_view_model->selected_node == &child) {
+                    flag |= ImGuiTreeNodeFlags_Selected;
+                }
+                if (ImGui::TreeNodeEx(child.name.c_str(), parent_flags)) {
+                    if (ImGui::IsMouseDoubleClicked(0) &&
+                        ImGui::IsItemHovered(ImGuiHoveredFlags_None)) {
+                        if (!child.expanded) { expandTreeNode(child); }
+                        child.expanded = !child.expanded;
+                        spdlog::info("Double Clicked on: {}", child.name);
+                        _view_model->selected_path = child.data;
+                        _view_model->selected_node = &child;
+                    }
+                    buildUpTreeNode(child);
+                    ImGui::TreePop();
+                }
+            }
+        } else {
+            return;
+        }
+    }
 
 public:
+    explicit FileComponent(ViewModel *view_model)
+        : AbstractUIComponent(view_model) {}
+
     void update() override {
         {
             ImGui::BeginChild(
                     "FileTree",
                     ImVec2(ImGui::GetWindowContentRegionWidth() * 0.2f, 0.f),
                     false, window_flags);
-            hierarchy_component.update();
-            ImGui::EndChild();
-        }
-        // Child 1: no border, enable horizontal scrollbar
 
-        ImGui::SameLine();
-        // Child 2: rounded border
-        {
-            ImGui::BeginChild("ChildR", ImVec2(0, 0.f), false, window_flags);
-
-            if (current_path != root_path) {
-                if (ImGui::Button("<-")) {
-                    current_path = current_path.parent_path();
+            for (auto &parent_entry : _view_model->path_hierarchy) {
+                auto flag = parent_flags;
+                if (_view_model->selected_node == &parent_entry) {
+                    flag |= ImGuiTreeNodeFlags_Selected;
+                }
+                if (ImGui::TreeNodeEx(parent_entry.name.c_str(), flag)) {
+                    if (ImGui::IsMouseDoubleClicked(0) &&
+                        ImGui::IsItemHovered(ImGuiHoveredFlags_None)) {
+                        if (!parent_entry.expanded) {
+                            expandTreeNode(parent_entry);
+                        }
+                        parent_entry.expanded      = !parent_entry.expanded;
+                        _view_model->selected_path = parent_entry.data;
+                        _view_model->selected_node = &parent_entry;
+                    }
+                    if (parent_entry.expanded) {
+                        buildUpTreeNode(parent_entry);
+                    }
+                    ImGui::TreePop();
                 }
             }
 
-            static float padding       = 16.0f;
-            static float thumbnailSize = 128.0f;
-            float        cellSize      = thumbnailSize + padding;
+            ImGui::EndChild();
+        }
 
-            float panelWidth  = ImGui::GetContentRegionAvail().x;
-            int   columnCount = (int) (panelWidth / cellSize);
-            if (columnCount < 1) columnCount = 1;
+        ImGui::SameLine();
+        {
+            ImGui::BeginChild("ChildR", ImVec2(0, 0.f), false, window_flags);
 
-            if (ImGui::BeginTable("split", columnCount,
-                                  ImGuiTableFlags_Resizable |
-                                          ImGuiTableFlags_NoSavedSettings)) {
-                for (auto& directoryEntry :
-                     std::filesystem::directory_iterator(current_path)) {
-                    const auto& path = directoryEntry.path();
-                    auto        relativePath =
-                            std::filesystem::relative(path, root_path);
-                    std::string filenameString =
-                            relativePath.filename().string();
-
-                    ImGui::Button(filenameString.c_str(),
-                                  {thumbnailSize, thumbnailSize});
-                    if (ImGui::IsItemHovered() &&
-                        ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
-                        if (directoryEntry.is_directory())
-                            current_path /= path.filename();
-                    }
-                    ImGui::TextUnformatted(filenameString.c_str());
-                    ImGui::TableNextColumn();
+            if (_view_model->selected_path != "") {
+                if (ImGui::Button("<-")) {
+                    _view_model->selected_path =
+                            _view_model->selected_path.parent_path();
                 }
-                ImGui::EndTable();
+            }
+
+            static float padding        = 16.0f;
+            static float thumbnail_size = 128.0f;
+            float const  cell_size      = thumbnail_size + padding;
+
+            float const panel_width = ImGui::GetContentRegionAvail().x;
+            int column_count        = static_cast<int>(panel_width / cell_size);
+            if (column_count < 1) { column_count = 1; }
+
+            ImGui::Columns(column_count, 0, false);
+
+            auto full_path =
+                    _view_model->project_path / _view_model->selected_path;
+            for (auto &directory_entry :
+                 std::filesystem::directory_iterator(full_path)) {
+                const auto       &path = directory_entry.path();
+                std::string const filename_string =
+                        path.filename().generic_string();
+
+
+                ImGui::PushID(filename_string.c_str());
+                ImGui::Button(filename_string.c_str(),
+                              {thumbnail_size, thumbnail_size});
+
+                if (ImGui::IsItemHovered() &&
+                    ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
+                    if (directory_entry.is_directory()) {
+                        _view_model->selected_path /= path.filename();
+                    } else {
+                    }
+                }
+                ImGui::TextUnformatted(filename_string.c_str());
+
+                ImGui::NextColumn();
+
+                ImGui::PopID();
             }
 
             ImGui::Columns(1);
 
-            ImGui::SliderFloat("Thumbnail Size", &thumbnailSize, 16, 512);
+            ImGui::SliderFloat("Thumbnail Size", &thumbnail_size, 16, 512);
             ImGui::SliderFloat("Padding", &padding, 0, 32);
             ImGui::EndChild();
         }

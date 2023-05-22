@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <glm/glm.hpp>
 
 struct A {
     int a{0};
@@ -37,19 +38,7 @@ TEST_CASE("smart pointer", "[C++ trait tests]") {
     std::cout << weakPtr.use_count() << std::endl;
 }
 
-void move_ptr(std::unique_ptr<A> const &&a) {
-    std::cout << a.get() << std::endl;
-}
-
-TEST_CASE("unique pointer distribution", "[C++ trait tests]") {
-    std::unique_ptr<A> a    = std::make_unique<A>();
-    A                  tmpa = *a;
-    tmpa.a                  = 1;
-    std::cout << tmpa.a << std::endl;
-    move_ptr(std::move(a));
-    std::cout << a.get() << std::endl;
-    std::cout << tmpa.a << std::endl;
-}
+void move_ptr(std::unique_ptr<A> a) { std::cout << a.get() << std::endl; }
 
 TEST_CASE("shared_ptr new", "[C++ trait tests]") {
     std::shared_ptr<A> a = std::make_shared<A>();
@@ -67,4 +56,29 @@ TEST_CASE("unique_pre move test", "[C++ trait tests]") {
     REQUIRE(nullptr == a);
     REQUIRE(c.get() == b);
     REQUIRE(0 == c->a);
+
+    std::unique_ptr<A> aa = std::make_unique<A>();
+    aa->a                 = 1;
+    A *d                  = aa.get();
+    REQUIRE(d != nullptr);
+    REQUIRE(d->a == 1);
+    move_ptr(std::move(aa));
+    std::cout << d->a << std::endl;
+}
+
+TEST_CASE("plus test", "[C++ trait tests]") {
+    int a = 0;
+    a++;
+    REQUIRE(a == 1);
+    ++a;
+    REQUIRE(a == 2);
+}
+
+TEST_CASE("test c++", "[C++ trait tests]") {
+    glm::vec3 v{1, 2, 3};
+
+    float *ptr = &v[0];
+    float *raw_ptr = reinterpret_cast<float *>(&v);
+
+    REQUIRE(ptr == raw_ptr);
 }

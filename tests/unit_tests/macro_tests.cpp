@@ -6,7 +6,8 @@
 #include "core/base/macro.hpp"
 
 class A {
-    PROTOTYPE(int, a, 0);
+    PROTOTYPE_DFT(private, int, a, 0);
+    PROTOTYPE_DFT(private, int, b, 0);
 };
 
 TEST_CASE("base", "[macro tests]") {

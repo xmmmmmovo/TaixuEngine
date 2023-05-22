@@ -6,13 +6,18 @@
 #define TAIXUENGINE_WINDOW_CONTEXT_HPP
 
 
-#include "GLFW/glfw3.h"
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <spdlog/spdlog.h>
+
+#include <imgui.h>
 
 #include <string>
 
 #include "core/base/macro.hpp"
-#include "gameplay/player/perspective_camera.hpp"
+#include "gameplay/player/camera/euler_camera.hpp"
 #include "management/graphics/render/render_api.hpp"
+#include "management/input/input_state.hpp"
 
 namespace taixu {
 /**
@@ -217,14 +222,6 @@ public:
 
     std::string_view _title{};
 
-    /**
-     * @brief editor state
-     */
-    EngineState _state{EngineState::EDITORMODE};
-
-    std::unique_ptr<PerspectiveCamera> _editor_camera{
-            std::make_unique<PerspectiveCamera>()};
-
 protected:
     bool                                       is_vsync{false};
     std::unique_ptr<AbstractGraphicsAPILoader> _api_loader;
@@ -233,7 +230,7 @@ protected:
     initWindow(std::unique_ptr<AbstractGraphicsAPILoader> api_loader,
                bool                                       vsync = false) {
         if (!glfwInit()) {
-            spdlog::error("Failed to initialize GLFW!");
+            spdlog::error("Failed to init GLFW!");
             exit(1);
         }
 
@@ -252,7 +249,7 @@ protected:
         api_loader->apiLoad(_window);
 
         glfwSetWindowUserPointer(_window, this);
-        glfwSetKeyCallback(_window, WindowContext::keyCallback);
+        glfwSetKeyCallback(_window, keyCallback);
         glfwSetErrorCallback(errorCallBack);
         glfwSetCharCallback(_window, charCallback);
         glfwSetCharModsCallback(_window, charModsCallback);
@@ -298,6 +295,9 @@ public:
     }
 
     inline void swapBuffers() const { _api_loader->swapBuffers(); }
+
+public:
+    InputState const *_input_state{nullptr};
 };
 
 }// namespace taixu

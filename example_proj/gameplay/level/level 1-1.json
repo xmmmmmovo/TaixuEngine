@@ -1,0 +1,24 @@
+{
+  "GOs": [
+    {
+      "GO_path": "gameplay/GO/floor.json",
+      "name": "floor"
+    },
+    {
+      "GO_path": "gameplay/GO/planet.json",
+      "name": "planet"
+    },
+    {
+      "GO_path": "gameplay/GO/nanosuit.json",
+      "name": "nanosuit"
+    },
+    {
+      "GO_path": "gameplay/GO/light1.json",
+      "name": "light1"
+    },
+    {
+      "GO_path": "gameplay/GO/light2.json",
+      "name": "light2"
+    }
+  ]
+}

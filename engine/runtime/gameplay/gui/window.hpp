@@ -6,15 +6,19 @@
 #define TAIXUENGINE_WINDOW_HPP
 
 #include "core/base/noncopyable.hpp"
+#include "management/scene/scene.hpp"
 #include "window_context.hpp"
-
 namespace taixu {
+
+class Engine;
 
 class IWindow : private noncopyable {
 public:
     virtual void init()    = 0;
     virtual void update()  = 0;
     virtual void destroy() = 0;
+
+    virtual void initWithEngineRuntime(Engine *engine_runtime_ptr) = 0;
 };
 
 }// namespace taixu

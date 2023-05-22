@@ -16,14 +16,21 @@
 // "" headers
 #include "engine.hpp"
 #include "gameplay/gui/window.hpp"
+#include "management/ecs/components/transform/transform_component.hpp"
+#include "management/ecs/core/ecs_types.hpp"
+#include "management/ecs/ecs_coordinator.hpp"
+#include "management/ecs/system/system.hpp"
 #include "management/graphics/renderer.hpp"
+#include "management/scene/scene.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
-#include "ui/components/hierarchy_component.hpp"
+#include "ui/components/go_hierarchy_component.hpp"
 #include "ui/components/menu_component.hpp"
 #include "ui/components/render_component.hpp"
 #include "ui/components/statusbar_component.hpp"
+#include "ui/components/useful_obj_hierarchy_component.hpp"
+#include "ui/view_model.hpp"
 
 namespace taixu::editor {
 
@@ -41,37 +48,19 @@ private:
             "Useful Objects"};
 
     // components
-    std::unique_ptr<MenuComponent> menu_component{
-            std::make_unique<MenuComponent>()};
-    std::unique_ptr<RenderComponent> render_component{
-            std::make_unique<RenderComponent>()};
-    std::unique_ptr<HierarchyComponent> world_object_component{
-            std::make_unique<HierarchyComponent>()};
-    std::unique_ptr<DetailComponent> detail_component{
-            std::make_unique<DetailComponent>()};
-    std::unique_ptr<FileComponent> file_component{
-            std::make_unique<FileComponent>()};
-    std::unique_ptr<ConsoleComponent> status_component{
-            std::make_unique<ConsoleComponent>()};
-    std::unique_ptr<HierarchyComponent> useful_obj_component{
-            std::make_unique<HierarchyComponent>()};
-    std::unique_ptr<StatusBarComponent> status_bar_component{
-            std::make_unique<StatusBarComponent>()};
-
+    MenuComponent        menu_component{&_view_model};
+    RenderComponent      render_component{&_view_model};
+    GoHierarchyComponent world_object_component{&_view_model};
+    DetailComponent      detail_component{&_view_model};
+    FileComponent        file_component{&_view_model};
+    ConsoleComponent     status_component{&_view_model};
+    UsefulObjectComponent useful_obj_component{&_view_model};
+    StatusBarComponent   status_bar_component{&_view_model};
 
 private:
-    IRenderer *_renderer{};
-
-    // static raw engine runtime pointer
-    // do not need to free
-    Engine *_engine_runtime{nullptr};
-
     // context
     WindowContext *_context_ptr{nullptr};
-
-    ImVec2 _mouse_pos{0.0f, 0.0f};
-    ImVec2 _last_mouse_pos{-1.f, -1.f};
-    bool   _cam_mode{false};
+    ViewModel      _view_model{};
 
 private:
     /**
@@ -84,6 +73,10 @@ private:
             ImGuiConfigFlags_NoMouseCursorChange |
             ImGuiWindowFlags_NoBringToFrontOnFocus;
 
+private:
+    void buildUpUsefulObjHierachy();
+    void buildUpPathHierachy();
+
 public:
     explicit MainWindow(WindowContext *context_ptr);
 
@@ -91,7 +84,7 @@ public:
     void update() override;
     void destroy() override;
 
-    void initWithEngineRuntime(Engine *engine_runtime_ptr);
+    void initWithEngineRuntime(Engine *engine_runtime_ptr) override;
 
 private:
     void preUpdate();

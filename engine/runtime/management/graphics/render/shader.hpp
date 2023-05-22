@@ -2,6 +2,7 @@
 #define ENGINE_RUNTIME_GRAPHICS_SHADER
 
 #include "core/base/noncopyable.hpp"
+#include "management/graphics/render/render_types.hpp"
 
 namespace taixu {
 
@@ -74,6 +75,12 @@ public:
 
     virtual void set_uniform(std::string_view name,
                              const glm::mat4 &mat) const noexcept = 0;
+
+    virtual void bind_uniform_block(const std::string_view &name,
+                                    std::uint32_t idx) const noexcept = 0;
+
+    virtual void setMat4Array(const std::string &name,
+                              const glm::mat4   &mat) const noexcept = 0;
 
 protected:
     unsigned int _id{0};
