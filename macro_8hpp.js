@@ -1,7 +1,14 @@
 var macro_8hpp =
 [
-    [ "PROTOTYPE", "macro_8hpp.html#ad50e649a9a4814e57fed379bf2fe9fb2", null ],
-    [ "PROTOTYPE_ONLY_GETTER", "macro_8hpp.html#a4c7fcdd7ec26b274e8767072e62498dc", null ],
+    [ "PROTOTYPE", "macro_8hpp.html#a02ebf389c5cdf477bdf26b5b45291428", null ],
+    [ "PROTOTYPE_CONST_GETTER", "macro_8hpp.html#aa37abf87bc6ce5c6f8beafc4bd5437ab", null ],
+    [ "PROTOTYPE_DFT", "macro_8hpp.html#a5ad0e5338bd0a51229df2f3799e77f12", null ],
+    [ "PROTOTYPE_DFT_ONLY_GETTER", "macro_8hpp.html#a983c4c116e3a43061bcea5c7e967ed20", null ],
+    [ "PROTOTYPE_DFT_ONLY_GETTER_CONST", "macro_8hpp.html#ac96435b4bf3af189f119c12bda0260f1", null ],
+    [ "PROTOTYPE_GETTER", "macro_8hpp.html#afa965fab3c37455a534a26f954fe155c", null ],
+    [ "PROTOTYPE_ONLY_GETTER", "macro_8hpp.html#aee709daea4c5df824018c1d3feb0cf25", null ],
+    [ "PROTOTYPE_ONLY_GETTER_CONST", "macro_8hpp.html#a586d84e8a0c350d9464cc0d930b7916a", null ],
+    [ "PROTOTYPE_SETTER", "macro_8hpp.html#a433edf8cefffe45d2848ec00d80e8dd1", null ],
     [ "EngineState", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507", [
       [ "EDITORMODE", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b", null ],
       [ "PREVIEWMODE", "macro_8hpp.html#a0019e688317bd524b76edd73df8a4507ac62e3d94e99fe5f4fd32c92a61679539", null ],

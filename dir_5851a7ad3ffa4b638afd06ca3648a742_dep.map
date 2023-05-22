@@ -1,11 +1,14 @@
 <map id="engine/runtime/platform/opengl" name="engine/runtime/platform/opengl">
-<area shape="rect" id="node1" href="dir_e20f5b695b0f4d7b566fb4608fb1098b.html" title="os" alt="" coords="27,148,99,196"/>
-<area shape="rect" id="node2" href="dir_5851a7ad3ffa4b638afd06ca3648a742.html" title="opengl" alt="" coords="27,52,99,100"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000029_000030.html" title="1" alt="" coords="66,122,76,137"/>
-<area shape="rect" id="node3" href="dir_0f5c9aa018504ec80b3590dee96e9bd5.html" title="core" alt="" coords="145,244,217,292"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000029_000009.html" title="1" alt="" coords="162,216,171,231"/>
-<area shape="rect" id="node4" href="dir_2e743e866fb37056f41fd9fa9b68e330.html" title="management" alt="" coords="173,148,283,196"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000029_000017.html" title="7" alt="" coords="171,124,181,139"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000017_000009.html" title="10" alt="" coords="200,224,217,239"/>
-<area shape="rect" id="clust1" href="dir_1a37a6ef312cc461ed009acf26c57545.html" title="platform" alt="" coords="16,16,109,207"/>
+<area shape="rect" id="node1" href="dir_5851a7ad3ffa4b638afd06ca3648a742.html" title="opengl" alt="" coords="48,52,120,100"/>
+<area shape="rect" id="node2" href="dir_0f5c9aa018504ec80b3590dee96e9bd5.html" title="core" alt="" coords="6,340,78,388"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000042_000010.html" title="1" alt="" coords="30,313,39,327"/>
+<area shape="rect" id="node3" href="dir_2e743e866fb37056f41fd9fa9b68e330.html" title="management" alt="" coords="29,148,138,196"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000042_000022.html" title="15" alt="" coords="84,122,101,137"/>
+<area shape="rect" id="node4" href="dir_62623fadb18e76a276166b2f13d7c4c1.html" title="resource" alt="" coords="80,244,159,292"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000042_000045.html" title="2" alt="" coords="145,224,154,239"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000022_000010.html" title="21" alt="" coords="51,317,68,331"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000022_000045.html" title="6" alt="" coords="99,217,108,231"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000045_000010.html" title="3" alt="" coords="75,324,84,339"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000045_000022.html" title="3" alt="" coords="96,209,105,224"/>
+<area shape="rect" id="clust1" href="dir_1a37a6ef312cc461ed009acf26c57545.html" title="platform" alt="" coords="37,16,130,111"/>
 </map>

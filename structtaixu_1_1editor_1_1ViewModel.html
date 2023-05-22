@@ -95,40 +95,211 @@ Collaboration diagram for taixu::editor::ViewModel:</div>
 <div class="dyncontent">
 <div class="center"><img src="structtaixu_1_1editor_1_1ViewModel__coll__graph.png" border="0" usemap="#ataixu_1_1editor_1_1ViewModel_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1editor_1_1ViewModel_coll__map" id="ataixu_1_1editor_1_1ViewModel_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,187,97"/>
+<area shape="rect" title=" " alt="" coords="629,1203,810,1383"/>
+<area shape="rect" href="classtaixu_1_1Engine.html" title=" " alt="" coords="276,769,445,1140"/>
+<area shape="rect" href="classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="25,490,187,641"/>
+<area shape="rect" href="classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="5,123,207,259"/>
+<area shape="rect" href="classtaixu_1_1Clock.html" title=" " alt="" coords="212,439,379,692"/>
+<area shape="rect" href="classtaixu_1_1Scene.html" title="场景类" alt="" coords="403,519,547,611"/>
+<area shape="rect" href="classtaixu_1_1ECSCoordinator.html" title="ECS协调器,用于协调各个系统,以及管理组件." alt="" coords="382,5,569,376"/>
+<area shape="rect" href="structtaixu_1_1editor_1_1HierarchyNode.html" title=" " alt="" coords="520,879,692,1030"/>
+<area shape="rect" href="structtaixu_1_1editor_1_1HierarchyNode.html" title=" " alt="" coords="572,497,744,633"/>
+<area shape="rect" href="classtaixu_1_1IFrameBuffer.html" title=" " alt="" coords="717,894,863,1015"/>
+<area shape="rect" href="classtaixu_1_1AbstractRenderer.html" title=" " alt="" coords="888,865,1081,1045"/>
+<area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="911,490,1058,641"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aebd40bff35a6d0f329a8728d720ccbfe"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#aebd40bff35a6d0f329a8728d720ccbfe">_project_path</a></td></tr>
-<tr class="separator:aebd40bff35a6d0f329a8728d720ccbfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcd0834da369dc9c3c97c538fe4ce101"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#adcd0834da369dc9c3c97c538fe4ce101">_dir_path</a></td></tr>
-<tr class="separator:adcd0834da369dc9c3c97c538fe4ce101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0cefced5d378490564107129c9be22c"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#aa0cefced5d378490564107129c9be22c">project_path</a> {}</td></tr>
+<tr class="separator:aa0cefced5d378490564107129c9be22c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8488a8464e11f6cce3192575a8709bd5"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#a8488a8464e11f6cce3192575a8709bd5">selected_path</a> {}</td></tr>
+<tr class="separator:a8488a8464e11f6cce3192575a8709bd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecb5879fc6045b6d774f4a7e0927155c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html">HierarchyNode</a>&lt; std::filesystem::path &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#aecb5879fc6045b6d774f4a7e0927155c">selected_node</a> {nullptr}</td></tr>
+<tr class="separator:aecb5879fc6045b6d774f4a7e0927155c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15ce059882bf25016cb76c6f0afb8894"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html">HierarchyNode</a>&lt; std::filesystem::path &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#a15ce059882bf25016cb76c6f0afb8894">path_hierarchy</a> {}</td></tr>
+<tr class="separator:a15ce059882bf25016cb76c6f0afb8894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42f186a5573f57b9d38771b635d9f0a5"><td class="memItemLeft" align="right" valign="top">ImGuizmo::MODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#a42f186a5573f57b9d38771b635d9f0a5">guizmo_mode</a> {ImGuizmo::MODE::LOCAL}</td></tr>
+<tr class="separator:a42f186a5573f57b9d38771b635d9f0a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3218aa257ff0bb0407003c3b1cc9f0"><td class="memItemLeft" align="right" valign="top">ImGuizmo::OPERATION&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#adf3218aa257ff0bb0407003c3b1cc9f0">guizmo_operation</a> {ImGuizmo::OPERATION::TRANSLATE}</td></tr>
+<tr class="separator:adf3218aa257ff0bb0407003c3b1cc9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9570a602418181f8ee1cdaa048c2d5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetaixu.html#a51f0133141b9579ac49ed4791aa23b90">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#ae9570a602418181f8ee1cdaa048c2d5f">selected_entity</a> {0}</td></tr>
+<tr class="separator:ae9570a602418181f8ee1cdaa048c2d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc38ea78705f08b887272c90e1d0b30d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#adc38ea78705f08b887272c90e1d0b30d">is_entity_selected</a> {false}</td></tr>
+<tr class="separator:adc38ea78705f08b887272c90e1d0b30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadcc81de205b04d199e7aed30303d81b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html">HierarchyNode</a>&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#aadcc81de205b04d199e7aed30303d81b">useful_objs_hierarchy</a> {}</td></tr>
+<tr class="separator:aadcc81de205b04d199e7aed30303d81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b7302668428d2ff62d1dd9094e4b9fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1Engine.html">Engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#a3b7302668428d2ff62d1dd9094e4b9fc">engine_runtime_ptr</a> {nullptr}</td></tr>
+<tr class="separator:a3b7302668428d2ff62d1dd9094e4b9fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac01fdd27fbdeda0b917f657bbb0307e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1AbstractRenderer.html">AbstractRenderer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#ac01fdd27fbdeda0b917f657bbb0307e7">renderer</a> {nullptr}</td></tr>
+<tr class="separator:ac01fdd27fbdeda0b917f657bbb0307e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5a8d8d0649fc71b3493dd6e244727dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1IFrameBuffer.html">IFrameBuffer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1editor_1_1ViewModel.html#ad5a8d8d0649fc71b3493dd6e244727dd">framebuffer</a> {nullptr}</td></tr>
+<tr class="separator:ad5a8d8d0649fc71b3493dd6e244727dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="adcd0834da369dc9c3c97c538fe4ce101"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcd0834da369dc9c3c97c538fe4ce101">&#9670;&nbsp;</a></span>_dir_path</h2>
+<a id="a3b7302668428d2ff62d1dd9094e4b9fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b7302668428d2ff62d1dd9094e4b9fc">&#9670;&nbsp;</a></span>engine_runtime_ptr</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::filesystem::path taixu::editor::ViewModel::_dir_path</td>
+          <td class="memname"><a class="el" href="classtaixu_1_1Engine.html">Engine</a>* taixu::editor::ViewModel::engine_runtime_ptr {nullptr}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aebd40bff35a6d0f329a8728d720ccbfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebd40bff35a6d0f329a8728d720ccbfe">&#9670;&nbsp;</a></span>_project_path</h2>
+<a id="ad5a8d8d0649fc71b3493dd6e244727dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5a8d8d0649fc71b3493dd6e244727dd">&#9670;&nbsp;</a></span>framebuffer</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::filesystem::path taixu::editor::ViewModel::_project_path</td>
+          <td class="memname"><a class="el" href="classtaixu_1_1IFrameBuffer.html">IFrameBuffer</a>* taixu::editor::ViewModel::framebuffer {nullptr}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42f186a5573f57b9d38771b635d9f0a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42f186a5573f57b9d38771b635d9f0a5">&#9670;&nbsp;</a></span>guizmo_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ImGuizmo::MODE taixu::editor::ViewModel::guizmo_mode {ImGuizmo::MODE::LOCAL}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf3218aa257ff0bb0407003c3b1cc9f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf3218aa257ff0bb0407003c3b1cc9f0">&#9670;&nbsp;</a></span>guizmo_operation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ImGuizmo::OPERATION taixu::editor::ViewModel::guizmo_operation {ImGuizmo::OPERATION::TRANSLATE}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc38ea78705f08b887272c90e1d0b30d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc38ea78705f08b887272c90e1d0b30d">&#9670;&nbsp;</a></span>is_entity_selected</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool taixu::editor::ViewModel::is_entity_selected {false}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15ce059882bf25016cb76c6f0afb8894"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15ce059882bf25016cb76c6f0afb8894">&#9670;&nbsp;</a></span>path_hierarchy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html">HierarchyNode</a>&lt;std::filesystem::path&gt; &gt; taixu::editor::ViewModel::path_hierarchy {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0cefced5d378490564107129c9be22c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0cefced5d378490564107129c9be22c">&#9670;&nbsp;</a></span>project_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::filesystem::path taixu::editor::ViewModel::project_path {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac01fdd27fbdeda0b917f657bbb0307e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac01fdd27fbdeda0b917f657bbb0307e7">&#9670;&nbsp;</a></span>renderer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtaixu_1_1AbstractRenderer.html">AbstractRenderer</a>* taixu::editor::ViewModel::renderer {nullptr}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9570a602418181f8ee1cdaa048c2d5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9570a602418181f8ee1cdaa048c2d5f">&#9670;&nbsp;</a></span>selected_entity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetaixu.html#a51f0133141b9579ac49ed4791aa23b90">Entity</a> taixu::editor::ViewModel::selected_entity {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aecb5879fc6045b6d774f4a7e0927155c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecb5879fc6045b6d774f4a7e0927155c">&#9670;&nbsp;</a></span>selected_node</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html">HierarchyNode</a>&lt;std::filesystem::path&gt;* taixu::editor::ViewModel::selected_node {nullptr}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8488a8464e11f6cce3192575a8709bd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8488a8464e11f6cce3192575a8709bd5">&#9670;&nbsp;</a></span>selected_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::filesystem::path taixu::editor::ViewModel::selected_path {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadcc81de205b04d199e7aed30303d81b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadcc81de205b04d199e7aed30303d81b">&#9670;&nbsp;</a></span>useful_objs_hierarchy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structtaixu_1_1editor_1_1HierarchyNode.html">HierarchyNode</a>&lt;std::string&gt; &gt; taixu::editor::ViewModel::useful_objs_hierarchy {}</td>
         </tr>
       </table>
 </div><div class="memdoc">

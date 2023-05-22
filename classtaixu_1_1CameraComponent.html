@@ -96,7 +96,7 @@ Collaboration diagram for taixu::CameraComponent:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1CameraComponent__coll__graph.png" border="0" usemap="#ataixu_1_1CameraComponent_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1CameraComponent_coll__map" id="ataixu_1_1CameraComponent_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,195,127"/>
+<area shape="rect" title=" " alt="" coords="5,5,195,83"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -104,17 +104,11 @@ Collaboration diagram for taixu::CameraComponent:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1aa02ccf873cbbc6784071e2628d2cac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1CameraComponent.html#a1aa02ccf873cbbc6784071e2628d2cac">CameraComponent</a> ()=default</td></tr>
 <tr class="separator:a1aa02ccf873cbbc6784071e2628d2cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a780f279658f2469a26318bbd97fe4136"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1CameraComponent.html#a780f279658f2469a26318bbd97fe4136">initialize</a> ()</td></tr>
-<tr class="separator:a780f279658f2469a26318bbd97fe4136"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07606a9a77054a195eb9fb58cc284eae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1CameraComponent.html#a07606a9a77054a195eb9fb58cc284eae">setCameraPosition</a> (glm::vec3 position)</td></tr>
-<tr class="separator:a07606a9a77054a195eb9fb58cc284eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac52643a20b4349388c7fab820420b18d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1CameraComponent.html#ac52643a20b4349388c7fab820420b18d">setCameraLookAt</a> ()</td></tr>
-<tr class="separator:ac52643a20b4349388c7fab820420b18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5b94843e1f3b62e28c168d4a686fa4b4"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1CameraComponent.html#a5b94843e1f3b62e28c168d4a686fa4b4">character_camera</a> {nullptr}</td></tr>
-<tr class="separator:a5b94843e1f3b62e28c168d4a686fa4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0640d8c609a79c8fd07a1fa67666546"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1EulerCamera.html">EulerCamera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1CameraComponent.html#ad0640d8c609a79c8fd07a1fa67666546">character_camera</a></td></tr>
+<tr class="separator:ad0640d8c609a79c8fd07a1fa67666546"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1aa02ccf873cbbc6784071e2628d2cac"></a>
@@ -142,77 +136,25 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a780f279658f2469a26318bbd97fe4136"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a780f279658f2469a26318bbd97fe4136">&#9670;&nbsp;</a></span>initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void taixu::CameraComponent::initialize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac52643a20b4349388c7fab820420b18d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac52643a20b4349388c7fab820420b18d">&#9670;&nbsp;</a></span>setCameraLookAt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void taixu::CameraComponent::setCameraLookAt </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a07606a9a77054a195eb9fb58cc284eae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07606a9a77054a195eb9fb58cc284eae">&#9670;&nbsp;</a></span>setCameraPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void taixu::CameraComponent::setCameraPosition </td>
-          <td>(</td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>position</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a5b94843e1f3b62e28c168d4a686fa4b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b94843e1f3b62e28c168d4a686fa4b4">&#9670;&nbsp;</a></span>character_camera</h2>
+<a id="ad0640d8c609a79c8fd07a1fa67666546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0640d8c609a79c8fd07a1fa67666546">&#9670;&nbsp;</a></span>character_camera</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a>&gt; taixu::CameraComponent::character_camera {nullptr}</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1EulerCamera.html">EulerCamera</a>&gt; taixu::CameraComponent::character_camera</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">            std::make_unique&lt;EulerCamera&gt;()}</div>
+</div><!-- fragment -->
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>engine/runtime/management/ecs/entity_component/camera/<a class="el" href="camera__component_8hpp_source.html">camera_component.hpp</a></li>
-<li>engine/runtime/management/ecs/entity_component/camera/<a class="el" href="camera__component_8cpp.html">camera_component.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>engine/runtime/management/ecs/components/camera/<a class="el" href="camera__component_8hpp_source.html">camera_component.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

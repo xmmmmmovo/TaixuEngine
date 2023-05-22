@@ -95,8 +95,8 @@ Inheritance diagram for taixu::IVertexBuffer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1IVertexBuffer__inherit__graph.png" border="0" usemap="#ataixu_1_1IVertexBuffer_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1IVertexBuffer_inherit__map" id="ataixu_1_1IVertexBuffer_inherit__map">
-<area shape="rect" title=" " alt="" coords="17,204,165,340"/>
-<area shape="rect" href="classtaixu_1_1OGLVertexBuffer.html" title=" " alt="" coords="5,388,176,656"/>
+<area shape="rect" title=" " alt="" coords="17,204,165,325"/>
+<area shape="rect" href="classtaixu_1_1OGLVertexBuffer.html" title=" " alt="" coords="5,373,176,597"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="17,5,164,156"/>
 </map>
 </div>
@@ -105,7 +105,7 @@ Collaboration diagram for taixu::IVertexBuffer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1IVertexBuffer__coll__graph.png" border="0" usemap="#ataixu_1_1IVertexBuffer_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1IVertexBuffer_coll__map" id="ataixu_1_1IVertexBuffer_coll__map">
-<area shape="rect" title=" " alt="" coords="5,204,153,340"/>
+<area shape="rect" title=" " alt="" coords="5,204,153,325"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="6,5,153,156"/>
 </map>
 </div>
@@ -116,12 +116,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa76099bdab1dd94b94a12b7e87bf6d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8856c33133bee0d922c4503c25bc9b31"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IVertexBuffer.html#a8856c33133bee0d922c4503c25bc9b31">unbind</a> ()=0</td></tr>
 <tr class="separator:a8856c33133bee0d922c4503c25bc9b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5269e37fb9ed998f97e0ad99479b22dc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IVertexBuffer.html#a5269e37fb9ed998f97e0ad99479b22dc">setData</a> (std::size_t size, const void *data, GLenum usage, GLint align)=0</td></tr>
-<tr class="separator:a5269e37fb9ed998f97e0ad99479b22dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2c31058b19225b460a924569c250657"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IVertexBuffer.html#aa2c31058b19225b460a924569c250657">setData</a> (std::size_t size, const void *data, GLenum usage, GLint align, GLint size_of_type)=0</td></tr>
+<tr class="separator:aa2c31058b19225b460a924569c250657"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a711484ac06afcef7bb3d11fc93b8f1f1"><td class="memItemLeft" align="right" valign="top">virtual GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IVertexBuffer.html#a711484ac06afcef7bb3d11fc93b8f1f1">getAlign</a> () const =0</td></tr>
 <tr class="separator:a711484ac06afcef7bb3d11fc93b8f1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdbb470be7b69154c41c276039fd7b27"><td class="memItemLeft" align="right" valign="top">virtual GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IVertexBuffer.html#afdbb470be7b69154c41c276039fd7b27">getStride</a> () const =0</td></tr>
-<tr class="separator:afdbb470be7b69154c41c276039fd7b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -194,35 +192,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="afdbb470be7b69154c41c276039fd7b27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdbb470be7b69154c41c276039fd7b27">&#9670;&nbsp;</a></span>getStride()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual GLint taixu::IVertexBuffer::getStride </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="classtaixu_1_1OGLVertexBuffer.html#a2c3ef8b08d740caa32538c1e655eb58a">taixu::OGLVertexBuffer</a>.</p>
-
-</div>
-</div>
-<a id="a5269e37fb9ed998f97e0ad99479b22dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5269e37fb9ed998f97e0ad99479b22dc">&#9670;&nbsp;</a></span>setData()</h2>
+<a id="aa2c31058b19225b460a924569c250657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2c31058b19225b460a924569c250657">&#9670;&nbsp;</a></span>setData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,7 +223,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">GLint&#160;</td>
-          <td class="paramname"><em>align</em>&#160;</td>
+          <td class="paramname"><em>align</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLint&#160;</td>
+          <td class="paramname"><em>size_of_type</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -267,7 +244,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classtaixu_1_1OGLVertexBuffer.html#a3ac8f9ab90479f22e7aecef92ba51a17">taixu::OGLVertexBuffer</a>.</p>
+<p>Implemented in <a class="el" href="classtaixu_1_1OGLVertexBuffer.html#ae6aa5649519a8738ffa907c4a6b970de">taixu::OGLVertexBuffer</a>.</p>
 
 </div>
 </div>

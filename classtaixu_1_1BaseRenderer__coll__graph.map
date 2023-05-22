@@ -1,6 +1,11 @@
 <map id="taixu::BaseRenderer" name="taixu::BaseRenderer">
-<area shape="rect" id="node1" title=" " alt="" coords="177,521,331,599"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1IRenderer.html" title=" " alt="" coords="5,264,199,400"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="29,5,175,156"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1Clock.html" title=" " alt="" coords="223,205,389,459"/>
+<area shape="rect" id="node1" title=" " alt="" coords="413,696,617,876"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1AbstractRenderer.html" title=" " alt="" coords="5,439,199,619"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="29,115,175,266"/>
+<area shape="rect" id="node4" href="$structtaixu_1_1Matrices.html" title=" " alt="" coords="223,468,341,589"/>
+<area shape="rect" id="node5" href="$structtaixu_1_1System.html" title=" " alt="" coords="365,475,500,582"/>
+<area shape="rect" id="node6" href="$structtaixu_1_1MaterialInfo.html" title=" " alt="" coords="529,461,672,597"/>
+<area shape="rect" id="node7" href="$classtaixu_1_1Scene.html" title="场景类" alt="" coords="697,483,841,575"/>
+<area shape="rect" id="node8" href="$classtaixu_1_1ECSCoordinator.html" title="ECS协调器,用于协调各个系统,以及管理组件." alt="" coords="675,5,862,376"/>
+<area shape="rect" id="node9" href="$structtaixu_1_1LightsInfo.html" title=" " alt="" coords="865,453,1005,604"/>
 </map>

@@ -89,39 +89,54 @@ $(document).ready(function(){initNavTree('vertex__array_8hpp_source.html',''); i
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by xmmmmmovo on 2023/2/25.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_VERTEX_ARRAY_HPP</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_VERTEX_ARRAY_HPP</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_GRAPHICS_RENDER_VERTEX_ARRAY_HPP</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_GRAPHICS_RENDER_VERTEX_ARRAY_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8hpp.html">core/base/noncopyable.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="element__buffer_8hpp.html">element_buffer.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vertex__buffer_8hpp.html">vertex_buffer.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> VboType = IVertexBuffer, <span class="keyword">typename</span> EboType = IElementBuffer&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexArray.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1IVertexArray.html">IVertexArray</a> : <span class="keyword">private</span> <a class="code" href="classtaixu_1_1noncopyable.html">noncopyable</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexArray.html#a5796bb6aa92b489a14e99b6fe6c4dab5">   19</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexArray.html#a5796bb6aa92b489a14e99b6fe6c4dab5">bind</a>()   = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexArray.html#a1cdc74407bec20777b85284178f8be27">   20</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexArray.html#a1cdc74407bec20777b85284178f8be27">unbind</a>() = 0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexArray.html#a3d1cf8105b913c298c3aa64860ed637d">   22</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexArray.html#a3d1cf8105b913c298c3aa64860ed637d">addVBO</a>(VboType&amp;&amp; vbo) = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexArray.html#ac03ae80ddfd436d2eb16f7f84bcbdd6e">   23</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexArray.html#ac03ae80ddfd436d2eb16f7f84bcbdd6e">setEBO</a>(EboType&amp;&amp; ebo) = 0;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8hpp.html">core/base/noncopyable.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="element__buffer_8hpp.html">element_buffer.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="engine__args_8hpp.html">engine_args.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="render__api_8hpp.html">management/graphics/render/render_api.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vertex__buffer_8hpp.html">vertex_buffer.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexArray.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1IVertexArray.html">IVertexArray</a> : <span class="keyword">private</span> <a class="code" href="classtaixu_1_1noncopyable.html">noncopyable</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexArray.html#a5732c839e8656142b89675624a4d40b5">   21</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexArray.html#a5732c839e8656142b89675624a4d40b5">bind</a>()   = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexArray.html#adc9f8aeb7e8bbde37e6401e07ae6d509">   22</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexArray.html#adc9f8aeb7e8bbde37e6401e07ae6d509">unbind</a>() = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexArray.html#a72c5486982b29e0caba47a7ba2eed748">   24</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexArray.html#a72c5486982b29e0caba47a7ba2eed748">clear</a>() = 0;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_VERTEX_ARRAY_HPP</span></div>
-<div class="ttc" id="aclasstaixu_1_1IVertexArray_html"><div class="ttname"><a href="classtaixu_1_1IVertexArray.html">taixu::IVertexArray</a></div><div class="ttdef"><b>Definition:</b> vertex_array.hpp:17</div></div>
-<div class="ttc" id="aclasstaixu_1_1IVertexArray_html_a1cdc74407bec20777b85284178f8be27"><div class="ttname"><a href="classtaixu_1_1IVertexArray.html#a1cdc74407bec20777b85284178f8be27">taixu::IVertexArray::unbind</a></div><div class="ttdeci">virtual void unbind()=0</div></div>
-<div class="ttc" id="aclasstaixu_1_1IVertexArray_html_a3d1cf8105b913c298c3aa64860ed637d"><div class="ttname"><a href="classtaixu_1_1IVertexArray.html#a3d1cf8105b913c298c3aa64860ed637d">taixu::IVertexArray::addVBO</a></div><div class="ttdeci">virtual void addVBO(VboType &amp;&amp;vbo)=0</div></div>
-<div class="ttc" id="aclasstaixu_1_1IVertexArray_html_a5796bb6aa92b489a14e99b6fe6c4dab5"><div class="ttname"><a href="classtaixu_1_1IVertexArray.html#a5796bb6aa92b489a14e99b6fe6c4dab5">taixu::IVertexArray::bind</a></div><div class="ttdeci">virtual void bind()=0</div></div>
-<div class="ttc" id="aclasstaixu_1_1IVertexArray_html_ac03ae80ddfd436d2eb16f7f84bcbdd6e"><div class="ttname"><a href="classtaixu_1_1IVertexArray.html#ac03ae80ddfd436d2eb16f7f84bcbdd6e">taixu::IVertexArray::setEBO</a></div><div class="ttdeci">virtual void setEBO(EboType &amp;&amp;ebo)=0</div></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classtaixu_1_1IVertexArray.html#a07dda80380f3df4394f94702b3fa99a0">   26</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1IVertexArray.html#a07dda80380f3df4394f94702b3fa99a0">draw</a>(std::uint32_t cnt) = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> VboType = IVertexBuffer, <span class="keyword">typename</span> EboType = IElementBuffer&gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classtaixu_1_1AbstractVertexArray.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1AbstractVertexArray.html">AbstractVertexArray</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1IVertexArray.html">IVertexArray</a> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classtaixu_1_1AbstractVertexArray.html#a0cd91d135314799ccece9907f4cd146a">   32</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1AbstractVertexArray.html#a0cd91d135314799ccece9907f4cd146a">addVBO</a>(VboType &amp;&amp;vbo, GLenum type) = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classtaixu_1_1AbstractVertexArray.html#af130cd035a62e1baf0d506e74ad07cfa">   33</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1AbstractVertexArray.html#af130cd035a62e1baf0d506e74ad07cfa">setEBO</a>(EboType &amp;&amp;ebo)              = 0;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_GRAPHICS_RENDER_VERTEX_ARRAY_HPP</span></div>
+<div class="ttc" id="aclasstaixu_1_1AbstractVertexArray_html"><div class="ttname"><a href="classtaixu_1_1AbstractVertexArray.html">taixu::AbstractVertexArray</a></div><div class="ttdef"><b>Definition:</b> vertex_array.hpp:30</div></div>
+<div class="ttc" id="aclasstaixu_1_1AbstractVertexArray_html_a0cd91d135314799ccece9907f4cd146a"><div class="ttname"><a href="classtaixu_1_1AbstractVertexArray.html#a0cd91d135314799ccece9907f4cd146a">taixu::AbstractVertexArray::addVBO</a></div><div class="ttdeci">virtual void addVBO(VboType &amp;&amp;vbo, GLenum type)=0</div></div>
+<div class="ttc" id="aclasstaixu_1_1AbstractVertexArray_html_af130cd035a62e1baf0d506e74ad07cfa"><div class="ttname"><a href="classtaixu_1_1AbstractVertexArray.html#af130cd035a62e1baf0d506e74ad07cfa">taixu::AbstractVertexArray::setEBO</a></div><div class="ttdeci">virtual void setEBO(EboType &amp;&amp;ebo)=0</div></div>
+<div class="ttc" id="aclasstaixu_1_1IVertexArray_html"><div class="ttname"><a href="classtaixu_1_1IVertexArray.html">taixu::IVertexArray</a></div><div class="ttdef"><b>Definition:</b> vertex_array.hpp:19</div></div>
+<div class="ttc" id="aclasstaixu_1_1IVertexArray_html_a07dda80380f3df4394f94702b3fa99a0"><div class="ttname"><a href="classtaixu_1_1IVertexArray.html#a07dda80380f3df4394f94702b3fa99a0">taixu::IVertexArray::draw</a></div><div class="ttdeci">virtual void draw(std::uint32_t cnt)=0</div></div>
+<div class="ttc" id="aclasstaixu_1_1IVertexArray_html_a5732c839e8656142b89675624a4d40b5"><div class="ttname"><a href="classtaixu_1_1IVertexArray.html#a5732c839e8656142b89675624a4d40b5">taixu::IVertexArray::bind</a></div><div class="ttdeci">virtual void bind()=0</div></div>
+<div class="ttc" id="aclasstaixu_1_1IVertexArray_html_a72c5486982b29e0caba47a7ba2eed748"><div class="ttname"><a href="classtaixu_1_1IVertexArray.html#a72c5486982b29e0caba47a7ba2eed748">taixu::IVertexArray::clear</a></div><div class="ttdeci">virtual void clear()=0</div></div>
+<div class="ttc" id="aclasstaixu_1_1IVertexArray_html_adc9f8aeb7e8bbde37e6401e07ae6d509"><div class="ttname"><a href="classtaixu_1_1IVertexArray.html#adc9f8aeb7e8bbde37e6401e07ae6d509">taixu::IVertexArray::unbind</a></div><div class="ttdeci">virtual void unbind()=0</div></div>
 <div class="ttc" id="aclasstaixu_1_1noncopyable_html"><div class="ttname"><a href="classtaixu_1_1noncopyable.html">taixu::noncopyable</a></div><div class="ttdoc">inherit this class in private method</div><div class="ttdef"><b>Definition:</b> noncopyable.hpp:15</div></div>
 <div class="ttc" id="aelement__buffer_8hpp_html"><div class="ttname"><a href="element__buffer_8hpp.html">element_buffer.hpp</a></div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:19</div></div>
+<div class="ttc" id="aengine__args_8hpp_html"><div class="ttname"><a href="engine__args_8hpp.html">engine_args.hpp</a></div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
 <div class="ttc" id="anoncopyable_8hpp_html"><div class="ttname"><a href="noncopyable_8hpp.html">noncopyable.hpp</a></div></div>
+<div class="ttc" id="arender__api_8hpp_html"><div class="ttname"><a href="render__api_8hpp.html">render_api.hpp</a></div></div>
 <div class="ttc" id="avertex__buffer_8hpp_html"><div class="ttname"><a href="vertex__buffer_8hpp.html">vertex_buffer.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

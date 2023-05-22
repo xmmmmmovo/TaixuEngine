@@ -1,6 +1,7 @@
 var classtaixu_1_1IShaderProgram =
 [
     [ "IShaderProgram", "classtaixu_1_1IShaderProgram.html#aaa31d38ac369d538d5fe591d87f363b2", null ],
+    [ "bind_uniform_block", "classtaixu_1_1IShaderProgram.html#a0f2ea72eb45011a18e63a222eaf1ce37", null ],
     [ "set_uniform", "classtaixu_1_1IShaderProgram.html#a3286db5371c3d63d9b158c822b1a6452", null ],
     [ "set_uniform", "classtaixu_1_1IShaderProgram.html#a127d20876a228f856dc6b5263b4422d3", null ],
     [ "set_uniform", "classtaixu_1_1IShaderProgram.html#a19e11e32fc656fb9488ef108dbf87a81", null ],
@@ -13,6 +14,7 @@ var classtaixu_1_1IShaderProgram =
     [ "set_uniform", "classtaixu_1_1IShaderProgram.html#a66c18c642a12ea5127beb1aa46b1d6f0", null ],
     [ "set_uniform", "classtaixu_1_1IShaderProgram.html#a04739153542be1b24f5b9f2878a358b8", null ],
     [ "set_uniform", "classtaixu_1_1IShaderProgram.html#a1e608a8ee84d5e0f00e2052f687f9349", null ],
+    [ "setMat4Array", "classtaixu_1_1IShaderProgram.html#aa660d49bcac63385661c820974312cec", null ],
     [ "use", "classtaixu_1_1IShaderProgram.html#a25eb4b742ce5725b9e86ee86483105f2", null ],
     [ "_id", "classtaixu_1_1IShaderProgram.html#ae6b42b1f9fbab65cb27198e0c8ae989b", null ]
 ];

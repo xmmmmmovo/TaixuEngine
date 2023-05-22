@@ -1,0 +1,4 @@
+<map id="taixu::Scene" name="taixu::Scene">
+<area shape="rect" id="node1" title="场景类" alt="" coords="27,439,171,531"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1ECSCoordinator.html" title="ECS协调器,用于协调各个系统,以及管理组件." alt="" coords="5,5,192,376"/>
+</map>

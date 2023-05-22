@@ -6,13 +6,10 @@ var classtaixu_1_1OGLVertexBuffer =
     [ "OGLVertexBuffer", "classtaixu_1_1OGLVertexBuffer.html#a8ab038c5f73ef33e05e7157201beb26c", null ],
     [ "bind", "classtaixu_1_1OGLVertexBuffer.html#a45bab7b454f47da64789c99912656cb3", null ],
     [ "getAlign", "classtaixu_1_1OGLVertexBuffer.html#a5352a6840a375e98c88a2728d8427257", null ],
-    [ "getbufferID", "classtaixu_1_1OGLVertexBuffer.html#a8056dca3ed5fc748360c9356a3f1742d", null ],
-    [ "getStride", "classtaixu_1_1OGLVertexBuffer.html#a2c3ef8b08d740caa32538c1e655eb58a", null ],
+    [ "getbufferID", "classtaixu_1_1OGLVertexBuffer.html#a5b67fea6e179a4c83e8493b323559176", null ],
     [ "operator=", "classtaixu_1_1OGLVertexBuffer.html#ac911fd622176ee3f734b78afa30986f1", null ],
-    [ "setData", "classtaixu_1_1OGLVertexBuffer.html#a3ac8f9ab90479f22e7aecef92ba51a17", null ],
-    [ "setDataInner", "classtaixu_1_1OGLVertexBuffer.html#a81f6720f03ae420b530332e44502014e", null ],
+    [ "setData", "classtaixu_1_1OGLVertexBuffer.html#ae6aa5649519a8738ffa907c4a6b970de", null ],
     [ "unbind", "classtaixu_1_1OGLVertexBuffer.html#afb2c7b2ef381921a887c2b2145152d8e", null ],
     [ "align", "classtaixu_1_1OGLVertexBuffer.html#a66f4757c97e1482d2bcb662ea2bad4f8", null ],
-    [ "stride", "classtaixu_1_1OGLVertexBuffer.html#a6ad66084b0da75c3c106934b83d9791e", null ],
     [ "VBO", "classtaixu_1_1OGLVertexBuffer.html#a24de4495cd4c45f8e8202256ac60c1f4", null ]
 ];

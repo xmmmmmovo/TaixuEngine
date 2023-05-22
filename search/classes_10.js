@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['statusbarcomponent_712',['StatusBarComponent',['../classtaixu_1_1editor_1_1StatusBarComponent.html',1,'taixu::editor']]]
+  ['quat_1166',['Quat',['../classtaixu_1_1Quat.html',1,'taixu']]]
 ];

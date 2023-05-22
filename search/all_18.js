@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zoom_626',['Zoom',['../classtaixu_1_1PerspectiveCamera.html#a64b23993274b5bb8a9b1957161d06b52',1,'taixu::PerspectiveCamera']]]
+  ['yaw_1036',['Yaw',['../classtaixu_1_1EulerCamera.html#a9c45820f2afc7a09ddfb6221d434841a',1,'taixu::EulerCamera']]]
 ];

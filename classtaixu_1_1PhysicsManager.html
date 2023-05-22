@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('classtaixu_1_1PhysicsManager.html','')
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classtaixu_1_1PhysicsManager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">taixu::PhysicsManager Class Reference</div>  </div>
@@ -96,7 +97,10 @@ Collaboration diagram for taixu::PhysicsManager:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1PhysicsManager__coll__graph.png" border="0" usemap="#ataixu_1_1PhysicsManager_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1PhysicsManager_coll__map" id="ataixu_1_1PhysicsManager_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,175,112"/>
+<area shape="rect" title=" " alt="" coords="65,608,237,744"/>
+<area shape="rect" href="structtaixu_1_1System.html" title=" " alt="" coords="5,439,140,545"/>
+<area shape="rect" href="classtaixu_1_1Scene.html" title="场景类" alt="" coords="165,446,309,538"/>
+<area shape="rect" href="classtaixu_1_1ECSCoordinator.html" title="ECS协调器,用于协调各个系统,以及管理组件." alt="" coords="143,5,330,376"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -104,15 +108,26 @@ Collaboration diagram for taixu::PhysicsManager:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab0a49d8ab8bb56beb148893a8ef48952"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#ab0a49d8ab8bb56beb148893a8ef48952">PhysicsManager</a> ()=default</td></tr>
 <tr class="separator:ab0a49d8ab8bb56beb148893a8ef48952"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6de1da683c4bada38c1bb1be1e75abc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#ac6de1da683c4bada38c1bb1be1e75abc">initialize</a> ()</td></tr>
-<tr class="separator:ac6de1da683c4bada38c1bb1be1e75abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d82f3d9493d106367b01587f5497fc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#a7d82f3d9493d106367b01587f5497fc3">tick</a> ()</td></tr>
-<tr class="separator:a7d82f3d9493d106367b01587f5497fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e71b5819f6a08792886d112b86135a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#a85e71b5819f6a08792886d112b86135a">init</a> ()</td></tr>
+<tr class="separator:a85e71b5819f6a08792886d112b86135a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c0492daac684962bb2e9e7d0b95ad5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#a2c0492daac684962bb2e9e7d0b95ad5f">update</a> ()</td></tr>
+<tr class="separator:a2c0492daac684962bb2e9e7d0b95ad5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a6f2776146bf1c5261ad8cdcc806a6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#a1a6f2776146bf1c5261ad8cdcc806a6d">bindScene</a> (<a class="el" href="classtaixu_1_1Scene.html">Scene</a> *scene)</td></tr>
+<tr class="separator:a1a6f2776146bf1c5261ad8cdcc806a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:acf0bcb67336c4aad5a5be80d7961271c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1PhysicsScene.html">PhysicsScene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#acf0bcb67336c4aad5a5be80d7961271c">current_scene</a></td></tr>
-<tr class="separator:acf0bcb67336c4aad5a5be80d7961271c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f6b6a816a7690d4e058c17300b69bfb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classtaixu_1_1PhysicsScene.html">PhysicsScene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#a1f6b6a816a7690d4e058c17300b69bfb">_physics_scene</a></td></tr>
+<tr class="separator:a1f6b6a816a7690d4e058c17300b69bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb8ee3eb6d9f27822114ac30d558db06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1Scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#acb8ee3eb6d9f27822114ac30d558db06">_current_scene</a> {nullptr}</td></tr>
+<tr class="separator:acb8ee3eb6d9f27822114ac30d558db06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44fe7cc13d6d792cc9d66cc5bb7a43d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtaixu_1_1System.html">System</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#a44fe7cc13d6d792cc9d66cc5bb7a43d5">_physics_system</a> {nullptr}</td></tr>
+<tr class="separator:a44fe7cc13d6d792cc9d66cc5bb7a43d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a608a26589fabc6d44df6d9d049ec3b79"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">hash64_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1PhysicsManager.html#a608a26589fabc6d44df6d9d049ec3b79">PHYSICS_SYSTEM_ID</a> = &quot;physics_system&quot;_hash64</td></tr>
+<tr class="separator:a608a26589fabc6d44df6d9d049ec3b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab0a49d8ab8bb56beb148893a8ef48952"></a>
@@ -141,14 +156,32 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac6de1da683c4bada38c1bb1be1e75abc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6de1da683c4bada38c1bb1be1e75abc">&#9670;&nbsp;</a></span>initialize()</h2>
+<a id="a1a6f2776146bf1c5261ad8cdcc806a6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a6f2776146bf1c5261ad8cdcc806a6d">&#9670;&nbsp;</a></span>bindScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void taixu::PhysicsManager::initialize </td>
+          <td class="memname">void taixu::PhysicsManager::bindScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtaixu_1_1Scene.html">Scene</a> *&#160;</td>
+          <td class="paramname"><em>scene</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85e71b5819f6a08792886d112b86135a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e71b5819f6a08792886d112b86135a">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::PhysicsManager::init </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -158,14 +191,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7d82f3d9493d106367b01587f5497fc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d82f3d9493d106367b01587f5497fc3">&#9670;&nbsp;</a></span>tick()</h2>
+<a id="a2c0492daac684962bb2e9e7d0b95ad5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c0492daac684962bb2e9e7d0b95ad5f">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void taixu::PhysicsManager::tick </td>
+          <td class="memname">void taixu::PhysicsManager::update </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -176,16 +209,66 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="acf0bcb67336c4aad5a5be80d7961271c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf0bcb67336c4aad5a5be80d7961271c">&#9670;&nbsp;</a></span>current_scene</h2>
+<a id="acb8ee3eb6d9f27822114ac30d558db06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb8ee3eb6d9f27822114ac30d558db06">&#9670;&nbsp;</a></span>_current_scene</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1PhysicsScene.html">PhysicsScene</a>&gt; taixu::PhysicsManager::current_scene</td>
+          <td class="memname"><a class="el" href="classtaixu_1_1Scene.html">Scene</a>* taixu::PhysicsManager::_current_scene {nullptr}</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f6b6a816a7690d4e058c17300b69bfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f6b6a816a7690d4e058c17300b69bfb">&#9670;&nbsp;</a></span>_physics_scene</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classtaixu_1_1PhysicsScene.html">PhysicsScene</a>&gt; taixu::PhysicsManager::_physics_scene</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44fe7cc13d6d792cc9d66cc5bb7a43d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44fe7cc13d6d792cc9d66cc5bb7a43d5">&#9670;&nbsp;</a></span>_physics_system</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtaixu_1_1System.html">System</a>* taixu::PhysicsManager::_physics_system {nullptr}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a608a26589fabc6d44df6d9d049ec3b79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a608a26589fabc6d44df6d9d049ec3b79">&#9670;&nbsp;</a></span>PHYSICS_SYSTEM_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">hash64_t</a> taixu::PhysicsManager::PHYSICS_SYSTEM_ID = &quot;physics_system&quot;_hash64</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

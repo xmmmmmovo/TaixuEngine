@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/management/ecs/guid_genenrator.hpp Source File</title>
+<title>TaixuEngine: engine/runtime/management/ecs/object/guid_genenrator.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,30 +93,34 @@ $(document).ready(function(){initNavTree('guid__genenrator_8hpp_source.html','')
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a07bf29860b2e3d8da53a4b7b06c29a15">    9</a></span>&#160;constexpr std::uint32_t <a class="code" href="namespacetaixu.html#a07bf29860b2e3d8da53a4b7b06c29a15">INVALID_GUID</a> =</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        std::numeric_limits&lt;std::uint32_t&gt;::max();</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classtaixu_1_1GuidGenerator.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1GuidGenerator.html">GuidGenerator</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> std::uint32_t <a class="code" href="classtaixu_1_1GuidGenerator.html#aedb09bbc5d18741a79187148540c15e5">generateNewGuid</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classtaixu_1_1GuidGenerator.html#ae5e9e3183f5a705144d3756ce3d946cb">   16</a></span>&#160;    <span class="keyword">static</span> std::atomic&lt;std::uint32_t&gt; <a class="code" href="classtaixu_1_1GuidGenerator.html#ae5e9e3183f5a705144d3756ce3d946cb">_next_id</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TAIXUENGINE_GUID_GENERATOR */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclasstaixu_1_1GuidGenerator_html"><div class="ttname"><a href="classtaixu_1_1GuidGenerator.html">taixu::GuidGenerator</a></div><div class="ttdef"><b>Definition:</b> guid_genenrator.hpp:11</div></div>
-<div class="ttc" id="aclasstaixu_1_1GuidGenerator_html_ae5e9e3183f5a705144d3756ce3d946cb"><div class="ttname"><a href="classtaixu_1_1GuidGenerator.html#ae5e9e3183f5a705144d3756ce3d946cb">taixu::GuidGenerator::_next_id</a></div><div class="ttdeci">static std::atomic&lt; std::uint32_t &gt; _next_id</div><div class="ttdef"><b>Definition:</b> guid_genenrator.hpp:16</div></div>
-<div class="ttc" id="aclasstaixu_1_1GuidGenerator_html_aedb09bbc5d18741a79187148540c15e5"><div class="ttname"><a href="classtaixu_1_1GuidGenerator.html#aedb09bbc5d18741a79187148540c15e5">taixu::GuidGenerator::generateNewGuid</a></div><div class="ttdeci">static std::uint32_t generateNewGuid()</div><div class="ttdef"><b>Definition:</b> guid_generator.cpp:9</div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:19</div></div>
-<div class="ttc" id="anamespacetaixu_html_a07bf29860b2e3d8da53a4b7b06c29a15"><div class="ttname"><a href="namespacetaixu.html#a07bf29860b2e3d8da53a4b7b06c29a15">taixu::INVALID_GUID</a></div><div class="ttdeci">constexpr std::uint32_t INVALID_GUID</div><div class="ttdef"><b>Definition:</b> guid_genenrator.hpp:9</div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a07bf29860b2e3d8da53a4b7b06c29a15">   10</a></span>&#160;constexpr std::uint32_t <a class="code" href="namespacetaixu.html#a07bf29860b2e3d8da53a4b7b06c29a15">INVALID_GUID</a> =</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        std::numeric_limits&lt;std::uint32_t&gt;::max();</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacetaixu.html#ac9d653dde0fb010c9ac154fef97ade0a">   12</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacetaixu.html#ac9d653dde0fb010c9ac154fef97ade0a">GUID</a> = std::uint32_t;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1GuidGenerator.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1GuidGenerator.html">GuidGenerator</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <a class="code" href="namespacetaixu.html#ac9d653dde0fb010c9ac154fef97ade0a">GUID</a> <a class="code" href="classtaixu_1_1GuidGenerator.html#aca784e0485307d22d1549bf9fecbe881">generateNewGuid</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classtaixu_1_1GuidGenerator.html#ae7168d81af8b08d369caf0fbc533866b">   19</a></span>&#160;    <span class="keyword">static</span> std::atomic&lt;GUID&gt; <a class="code" href="classtaixu_1_1GuidGenerator.html#ae7168d81af8b08d369caf0fbc533866b">_next_id</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TAIXUENGINE_GUID_GENERATOR */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aclasstaixu_1_1GuidGenerator_html"><div class="ttname"><a href="classtaixu_1_1GuidGenerator.html">taixu::GuidGenerator</a></div><div class="ttdef"><b>Definition:</b> guid_genenrator.hpp:14</div></div>
+<div class="ttc" id="aclasstaixu_1_1GuidGenerator_html_aca784e0485307d22d1549bf9fecbe881"><div class="ttname"><a href="classtaixu_1_1GuidGenerator.html#aca784e0485307d22d1549bf9fecbe881">taixu::GuidGenerator::generateNewGuid</a></div><div class="ttdeci">static GUID generateNewGuid()</div><div class="ttdef"><b>Definition:</b> guid_generator.cpp:9</div></div>
+<div class="ttc" id="aclasstaixu_1_1GuidGenerator_html_ae7168d81af8b08d369caf0fbc533866b"><div class="ttname"><a href="classtaixu_1_1GuidGenerator.html#ae7168d81af8b08d369caf0fbc533866b">taixu::GuidGenerator::_next_id</a></div><div class="ttdeci">static std::atomic&lt; GUID &gt; _next_id</div><div class="ttdef"><b>Definition:</b> guid_genenrator.hpp:19</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
+<div class="ttc" id="anamespacetaixu_html_a07bf29860b2e3d8da53a4b7b06c29a15"><div class="ttname"><a href="namespacetaixu.html#a07bf29860b2e3d8da53a4b7b06c29a15">taixu::INVALID_GUID</a></div><div class="ttdeci">constexpr std::uint32_t INVALID_GUID</div><div class="ttdef"><b>Definition:</b> guid_genenrator.hpp:10</div></div>
+<div class="ttc" id="anamespacetaixu_html_ac9d653dde0fb010c9ac154fef97ade0a"><div class="ttname"><a href="namespacetaixu.html#ac9d653dde0fb010c9ac154fef97ade0a">taixu::GUID</a></div><div class="ttdeci">std::uint32_t GUID</div><div class="ttdef"><b>Definition:</b> guid_genenrator.hpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_2e743e866fb37056f41fd9fa9b68e330.html">management</a></li><li class="navelem"><a class="el" href="dir_1ee1a190a4098a38c779ee0b5bb961e2.html">ecs</a></li><li class="navelem"><a class="el" href="guid__genenrator_8hpp.html">guid_genenrator.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_2e743e866fb37056f41fd9fa9b68e330.html">management</a></li><li class="navelem"><a class="el" href="dir_1ee1a190a4098a38c779ee0b5bb961e2.html">ecs</a></li><li class="navelem"><a class="el" href="dir_3d40abaac65ff6990898371edf24c4b8.html">object</a></li><li class="navelem"><a class="el" href="guid__genenrator_8hpp.html">guid_genenrator.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

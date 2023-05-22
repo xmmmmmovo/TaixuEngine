@@ -92,24 +92,55 @@ $(document).ready(function(){initNavTree('engine__args_8hpp_source.html',''); in
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="public__singleton_8hpp.html">core/base/public_singleton.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="render__api_8hpp.html">management/graphics/render/render_api.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;argparse/argparse.hpp&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="public__singleton_8hpp.html">core/base/public_singleton.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="render__api_8hpp.html">management/graphics/render/render_api.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1EngineArgs.html">EngineArgs</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1PublicSingleton.html">PublicSingleton</a>&lt;EngineArgs&gt; {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classtaixu_1_1PublicSingleton.html">PublicSingleton</a>&lt;<a class="code" href="classtaixu_1_1EngineArgs.html">EngineArgs</a>&gt;;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a540ca3fc6defea2e22ddfbb9f5b7c72b">   16</a></span>&#160;    <a class="code" href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6">GraphicsAPI</a> <a class="code" href="classtaixu_1_1EngineArgs.html#a540ca3fc6defea2e22ddfbb9f5b7c72b">api</a>{<a class="code" href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6ac0ad831a34c4633bee584066cfcc5040">GraphicsAPI::OPENGL</a>};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP</span></div>
-<div class="ttc" id="aclasstaixu_1_1EngineArgs_html"><div class="ttname"><a href="classtaixu_1_1EngineArgs.html">taixu::EngineArgs</a></div><div class="ttdef"><b>Definition:</b> engine_args.hpp:12</div></div>
-<div class="ttc" id="aclasstaixu_1_1EngineArgs_html_a540ca3fc6defea2e22ddfbb9f5b7c72b"><div class="ttname"><a href="classtaixu_1_1EngineArgs.html#a540ca3fc6defea2e22ddfbb9f5b7c72b">taixu::EngineArgs::api</a></div><div class="ttdeci">GraphicsAPI api</div><div class="ttdef"><b>Definition:</b> engine_args.hpp:16</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1EngineArgs.html">EngineArgs</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1PublicSingleton.html">PublicSingleton</a>&lt;EngineArgs&gt; {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classtaixu_1_1PublicSingleton.html">PublicSingleton</a>&lt;<a class="code" href="classtaixu_1_1EngineArgs.html">EngineArgs</a>&gt;;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a540ca3fc6defea2e22ddfbb9f5b7c72b">   18</a></span>&#160;    <a class="code" href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6">GraphicsAPI</a> <a class="code" href="classtaixu_1_1EngineArgs.html#a540ca3fc6defea2e22ddfbb9f5b7c72b">api</a>{<a class="code" href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6ac0ad831a34c4633bee584066cfcc5040">GraphicsAPI::OPENGL</a>};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a3379872e8a906db5b46fd45719d90caf">   20</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1EngineArgs.html#a3379872e8a906db5b46fd45719d90caf">loadParams</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;args) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        argparse::ArgumentParser program(<span class="stringliteral">&quot;TaixuEngineEditor&quot;</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        program.add_argument(<span class="stringliteral">&quot;-api&quot;</span>, <span class="stringliteral">&quot;--graphics_api&quot;</span>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                .default_value(<span class="stringliteral">&quot;opengl&quot;</span>)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                .help(<span class="stringliteral">&quot;Choose a graphics API&quot;</span>)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                .action([](std::string <span class="keyword">const</span> &amp;val) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    <a class="code" href="classtaixu_1_1EngineArgs.html">taixu::EngineArgs</a> &amp;args_ins =</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                            <a class="code" href="classtaixu_1_1PublicSingleton.html#a6ec387f83efaf62fad7d72562fd6b4c8">taixu::EngineArgs::getInstance</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    <span class="keywordflow">if</span> (<span class="stringliteral">&quot;opengl&quot;</span> == val) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                        args_ins.<a class="code" href="classtaixu_1_1EngineArgs.html#a540ca3fc6defea2e22ddfbb9f5b7c72b">api</a> = <a class="code" href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6ac0ad831a34c4633bee584066cfcc5040">taixu::GraphicsAPI::OPENGL</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                        <span class="keywordflow">throw</span> std::runtime_error(</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                <span class="stringliteral">&quot;Invalid graphics API choice: &quot;</span> + val);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                });</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            program.parse_args(args);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::runtime_error &amp;err) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            std::cerr &lt;&lt; program;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            std::exit(1);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP</span></div>
+<div class="ttc" id="aclasstaixu_1_1EngineArgs_html"><div class="ttname"><a href="classtaixu_1_1EngineArgs.html">taixu::EngineArgs</a></div><div class="ttdef"><b>Definition:</b> engine_args.hpp:14</div></div>
+<div class="ttc" id="aclasstaixu_1_1EngineArgs_html_a3379872e8a906db5b46fd45719d90caf"><div class="ttname"><a href="classtaixu_1_1EngineArgs.html#a3379872e8a906db5b46fd45719d90caf">taixu::EngineArgs::loadParams</a></div><div class="ttdeci">void loadParams(const std::vector&lt; std::string &gt; &amp;args)</div><div class="ttdef"><b>Definition:</b> engine_args.hpp:20</div></div>
+<div class="ttc" id="aclasstaixu_1_1EngineArgs_html_a540ca3fc6defea2e22ddfbb9f5b7c72b"><div class="ttname"><a href="classtaixu_1_1EngineArgs.html#a540ca3fc6defea2e22ddfbb9f5b7c72b">taixu::EngineArgs::api</a></div><div class="ttdeci">GraphicsAPI api</div><div class="ttdef"><b>Definition:</b> engine_args.hpp:18</div></div>
 <div class="ttc" id="aclasstaixu_1_1PublicSingleton_html"><div class="ttname"><a href="classtaixu_1_1PublicSingleton.html">taixu::PublicSingleton</a></div><div class="ttdoc">public extend singleton class</div><div class="ttdef"><b>Definition:</b> public_singleton.hpp:17</div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:19</div></div>
+<div class="ttc" id="aclasstaixu_1_1PublicSingleton_html_a6ec387f83efaf62fad7d72562fd6b4c8"><div class="ttname"><a href="classtaixu_1_1PublicSingleton.html#a6ec387f83efaf62fad7d72562fd6b4c8">taixu::PublicSingleton&lt; EngineArgs &gt;::getInstance</a></div><div class="ttdeci">static EngineArgs &amp; getInstance() noexcept(std::is_nothrow_constructible&lt; EngineArgs &gt;::value)</div><div class="ttdoc">get instance, thread safe.</div><div class="ttdef"><b>Definition:</b> public_singleton.hpp:27</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
 <div class="ttc" id="anamespacetaixu_html_a97242bb28d974f00c15cd3fea6563ed6"><div class="ttname"><a href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6">taixu::GraphicsAPI</a></div><div class="ttdeci">GraphicsAPI</div><div class="ttdoc">决定渲染API I1 版本暂时只有 Opengl</div><div class="ttdef"><b>Definition:</b> render_api.hpp:17</div></div>
 <div class="ttc" id="anamespacetaixu_html_a97242bb28d974f00c15cd3fea6563ed6ac0ad831a34c4633bee584066cfcc5040"><div class="ttname"><a href="namespacetaixu.html#a97242bb28d974f00c15cd3fea6563ed6ac0ad831a34c4633bee584066cfcc5040">taixu::GraphicsAPI::OPENGL</a></div><div class="ttdeci">@ OPENGL</div></div>
 <div class="ttc" id="apublic__singleton_8hpp_html"><div class="ttname"><a href="public__singleton_8hpp.html">public_singleton.hpp</a></div></div>

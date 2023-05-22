@@ -1,6 +1,5 @@
 <map id="taixu::InputSystem" name="taixu::InputSystem">
-<area shape="rect" id="node1" title=" " alt="" coords="170,1180,362,1345"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="25,585,187,736"/>
+<area shape="rect" id="node1" title=" " alt="" coords="33,404,179,496"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="25,204,187,355"/>
 <area shape="rect" id="node3" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="5,5,207,141"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1WindowContext.html" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="211,204,430,1117"/>
 </map>

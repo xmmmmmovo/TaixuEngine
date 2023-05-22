@@ -1,20 +1,9 @@
 var searchData=
 [
-  ['object_5fvs_5fbroadphase_5flayer_5ffilter_1163',['object_vs_broadphase_layer_filter',['../classtaixu_1_1PhysicsScene.html#adce2faa77c1ae764c124d8a50854628b',1,'taixu::PhysicsScene::object_vs_broadphase_layer_filter()'],['../structtaixu_1_1JoltPhysics.html#a32b35eaa44304475e752e79697530df2',1,'taixu::JoltPhysics::object_vs_broadphase_layer_filter()']]],
-  ['object_5fvs_5fobject_5flayer_5ffilter_1164',['object_vs_object_layer_filter',['../structtaixu_1_1JoltPhysics.html#a68f7fc48ef43db06d8fc1146481c96be',1,'taixu::JoltPhysics::object_vs_object_layer_filter()'],['../classtaixu_1_1PhysicsScene.html#a5d9fd393bdc975010b6bb0e57871157e',1,'taixu::PhysicsScene::object_vs_object_layer_filter()']]],
-  ['on_5fchar_5ffns_1165',['on_char_fns',['../classtaixu_1_1WindowContext.html#ade29eeb591d4513970f97af44ccc3512',1,'taixu::WindowContext']]],
-  ['on_5fchar_5fmods_5ffns_1166',['on_char_mods_fns',['../classtaixu_1_1WindowContext.html#afd30880d04b744b53189429ea8acfa51',1,'taixu::WindowContext']]],
-  ['on_5fcursor_5fenter_5ffns_1167',['on_cursor_enter_fns',['../classtaixu_1_1WindowContext.html#a6d3a9f00924e38c682f2ab72bb4c2c75',1,'taixu::WindowContext']]],
-  ['on_5fcursor_5fpos_5ffns_1168',['on_cursor_pos_fns',['../classtaixu_1_1WindowContext.html#af9e3defe6c1fb7e55530935b2709437a',1,'taixu::WindowContext']]],
-  ['on_5fdrop_5ffns_1169',['on_drop_fns',['../classtaixu_1_1WindowContext.html#a34ca365cc0ca2f274f0302dc2d984014',1,'taixu::WindowContext']]],
-  ['on_5fkey_5ffns_1170',['on_key_fns',['../classtaixu_1_1WindowContext.html#a9ba4316e8eda7df2cb93e0c3a973fe5c',1,'taixu::WindowContext']]],
-  ['on_5fmouse_5fbutton_5ffns_1171',['on_mouse_button_fns',['../classtaixu_1_1WindowContext.html#a98f7da9aff6bc2180e0bb14ed5253746',1,'taixu::WindowContext']]],
-  ['on_5freset_5ffns_1172',['on_reset_fns',['../classtaixu_1_1WindowContext.html#a130da3138f1b2d225ac936e3b3366b8f',1,'taixu::WindowContext']]],
-  ['on_5fscroll_5ffns_1173',['on_scroll_fns',['../classtaixu_1_1WindowContext.html#a98430fd6290585cd4c23981a40021e68',1,'taixu::WindowContext']]],
-  ['on_5fwindow_5fclose_5ffns_1174',['on_window_close_fns',['../classtaixu_1_1WindowContext.html#a50d91dca645461bf164de699b74b41bb',1,'taixu::WindowContext']]],
-  ['on_5fwindow_5fsize_5ffns_1175',['on_window_size_fns',['../classtaixu_1_1WindowContext.html#adee3ebdfb396bae56617943950deb8dd',1,'taixu::WindowContext']]],
-  ['opened_5fproject_1176',['opened_project',['../classtaixu_1_1ProjectManager.html#afa0de5fc9f448d15fb36a03a9fec8d3d',1,'taixu::ProjectManager']]],
-  ['opengl_5fmajor_5fversion_1177',['OPENGL_MAJOR_VERSION',['../namespacetaixu.html#a7615db81481c93028421bd815f850f7a',1,'taixu']]],
-  ['opengl_5fminor_5fversion_1178',['OPENGL_MINOR_VERSION',['../namespacetaixu.html#a4c72cc973baec6d45f9f8b54179d7522',1,'taixu']]],
-  ['opengl_5fversion_1179',['OPENGL_VERSION',['../namespacetaixu.html#ad3ad62ac4ccabe271da3009193208193',1,'taixu']]]
+  ['name_1917',['name',['../structtaixu_1_1editor_1_1HierarchyNode.html#abb47307912daeb5aaf1e87781fdc5067',1,'taixu::editor::HierarchyNode::name()'],['../structtaixu_1_1BufferElement.html#aea65c8050541dad4039fea9d059021e7',1,'taixu::BufferElement::name()'],['../classtaixu_1_1JsonGO.html#a03dce374ad81e9e709a6326bc1355d36',1,'taixu::JsonGO::name()'],['../classtaixu_1_1JsonTexture.html#a2a1b23709017eaad0daa105de8d93211',1,'taixu::JsonTexture::name()'],['../classtaixu_1_1JsonWorld.html#a90b4350766c5bd4213bb2272f37e55ee',1,'taixu::JsonWorld::name()'],['../structtaixu_1_1Project.html#aab33e451edaeed403f7f8036749e6068',1,'taixu::Project::name()'],['../structtaixu_1_1AssimpNodeData.html#a39175399ba09888ce8a850db9a4f9c35',1,'taixu::AssimpNodeData::name()']]],
+  ['negx_1918',['negx',['../classtaixu_1_1RenderGlobalJson.html#a9d00de175feaa9c08d282a20276db7cf',1,'taixu::RenderGlobalJson']]],
+  ['negy_1919',['negy',['../classtaixu_1_1RenderGlobalJson.html#a2315fdabc8bf0719692dbbe64486fcf5',1,'taixu::RenderGlobalJson']]],
+  ['negz_1920',['negz',['../classtaixu_1_1RenderGlobalJson.html#a6cadd03627ac2a22822c16cbfaf619fd',1,'taixu::RenderGlobalJson']]],
+  ['normal_5ftex_1921',['normal_tex',['../structtaixu_1_1Material.html#a98a424a6ab498f64a4bab63fe8749355',1,'taixu::Material']]],
+  ['normals_1922',['normals',['../structtaixu_1_1Mesh.html#a19cfdaf347f84fc8fb6cab2b98e597ff',1,'taixu::Mesh']]]
 ];

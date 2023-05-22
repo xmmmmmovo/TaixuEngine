@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['ecs_1291',['ECS',['../classtaixu_1_1Level.html#abed2e42fe630d246114c0d3d30516fab',1,'taixu::Level::ECS()'],['../classtaixu_1_1WorldManager.html#abed2e42fe630d246114c0d3d30516fab',1,'taixu::WorldManager::ECS()']]]
+  ['publicsingleton_3c_20cuberenderable_20_3e_2134',['PublicSingleton&lt; CubeRenderable &gt;',['../classtaixu_1_1CubeRenderable.html#ac9f9eaf1aa15e2c113c202abe74f665e',1,'taixu::CubeRenderable']]],
+  ['publicsingleton_3c_20engine_20_3e_2135',['PublicSingleton&lt; Engine &gt;',['../classtaixu_1_1Engine.html#ac98c32d07778d652e1fe219aa65a4f81',1,'taixu::Engine']]],
+  ['publicsingleton_3c_20engineargs_20_3e_2136',['PublicSingleton&lt; EngineArgs &gt;',['../classtaixu_1_1EngineArgs.html#a01fd11e25ac0de8261755f32da378c36',1,'taixu::EngineArgs']]],
+  ['publicsingleton_3c_20inputsystem_20_3e_2137',['PublicSingleton&lt; InputSystem &gt;',['../classtaixu_1_1InputSystem.html#a19ad988cf399e206a4f7c3cb8a367f1d',1,'taixu::InputSystem']]]
 ];

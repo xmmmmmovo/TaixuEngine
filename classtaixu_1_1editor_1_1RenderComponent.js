@@ -1,7 +1,8 @@
 var classtaixu_1_1editor_1_1RenderComponent =
 [
+    [ "RenderComponent", "classtaixu_1_1editor_1_1RenderComponent.html#a1553c39f94c93f62278be1957793cd06", null ],
     [ "update", "classtaixu_1_1editor_1_1RenderComponent.html#a1f74a3948f129b57c8ac61cfd35d8be4", null ],
-    [ "_framebuffer", "classtaixu_1_1editor_1_1RenderComponent.html#a26f4dd77d36ebcd5c0e843f8b9324734", null ],
+    [ "_aspect_ratio", "classtaixu_1_1editor_1_1RenderComponent.html#a85f54e4b145f6e1d3ad15a34d4742f92", null ],
     [ "_menu_bar_rect", "classtaixu_1_1editor_1_1RenderComponent.html#afe14b501363a0783199fb713f5d6a338", null ],
     [ "_previous_size", "classtaixu_1_1editor_1_1RenderComponent.html#a7fb23d3bcb3c5921bffa0793ba6c4aa2", null ],
     [ "_render_rect", "classtaixu_1_1editor_1_1RenderComponent.html#ac796d1ddd3621c77b3749f57cf337dc6", null ],

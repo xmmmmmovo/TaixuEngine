@@ -103,7 +103,8 @@ Collaboration diagram for taixu::WindowContext:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1WindowContext__coll__graph.png" border="0" usemap="#ataixu_1_1WindowContext_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1WindowContext_coll__map" id="ataixu_1_1WindowContext_coll__map">
-<area shape="rect" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="5,5,224,919"/>
+<area shape="rect" title="仅在父类使用为Prop 在所有类中使用为Context" alt="" coords="5,219,224,1103"/>
+<area shape="rect" href="structtaixu_1_1InputState.html" title=" " alt="" coords="23,5,206,156"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -154,11 +155,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aebc396722c7db783c180286409fe76e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5a079d553021fd13701178366a3f92d"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1WindowContext.html#ac5a079d553021fd13701178366a3f92d">_title</a> {}</td></tr>
 <tr class="separator:ac5a079d553021fd13701178366a3f92d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad767f0da39a050a04ba817a4ca258a88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507">EngineState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1WindowContext.html#ad767f0da39a050a04ba817a4ca258a88">_state</a> {<a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b">EngineState::EDITORMODE</a>}</td></tr>
-<tr class="memdesc:ad767f0da39a050a04ba817a4ca258a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">editor state  <a href="classtaixu_1_1WindowContext.html#ad767f0da39a050a04ba817a4ca258a88">More...</a><br /></td></tr>
-<tr class="separator:ad767f0da39a050a04ba817a4ca258a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36a42562b2e0af99f4d0bed38e4db872"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1WindowContext.html#a36a42562b2e0af99f4d0bed38e4db872">_editor_camera</a></td></tr>
-<tr class="separator:a36a42562b2e0af99f4d0bed38e4db872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f74ce86d4c28896b894774a1f5fc52d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtaixu_1_1InputState.html">InputState</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1WindowContext.html#a6f74ce86d4c28896b894774a1f5fc52d">_input_state</a> {nullptr}</td></tr>
+<tr class="separator:a6f74ce86d4c28896b894774a1f5fc52d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
@@ -1856,22 +1854,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a36a42562b2e0af99f4d0bed38e4db872"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36a42562b2e0af99f4d0bed38e4db872">&#9670;&nbsp;</a></span>_editor_camera</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1PerspectiveCamera.html">PerspectiveCamera</a>&gt; taixu::WindowContext::_editor_camera</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">            std::make_unique&lt;PerspectiveCamera&gt;()}</div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="aebc396722c7db783c180286409fe76e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebc396722c7db783c180286409fe76e8">&#9670;&nbsp;</a></span>_height</h2>
 
@@ -1886,19 +1868,17 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad767f0da39a050a04ba817a4ca258a88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad767f0da39a050a04ba817a4ca258a88">&#9670;&nbsp;</a></span>_state</h2>
+<a id="a6f74ce86d4c28896b894774a1f5fc52d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f74ce86d4c28896b894774a1f5fc52d">&#9670;&nbsp;</a></span>_input_state</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507">EngineState</a> taixu::WindowContext::_state {<a class="el" href="namespacetaixu.html#a0019e688317bd524b76edd73df8a4507ad89986e656e17b6680919a8d185c164b">EngineState::EDITORMODE</a>}</td>
+          <td class="memname"><a class="el" href="structtaixu_1_1InputState.html">InputState</a> const* taixu::WindowContext::_input_state {nullptr}</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>editor state </p>
 
 </div>
 </div>

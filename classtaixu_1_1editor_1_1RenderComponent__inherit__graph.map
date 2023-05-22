@@ -1,5 +1,5 @@
 <map id="taixu::editor::RenderComponent" name="taixu::editor::RenderComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="5,329,236,465"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1IUIComponent.html" title="UI component interface." alt="" coords="19,204,222,281"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="47,5,194,156"/>
+<area shape="rect" id="node1" title=" " alt="" coords="16,344,247,495"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1AbstractUIComponent.html" title="UI component interface." alt="" coords="5,204,257,296"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="58,5,205,156"/>
 </map>

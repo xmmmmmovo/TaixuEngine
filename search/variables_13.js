@@ -1,8 +1,23 @@
 var searchData=
 [
-  ['unique_5fid_1209',['unique_id',['../classtaixu_1_1GameObject.html#a80f69d6275cb303ca997f976e472e02f',1,'taixu::GameObject']]],
-  ['unreset_1210',['unreset',['../classtaixu_1_1Clock.html#aa7393f088108ebbd331e760084578a5f',1,'taixu::Clock']]],
-  ['up_1211',['Up',['../classtaixu_1_1PerspectiveCamera.html#a3ee866a3777b33d3b50f46bd1fcb05af',1,'taixu::PerspectiveCamera']]],
-  ['useful_5fobj_5fcomponent_1212',['useful_obj_component',['../classtaixu_1_1editor_1_1MainWindow.html#a1fc2127f18e2af575b0f65b16fba6f03',1,'taixu::editor::MainWindow']]],
-  ['useful_5fobj_5fcomponent_5fname_1213',['USEFUL_OBJ_COMPONENT_NAME',['../classtaixu_1_1editor_1_1MainWindow.html#a1b034af837c9acb0d042bb1900b2368d',1,'taixu::editor::MainWindow']]]
+  ['scale_1980',['scale',['../classtaixu_1_1JsonTransform.html#a0ac5cc671a8d7fb356ce04c97c2968b4',1,'taixu::JsonTransform::scale()'],['../structtaixu_1_1KeyScale.html#a885e98ee485668ee85a4c6d270a5f45d',1,'taixu::KeyScale::scale()'],['../structtaixu_1_1RigidbodyInfo.html#a114e21caf8a08efd250dcdfceb031289',1,'taixu::RigidbodyInfo::scale()']]],
+  ['selected_5fentity_1981',['selected_entity',['../structtaixu_1_1editor_1_1ViewModel.html#ae9570a602418181f8ee1cdaa048c2d5f',1,'taixu::editor::ViewModel']]],
+  ['selected_5fnode_1982',['selected_node',['../structtaixu_1_1editor_1_1ViewModel.html#aecb5879fc6045b6d774f4a7e0927155c',1,'taixu::editor::ViewModel']]],
+  ['selected_5fpath_1983',['selected_path',['../structtaixu_1_1editor_1_1ViewModel.html#a8488a8464e11f6cce3192575a8709bd5',1,'taixu::editor::ViewModel']]],
+  ['shapetype_1984',['shapeType',['../classtaixu_1_1JsonRigidBody.html#af2519a5d4fd9c8acde6b77cb2c6edb6e',1,'taixu::JsonRigidBody']]],
+  ['shininess_1985',['shininess',['../structtaixu_1_1MaterialInfo.html#a993b0d02eae613837ca141edf43bfa63',1,'taixu::MaterialInfo::shininess()'],['../structtaixu_1_1Material.html#ac513b4a658834eed4cb39d0e9c45b4a6',1,'taixu::Material::shininess()']]],
+  ['shininess_5ftex_1986',['shininess_tex',['../structtaixu_1_1Material.html#ab44fdf4f416876a8c8b386b74c70ff1f',1,'taixu::Material']]],
+  ['skeleton_1987',['skeleton',['../classtaixu_1_1FBXData.html#ab43ebdd32c14a73d339c3151576d9b43',1,'taixu::FBXData']]],
+  ['specular_1988',['specular',['../structtaixu_1_1SpotLight.html#a370d52a4de9804fc3afc2b166fd75d5d',1,'taixu::SpotLight::specular()'],['../structtaixu_1_1Material.html#a2bfe38272e839d4cb913ca424904cb44',1,'taixu::Material::specular()'],['../structtaixu_1_1MaterialInfo.html#a4a030e7a3179dc5c6c7669d345e17cb5',1,'taixu::MaterialInfo::specular()'],['../structtaixu_1_1PointLight.html#a4e64cfce34a1da30ce2e6f9b71304252',1,'taixu::PointLight::specular()'],['../structtaixu_1_1DirLight.html#a4b48e36ee065a91fc5db876f96b1c254',1,'taixu::DirLight::specular()']]],
+  ['specular_5ftex_1989',['specular_tex',['../structtaixu_1_1Material.html#af6b06f244d94cfbd7d78967720704429',1,'taixu::Material']]],
+  ['sphere_5fid_1990',['sphere_id',['../classtaixu_1_1PhysicsScene.html#a2bc97762df156622b74ec43b8e236d04',1,'taixu::PhysicsScene']]],
+  ['spotlightcount_1991',['spotLightCount',['../structtaixu_1_1LightsInfo.html#abaafb32e4adb29c1135d57948bf1a7c3',1,'taixu::LightsInfo']]],
+  ['spotlights_1992',['spotLights',['../structtaixu_1_1LightsInfo.html#adfbf1d47a3785f4ee35cf48ea565304b',1,'taixu::LightsInfo']]],
+  ['start_5ftime_1993',['start_time',['../classtaixu_1_1Clock.html#a10e56957b790a2815c6b482bac6a68fb',1,'taixu::Clock']]],
+  ['status_5fbar_5fcomponent_1994',['status_bar_component',['../classtaixu_1_1editor_1_1MainWindow.html#a6b3e2162be73fa7aa9ac84df48cb1e2a',1,'taixu::editor::MainWindow']]],
+  ['status_5fcomponent_1995',['status_component',['../classtaixu_1_1editor_1_1MainWindow.html#ab2724737d9bce8ce2c2706de3dd66505',1,'taixu::editor::MainWindow']]],
+  ['status_5fcomponent_5fname_1996',['STATUS_COMPONENT_NAME',['../classtaixu_1_1editor_1_1MainWindow.html#ad234f336147ad216c075b9f038a3f4a3',1,'taixu::editor::MainWindow']]],
+  ['step_1997',['step',['../classtaixu_1_1PhysicsScene.html#a53ee934a79cbfe9281401c601da27659',1,'taixu::PhysicsScene']]],
+  ['strength_1998',['strength',['../structtaixu_1_1Material.html#af0e59f109a4514689c22ba655f204fd7',1,'taixu::Material']]],
+  ['stype_1999',['stype',['../structtaixu_1_1RigidbodyInfo.html#a89d11b9d04792e2f401a9d5cb9b87b1e',1,'taixu::RigidbodyInfo']]]
 ];

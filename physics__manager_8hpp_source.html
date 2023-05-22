@@ -87,34 +87,52 @@ $(document).ready(function(){initNavTree('physics__manager_8hpp_source.html','')
 <div class="contents">
 <a href="physics__manager_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_PHYSICS_MANAGER</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TAIXUENGINE_PHYSICS_MANAGER</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="physics__scene_8hpp.html">physics_scene.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classtaixu_1_1PhysicsManager.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1PhysicsManager.html">PhysicsManager</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classtaixu_1_1PhysicsManager.html#ab0a49d8ab8bb56beb148893a8ef48952">   10</a></span>&#160;    <a class="code" href="classtaixu_1_1PhysicsManager.html#ab0a49d8ab8bb56beb148893a8ef48952">PhysicsManager</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1PhysicsManager.html#ac6de1da683c4bada38c1bb1be1e75abc">initialize</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1PhysicsManager.html#a7d82f3d9493d106367b01587f5497fc3">tick</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classtaixu_1_1PhysicsManager.html#acf0bcb67336c4aad5a5be80d7961271c">   16</a></span>&#160;    std::shared_ptr&lt;PhysicsScene&gt; <a class="code" href="classtaixu_1_1PhysicsManager.html#acf0bcb67336c4aad5a5be80d7961271c">current_scene</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">//std::vector&lt;PhysicsScene&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TAIXUENGINE_PHYSICS_MANAGER */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html">taixu::PhysicsManager</a></div><div class="ttdef"><b>Definition:</b> physics_manager.hpp:8</div></div>
-<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_a7d82f3d9493d106367b01587f5497fc3"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#a7d82f3d9493d106367b01587f5497fc3">taixu::PhysicsManager::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> physics_manager.cpp:9</div></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hash_8hpp.html">core/base/hash.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="system_8hpp.html">management/ecs/system/system.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="scene_8hpp.html">management/scene/scene.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="physics__scene_8hpp.html">physics_scene.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span>Scene;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classtaixu_1_1PhysicsManager.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1PhysicsManager.html">PhysicsManager</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classtaixu_1_1PhysicsManager.html#ab0a49d8ab8bb56beb148893a8ef48952">   13</a></span>&#160;    <a class="code" href="classtaixu_1_1PhysicsManager.html#ab0a49d8ab8bb56beb148893a8ef48952">PhysicsManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1PhysicsManager.html#a85e71b5819f6a08792886d112b86135a">init</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1PhysicsManager.html#a2c0492daac684962bb2e9e7d0b95ad5f">update</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1PhysicsManager.html#a1a6f2776146bf1c5261ad8cdcc806a6d">bindScene</a>(<a class="code" href="classtaixu_1_1Scene.html">Scene</a> *scene);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classtaixu_1_1PhysicsManager.html#a1f6b6a816a7690d4e058c17300b69bfb">   21</a></span>&#160;    std::shared_ptr&lt;PhysicsScene&gt; <a class="code" href="classtaixu_1_1PhysicsManager.html#a1f6b6a816a7690d4e058c17300b69bfb">_physics_scene</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classtaixu_1_1PhysicsManager.html#acb8ee3eb6d9f27822114ac30d558db06">   22</a></span>&#160;    <a class="code" href="classtaixu_1_1Scene.html">Scene</a>                        *<a class="code" href="classtaixu_1_1PhysicsManager.html#acb8ee3eb6d9f27822114ac30d558db06">_current_scene</a>{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtaixu_1_1PhysicsManager.html#a608a26589fabc6d44df6d9d049ec3b79">   23</a></span>&#160;    <span class="keyword">static</span> constexpr <a class="code" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">hash64_t</a>     <a class="code" href="classtaixu_1_1PhysicsManager.html#a608a26589fabc6d44df6d9d049ec3b79">PHYSICS_SYSTEM_ID</a> = <span class="stringliteral">&quot;physics_system&quot;</span>_hash64;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classtaixu_1_1PhysicsManager.html#a44fe7cc13d6d792cc9d66cc5bb7a43d5">   24</a></span>&#160;    <a class="code" href="structtaixu_1_1System.html">System</a>                       *<a class="code" href="classtaixu_1_1PhysicsManager.html#a44fe7cc13d6d792cc9d66cc5bb7a43d5">_physics_system</a>{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TAIXUENGINE_PHYSICS_MANAGER */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html">taixu::PhysicsManager</a></div><div class="ttdef"><b>Definition:</b> physics_manager.hpp:11</div></div>
+<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_a1a6f2776146bf1c5261ad8cdcc806a6d"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#a1a6f2776146bf1c5261ad8cdcc806a6d">taixu::PhysicsManager::bindScene</a></div><div class="ttdeci">void bindScene(Scene *scene)</div><div class="ttdef"><b>Definition:</b> physics_manager.cpp:31</div></div>
+<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_a1f6b6a816a7690d4e058c17300b69bfb"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#a1f6b6a816a7690d4e058c17300b69bfb">taixu::PhysicsManager::_physics_scene</a></div><div class="ttdeci">std::shared_ptr&lt; PhysicsScene &gt; _physics_scene</div><div class="ttdef"><b>Definition:</b> physics_manager.hpp:21</div></div>
+<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_a2c0492daac684962bb2e9e7d0b95ad5f"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#a2c0492daac684962bb2e9e7d0b95ad5f">taixu::PhysicsManager::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> physics_manager.cpp:12</div></div>
+<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_a44fe7cc13d6d792cc9d66cc5bb7a43d5"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#a44fe7cc13d6d792cc9d66cc5bb7a43d5">taixu::PhysicsManager::_physics_system</a></div><div class="ttdeci">System * _physics_system</div><div class="ttdef"><b>Definition:</b> physics_manager.hpp:24</div></div>
+<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_a608a26589fabc6d44df6d9d049ec3b79"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#a608a26589fabc6d44df6d9d049ec3b79">taixu::PhysicsManager::PHYSICS_SYSTEM_ID</a></div><div class="ttdeci">static constexpr hash64_t PHYSICS_SYSTEM_ID</div><div class="ttdef"><b>Definition:</b> physics_manager.hpp:23</div></div>
+<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_a85e71b5819f6a08792886d112b86135a"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#a85e71b5819f6a08792886d112b86135a">taixu::PhysicsManager::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> physics_manager.cpp:6</div></div>
 <div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_ab0a49d8ab8bb56beb148893a8ef48952"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#ab0a49d8ab8bb56beb148893a8ef48952">taixu::PhysicsManager::PhysicsManager</a></div><div class="ttdeci">PhysicsManager()=default</div></div>
-<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_ac6de1da683c4bada38c1bb1be1e75abc"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#ac6de1da683c4bada38c1bb1be1e75abc">taixu::PhysicsManager::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdef"><b>Definition:</b> physics_manager.cpp:5</div></div>
-<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_acf0bcb67336c4aad5a5be80d7961271c"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#acf0bcb67336c4aad5a5be80d7961271c">taixu::PhysicsManager::current_scene</a></div><div class="ttdeci">std::shared_ptr&lt; PhysicsScene &gt; current_scene</div><div class="ttdef"><b>Definition:</b> physics_manager.hpp:16</div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> application.cpp:19</div></div>
+<div class="ttc" id="aclasstaixu_1_1PhysicsManager_html_acb8ee3eb6d9f27822114ac30d558db06"><div class="ttname"><a href="classtaixu_1_1PhysicsManager.html#acb8ee3eb6d9f27822114ac30d558db06">taixu::PhysicsManager::_current_scene</a></div><div class="ttdeci">Scene * _current_scene</div><div class="ttdef"><b>Definition:</b> physics_manager.hpp:22</div></div>
+<div class="ttc" id="aclasstaixu_1_1Scene_html"><div class="ttname"><a href="classtaixu_1_1Scene.html">taixu::Scene</a></div><div class="ttdoc">场景类</div><div class="ttdef"><b>Definition:</b> scene.hpp:55</div></div>
+<div class="ttc" id="ahash_8hpp_html"><div class="ttname"><a href="hash_8hpp.html">hash.hpp</a></div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
+<div class="ttc" id="anamespacetaixu_html_a158bbb2b977278cd5123cc8e353a86e7"><div class="ttname"><a href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">taixu::hash64_t</a></div><div class="ttdeci">std::uint64_t hash64_t</div><div class="ttdef"><b>Definition:</b> hash.hpp:34</div></div>
 <div class="ttc" id="aphysics__scene_8hpp_html"><div class="ttname"><a href="physics__scene_8hpp.html">physics_scene.hpp</a></div></div>
+<div class="ttc" id="ascene_8hpp_html"><div class="ttname"><a href="scene_8hpp.html">scene.hpp</a></div></div>
+<div class="ttc" id="astructtaixu_1_1System_html"><div class="ttname"><a href="structtaixu_1_1System.html">taixu::System</a></div><div class="ttdef"><b>Definition:</b> system.hpp:17</div></div>
+<div class="ttc" id="asystem_8hpp_html"><div class="ttname"><a href="system_8hpp.html">system.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

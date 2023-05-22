@@ -90,16 +90,17 @@ $(document).ready(function(){initNavTree('classtaixu_1_1OGLVertexArray.html','')
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="ogl__vertexArray_8hpp_source.html">ogl_vertexArray.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="ogl__vertex__array_8hpp_source.html">ogl_vertex_array.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for taixu::OGLVertexArray:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1OGLVertexArray__inherit__graph.png" border="0" usemap="#ataixu_1_1OGLVertexArray_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1OGLVertexArray_inherit__map" id="ataixu_1_1OGLVertexArray_inherit__map">
-<area shape="rect" title=" " alt="" coords="39,619,205,813"/>
-<area shape="rect" href="classtaixu_1_1IVertexArray.html" title=" " alt="" coords="5,419,239,569"/>
-<area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="43,5,190,156"/>
-<area shape="rect" href="classtaixu_1_1IVertexArray.html" title=" " alt="" coords="139,205,308,341"/>
+<area shape="rect" title=" " alt="" coords="65,716,232,925"/>
+<area shape="rect" href="classtaixu_1_1AbstractVertexArray.html" title=" " alt="" coords="5,560,292,667"/>
+<area shape="rect" href="classtaixu_1_1IVertexArray.html" title=" " alt="" coords="71,205,215,327"/>
+<area shape="rect" href="classtaixu_1_1AbstractVertexArray.html" title=" " alt="" coords="165,376,359,483"/>
+<area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="70,5,217,156"/>
 </map>
 </div>
 <div class="dynheader">
@@ -107,12 +108,13 @@ Collaboration diagram for taixu::OGLVertexArray:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1OGLVertexArray__coll__graph.png" border="0" usemap="#ataixu_1_1OGLVertexArray_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1OGLVertexArray_coll__map" id="ataixu_1_1OGLVertexArray_coll__map">
-<area shape="rect" title=" " alt="" coords="153,691,320,871"/>
-<area shape="rect" href="classtaixu_1_1IVertexArray.html" title=" " alt="" coords="5,448,239,599"/>
-<area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="91,5,238,156"/>
-<area shape="rect" href="classtaixu_1_1IVertexArray.html" title=" " alt="" coords="80,205,249,341"/>
-<area shape="rect" href="classtaixu_1_1IElementBuffer.html" title=" " alt="" coords="274,220,434,327"/>
-<area shape="rect" href="classtaixu_1_1OGLElementBuffer.html" title=" " alt="" coords="263,419,445,628"/>
+<area shape="rect" title=" " alt="" coords="172,881,339,1076"/>
+<area shape="rect" href="classtaixu_1_1AbstractVertexArray.html" title=" " alt="" coords="5,725,292,832"/>
+<area shape="rect" href="classtaixu_1_1IVertexArray.html" title=" " alt="" coords="139,205,283,327"/>
+<area shape="rect" href="classtaixu_1_1AbstractVertexArray.html" title=" " alt="" coords="135,376,330,483"/>
+<area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="225,5,371,156"/>
+<area shape="rect" href="classtaixu_1_1IElementBuffer.html" title=" " alt="" coords="307,213,467,319"/>
+<area shape="rect" href="classtaixu_1_1OGLElementBuffer.html" title=" " alt="" coords="296,507,479,701"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -126,12 +128,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae252e333e8b3c4df8cf1dc56872d0223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f1aae5600c89aa0f336dfb4c954a309"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexArray.html#a7f1aae5600c89aa0f336dfb4c954a309">unbind</a> () override</td></tr>
 <tr class="separator:a7f1aae5600c89aa0f336dfb4c954a309"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac657c7fb017eb604589f9d05cf76b8b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexArray.html#ac657c7fb017eb604589f9d05cf76b8b0">addVBO</a> (<a class="el" href="classtaixu_1_1OGLVertexBuffer.html">OGLVertexBuffer</a> &amp;&amp;vbo) override</td></tr>
-<tr class="separator:ac657c7fb017eb604589f9d05cf76b8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab173cf0fef5f7b6aef0918bb12f04c6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexArray.html#ab173cf0fef5f7b6aef0918bb12f04c6c">addVBO</a> (<a class="el" href="classtaixu_1_1OGLVertexBuffer.html">OGLVertexBuffer</a> &amp;&amp;vbo, GLenum type) override</td></tr>
+<tr class="separator:ab173cf0fef5f7b6aef0918bb12f04c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6935070c3f21594cadfeb1a607333da4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexArray.html#a6935070c3f21594cadfeb1a607333da4">setEBO</a> (<a class="el" href="classtaixu_1_1OGLElementBuffer.html">OGLElementBuffer</a> &amp;&amp;ebo) override</td></tr>
 <tr class="separator:a6935070c3f21594cadfeb1a607333da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4563f18a4c110f9cedc62ff2a643810"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexArray.html#aa4563f18a4c110f9cedc62ff2a643810">clear</a> ()</td></tr>
-<tr class="separator:aa4563f18a4c110f9cedc62ff2a643810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5959d0032e4c82849b8b6102d90b71bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexArray.html#a5959d0032e4c82849b8b6102d90b71bd">clear</a> () override</td></tr>
+<tr class="separator:a5959d0032e4c82849b8b6102d90b71bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab43e33e5998a3538a62003af48c2cf21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1OGLVertexArray.html#ab43e33e5998a3538a62003af48c2cf21">draw</a> (std::uint32_t cnt) override</td></tr>
+<tr class="separator:ab43e33e5998a3538a62003af48c2cf21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -187,8 +191,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac657c7fb017eb604589f9d05cf76b8b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac657c7fb017eb604589f9d05cf76b8b0">&#9670;&nbsp;</a></span>addVBO()</h2>
+<a id="ab173cf0fef5f7b6aef0918bb12f04c6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab173cf0fef5f7b6aef0918bb12f04c6c">&#9670;&nbsp;</a></span>addVBO()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,8 +204,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">void taixu::OGLVertexArray::addVBO </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classtaixu_1_1OGLVertexBuffer.html">OGLVertexBuffer</a> &amp;&amp;&#160;</td>
-          <td class="paramname"><em>vbo</em></td><td>)</td>
+          <td class="paramname"><em>vbo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -211,7 +225,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classtaixu_1_1IVertexArray.html#a3d1cf8105b913c298c3aa64860ed637d">taixu::IVertexArray&lt; OGLVertexBuffer, OGLElementBuffer &gt;</a>.</p>
+<p>Implements <a class="el" href="classtaixu_1_1AbstractVertexArray.html#a0cd91d135314799ccece9907f4cd146a">taixu::AbstractVertexArray&lt; OGLVertexBuffer, OGLElementBuffer &gt;</a>.</p>
 
 </div>
 </div>
@@ -238,12 +252,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classtaixu_1_1IVertexArray.html#a5796bb6aa92b489a14e99b6fe6c4dab5">taixu::IVertexArray&lt; OGLVertexBuffer, OGLElementBuffer &gt;</a>.</p>
+<p>Implements <a class="el" href="classtaixu_1_1IVertexArray.html#a5732c839e8656142b89675624a4d40b5">taixu::IVertexArray</a>.</p>
 
 </div>
 </div>
-<a id="aa4563f18a4c110f9cedc62ff2a643810"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4563f18a4c110f9cedc62ff2a643810">&#9670;&nbsp;</a></span>clear()</h2>
+<a id="a5959d0032e4c82849b8b6102d90b71bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5959d0032e4c82849b8b6102d90b71bd">&#9670;&nbsp;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,10 +274,40 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Implements <a class="el" href="classtaixu_1_1IVertexArray.html#a72c5486982b29e0caba47a7ba2eed748">taixu::IVertexArray</a>.</p>
+
+</div>
+</div>
+<a id="ab43e33e5998a3538a62003af48c2cf21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab43e33e5998a3538a62003af48c2cf21">&#9670;&nbsp;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void taixu::OGLVertexArray::draw </td>
+          <td>(</td>
+          <td class="paramtype">std::uint32_t&#160;</td>
+          <td class="paramname"><em>cnt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classtaixu_1_1IVertexArray.html#a07dda80380f3df4394f94702b3fa99a0">taixu::IVertexArray</a>.</p>
 
 </div>
 </div>
@@ -291,7 +335,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classtaixu_1_1IVertexArray.html#ac03ae80ddfd436d2eb16f7f84bcbdd6e">taixu::IVertexArray&lt; OGLVertexBuffer, OGLElementBuffer &gt;</a>.</p>
+<p>Implements <a class="el" href="classtaixu_1_1AbstractVertexArray.html#af130cd035a62e1baf0d506e74ad07cfa">taixu::AbstractVertexArray&lt; OGLVertexBuffer, OGLElementBuffer &gt;</a>.</p>
 
 </div>
 </div>
@@ -318,7 +362,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classtaixu_1_1IVertexArray.html#a1cdc74407bec20777b85284178f8be27">taixu::IVertexArray&lt; OGLVertexBuffer, OGLElementBuffer &gt;</a>.</p>
+<p>Implements <a class="el" href="classtaixu_1_1IVertexArray.html#adc9f8aeb7e8bbde37e6401e07ae6d509">taixu::IVertexArray</a>.</p>
 
 </div>
 </div>
@@ -393,8 +437,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>engine/runtime/platform/opengl/<a class="el" href="ogl__vertexArray_8hpp_source.html">ogl_vertexArray.hpp</a></li>
-<li>engine/runtime/platform/opengl/<a class="el" href="ogl__vertexArray_8cpp.html">ogl_vertexArray.cpp</a></li>
+<li>engine/runtime/platform/opengl/<a class="el" href="ogl__vertex__array_8hpp_source.html">ogl_vertex_array.hpp</a></li>
+<li>engine/runtime/platform/opengl/<a class="el" href="ogl__vertex__array_8cpp.html">ogl_vertex_array.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

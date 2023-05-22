@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['tess_5fcontrol_1285',['TESS_CONTROL',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3ac2cd45b0319c9527058f3cfaa8fcb244',1,'taixu']]],
-  ['tess_5fevaluation_1286',['TESS_EVALUATION',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3a68b8d5b7b162d6652d5ff874f296828d',1,'taixu']]],
-  ['texcoord_1287',['TEXCOORD',['../namespacetaixu.html#a12d4544bfb12fa2d6e739321539a47b5ae406d3f48e0ec122e180637b66787651',1,'taixu']]],
-  ['transform_5fcomponent_1288',['TRANSFORM_COMPONENT',['../namespacetaixu.html#aaec4bf66f7267efd6ed38975e8df9ab5a39521ade3b9182632f75911be4fdbdcb',1,'taixu']]]
+  ['shininess_2121',['SHININESS',['../namespacetaixu.html#a6feb909cad7d7b4691e1271e4487a71ba7f1ce29f7d6f782024936a67738a6165',1,'taixu']]],
+  ['specular_2122',['SPECULAR',['../namespacetaixu.html#a6feb909cad7d7b4691e1271e4487a71ba0df54c320628149300093da5e2ff693d',1,'taixu']]],
+  ['sphere_2123',['SPHERE',['../namespacetaixu.html#a76dd482116d505913bb677a80cbb2895a6f7cea7381e843e2ee0338b4a92b0d43',1,'taixu']]],
+  ['static_2124',['STATIC',['../namespacetaixu.html#a88239a41d78f690655b2aa9bb89ec1bdafe6f99ef1ec99efbdc19a9786cf1facc',1,'taixu']]]
 ];

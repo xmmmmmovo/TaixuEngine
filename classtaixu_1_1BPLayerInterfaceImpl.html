@@ -117,15 +117,15 @@ Collaboration diagram for taixu::BPLayerInterfaceImpl:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a447d81c0c11cb31e5ea5a5647c0572e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1BPLayerInterfaceImpl.html#a447d81c0c11cb31e5ea5a5647c0572e8">BPLayerInterfaceImpl</a> ()</td></tr>
 <tr class="separator:a447d81c0c11cb31e5ea5a5647c0572e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbe4804b9d00b5c59bf003f9c7f3168a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1BPLayerInterfaceImpl.html#adbe4804b9d00b5c59bf003f9c7f3168a">GetNumBroadPhaseLayers</a> () const override</td></tr>
-<tr class="separator:adbe4804b9d00b5c59bf003f9c7f3168a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1aa82d20861edfd425bcf473ad1df7f"><td class="memItemLeft" align="right" valign="top">std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1BPLayerInterfaceImpl.html#ae1aa82d20861edfd425bcf473ad1df7f">GetNumBroadPhaseLayers</a> () const override</td></tr>
+<tr class="separator:ae1aa82d20861edfd425bcf473ad1df7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78c272a9b1a541c4bf371186870dd94c"><td class="memItemLeft" align="right" valign="top">JPH::BroadPhaseLayer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1BPLayerInterfaceImpl.html#a78c272a9b1a541c4bf371186870dd94c">GetBroadPhaseLayer</a> (JPH::ObjectLayer inLayer) const override</td></tr>
 <tr class="separator:a78c272a9b1a541c4bf371186870dd94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a6999fe9f1baad059bb78fd772117dbc9"><td class="memItemLeft" align="right" valign="top">JPH::BroadPhaseLayer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1BPLayerInterfaceImpl.html#a6999fe9f1baad059bb78fd772117dbc9">m_object_to_broad_phase</a> [Layers::NUM_LAYERS]</td></tr>
-<tr class="separator:a6999fe9f1baad059bb78fd772117dbc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cb9441bb52e2071d63dfc3584bf5a04"><td class="memItemLeft" align="right" valign="top">JPH::BroadPhaseLayer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1BPLayerInterfaceImpl.html#a0cb9441bb52e2071d63dfc3584bf5a04">m_object_to_broad_phase</a> [layers::NUM_LAYERS]</td></tr>
+<tr class="separator:a0cb9441bb52e2071d63dfc3584bf5a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>BroadPhaseLayerInterface implementation. </p>
@@ -174,8 +174,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="adbe4804b9d00b5c59bf003f9c7f3168a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbe4804b9d00b5c59bf003f9c7f3168a">&#9670;&nbsp;</a></span>GetNumBroadPhaseLayers()</h2>
+<a id="ae1aa82d20861edfd425bcf473ad1df7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1aa82d20861edfd425bcf473ad1df7f">&#9670;&nbsp;</a></span>GetNumBroadPhaseLayers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +184,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t taixu::BPLayerInterfaceImpl::GetNumBroadPhaseLayers </td>
+          <td class="memname">std::uint32_t taixu::BPLayerInterfaceImpl::GetNumBroadPhaseLayers </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -200,8 +200,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a6999fe9f1baad059bb78fd772117dbc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6999fe9f1baad059bb78fd772117dbc9">&#9670;&nbsp;</a></span>m_object_to_broad_phase</h2>
+<a id="a0cb9441bb52e2071d63dfc3584bf5a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cb9441bb52e2071d63dfc3584bf5a04">&#9670;&nbsp;</a></span>m_object_to_broad_phase</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +210,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">JPH::BroadPhaseLayer taixu::BPLayerInterfaceImpl::m_object_to_broad_phase[Layers::NUM_LAYERS]</td>
+          <td class="memname">JPH::BroadPhaseLayer taixu::BPLayerInterfaceImpl::m_object_to_broad_phase[layers::NUM_LAYERS]</td>
         </tr>
       </table>
   </td>

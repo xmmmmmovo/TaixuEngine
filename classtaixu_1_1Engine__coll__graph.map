@@ -1,5 +1,8 @@
 <map id="taixu::Engine" name="taixu::Engine">
-<area shape="rect" id="node1" title=" " alt="" coords="5,404,216,613"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="29,204,192,355"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="10,5,211,141"/>
+<area shape="rect" id="node1" title=" " alt="" coords="211,755,380,1125"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="25,490,187,641"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="5,123,207,259"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1Clock.html" title=" " alt="" coords="212,439,379,692"/>
+<area shape="rect" id="node5" href="$classtaixu_1_1Scene.html" title="场景类" alt="" coords="403,519,547,611"/>
+<area shape="rect" id="node6" href="$classtaixu_1_1ECSCoordinator.html" title="ECS协调器,用于协调各个系统,以及管理组件." alt="" coords="382,5,569,376"/>
 </map>

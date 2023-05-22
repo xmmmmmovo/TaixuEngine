@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['global_5ftransform_1122',['global_transform',['../classtaixu_1_1ECS.html#a84d3273fcfff963791df29737fdb4c53',1,'taixu::ECS']]],
-  ['go_1123',['GO',['../structtaixu_1_1RigidbodyInfo.html#ae5c773e7abda10c5e27c840746a3206a',1,'taixu::RigidbodyInfo::GO()'],['../classtaixu_1_1RigidBodyComponent.html#a5b59f6928155ef343ec3f628475b2662',1,'taixu::RigidBodyComponent::GO()'],['../classtaixu_1_1TransformComponent.html#abb395a5e501da6fb3e592b1305b5bd55',1,'taixu::TransformComponent::GO()']]],
-  ['gos_1124',['GOs',['../classtaixu_1_1Level.html#a1b20189c18ede32d62b3ec4f393692ea',1,'taixu::Level']]],
-  ['grivaty_1125',['grivaty',['../classtaixu_1_1Level.html#a7584207573322a3ab3ea1ea2e3043068',1,'taixu::Level']]]
+  ['global_5fjson_1840',['global_json',['../classtaixu_1_1JsonWorld.html#a42c48f324e3a24eeee7960ea367cb609',1,'taixu::JsonWorld']]],
+  ['go_1841',['GO',['../structtaixu_1_1RigidbodyInfo.html#ae5c773e7abda10c5e27c840746a3206a',1,'taixu::RigidbodyInfo']]],
+  ['go_5fpath_1842',['GO_path',['../classtaixu_1_1JsonGO.html#a7a05585c57441cbf863c0c162e5b8e48',1,'taixu::JsonGO']]],
+  ['gpu_5fdata_1843',['gpu_data',['../structtaixu_1_1Model.html#a553f91bd31c9b87ef3cff5982013d3f3',1,'taixu::Model']]],
+  ['guizmo_5fmode_1844',['guizmo_mode',['../structtaixu_1_1editor_1_1ViewModel.html#a42f186a5573f57b9d38771b635d9f0a5',1,'taixu::editor::ViewModel']]],
+  ['guizmo_5foperation_1845',['guizmo_operation',['../structtaixu_1_1editor_1_1ViewModel.html#adf3218aa257ff0bb0407003c3b1cc9f0',1,'taixu::editor::ViewModel']]]
 ];

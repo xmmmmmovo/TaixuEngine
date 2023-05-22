@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['motiontype_1247',['MotionType',['../namespacetaixu.html#a88239a41d78f690655b2aa9bb89ec1bd',1,'taixu']]]
+  ['keycode_2068',['KeyCode',['../namespacetaixu.html#a77cf7817be9141fcdfe50bbe3f1a1750',1,'taixu']]]
 ];

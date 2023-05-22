@@ -97,8 +97,8 @@ Inheritance diagram for taixu::IShaderProgram:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1IShaderProgram__inherit__graph.png" border="0" usemap="#ataixu_1_1IShaderProgram_inherit__map" alt="Inheritance graph"/></div>
 <map name="ataixu_1_1IShaderProgram_inherit__map" id="ataixu_1_1IShaderProgram_inherit__map">
-<area shape="rect" title=" " alt="" coords="17,204,184,472"/>
-<area shape="rect" href="classtaixu_1_1OGLShaderProgram.html" title=" " alt="" coords="5,520,196,803"/>
+<area shape="rect" title=" " alt="" coords="13,204,188,501"/>
+<area shape="rect" href="classtaixu_1_1OGLShaderProgram.html" title=" " alt="" coords="5,549,196,861"/>
 <area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="27,5,174,156"/>
 </map>
 </div>
@@ -107,8 +107,8 @@ Collaboration diagram for taixu::IShaderProgram:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1IShaderProgram__coll__graph.png" border="0" usemap="#ataixu_1_1IShaderProgram_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1IShaderProgram_coll__map" id="ataixu_1_1IShaderProgram_coll__map">
-<area shape="rect" title=" " alt="" coords="5,204,172,472"/>
-<area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="15,5,162,156"/>
+<area shape="rect" title=" " alt="" coords="5,204,180,501"/>
+<area shape="rect" href="classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="19,5,166,156"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -140,6 +140,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a19e11e32fc656fb9488ef108dbf87a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76ac97f252fec9f89695edde33797f03"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IShaderProgram.html#a76ac97f252fec9f89695edde33797f03">set_uniform</a> (std::string_view name, const glm::mat4 &amp;mat) const noexcept=0</td></tr>
 <tr class="separator:a76ac97f252fec9f89695edde33797f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f2ea72eb45011a18e63a222eaf1ce37"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IShaderProgram.html#a0f2ea72eb45011a18e63a222eaf1ce37">bind_uniform_block</a> (const std::string_view &amp;name, std::uint32_t idx) const noexcept=0</td></tr>
+<tr class="separator:a0f2ea72eb45011a18e63a222eaf1ce37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa660d49bcac63385661c820974312cec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1IShaderProgram.html#aa660d49bcac63385661c820974312cec">setMat4Array</a> (const std::string &amp;name, const glm::mat4 &amp;mat) const noexcept=0</td></tr>
+<tr class="separator:aa660d49bcac63385661c820974312cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -194,6 +198,44 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0f2ea72eb45011a18e63a222eaf1ce37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f2ea72eb45011a18e63a222eaf1ce37">&#9670;&nbsp;</a></span>bind_uniform_block()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void taixu::IShaderProgram::bind_uniform_block </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint32_t&#160;</td>
+          <td class="paramname"><em>idx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classtaixu_1_1OGLShaderProgram.html#a30a94b2a123422b9b6092696b39c269e">taixu::OGLShaderProgram</a>.</p>
+
+</div>
+</div>
 <a id="a3286db5371c3d63d9b158c822b1a6452"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3286db5371c3d63d9b158c822b1a6452">&#9670;&nbsp;</a></span>set_uniform() <span class="overload">[1/12]</span></h2>
 
@@ -683,6 +725,44 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implemented in <a class="el" href="classtaixu_1_1OGLShaderProgram.html#a5c0ad9f1ad1736fadb3d9e34ec88c027">taixu::OGLShaderProgram</a>.</p>
+
+</div>
+</div>
+<a id="aa660d49bcac63385661c820974312cec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa660d49bcac63385661c820974312cec">&#9670;&nbsp;</a></span>setMat4Array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void taixu::IShaderProgram::setMat4Array </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::mat4 &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classtaixu_1_1OGLShaderProgram.html#a6c20c47b136fd76aa877409ab6839cc6">taixu::OGLShaderProgram</a>.</p>
 
 </div>
 </div>

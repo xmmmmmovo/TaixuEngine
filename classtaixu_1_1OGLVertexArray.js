@@ -2,9 +2,10 @@ var classtaixu_1_1OGLVertexArray =
 [
     [ "OGLVertexArray", "classtaixu_1_1OGLVertexArray.html#a5d59e3b8e08a0d6a5ba027d78ad10e06", null ],
     [ "~OGLVertexArray", "classtaixu_1_1OGLVertexArray.html#a842245fb87169768efc505dd316e79d3", null ],
-    [ "addVBO", "classtaixu_1_1OGLVertexArray.html#ac657c7fb017eb604589f9d05cf76b8b0", null ],
+    [ "addVBO", "classtaixu_1_1OGLVertexArray.html#ab173cf0fef5f7b6aef0918bb12f04c6c", null ],
     [ "bind", "classtaixu_1_1OGLVertexArray.html#ae252e333e8b3c4df8cf1dc56872d0223", null ],
-    [ "clear", "classtaixu_1_1OGLVertexArray.html#aa4563f18a4c110f9cedc62ff2a643810", null ],
+    [ "clear", "classtaixu_1_1OGLVertexArray.html#a5959d0032e4c82849b8b6102d90b71bd", null ],
+    [ "draw", "classtaixu_1_1OGLVertexArray.html#ab43e33e5998a3538a62003af48c2cf21", null ],
     [ "setEBO", "classtaixu_1_1OGLVertexArray.html#a6935070c3f21594cadfeb1a607333da4", null ],
     [ "unbind", "classtaixu_1_1OGLVertexArray.html#a7f1aae5600c89aa0f336dfb4c954a309", null ],
     [ "EBO", "classtaixu_1_1OGLVertexArray.html#af9a10347566afe68c2c5639c1cf04f8f", null ],

@@ -1,5 +1,6 @@
 var guid__genenrator_8hpp =
 [
     [ "GuidGenerator", "classtaixu_1_1GuidGenerator.html", null ],
+    [ "GUID", "guid__genenrator_8hpp.html#ac9d653dde0fb010c9ac154fef97ade0a", null ],
     [ "INVALID_GUID", "guid__genenrator_8hpp.html#a07bf29860b2e3d8da53a4b7b06c29a15", null ]
 ];

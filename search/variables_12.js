@@ -1,11 +1,19 @@
 var searchData=
 [
-  ['taixu_5fworld_1201',['taixu_world',['../classtaixu_1_1ECS.html#a58fd3881ac9e5c28c735f3c4adb0c0fa',1,'taixu::ECS']]],
-  ['temp_5fallocator_1202',['temp_allocator',['../structtaixu_1_1JoltPhysics.html#a01bb0c024a9efd18b8bfa23b11223740',1,'taixu::JoltPhysics']]],
-  ['texture_5fid_1203',['texture_id',['../classtaixu_1_1OGLTexture.html#ac5a87bf72a816f94b24774e310eb31ee',1,'taixu::OGLTexture']]],
-  ['time_5fscale_1204',['time_scale',['../classtaixu_1_1Clock.html#a4fc493150424251cd5dc4ca6a96bc4f8',1,'taixu::Clock']]],
-  ['time_5fsince_5fstart_1205',['time_since_start',['../classtaixu_1_1Clock.html#a10d7caa64cde7e78cc25d158b0bb1ccd',1,'taixu::Clock']]],
-  ['transform_1206',['transform',['../classtaixu_1_1TransformComponent.html#ae64c645f99c544405e1cccd227b06455',1,'taixu::TransformComponent']]],
-  ['transform_5fcomponent_1207',['transform_component',['../classtaixu_1_1MeshComponent.html#a5193a2321c7aef6b7e3df3e18c6c1d58',1,'taixu::MeshComponent::transform_component()'],['../classtaixu_1_1RigidBodyComponent.html#ac6cb98de8a5259c7b0eeee88be058a39',1,'taixu::RigidBodyComponent::transform_component()']]],
-  ['type_1208',['type',['../classtaixu_1_1RigidBodyComponent.html#a93969fef163b7b40780111dc88caf6fc',1,'taixu::RigidBodyComponent::type()'],['../structtaixu_1_1BufferElement.html#a82020044200d429c43e08c701c5df759',1,'taixu::BufferElement::type()']]]
+  ['refracti_1964',['refracti',['../structtaixu_1_1Material.html#a6b3fd7c24ca09be34f499a346a324d2a',1,'taixu::Material']]],
+  ['related_5fbones_1965',['related_bones',['../structtaixu_1_1VertexRelateBoneInfo.html#a8ec19f4c067a0f73168d7036ce760ca7',1,'taixu::VertexRelateBoneInfo']]],
+  ['related_5fbones_5fid_1966',['related_bones_id',['../structtaixu_1_1Mesh.html#a8e87734b846eaf25c297d19133a7a177',1,'taixu::Mesh']]],
+  ['related_5fbones_5fweights_1967',['related_bones_weights',['../structtaixu_1_1VertexRelateBoneInfo.html#a83bc36b1b35adb24222d55901b350464',1,'taixu::VertexRelateBoneInfo::related_bones_weights()'],['../structtaixu_1_1Mesh.html#a718b8cda41993fafc991a4ea96430fe5',1,'taixu::Mesh::related_bones_weights()']]],
+  ['render_5fcomponent_1968',['render_component',['../classtaixu_1_1editor_1_1MainWindow.html#af5e92fe6da9dbdf6218b44f1d2099ba6',1,'taixu::editor::MainWindow']]],
+  ['render_5fcomponent_5fname_1969',['RENDER_COMPONENT_NAME',['../classtaixu_1_1editor_1_1MainWindow.html#a91d7af69084b8adfefc4dcaf2b328e59',1,'taixu::editor::MainWindow']]],
+  ['render_5fglobal_5fjson_1970',['render_global_json',['../classtaixu_1_1GlobalJson.html#a0fb7285f9bfe4566ec4b7cf233c1d864',1,'taixu::GlobalJson']]],
+  ['render_5fglobal_5fpath_1971',['render_global_path',['../classtaixu_1_1GlobalJson.html#a8400d36d6fe184f531d6055e20b810e6',1,'taixu::GlobalJson']]],
+  ['renderable_5fcomponent_1972',['renderable_component',['../classtaixu_1_1JsonGO.html#a2f341ba6680b1ecb130d726863a3b059',1,'taixu::JsonGO']]],
+  ['renderable_5fsystem_5fid_1973',['RENDERABLE_SYSTEM_ID',['../classtaixu_1_1BaseRenderer.html#a606d00b9ee41ece09d2c3ed86c13461b',1,'taixu::BaseRenderer']]],
+  ['renderer_1974',['renderer',['../structtaixu_1_1editor_1_1ViewModel.html#ac01fdd27fbdeda0b917f657bbb0307e7',1,'taixu::editor::ViewModel']]],
+  ['right_1975',['Right',['../classtaixu_1_1EulerCamera.html#a0732b68665183bcb2467a64939f3e110',1,'taixu::EulerCamera']]],
+  ['rigid_5fbody_5fscale_1976',['rigid_body_scale',['../classtaixu_1_1JsonRigidBody.html#ad41c668ab091915e5fd42069113cbaca',1,'taixu::JsonRigidBody']]],
+  ['rigidbodycomponent_1977',['RigidBodyComponent',['../classtaixu_1_1JsonGO.html#a0c2b675ce231c56739479f809d8580d8',1,'taixu::JsonGO']]],
+  ['rotation_1978',['rotation',['../structtaixu_1_1RigidbodyInfo.html#a7c926caed4c2b62890ff30e36d05114c',1,'taixu::RigidbodyInfo::rotation()'],['../classtaixu_1_1JsonTransform.html#aeb784e3a6df85ec0df241e8d03d69763',1,'taixu::JsonTransform::rotation()']]],
+  ['roughness_5ftex_1979',['roughness_tex',['../structtaixu_1_1Material.html#a688428defbdadbd5434866f2d185b73e',1,'taixu::Material']]]
 ];

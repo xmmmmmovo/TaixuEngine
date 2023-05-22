@@ -7,12 +7,20 @@ var dir_2f21ec52e97ceb2a25e6ec37415cbcf1 =
     [ "framebuffer.hpp", "framebuffer_8hpp.html", "framebuffer_8hpp" ],
     [ "render_api.cpp", "render__api_8cpp.html", "render__api_8cpp" ],
     [ "render_api.hpp", "render__api_8hpp.html", "render__api_8hpp" ],
+    [ "render_types.hpp", "render__types_8hpp.html", "render__types_8hpp" ],
     [ "shader.hpp", "shader_8hpp.html", "shader_8hpp" ],
-    [ "texture.hpp", "texture_8hpp.html", [
-      [ "ITexture", "classtaixu_1_1ITexture.html", "classtaixu_1_1ITexture" ]
+    [ "texture_2d.hpp", "texture__2d_8hpp.html", [
+      [ "ITexture2D", "classtaixu_1_1ITexture2D.html", "classtaixu_1_1ITexture2D" ]
+    ] ],
+    [ "texture_cube.hpp", "texture__cube_8hpp.html", [
+      [ "ITextureCube", "classtaixu_1_1ITextureCube.html", "classtaixu_1_1ITextureCube" ]
+    ] ],
+    [ "uniform_buffer.hpp", "uniform__buffer_8hpp.html", [
+      [ "IUniformBuffer", "classtaixu_1_1IUniformBuffer.html", "classtaixu_1_1IUniformBuffer" ]
     ] ],
     [ "vertex_array.hpp", "vertex__array_8hpp.html", [
-      [ "IVertexArray", "classtaixu_1_1IVertexArray.html", "classtaixu_1_1IVertexArray" ]
+      [ "IVertexArray", "classtaixu_1_1IVertexArray.html", "classtaixu_1_1IVertexArray" ],
+      [ "AbstractVertexArray", "classtaixu_1_1AbstractVertexArray.html", "classtaixu_1_1AbstractVertexArray" ]
     ] ],
     [ "vertex_buffer.hpp", "vertex__buffer_8hpp.html", [
       [ "IVertexBuffer", "classtaixu_1_1IVertexBuffer.html", "classtaixu_1_1IVertexBuffer" ]

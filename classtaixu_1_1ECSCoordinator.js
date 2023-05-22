@@ -1,0 +1,25 @@
+var classtaixu_1_1ECSCoordinator =
+[
+    [ "addComponent", "classtaixu_1_1ECSCoordinator.html#adc2babd1944520e847daca973faa11d9", null ],
+    [ "addEventListener", "classtaixu_1_1ECSCoordinator.html#a7de1a92110a45f04fc1a57ab53476a5b", null ],
+    [ "allOf", "classtaixu_1_1ECSCoordinator.html#acfb03218316d85d778a5853718a79dc8", null ],
+    [ "anyOf", "classtaixu_1_1ECSCoordinator.html#a3f3c0c5e35b4cfec3f90d46868026065", null ],
+    [ "createEntity", "classtaixu_1_1ECSCoordinator.html#a240c4b773fb70f07b5fe5b9ffb3026f6", null ],
+    [ "destroyEntity", "classtaixu_1_1ECSCoordinator.html#a3099d6b398504c8ac814c7946fb8d1d0", null ],
+    [ "getComponent", "classtaixu_1_1ECSCoordinator.html#a52e822d50464ba077aa30ed82352a2fe", null ],
+    [ "getComponentType", "classtaixu_1_1ECSCoordinator.html#a1b4133a56ebec033a2bc38ad914fbedd", null ],
+    [ "getEntityCount", "classtaixu_1_1ECSCoordinator.html#a6aa6e0df06685eff415b86c758d5098c", null ],
+    [ "init", "classtaixu_1_1ECSCoordinator.html#af11a822f5f2717cf611490ce902df127", null ],
+    [ "registerComponent", "classtaixu_1_1ECSCoordinator.html#af93475197ec8072580f2180bbe3d7871", null ],
+    [ "registerSystem", "classtaixu_1_1ECSCoordinator.html#addd71dd03a8a1dac438b95c16bab5eb4", null ],
+    [ "removeComponent", "classtaixu_1_1ECSCoordinator.html#a335e5afdd8f7ee8a7f3ff2e35f4188c6", null ],
+    [ "removeEventListener", "classtaixu_1_1ECSCoordinator.html#a4c7a13835d93aac8f0eafbcb8b290627", null ],
+    [ "sendEvent", "classtaixu_1_1ECSCoordinator.html#a2355ce40e13a8639f94ce7fc00ab8269", null ],
+    [ "sendEvent", "classtaixu_1_1ECSCoordinator.html#ab71fd53594c9713fd5b128ffe8b52a4d", null ],
+    [ "setsystemSignature", "classtaixu_1_1ECSCoordinator.html#a61588c4154a939266c8b225f36bc470b", null ],
+    [ "update", "classtaixu_1_1ECSCoordinator.html#acaf209a7615f1f07d0f351ede9097da6", null ],
+    [ "_component_manager", "classtaixu_1_1ECSCoordinator.html#a563a0f766c625322b74c0cf7d5b1a684", null ],
+    [ "_entity_manager", "classtaixu_1_1ECSCoordinator.html#acc3dd586f81ec4835db57b9e7a25f4b7", null ],
+    [ "_event_manager", "classtaixu_1_1ECSCoordinator.html#ae9dfe566252070ac470f74dadb4e9b7f", null ],
+    [ "_system_manager", "classtaixu_1_1ECSCoordinator.html#a6125b469436c3b55babe68792573a8f8", null ]
+];

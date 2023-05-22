@@ -9,9 +9,8 @@ var dir_56e768b79572d2e98efb680403656294 =
     [ "file_component.hpp", "file__component_8hpp.html", [
       [ "FileComponent", "classtaixu_1_1editor_1_1FileComponent.html", "classtaixu_1_1editor_1_1FileComponent" ]
     ] ],
-    [ "hierarchy_component.hpp", "hierarchy__component_8hpp.html", [
-      [ "HierarchyNode", "structtaixu_1_1editor_1_1HierarchyNode.html", "structtaixu_1_1editor_1_1HierarchyNode" ],
-      [ "HierarchyComponent", "classtaixu_1_1editor_1_1HierarchyComponent.html", "classtaixu_1_1editor_1_1HierarchyComponent" ]
+    [ "go_hierarchy_component.hpp", "go__hierarchy__component_8hpp.html", [
+      [ "GoHierarchyComponent", "classtaixu_1_1editor_1_1GoHierarchyComponent.html", "classtaixu_1_1editor_1_1GoHierarchyComponent" ]
     ] ],
     [ "menu_component.hpp", "menu__component_8hpp.html", [
       [ "MenuComponent", "classtaixu_1_1editor_1_1MenuComponent.html", "classtaixu_1_1editor_1_1MenuComponent" ]
@@ -21,5 +20,8 @@ var dir_56e768b79572d2e98efb680403656294 =
     ] ],
     [ "statusbar_component.hpp", "statusbar__component_8hpp.html", [
       [ "StatusBarComponent", "classtaixu_1_1editor_1_1StatusBarComponent.html", "classtaixu_1_1editor_1_1StatusBarComponent" ]
+    ] ],
+    [ "useful_obj_hierarchy_component.hpp", "useful__obj__hierarchy__component_8hpp.html", [
+      [ "UsefulObjectComponent", "classtaixu_1_1editor_1_1UsefulObjectComponent.html", "classtaixu_1_1editor_1_1UsefulObjectComponent" ]
     ] ]
 ];

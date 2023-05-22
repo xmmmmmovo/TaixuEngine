@@ -1,5 +1,6 @@
 var classtaixu_1_1editor_1_1MenuComponent =
 [
+    [ "MenuComponent", "classtaixu_1_1editor_1_1MenuComponent.html#a9fb802f5b8b24d3684c3831975d2ca5a", null ],
     [ "bindCallbacks", "classtaixu_1_1editor_1_1MenuComponent.html#a69f111b437772e55971468af470b9815", null ],
     [ "processFileDialog", "classtaixu_1_1editor_1_1MenuComponent.html#a09b58726c02794f73a73f41c87766c14", null ],
     [ "update", "classtaixu_1_1editor_1_1MenuComponent.html#a41f1ce59b7bfd524f89944a947f580e0", null ],

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['shaderapi_1249',['ShaderAPI',['../namespacetaixu.html#a589ca92628b7a0056ffc9593bc71d8a8',1,'taixu']]],
-  ['shadertypeenum_1250',['ShaderTypeEnum',['../namespacetaixu.html#a8e161627201589eb79d6ce2083cd46e3',1,'taixu']]],
-  ['status_1251',['Status',['../namespacetaixu.html#aa70335f91ba6491f07f3f620fa030857',1,'taixu']]]
+  ['motiontype_2070',['MotionType',['../namespacetaixu.html#a88239a41d78f690655b2aa9bb89ec1bd',1,'taixu']]]
 ];

@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['sphere_1283',['SPHERE',['../namespacetaixu.html#a76dd482116d505913bb677a80cbb2895a6f7cea7381e843e2ee0338b4a92b0d43',1,'taixu']]],
-  ['static_1284',['STATIC',['../namespacetaixu.html#a88239a41d78f690655b2aa9bb89ec1bdafe6f99ef1ec99efbdc19a9786cf1facc',1,'taixu']]]
+  ['red_5finteger_2116',['RED_INTEGER',['../namespacetaixu.html#a2c20540527d99b113a293b71af17a97ca2849effb989cbdcfb4b9eb143fd826aa',1,'taixu']]],
+  ['rgba_2117',['RGBA',['../namespacetaixu.html#a2c20540527d99b113a293b71af17a97caea3495a278957dc58165e48a8945469f',1,'taixu']]],
+  ['rgba8_2118',['RGBA8',['../namespacetaixu.html#a2c20540527d99b113a293b71af17a97cab4b279046a02077466fa26cabb00c642',1,'taixu']]],
+  ['right_2119',['RIGHT',['../namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a21507b40c80068eda19865706fdc2403',1,'taixu']]],
+  ['roughness_2120',['ROUGHNESS',['../namespacetaixu.html#a6feb909cad7d7b4691e1271e4487a71babf5c531ee75e16c07e4a1182fce1a47a',1,'taixu']]]
 ];
