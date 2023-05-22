@@ -14,6 +14,15 @@
 #include "GraphEditor.h"
 
 namespace taixu::editor {
+
+void MainWindow::buildUpUsefulObjHierachy() {
+    auto &uoh = _view_model.useful_objs_hierarchy;
+    uoh.data = "Objects";
+    uoh.children.push_back({"Cube", "Sphere"});
+
+}
+
+
 void MainWindow::init() {
     spdlog::info("Main window init start!");
 
@@ -33,6 +42,8 @@ void MainWindow::init() {
                     }
                 }
             });
+
+    buildUpUsefulObjHierachy();
 
     spdlog::info("Main window init finished!");
 }
@@ -112,8 +123,8 @@ void MainWindow::destroy() {
 }
 
 void MainWindow::initWithEngineRuntime(Engine *engine_runtime_ptr) {
-    _view_model.engine_runtime_ptr  = engine_runtime_ptr;
-    _view_model.renderer            = engine_runtime_ptr->getRenderer();
+    _view_model.engine_runtime_ptr = engine_runtime_ptr;
+    _view_model.renderer           = engine_runtime_ptr->getRenderer();
 
     ImguiSurface::init(_context_ptr->_window);
     _view_model.framebuffer = _view_model.renderer->getRenderFramebuffer();

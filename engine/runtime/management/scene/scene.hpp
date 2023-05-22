@@ -62,7 +62,6 @@ private:
 public:
     ECSCoordinator _ecs_coordinator{};
 
-    Skybox                        _skybox{};
     std::unique_ptr<ITextureCube> _skybox_texture{nullptr};
 
     std::unique_ptr<EulerCamera> _camera{

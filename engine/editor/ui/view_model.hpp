@@ -16,21 +16,25 @@
 
 namespace taixu::editor {
 
-template<typename Child>
+template<typename Data>
 struct HierarchyNode {
-    bool                              have_child{false};
-    std::vector<HierarchyNode<Child>> children{};
+    std::string                      name{};
+    Data                             data{};
+    std::vector<HierarchyNode<Data>> children{};
 };
 
 struct ViewModel {
-    std::filesystem::path project_path;
-    std::filesystem::path dir_path;
+    std::filesystem::path                project_path;
+    std::filesystem::path                dir_path;
+    HierarchyNode<std::filesystem::path> path_hierarchy{};
 
     ImGuizmo::MODE      guizmo_mode{ImGuizmo::MODE::LOCAL};
     ImGuizmo::OPERATION guizmo_operation{ImGuizmo::OPERATION::TRANSLATE};
 
     Entity selected_entity{0};
     bool   is_entity_selected{false};
+
+    HierarchyNode<std::string> useful_objs_hierarchy{};
 
     Engine           *engine_runtime_ptr{nullptr};
     AbstractRenderer *renderer{nullptr};

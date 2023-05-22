@@ -13,6 +13,8 @@ struct Matrices {
     glm::mat4 projection;
     glm::mat4 view;
     glm::mat4 vp;
+
+    glm::vec4 camera_pos;
 };
 
 }// namespace taixu

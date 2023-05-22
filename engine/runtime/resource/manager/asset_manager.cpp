@@ -283,8 +283,8 @@ Model *AssetManager::loadModel(std::filesystem::path const &root_path,
         return nullptr;
     }
 
-    if (_models.count(full_path.generic_string().c_str())) {
-        return &_models[full_path.generic_string().c_str()];
+    if (_models.count(full_path.generic_string())) {
+        return &_models[full_path.generic_string()];
     }
 
     Model            ret_model{};
@@ -309,8 +309,8 @@ Model *AssetManager::loadModel(std::filesystem::path const &root_path,
     processMaterial(scene, root_path, ret_model);
     processNode(scene->mRootNode, scene, ret_model);
 
-    auto [model_ref, was_ins] = _models.insert(
-            {full_path.generic_string().c_str(), std::move(ret_model)});
+    auto [model_ref, was_ins] =
+            _models.insert({full_path.generic_string(), std::move(ret_model)});
 
 
     return &model_ref->second;
@@ -327,12 +327,12 @@ AssetManager::loadTexture(std::filesystem::path const &root_path,
         return nullptr;
     }
 
-    if (_textures.count(full_path.generic_string().c_str())) {
-        return &_textures[full_path.generic_string().c_str()];
+    if (_textures.count(full_path.generic_string())) {
+        return &_textures[full_path.generic_string()];
     }
 
     auto [tex_ref, was_ins] = _textures.insert(
-            {full_path.generic_string().c_str(),
+            {full_path.generic_string(),
              transferCPUTextureToGPU(root_path, relative_path, type)});
     return &tex_ref->second;
 }
@@ -368,8 +368,8 @@ FBXData *AssetManager::loadFBX(std::filesystem::path const &root_path,
 
     FBXData ret_fbx{};
 
-    if (_fbx_files.count(full_path.generic_string().c_str())) {
-        return &_fbx_files[full_path.generic_string().c_str()];
+    if (_fbx_files.count(full_path.generic_string())) {
+        return &_fbx_files[full_path.generic_string()];
     }
 
     Assimp::Importer importer{};
@@ -389,8 +389,8 @@ FBXData *AssetManager::loadFBX(std::filesystem::path const &root_path,
         return nullptr;
     }
 
-    if (_models.count(full_path.generic_string().c_str())) {
-        ret_fbx.model = &_models[full_path.generic_string().c_str()];
+    if (_models.count(full_path.generic_string())) {
+        ret_fbx.model = &_models[full_path.generic_string()];
     } else {
 
         Model ret_model{};
@@ -400,7 +400,7 @@ FBXData *AssetManager::loadFBX(std::filesystem::path const &root_path,
         processNode(scene->mRootNode, scene, ret_model, &ret_fbx);
 
         auto [model_ref, model_was_ins] = _models.insert(
-                {full_path.generic_string().c_str(), std::move(ret_model)});
+                {full_path.generic_string(), std::move(ret_model)});
         ret_fbx.model = &model_ref->second;
     }
 
@@ -413,8 +413,8 @@ FBXData *AssetManager::loadFBX(std::filesystem::path const &root_path,
         ReadMissingBones(animation, &ret_fbx);
     }
 
-    auto [fbx_ref, fbx_was_ins] = _fbx_files.insert(
-            {full_path.generic_string().c_str(), std::move(ret_fbx)});
+    auto [fbx_ref, fbx_was_ins] =
+            _fbx_files.insert({full_path.generic_string(), std::move(ret_fbx)});
 
     return &fbx_ref->second;
 }

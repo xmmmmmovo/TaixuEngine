@@ -39,6 +39,10 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _physics_manager   = std::make_unique<PhysicsManager>();
     _animation_manager = std::make_unique<AnimationManager>();
 
+    _renderer->set_default_texture(
+            _asset_manager->loadTexture(".", "assets/texture/rgba1111.png")
+                    ->texture.get());
+
     _physics_manager->init();
 
     InputSystem::getInstance().initCallbacks(_context_ptr.get());
@@ -166,8 +170,8 @@ void Engine::fromWorld2Scene(JsonWorld *world) {
             (world->project_file_path / global_render.negz).string());
 
     //auto fbx1 = _asset_manager->loadFBX(parent_path, "assets/fbx/phroah_character_rig.fbx");
-    auto fbx2 = _asset_manager->loadFBX(parent_path,
-                                        "assets/fbx/dancing_vampire.dae");
+    //    auto fbx2 = _asset_manager->loadFBX(parent_path,
+    //                                        "assets/fbx/dancing_vampire.dae");
 
     //    //fbx2->model = fbx1->model;
     //    auto vampire_entity = _ecs_coordinator.createEntity();

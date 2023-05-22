@@ -17,11 +17,6 @@ namespace taixu::editor {
 
 class GoHierarchyComponent : public AbstractUIComponent {
 private:
-    ImGuiTreeNodeFlags const parent_flags = ImGuiTreeNodeFlags_SpanAvailWidth;
-    ImGuiTreeNodeFlags const leaf_flags   = ImGuiTreeNodeFlags_SpanAvailWidth |
-                                          ImGuiTreeNodeFlags_Leaf |
-                                          ImGuiTreeNodeFlags_NoTreePushOnOpen;
-
     static constexpr std::array<std::string_view, 3>
             ENTITY_MENU_COMBO_ITEM_NAME = {"Add Empty Entity", "Delete Entity",
                                            "Rename Game Object"};

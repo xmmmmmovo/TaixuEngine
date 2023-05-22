@@ -26,7 +26,7 @@ public:
     template<typename OBJ>
     void setData(const OBJ &obj, std::uint32_t idx) {
         glBufferData(GL_UNIFORM_BUFFER, sizeof(obj), &obj, GL_STATIC_DRAW);
-        glBindBufferRange(GL_UNIFORM_BUFFER, idx, _id, 0, sizeof(obj));
+        glBindBufferBase(GL_UNIFORM_BUFFER, idx, _id);
     }
 
     template<typename Data>
