@@ -1,7 +1,7 @@
 {
   "Components": {
     "RenderableComponent": {
-      "obj_path": "assets/models/planet.obj",
+      "obj_path": "assets/models/planet/planet.obj",
       "visiable": true
     },
     "RigidBodyComponent": {

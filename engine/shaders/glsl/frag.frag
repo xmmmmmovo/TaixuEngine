@@ -104,7 +104,7 @@ void main()
 
     for (int i = 0; i < pointLightCount; i++) {
         // ambient
-        float ambientStrength = 0.05;
+        float ambientStrength = 0.3;
         vec3 ambient = ambientStrength * pointLights[i].ambient.rgb;
 
         // diffuse
