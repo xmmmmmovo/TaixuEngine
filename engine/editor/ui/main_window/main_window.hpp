@@ -26,10 +26,10 @@
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
 #include "ui/components/go_hierarchy_component.hpp"
-#include "ui/components/hierarchy_component.hpp"
 #include "ui/components/menu_component.hpp"
 #include "ui/components/render_component.hpp"
 #include "ui/components/statusbar_component.hpp"
+#include "ui/components/useful_obj_hierarchy_component.hpp"
 #include "ui/view_model.hpp"
 
 namespace taixu::editor {
@@ -54,7 +54,7 @@ private:
     DetailComponent      detail_component{&_view_model};
     FileComponent        file_component{&_view_model};
     ConsoleComponent     status_component{&_view_model};
-    HierarchyComponent   useful_obj_component{&_view_model};
+    UsefulObjectComponent useful_obj_component{&_view_model};
     StatusBarComponent   status_bar_component{&_view_model};
 
 private:
@@ -75,6 +75,7 @@ private:
 
 private:
     void buildUpUsefulObjHierachy();
+    void buildUpPathHierachy();
 
 public:
     explicit MainWindow(WindowContext *context_ptr);
