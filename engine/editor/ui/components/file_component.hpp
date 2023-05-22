@@ -125,31 +125,33 @@ public:
             int column_count        = static_cast<int>(panel_width / cell_size);
             if (column_count < 1) { column_count = 1; }
 
-            if (ImGui::BeginTable("split", column_count,
-                                  ImGuiTableFlags_Resizable |
-                                          ImGuiTableFlags_NoSavedSettings)) {
-                auto full_path =
-                        _view_model->project_path / _view_model->selected_path;
-                for (auto &directory_entry :
-                     std::filesystem::directory_iterator(full_path)) {
-                    const auto &path          = directory_entry.path();
-                    auto        relative_path = std::filesystem::relative(
-                            path, _view_model->project_path);
-                    std::string const filename_string =
-                            relative_path.filename().generic_string();
-                    ImGui::Button(filename_string.c_str(),
-                                  {thumbnail_size, thumbnail_size});
-                    if (ImGui::IsItemHovered() &&
-                        ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
-                        if (directory_entry.is_directory()) {
-                            _view_model->selected_path /= path.filename();
-                        } else {
-                        }
+            ImGui::Columns(column_count, 0, false);
+
+            auto full_path =
+                    _view_model->project_path / _view_model->selected_path;
+            for (auto &directory_entry :
+                 std::filesystem::directory_iterator(full_path)) {
+                const auto       &path = directory_entry.path();
+                std::string const filename_string =
+                        path.filename().generic_string();
+
+
+                ImGui::PushID(filename_string.c_str());
+                ImGui::Button(filename_string.c_str(),
+                              {thumbnail_size, thumbnail_size});
+
+                if (ImGui::IsItemHovered() &&
+                    ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
+                    if (directory_entry.is_directory()) {
+                        _view_model->selected_path /= path.filename();
+                    } else {
                     }
-                    ImGui::TextUnformatted(filename_string.c_str());
-                    ImGui::TableNextColumn();
                 }
-                ImGui::EndTable();
+                ImGui::TextUnformatted(filename_string.c_str());
+
+                ImGui::NextColumn();
+
+                ImGui::PopID();
             }
 
             ImGui::Columns(1);
