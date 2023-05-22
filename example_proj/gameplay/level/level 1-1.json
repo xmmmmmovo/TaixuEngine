@@ -9,6 +9,10 @@
       "name": "planet"
     },
     {
+      "GO_path": "gameplay/GO/nanosuit.json",
+      "name": "nanosuit"
+    },
+    {
       "GO_path": "gameplay/GO/light1.json",
       "name": "light1"
     },

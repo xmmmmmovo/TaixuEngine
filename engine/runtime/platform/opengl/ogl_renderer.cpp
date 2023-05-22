@@ -97,7 +97,9 @@ void OGLRenderer::update(float delta_time) {
                 auto &trans_comp =
                         _current_scene->_ecs_coordinator
                                 .getComponent<TransformComponent>(entity);
-
+                //                spdlog::debug("translate: {} {} {}", trans_comp.translate().x,
+                //                              trans_comp.translate().y,
+                //                              trans_comp.translate().z);
                 _lights.pointLights[_lights.pointLightCount] = {
                         .position  = glm::vec4(trans_comp.translate(), 1.0f),
                         .ambient   = light_comp.light_color,

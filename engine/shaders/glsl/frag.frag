@@ -73,33 +73,56 @@ layout (std140) uniform LightSource {
     SpotLight spotLights[MAX_DIR_LIGHTS];
 };
 
+vec3 calcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir) {
+    vec3 lightPos = light.position.xyz;
+    vec3 lightDir = normalize(lightPos - fragPos);
+    // diffuse shading
+    float diff = max(dot(normal, lightDir), 0.0);
+    // specular shading
+    vec3 reflectDir = reflect(-lightDir, normal);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
+    // attenuation
+    float distance = length(lightPos - fragPos);
+    float attenuation = 1.0 / (light.constant + light.linear * distance + light.quadratic * (distance * distance));
+    // combine results
+    vec3 ambient = light.ambient.rgb;
+    vec3 diffuse = light.diffuse.rgb * diff * vec3(texture(diffuseTexture, fs_in.TexCoords));
+    vec3 specular = light.specular.rgb * spec;
+    ambient *= attenuation;
+    diffuse *= attenuation;
+    specular *= attenuation;
+    return (ambient + diffuse + specular);
+}
+
 void main()
 {
-    vec3 color = texture(diffuseTexture, fs_in.TexCoords).rgb;
-    //    ambient
-    vec3 ambient = 0.05 * color;
-    vec3 normal = normalize(fs_in.Normal);
+    vec3 objectColor = vec3(texture(diffuseTexture, fs_in.TexCoords));
+    vec3 normal_norm = normalize(fs_in.Normal);
     vec3 viewDir = normalize(camera_pos.xyz - fs_in.FragPos);
 
     vec3 result = vec3(0.0);
 
     for (int i = 0; i < pointLightCount; i++) {
+        // ambient
+        float ambientStrength = 0.05;
+        vec3 ambient = ambientStrength * pointLights[i].ambient.rgb;
+
         // diffuse
         vec3 lightDir = normalize(pointLights[i].position.xyz - fs_in.FragPos);
+
         vec3 halfwayDir = normalize(lightDir + viewDir);
 
-        float nol = abs(dot(lightDir, normal));
-        float noh = abs(dot(normal, halfwayDir));
+        float noh = abs(dot(normal_norm, halfwayDir));
 
-        float diff = max(nol, 0.0);
-        vec3 diffuse = diff * color;
+        float diff = max(dot(normal_norm, lightDir), 0.0);
+        vec3 diffuse = diff * pointLights[i].diffuse.rgb;
 
         // specular
-        float spec = 0.0;
-        spec = pow(max(noh, 0.0), 32.0);
-        vec3 specular = vec3(0.3) * spec; // assuming bright white light color
+        float specularStrength = 0.3;
+        float spec = pow(max(noh, 0.0), 32.0f);
+        vec3 specular = specularStrength * spec * pointLights[i].specular.rgb;
 
-        result += (ambient + diffuse + specular) * pointLights[i].diffuse.rgb;
+        result += (ambient + diffuse + specular) * objectColor;
     }
     FragColor = vec4(result, 1.0);
 }

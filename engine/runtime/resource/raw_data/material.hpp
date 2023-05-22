@@ -19,7 +19,7 @@ struct Material final {
     glm::vec3 emissive{};
     float     opacity{1.0f};
     float     refracti{1.0f};
-    float     shininess{1.0f};
+    float     shininess{32.0f};
     float     strength{1.0f};
 
     int wireframe{0};
