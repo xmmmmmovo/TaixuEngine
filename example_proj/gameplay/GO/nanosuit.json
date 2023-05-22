@@ -1,7 +1,7 @@
 {
   "Components": {
     "RenderableComponent": {
-      "obj_path": "assets/models/planet/planet.obj",
+      "obj_path": "assets/models/nanosuit/nanosuit.obj",
       "visiable": true
     },
     "RigidBodyComponent": {
@@ -15,9 +15,9 @@
     },
     "TransformComponent": {
       "position": {
-        "x": 0.0,
+        "x": -5.0,
         "y": 6.0,
-        "z": 0.0
+        "z": -5.0
       },
       "rotation": {
         "x": 0.0,
