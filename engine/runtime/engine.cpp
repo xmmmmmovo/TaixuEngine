@@ -169,12 +169,13 @@ void Engine::fromWorld2Scene(JsonWorld *world) {
             (world->project_file_path / global_render.posz).string(),
             (world->project_file_path / global_render.negz).string());
 
-    //auto fbx1 = _asset_manager->loadFBX(parent_path, "assets/fbx/phroah_character_rig.fbx");
+    //    auto fbx1 = _asset_manager->loadFBX(parent_path,
+    //                                        "assets/fbx/phroah_character_rig.fbx");
     //    auto fbx2 = _asset_manager->loadFBX(parent_path,
     //                                        "assets/fbx/dancing_vampire.dae");
-
+    //
     //    //fbx2->model = fbx1->model;
-    //    auto vampire_entity = _ecs_coordinator.createEntity();
+    //    auto vampire_entity = _current_scene->_ecs_coordinator.createEntity();
     //    auto skeleton       = SkeletonComponent();
     //    skeleton.fbx        = fbx2;
     //
@@ -190,10 +191,10 @@ void Engine::fromWorld2Scene(JsonWorld *world) {
     //    auto trans = TransformComponent(glm::vec3(0, 0, 0), glm::vec3(3, 3, 3),
     //                                    glm::vec3(0, 0, 0));
     //
-    //    _ecs_coordinator.addComponent(vampire_entity,
+    //    _current_scene->_ecs_coordinator.addComponent(vampire_entity,
     //                                  std::forward<TransformComponent>(trans));
     //
-    //    _ecs_coordinator.addComponent(vampire_entity,
+    //    _current_scene->_ecs_coordinator.addComponent(vampire_entity,
     //                                  std::forward<SkeletonComponent>(skeleton));
 }
 
