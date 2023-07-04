@@ -45,7 +45,7 @@ struct Mesh final {
 inline MeshGPU transferCPUMesh2GPU(Mesh const &mesh) {
     MeshGPU mesh_gpu{};
 
-    if (EngineArgs::getInstance().api == GraphicsAPI::OPENGL) {
+    if (EngineArgs::getInstance().api() == GraphicsAPI::OPENGL) {
         auto vao = std::make_unique<OGLVertexArray>();
 
         vao->bind();

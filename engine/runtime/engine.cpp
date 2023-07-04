@@ -23,7 +23,7 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     _context_ptr = std::move(context);
     _window_ptr  = std::move(window);
 
-    GraphicsAPI const api = EngineArgs::getInstance().api;
+    GraphicsAPI const api = EngineArgs::getInstance().api();
     switch (api) {
         case GraphicsAPI::OPENGL:
             _renderer = std::make_unique<OGLRenderer>();

@@ -88,7 +88,7 @@ transferCPUTextureToGPU(std::filesystem::path const &asset_path,
     texture.type      = type;
     texture.file_path = relative_path;
 
-    if (EngineArgs::getInstance().api == GraphicsAPI::OPENGL) {
+    if (EngineArgs::getInstance().api() == GraphicsAPI::OPENGL) {
         texture.texture = std::make_unique<OGLTexture2D>(
                 fromRelativePath(asset_path, relative_path));
     }
