@@ -1,8 +1,5 @@
 set(TARGET_NAME TaixuRuntime)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 file(GLOB_RECURSE HEADER_FILES "*.h" "*.hpp")
 file(GLOB_RECURSE SOURCE_FILES "*.cpp" "*.inc")
 
@@ -11,12 +8,12 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_F
 add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 
 if (USE_PCH)
-    target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch.hpp)
+    target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch_rt.hpp)
 endif ()
 
 target_link_libraries(${TARGET_NAME} PUBLIC Threads::Threads freetype)
 target_link_libraries(${TARGET_NAME} PUBLIC Jolt imgui ${OGLLIB} glad glfw stb glm)
-target_link_libraries(${TARGET_NAME} PUBLIC nlohmann_json::nlohmann_json magic_enum::magic_enum spdlog::spdlog)
+target_link_libraries(${TARGET_NAME} PUBLIC simdjson magic_enum::magic_enum spdlog::spdlog)
 target_link_libraries(${TARGET_NAME} PUBLIC imgui refl-cpp::refl-cpp assimp)
 target_link_libraries(${TARGET_NAME} PUBLIC argparse)
 

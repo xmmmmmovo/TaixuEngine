@@ -16,7 +16,6 @@
 #include "gameplay/player/camera/euler_camera.hpp"
 #include "management/ecs/components/animation/skeleton_component.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
-#include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/system/system.hpp"
 #include "management/graphics/frontend/lightsInfo.hpp"

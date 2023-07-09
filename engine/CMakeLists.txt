@@ -26,6 +26,9 @@ endif ()
 # include(../3rdparty/FindVolk.cmake)
 include(../3rdparty/FindGlad.cmake)
 
+# add HarfBuzz
+include(../3rdparty/FindHarfBuzz.cmake)
+
 # add freetype
 include(../3rdparty/FindFreetype.cmake)
 
@@ -42,7 +45,7 @@ include(../3rdparty/FindStb.cmake)
 include(../3rdparty/Findimgui.cmake)
 
 # add fmt
-include(../3rdparty/Findfmt.cmake)
+include(../3rdparty/FindFmt.cmake)
 
 # add spdlog
 include(../3rdparty/FindSpdlog.cmake)

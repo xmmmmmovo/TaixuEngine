@@ -1,9 +1,9 @@
 //
-// Created by xmmmmmovo on 2023/2/26.
+// Created by xmmmmmovo on 2023/7/7.
 //
 
-#ifndef TAIXUENGINE_PCH_HPP
-#define TAIXUENGINE_PCH_HPP
+#ifndef ENGINE_PRECOMPILE_PCH_EDITOR_HPP
+#define ENGINE_PRECOMPILE_PCH_EDITOR_HPP
 
 // C
 #include <cassert>
@@ -141,7 +141,4 @@
 // stb
 #include <stb_image.h>
 
-// json
-#include <nlohmann/json.hpp>
-
-#endif//TAIXUENGINE_PCH_HPP
+#endif//ENGINE_PRECOMPILE_PCH_EDITOR_HPP

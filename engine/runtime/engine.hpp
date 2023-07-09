@@ -8,7 +8,6 @@
 #include "management/animation/animation_manager.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
 #include "management/graphics/renderer.hpp"
-#include "management/physics/physics_manager.hpp"
 #include "management/scene/scene.hpp"
 #include "management/scene/scene_manager.hpp"
 #include "resource/manager/asset_manager.hpp"
@@ -26,14 +25,12 @@ private:
     std::unique_ptr<AssetManager>     _asset_manager{nullptr};
     std::unique_ptr<ProjectManager>   _project_manager{nullptr};
     std::unique_ptr<SceneManager>     _scene_manager{nullptr};
-    std::unique_ptr<PhysicsManager>   _physics_manager{nullptr};
     std::unique_ptr<AnimationManager> _animation_manager{nullptr};
 
     std::unique_ptr<WindowContext> _context_ptr{nullptr};
     std::unique_ptr<IWindow>       _window_ptr{nullptr};
 
-    Scene                     *_current_scene{nullptr};
-    std::unique_ptr<JsonWorld> taixuworld;
+    Scene*                     _current_scene{nullptr};
 
     /**
      * @brief editor state
@@ -44,10 +41,8 @@ private:
 
     void update();
 
-    void fromWorld2Scene(JsonWorld *world);
-
 public:
-    void loadParams(std::vector<std::string> const &args);
+    void loadParams(std::vector<std::string> const& args);
 
     void init(std::unique_ptr<WindowContext> context,
               std::unique_ptr<IWindow>       window);
@@ -56,17 +51,17 @@ public:
 
     void destroy();
 
-    Status loadProject(std::string_view const &path);
+    Status loadProject(std::string_view const& path);
 
-    [[nodiscard]] AbstractRenderer *getRenderer() const;
+    [[nodiscard]] AbstractRenderer* getRenderer() const;
 
-    [[nodiscard]] Project *getOpenedProject() const;
+    [[nodiscard]] Project* getOpenedProject() const;
 
-    [[nodiscard]] Scene *getScene() const;
+    [[nodiscard]] Scene* getScene() const;
 
-    [[nodiscard]] EngineState const &getState() const;
+    [[nodiscard]] EngineState const& getState() const;
 
-    [[nodiscard]] ECSCoordinator *getECSCoordinator() const;
+    [[nodiscard]] ECSCoordinator* getECSCoordinator() const;
 };
 
 }// namespace taixu

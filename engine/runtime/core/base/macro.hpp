@@ -3,23 +3,47 @@
 
 namespace taixu {
 
+#if defined(TX_FORCE_INLINE)
+    #if _MSC_VER
+        #define TX_INLINE __forceinline
+        #define TX_NEVER_INLINE __declspec((noinline))
+    #elif defined(__GNUC__)
+        #define TX_INLINE inline __attribute__((__always_inline__))
+        #define TX_NEVER_INLINE __attribute__((__noinline__))
+    #elif defined(__CLANG__)
+        #if __has_attribute(__always_inline__)
+            #define TX_INLINE inline __attribute__((__always_inline__))
+            #define TX_NEVER_INLINE __attribute__((__noinline__))
+        #else
+            #define TX_INLINE inline
+            #define TX_NEVER_INLINE
+        #endif
+    #else
+        #define TX_INLINE inline
+        #define TX_NEVER_INLINE
+    #endif
+#else
+    #define TX_INLINE inline
+    #define TX_NEVER_INLINE
+#endif
+
 #define PROTOTYPE_GETTER(type, name)                                           \
 public:                                                                        \
-    [[nodiscard]] inline type &name() { return _##name; }
+    [[nodiscard]] inline type& name() { return _##name; }
 
 #define PROTOTYPE_CONST_GETTER(type, name)                                     \
 public:                                                                        \
-    [[nodiscard]] inline type const &name() const { return _##name; }
+    [[nodiscard]] inline type const& name() const { return _##name; }
 
 #define PROTOTYPE_SETTER(type, name)                                           \
 public:                                                                        \
-    inline void set_##name(type const &value) { _##name = value; }
+    inline void set_##name(type const& value) { _##name = value; }
 
 /**
  * @brief 简化const getter
  */
 #define PROTOTYPE_DFT_ONLY_GETTER_CONST(access, type, name, default_val)       \
-    access:                                                                    \
+access:                                                                        \
     type _##name{default_val};                                                 \
                                                                                \
     PROTOTYPE_CONST_GETTER(type, name)
@@ -75,11 +99,11 @@ constexpr std::int32_t OPENGL_MINOR_VERSION = 1;
  * @brief status enum
  */
 enum class Status {
-    OK,                 //access allowed
-    PERMISSION_FAILED,  //access permission failed
-    NO_SUCH_FILE_FAILED,//cannot find file path
+    OK,                 // access allowed
+    PERMISSION_FAILED,  // access permission failed
+    NO_SUCH_FILE_FAILED,// cannot find file path
 
-    NO_OPEN_PROJECT,    //no project opened
+    NO_OPEN_PROJECT,    // no project opened
 
     // RENDER STATUS CODES
 

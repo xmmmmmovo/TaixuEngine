@@ -4,10 +4,11 @@
 #ifndef TAIXUENGINE_PROJECT_MANAGER_HPP
 #define TAIXUENGINE_PROJECT_MANAGER_HPP
 
-#include "nlohmann/json.hpp"
 #include <memory>
 #include <string>
 #include <vector>
+
+#include <simdjson.h>
 
 #include "core/base/macro.hpp"
 
