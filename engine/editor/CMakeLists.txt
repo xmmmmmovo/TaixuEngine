@@ -10,9 +10,9 @@ add_executable(${TARGET_NAME} ${EDITOR_HEADERS} ${EDITOR_SOURCES} ${EDITOR_RESOU
 
 target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-set_target_properties(${TARGET_NAME} PROPERTIES CXX_STANDARD 17 OUTPUT_NAME ${TARGET_NAME})
+set_target_properties(${TARGET_NAME} PROPERTIES CXX_STANDARD 20 OUTPUT_NAME ${TARGET_NAME})
 
-set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "EngineShader")
+set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "EngineEditor")
 
 # 使用MSVC标准
 target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/WX->")
@@ -21,7 +21,7 @@ target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:
 target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime)
 
 if (USE_PCH)
-    target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch.hpp)
+    target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch_editor.hpp)
 endif ()
 
 if ("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
@@ -29,10 +29,6 @@ if ("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
 else ()
     set(OUTPUT_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 endif ()
-
-if (MSVC)
-    set(OUTPUT_DIR ${OUTPUT_DIR}/Debug)
-endif (MSVC)
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -DENGINE_ROOT_DIR=${ENGINE_ROOT_DIR} -DOUTPUT_DIR=${OUTPUT_DIR} -P ${PROJECT_SOURCE_DIR}/cmake/MoveResourceDirs.cmake

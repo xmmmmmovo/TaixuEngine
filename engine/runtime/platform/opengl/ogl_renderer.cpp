@@ -3,7 +3,6 @@
 //
 
 #include "ogl_renderer.hpp"
-#include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
 #include "management/graphics/frontend/cube_renderable.hpp"
 #include "management/graphics/frontend/lightsInfo.hpp"
@@ -102,12 +101,12 @@ void OGLRenderer::update(float delta_time) {
                 //                              trans_comp.translate().z);
                 _lights.pointLights[_lights.pointLightCount] = {
                         .position  = glm::vec4(trans_comp.translate(), 1.0f),
-                        .ambient   = light_comp.light_color,
-                        .diffuse   = light_comp.light_color,
-                        .specular  = light_comp.light_color,
                         .constant  = 1.0f,
                         .linear    = 0.09f,
                         .quadratic = 0.032f,
+                        .ambient   = light_comp.light_color,
+                        .diffuse   = light_comp.light_color,
+                        .specular  = light_comp.light_color,
                 };
                 ++_lights.pointLightCount;
             }

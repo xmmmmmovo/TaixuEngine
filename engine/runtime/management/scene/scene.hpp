@@ -9,7 +9,6 @@
 #include "management/ecs/components/animation/skeleton_component.hpp"
 #include "management/ecs/components/camera/camera_component.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
-#include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/ecs_coordinator.hpp"
@@ -24,8 +23,6 @@
 #include "platform/opengl/ogl_texture2d.hpp"
 #include "platform/opengl/ogl_texture_cube.hpp"
 #include "resource/manager/asset_manager.hpp"
-
-#include "management/physics/physics_manager.hpp"
 
 #include "skybox_frag.h"
 #include "skybox_vert.h"
@@ -72,7 +69,6 @@ public:
         _ecs_coordinator.registerComponent<RenderableComponent>();
         _ecs_coordinator.registerComponent<TransformComponent>();
         _ecs_coordinator.registerComponent<LightComponent>();
-        _ecs_coordinator.registerComponent<RigidBodyComponent>();
         _ecs_coordinator.registerComponent<SkeletonComponent>();
     }
 };

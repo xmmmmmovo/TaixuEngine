@@ -1,0 +1,12 @@
+//
+// Created by xmmmmmovo on 2023/6/11.
+//
+
+#ifndef ENGINE_RUNTIME_ENGINE_CONFIGURATION_HPP
+#define ENGINE_RUNTIME_ENGINE_CONFIGURATION_HPP
+
+namespace taixu {
+
+}
+
+#endif//ENGINE_RUNTIME_ENGINE_CONFIGURATION_HPP

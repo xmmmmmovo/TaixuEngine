@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
 
     auto context_ptr = std::make_unique<taixu::WindowContext>(
             MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, MAIN_WINDOW_TITLE,
-            createGraphicsAPILoader(taixu::EngineArgs::getInstance().api),
+            createGraphicsAPILoader(taixu::EngineArgs::getInstance().api()),
             true);
     // init window pointer
     std::unique_ptr<taixu::editor::MainWindow> window_ptr_local =

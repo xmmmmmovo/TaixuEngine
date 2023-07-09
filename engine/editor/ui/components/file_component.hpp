@@ -27,11 +27,11 @@ private:
                                           ImGuiTreeNodeFlags_NoTreePushOnOpen;
 
 private:
-    void expandTreeNode(HierarchyNode<std::filesystem::path> &entry) {
+    void expandTreeNode(HierarchyNode<std::filesystem::path>& entry) {
         auto full_path = _view_model->project_path / entry.data;
-        for (auto &directory_entry :
+        for (auto& directory_entry :
              std::filesystem::directory_iterator(full_path)) {
-            const auto &path = directory_entry.path();
+            const auto& path = directory_entry.path();
             if (path.filename() == ".git" || path.filename() == ".gitignore") {
                 continue;
             }
@@ -45,9 +45,9 @@ private:
         }
     }
 
-    void buildUpTreeNode(HierarchyNode<std::filesystem::path> &node) {
+    void buildUpTreeNode(HierarchyNode<std::filesystem::path>& node) {
         if (node.expanded) {
-            for (auto &child : node.children) {
+            for (auto& child : node.children) {
                 auto flag = parent_flags;
                 if (_view_model->selected_node == &child) {
                     flag |= ImGuiTreeNodeFlags_Selected;
@@ -71,7 +71,7 @@ private:
     }
 
 public:
-    explicit FileComponent(ViewModel *view_model)
+    explicit FileComponent(ViewModel* view_model)
         : AbstractUIComponent(view_model) {}
 
     void update() override {
@@ -81,7 +81,7 @@ public:
                     ImVec2(ImGui::GetWindowContentRegionWidth() * 0.2f, 0.f),
                     false, window_flags);
 
-            for (auto &parent_entry : _view_model->path_hierarchy) {
+            for (auto& parent_entry : _view_model->path_hierarchy) {
                 auto flag = parent_flags;
                 if (_view_model->selected_node == &parent_entry) {
                     flag |= ImGuiTreeNodeFlags_Selected;
@@ -129,9 +129,9 @@ public:
 
             auto full_path =
                     _view_model->project_path / _view_model->selected_path;
-            for (auto &directory_entry :
+            for (auto& directory_entry :
                  std::filesystem::directory_iterator(full_path)) {
-                const auto       &path = directory_entry.path();
+                const auto&       path = directory_entry.path();
                 std::string const filename_string =
                         path.filename().generic_string();
 
@@ -164,4 +164,4 @@ public:
 };
 }// namespace taixu::editor
 
-#endif//TAIXUENGINE_FILE_COMPONENT_HPP
+#endif// TAIXUENGINE_FILE_COMPONENT_HPP

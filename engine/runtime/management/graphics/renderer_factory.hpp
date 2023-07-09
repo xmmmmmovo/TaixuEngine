@@ -1,0 +1,14 @@
+//
+// Created by xmmmmmovo on 2023/6/10.
+//
+
+#ifndef ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_RENDERER_FACTORY_HPP
+#define ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_RENDERER_FACTORY_HPP
+
+namespace taixu {
+
+class RendererFactory {};
+
+}// namespace taixu
+
+#endif//ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_RENDERER_FACTORY_HPP

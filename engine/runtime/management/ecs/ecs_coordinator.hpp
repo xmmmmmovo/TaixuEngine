@@ -11,7 +11,6 @@
 #include "core/entity_manager.hpp"
 #include "management/ecs/components/camera/camera_component.hpp"
 #include "management/ecs/components/renderable/renderable_component.hpp"
-#include "management/ecs/components/rigid_body/rigid_body_component.hpp"
 #include "management/ecs/components/transform/transform_component.hpp"
 #include "management/ecs/core/component_array.hpp"
 #include "management/ecs/core/component_manager.hpp"
@@ -20,7 +19,6 @@
 #include "management/ecs/core/event_manager.hpp"
 #include "management/ecs/system/system.hpp"
 #include "management/ecs/system/system_manager.hpp"
-#include "resource/json/json_type/world_json.hpp"
 #include "resource/manager/asset_manager.hpp"
 namespace taixu {
 
@@ -39,7 +37,7 @@ public:
 
     void destroyEntity(Entity entity);
 
-    std::uint32_t getEntityCount() const;
+    [[nodiscard]] std::uint32_t getEntityCount() const;
 
     /// Component methods ///
 

@@ -6,6 +6,8 @@
 #define ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_MANAGER_HPP
 
 #include "scene.hpp"
+
+#include <string>
 #include <string>
 #include <unordered_map>
 
