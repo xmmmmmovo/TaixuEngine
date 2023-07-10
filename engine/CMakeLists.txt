@@ -42,7 +42,7 @@ include(../3rdparty/FindGLM.cmake)
 include(../3rdparty/FindStb.cmake)
 
 # add imgui
-include(../3rdparty/Findimgui.cmake)
+include(../3rdparty/FindImgui.cmake)
 
 # add fmt
 include(../3rdparty/FindFmt.cmake)

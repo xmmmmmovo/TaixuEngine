@@ -8,6 +8,7 @@
 #include "management/ecs/system/system.hpp"
 #include "management/graphics/render/render_api.hpp"
 
+namespace {
 TEST_CASE("ecs tests", "[ecs manager tests]") {
     auto coordinator = taixu::ECSCoordinator();
 }
@@ -52,3 +53,4 @@ TEST_CASE("ecs category tests", "[ecs category tests]") {
     category.removeEntity(3);
     REQUIRE(category.entities().size() == 5);
 }
+}// namespace
