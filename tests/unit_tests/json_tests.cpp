@@ -2,3 +2,21 @@
 // Created by xmmmmmovo on 2023/2/26.
 //
 #include <catch2/catch_test_macros.hpp>
+
+#include "core/base/path.hpp"
+#include "resource/json/json_parser.hpp"
+#include "resource/json/project_json.hpp"
+#include "resource/json/serializable.hpp"
+
+#include "lib/logger.hpp"
+
+namespace {
+
+TEST_CASE("load and dump json test simplest", "[json tests]") {
+    test::log_info("load");
+    std::filesystem::path path = DEBUG_PATH "/example_proj/manifest.json";
+    taixu::Manifest manifest              = taixu::loadFromJsonFile<taixu::Manifest>(path);
+    std::cout << dumpToJsonStr(manifest) << std::endl;
+}
+
+}// namespace

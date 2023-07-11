@@ -32,6 +32,8 @@ endif (APPLE)
 
 # ---- Add Tests ----
 
+file(GLOB_RECURSE tests_lib "unit_tests/lib/*.hpp")
+
 file(GLOB_RECURSE unit_tests_src "unit_tests/*.cpp")
 file(GLOB_RECURSE benchmarks_src "benchmarks/*.cpp")
 
