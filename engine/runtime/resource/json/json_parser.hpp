@@ -11,6 +11,7 @@
 
 #include <refl.hpp>
 #include <simdjson.h>
+#include <spdlog/spdlog.h>
 
 #include "core/base/macro.hpp"
 #include "serializable.hpp"
@@ -58,7 +59,11 @@ TX_INLINE void jsonDump(std::stringstream& strstream, T&& value) {
                                      taixu::ISerializableList>(member)) {
             // TODO: fix this
             strstream << "[";
-            jsonDump(strstream, member(value));
+            auto& member_ref = member(value);
+            for (auto i = 0; i < member_ref.size(); i++) {
+                jsonDump(strstream, member_ref[i]);
+                if (i != member_ref.size() - 1) { strstream << ","; }
+            }
             strstream << "]";
         } else {
             strstream << "\"" << member(value) << "\"";
@@ -68,7 +73,7 @@ TX_INLINE void jsonDump(std::stringstream& strstream, T&& value) {
 }
 
 template<typename T>
-TX_INLINE std::string dumpToJson(T&& value) {
+TX_INLINE std::string dumpToJsonStr(T&& value) {
     std::stringstream strstream;
     strstream << "{";
     jsonDump(strstream, value);
@@ -77,23 +82,80 @@ TX_INLINE std::string dumpToJson(T&& value) {
 }
 
 template<typename T>
-TX_INLINE void jsonLoad(simdjson::ondemand::document const& json_object,
-                        T&                                  value) {
-
-
+TX_INLINE bool dumpToJsonFile(T&& value, std::filesystem::path const& path) {
+    return true;
 }
 
 template<typename T>
-TX_INLINE T loadFromJson(std::filesystem::path& file_path) {
-    T                             value{};
-    simdjson::ondemand::parser    parser;
+TX_INLINE void jsonLoad(simdjson::ondemand::document& json_object, T& value) {
+    // iterate over the members of T
+    for_each(refl::reflect(value).members, [&](auto member) {
+        // is_readable checks if the member is a non-const field
+        // or a 0-arg const-qualified function marked with property attribute
+        if constexpr (!is_readable(member)) { return; }
+
+        if constexpr (refl::descriptor::has_attribute<taixu::ISerializableStr>(
+                              member)) {
+            member(value) = std::string(
+                    json_object[get_display_name(member)].get_string().value());
+        } else if constexpr (refl::descriptor::has_attribute<
+                                     taixu::ISerializableNumber>(member)) {
+            member(value) = json_object[get_display_name(member)].get_double();
+        } else if constexpr (refl::descriptor::has_attribute<
+                                     taixu::ISerializableBool>(member)) {
+            member(value) = json_object[get_display_name(member)].get_bool();
+        } else if constexpr (refl::descriptor::has_attribute<
+                                     taixu::ISerializableObject>(member)) {
+            simdjson::ondemand::object data =
+                    json_object[get_display_name(member)];
+            member(value) = jsonLoad(data, member(value));
+        } else if constexpr (refl::descriptor::has_attribute<
+                                     taixu::ISerializableList>(member)) {
+            simdjson::ondemand::array data =
+                    json_object[get_display_name(member)];
+            std::size_t cnt        = data.count_elements();
+            auto&       member_ref = member(value);
+            member_ref.resize(cnt);
+            std::size_t idx = 0;
+            for (auto sub_data : data) {
+                member_ref[idx++] = jsonLoad(sub_data, member(value));
+            }
+        } else if constexpr (refl::descriptor::has_attribute<
+                                     taixu::ISerializableNULL>(member)) {
+            throw std::runtime_error("not support null");
+        } else {
+            throw std::runtime_error("not support type");
+        }
+    });
+}
+
+
+/**
+ * @brief
+ * @tparam T
+ * @param json_str `json`字符串，与iterate函数接受的参数类型相同
+ * @return
+ */
+template<typename T>
+TX_INLINE T loadFromJsonStr(auto const& json_str) {
+    T                            value{};
+    simdjson::ondemand::parser   parser;
+    simdjson::ondemand::document json_object = parser.iterate(json_str);
+    jsonLoad(json_object, value);
+    return value;
+}
+
+/**
+ * @brief load from json file
+ * @tparam T
+ * @param file_path
+ * @return
+ */
+template<typename T>
+TX_INLINE T loadFromJsonFile(std::filesystem::path& file_path) {
     simdjson::padded_string const json_str =
             simdjson::padded_string::load(file_path.generic_string());
-    simdjson::ondemand::document const json_object = parser.iterate(json_str);
-
-    jsonLoad(json_object, value);
-
-    return value;
+    return loadFromJsonStr<T>(json_str);
 }
 
 }// namespace taixu

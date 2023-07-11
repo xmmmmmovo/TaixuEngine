@@ -5,7 +5,6 @@
 #ifndef TAIXUENGINE_JSONABLE_HPP
 #define TAIXUENGINE_JSONABLE_HPP
 
-
 #include <refl.hpp>
 
 namespace taixu {
