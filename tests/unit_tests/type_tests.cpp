@@ -3,10 +3,12 @@
 //
 
 #include <catch2/catch_test_macros.hpp>
+#include <glm/glm.hpp>
 #include <iostream>
 #include <memory>
 #include <vector>
-#include <glm/glm.hpp>
+
+namespace {
 
 struct A {
     int a{0};
@@ -59,7 +61,7 @@ TEST_CASE("unique_pre move test", "[C++ trait tests]") {
 
     std::unique_ptr<A> aa = std::make_unique<A>();
     aa->a                 = 1;
-    A *d                  = aa.get();
+    A* d                  = aa.get();
     REQUIRE(d != nullptr);
     REQUIRE(d->a == 1);
     move_ptr(std::move(aa));
@@ -77,8 +79,10 @@ TEST_CASE("plus test", "[C++ trait tests]") {
 TEST_CASE("test c++", "[C++ trait tests]") {
     glm::vec3 v{1, 2, 3};
 
-    float *ptr = &v[0];
-    float *raw_ptr = reinterpret_cast<float *>(&v);
+    float* ptr     = &v[0];
+    float* raw_ptr = reinterpret_cast<float*>(&v);
 
     REQUIRE(ptr == raw_ptr);
 }
+
+}// namespace

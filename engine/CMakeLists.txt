@@ -78,9 +78,13 @@ set(SPIR_V_ENABLE OFF)
 # shaders
 # add glsl validator
 set(glslangValidator_executable ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
+
 set(SHADER_COMPILE_TARGET TaixuShaderCompile)
+set(COMMON_COMPILE_TARGET TaixuCommonLib)
+
 add_subdirectory(shaders)
 
 # editor and runtime
-add_subdirectory(editor)
-add_subdirectory(runtime)
+add_subdirectory(src/editor)
+add_subdirectory(src/common)
+add_subdirectory(src/runtime)

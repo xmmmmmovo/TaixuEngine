@@ -7,7 +7,6 @@
 
 // C
 #include <cassert>
-#include <ccomplex>
 #include <cctype>
 #include <cerrno>
 #include <cfenv>
@@ -20,13 +19,11 @@
 #include <csetjmp>
 #include <csignal>
 #include <cstdarg>
-#include <cstdbool>
 #include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <ctgmath>
 #include <ctime>
 #include <cuchar>
 #include <cwchar>
@@ -122,23 +119,14 @@
 #include <stdfloat>
 #endif
 
-// glm
-#include <glm/glm.hpp>
-
 // spdlog
-#include <spdlog/spdlog.h>
-
-// glad
-#include <glad/glad.h>
-
-// glfw
-#include <GLFW/glfw3.h>
+#include "spdlog/spdlog.h"
 
 // imgui
-#include <IconsFontAwesome6.h>
-#include <imgui.h>
+#include "IconsFontAwesome6.h"
+#include "imgui.h"
 
 // stb
-#include <stb_image.h>
+#include "stb_image.h"
 
 #endif//ENGINE_PRECOMPILE_PCH_EDITOR_HPP

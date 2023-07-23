@@ -3,10 +3,10 @@
 //
 #include <catch2/catch_test_macros.hpp>
 
-#include "gameplay/gui/window_context.hpp"
-#include "management/ecs/ecs_coordinator.hpp"
-#include "management/ecs/system/system.hpp"
-#include "management/graphics/render/render_api.hpp"
+#include <runtime/gameplay/gui/window_context.hpp>
+#include <runtime/management/ecs/ecs_coordinator.hpp>
+#include <runtime/management/ecs/system/system.hpp>
+#include <runtime/management/graphics/render/render_api.hpp>
 
 namespace {
 TEST_CASE("ecs tests", "[ecs manager tests]") {

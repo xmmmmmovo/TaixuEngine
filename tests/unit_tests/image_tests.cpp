@@ -5,7 +5,9 @@
 #include <catch2/catch_test_macros.hpp>
 #include <stb_image.h>
 
-#include "core/base/path.hpp"
+#include <common/base/path.hpp>
+
+namespace {
 
 TEST_CASE("load image jpeg failed", "[stb_image tests]") {
     constexpr auto path = DEBUG_PATH "/tests/resources/sky_block_test.jpeg";
@@ -27,3 +29,5 @@ TEST_CASE("load image png success", "[stb_image tests]") {
     REQUIRE(ok == 1);
     REQUIRE(data != nullptr);
 }
+
+}// namespace
