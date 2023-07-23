@@ -3,6 +3,9 @@
 //
 #include "render_api.hpp"
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 namespace taixu {
 
 /**
@@ -19,7 +22,7 @@ public:
 #endif
     }
 
-    void apiLoad(GLFWwindow *window) override {
+    void apiLoad(GLFWwindow* window) override {
         glfwMakeContextCurrent(window);
 
         // glad: load all OpenGL function pointers

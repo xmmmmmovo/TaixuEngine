@@ -11,7 +11,6 @@
 #include <backends/imgui_impl_glfw.h>
 
 #include "runtime/gameplay/player/camera/euler_camera.hpp"
-#include "runtime/management/components/animation/skeleton_component.hpp"
 #include "runtime/management/components/renderable/renderable_component.hpp"
 #include <common/base/clock.hpp>
 #include <common/base/hash.hpp>
@@ -129,11 +128,7 @@ protected:
 
                 render_signature.set(
                         coordinator.getComponentType<TransformComponent>());
-                coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
-                                               render_signature);
 
-                render_signature.set(
-                        coordinator.getComponentType<SkeletonComponent>());
                 coordinator.setsystemSignature(RENDERABLE_SYSTEM_ID,
                                                render_signature);
             }
@@ -141,8 +136,6 @@ protected:
             _light_system = coordinator.registerSystem(LIGHT_SYSTEM_ID);
             {
                 Signature light_signature;
-                light_signature.set(
-                        coordinator.getComponentType<LightComponent>());
                 light_signature.set(
                         coordinator.getComponentType<TransformComponent>());
                 coordinator.setsystemSignature(LIGHT_SYSTEM_ID,

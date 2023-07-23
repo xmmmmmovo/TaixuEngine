@@ -6,9 +6,7 @@
 #define ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 
 #include "runtime/gameplay/player/camera/euler_camera.hpp"
-#include "runtime/management/components/animation/skeleton_component.hpp"
 #include "runtime/management/components/camera/camera_component.hpp"
-#include "runtime/management/components/light/light_component.hpp"
 #include "runtime/management/components/renderable/renderable_component.hpp"
 #include "runtime/management/components/transform/transform_component.hpp"
 
@@ -70,8 +68,6 @@ public:
         _ecs_coordinator.init();
         _ecs_coordinator.registerComponent<RenderableComponent>();
         _ecs_coordinator.registerComponent<TransformComponent>();
-        _ecs_coordinator.registerComponent<LightComponent>();
-        _ecs_coordinator.registerComponent<SkeletonComponent>();
     }
 };
 

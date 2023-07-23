@@ -5,7 +5,7 @@
 #ifndef TAIXUENGINE_RENDER_API_HPP
 #define TAIXUENGINE_RENDER_API_HPP
 
-#include <glad/glad.h>
+#define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
 #include <common/base/macro.hpp>
@@ -23,6 +23,11 @@ enum class GraphicsAPI { NONE, OPENGL };
  * @brief 决定shaderAPI
  */
 enum class ShaderAPI { NONE, GLSL, HLSL };
+
+/**
+ * @brief 决定shader源码类型
+ */
+enum class ShaderSourceType { SOURCE, SPV };
 
 /**
  * @brief 决定渲染API

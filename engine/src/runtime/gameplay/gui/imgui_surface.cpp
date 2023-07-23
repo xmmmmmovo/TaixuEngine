@@ -126,7 +126,7 @@ void ImguiSurface::init(GLFWwindow *window) {
     style.WindowPadding    = ImVec2(0.0f, 0.0f);
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init(OPENGL_VERSION);
+    ImGui_ImplOpenGL3_Init(OPENGL_VERSION.data());
 }
 
 void ImguiSurface::preUpdate() {

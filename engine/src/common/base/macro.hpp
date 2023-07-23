@@ -1,8 +1,8 @@
 #ifndef ENGINE_RUNTIME_CORE_BASE_MACRO
 #define ENGINE_RUNTIME_CORE_BASE_MACRO
 
-namespace taixu {
 
+#include <string_view>
 #if defined(TX_FORCE_INLINE)
     #if _MSC_VER
         #define TX_INLINE __forceinline
@@ -82,18 +82,20 @@ access:                                                                        \
     PROTOTYPE_DFT_ONLY_GETTER(access, type, name, )                            \
     PROTOTYPE_SETTER(type, name)
 
+namespace taixu {
+
 /**
  * @brief Define Opengl version
  */
-constexpr char         OPENGL_VERSION[]     = "#version 410";
+constexpr std::string_view OPENGL_VERSION       = "#version 460";
 /**
  * @brief Define Opengl major version
  */
-constexpr std::int32_t OPENGL_MAJOR_VERSION = 4;
+constexpr std::int32_t     OPENGL_MAJOR_VERSION = 4;
 /**
  * @brief Define Opengl minor version
  */
-constexpr std::int32_t OPENGL_MINOR_VERSION = 1;
+constexpr std::int32_t     OPENGL_MINOR_VERSION = 6;
 
 /**
  * @brief status enum
