@@ -132,8 +132,6 @@ public:
         }
 
         if (ecs->anyOf<RenderableComponent>(_view_model->selected_entity)) {}
-
-        if (ecs->anyOf<LightComponent>(_view_model->selected_entity)) {}
     }
 };
 }// namespace taixu::editor

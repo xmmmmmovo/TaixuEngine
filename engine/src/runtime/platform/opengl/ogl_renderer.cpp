@@ -87,31 +87,7 @@ void OGLRenderer::update(float delta_time) {
         // 处理光照
         _lights = {};
 
-        for (auto const& entity : _light_system->entities()) {
-            if (_current_scene->_ecs_coordinator
-                        .allOf<LightComponent, TransformComponent>(entity)) {
-                auto& light_comp =
-                        _current_scene->_ecs_coordinator
-                                .getComponent<LightComponent>(entity);
-                auto& trans_comp =
-                        _current_scene->_ecs_coordinator
-                                .getComponent<TransformComponent>(entity);
-                //                spdlog::debug("translate: {} {} {}",
-                //                trans_comp.translate().x,
-                //                              trans_comp.translate().y,
-                //                              trans_comp.translate().z);
-                _lights.pointLights[_lights.pointLightCount] = {
-                        .position  = glm::vec4(trans_comp.translate(), 1.0f),
-                        .constant  = 1.0f,
-                        .linear    = 0.09f,
-                        .quadratic = 0.032f,
-                        .ambient   = light_comp.light_color,
-                        .diffuse   = light_comp.light_color,
-                        .specular  = light_comp.light_color,
-                };
-                ++_lights.pointLightCount;
-            }
-        }
+        for (auto const& entity : _light_system->entities()) {}
 
         _lights_ubo.bind();
         _lights_ubo.updateData(_lights);
@@ -173,29 +149,6 @@ void OGLRenderer::update(float delta_time) {
                         _material_ubo.unbind();
                         mesh.vao->draw(mesh.index_count);
                     }
-                }
-            } else if (_current_scene->_ecs_coordinator
-                               .anyOf<SkeletonComponent>(entity)) {
-                _animation_shader->use();
-                auto const& skeleton =
-                        _current_scene->_ecs_coordinator
-                                .getComponent<SkeletonComponent>(entity);
-
-                auto& trans = _current_scene->_ecs_coordinator
-                                      .getComponent<TransformComponent>(entity);
-                trans.makeTransformMatrix();
-
-                _animation_shader->set_uniform("model", trans.transform());
-
-                auto transforms = skeleton.m_FinalBoneMatrices;
-                for (int i = 0; i < transforms.size(); ++i)
-                    _animation_shader->setMat4Array(
-                            "finalBonesMatrices[" + std::to_string(i) + "]",
-                            transforms[i]);
-
-                for (auto& mesh :
-                     skeleton.fbx->model->gpu_data.value().meshes) {
-                    mesh.vao->draw(mesh.index_count);
                 }
             }
         }
