@@ -2,9 +2,9 @@ set(TARGET_IMGUIINI_FILE ${OUTPUT_DIR}/imgui.ini)
 set(TARGET_ASSETS_DIR ${OUTPUT_DIR}/assets)
 set(TARGET_RES_DIR ${OUTPUT_DIR}/res)
 
-set(IMGUIINI_FILE ${ENGINE_ROOT_DIR}/editor/imgui.ini)
+set(IMGUIINI_FILE ${ENGINE_ROOT_DIR}/src/editor/imgui.ini)
 set(ASSETS_DIR ${ENGINE_ROOT_DIR}/assets)
-set(RES_DIR ${ENGINE_ROOT_DIR}/editor/res)
+set(RES_DIR ${ENGINE_ROOT_DIR}/src/editor/res)
 
 message("copy start")
 
