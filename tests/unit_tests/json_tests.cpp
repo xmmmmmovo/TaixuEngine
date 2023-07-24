@@ -5,7 +5,7 @@
 
 #include <common/base/path.hpp>
 #include <runtime/resource/json/json_parser.hpp>
-#include <runtime/resource/json/project_json.hpp>
+#include <runtime/resource/json/manifest_json.hpp>
 #include <runtime/resource/json/serializable.hpp>
 
 #include "lib/logger.hpp"

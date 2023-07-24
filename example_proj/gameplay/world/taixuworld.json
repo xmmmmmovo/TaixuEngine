@@ -1,5 +1,5 @@
 {
-  "name": "mainworld",
+  "name": "main world",
   "global": {
     "render": "gameplay/global/render.global.json"
   },

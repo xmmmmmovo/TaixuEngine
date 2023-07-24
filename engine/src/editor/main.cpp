@@ -10,17 +10,6 @@
 #include "ui/main_window/main_window.hpp"
 
 /**
- * @brief initWindow spdlog config
- */
-void initSpdlog() {
-#ifndef NDEBUG
-    spdlog::set_level(spdlog::level::debug);// Set global log level to debug
-#else
-    spdlog::set_level(spdlog::level::info);// Set global log level to info
-#endif
-}
-
-/**
  * @brief Main window width
  */
 static constexpr int32_t          MAIN_WINDOW_WIDTH  = 1366;
@@ -38,10 +27,8 @@ int main(int argc, char* argv[]) {
     // avoid c-style array
     std::vector<std::string> const args(argv, argv + argc);
 
-    initSpdlog();
-
     taixu::Engine* engine_ptr = &taixu::Engine::getInstance();
-    engine_ptr->loadParams(args);
+    taixu::Engine::loadParams(args);
 
     spdlog::info("start init the application!");
 

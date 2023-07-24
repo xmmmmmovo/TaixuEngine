@@ -6,53 +6,49 @@
 
 #include <filesystem>
 
-#include <runtime/platform/os/file_service.hpp>
+#include "runtime/resource/converted_data/project.hpp"
+#include "runtime/resource/json/manifest_json.hpp"
 #include "spdlog/spdlog.h"
+#include <optional>
+#include <runtime/platform/os/file_service.hpp>
+#include <runtime/resource/json/json_parser.hpp>
+#include <string>
 
 namespace taixu {
 
-Status ProjectManager::openProject(std::string_view const& path) {
+std::optional<Project> openProject(std::filesystem::path const& path) {
     // If the project is not loaded, load it from the JSON file
-    std::filesystem::path manifest_path = path;
-    manifest_path /= "manifest.json";
-    std::ifstream file(manifest_path.c_str());
+    std::filesystem::path manifest_path = path / "manifest.json";
+    std::ifstream const   file((path / "manifest.json").generic_string());
     if (!file.is_open()) {
-        std::cerr << "Failed to open project file " << path << "\n";
-        return Status::NO_SUCH_FILE_FAILED;
+        spdlog::error("Failed to open project file {}", path.generic_string());
+        return std::nullopt;
     }
 
-    std::string name;
-
-    // Create a new project object and add it to the vector of projects
-    opened_project = std::make_unique<Project>(Project{name});
-
-    current_path = manifest_path.parent_path();
-
-    return Status::OK;
+    Project project;
+    project.current_path = path;
+    project.manifest     = loadFromJsonFile<Manifest>(manifest_path);
+    return project;
 }
 
-Status ProjectManager::createProject(std::string const& path,
-                                     std::string const& name) {
-    if (opened_project) { opened_project = nullptr; }
-    return Status::OK;
+std::optional<Project> createProject(std::filesystem::path const& path,
+                                     std::string const&           name,
+                                     std::string const&           author,
+                                     std::string const&           description) {
+    Project project;
+    project.current_path  = path;
+    project.manifest      = Manifest();
+    project.manifest.name = name;
+    project.manifest.author =
+            author.empty() ? "noname" : author;// TODO: get current user name
+    project.manifest.description = description;
+    project.manifest.version     = "0.0.1";
+
+    return project;
 }
 
-Status ProjectManager::saveAsProject(const std::string& path) {
-    if (opened_project == nullptr) {
-        spdlog::error("current have no project opening, error");
-        return Status::NO_OPEN_PROJECT;
-    }
+Status saveAsProject(const std::filesystem::path& path) { return Status::OK; }
 
-    return Status::OK;
-}
-
-Status ProjectManager::saveProject() {
-    if (opened_project == nullptr) {
-        spdlog::error("current have no project opening, error");
-        return Status::NO_OPEN_PROJECT;
-    }
-
-    return Status::OK;
-}
+Status saveProject() { return Status::OK; }
 
 }// namespace taixu

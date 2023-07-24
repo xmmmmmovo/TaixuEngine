@@ -11,10 +11,10 @@
 
 namespace taixu {
 
-struct BaseAssetData {
+struct AbstractAssetData {
     std::filesystem::path file_path;
 };
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_ASSET_DATA_HPP
+#endif// TAIXUENGINE_ASSET_DATA_HPP

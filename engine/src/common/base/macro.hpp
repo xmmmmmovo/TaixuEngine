@@ -87,7 +87,7 @@ namespace taixu {
 /**
  * @brief Define Opengl version
  */
-constexpr std::string_view OPENGL_VERSION       = "#version 460";
+constexpr std::string_view OPENGL_VERSION       = "#version 410";
 /**
  * @brief Define Opengl major version
  */
@@ -95,7 +95,7 @@ constexpr std::int32_t     OPENGL_MAJOR_VERSION = 4;
 /**
  * @brief Define Opengl minor version
  */
-constexpr std::int32_t     OPENGL_MINOR_VERSION = 6;
+constexpr std::int32_t     OPENGL_MINOR_VERSION = 1;
 
 /**
  * @brief status enum
