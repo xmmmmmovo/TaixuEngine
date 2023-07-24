@@ -6,7 +6,6 @@
 
 #include <assimp/material.h>
 #include <memory>
-#include <stb_image.h>
 
 #include "asset_data.hpp"
 #include "runtime/engine_args.hpp"

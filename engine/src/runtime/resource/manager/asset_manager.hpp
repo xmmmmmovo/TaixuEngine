@@ -59,7 +59,7 @@ public:
     void loadTextureAsync(std::filesystem::path const& root_path,
                           std::filesystem::path const& relative_path,
                           std::function<void(Texture2DAsset*)> const& callback);
-
+    
     void reset() {
         _textures.clear();
         _models.clear();

@@ -9,8 +9,6 @@
 
 namespace taixu {
 
-
-
 OGLTexture2D::OGLTexture2D(const std::filesystem::path &path, GLint filter_mode,
                            GLint what_happens_at_edge) {
     stbi_uc *data = loadImage(path, &_width, &_height, &_n_channels);

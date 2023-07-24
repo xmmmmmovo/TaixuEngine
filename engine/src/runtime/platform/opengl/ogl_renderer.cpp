@@ -107,7 +107,6 @@ void OGLRenderer::update(float delta_time) {
                                     .getComponent<TransformComponent>(entity);
                     trans.makeTransformMatrix();
 
-
                     _render_shader->set_uniform("model", trans.transform());
                     _render_shader->set_uniform(
                             "invModel3x3",

@@ -126,7 +126,4 @@
 #include "IconsFontAwesome6.h"
 #include "imgui.h"
 
-// stb
-#include "stb_image.h"
-
 #endif//TAIXUENGINE_PCH_HPP

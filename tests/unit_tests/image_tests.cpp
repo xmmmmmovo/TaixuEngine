@@ -3,30 +3,41 @@
 //
 
 #include <catch2/catch_test_macros.hpp>
-#include <stb_image.h>
+
+#define STB_IMAGE_IMPLEMENTATION
 
 #include <common/base/path.hpp>
+#include <runtime/resource/helper/image_helper.hpp>
 
 namespace {
 
-TEST_CASE("load image jpeg failed", "[stb_image tests]") {
-    constexpr auto path = DEBUG_PATH "/tests/resources/sky_block_test.jpeg";
+TEST_CASE("load image jpeg success", "[stb_image load tests]") {
+    constexpr auto path = DEBUG_PATH "/example_proj/assets/textures/view.jpg";
     int            width, height, channels;
-    auto           ok   = stbi_info(path, &width, &height, &channels);
-    auto           data = stbi_load(path, &width, &height, &channels, 0);
 
-    REQUIRE(ok == 0);
-    REQUIRE(data == nullptr);
+    stbi_uc* data = taixu::loadImage(path, &width, &height, &channels);
+
+    REQUIRE(data != nullptr);
 }
 
 
-TEST_CASE("load image png success", "[stb_image tests]") {
-    constexpr auto path = DEBUG_PATH "/tests/resources/mars.png";
-    int            width, height, channels;
-    auto           ok   = stbi_info(path, &width, &height, &channels);
-    auto           data = stbi_load(path, &width, &height, &channels, 0);
+TEST_CASE("load image png success", "[stb_image load tests]") {
+    constexpr auto path =
+            DEBUG_PATH "/example_proj/assets/textures/concreteTexture.png";
+    int width, height, channels;
 
-    REQUIRE(ok == 1);
+    stbi_uc* data = taixu::loadImage(path, &width, &height, &channels);
+
+    REQUIRE(data != nullptr);
+}
+
+TEST_CASE("compress image png success", "[stb_image compress tests]") {
+    constexpr auto path =
+            DEBUG_PATH "/example_proj/assets/textures/concreteTexture.png";
+    int width, height, channels;
+
+    stbi_uc* data = taixu::loadImage(path, &width, &height, &channels);
+
     REQUIRE(data != nullptr);
 }
 

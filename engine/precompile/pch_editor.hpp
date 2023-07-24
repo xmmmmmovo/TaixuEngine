@@ -126,7 +126,4 @@
 #include "IconsFontAwesome6.h"
 #include "imgui.h"
 
-// stb
-#include "stb_image.h"
-
 #endif//ENGINE_PRECOMPILE_PCH_EDITOR_HPP

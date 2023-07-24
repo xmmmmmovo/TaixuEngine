@@ -1,0 +1,45 @@
+//
+// Created by xmmmmmovo on 2023/7/24.
+//
+
+#ifndef ENGINE_SRC_RUNTIME_RESOURCE_LOCATE_LOCATE_HPP
+#define ENGINE_SRC_RUNTIME_RESOURCE_LOCATE_LOCATE_HPP
+
+namespace taixu {
+
+enum class Locate {
+    SIMPLIFIED_CHINESE,
+    TRADITIONAL_CHINESE,
+    ENGLISH,
+    JAPANESE,
+    KOREAN,
+    RUSSIAN,
+    FRENCH,
+    GERMAN,
+    ITALIAN,
+    SPANISH,
+    PORTUGUESE,
+    POLISH,
+    ARABIC,
+    TURKISH,
+    THAI,
+    HUNGARIAN,
+    CZECH,
+    SLOVAK,
+    ROMANIAN,
+    GREEK,
+    UKRAINIAN,
+    DUTCH,
+    BULGARIAN,
+    FINNISH,
+    DANISH,
+    NORWEGIAN,
+    SWEDISH,
+    CROATIAN,
+    CATALAN,
+    INDONESIAN,
+};
+
+}// namespace taixu
+
+#endif// ENGINE_SRC_RUNTIME_RESOURCE_LOCATE_LOCATE_HPP

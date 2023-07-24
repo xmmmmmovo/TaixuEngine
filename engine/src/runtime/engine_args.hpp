@@ -5,10 +5,10 @@
 #ifndef TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP
 #define TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP
 
-#include "spdlog/common.h"
 #include <argparse/argparse.hpp>
 #include <common/base/public_singleton.hpp>
 #include <runtime/management/graphics/render/render_api.hpp>
+#include <spdlog/common.h>
 
 namespace taixu {
 
@@ -20,10 +20,12 @@ class EngineArgs : public PublicSingleton<EngineArgs> {
     PROTOTYPE_DFT_ONLY_GETTER_CONST(private, bool, is_debug, true);
     PROTOTYPE_DFT_ONLY_GETTER_CONST(private, ShaderSourceType, source_type,
                                     ShaderSourceType::SOURCE);
+    PROTOTYPE_DFT_ONLY_GETTER_CONST(private, std::string, locale, "zh_CN")
 
 private:
     static constexpr const char* GRAPHICS_API       = "--graphics_api";
     static constexpr const char* SHADER_SOURCE_TYPE = "--shader_source_type";
+    static constexpr const char* LOCALE             = "--locale";
 
 public:
     void loadParams(const std::vector<std::string>& args) {
