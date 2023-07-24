@@ -5,6 +5,7 @@
 #ifndef TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP
 #define TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP
 
+#include "spdlog/common.h"
 #include <argparse/argparse.hpp>
 #include <common/base/public_singleton.hpp>
 #include <runtime/management/graphics/render/render_api.hpp>
@@ -65,6 +66,10 @@ public:
 
 #ifdef NDEBUG
         this->_is_debug = false;
+        spdlog::set_level(spdlog::level::info);// Set global log level to debug
+#else
+        this->_is_debug = true;
+        spdlog::set_level(spdlog::level::debug);// Set global log level to info
 #endif
     }
 };

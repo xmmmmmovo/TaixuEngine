@@ -19,7 +19,6 @@
 
 #include "glm/gtc/type_ptr.hpp"
 #include <runtime/platform/os/path.hpp>
-#include <runtime/resource/raw_data/fbx_data.hpp>
 #include <runtime/resource/raw_data/mesh.hpp>
 #include <runtime/resource/raw_data/model.hpp>
 #include <runtime/resource/raw_data/texture.hpp>
@@ -28,15 +27,13 @@ namespace taixu {
 
 class AssetManager final {
 private:
-    std::unordered_map<std::string_view, Texture2DAsset> _textures{};
-    std::unordered_map<std::string_view, Model>          _models{};
-    std::unordered_map<std::string_view, FBXData>        _fbx_files{};
+    std::unordered_map<char const*, Texture2DAsset> _textures{};
+    std::unordered_map<char const*, Model>          _models{};
 
     static Mesh processMesh(aiMesh* mesh);
 
     void processNode(aiNode* node, aiScene const* scene, Model& model);
-    void processNode(aiNode* node, aiScene const* scene, Model& model,
-                     FBXData* fbx);
+
 
     void processMaterial(aiScene const*               scene,
                          std::filesystem::path const& root_path, Model& model);
@@ -63,14 +60,9 @@ public:
                           std::filesystem::path const& relative_path,
                           std::function<void(Texture2DAsset*)> const& callback);
 
-    // for animation
-    FBXData* loadFBX(std::filesystem::path const& root_path,
-                     std::filesystem::path const& relative_path);
-
     void reset() {
         _textures.clear();
         _models.clear();
-        _fbx_files.clear();
     }
 };
 }// namespace taixu

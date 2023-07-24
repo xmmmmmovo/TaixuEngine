@@ -4,49 +4,32 @@
 #ifndef TAIXUENGINE_PROJECT_MANAGER_HPP
 #define TAIXUENGINE_PROJECT_MANAGER_HPP
 
+#include <filesystem>
 #include <memory>
+#include <optional>
 #include <string>
 #include <vector>
 
 #include <simdjson.h>
 
+#include "runtime/resource/converted_data/project.hpp"
+
 #include <common/base/macro.hpp>
 
 namespace taixu {
 
-struct Project {
-public:
-    //name of project
-    std::string_view name;
-};
+std::optional<Project> openProject(std::filesystem::path const& path);
 
-class ProjectManager {
-private:
-    // current project
-    std::unique_ptr<Project> opened_project{nullptr};
-    //file path of project
-    std::filesystem::path    current_path;
+std::optional<Project> createProject(std::filesystem::path const& path,
+                                     std::string const&           name,
+                                     std::string const&           author,
+                                     std::string const&           description);
 
-public:
-    ProjectManager() = default;
+Status saveProject();
 
-    Status openProject(std::string_view const &path);
+Status saveAsProject(std::filesystem::path const& path);
 
-    Status createProject(std::string const &path, std::string const &name);
-
-    Status saveProject();
-
-    Status saveAsProject(std::string const &path);
-
-    [[nodiscard]] inline Project *getCurrentProject() const {
-        return opened_project.get();
-    }
-
-    [[nodiscard]] inline std::filesystem::path getCurrentPath() const {
-        return current_path;
-    }
-};
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_PROJECT_MANAGER_HPP
+#endif// TAIXUENGINE_PROJECT_MANAGER_HPP

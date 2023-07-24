@@ -9,6 +9,7 @@
 #include <stb_image.h>
 
 #include "asset_data.hpp"
+#include "runtime/engine_args.hpp"
 #include <runtime/management/graphics/render/texture_2d.hpp>
 #include <runtime/platform/opengl/ogl_texture2d.hpp>
 #include <runtime/platform/os/path.hpp>
@@ -74,7 +75,7 @@ inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {
     }
 }
 
-struct Texture2DAsset final : public BaseAssetData {
+struct Texture2DAsset final : public AbstractAssetData {
     TextureType                 type{TextureType::COMMON};
     std::unique_ptr<ITexture2D> texture{nullptr};
 };
@@ -87,6 +88,7 @@ transferCPUTextureToGPU(std::filesystem::path const &asset_path,
 
     texture.type      = type;
     texture.file_path = relative_path;
+
 
     if (EngineArgs::getInstance().api() == GraphicsAPI::OPENGL) {
         texture.texture = std::make_unique<OGLTexture2D>(

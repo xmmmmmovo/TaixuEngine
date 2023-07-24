@@ -81,6 +81,7 @@ set(glslangValidator_executable ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
 
 set(SHADER_COMPILE_TARGET TaixuShaderCompile)
 set(COMMON_COMPILE_TARGET TaixuCommonLib)
+set(SCRIPT_COMPILE_TARGET TaixuScriptLib)
 
 add_subdirectory(shaders)
 
@@ -88,3 +89,4 @@ add_subdirectory(shaders)
 add_subdirectory(src/editor)
 add_subdirectory(src/common)
 add_subdirectory(src/runtime)
+add_subdirectory(src/script)

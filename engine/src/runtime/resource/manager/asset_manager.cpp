@@ -7,7 +7,6 @@
 #include <vector>
 
 #include "asset_manager.hpp"
-#include <runtime/resource/helper/image_helper.hpp>
 #include <runtime/resource/raw_data/material.hpp>
 #include <runtime/resource/raw_data/mesh.hpp>
 #include <runtime/resource/raw_data/texture.hpp>
@@ -235,8 +234,8 @@ Model* AssetManager::loadModel(std::filesystem::path const& root_path,
         return nullptr;
     }
 
-    if (_models.count(full_path.generic_string())) {
-        return &_models[full_path.generic_string()];
+    if (_models.count(full_path.generic_string().data())) {
+        return &_models[full_path.generic_string().data()];
     }
 
     Model            ret_model{};
@@ -261,8 +260,8 @@ Model* AssetManager::loadModel(std::filesystem::path const& root_path,
     processMaterial(scene, root_path, ret_model);
     processNode(scene->mRootNode, scene, ret_model);
 
-    auto [model_ref, was_ins] =
-            _models.insert({full_path.generic_string(), std::move(ret_model)});
+    auto [model_ref, was_ins] = _models.insert(
+            {full_path.generic_string().data(), std::move(ret_model)});
 
 
     return &model_ref->second;
@@ -279,12 +278,12 @@ AssetManager::loadTexture(std::filesystem::path const& root_path,
         return nullptr;
     }
 
-    if (_textures.count(full_path.generic_string())) {
-        return &_textures[full_path.generic_string()];
+    if (_textures.count(full_path.generic_string().data())) {
+        return &_textures[full_path.generic_string().data()];
     }
 
     auto [tex_ref, was_ins] = _textures.insert(
-            {full_path.generic_string(),
+            {full_path.generic_string().data(),
              transferCPUTextureToGPU(root_path, relative_path, type)});
     return &tex_ref->second;
 }

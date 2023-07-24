@@ -48,3 +48,4 @@ configure_file(cmake/path.hpp.in ${TAIXUENGINE_ROOT_DIR}/engine/src/common/base/
 add_subdirectory(engine)
 add_subdirectory(docs)
 add_subdirectory(tests)
+add_subdirectory(tools)

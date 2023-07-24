@@ -4,6 +4,8 @@
 #include <optional>
 
 #include "engine_args.hpp"
+#include "resource/converted_data/project.hpp"
+#include "resource/manager/project_manager.hpp"
 #include <runtime/management/ecs/ecs_coordinator.hpp>
 #include <runtime/management/graphics/render/render_api.hpp>
 #include <runtime/management/input/input_system.hpp>
@@ -33,9 +35,8 @@ void Engine::init(std::unique_ptr<WindowContext> context,
     }
     _renderer->init();
 
-    _project_manager   = std::make_unique<ProjectManager>();
-    _asset_manager     = std::make_unique<AssetManager>();
-    _scene_manager     = std::make_unique<SceneManager>();
+    _asset_manager = std::make_unique<AssetManager>();
+    _scene_manager = std::make_unique<SceneManager>();
 
     _renderer->set_default_texture(
             _asset_manager->loadTexture(".", "assets/texture/rgba1111.png")
@@ -71,20 +72,32 @@ void Engine::destroy() { this->_window_ptr->destroy(); }
 
 AbstractRenderer* Engine::getRenderer() const { return _renderer.get(); }
 
-Status Engine::loadProject(const std::string_view& path) {
-    spdlog::info("Loading project: {}", path);
-    Status const status = _project_manager->openProject(path);
-    if (Status::OK != status) {
-        spdlog::error("Failed to load project: {}",
-                      magic_enum::enum_name(status));
-        return status;
+void Engine::loadProject(const std::filesystem::path& path) {
+    spdlog::info("Loading project: {}", path.generic_string());
+    std::optional<Project> tpj{std::nullopt};
+    try {
+        tpj = openProject(path);
+    } catch (std::exception& e) {
+        spdlog::error("Failed to load project: {}", e.what());
+        return;
     }
-
-    return Status::OK;
+    glfwSetWindowTitle(this->_context_ptr->_window,
+                       fmt::format("{} - {} - {}", this->_context_ptr->_title,
+                                   tpj.value().manifest.name,
+                                   tpj.value().current_path.generic_string())
+                               .c_str());
+    this->_opened_project = std::move(tpj);
 }
 
-Project* Engine::getOpenedProject() const {
-    return this->_project_manager->getCurrentProject();
+/**
+ * @brief 获取打开的项目文件
+ * @return
+ */
+Project const* Engine::getOpenedProject() const {
+    if (this->_opened_project.has_value()) {
+        return &this->_opened_project.value();
+    }
+    return nullptr;
 }
 
 Scene* Engine::getScene() const { return _current_scene; }
