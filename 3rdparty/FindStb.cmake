@@ -8,8 +8,7 @@ CPMAddPackage(
 
 if (stb_ADDED)
     FILE(GLOB stb_headers CONFIGURE_DEPENDS
-            ${stb_SOURCE_DIR}/*.h
-            ${PROJECT_SOURCE_DIR}/3rdparty/stb/RygsDXTc/stb_dxt.h)
+            ${stb_SOURCE_DIR}/*.h)
     add_library(stb INTERFACE ${stb_sources})
     target_include_directories(stb
             INTERFACE

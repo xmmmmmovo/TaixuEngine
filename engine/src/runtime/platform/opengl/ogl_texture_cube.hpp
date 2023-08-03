@@ -16,23 +16,21 @@ private:
     uint32_t _texture_id{0};
 
 public:
-    explicit OGLTextureCube(std::string const &posx, std::string const &negx,
-                            std::string const &posy, std::string const &negy,
-                            std::string const &posz, std::string const &negz) {
+    explicit OGLTextureCube(std::string const& posx, std::string const& negx,
+                            std::string const& posy, std::string const& negy,
+                            std::string const& posz, std::string const& negz) {
         glGenTextures(1, &_texture_id);
         glBindTexture(GL_TEXTURE_CUBE_MAP, _texture_id);
 
-        auto load_and_bind = [](std::string const &path, GLenum target) {
+        auto load_and_bind = [](std::string const& path, GLenum target) {
             int  width, height, channels;
             auto data = loadImage(path, &width, &height, &channels, 0, false);
             if (data) {
                 glTexImage2D(target, 0, mapImageToGLReadType(channels), width,
                              height, 0, mapImageToGLReadType(channels),
-                             GL_UNSIGNED_BYTE, data);
-                stbi_image_free(data);
+                             GL_UNSIGNED_BYTE, data.get());
             } else {
                 spdlog::error("Unable to load image: {}", path);
-                stbi_image_free(data);
             }
             glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER,
                             GL_LINEAR);
@@ -63,7 +61,7 @@ public:
         glBindTexture(GL_TEXTURE_CUBE_MAP, _texture_id);
     }
 
-    bool operator==(const ITextureCube &other) const override {
+    bool operator==(const ITextureCube& other) const override {
         return _texture_id == other.getTextureID();
     }
 
@@ -72,4 +70,4 @@ public:
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_PLATFORM_OPENGL_OGL_TEXTURE_CUBE_HPP
+#endif// ENGINE_RUNTIME_PLATFORM_OPENGL_OGL_TEXTURE_CUBE_HPP

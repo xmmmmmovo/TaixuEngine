@@ -15,7 +15,7 @@ TEST_CASE("load image jpeg success", "[stb_image load tests]") {
     constexpr auto path = DEBUG_PATH "/example_proj/assets/textures/view.jpg";
     int            width, height, channels;
 
-    stbi_uc* data = taixu::loadImage(path, &width, &height, &channels);
+    auto data = taixu::loadImage(path, &width, &height, &channels);
 
     REQUIRE(data != nullptr);
 }
@@ -26,7 +26,7 @@ TEST_CASE("load image png success", "[stb_image load tests]") {
             DEBUG_PATH "/example_proj/assets/textures/concreteTexture.png";
     int width, height, channels;
 
-    stbi_uc* data = taixu::loadImage(path, &width, &height, &channels);
+    auto data = taixu::loadImage(path, &width, &height, &channels);
 
     REQUIRE(data != nullptr);
 }
@@ -36,7 +36,7 @@ TEST_CASE("compress image png success", "[stb_image compress tests]") {
             DEBUG_PATH "/example_proj/assets/textures/concreteTexture.png";
     int width, height, channels;
 
-    stbi_uc* data = taixu::loadImage(path, &width, &height, &channels);
+    auto data = taixu::loadImage(path, &width, &height, &channels);
 
     REQUIRE(data != nullptr);
 }

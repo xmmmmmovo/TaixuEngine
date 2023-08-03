@@ -7,7 +7,7 @@
 
 namespace taixu {
 
-constexpr std::string_view ASSET_MAGIC_NUMBER = "CHITANDA_ERU_IS_MY_WAIFU";
+constexpr std::string_view ASSET_MAGIC_NUMBER = "MURASAME_IS_MY_WAIFU";
 constexpr std::string_view ASSET_VERSION      = "0.0.1";
 
 enum class AssetType : uint8_t {

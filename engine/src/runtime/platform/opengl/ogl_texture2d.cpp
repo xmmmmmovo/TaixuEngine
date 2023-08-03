@@ -4,24 +4,23 @@
 
 #include "ogl_texture2d.hpp"
 
-#include <runtime/resource/helper/image_helper.hpp>
 #include <filesystem>
+#include <runtime/resource/helper/image_helper.hpp>
 
 namespace taixu {
 
-OGLTexture2D::OGLTexture2D(const std::filesystem::path &path, GLint filter_mode,
+OGLTexture2D::OGLTexture2D(const std::filesystem::path& path, GLint filter_mode,
                            GLint what_happens_at_edge) {
-    stbi_uc *data = loadImage(path, &_width, &_height, &_n_channels);
+    auto data = loadImage(path, &_width, &_height, &_n_channels);
     if (data == nullptr) {
         spdlog::error("OGLTexture::OGLTexture: load image failed");
         return;
     }
-    createTexture(data, _width, _height, _n_channels, filter_mode,
+    createTexture(data.get(), _width, _height, _n_channels, filter_mode,
                   what_happens_at_edge);
-    stbi_image_free(data);
 }
 
-OGLTexture2D::OGLTexture2D(stbi_uc *data, int width, int height, int n_channels,
+OGLTexture2D::OGLTexture2D(stbi_uc* data, int width, int height, int n_channels,
                            GLint filter_mode, GLint what_happens_at_edge)
     : _width(width), _height(height), _n_channels(n_channels) {
     if (data == nullptr) {
@@ -33,7 +32,7 @@ OGLTexture2D::OGLTexture2D(stbi_uc *data, int width, int height, int n_channels,
     stbi_image_free(data);
 }
 
-void OGLTexture2D::createTexture(stbi_uc *data, int width, int height,
+void OGLTexture2D::createTexture(stbi_uc* data, int width, int height,
                                  int n_channels, GLint filter_mode,
                                  GLint what_happens_at_edge) {
 
@@ -54,7 +53,7 @@ void OGLTexture2D::createTexture(stbi_uc *data, int width, int height,
     glTexImage2D(GL_TEXTURE_2D, 0, format, _width, _height, 0, format,
                  GL_UNSIGNED_BYTE, data);
     if (GL_NEAREST != filter_mode) { glGenerateMipmap(GL_TEXTURE_2D); }
-    //unbind
+    // unbind
     glBindTexture(GL_TEXTURE_2D, -1);
 }
 
@@ -67,7 +66,7 @@ void OGLTexture2D::bind(uint32_t slot) const {
     glBindTexture(GL_TEXTURE_2D, _texture_id);
 }
 
-bool OGLTexture2D::operator==(const ITexture2D &other) const {
+bool OGLTexture2D::operator==(const ITexture2D& other) const {
     return this->_texture_id == other.getTextureID();
 }
 
