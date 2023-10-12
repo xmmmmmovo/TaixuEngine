@@ -7,10 +7,10 @@
 
 namespace taixu {
 
-constexpr std::string_view ASSET_MAGIC_NUMBER = "MURASAME_IS_MY_WAIFU";
+constexpr std::string_view ASSET_MAGIC_NUMBER = "MURASAME_WAIFU_";
 constexpr std::string_view ASSET_VERSION      = "0.0.1";
 
-enum class AssetType : uint8_t {
+enum class AssetType : std::uint8_t {
     TEXTURE,
     MATERIAL,
     MESH,
@@ -25,7 +25,7 @@ enum class AssetType : uint8_t {
 
 struct AssetHeader {
     AssetType type{AssetType::UNKNOWN};
-    uint32_t  size{0};
+    std::uint32_t  size{0};
 };
 
 }// namespace taixu
