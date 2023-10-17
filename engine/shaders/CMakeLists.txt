@@ -1,24 +1,39 @@
 set(TARGET_NAME ${SHADER_COMPILE_TARGET})
 
-file(GLOB_RECURSE SHADER_FILES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.vert"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.frag"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.comp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.geom"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.tesc"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.tese"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.mesh"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.task"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.rgen"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.rchit"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.rmiss"
-        "${CMAKE_CURRENT_SOURCE_DIR}/glsl/*.rcall"
-        )
+macro(GET_SHADER_FILES varname relpath)
+    file(GLOB_RECURSE ${varname} CONFIGURE_DEPENDS
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.vert"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.frag"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.comp"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.geom"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.tesc"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.tese"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.mesh"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.task"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.rgen"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.rchit"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.rmiss"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.rcall"
+    )
+endmacro()
 
-SOURCE_GROUP("shaders" FILES ${SHADER_FILES})
+macro(FIND_GLSL platform suffix args)
+    GET_SHADER_FILES(${platform}_SHADER_FILES "glsl/${platform}")
+    SOURCE_GROUP("shaders_${suffix}" FILES ${${platform}_SHADER_FILES})
+    string(TOUPPER ${suffix} suffix_upper)
 
-set(SHADER_INCLUDE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/include)
+    compile_shader(
+            "${${platform}_SHADER_FILES}"
+            "${TARGET_NAME}_${suffix_upper}"
+            "${GLSL_INCLUDE_FOLDER}"
+            "${GENERATED_SHADER_FOLDER}"
+            "${GLSL_COMPILER}"
+            "${suffix}"
+            "${args}"
+    )
 
-set(GENERATED_SHADER_FOLDER "generated")
+    set_target_properties("${TARGET_NAME}_${suffix_upper}" PROPERTIES FOLDER "EngineShader")
+endmacro()
 
 if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER})
     file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER})
@@ -27,24 +42,15 @@ endif ()
 if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER}/spv)
     file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER}/spv)
 endif ()
+include(${PROJECT_SOURCE_DIR}/cmake/ShaderCompile.cmake)
 
+set(GLSL_INCLUDE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/glsl/include)
+set(GENERATED_SHADER_FOLDER "generated")
 
-if (SPIR_V_ENABLE)
-    include(${PROJECT_SOURCE_DIR}/cmake/ShaderCompile.cmake)
-    compile_shader(
-            "${SHADER_FILES}"
-            "${TARGET_NAME}"
-            "${SHADER_INCLUDE_FOLDER}"
-            "${GENERATED_SHADER_FOLDER}"
-            "${glslangValidator_executable}")
-else ()
-    include(${PROJECT_SOURCE_DIR}/cmake/ShaderTransform.cmake)
-    transform_shader(
-            "${SHADER_FILES}"
-            "${TARGET_NAME}"
-            "${SHADER_INCLUDE_FOLDER}"
-            "${GENERATED_SHADER_FOLDER}")
+if (USE_OPENGL)
+    FIND_GLSL(opengl gl "-G")
 endif ()
 
-
-set_target_properties("${TARGET_NAME}" PROPERTIES FOLDER "EngineShader")
+if (USE_VUL)
+    FIND_GLSL(vulkan vk "-V100")
+endif ()

@@ -1,4 +1,4 @@
-#version 410 core
+#version 460 core
 
 layout (location = 0) in vec3 position;
 layout (location = 1) in vec3 normal;
@@ -6,13 +6,13 @@ layout (location = 2) in vec2 texCoords;
 layout (location = 3) in vec3 tangent;
 layout (location = 4) in vec3 bitangent;
 
-out VS_OUT {
+layout (location = 0) out VS_OUT {
     vec3 FragPos;
     vec3 Normal;
     vec2 TexCoords;
 } vs_out;
 
-layout (std140) uniform Matrices {
+layout (std140, binding = 0) uniform Matrices {
     mat4 projection;
     mat4 view;
     mat4 vp;
@@ -20,8 +20,10 @@ layout (std140) uniform Matrices {
     vec4 camera_pos;
 };
 
-uniform mat4 model;
-uniform mat3 invModel3x3;
+layout (std140, binding = 1) uniform Model {
+    mat4 model;
+    mat3 invModel3x3;
+};
 
 void main() {
     gl_Position = vp * model * vec4(position, 1.0f);

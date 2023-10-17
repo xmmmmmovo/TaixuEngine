@@ -24,15 +24,6 @@
 #include <runtime/platform/opengl/ogl_texture_cube.hpp>
 #include <runtime/resource/manager/asset_manager.hpp>
 
-#include "skybox_frag.h"
-#include "skybox_vert.h"
-
-#include "frag_frag.h"
-#include "vert_vert.h"
-
-#include "skeleton_frag.h"
-#include "skeleton_vert.h"
-
 #include <memory>
 
 namespace taixu {

@@ -10,8 +10,12 @@ option(USE_VCPKG "vcpkg manager" OFF)
 option(USE_PCH "pre compile" ON)
 option(WARNINGS "warnings" OFF)
 
+option(USE_OPENGL "" ON)
+option(USE_VULKAN "" OFF)
+option(USE_DIRECTX "" OFF)
+
 # for project properties
-set(ENGINE_VERSION 0.01)
+set(ENGINE_VERSION 0.1)
 
 if (USE_VCPKG)
     # set vcpkg for cmake

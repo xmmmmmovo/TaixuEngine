@@ -76,10 +76,26 @@ find_package(Threads REQUIRED)
 set(SPIR_V_ENABLE OFF)
 
 # shaders
-# add glsl validator
-set(glslangValidator_executable ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
+# add glsl compiler
+
+if (USE_OPENGL OR USE_VULKAN)
+    set(GLSLANG_VALIDATOR_EXECUTABLE ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
+    if (NOT GLSLANG_VALIDATOR_EXECUTABLE)
+        find_program(GLSLC_EXECUTABLE glslc)
+        if (NOT GLSLC_EXECUTABLE)
+            message(FATAL_ERROR "glsl compiler not found!")
+        else ()
+            message("glsl ${GLSLC_EXECUTABLE}")
+            set(GLSL_COMPILER ${GLSLC_EXECUTABLE})
+        endif ()
+    else ()
+        message("glsl ${GLSLANG_VALIDATOR_EXECUTABLE}")
+        set(GLSL_COMPILER ${GLSLANG_VALIDATOR_EXECUTABLE})
+    endif ()
+endif ()
 
 set(SHADER_COMPILE_TARGET TaixuShaderCompile)
+
 set(COMMON_COMPILE_TARGET TaixuCommonLib)
 set(SCRIPT_COMPILE_TARGET TaixuScriptLib)
 

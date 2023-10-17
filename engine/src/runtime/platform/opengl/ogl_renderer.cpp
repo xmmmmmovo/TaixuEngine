@@ -42,8 +42,6 @@ void OGLRenderer::init() {
 
     _skybox_shader =
             std::make_unique<OGLShaderProgram>(SKYBOX_VERT, SKYBOX_FRAG);
-    _animation_shader =
-            std::make_unique<OGLShaderProgram>(SKELETON_VERT, SKELETON_FRAG);
 
     _skybox_shader->use();
     _skybox_shader->bind_uniform_block("Matrices", 0);

@@ -12,12 +12,20 @@ if (USE_PCH)
 endif ()
 
 target_link_libraries(${TARGET_NAME} PUBLIC Threads::Threads freetype)
-target_link_libraries(${TARGET_NAME} PUBLIC Jolt imgui ${OGLLIB} glad glfw stb glm)
+target_link_libraries(${TARGET_NAME} PUBLIC Jolt imgui glfw stb glm)
 target_link_libraries(${TARGET_NAME} PUBLIC simdjson magic_enum::magic_enum spdlog::spdlog)
 target_link_libraries(${TARGET_NAME} PUBLIC imgui refl-cpp::refl-cpp assimp)
 target_link_libraries(${TARGET_NAME} PUBLIC argparse)
 
-add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET})
+if (USE_OPENGL)
+    add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_GL)
+    target_link_libraries(${TARGET_NAME} PUBLIC ${OGLLIB} glad)
+endif ()
+
+if (USE_VULKAN)
+    add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)
+endif ()
+
 add_dependencies(${TARGET_NAME} ${COMMON_COMPILE_TARGET})
 
 target_link_libraries(${TARGET_NAME} PUBLIC ${COMMON_COMPILE_TARGET})

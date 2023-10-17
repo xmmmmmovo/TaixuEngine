@@ -1,14 +1,14 @@
-#version 410 core
+#version 460 core
 
-in VS_OUT {
+layout(location = 0) in VS_OUT {
     vec3 FragPos;
     vec3 Normal;
     vec2 TexCoords;
 } fs_in;
 
-out vec4 FragColor;
+layout(location = 0)out vec4 FragColor;
 
-layout (std140) uniform Matrices {
+layout (std140, binding = 0) uniform Matrices {
     mat4 projection;
     mat4 view;
     mat4 vp;
@@ -16,7 +16,7 @@ layout (std140) uniform Matrices {
     vec4 camera_pos;
 };
 
-layout (std140) uniform Material {
+layout (std140, binding = 1) uniform Material {
     vec4 ambient;
     vec4 diffuse;
     vec4 specular;
@@ -63,7 +63,7 @@ struct SpotLight {
 
 #define MAX_DIR_LIGHTS 4
 
-layout (std140) uniform LightSource {
+layout (std140, binding = 2) uniform LightSource {
     int dirLightCount;
     int pointLightCount;
     int spotLightCount;
