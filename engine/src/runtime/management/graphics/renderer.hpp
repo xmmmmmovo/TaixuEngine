@@ -54,10 +54,6 @@ protected:
     static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "render_system"_hash64;
     static constexpr SystemIdType LIGHT_SYSTEM_ID      = "light_system"_hash64;
 
-    std::unique_ptr<IShaderProgram> _render_shader{nullptr};
-    std::unique_ptr<IShaderProgram> _skybox_shader{nullptr};
-    std::unique_ptr<IShaderProgram> _animation_shader{nullptr};
-
     Matrices     _matrices{};
     LightsInfo   _lights{};
     MaterialInfo _material{};
@@ -141,7 +137,6 @@ protected:
                 coordinator.setsystemSignature(LIGHT_SYSTEM_ID,
                                                light_signature);
             }
-
         } else {
             _renderable_system = nullptr;
             _light_system      = nullptr;

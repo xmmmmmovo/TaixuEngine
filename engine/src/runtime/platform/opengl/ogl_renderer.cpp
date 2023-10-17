@@ -12,8 +12,7 @@
 
 namespace taixu {
 
-constexpr std::array<float, 3> CLEAR_COLOR{0.5294117647f, 0.8078431373f,
-                                           0.9215686275f};
+constexpr std::array<float, 3> CLEAR_COLOR{0.1f, 0.1f, 0.1f};
 
 void OGLRenderer::init() {
     this->_framebuffer = std::make_unique<OGLFrameBuffer>(
@@ -32,24 +31,6 @@ void OGLRenderer::init() {
     _lights_ubo.setData(_lights, 2);
     _lights_ubo.unbind();
 
-    _render_shader = std::make_unique<OGLShaderProgram>(VERT_VERT, FRAG_FRAG);
-    _render_shader->use();
-
-    _render_shader->bind_uniform_block("Matrices", 0);
-    _render_shader->bind_uniform_block("Material", 1);
-    _render_shader->bind_uniform_block("LightSource", 2);
-    _render_shader->set_uniform("diffuseTexture", 0);
-
-    _skybox_shader =
-            std::make_unique<OGLShaderProgram>(SKYBOX_VERT, SKYBOX_FRAG);
-
-    _skybox_shader->use();
-    _skybox_shader->bind_uniform_block("Matrices", 0);
-    _skybox_shader->set_uniform("skybox", 0);
-
-    _animation_shader->use();
-    _animation_shader->bind_uniform_block("Matrices", 0);
-
     _cube_renderable = &CubeRenderable::getInstance();
     _cube_renderable->init();
 }
@@ -57,100 +38,6 @@ void OGLRenderer::init() {
 void OGLRenderer::update(float delta_time) {
     _framebuffer->bind();
     clear(CLEAR_COLOR);
-
-    if (_current_scene != nullptr) {
-        updateCamera(delta_time);
-
-        _matrices.projection = _current_scene->_camera->getProjectionMatrix();
-        auto view            = _current_scene->_camera->getViewMatrix();
-        _matrices.camera_pos =
-                glm::vec4(_current_scene->_camera->Position, 1.0f);
-
-        _matrices.view = glm::mat4(glm::mat3(view));
-        _matrices.vp   = _matrices.projection * _matrices.view;
-
-        _matrices_ubo.bind();
-        _matrices_ubo.updateData(_matrices);
-        _matrices_ubo.unbind();
-
-        drawSkybox(_skybox_shader.get(), _current_scene->_skybox_texture.get(),
-                   _cube_renderable);
-
-        _matrices.view = view;
-        _matrices.vp   = _matrices.projection * _matrices.view;
-        _matrices_ubo.bind();
-        _matrices_ubo.updateData(_matrices);
-        _matrices_ubo.unbind();
-
-        // 处理光照
-        _lights = {};
-
-        for (auto const& entity : _light_system->entities()) {}
-
-        _lights_ubo.bind();
-        _lights_ubo.updateData(_lights);
-        _lights_ubo.unbind();
-
-
-        _render_shader->use();
-        for (auto const& entity : _renderable_system->entities()) {
-            if (_current_scene->_ecs_coordinator.anyOf<RenderableComponent>(
-                        entity)) {
-                auto const& renderable =
-                        _current_scene->_ecs_coordinator
-                                .getComponent<RenderableComponent>(entity);
-                if (renderable.visiable) {
-                    auto& trans =
-                            _current_scene->_ecs_coordinator
-                                    .getComponent<TransformComponent>(entity);
-                    trans.makeTransformMatrix();
-
-                    _render_shader->set_uniform("model", trans.transform());
-                    _render_shader->set_uniform(
-                            "invModel3x3",
-                            glm::mat3(glm::transpose(
-                                    glm::inverse(trans.transform()))));
-                    for (auto& mesh :
-                         renderable.model->gpu_data.value().meshes) {
-                        if (mesh.mat_index.has_value()) {
-                            auto const& material =
-                                    renderable.model
-                                            ->materials[mesh.mat_index.value()];
-                            _material.ambient =
-                                    glm::vec4(material.ambient, 1.0f);
-                            _material.diffuse =
-                                    glm::vec4(material.diffuse, 1.0f);
-                            _material.specular =
-                                    glm::vec4(material.specular, 1.0f);
-                            _material.emissive =
-                                    glm::vec4(material.emissive, 1.0f);
-                            _material.shininess = material.shininess;
-
-                            if (material.diffuse_tex != nullptr) {
-                                material.diffuse_tex->texture->bind(0);
-                            } else {
-                                _default_texture->bind(0);
-                            }
-
-                        } else {
-                            _material.ambient   = glm::vec4(1.0f);
-                            _material.diffuse   = glm::vec4(1.0f);
-                            _material.specular  = glm::vec4(1.0f);
-                            _material.emissive  = glm::vec4(0.0f);
-                            _material.shininess = 32.0f;
-
-                            _default_texture->bind(0);
-                        }
-                        _material_ubo.bind();
-                        _material_ubo.updateData(_material);
-                        _material_ubo.unbind();
-                        mesh.vao->draw(mesh.index_count);
-                    }
-                }
-            }
-        }
-    }
-
     _framebuffer->unbind();
 }
 
