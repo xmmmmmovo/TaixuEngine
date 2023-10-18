@@ -93,14 +93,9 @@ void MainWindow::init() {
 void MainWindow::preUpdate() {
     ImguiSurface::preUpdate();
 
-#ifndef NDEBUG
     if (nullptr == _view_model.engine_runtime_ptr->getOpenedProject()) {
-        onOpenProjectCb(DEBUG_PATH "/example_proj");
         return;
     }
-#else
-    if (nullptr == _engine_runtime->getOpenedProject()) { return; }
-#endif
 
     ImGui::Begin("Editor Menu", nullptr, DOCK_SPACE_FLAGS);
 
@@ -170,6 +165,12 @@ void MainWindow::initWithEngineRuntime(Engine* engine_runtime_ptr) {
 
     ImguiSurface::init(_context_ptr->_window);
     _view_model.framebuffer = _view_model.renderer->getRenderFramebuffer();
+
+#ifndef NDEBUG
+    if (nullptr == _view_model.engine_runtime_ptr->getOpenedProject()) {
+        onOpenProjectCb(DEBUG_PATH "/example_proj");
+    }
+#endif
 }
 
 MainWindow::MainWindow(WindowContext* const context_ptr)

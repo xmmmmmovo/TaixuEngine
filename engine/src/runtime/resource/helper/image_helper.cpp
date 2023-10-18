@@ -21,7 +21,6 @@ std::unique_ptr<stbi_uc, FreeDeleter> compressImage(stbi_uc* data, int width,
                                                     int* out_size) {
     std::unique_ptr<stbi_uc, FreeDeleter> compressed(
             new stbi_uc[width * height * channels]);
-
     return nullptr;
 }
 

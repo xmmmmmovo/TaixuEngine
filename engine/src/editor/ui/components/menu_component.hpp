@@ -46,25 +46,15 @@ public:
         if (ImGui::MenuItem("New Project")) {
             ImGuiFileDialog::Instance()->OpenDialog(
                     "NewProjectDlgKey", "Choose a Directory", nullptr,
-#ifndef NDEBUG
-                    DEBUG_PATH "/example_proj"
-#else
-                    getRootPath().c_str()
-#endif
-                    ,
-                    1, nullptr, ImGuiFileDialogFlags_Modal);
+                    getRootPath().generic_string(), 1, nullptr,
+                    ImGuiFileDialogFlags_Modal);
         }
         ImGui::Separator();
         if (ImGui::MenuItem("open project")) {
             ImGuiFileDialog::Instance()->OpenDialog(
                     "ChooseDirDlgKey", "Choose a Directory", nullptr,
-#ifndef NDEBUG
-                    DEBUG_PATH "/example_proj"
-#else
-                    getRootPath().c_str()
-#endif
-                    ,
-                    1, nullptr, ImGuiFileDialogFlags_Modal);
+                    getRootPath().generic_string(), 1, nullptr,
+                    ImGuiFileDialogFlags_Modal);
         }
         if (ImGui::MenuItem("save project")) {
             if (_on_save_project) { _on_save_project(); }
@@ -72,13 +62,8 @@ public:
         if (ImGui::MenuItem("save as project")) {
             ImGuiFileDialog::Instance()->OpenDialog(
                     "SaveAsDirDlgKey", "Choose a Directory", nullptr,
-#ifndef NDEBUG
-                    DEBUG_PATH "/example_proj"
-#else
-                    getRootPath().c_str()
-#endif /* NDEBUG */
-                    ,
-                    1, nullptr, ImGuiFileDialogFlags_Modal);
+                    getRootPath().generic_string(), 1, nullptr,
+                    ImGuiFileDialogFlags_Modal);
         }
 
         ImGui::Separator();

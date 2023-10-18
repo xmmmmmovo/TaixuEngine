@@ -32,8 +32,10 @@ else ()
 endif ()
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -DENGINE_ROOT_DIR=${ENGINE_ROOT_DIR} -DOUTPUT_DIR=${OUTPUT_DIR} -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveResourceDirs.cmake
-        )
+        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/imgui.ini" -DDEST_PATH="${OUTPUT_DIR}/imgui.ini" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
+        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/assets" -DDEST_PATH="${OUTPUT_DIR}/assets" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
+        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/res" -DDEST_PATH="${OUTPUT_DIR}/res" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
+)
 
 if (${CMAKE_BUILD_TYPE})
     message(STATUS "CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
@@ -46,6 +48,6 @@ if (${CMAKE_BUILD_TYPE})
                 COMMAND ${CMAKE_COMMAND} -E copy_directory "res" "${BINARY_ROOT_DIR}/res"
                 COMMAND ${CMAKE_COMMAND} -E remove_directory "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
                 COMMAND ${CMAKE_COMMAND} -E copy_directory "${ENGINE_ROOT_DIR}/${ENGINE_ASSET_DIR}" "${BINARY_ROOT_DIR}/${ENGINE_ASSET_DIR}"
-                )
+        )
     endif ()
 endif ()

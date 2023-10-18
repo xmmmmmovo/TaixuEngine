@@ -2,17 +2,14 @@
 // Created by xmmmmmovo on 2023/4/25.
 //
 
-#include <catch2/catch_test_macros.hpp>
+#include "catch2/catch_test_macros.hpp"
 
-#define STB_IMAGE_IMPLEMENTATION
-
-#include <common/base/path.hpp>
-#include <runtime/resource/helper/image_helper.hpp>
+#include "runtime/resource/helper/image_helper.hpp"
 
 namespace {
 
 TEST_CASE("load image jpeg success", "[stb_image load tests]") {
-    constexpr auto path = DEBUG_PATH "/example_proj/assets/textures/view.jpg";
+    constexpr auto path = "/example_proj/assets/textures/view.jpg";
     int            width, height, channels;
 
     auto data = taixu::loadImage(path, &width, &height, &channels);
@@ -22,9 +19,8 @@ TEST_CASE("load image jpeg success", "[stb_image load tests]") {
 
 
 TEST_CASE("load image png success", "[stb_image load tests]") {
-    constexpr auto path =
-            DEBUG_PATH "/example_proj/assets/textures/concreteTexture.png";
-    int width, height, channels;
+    constexpr auto path = "/example_proj/assets/textures/concreteTexture.png";
+    int            width, height, channels;
 
     auto data = taixu::loadImage(path, &width, &height, &channels);
 
@@ -32,9 +28,8 @@ TEST_CASE("load image png success", "[stb_image load tests]") {
 }
 
 TEST_CASE("compress image png success", "[stb_image compress tests]") {
-    constexpr auto path =
-            DEBUG_PATH "/example_proj/assets/textures/concreteTexture.png";
-    int width, height, channels;
+    constexpr auto path = "/example_proj/assets/textures/concreteTexture.png";
+    int            width, height, channels;
 
     auto data = taixu::loadImage(path, &width, &height, &channels);
 
