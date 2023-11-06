@@ -8,8 +8,6 @@
 #include <imgui.h>
 #include <spdlog/spdlog.h>
 
-#include <common/base/path.hpp>
-
 #include <GraphEditor.h>
 #include <runtime/gameplay/gui/imgui_surface.hpp>
 #include <runtime/platform/os/path.hpp>

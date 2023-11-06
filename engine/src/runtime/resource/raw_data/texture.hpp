@@ -76,12 +76,13 @@ inline TextureType textureTypeFromAssimpType(aiTextureType aitype) {
 
 struct Texture2DAsset final : public AbstractAssetData {
     TextureType                 type{TextureType::COMMON};
+    std::uint8_t                channels{0};
     std::unique_ptr<ITexture2D> texture{nullptr};
 };
 
 inline Texture2DAsset
-transferCPUTextureToGPU(std::filesystem::path const &asset_path,
-                        std::filesystem::path const &relative_path,
+transferCPUTextureToGPU(std::filesystem::path const& asset_path,
+                        std::filesystem::path const& relative_path,
                         TextureType                  type) {
     Texture2DAsset texture{};
 
@@ -98,4 +99,4 @@ transferCPUTextureToGPU(std::filesystem::path const &asset_path,
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_RESOURCE_RAW_DATA_TEXTURE_HPP
+#endif// TAIXUENGINE_RESOURCE_RAW_DATA_TEXTURE_HPP

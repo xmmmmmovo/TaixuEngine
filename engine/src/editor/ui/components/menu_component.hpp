@@ -11,7 +11,6 @@
 
 #include "ui/ui_component.hpp"
 #include <GLFW/glfw3.h>
-#include <common/base/path.hpp>
 #include <common/utils/function_utils.hpp>
 #include <runtime/platform/os/path.hpp>
 
