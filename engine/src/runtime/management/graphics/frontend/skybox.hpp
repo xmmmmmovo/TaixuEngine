@@ -5,7 +5,6 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_FRONTEND_SKYBOX_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_FRONTEND_SKYBOX_HPP
 
-#include <common/base/path.hpp>
 #include <runtime/management/graphics/frontend/cube_renderable.hpp>
 #include <runtime/management/graphics/render/shader.hpp>
 #include <runtime/management/graphics/render/texture_cube.hpp>

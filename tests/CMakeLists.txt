@@ -49,5 +49,5 @@ enable_testing()
 add_test(${TARGET_NAME} taixu_unit_tests)
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${TEST_ROOT_DIR}/test-assets" -DDEST_PATH="${OUTPUT_DIR}/test-assets" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
+        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${TEST_ROOT_DIR}/test-assets" -DDEST_PATH="${OUTPUT_DIR}" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
 )

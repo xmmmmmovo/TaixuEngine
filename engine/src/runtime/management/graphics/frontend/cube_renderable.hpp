@@ -9,7 +9,6 @@
 #include <array>
 #include <memory>
 
-#include <common/base/path.hpp>
 #include <runtime/management/graphics/render/shader.hpp>
 #include <runtime/management/graphics/render/texture_cube.hpp>
 #include <runtime/management/graphics/render/vertex_array.hpp>

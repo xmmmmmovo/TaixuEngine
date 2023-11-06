@@ -25,12 +25,6 @@ if (USE_PCH)
     target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch_editor.hpp)
 endif ()
 
-if ("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
-    set(OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR})
-else ()
-    set(OUTPUT_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-endif ()
-
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/imgui.ini" -DDEST_PATH="${OUTPUT_DIR}/imgui.ini" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
         COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/assets" -DDEST_PATH="${OUTPUT_DIR}/assets" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake

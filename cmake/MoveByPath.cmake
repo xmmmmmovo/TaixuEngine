@@ -1,3 +1,5 @@
+message("from ${SRC_PATH} to ${DEST_PATH}")
+
 if ((NOT EXISTS ${DEST_PATH}) OR (${SRC_PATH} IS_NEWER_THAN ${DEST_PATH}))
     message("Move to ${DEST_PATH}...")
     file(COPY ${SRC_PATH} DESTINATION ${DEST_PATH})

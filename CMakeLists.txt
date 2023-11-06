@@ -47,7 +47,11 @@ set(TAIXUENGINE_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_INSTALL_PREFIX "${TAIXUENGINE_ROOT_DIR}/bin")
 set(BINARY_ROOT_DIR "${CMAKE_INSTALL_PREFIX}/")
 
-configure_file(cmake/path.hpp.in ${TAIXUENGINE_ROOT_DIR}/engine/src/common/base/path.hpp @ONLY)
+if ("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
+    set(OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR})
+else ()
+    set(OUTPUT_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+endif ()
 
 add_subdirectory(engine)
 add_subdirectory(docs)

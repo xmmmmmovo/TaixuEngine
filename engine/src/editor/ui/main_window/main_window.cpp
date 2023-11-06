@@ -168,7 +168,7 @@ void MainWindow::initWithEngineRuntime(Engine* engine_runtime_ptr) {
 
 #ifndef NDEBUG
     if (nullptr == _view_model.engine_runtime_ptr->getOpenedProject()) {
-        onOpenProjectCb(DEBUG_PATH "/example_proj");
+        onOpenProjectCb("D:/code/TaixuEngine" "/example_proj");
     }
 #endif
 }

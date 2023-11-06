@@ -42,7 +42,7 @@ public:
         try {
             program.parse_args(args);
         } catch (const std::runtime_error& err) {
-            std::cerr << err.what() << std::endl;
+            std::cerr << err.what() << '\n';
             std::cerr << program;
             std::exit(1);
         }

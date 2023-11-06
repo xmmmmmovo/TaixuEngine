@@ -7,8 +7,8 @@
 
 #include <common/base/noncopyable.hpp>
 
-#include <runtime/management/scene/scene.hpp>
 #include "window_context.hpp"
+#include <runtime/management/scene/scene.hpp>
 namespace taixu {
 
 class Engine;

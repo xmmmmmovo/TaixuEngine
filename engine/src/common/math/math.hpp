@@ -8,6 +8,10 @@
 
 namespace taixu {
 
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
+
 static constexpr float FLOAT_INFINITY = std::numeric_limits<float>::infinity();
 static constexpr float FLOAT_INFINITY_NEG =
         std::numeric_limits<float>::infinity();

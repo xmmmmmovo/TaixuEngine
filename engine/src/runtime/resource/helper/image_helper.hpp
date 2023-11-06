@@ -7,6 +7,8 @@
 
 #include <stb_dxt.h>
 #include <stb_image.h>
+#include <stb_image_resize.h>
+#include <stb_image_write.h>
 
 #include <filesystem>
 
@@ -26,7 +28,7 @@ namespace taixu {
  */
 std::unique_ptr<stbi_uc, FreeDeleter>
 loadImage(std::filesystem::path const& path, int* width, int* height,
-          int* channels, int desired_channels = 4, bool flip_vertically = true);
+          int* channels, int desired_channels = 4, bool srgb = false, bool flip_vertically = true);
 
 /**
  * @brief 压缩图片
@@ -52,8 +54,7 @@ std::unique_ptr<stbi_uc, FreeDeleter> compressImage(stbi_uc* data, int width,
  * @return
  */
 std::unique_ptr<stbi_uc, FreeDeleter>
-combineImages(stbi_uc* red, stbi_uc* green,
-              stbi_uc* blue, stbi_uc* alpha,
+combineImages(stbi_uc* red, stbi_uc* green, stbi_uc* blue, stbi_uc* alpha,
               int width, int height);
 
 }// namespace taixu
