@@ -25,6 +25,7 @@ if (USE_VULKAN)
     add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)
 
     target_link_libraries(${TARGET_NAME} PUBLIC Vulkan::Vulkan volk VulkanMemoryAllocator)
+    target_include_directories(${TARGET_NAME} PRIVATE ${Vulkan_INCLUDE_DIRS})
 endif ()
 
 target_include_directories(

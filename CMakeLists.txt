@@ -10,7 +10,7 @@ option(USE_VCPKG "vcpkg manager" OFF)
 option(USE_PCH "pre compile" ON)
 option(WARNINGS "warnings" OFF)
 
-option(USE_VULKAN "" ON)
+option(USE_VULKAN "use vulkan" ON)
 option(USE_DIRECTX "" OFF)
 
 # for project properties
