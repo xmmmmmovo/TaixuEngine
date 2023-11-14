@@ -5,7 +5,7 @@
 #ifndef TAIXUENGINE_CONSOLE_COMPONENT_HPP
 #define TAIXUENGINE_CONSOLE_COMPONENT_HPP
 
-#include "ui/ui_component.hpp"
+#include "ui/common/ui_component.hpp"
 
 namespace taixu::editor {
 class ConsoleComponent : public AbstractUIComponent {

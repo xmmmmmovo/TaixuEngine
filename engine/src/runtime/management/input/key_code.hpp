@@ -12,6 +12,16 @@ enum class KeyCode : std::int16_t {
     UNKNOWN = -1,
 };
 
-}
+enum class KeyState : std::uint8_t {
+    PRESS   = 0,
+    RELEASE = 1,
+};
 
-#endif//ENGINE_RUNTIME_MANAGEMENT_INPUT_KEY_CODE_HPP
+struct KeyEvent {
+    KeyCode  code;
+    KeyState state;
+};
+
+}// namespace taixu
+
+#endif// ENGINE_RUNTIME_MANAGEMENT_INPUT_KEY_CODE_HPP

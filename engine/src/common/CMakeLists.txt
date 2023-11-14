@@ -7,7 +7,7 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_F
 
 add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 
-target_link_libraries(${TARGET_NAME} PUBLIC stb glm)
+target_link_libraries(${TARGET_NAME} PUBLIC glm)
 
 if (USE_PCH)
     target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch_common.hpp)

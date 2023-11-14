@@ -7,13 +7,17 @@
 
 #include <stdexcept>
 
+#define NOT_IMPL_ASSERT assert(false && "Not implemented!");
+
 namespace taixu {
+
 class NotImplementedException : public std::logic_error {
 public:
-    [[nodiscard]] char const *what() const noexcept override {
+    [[nodiscard]] char const* what() const noexcept override {
         return "Function not yet implemented.";
     }
 };
+
 }// namespace taixu
 
-#endif//TAIXUENGINE_NOTIMPLEMENTED_EXCEPTION_HPP
+#endif// TAIXUENGINE_NOTIMPLEMENTED_EXCEPTION_HPP

@@ -9,7 +9,7 @@
 #include <imgui.h>
 #include <spdlog/spdlog.h>
 
-#include "ui/ui_component.hpp"
+#include "ui/common/ui_component.hpp"
 #include <GLFW/glfw3.h>
 #include <common/utils/function_utils.hpp>
 #include <runtime/platform/os/path.hpp>

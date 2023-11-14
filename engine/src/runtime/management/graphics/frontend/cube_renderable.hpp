@@ -5,15 +5,10 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_FRONTEND_CUBE_RENDERABLE_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_FRONTEND_CUBE_RENDERABLE_HPP
 
-#include <glad/glad.h>
 #include <array>
 #include <memory>
 
-#include <runtime/management/graphics/render/shader.hpp>
-#include <runtime/management/graphics/render/texture_cube.hpp>
-#include <runtime/management/graphics/render/vertex_array.hpp>
-#include <runtime/platform/opengl/ogl_element_buffer.hpp>
-#include <runtime/platform/opengl/ogl_vertex_array.hpp>
+#include <common/base/public_singleton.hpp>
 
 namespace taixu {
 
@@ -21,8 +16,6 @@ class CubeRenderable : public PublicSingleton<CubeRenderable> {
     friend class PublicSingleton<CubeRenderable>;
 
 private:
-    std::unique_ptr<IVertexArray> _sky_box_vertex_array{nullptr};
-
     static constexpr std::size_t CUBE_VERTEX_COUNT  = 24;
     static constexpr std::size_t CUBE_ELEMENT_COUNT = 36;
 
@@ -50,30 +43,8 @@ private:
                              0, 1, 5, 5, 4, 0,
                              // Front
                              3, 7, 6, 6, 2, 3};
-
-public:
-    void init() noexcept {
-        auto va = std::make_unique<OGLVertexArray>();
-        va->bind();
-        va->addVBO(OGLVertexBuffer{CUBE_VERTEX_COUNT / 3,
-                                   &CUBE_VERTICES.front(), GL_STATIC_DRAW, 3},
-                   GL_FLOAT);
-        va->setEBO(OGLElementBuffer{CUBE_ELEMENT_COUNT, &CUBE_ELEMENTS.front(),
-                                    GL_STATIC_DRAW});
-        _sky_box_vertex_array = std::move(va);
-        _sky_box_vertex_array->unbind();
-    }
-
-    void bind() const noexcept { _sky_box_vertex_array->bind(); }
-
-    static void draw() noexcept {
-        glDrawElements(GL_TRIANGLES, CUBE_ELEMENT_COUNT, GL_UNSIGNED_INT,
-                       nullptr);
-    }
-
-    void unbind() const noexcept { _sky_box_vertex_array->unbind(); }
 };
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_FRONTEND_CUBE_RENDERABLE_HPP
+#endif// ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_FRONTEND_CUBE_RENDERABLE_HPP

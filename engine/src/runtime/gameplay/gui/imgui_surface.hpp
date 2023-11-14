@@ -5,8 +5,6 @@
 #ifndef TAIXUENGINE_IMGUI_SURFACE_HPP
 #define TAIXUENGINE_IMGUI_SURFACE_HPP
 
-#include "glad/glad.h"
-
 #include "GLFW/glfw3.h"
 #include "imgui.h"
 
@@ -18,7 +16,7 @@ namespace taixu::editor {
  */
 class ImguiSurface {
 public:
-    static void init(GLFWwindow *window);
+    static void init();
 
     static void preUpdate();
 

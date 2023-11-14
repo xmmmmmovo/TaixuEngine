@@ -11,7 +11,7 @@
 namespace taixu {
 
 template<typename RandomEngine = std::default_random_engine>
-class RandomNumberGenerator : public noncopyable {
+class RandomNumberGenerator : public Noncopyable {
 private:
     RandomEngine _random_engine;
 

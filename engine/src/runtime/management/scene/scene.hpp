@@ -13,15 +13,8 @@
 #include <runtime/management/ecs/core/ecs_types.hpp>
 #include <runtime/management/ecs/ecs_coordinator.hpp>
 #include <runtime/management/ecs/object/game_object.hpp>
-#include <runtime/management/graphics/render/texture_cube.hpp>
 #include <runtime/management/input/input_system.hpp>
 
-#include <runtime/platform/opengl/ogl_shader.hpp>
-
-#include <runtime/management/graphics/frontend/skybox.hpp>
-#include <runtime/management/graphics/render/texture_2d.hpp>
-#include <runtime/platform/opengl/ogl_texture2d.hpp>
-#include <runtime/platform/opengl/ogl_texture_cube.hpp>
 #include <runtime/resource/manager/asset_manager.hpp>
 
 #include <memory>
@@ -49,8 +42,6 @@ private:
 
 public:
     ECSCoordinator _ecs_coordinator{};
-
-    std::unique_ptr<ITextureCube> _skybox_texture{nullptr};
 
     std::unique_ptr<EulerCamera> _camera{
             std::make_unique<EulerCamera>(glm::vec3(0.0f, 2.0f, 10.5f))};

@@ -6,7 +6,6 @@
 
 #include <filesystem>
 
-#include "runtime/resource/converted_data/project.hpp"
 #include "runtime/resource/json/manifest_json.hpp"
 #include "spdlog/spdlog.h"
 #include <optional>

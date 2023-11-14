@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 
-#include "ui/ui_component.hpp"
+#include "ui/common/ui_component.hpp"
 
 
 namespace taixu::editor {

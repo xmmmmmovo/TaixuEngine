@@ -10,10 +10,11 @@
 #include <limits>
 #include <memory>
 
+#include "input_state.hpp"
+#include "key_code.hpp"
+
 #include <common/base/macro.hpp>
 #include <common/base/public_singleton.hpp>
-#include <runtime/gameplay/gui/window_context.hpp>
-#include "input_state.hpp"
 
 namespace taixu {
 
@@ -24,31 +25,31 @@ private:
     PROTOTYPE_ONLY_GETTER_CONST(private, InputState, state)
 
 public:
-    void initCallbacks(WindowContext *context) {
-        context->registerOnKeyFn(
-                [this](int key, int scancode, int action, int mods) {
-                    if (action == GLFW_PRESS) {
-                        _state.keys[key] = 1;
-                    } else if (action == GLFW_RELEASE) {
-                        _state.keys[key] = 0;
-                    }
+    void initWindow(EventHandler* handler) {
+        auto key_func = [this](int key, int action) {
+            if (static_cast<KeyState>(action) == KeyState::PRESS) {
+                _state.keys[key] = 1;
+            } else if (static_cast<KeyState>(action) == KeyState::RELEASE) {
+                _state.keys[key] = 0;
+            }
+        };
+
+        handler->registerOnKeyFn(
+                [this, &key_func](int key, int scancode, int action, int mods) {
+                    key_func(key, action);
                 });
 
-        context->registerOnMouseButtonFn(
-                [this](int button, int action, int mods) {
-                    if (action == GLFW_PRESS) {
-                        _state.keys[button] = 1;
-                    } else if (action == GLFW_RELEASE) {
-                        _state.keys[button] = 0;
-                    }
+        handler->registerOnMouseButtonFn(
+                [this, &key_func](int button, int action, int mods) {
+                    key_func(button, action);
                 });
 
-        context->registerOnCursorPosFn([this](double xpos, double ypos) {
-            _state.mouse_x          = static_cast<float>(xpos);
-            _state.mouse_y          = static_cast<float>(ypos);
+        handler->registerOnCursorPosFn([this](double xpos, double ypos) {
+            _state.mouse_x = static_cast<float>(xpos);
+            _state.mouse_y = static_cast<float>(ypos);
         });
 
-        context->registerOnScrollFn([this](double xoffset, double yoffset) {
+        handler->registerOnScrollFn([this](double xoffset, double yoffset) {
             if (static_cast<float>(xoffset) == _state.mouse_scroll_offset_x &&
                 static_cast<float>(yoffset) == _state.mouse_scroll_offset_y) {
                 _state.was_mouse_scrolling = false;
@@ -61,8 +62,6 @@ public:
             _state.mouse_scroll_offset_x = static_cast<float>(xoffset);
             _state.mouse_scroll_offset_y = static_cast<float>(yoffset);
         });
-
-        context->_input_state = &_state;
     }
 
     [[nodiscard]] bool getInputState(int key) const {
@@ -72,4 +71,4 @@ public:
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_INPUT_SYSTEM_HPP
+#endif// TAIXUENGINE_INPUT_SYSTEM_HPP

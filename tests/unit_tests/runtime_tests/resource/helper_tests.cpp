@@ -8,32 +8,18 @@
 
 namespace {
 
-TEST_CASE("load image jpeg success", "[stb_image load tests]") {
-    constexpr auto path = "/example_proj/assets/textures/view.jpg";
-    int            width, height, channels;
+TEST_CASE("load image tests", "[image helper tests]") {
+    constexpr auto path        = "./test-assets/textures/block.png";
+    constexpr auto path255_128 = "./test-assets/textures/block255_128.png";
+    constexpr auto path256_128 = "./test-assets/textures/block_256_128.png";
 
-    auto data = taixu::loadImage(path, &width, &height, &channels);
+    auto image = taixu::loadImage(path);
 
-    REQUIRE(data != nullptr);
+    REQUIRE(image->w == 128);
 }
 
-
-TEST_CASE("load image png success", "[stb_image load tests]") {
+TEST_CASE("compress image tests", "[image helper tests]") {
     constexpr auto path = "/example_proj/assets/textures/concreteTexture.png";
-    int            width, height, channels;
-
-    auto data = taixu::loadImage(path, &width, &height, &channels);
-
-    REQUIRE(data != nullptr);
-}
-
-TEST_CASE("compress image png success", "[stb_image compress tests]") {
-    constexpr auto path = "/example_proj/assets/textures/concreteTexture.png";
-    int            width, height, channels;
-
-    auto data = taixu::loadImage(path, &width, &height, &channels);
-
-    REQUIRE(data != nullptr);
 }
 
 }// namespace

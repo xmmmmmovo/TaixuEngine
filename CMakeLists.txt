@@ -10,8 +10,7 @@ option(USE_VCPKG "vcpkg manager" OFF)
 option(USE_PCH "pre compile" ON)
 option(WARNINGS "warnings" OFF)
 
-option(USE_OPENGL "" ON)
-option(USE_VULKAN "" OFF)
+option(USE_VULKAN "" ON)
 option(USE_DIRECTX "" OFF)
 
 # for project properties
@@ -56,4 +55,3 @@ endif ()
 add_subdirectory(engine)
 add_subdirectory(docs)
 add_subdirectory(tests)
-add_subdirectory(tools)

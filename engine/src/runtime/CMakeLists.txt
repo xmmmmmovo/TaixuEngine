@@ -11,24 +11,21 @@ if (USE_PCH)
     target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch_rt.hpp)
 endif ()
 
+add_dependencies(${TARGET_NAME} ${COMMON_COMPILE_TARGET})
+
+target_link_libraries(${TARGET_NAME} PUBLIC ${COMMON_COMPILE_TARGET})
+
 target_link_libraries(${TARGET_NAME} PUBLIC Threads::Threads freetype)
 target_link_libraries(${TARGET_NAME} PUBLIC Jolt imgui glfw stb glm)
 target_link_libraries(${TARGET_NAME} PUBLIC simdjson magic_enum::magic_enum spdlog::spdlog)
 target_link_libraries(${TARGET_NAME} PUBLIC imgui refl-cpp::refl-cpp assimp)
 target_link_libraries(${TARGET_NAME} PUBLIC argparse)
 
-if (USE_OPENGL)
-    add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_GL)
-    target_link_libraries(${TARGET_NAME} PUBLIC ${OGLLIB} glad)
-endif ()
-
 if (USE_VULKAN)
     add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)
+
+    target_link_libraries(${TARGET_NAME} PUBLIC Vulkan::Vulkan volk VulkanMemoryAllocator)
 endif ()
-
-add_dependencies(${TARGET_NAME} ${COMMON_COMPILE_TARGET})
-
-target_link_libraries(${TARGET_NAME} PUBLIC ${COMMON_COMPILE_TARGET})
 
 target_include_directories(
         ${TARGET_NAME}

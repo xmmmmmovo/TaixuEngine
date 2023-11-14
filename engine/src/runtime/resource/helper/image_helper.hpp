@@ -5,14 +5,11 @@
 #ifndef ENGINE_RUNTIME_RESOURCE_HELPER_IMAGE_HELPER_HPP
 #define ENGINE_RUNTIME_RESOURCE_HELPER_IMAGE_HELPER_HPP
 
-#include <stb_dxt.h>
-#include <stb_image.h>
-#include <stb_image_resize.h>
-#include <stb_image_write.h>
-
 #include <filesystem>
 
 #include <common/utils/pointer_utils.hpp>
+
+#include "runtime/resource/res_type/raw_data/texture.hpp"
 
 namespace taixu {
 
@@ -26,9 +23,9 @@ namespace taixu {
  * @param flip_vertically
  * @return
  */
-std::unique_ptr<stbi_uc, FreeDeleter>
-loadImage(std::filesystem::path const& path, int* width, int* height,
-          int* channels, int desired_channels = 4, bool srgb = false, bool flip_vertically = true);
+std::optional<Image> loadImage(std::filesystem::path const& path,
+                               int desired_channels = 4, bool is_srgb = false,
+                               bool flip_vertically = true);
 
 /**
  * @brief 压缩图片
@@ -39,9 +36,8 @@ loadImage(std::filesystem::path const& path, int* width, int* height,
  * @param out_size
  * @return
  */
-std::unique_ptr<stbi_uc, FreeDeleter> compressImage(stbi_uc* data, int width,
-                                                    int height, int channels,
-                                                    int* out_size);
+free_unique_ptr<uint8_t> compressImage(uint8_t* data, int width, int height,
+                                       int channels, int* out_size);
 
 /**
  * @brief 合并多个单通道图片
@@ -53,9 +49,9 @@ std::unique_ptr<stbi_uc, FreeDeleter> compressImage(stbi_uc* data, int width,
  * @param height
  * @return
  */
-std::unique_ptr<stbi_uc, FreeDeleter>
-combineImages(stbi_uc* red, stbi_uc* green, stbi_uc* blue, stbi_uc* alpha,
-              int width, int height);
+free_unique_ptr<uint8_t> combineImages(uint8_t* red, uint8_t* green,
+                                       uint8_t* blue, uint8_t* alpha, int width,
+                                       int height);
 
 }// namespace taixu
 

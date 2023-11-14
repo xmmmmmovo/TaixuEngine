@@ -47,10 +47,6 @@ include(${PROJECT_SOURCE_DIR}/cmake/ShaderCompile.cmake)
 set(GLSL_INCLUDE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/glsl/include)
 set(GENERATED_SHADER_FOLDER "generated")
 
-if (USE_OPENGL)
-    FIND_GLSL(opengl gl "-G")
-endif ()
-
 if (USE_VUL)
     FIND_GLSL(vulkan vk "-V100")
 endif ()

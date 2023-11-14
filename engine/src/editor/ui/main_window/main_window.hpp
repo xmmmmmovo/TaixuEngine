@@ -5,8 +5,6 @@
 #ifndef TAIXUENGINE_MAIN_WINDOW_HPP
 #define TAIXUENGINE_MAIN_WINDOW_HPP
 
-#include "glad/glad.h"
-
 #include <memory>
 
 #include "GLFW/glfw3.h"
@@ -14,6 +12,7 @@
 #include "imgui_internal.h"
 
 // "" headers
+#include "ui/common/view_model.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
@@ -22,7 +21,6 @@
 #include "ui/components/render_component.hpp"
 #include "ui/components/statusbar_component.hpp"
 #include "ui/components/useful_obj_hierarchy_component.hpp"
-#include "ui/view_model.hpp"
 
 #include <runtime/engine.hpp>
 #include <runtime/gameplay/gui/window.hpp>
@@ -35,7 +33,7 @@
 
 namespace taixu::editor {
 
-class MainWindow : public IWindow {
+class MainWindow {
 private:
     // names
     static std::string_view constexpr DOCK_SPACE_NAME{"TaixuEditorDock"};
@@ -60,8 +58,8 @@ private:
 
 private:
     // context
-    WindowContext* _context_ptr{nullptr};
-    ViewModel      _view_model{};
+    std::unique_ptr<Window> _window_ptr{nullptr};
+    ViewModel               _view_model{};
 
 private:
     /**
@@ -79,13 +77,14 @@ private:
     void buildUpPathHierachy();
 
 public:
-    explicit MainWindow(WindowContext* context_ptr);
+    explicit MainWindow(std::string const& title, int32_t width,
+                        int32_t height);
 
-    void init() override;
-    void update() override;
-    void destroy() override;
+    void init();
+    void update();
+    void destroy();
 
-    void initWithEngineRuntime(Engine* engine_runtime_ptr) override;
+    void show();
 
 private:
     void preUpdate();

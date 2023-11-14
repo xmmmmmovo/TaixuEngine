@@ -9,12 +9,17 @@ CPMAddPackage(
 
 if (imgui_ADDED)
     file(GLOB imgui_sources CONFIGURE_DEPENDS ${imgui_SOURCE_DIR}/*.cpp)
+
     file(GLOB imgui_impl CONFIGURE_DEPENDS
             ${imgui_SOURCE_DIR}/backends/imgui_impl_glfw.cpp
             ${imgui_SOURCE_DIR}/backends/imgui_impl_glfw.h
-            ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
-            ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.h
-            ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3_loader.h)
+    )
+
+    if (USE_VULKAN)
+        # append file to imgui_impl
+        list(APPEND imgui_impl ${imgui_SOURCE_DIR}/backends/imgui_impl_vulkan.cpp)
+        list(APPEND imgui_impl ${imgui_SOURCE_DIR}/backends/imgui_impl_vulkan.h)
+    endif ()
 
     file(GLOB imgui_ext_sources CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/3rdparty/imgui/*.cpp)
 
@@ -23,7 +28,12 @@ if (imgui_ADDED)
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${imgui_SOURCE_DIR}>)
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/3rdparty/imgui>)
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${Vulkan_INCLUDE_DIR}>)
-    target_link_libraries(imgui PUBLIC glfw ${OGL})
+
+    target_link_libraries(imgui PUBLIC glfw)
+
+    if (USE_VULKAN)
+        target_link_libraries(imgui PUBLIC Vulkan::Vulkan)
+    endif ()
 
     set_target_properties(imgui PROPERTIES LINKER_LANGUAGE CXX)
     set_target_properties(imgui PROPERTIES FOLDER 3rdparty)

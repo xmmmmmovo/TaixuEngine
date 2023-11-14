@@ -1,8 +1,6 @@
 #ifndef TAIXUENGINE_PERSPECTIVE_CAMERA_HPP
 #define TAIXUENGINE_PERSPECTIVE_CAMERA_HPP
 
-#include "glad/glad.h"
-
 #include <vector>
 
 #include "glm/ext/matrix_clip_space.hpp"
@@ -91,7 +89,7 @@ public:
 
     // processes input received from a mouse input system. Expects the offset value in both the x and y direction.
     void processMouseMovement(float xoffset, float yoffset,
-                              GLboolean constrainPitch = true) {
+                              bool constrainPitch = true) {
         xoffset *= MouseSensitivity;
         yoffset *= MouseSensitivity;
 

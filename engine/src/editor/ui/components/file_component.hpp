@@ -11,8 +11,8 @@
 #include <string>
 #include <vector>
 
-#include "ui/ui_component.hpp"
-#include "ui/view_model.hpp"
+#include "ui/common/ui_component.hpp"
+#include "ui/common/view_model.hpp"
 #include "useful_obj_hierarchy_component.hpp"
 
 namespace taixu::editor {

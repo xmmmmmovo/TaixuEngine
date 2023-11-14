@@ -23,8 +23,7 @@ endif ()
 # ------ third-party -------
 
 # add Vulkan
-# include(../3rdparty/FindVolk.cmake)
-include(../3rdparty/FindGlad.cmake)
+include(../3rdparty/FindVulkan.cmake)
 
 # add HarfBuzz
 include(../3rdparty/FindHarfBuzz.cmake)
@@ -72,16 +71,13 @@ find_package(Threads REQUIRED)
 
 # ------- sub-directories --------
 
-# for SPIR_V
-set(SPIR_V_ENABLE OFF)
-
 # shaders
 # add glsl compiler
-
-if (USE_OPENGL OR USE_VULKAN)
+if (USE_VULKAN)
     set(GLSLANG_VALIDATOR_EXECUTABLE ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
     if (NOT GLSLANG_VALIDATOR_EXECUTABLE)
-        find_program(GLSLC_EXECUTABLE glslc)
+        find_program(GLSLC_EXECUTABLE glslc
+                PATHS "${TAIXUENGINE_ROOT_DIR}/3rd_party/bin")
         if (NOT GLSLC_EXECUTABLE)
             message(FATAL_ERROR "glsl compiler not found!")
         else ()
@@ -100,6 +96,7 @@ set(COMMON_COMPILE_TARGET TaixuCommonLib)
 set(SCRIPT_COMPILE_TARGET TaixuScriptLib)
 
 add_subdirectory(shaders)
+add_subdirectory(tools)
 
 # editor and runtime
 add_subdirectory(src/editor)
