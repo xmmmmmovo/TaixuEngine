@@ -5,8 +5,8 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_HPP
 
-#include <common/base/macro.hpp>
-#include <runtime/management/ecs/core/ecs_types.hpp>
+#include <base/macro.hpp>
+#include <management/ecs/core/ecs_types.hpp>
 
 #include <algorithm>
 #include <unordered_set>

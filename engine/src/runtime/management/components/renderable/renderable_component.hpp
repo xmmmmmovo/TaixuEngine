@@ -5,8 +5,8 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP
 
-#include "runtime/resource/res_type/raw_data/material.hpp"
-#include "runtime/resource/res_type/raw_data/model.hpp"
+#include "resource/res_type/raw_data/material.hpp"
+#include "resource/res_type/raw_data/model.hpp"
 
 namespace taixu {
 

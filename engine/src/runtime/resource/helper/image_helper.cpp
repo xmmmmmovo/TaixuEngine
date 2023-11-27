@@ -6,7 +6,7 @@
 
 #include <array>
 
-#include <common/utils/binary_utils.hpp>
+#include <utils/binary_utils.hpp>
 
 #define STB_DXT_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION

@@ -3,9 +3,9 @@
 //
 #include "catch2/catch_test_macros.hpp"
 
-#include "runtime/resource/json/json_parser.hpp"
-#include "runtime/resource/json/manifest_json.hpp"
-#include "runtime/resource/json/serializable.hpp"
+#include "resource/json/json_parser.hpp"
+#include "resource/json/manifest_json.hpp"
+#include "resource/json/serializable.hpp"
 
 namespace {
 

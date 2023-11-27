@@ -8,7 +8,7 @@
 #include <array>
 #include <memory>
 
-#include <common/base/public_singleton.hpp>
+#include "designs/public_singleton.hpp"
 
 namespace taixu {
 

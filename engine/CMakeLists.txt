@@ -43,9 +43,6 @@ include(../3rdparty/FindStb.cmake)
 # add imgui
 include(../3rdparty/FindImgui.cmake)
 
-# add fmt
-include(../3rdparty/FindFmt.cmake)
-
 # add spdlog
 include(../3rdparty/FindSpdlog.cmake)
 
@@ -94,6 +91,8 @@ set(SHADER_COMPILE_TARGET TaixuShaderCompile)
 
 set(COMMON_COMPILE_TARGET TaixuCommonLib)
 set(SCRIPT_COMPILE_TARGET TaixuScriptLib)
+
+set(INSTALL_DIR TaixuEngine)
 
 add_subdirectory(shaders)
 add_subdirectory(tools)

@@ -7,9 +7,9 @@
 
 #include <filesystem>
 
-#include <common/utils/pointer_utils.hpp>
+#include <utils/pointer_utils.hpp>
 
-#include "runtime/resource/res_type/raw_data/texture.hpp"
+#include "resource/res_type/raw_data/texture.hpp"
 
 namespace taixu {
 

@@ -3,8 +3,8 @@
 #include <string>
 
 // render use
-#include <runtime/engine.hpp>
-#include <runtime/engine_args.hpp>
+#include <engine.hpp>
+#include <engine_args.hpp>
 
 #include "ui/main_window/main_window.hpp"
 
@@ -25,6 +25,12 @@ int main(int argc, char* argv[]) {
     // avoid c-style array
     std::vector<std::string> const args(argv, argv + argc);
 
+    taixu::editor::MainWindow main_window{
+            MAIN_WINDOW_TITLE.data(), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT};
+
+    main_window.init();
+    main_window.show();
+    main_window.destroy();
 
     return EXIT_SUCCESS;
 }

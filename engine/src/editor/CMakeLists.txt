@@ -8,11 +8,10 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${EDITOR_HEADERS} ${EDITOR
 
 add_executable(${TARGET_NAME} ${EDITOR_HEADERS} ${EDITOR_SOURCES} ${EDITOR_RESOURCE})
 
-target_include_directories(${TARGET_NAME} PRIVATE .)
+target_include_directories(${TARGET_NAME} PRIVATE $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/src/editor>)
 
 # set standard and output name
 set_target_properties(${TARGET_NAME} PROPERTIES CXX_STANDARD 20 OUTPUT_NAME ${TARGET_NAME})
-
 set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "EngineEditor")
 
 # 使用MSVC标准
@@ -22,7 +21,7 @@ target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:
 target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime)
 
 if (USE_PCH)
-    target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch_editor.hpp)
+    target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch_std.hpp)
 endif ()
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD

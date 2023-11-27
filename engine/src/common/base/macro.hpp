@@ -1,8 +1,6 @@
 #ifndef ENGINE_RUNTIME_CORE_BASE_MACRO
 #define ENGINE_RUNTIME_CORE_BASE_MACRO
 
-
-#include <string_view>
 #if defined(TX_FORCE_INLINE)
     #if _MSC_VER
         #define TX_INLINE __forceinline
@@ -82,33 +80,29 @@ access:                                                                        \
     PROTOTYPE_DFT_ONLY_GETTER(access, type, name, )                            \
     PROTOTYPE_SETTER(type, name)
 
-namespace taixu {
-/**
- * @brief status enum
- */
-enum class Status {
-    OK,                 // access allowed
-    PERMISSION_FAILED,  // access permission failed
-    NO_SUCH_FILE_FAILED,// cannot find file path
+#define TX_SLEEP_FOR(MS)                                                       \
+    std::this_thread::sleep_for(std::chrono::milliseconds(MS));
 
-    NO_OPEN_PROJECT,// no project opened
+#define TX_SLEEP_UNTIL(TIME)                                                   \
+    std::this_thread::sleep_until(std::chrono::system_clock::now() + TIME);
 
-    // RENDER STATUS CODES
+#define TX_THREAD_NAME(NAME)                                                   \
+    std::stringstream ss;                                                      \
+    ss << NAME;                                                                \
+    std::string     name    = ss.str();                                        \
+    std::thread::id this_id = std::this_thread::get_id();                      \
+    pthread_setname_np(pthread_self(), name.c_str());
 
-    // END RENDER STATUS CODES
-};
+#define TX_THREAD_NAME_DEFAULT                                                 \
+    std::stringstream ss;                                                      \
+    ss << "Thread " << std::this_thread::get_id();                             \
+    std::string name = ss.str();                                               \
+    pthread_setname_np(pthread_self(), name.c_str());
 
-/**
- * @brief editor status enum
- */
-enum class EngineState {
-    EDITORMODE,  /*Editor mode*/
-    PREVIEWMODE, /*play mode*/
-    IDLEMODE,    /*idle mode, this mode will be used until project opened*/
-    GAMEMODE
-};
-
-
-}// namespace taixu
+#define TX_THREAD_NAME_DEFAULT_WITH_ID(ID)                                     \
+    std::stringstream ss;                                                      \
+    ss << "Thread " << ID;                                                     \
+    std::string name = ss.str();                                               \
+    pthread_setname_np(pthread_self(), name.c_str());
 
 #endif /* ENGINE_RUNTIME_CORE_BASE_MACRO */

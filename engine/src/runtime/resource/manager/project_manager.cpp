@@ -6,11 +6,10 @@
 
 #include <filesystem>
 
-#include "runtime/resource/json/manifest_json.hpp"
-#include "spdlog/spdlog.h"
+#include <log/logger.hpp>
 #include <optional>
-#include <runtime/platform/os/file_service.hpp>
-#include <runtime/resource/json/json_parser.hpp>
+#include <platform/os/file_service.hpp>
+#include <resource/json/json_parser.hpp>
 #include <string>
 
 namespace taixu {
@@ -20,7 +19,7 @@ std::optional<Project> openProject(std::filesystem::path const& path) {
     std::filesystem::path manifest_path = path / "manifest.json";
     std::ifstream const   file((path / "manifest.json").generic_string());
     if (!file.is_open()) {
-        spdlog::error("Failed to open project file {}", path.generic_string());
+        ERROR_LOG("Failed to open project file {}", path.generic_string());
         return std::nullopt;
     }
 

@@ -11,8 +11,8 @@
 
 #include "ui/common/ui_component.hpp"
 #include <GLFW/glfw3.h>
-#include <common/utils/function_utils.hpp>
-#include <runtime/platform/os/path.hpp>
+#include <utils/function_utils.hpp>
+#include <platform/os/path.hpp>
 
 namespace taixu::editor {
 

@@ -6,10 +6,10 @@
 #define TAIXUENGINE_VIEW_MODEL_HPP
 
 #include "ImGuizmo.h"
-#include "runtime/engine.hpp"
-#include "runtime/management/ecs/core/ecs_types.hpp"
-#include "runtime/management/ecs/object/game_object.hpp"
-#include "runtime/management/graphics/renderer.hpp"
+#include "engine.hpp"
+#include "management/ecs/core/ecs_types.hpp"
+#include "management/ecs/object/game_object.hpp"
+#include "management/graphics/renderer.hpp"
 #include <filesystem>
 #include <string>
 

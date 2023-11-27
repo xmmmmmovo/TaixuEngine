@@ -4,7 +4,7 @@
 
 #include "catch2/catch_test_macros.hpp"
 
-#include "runtime/resource/helper/image_helper.hpp"
+#include "resource/helper/image_helper.hpp"
 
 namespace {
 

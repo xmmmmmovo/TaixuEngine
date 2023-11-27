@@ -4,8 +4,6 @@
 
 #include "file_service.hpp"
 
-#include <spdlog/spdlog.h>
-
 namespace taixu {
 
 std::vector<std::filesystem::path> getFiles(

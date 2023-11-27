@@ -1,9 +1,9 @@
 //
 // Created by xmmmmmovo on 21/10/2023.
 //
-#include <catch2/catch_test_macros.hpp>
+#include "catch2/catch_test_macros.hpp"
 
-#include <common/utils/binary_utils.hpp>
+#include "utils/binary_utils.hpp"
 
 namespace {
 

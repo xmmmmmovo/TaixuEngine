@@ -5,7 +5,7 @@
 #ifndef ENGINE_SRC_RUNTIME_RESOURCE_CONVERTED_DATA_PROJECT_HPP
 #define ENGINE_SRC_RUNTIME_RESOURCE_CONVERTED_DATA_PROJECT_HPP
 
-#include "runtime/resource/json/manifest_json.hpp"
+#include "resource/json/manifest_json.hpp"
 #include "world.hpp"
 #include <filesystem>
 #include <string>

@@ -5,7 +5,7 @@
 #ifndef ENGINE_SRC_COMMON_UTILS_POINTER_UTILS_HPP
 #define ENGINE_SRC_COMMON_UTILS_POINTER_UTILS_HPP
 
-#include <common/base/macro.hpp>
+#include "base/macro.hpp"
 
 namespace taixu {
 

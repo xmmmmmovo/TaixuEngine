@@ -5,11 +5,9 @@
 #ifndef ENGINE_SRC_RUNTIME_PLATFORM_GLFW_WINDOW_039D648EBA9E48E3A7B82825AD1D92E8
 #define ENGINE_SRC_RUNTIME_PLATFORM_GLFW_WINDOW_039D648EBA9E48E3A7B82825AD1D92E8
 
-#include "runtime/gameplay/gui/window.hpp"
+#include "gameplay/gui/window.hpp"
 
-#include <vulkan/vulkan.h>
-
-#define GLFW_INCLUDE_VULKAN
+#define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
 namespace taixu {
@@ -26,60 +24,60 @@ protected:
     static void keyCallback(GLFWwindow* window, int key, int scancode,
                             int action, int mods) {
         auto* context =
-                static_cast<EventHandler*>(glfwGetWindowUserPointer(window));
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onKey(key, scancode, action, mods);
     }
 
     static void charCallback(GLFWwindow* window, unsigned int codepoint) {
         auto* context =
-                static_cast<EventHandler*>(glfwGetWindowUserPointer(window));
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onChar(codepoint);
     }
 
     static void charModsCallback(GLFWwindow* window, unsigned int codepoint,
                                  int mods) {
         auto* context =
-                static_cast<EventHandler*>(glfwGetWindowUserPointer(window));
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onCharMods(codepoint, mods);
     }
 
     static void mouseButtonCallback(GLFWwindow* window, int button, int action,
                                     int mods) {
         auto* context =
-                static_cast<EventHandler*>(glfwGetWindowUserPointer(window));
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onMouseButton(button, action, mods);
     }
 
     static void cursorPosCallback(GLFWwindow* window, double xpos,
                                   double ypos) {
         auto* context =
-                static_cast<EventHandler*>(glfwGetWindowUserPointer(window));
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onCursorPos(xpos, ypos);
     }
 
     static void cursorEnterCallback(GLFWwindow* window, int entered) {
         auto* context =
-                static_cast<EventHandler*>(glfwGetWindowUserPointer(window));
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onCursorEnter(entered);
     }
 
     static void scrollCallback(GLFWwindow* window, double xoffset,
                                double yoffset) {
         auto* context =
-                static_cast<EventHandler*>(glfwGetWindowUserPointer(window));
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onScroll(xoffset, yoffset);
     }
 
     static void dropCallback(GLFWwindow* window, int count,
                              const char** paths) {
         auto* context =
-                static_cast<EventHandler*>(glfwGetWindowUserPointer(window));
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onDrop(count, paths);
     }
 
     static void windowSizeCallback(GLFWwindow* window, int width, int height) {
         auto* context =
-                static_cast<EventHandler*>(glfwGetWindowUserPointer(window));
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->_width  = width;
         context->_height = height;
         context->onReset();
@@ -89,16 +87,15 @@ protected:
     static void windowCloseCallback(GLFWwindow* window) {
         glfwSetWindowShouldClose(window, true);
         auto* context =
-                static_cast<EventHandler*>(glfwGetWindowUserPointer(window));
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onWindowClose();
     }
 
 public:
-    void init(std::unique_ptr<EventHandler> handler) override {
-        Window::init(std::move(handler));
+    void init() override {
+        glfwSetErrorCallback(errorCallBack);
 
         if (GLFW_TRUE != glfwInit()) {
-
             throw runtime_error("GLFW init failed!");
         }
 
@@ -116,7 +113,7 @@ public:
             throw std::runtime_error("Failed to create GLFW window");
         }
 
-        glfwSetWindowUserPointer(_window, this->_handler.get());
+        glfwSetWindowUserPointer(_window, this);
 
         glfwSetKeyCallback(_window, keyCallback);
         glfwSetErrorCallback(errorCallBack);
@@ -135,7 +132,9 @@ public:
         setVsync(true);
     }
 
-    void update() override { _handler->handleEvents(); }
+    void update() override { handleEvents(); }
+
+    void handleEvents() override { glfwPollEvents(); }
 
     void destroy() override {
         glfwDestroyWindow(_window);
@@ -147,7 +146,9 @@ public:
         _is_vsync = vsync;
     }
 
-    bool shouldClose() const override { return glfwWindowShouldClose(_window); }
+    [[nodiscard]] bool shouldClose() const override {
+        return glfwWindowShouldClose(_window);
+    }
 };
 
 }// namespace taixu

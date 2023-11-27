@@ -8,11 +8,11 @@
 #include "ImGuizmo.h"
 #include "imgui.h"
 #include "imgui_internal.h"
-#include <common/base/macro.hpp>
+#include <base/macro.hpp>
 
 namespace taixu::editor {
 
-void ImguiSurface::init() {
+void ImguiLayers::init() {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
@@ -125,7 +125,7 @@ void ImguiSurface::init() {
     style.WindowPadding    = ImVec2(0.0f, 0.0f);
 }
 
-void ImguiSurface::preUpdate() {
+void ImguiLayers::preUpdate() {
     // Start the Dear ImGui frame
     ImGui::NewFrame();
 
@@ -135,9 +135,9 @@ void ImguiSurface::preUpdate() {
     ImGui::SetNextWindowViewport(viewport->ID);
 }
 
-void ImguiSurface::addWidget(const char*                  name,
-                             std::function<void()> const& update,
-                             ImGuiWindowFlags const flags, bool* open) {
+void ImguiLayers::addWidget(const char*                  name,
+                            std::function<void()> const& update,
+                            ImGuiWindowFlags const flags, bool* open) {
     if (!ImGui::Begin(name, open, flags)) {
         ImGui::End();
         return;
@@ -146,20 +146,18 @@ void ImguiSurface::addWidget(const char*                  name,
     ImGui::End();
 }
 
-void ImguiSurface::update() {
+void ImguiLayers::update() {
     // Rendering
     ImGui::Render();
 
     ImGuiIO const& io = ImGui::GetIO();
 
     if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
-        GLFWwindow* backup_current_context = glfwGetCurrentContext();
         ImGui::UpdatePlatformWindows();
         ImGui::RenderPlatformWindowsDefault();
-        glfwMakeContextCurrent(backup_current_context);
     }
 }
 
-void ImguiSurface::destroy() { ImGui::DestroyContext(); }
+void ImguiLayers::destroy() { ImGui::DestroyContext(); }
 
 }// namespace taixu::editor

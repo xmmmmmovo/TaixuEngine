@@ -9,7 +9,6 @@
 #include "assimp/Importer.hpp"
 #include "assimp/postprocess.h"
 #include "assimp/scene.h"
-#include "spdlog/spdlog.h"
 #include <filesystem>
 
 #include <memory>
@@ -18,10 +17,10 @@
 #include <vector>
 
 #include "glm/gtc/type_ptr.hpp"
-#include <runtime/platform/os/path.hpp>
-#include <runtime/resource/res_type/raw_data/mesh.hpp>
-#include <runtime/resource/res_type/raw_data/model.hpp>
-#include <runtime/resource/res_type/raw_data/texture.hpp>
+#include <platform/os/path.hpp>
+#include <resource/res_type/raw_data/mesh.hpp>
+#include <resource/res_type/raw_data/model.hpp>
+#include <resource/res_type/raw_data/texture.hpp>
 
 namespace taixu {
 

@@ -10,17 +10,18 @@
 
 #include <backends/imgui_impl_glfw.h>
 
-#include "runtime/gameplay/player/camera/euler_camera.hpp"
-#include "runtime/management/components/renderable/renderable_component.hpp"
-#include <common/base/clock.hpp>
-#include <common/base/hash.hpp>
-#include <common/base/noncopyable.hpp>
-#include <runtime/management/ecs/core/ecs_types.hpp>
-#include <runtime/management/ecs/system/system.hpp>
-#include <runtime/management/graphics/frontend/lightsInfo.hpp>
-#include <runtime/management/graphics/frontend/materialInfo.hpp>
-#include <runtime/management/graphics/frontend/matrices.hpp>
-#include <runtime/management/scene/scene.hpp>
+#include "gameplay/player/camera/euler_camera.hpp"
+#include "management/components/renderable/renderable_component.hpp"
+#include <base/clock.hpp>
+#include <base/hash.hpp>
+#include <base/noncopyable.hpp>
+#include <management/ecs/core/ecs_types.hpp>
+#include <management/ecs/system/system.hpp>
+#include <management/graphics/common/lightsInfo.hpp>
+#include <management/graphics/common/materialInfo.hpp>
+#include <management/graphics/common/matrices.hpp>
+#include <management/scene/scene.hpp>
+#include <management/input/input_system.hpp>
 
 namespace taixu {
 
@@ -55,38 +56,38 @@ protected:
     void updateCamera(float delta_time) {
         if (_current_scene->_camera != nullptr) {
             auto const& inputsystem = InputSystem::getInstance();
-//
-//            if (inputsystem.getInputState(GLFW_KEY_W)) {
-//                _current_scene->_camera->processKeyboard(
-//                        CameraMovement::FORWARD, delta_time);
-//            }
-//            if (inputsystem.getInputState(GLFW_KEY_S)) {
-//                _current_scene->_camera->processKeyboard(
-//                        CameraMovement::BACKWARD, delta_time);
-//            }
-//            if (inputsystem.getInputState(GLFW_KEY_A)) {
-//                _current_scene->_camera->processKeyboard(CameraMovement::LEFT,
-//                                                         delta_time);
-//            }
-//            if (inputsystem.getInputState(GLFW_KEY_D)) {
-//                _current_scene->_camera->processKeyboard(CameraMovement::RIGHT,
-//                                                         delta_time);
-//            }
-//
-//            if (inputsystem.getInputState(GLFW_KEY_E)) {
-//                _current_scene->_camera->processKeyboard(CameraMovement::UP,
-//                                                         delta_time);
-//            }
-//            if (inputsystem.getInputState(GLFW_KEY_Q)) {
-//                _current_scene->_camera->processKeyboard(CameraMovement::DOWN,
-//                                                         delta_time);
-//            }
-//
-//            if (inputsystem.getInputState(GLFW_KEY_LEFT_SHIFT)) {
-//                _current_scene->_camera->accelerate();
-//            } else {
-//                _current_scene->_camera->decelerate();
-//            }
+            //
+            //            if (inputsystem.getInputState(GLFW_KEY_W)) {
+            //                _current_scene->_camera->processKeyboard(
+            //                        CameraMovement::FORWARD, delta_time);
+            //            }
+            //            if (inputsystem.getInputState(GLFW_KEY_S)) {
+            //                _current_scene->_camera->processKeyboard(
+            //                        CameraMovement::BACKWARD, delta_time);
+            //            }
+            //            if (inputsystem.getInputState(GLFW_KEY_A)) {
+            //                _current_scene->_camera->processKeyboard(CameraMovement::LEFT,
+            //                                                         delta_time);
+            //            }
+            //            if (inputsystem.getInputState(GLFW_KEY_D)) {
+            //                _current_scene->_camera->processKeyboard(CameraMovement::RIGHT,
+            //                                                         delta_time);
+            //            }
+            //
+            //            if (inputsystem.getInputState(GLFW_KEY_E)) {
+            //                _current_scene->_camera->processKeyboard(CameraMovement::UP,
+            //                                                         delta_time);
+            //            }
+            //            if (inputsystem.getInputState(GLFW_KEY_Q)) {
+            //                _current_scene->_camera->processKeyboard(CameraMovement::DOWN,
+            //                                                         delta_time);
+            //            }
+            //
+            //            if (inputsystem.getInputState(GLFW_KEY_LEFT_SHIFT)) {
+            //                _current_scene->_camera->accelerate();
+            //            } else {
+            //                _current_scene->_camera->decelerate();
+            //            }
 
             if (_move_mode) {
                 _current_scene->_camera->processMouseMovement(

@@ -9,7 +9,7 @@
 #include <memory>
 #include <unordered_map>
 
-#include <runtime/management/ecs/core/ecs_types.hpp>
+#include <management/ecs/core/ecs_types.hpp>
 #include "system.hpp"
 
 namespace taixu {

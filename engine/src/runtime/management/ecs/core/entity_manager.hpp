@@ -8,6 +8,7 @@
 #include "ecs_types.hpp"
 #include <cstdint>
 #include <queue>
+#include <cassert>
 
 namespace taixu {
 

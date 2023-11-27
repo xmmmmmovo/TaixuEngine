@@ -7,14 +7,14 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_F
 
 add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 
-target_link_libraries(${TARGET_NAME} PUBLIC glm)
+target_link_libraries(${TARGET_NAME} PUBLIC glm spdlog::spdlog)
 
 if (USE_PCH)
-    target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch_common.hpp)
+    target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch_std.hpp)
 endif ()
 
 target_include_directories(
         ${TARGET_NAME}
-        PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/src>
-        $<INSTALL_INTERFACE:include/${TARGET_NAME}>
+        PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/src/common>
+        $<INSTALL_INTERFACE:include/${INSTALL_DIR}/${TARGET_NAME}>
 )

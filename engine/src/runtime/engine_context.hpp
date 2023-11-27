@@ -5,12 +5,12 @@
 #ifndef ENGINE_SRC_RUNTIME_ENGINE_CONTEXT_AFC9470FE8DF4FD682C297E3488583D5
 #define ENGINE_SRC_RUNTIME_ENGINE_CONTEXT_AFC9470FE8DF4FD682C297E3488583D5
 
-#include <runtime/gameplay/gui/window.hpp>
-#include <runtime/management/ecs/ecs_coordinator.hpp>
-#include <runtime/management/graphics/renderer.hpp>
-#include <runtime/management/scene/scene.hpp>
-#include <runtime/resource/manager/asset_manager.hpp>
-#include <runtime/resource/manager/project_manager.hpp>
+#include <gameplay/gui/window.hpp>
+#include <management/ecs/ecs_coordinator.hpp>
+#include <management/graphics/renderer.hpp>
+#include <management/scene/scene.hpp>
+#include <resource/manager/asset_manager.hpp>
+#include <resource/manager/project_manager.hpp>
 
 namespace taixu {
 

@@ -1,8 +1,8 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include <common/base/macro.hpp>
-#include <common/base/public_singleton.hpp>
+#include <base/macro.hpp>
+#include <designs/public_singleton.hpp>
 
 #include <filesystem>
 #include <memory>

@@ -13,7 +13,7 @@
 #include <simdjson.h>
 #include <spdlog/spdlog.h>
 
-#include <common/base/macro.hpp>
+#include <base/macro.hpp>
 #include "serializable.hpp"
 
 namespace taixu {

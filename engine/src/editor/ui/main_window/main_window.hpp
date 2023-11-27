@@ -22,14 +22,14 @@
 #include "ui/components/statusbar_component.hpp"
 #include "ui/components/useful_obj_hierarchy_component.hpp"
 
-#include <runtime/engine.hpp>
-#include <runtime/gameplay/gui/window.hpp>
-#include <runtime/management/components/transform/transform_component.hpp>
-#include <runtime/management/ecs/core/ecs_types.hpp>
-#include <runtime/management/ecs/ecs_coordinator.hpp>
-#include <runtime/management/ecs/system/system.hpp>
-#include <runtime/management/graphics/renderer.hpp>
-#include <runtime/management/scene/scene.hpp>
+#include <engine.hpp>
+#include <gameplay/gui/window.hpp>
+#include <management/components/transform/transform_component.hpp>
+#include <management/ecs/core/ecs_types.hpp>
+#include <management/ecs/ecs_coordinator.hpp>
+#include <management/ecs/system/system.hpp>
+#include <management/graphics/renderer.hpp>
+#include <management/scene/scene.hpp>
 
 namespace taixu::editor {
 
@@ -73,8 +73,8 @@ private:
             ImGuiWindowFlags_NoBringToFrontOnFocus;
 
 private:
-    void buildUpUsefulObjHierachy();
-    void buildUpPathHierachy();
+    void buildUpUsefulObjHierarchy();
+    void buildUpPathHierarchy();
 
 public:
     explicit MainWindow(std::string const& title, int32_t width,

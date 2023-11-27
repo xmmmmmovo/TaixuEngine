@@ -7,14 +7,14 @@
 
 #include "ui/common/ui_component.hpp"
 #include "ui/components/render_component.hpp"
-#include <runtime/management/components/renderable/renderable_component.hpp>
-#include <runtime/management/components/transform/transform_component.hpp>
+#include <management/components/renderable/renderable_component.hpp>
+#include <management/components/transform/transform_component.hpp>
 
 #include "ImGuizmo.h"
 #include "imgui.h"
 #include "imgui_internal.h"
 #include "ui/widgets/slider.hpp"
-#include <runtime/gameplay/player/camera/euler_camera.hpp>
+#include <gameplay/player/camera/euler_camera.hpp>
 
 
 namespace taixu::editor {

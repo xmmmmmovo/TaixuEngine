@@ -9,8 +9,9 @@
 #include <cstddef>
 #include <unordered_map>
 #include <vector>
+#include <cassert>
 
-#include "common/base/macro.hpp"
+#include "base/macro.hpp"
 
 namespace taixu {
 

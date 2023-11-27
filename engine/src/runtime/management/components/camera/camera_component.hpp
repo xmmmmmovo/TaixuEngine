@@ -1,7 +1,7 @@
 #ifndef TAIXUENGINE_CAMERA_COMPONENT
 #define TAIXUENGINE_CAMERA_COMPONENT
 
-#include "runtime/gameplay/player/camera/euler_camera.hpp"
+#include "gameplay/player/camera/euler_camera.hpp"
 
 namespace taixu {
 class CameraComponent {

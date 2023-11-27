@@ -7,7 +7,7 @@
 
 #include "imgui.h"
 
-#include "common/base/noncopyable.hpp"
+#include "base/noncopyable.hpp"
 #include "view_model.hpp"
 
 namespace taixu::editor {

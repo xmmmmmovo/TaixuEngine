@@ -5,17 +5,16 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 
-#include "runtime/gameplay/player/camera/euler_camera.hpp"
-#include "runtime/management/components/camera/camera_component.hpp"
-#include "runtime/management/components/renderable/renderable_component.hpp"
-#include "runtime/management/components/transform/transform_component.hpp"
+#include "gameplay/player/camera/euler_camera.hpp"
+#include "management/components/camera/camera_component.hpp"
+#include "management/components/renderable/renderable_component.hpp"
+#include "management/components/transform/transform_component.hpp"
 
-#include <runtime/management/ecs/core/ecs_types.hpp>
-#include <runtime/management/ecs/ecs_coordinator.hpp>
-#include <runtime/management/ecs/object/game_object.hpp>
-#include <runtime/management/input/input_system.hpp>
+#include <management/ecs/core/ecs_types.hpp>
+#include <management/ecs/ecs_coordinator.hpp>
+#include <management/ecs/object/game_object.hpp>
 
-#include <runtime/resource/manager/asset_manager.hpp>
+#include <resource/manager/asset_manager.hpp>
 
 #include <memory>
 
