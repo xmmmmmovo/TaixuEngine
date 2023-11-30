@@ -13,11 +13,11 @@ namespace taixu {
 
 class Engine final : public PublicSingleton<Engine> {
     friend class PublicSingleton<Engine>;
+private:
+    EngineContext _context;
 
 public:
-    static void parseParams(const std::vector<std::string>& args);
-
-    void init();
+    void init(const std::vector<std::string>& args);
     void update();
     void destroy();
 };

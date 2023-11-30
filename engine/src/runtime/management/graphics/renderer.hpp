@@ -14,14 +14,14 @@
 #include "management/components/renderable/renderable_component.hpp"
 #include <base/clock.hpp>
 #include <base/hash.hpp>
-#include <base/noncopyable.hpp>
+#include <designs/noncopyable.hpp>
 #include <management/ecs/core/ecs_types.hpp>
 #include <management/ecs/system/system.hpp>
 #include <management/graphics/common/lightsInfo.hpp>
 #include <management/graphics/common/materialInfo.hpp>
 #include <management/graphics/common/matrices.hpp>
-#include <management/scene/scene.hpp>
 #include <management/input/input_system.hpp>
+#include <management/scene/scene.hpp>
 
 namespace taixu {
 

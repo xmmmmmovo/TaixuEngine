@@ -27,16 +27,15 @@ public:
      * @brief editor state
      */
     EngineState _state{EngineState::IDLEMODE};
+    EngineArgs* _engine_args{&EngineArgs::getInstance()};
 
     /**
      * @brief engine clock
      */
     Clock _clock{};
 
-    void init() {
-        _asset_manager = std::make_unique<AssetManager>();
-        _scene         = std::make_unique<Scene>();
-        _clock.reset();
+    void init(const std::vector<std::string>& args) {
+        _engine_args->initWithArgs(args);
     }
 };
 

@@ -22,17 +22,17 @@ protected:
                                           ImGuiTreeNodeFlags_NoTreePushOnOpen;
 
 public:
-    explicit UsefulObjectComponent(ViewModel *view_model)
+    explicit UsefulObjectComponent(ViewModel* view_model)
         : AbstractUIComponent(view_model) {}
 
     void update() override {
-        for (auto &obj : _view_model->useful_objs_hierarchy) {
+        for (auto& obj : _view_model->useful_objs_hierarchy) {
             if (ImGui::TreeNodeEx(obj.name.c_str(), parent_flags)) {
-                for (auto &child : obj.children) {
+                for (auto& child : obj.children) {
                     ImGui::TreeNodeEx(child.name.c_str(), leaf_flags);
                     if (ImGui::IsMouseDoubleClicked(0) &&
                         ImGui::IsItemHovered(ImGuiHoveredFlags_None)) {
-                        spdlog::info("Double Clicked on: {}", child.name);
+                        INFO_LOG("Double Clicked on: {}", child.name);
                     }
                 }
                 ImGui::TreePop();
@@ -42,4 +42,4 @@ public:
 };
 }// namespace taixu::editor
 
-#endif//TAIXUENGINE_HIERARCHY_COMPONENT_HPP
+#endif// TAIXUENGINE_HIERARCHY_COMPONENT_HPP

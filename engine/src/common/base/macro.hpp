@@ -1,6 +1,13 @@
 #ifndef ENGINE_RUNTIME_CORE_BASE_MACRO
 #define ENGINE_RUNTIME_CORE_BASE_MACRO
 
+/* If we are we on Windows, we want a single define for it.
+ */
+#if !defined(_WIN32) &&                                                        \
+        (defined(__WIN32__) || defined(WIN32) || defined(__MINGW32__))
+    #define _WIN32
+#endif /* _WIN32 */
+
 #if defined(TX_FORCE_INLINE)
     #if _MSC_VER
         #define TX_INLINE __forceinline

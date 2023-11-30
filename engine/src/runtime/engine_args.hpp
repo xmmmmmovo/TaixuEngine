@@ -8,7 +8,9 @@
 #include <argparse/argparse.hpp>
 #include <base/core.hpp>
 #include <designs/public_singleton.hpp>
+#include <gameplay/gui/window_factory.hpp>
 #include <log/logger.hpp>
+#include <platform/glfw/window.hpp>
 
 namespace taixu {
 
@@ -24,8 +26,21 @@ class EngineArgs : public PublicSingleton<EngineArgs> {
 private:
     static constexpr const char* LOCALE = "--locale";
 
+private:
+    static void registerWindowFactory() {
+        WindowFactory::registerRenderAPI(RenderAPI::VULKAN, WindowAPI::GLFW);
+        WindowFactory::registerRenderAPI(RenderAPI::DX11, WindowAPI::WINDOWSAPI);
+        WindowFactory::registerRenderAPI(RenderAPI::DX12, WindowAPI::WINDOWSAPI);
+
+        WindowFactory::registerWindowCreationFunc(WindowAPI::GLFW, []() {
+            return std::make_unique<GLFWWindow>();
+        });
+    }
+
+    void registerWithArgs() { registerWindowFactory(); }
+
 public:
-    void loadParams(const std::vector<std::string>& args) {
+    void initWithArgs(const std::vector<std::string>& args) {
         argparse::ArgumentParser program("TaixuEngineEditor");
 
         try {
@@ -35,6 +50,8 @@ public:
             std::cerr << program;
             std::exit(1);
         }
+
+        registerWithArgs();
 
 #ifdef NDEBUG
         this->_is_debug = false;

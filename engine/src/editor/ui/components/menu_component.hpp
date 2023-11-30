@@ -7,12 +7,10 @@
 
 #include <ImGuiFileDialog.h>
 #include <imgui.h>
-#include <spdlog/spdlog.h>
 
 #include "ui/common/ui_component.hpp"
-#include <GLFW/glfw3.h>
-#include <utils/function_utils.hpp>
 #include <platform/os/path.hpp>
+#include <utils/function_utils.hpp>
 
 namespace taixu::editor {
 
@@ -82,7 +80,7 @@ public:
                 std::string const file_path =
                         ImGuiFileDialog::Instance()->GetCurrentPath();
                 // action
-                spdlog::debug(file_path);
+                DEBUG_LOG(file_path);
                 if (callback) { callback(file_path); }
             }
 

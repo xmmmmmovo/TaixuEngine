@@ -35,7 +35,17 @@ enum class EngineState {
 /**
  * @brief render API supported
  */
-enum class RenderAPI { VULKAN, DX11, DX12 };
+enum class RenderAPI { VULKAN, DX11, DX12, NONE };
+
+/**
+ * @brief window API supported
+ */
+enum class WindowAPI { GLFW, WINDOWSAPI, NONE };
+
+/**
+ * @brief window type supported
+ */
+enum class WindowType { WINDOWED, FULLSCREEN, FULLSCREEN_DESKTOP };
 
 }// namespace taixu
 

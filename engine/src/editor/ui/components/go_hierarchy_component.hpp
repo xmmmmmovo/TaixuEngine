@@ -6,7 +6,6 @@
 #define ENGINE_EDITOR_UI_COMPONENTS_GO_HIERARCHY_COMPONENT_HPP
 
 #include "imgui.h"
-#include "spdlog/spdlog.h"
 #include "ui/common/ui_component.hpp"
 #include <array>
 #include <management/ecs/object/game_object.hpp>

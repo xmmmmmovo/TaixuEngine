@@ -5,7 +5,7 @@
 #ifndef ENGINE_RUNTIME_CORE_MATH_RANDOM_HPP
 #define ENGINE_RUNTIME_CORE_MATH_RANDOM_HPP
 
-#include "base/noncopyable.hpp"
+#include "designs/noncopyable.hpp"
 #include <random>
 
 namespace taixu {

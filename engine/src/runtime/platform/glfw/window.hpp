@@ -7,8 +7,50 @@
 
 #include "gameplay/gui/window.hpp"
 
+#ifdef _WIN32
+    #define NOGDICAPMASKS
+    #define NOVIRTUALKEYCODES
+    #define NOWINSTYLES
+    #define NOSYSMETRICS
+    #define NOMENUS
+    #define NOICONS
+    #define NOKEYSTATES
+    #define NOSYSCOMMANDS
+    #define NORASTEROPS
+    #define NOSHOWWINDOW
+    #define OEMRESOURCE
+    #define NOATOM
+    #define NOCLIPBOARD
+    #define NOCOLOR
+    #define NOCTLMGR
+    #define NODRAWTEXT
+    #define NOGDI
+    #define NOKERNEL
+    #define NOUSER
+    #define NONLS
+    #define NOMB
+    #define NOMEMMGR
+    #define NOMETAFILE
+    #define NOMINMAX
+    #define NOMSG
+    #define NOOPENFILE
+    #define NOSCROLL
+    #define NOSERVICE
+    #include <Windows.h>
+#endif
+
 #define GLFW_INCLUDE_NONE
+#ifdef VK_HEADER_VERSION
+    #define GLFW_INCLUDE_VULKAN
+#endif
 #include <GLFW/glfw3.h>
+
+#ifdef _WIN32
+    #define GLFW_EXPOSE_NATIVE_WIN32
+    #include <GLFW/glfw3native.h>
+#endif
+
+#include <log/logger.hpp>
 
 namespace taixu {
 
@@ -18,7 +60,7 @@ private:
 
 protected:
     static void errorCallBack(int error, const char* description) {
-        spdlog::error("GLFW Error: {}, {}", error, description);
+        FATAL_LOG("GLFW Error: {}, {}", error, description);
     }
 
     static void keyCallback(GLFWwindow* window, int key, int scancode,
@@ -95,22 +137,19 @@ public:
     void init() override {
         glfwSetErrorCallback(errorCallBack);
 
-        if (GLFW_TRUE != glfwInit()) {
-            throw runtime_error("GLFW init failed!");
-        }
+        if (GLFW_TRUE != glfwInit()) { FATAL_LOG("GLFW init failed!"); }
 
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     }
 
-    void createWindow(std::string_view const& title, int32_t height,
-                      int32_t width) override {
+    void showWindow(std::string_view const& title, int32_t height,
+                    int32_t width) override {
         auto window =
                 glfwCreateWindow(width, height, title.data(), nullptr, nullptr);
 
         if (!window) {
-            spdlog::error("Failed to create GLFW window");
             glfwTerminate();
-            throw std::runtime_error("Failed to create GLFW window");
+            FATAL_LOG("Failed to create GLFW window");
         }
 
         glfwSetWindowUserPointer(_window, this);
@@ -149,6 +188,27 @@ public:
     [[nodiscard]] bool shouldClose() const override {
         return glfwWindowShouldClose(_window);
     }
+
+    /**
+     * below code only for windows that can get HWND
+     */
+#ifdef _WIN32
+    std::optional<HWND> getHWND() const {
+        if (!_window) {
+            ERROR_LOG("window have not created!");
+            return std::nullopt;
+        }
+        return glfwGetWin32Window(_window);
+    }
+
+    std::optional<HINSTANCE> getHINSTANCE() const {
+        if (!_window) {
+            ERROR_LOG("window have not created!");
+            return std::nullopt;
+        }
+        return GetModuleHandle(nullptr);
+    }
+#endif
 };
 
 }// namespace taixu

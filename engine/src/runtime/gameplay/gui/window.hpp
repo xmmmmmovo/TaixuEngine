@@ -7,9 +7,7 @@
 
 #include <functional>
 
-#include <base/noncopyable.hpp>
-#include <management/input/input_state.hpp>
-#include <management/input/input_state.hpp>
+#include <designs/noncopyable.hpp>
 
 namespace taixu {
 
@@ -46,8 +44,6 @@ protected:
     bool _is_vsync{true};
     bool minimize{false};
     bool fullscreen{false};
-
-    InputState const* _input_state{nullptr};
 
     std::string _title{};
     int32_t     _width{0}, _height{0};
@@ -104,7 +100,7 @@ protected:
 public:
     virtual void init() = 0;
 
-    virtual void createWindow(std::string_view const& title, int32_t height,
+    virtual void showWindow(std::string_view const& title, int32_t height,
                               int32_t width) = 0;
 
     virtual void update()  = 0;

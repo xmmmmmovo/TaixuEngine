@@ -11,7 +11,6 @@
 
 #include <refl.hpp>
 #include <simdjson.h>
-#include <spdlog/spdlog.h>
 
 #include <base/macro.hpp>
 #include "serializable.hpp"
