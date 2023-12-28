@@ -5,8 +5,8 @@
 #include <typeinfo>
 #include <unordered_map>
 
-#include <base/macro.hpp>
-#include <container/map_array.hpp>
+#include <common/base/macro.hpp>
+#include <common/container/map_array.hpp>
 
 #include <management/ecs/core/entity_manager.hpp>
 #include <management/ecs/object/guid_genenrator.hpp>

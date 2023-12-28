@@ -5,7 +5,7 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_HPP
 
-#include <base/macro.hpp>
+#include <common/base/macro.hpp>
 #include <management/ecs/core/ecs_types.hpp>
 
 #include <algorithm>

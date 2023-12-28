@@ -1,6 +1,6 @@
 set(TARGET_NAME ${SHADER_COMPILE_TARGET})
 
-macro(GET_SHADER_FILES varname relpath)
+macro(GET_GLSL_SHADER_FILES varname relpath)
     file(GLOB_RECURSE ${varname} CONFIGURE_DEPENDS
             "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.vert"
             "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.frag"
@@ -17,12 +17,19 @@ macro(GET_SHADER_FILES varname relpath)
     )
 endmacro()
 
+macro(GET_HLSL_SHADER_FILES varname relpath)
+    file(GLOB_RECURSE ${varname} CONFIGURE_DEPENDS
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.hlsli"
+            "${CMAKE_CURRENT_SOURCE_DIR}/${relpath}/*.hlsl"
+    )
+endmacro()
+
 macro(FIND_GLSL platform suffix args)
-    GET_SHADER_FILES(${platform}_SHADER_FILES "glsl/${platform}")
+    GET_GLSL_SHADER_FILES(${platform}_SHADER_FILES "glsl/${platform}")
     SOURCE_GROUP("shaders_${suffix}" FILES ${${platform}_SHADER_FILES})
     string(TOUPPER ${suffix} suffix_upper)
 
-    compile_shader(
+    compile_glsl_shader(
             "${${platform}_SHADER_FILES}"
             "${TARGET_NAME}_${suffix_upper}"
             "${GLSL_INCLUDE_FOLDER}"
@@ -35,6 +42,35 @@ macro(FIND_GLSL platform suffix args)
     set_target_properties("${TARGET_NAME}_${suffix_upper}" PROPERTIES FOLDER "EngineShader")
 endmacro()
 
+# shaders
+# add glsl compiler
+if (USE_VULKAN)
+    set(GLSLANG_VALIDATOR_EXECUTABLE ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
+    if (NOT GLSLANG_VALIDATOR_EXECUTABLE)
+        find_program(GLSLC_EXECUTABLE glslc
+                PATHS "${TAIXUENGINE_ROOT_DIR}/3rd_party/bin")
+        if (NOT GLSLC_EXECUTABLE)
+            message(FATAL_ERROR "glsl compiler not found!")
+        else ()
+            message("glsl ${GLSLC_EXECUTABLE}")
+            set(GLSL_COMPILER ${GLSLC_EXECUTABLE})
+        endif ()
+    else ()
+        message("glsl ${GLSLANG_VALIDATOR_EXECUTABLE}")
+        set(GLSL_COMPILER ${GLSLANG_VALIDATOR_EXECUTABLE})
+    endif ()
+endif ()
+
+if (USE_DX11)
+    find_program(DXC_EXECUTABLE fxc
+            PATHS "${TAIXUENGINE_ROOT_DIR}/3rd_party/bin"
+            DOC "The DirectX shader compiler"
+    )
+    if (NOT DXC_EXECUTABLE)
+        message(FATAL_ERROR "fxc compiler not found!")
+    endif ()
+endif ()
+
 if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER})
     file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER})
 endif ()
@@ -42,11 +78,23 @@ endif ()
 if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER}/spv)
     file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER}/spv)
 endif ()
-include(${PROJECT_SOURCE_DIR}/cmake/ShaderCompile.cmake)
+
+include(ShaderCompile)
 
 set(GLSL_INCLUDE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/glsl/include)
+
 set(GENERATED_SHADER_FOLDER "generated")
 
 if (USE_VULKAN)
     FIND_GLSL(vulkan vk "-V100")
+endif ()
+
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+
+else ()
+
+endif ()
+
+if (USE_DX11)
+
 endif ()

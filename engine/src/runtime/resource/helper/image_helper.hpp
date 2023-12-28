@@ -7,7 +7,7 @@
 
 #include <filesystem>
 
-#include <utils/pointer_utils.hpp>
+#include <common/utils/pointer_utils.hpp>
 
 #include "resource/res_type/raw_data/texture.hpp"
 

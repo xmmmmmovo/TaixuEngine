@@ -8,8 +8,9 @@
 #include <memory>
 #include <string>
 
-#include "base/core.hpp"
-#include "log/logger.hpp"
+#include "common/base/core.hpp"
+#include "common/base/macro.hpp"
+#include "common/log/logger.hpp"
 #include "window.hpp"
 
 namespace taixu {
@@ -18,9 +19,10 @@ class WindowFactory : private Noncopyable {
     using create_window_func_t = std::function<std::unique_ptr<Window>()>;
 
 private:
-    static std::unordered_map<WindowAPI, create_window_func_t>
-                                                    _windows_creation_map;
-    static std::unordered_map<RenderAPI, WindowAPI> _render_api_window_mapping;
+    TX_INLINE static std::unordered_map<WindowAPI, create_window_func_t>
+            _windows_creation_map{};
+    TX_INLINE static std::unordered_map<RenderAPI, WindowAPI>
+            _render_api_window_mapping{};
 
 public:
     static std::unique_ptr<Window> createWindow(RenderAPI render_api) {

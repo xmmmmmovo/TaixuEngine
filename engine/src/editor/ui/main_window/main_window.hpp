@@ -21,7 +21,7 @@
 #include "ui/components/statusbar_component.hpp"
 #include "ui/components/useful_obj_hierarchy_component.hpp"
 
-#include <engine.hpp>
+#include <engine/engine.hpp>
 #include <gameplay/gui/window.hpp>
 #include <management/components/transform/transform_component.hpp>
 #include <management/ecs/core/ecs_types.hpp>
@@ -60,6 +60,9 @@ private:
     std::unique_ptr<Window> _window_ptr{nullptr};
     ViewModel               _view_model{};
 
+    std::string _window_title{};
+    int32_t     _width, _height{0};
+
 private:
     /**
      * 一些const代码
@@ -76,10 +79,10 @@ private:
     void buildUpPathHierarchy();
 
 public:
-    explicit MainWindow(std::string const& title, int32_t width,
+    explicit MainWindow(std::string  title, int32_t width,
                         int32_t height);
 
-    void init();
+    void init(const std::vector<std::string>& args);
     void update();
     void destroy();
 

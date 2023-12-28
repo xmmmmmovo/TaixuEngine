@@ -5,7 +5,7 @@
 #ifndef ENGINE_EDITOR_UI_WIDGETS_SLIDER_HPP
 #define ENGINE_EDITOR_UI_WIDGETS_SLIDER_HPP
 
-#include <base/macro.hpp>
+#include <common/base/macro.hpp>
 #include "tooltip.hpp"
 
 #include <glm/glm.hpp>

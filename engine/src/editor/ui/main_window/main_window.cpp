@@ -1,9 +1,6 @@
 //
 // Created by xmmmmmovo on 2023/2/12.
 //
-#include "glm/glm.hpp"
-#include "glm/gtx/matrix_decompose.hpp"
-
 #include "main_window.hpp"
 #include <imgui.h>
 
@@ -11,7 +8,7 @@
 #include <gameplay/gui/imgui_surface.hpp>
 #include <platform/glfw/window.hpp>
 #include <platform/os/path.hpp>
-#include <base/macro.hpp>
+#include <utility>
 
 namespace taixu::editor {
 
@@ -64,9 +61,15 @@ void MainWindow::buildUpPathHierarchy() {
     }
 }
 
-void MainWindow::init() {
-//    INFO_LOG("Main window init start!");
+void MainWindow::init(const std::vector<std::string>& args) {
+    _view_model.init(args);
 
+    INFO_LOG("Main window init start!");
+    RenderAPI const api = _view_model.engine_runtime_ptr->getContext()
+                                  ._engine_args->render_api();
+    _window_ptr = WindowFactory::createWindow(api);
+    _window_ptr->init();
+    _window_ptr->showWindow(_window_title, _width, _height);
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
     //                if (button == GLFW_MOUSE_BUTTON_RIGHT && action ==
@@ -89,7 +92,7 @@ void MainWindow::init() {
 
     buildUpUsefulObjHierarchy();
 
-//    INFO_LOG("Main window init finished!");
+    //    INFO_LOG("Main window init finished!");
 }
 
 void MainWindow::preUpdate() {
@@ -157,7 +160,10 @@ void MainWindow::update() {
 }
 
 void MainWindow::show() {
-    while (!_window_ptr->shouldClose()) { _window_ptr->handleEvents(); }
+    while (!_window_ptr->shouldClose()) {
+        //        DEBUG_LOG("{}", _window_ptr->shouldClose());
+        _window_ptr->handleEvents();
+    }
 }
 
 void MainWindow::destroy() {
@@ -165,10 +171,8 @@ void MainWindow::destroy() {
     _window_ptr->destroy();
 }
 
-MainWindow::MainWindow(std::string const& title, int32_t width,
-                       int32_t height) {
-
-    _window_ptr = std::make_unique<GLFWWindow>();
+MainWindow::MainWindow(std::string title, int32_t width, int32_t height)
+    : _window_title(std::move(title)), _width(width), _height(height) {
     this->menu_component.bindCallbacks(
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),

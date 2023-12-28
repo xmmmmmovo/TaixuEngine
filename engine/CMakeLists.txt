@@ -23,73 +23,59 @@ endif ()
 # ------ third-party -------
 
 # add Vulkan
-include(../3rdparty/FindVulkan.cmake)
+include(FindVulkanLib)
+
+# add DX11
+include(FindDirectX11)
 
 # add HarfBuzz
-include(../3rdparty/FindHarfBuzz.cmake)
+include(FindHarfBuzz)
 
 # add freetype
-include(../3rdparty/FindFreetype.cmake)
+include(FindFreetype)
 
 # add glfw3
-include(../3rdparty/FindGlfw3.cmake)
+include(FindGlfw3)
 
 # add glm
-include(../3rdparty/FindGLM.cmake)
+include(FindGLM)
 
 # add stb
-include(../3rdparty/FindStb.cmake)
+include(FindStb)
 
 # add imgui
-include(../3rdparty/FindImgui.cmake)
+include(FindImgui)
+
+# add fmt
+include(FindFmt)
 
 # add spdlog
-include(../3rdparty/FindSpdlog.cmake)
+include(FindSpdlog)
 
 # add assimp
-include(../3rdparty/FindAssimp.cmake)
+include(FindAssimp)
 
 # add jsoncpp
-include(../3rdparty/FindJsoncpp.cmake)
+include(FindSimdjson)
 
 # add refl cpp
-include(../3rdparty/FindReflCpp.cmake)
+include(FindReflCpp)
 
 # add magic enum
-include(../3rdparty/FindMagicEnum.cmake)
+include(FindMagicEnum)
 
 # add argparse
-include(../3rdparty/FindArgparse.cmake)
+include(FindArgparse)
 
 # add joltpyhsics
-include(../3rdparty/FindJoltPhysics.cmake)
+include(FindJoltPhysics)
 
 find_package(Threads REQUIRED)
 
 # ------- sub-directories --------
 
-# shaders
-# add glsl compiler
-if (USE_VULKAN)
-    set(GLSLANG_VALIDATOR_EXECUTABLE ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
-    if (NOT GLSLANG_VALIDATOR_EXECUTABLE)
-        find_program(GLSLC_EXECUTABLE glslc
-                PATHS "${TAIXUENGINE_ROOT_DIR}/3rd_party/bin")
-        if (NOT GLSLC_EXECUTABLE)
-            message(FATAL_ERROR "glsl compiler not found!")
-        else ()
-            message("glsl ${GLSLC_EXECUTABLE}")
-            set(GLSL_COMPILER ${GLSLC_EXECUTABLE})
-        endif ()
-    else ()
-        message("glsl ${GLSLANG_VALIDATOR_EXECUTABLE}")
-        set(GLSL_COMPILER ${GLSLANG_VALIDATOR_EXECUTABLE})
-    endif ()
-endif ()
-
 set(SHADER_COMPILE_TARGET TaixuShaderCompile)
 
-set(COMMON_COMPILE_TARGET TaixuCommonLib)
 set(SCRIPT_COMPILE_TARGET TaixuScriptLib)
 
 set(INSTALL_DIR TaixuEngine)
@@ -99,6 +85,5 @@ add_subdirectory(tools)
 
 # editor and runtime
 add_subdirectory(src/editor)
-add_subdirectory(src/common)
 add_subdirectory(src/runtime)
 add_subdirectory(src/script)

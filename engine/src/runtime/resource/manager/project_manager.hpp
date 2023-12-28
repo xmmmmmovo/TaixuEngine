@@ -12,8 +12,8 @@
 
 #include <simdjson.h>
 
-#include <base/macro.hpp>
-#include <base/core.hpp>
+#include <common/base/macro.hpp>
+#include <common/base/core.hpp>
 #include <resource/res_type/json_data/project.hpp>
 
 namespace taixu {

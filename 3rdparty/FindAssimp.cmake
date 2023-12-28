@@ -1,15 +1,8 @@
-if (APPLE)
-    # TODO: Delete this line after assimp group fix this issue: #4864 #3933
-    # Just for my mac
-    link_directories(/opt/homebrew/Cellar/minizip/1.2.13/lib)
-endif (APPLE)
-
 # assimp
 CPMAddPackage(
         NAME assimp
         GITHUB_REPOSITORY assimp/assimp
-        GIT_TAG v5.2.5
-        GIT_SHALLOW TRUE
+        GIT_TAG 5d5496f1ad895297cede723b3c96b513263f82ed
         OPTIONS
         "ASSIMP_WARNINGS_AS_ERRORS OFF"
         "ASSIMP_BUILD_TESTS Off"

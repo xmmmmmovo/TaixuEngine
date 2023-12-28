@@ -11,7 +11,7 @@
 #include <vector>
 #include <cassert>
 
-#include "base/macro.hpp"
+#include "common/base/macro.hpp"
 
 namespace taixu {
 

@@ -6,7 +6,7 @@
 
 #include <filesystem>
 
-#include <log/logger.hpp>
+#include <common/log/logger.hpp>
 #include <optional>
 #include <platform/os/file_service.hpp>
 #include <resource/json/json_parser.hpp>

@@ -14,21 +14,13 @@ option(TEST_INSTALLED_VERSION "Test the version found by find_package" OFF)
 
 # --- Import tools ----
 
-include(../cmake/FindTools.cmake)
+include(FindTools)
 
 # ---- Dependencies ----
 
-include(../cmake/CPM.cmake)
-
-include(../3rdparty/FindCatch2.cmake)
+include(FindCatch2)
 
 # ---- Add Options ----
-
-if (APPLE)
-    # TODO: Delete this line after assimp group fix this issue: #4864 #3933
-    # Just for my mac
-    link_directories(/opt/homebrew/Cellar/minizip/1.2.13/lib)
-endif (APPLE)
 
 # ---- Add Tests ----
 

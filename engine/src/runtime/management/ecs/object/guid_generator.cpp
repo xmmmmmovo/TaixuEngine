@@ -1,7 +1,7 @@
 
 #include "guid_genenrator.hpp"
-#include <base/macro.hpp>
-#include <log/logger.hpp>
+#include <common/base/macro.hpp>
+#include <common/log/logger.hpp>
 
 namespace taixu {
 

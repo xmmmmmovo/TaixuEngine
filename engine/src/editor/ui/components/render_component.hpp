@@ -18,7 +18,7 @@
 #include <management/graphics/renderer.hpp>
 #include <management/input/input_system.hpp>
 #include <management/scene/scene.hpp>
-#include <math/imvec2.hpp>
+#include <common/math/imvec2.hpp>
 
 namespace taixu::editor {
 

@@ -6,10 +6,10 @@
 #define TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP
 
 #include <argparse/argparse.hpp>
-#include <base/core.hpp>
-#include <designs/public_singleton.hpp>
+#include <common/base/core.hpp>
+#include <common/designs/public_singleton.hpp>
 #include <gameplay/gui/window_factory.hpp>
-#include <log/logger.hpp>
+#include <common/log/logger.hpp>
 #include <platform/glfw/window.hpp>
 
 namespace taixu {

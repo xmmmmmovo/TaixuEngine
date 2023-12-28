@@ -3,8 +3,8 @@
 #include <string>
 
 // render use
-#include <engine.hpp>
-#include <engine_args.hpp>
+#include <engine/engine.hpp>
+#include <engine/engine_args.hpp>
 
 #include "ui/main_window/main_window.hpp"
 
@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
     taixu::editor::MainWindow main_window{
             MAIN_WINDOW_TITLE.data(), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT};
 
-    main_window.init();
+    main_window.init(args);
     main_window.show();
     main_window.destroy();
 

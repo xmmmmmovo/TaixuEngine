@@ -50,7 +50,7 @@
     #include <GLFW/glfw3native.h>
 #endif
 
-#include <log/logger.hpp>
+#include <common/log/logger.hpp>
 
 namespace taixu {
 
@@ -127,6 +127,7 @@ protected:
     }
 
     static void windowCloseCallback(GLFWwindow* window) {
+        DEBUG_LOG("clicked close!");
         glfwSetWindowShouldClose(window, true);
         auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
@@ -142,12 +143,12 @@ public:
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     }
 
-    void showWindow(std::string_view const& title, int32_t height,
-                    int32_t width) override {
-        auto window =
+    void showWindow(std::string_view const& title, int32_t width,
+                    int32_t height) override {
+        _window =
                 glfwCreateWindow(width, height, title.data(), nullptr, nullptr);
 
-        if (!window) {
+        if (!_window) {
             glfwTerminate();
             FATAL_LOG("Failed to create GLFW window");
         }
@@ -167,8 +168,6 @@ public:
         glfwSetWindowCloseCallback(_window, windowCloseCallback);
 
         glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-
-        setVsync(true);
     }
 
     void update() override { handleEvents(); }
@@ -180,10 +179,7 @@ public:
         glfwTerminate();
     }
 
-    void setVsync(bool vsync) override {
-        glfwSwapInterval(vsync);
-        _is_vsync = vsync;
-    }
+    ~GLFWWindow() override { destroy(); }
 
     [[nodiscard]] bool shouldClose() const override {
         return glfwWindowShouldClose(_window);
@@ -193,7 +189,7 @@ public:
      * below code only for windows that can get HWND
      */
 #ifdef _WIN32
-    std::optional<HWND> getHWND() const {
+    [[nodiscard]] std::optional<HWND> getHWND() const {
         if (!_window) {
             ERROR_LOG("window have not created!");
             return std::nullopt;
@@ -201,7 +197,7 @@ public:
         return glfwGetWin32Window(_window);
     }
 
-    std::optional<HINSTANCE> getHINSTANCE() const {
+    [[nodiscard]] std::optional<HINSTANCE> getHINSTANCE() const {
         if (!_window) {
             ERROR_LOG("window have not created!");
             return std::nullopt;

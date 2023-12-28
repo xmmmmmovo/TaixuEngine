@@ -10,7 +10,7 @@
 
 #include "ui/common/ui_component.hpp"
 #include <platform/os/path.hpp>
-#include <utils/function_utils.hpp>
+#include <common/utils/function_utils.hpp>
 
 namespace taixu::editor {
 

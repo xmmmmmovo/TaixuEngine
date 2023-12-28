@@ -5,12 +5,12 @@
 #define TAIXUENGINE_RESOURCE_RAW_DATA_TEXTURE_HPP
 
 #include "assimp/material.h"
-#include <utils/pointer_utils.hpp>
+#include <common/utils/pointer_utils.hpp>
 #include <memory>
 
-#include "raw_data.hpp"
-#include "engine_args.hpp"
+#include "engine/engine_args.hpp"
 #include "platform/os/path.hpp"
+#include "raw_data.hpp"
 
 namespace taixu {
 

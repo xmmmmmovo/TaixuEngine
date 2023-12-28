@@ -6,7 +6,7 @@
 #define TAIXUENGINE_VIEW_MODEL_HPP
 
 #include "ImGuizmo.h"
-#include "engine.hpp"
+#include "engine/engine.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/object/game_object.hpp"
 #include "management/graphics/renderer.hpp"
@@ -39,6 +39,11 @@ struct ViewModel {
 
     Engine*           engine_runtime_ptr{nullptr};
     AbstractRenderer* renderer{nullptr};
+
+    void init(const std::vector<std::string>& args) {
+        engine_runtime_ptr = &Engine::getInstance();
+        engine_runtime_ptr->init(args);
+    }
 };
 
 }// namespace taixu::editor

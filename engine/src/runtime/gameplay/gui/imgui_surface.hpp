@@ -5,6 +5,7 @@
 #ifndef TAIXUENGINE_IMGUI_SURFACE_HPP
 #define TAIXUENGINE_IMGUI_SURFACE_HPP
 
+#define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui.h"
 
 namespace taixu::editor {

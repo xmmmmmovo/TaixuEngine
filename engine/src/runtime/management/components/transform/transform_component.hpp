@@ -7,7 +7,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtx/quaternion.hpp"
 
-#include "base/macro.hpp"
+#include "common/base/macro.hpp"
 
 namespace taixu {
 

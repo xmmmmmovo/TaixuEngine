@@ -11,10 +11,15 @@ option(USE_PCH "pre compile" ON)
 option(WARNINGS "warnings" OFF)
 
 option(USE_VULKAN "use vulkan" ON)
-option(USE_DIRECTX "" OFF)
+option(USE_DX11 "use dx11" ON)
+option(USE_DX12 "use dx12" OFF)
 
 # for project properties
 set(ENGINE_VERSION 0.1)
+
+# add dirs to module path to make include more convenient
+list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty)
 
 if (USE_VCPKG)
     # set vcpkg for cmake
@@ -38,7 +43,7 @@ project(
 )
 
 # add cmake package manager
-include(cmake/CPM.cmake)
+include(CPM)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 

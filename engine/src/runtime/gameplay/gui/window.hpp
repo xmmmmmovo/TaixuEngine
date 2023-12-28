@@ -7,7 +7,7 @@
 
 #include <functional>
 
-#include <designs/noncopyable.hpp>
+#include <common/designs/noncopyable.hpp>
 
 namespace taixu {
 
@@ -100,15 +100,14 @@ protected:
 public:
     virtual void init() = 0;
 
-    virtual void showWindow(std::string_view const& title, int32_t height,
-                              int32_t width) = 0;
+    virtual void showWindow(std::string_view const& title, int32_t width,
+                            int32_t height) = 0;
 
     virtual void update()  = 0;
     virtual void destroy() = 0;
 
     // vsync
     [[nodiscard]] bool isVsync() const { return _is_vsync; }
-    virtual void       setVsync(bool vsync) = 0;
 
     virtual void handleEvents() = 0;
 

@@ -6,7 +6,7 @@
 
 #include <array>
 
-#include <utils/binary_utils.hpp>
+#include <common/utils/binary_utils.hpp>
 
 #define STB_DXT_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
@@ -14,7 +14,7 @@
 
 #include <stb_dxt.h>
 #include <stb_image.h>
-#include <stb_image_resize.h>
+#include <stb_image_resize2.h>
 
 namespace taixu {
 
@@ -47,7 +47,7 @@ std::optional<Image> loadImage(std::filesystem::path const& path,
         // call stb resize
         uint8_t*  out_data = malloc_bytes<uint8_t>(new_data_size);
         int const ret =
-                stbir_resize_uint8(data, width, height, 0, out_data, new_size,
+                stbir_resize_uint8_linear(data, width, height, 0, out_data, new_size,
                                    new_size, 0, desired_channels);
         // free origin data
         free(data);
