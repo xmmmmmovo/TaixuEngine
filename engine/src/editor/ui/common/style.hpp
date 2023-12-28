@@ -36,4 +36,4 @@ private:
 
 }// namespace taixu::editor
 
-#endif//TAIXUENGINE_STYLE_HPP
+#endif// TAIXUENGINE_STYLE_HPP

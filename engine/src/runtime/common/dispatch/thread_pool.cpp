@@ -38,7 +38,7 @@ void ThreadPool::destroyThreads() {
 
     _cv.notify_all();
 
-    for (auto &thread : _threads) { thread.join(); }
+    for (auto& thread : _threads) { thread.join(); }
 }
 
 }// namespace taixu

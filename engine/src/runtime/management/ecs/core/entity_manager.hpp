@@ -6,9 +6,9 @@
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_ENTITY_MANAGER_HPP
 
 #include "ecs_types.hpp"
+#include <cassert>
 #include <cstdint>
 #include <queue>
-#include <cassert>
 
 namespace taixu {
 
@@ -46,7 +46,7 @@ public:
         --_living_entity_count;
     }
 
-    void setSignature(Entity entity, Signature const &signature) {
+    void setSignature(Entity entity, Signature const& signature) {
         assert(entity < MAX_ENTITIES && "Entity out of range.");
 
         _signatures[entity] = signature;
@@ -65,4 +65,4 @@ public:
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_ENTITY_MANAGER_HPP
+#endif// ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_ENTITY_MANAGER_HPP

@@ -25,26 +25,30 @@
 namespace taixu {
 
 class AssetManager final {
-//private:
-//    static Mesh processMesh(aiMesh* mesh);
-//
-//    void processNode(aiNode* node, aiScene const* scene, Model& model);
-//
-//
-//    void processMaterial(aiScene const*               scene,
-//                         std::filesystem::path const& root_path, Model& model);
-//
-//    Texture2DAsset* processTexture(aiMaterial* material, aiTextureType type,
-//                                   std::filesystem::path const& root_path,
-//                                   std::filesystem::path const& directory_path);
-//
-//public:
-//    Model* loadModel(std::filesystem::path const& root_path,
-//                     std::filesystem::path const& relative_path);
-//
-//    Texture2DAsset* loadTexture(std::filesystem::path const& root_path,
-//                                std::filesystem::path const& relative_path,
-//                                TextureType type = TextureType::COMMON);
+    // private:
+    //     static Mesh processMesh(aiMesh* mesh);
+    //
+    //     void processNode(aiNode* node, aiScene const* scene, Model& model);
+    //
+    //
+    //     void processMaterial(aiScene const*               scene,
+    //                          std::filesystem::path const& root_path, Model&
+    //                          model);
+    //
+    //     Texture2DAsset* processTexture(aiMaterial* material, aiTextureType
+    //     type,
+    //                                    std::filesystem::path const&
+    //                                    root_path, std::filesystem::path
+    //                                    const& directory_path);
+    //
+    // public:
+    //     Model* loadModel(std::filesystem::path const& root_path,
+    //                      std::filesystem::path const& relative_path);
+    //
+    //     Texture2DAsset* loadTexture(std::filesystem::path const& root_path,
+    //                                 std::filesystem::path const&
+    //                                 relative_path, TextureType type =
+    //                                 TextureType::COMMON);
 };
 }// namespace taixu
 

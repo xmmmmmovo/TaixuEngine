@@ -13,4 +13,4 @@ class OrbitingCamera : public Camera {};
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_GAMEPLAY_PLAYER_CAMERA_ORBITING_CAMERA_HPP
+#endif// ENGINE_RUNTIME_GAMEPLAY_PLAYER_CAMERA_ORBITING_CAMERA_HPP

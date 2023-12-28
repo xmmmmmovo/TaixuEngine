@@ -43,7 +43,7 @@ public:
     }
 
     template<typename F, typename... Args>
-    void enqueue(F &&f, Args &&...args) {
+    void enqueue(F&& f, Args&&... args) {
         {
             std::unique_lock<std::mutex> const lock(_mutex);
 
@@ -91,4 +91,4 @@ public:
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_CORE_DISPATCH_THREAD_POOL_HPP
+#endif// ENGINE_RUNTIME_CORE_DISPATCH_THREAD_POOL_HPP

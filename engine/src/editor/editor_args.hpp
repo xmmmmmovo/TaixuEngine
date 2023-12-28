@@ -7,8 +7,7 @@
 
 namespace taixu {
 
-class EditorArgs {
-};
+class EditorArgs {};
 
 }// namespace taixu
 

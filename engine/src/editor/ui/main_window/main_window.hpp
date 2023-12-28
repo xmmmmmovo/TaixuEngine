@@ -79,8 +79,7 @@ private:
     void buildUpPathHierarchy();
 
 public:
-    explicit MainWindow(std::string  title, int32_t width,
-                        int32_t height);
+    explicit MainWindow(std::string title, int32_t width, int32_t height);
 
     void init(const std::vector<std::string>& args);
     void update();

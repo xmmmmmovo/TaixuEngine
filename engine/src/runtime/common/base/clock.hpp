@@ -59,4 +59,4 @@ public:
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_CLOCK_HPP
+#endif// TAIXUENGINE_CLOCK_HPP

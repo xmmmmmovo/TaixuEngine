@@ -25,7 +25,7 @@ public:
     TransformComponent() = default;
 
     template<typename T, typename RT>
-    explicit TransformComponent(T &&pos, T &&scale, RT &&rotate)
+    explicit TransformComponent(T&& pos, T&& scale, RT&& rotate)
         : _translate(std::forward<T>(pos)), _scale(std::forward<T>(scale)),
           _rotation(std::forward<RT>(rotate)) {}
 

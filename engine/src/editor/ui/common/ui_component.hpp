@@ -17,10 +17,10 @@ namespace taixu::editor {
  */
 class AbstractUIComponent : private Noncopyable {
 protected:
-    ViewModel *_view_model{nullptr};
+    ViewModel* _view_model{nullptr};
 
 public:
-    explicit AbstractUIComponent(ViewModel *view_model)
+    explicit AbstractUIComponent(ViewModel* view_model)
         : _view_model(view_model) {}
 
     /**
@@ -31,4 +31,4 @@ public:
 
 }// namespace taixu::editor
 
-#endif//TAIXUENGINE_UI_COMPONENT_HPP
+#endif// TAIXUENGINE_UI_COMPONENT_HPP

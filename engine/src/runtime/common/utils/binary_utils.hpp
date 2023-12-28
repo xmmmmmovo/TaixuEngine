@@ -10,7 +10,7 @@
 
 namespace taixu {
 
-constexpr std::int32_t const ZERO_VALUE_FLAG     = -1;
+constexpr std::int32_t const ZERO_VALUE_FLAG = -1;
 
 TX_INLINE std::int32_t bitScanForward32(std::uint32_t const value) {
     if (value == 0) { return ZERO_VALUE_FLAG; }

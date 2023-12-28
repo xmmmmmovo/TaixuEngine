@@ -28,4 +28,4 @@ struct Material final {
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_RESOURCE_RAW_DATA_MATERIAL_HPP
+#endif// ENGINE_RUNTIME_RESOURCE_RAW_DATA_MATERIAL_HPP

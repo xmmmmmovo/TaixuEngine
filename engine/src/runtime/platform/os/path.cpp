@@ -11,8 +11,8 @@ std::filesystem::path getRelativePath(const std::filesystem::path& directory,
     return file_path.lexically_relative(directory);
 }
 
-std::vector<std::string> getPathSegments(
-        const std::filesystem::path& file_path) {
+std::vector<std::string>
+getPathSegments(const std::filesystem::path& file_path) {
     std::vector<std::string> segments;
     for (auto iter = file_path.begin(); iter != file_path.end(); ++iter) {
         segments.push_back(iter->generic_string());
@@ -20,8 +20,8 @@ std::vector<std::string> getPathSegments(
     return segments;
 }
 
-std::vector<std::string> getFileExtensions(
-        const std::filesystem::path& file_path) {
+std::vector<std::string>
+getFileExtensions(const std::filesystem::path& file_path) {
     std::vector<std::string> res(1);
     for (auto p = file_path; !p.extension().empty(); p = p.stem()) {
         res.push_back(p.extension().generic_string());
@@ -48,8 +48,8 @@ std::filesystem::path fromRelativePath(const std::filesystem::path& directory,
     return directory / file_path;
 }
 
-std::filesystem::path fromRelativePath(
-        const std::filesystem::path& relative_path) {
+std::filesystem::path
+fromRelativePath(const std::filesystem::path& relative_path) {
     return std::filesystem::current_path() / relative_path;
 }
 

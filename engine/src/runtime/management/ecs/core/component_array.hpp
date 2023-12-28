@@ -22,7 +22,7 @@ public:
 template<typename T>
 class ComponentArray : public IComponentArray {
 public:
-    void insertData(Entity entity, T &&component) {
+    void insertData(Entity entity, T&& component) {
         assert(_map_array.contains(entity) == false &&
                "Component added to same entity more than once.");
 
@@ -31,7 +31,7 @@ public:
 
     void removeData(Entity entity) { _map_array.removeData(entity); }
 
-    T &getData(Entity entity) { return _map_array.getData(entity); }
+    T& getData(Entity entity) { return _map_array.getData(entity); }
 
     [[nodiscard]] bool contains(Entity entity) const {
         return _map_array.contains(entity);

@@ -29,17 +29,17 @@ std::uint32_t ECSCoordinator::getEntityCount() const {
     return _entity_manager->livingEntityCount();
 }
 
-System *ECSCoordinator::registerSystem(SystemIdType systemId) {
+System* ECSCoordinator::registerSystem(SystemIdType systemId) {
     return _system_manager->registerSystem(systemId);
 }
 
 void ECSCoordinator::setsystemSignature(SystemIdType     systemId,
-                                        Signature const &signature) {
+                                        Signature const& signature) {
     _system_manager->setSignature(systemId, signature);
 }
 
 void ECSCoordinator::addEventListener(
-        EventIdType eventId, const std::function<void(Event &)> &listener) {
+        EventIdType eventId, const std::function<void(Event&)>& listener) {
     _event_manager->addListener(eventId, listener);
 }
 
@@ -47,7 +47,7 @@ void ECSCoordinator::removeEventListener(EventIdType eventId) {
     this->_event_manager->removeListener(eventId);
 }
 
-void ECSCoordinator::sendEvent(Event &event) {
+void ECSCoordinator::sendEvent(Event& event) {
     _event_manager->addEvent(event);
 }
 

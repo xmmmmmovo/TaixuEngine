@@ -12,9 +12,9 @@ namespace taixu {
 
 class RenderableComponent {
 public:
-    bool   visiable{true};
+    bool visiable{true};
 };
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP
+#endif// ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP

@@ -17,12 +17,12 @@ private:
 
 public:
     template<typename... Params>
-    explicit RandomNumberGenerator(Params &&...params)
+    explicit RandomNumberGenerator(Params&&... params)
         : _random_engine(std::forward<Params>(params)...){};
     ~RandomNumberGenerator() = default;
 
     template<typename... Params>
-    void seed(Params &&...params) {
+    void seed(Params&&... params) {
         _random_engine.seed(std::forward<Params>(params)...);
     }
 
@@ -36,4 +36,4 @@ public:
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_CORE_MATH_RANDOM_HPP
+#endif// ENGINE_RUNTIME_CORE_MATH_RANDOM_HPP

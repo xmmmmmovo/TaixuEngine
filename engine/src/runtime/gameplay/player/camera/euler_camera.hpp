@@ -42,7 +42,7 @@ public:
     float     Zoom;
 
 
-    //float aspectRatio {4/3} ;
+    // float aspectRatio {4/3} ;
 
     // constructor with vectors
     explicit EulerCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
@@ -64,7 +64,9 @@ public:
         updateCameraVectorsPerspective();
     }
 
-    // processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
+    // processes input received from any keyboard-like input system. Accepts
+    // input parameter in the form of camera defined ENUM (to abstract it from
+    // windowing systems)
     void processKeyboard(CameraMovement direction, float deltaTime) {
         float const velocity = MovementSpeed * deltaTime;
         if (direction == CameraMovement::FORWARD) {
@@ -86,7 +88,8 @@ public:
         if (MovementSpeed == FASTS_PEED) { MovementSpeed = NORMAL_SPEED; }
     }
 
-    // processes input received from a mouse input system. Expects the offset value in both the x and y direction.
+    // processes input received from a mouse input system. Expects the offset
+    // value in both the x and y direction.
     void processMouseMovement(float xoffset, float yoffset,
                               bool constrainPitch = true) {
         xoffset *= MouseSensitivity;
@@ -95,7 +98,8 @@ public:
         Yaw += xoffset;
         Pitch += yoffset;
 
-        // make sure that when pitch is out of bounds, screen doesn't get flipped
+        // make sure that when pitch is out of bounds, screen doesn't get
+        // flipped
         if (constrainPitch) {
             if (Pitch > 89.0f) { Pitch = 89.0f; }
             if (Pitch < -89.0f) { Pitch = -89.0f; }
@@ -105,18 +109,19 @@ public:
         updateCameraVectorsPerspective();
     }
 
-    // processes input received from a mouse scroll-wheel event. Only requires input on the vertical wheel-axis
+    // processes input received from a mouse scroll-wheel event. Only requires
+    // input on the vertical wheel-axis
     void processMouseScroll(float yoffset) {
         Zoom -= yoffset;
         if (Zoom < 1.0f) { Zoom = 1.0f; }
         if (Zoom > 45.0f) { Zoom = 45.0f; }
     }
 
-    [[nodiscard]] glm::mat4 const &getViewMatrix() const {
+    [[nodiscard]] glm::mat4 const& getViewMatrix() const {
         return _view_matrix;
     }
 
-    [[nodiscard]] glm::mat4 const &getProjectionMatrix() {
+    [[nodiscard]] glm::mat4 const& getProjectionMatrix() {
         return _projection_matrix;
     }
 
@@ -145,7 +150,9 @@ private:
         // also re-calculate the Right and Up vector
         Right        = glm::normalize(glm::cross(
                 Front,
-                WorldUp));// normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
+                WorldUp));// normalize the vectors, because their length gets
+                          // closer to 0 the more you look up or down which
+                          // results in slower movement.
         Up           = glm::normalize(glm::cross(Right, Front));
         _view_matrix = glm::lookAt(Position, Position + Front, Up);
     }
@@ -161,4 +168,4 @@ private:
 
 }// namespace taixu
 
-#endif//TAIXUENGINE_PERSPECTIVE_CAMERA_HPP
+#endif// TAIXUENGINE_PERSPECTIVE_CAMERA_HPP

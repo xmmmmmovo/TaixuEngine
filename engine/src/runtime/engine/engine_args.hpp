@@ -8,8 +8,8 @@
 #include <argparse/argparse.hpp>
 #include <common/base/core.hpp>
 #include <common/designs/public_singleton.hpp>
-#include <gameplay/gui/window_factory.hpp>
 #include <common/log/logger.hpp>
+#include <gameplay/gui/window_factory.hpp>
 #include <platform/glfw/window.hpp>
 
 namespace taixu {
@@ -29,8 +29,10 @@ private:
 private:
     static void registerWindowFactory() {
         WindowFactory::registerRenderAPI(RenderAPI::VULKAN, WindowAPI::GLFW);
-        WindowFactory::registerRenderAPI(RenderAPI::DX11, WindowAPI::WINDOWSAPI);
-        WindowFactory::registerRenderAPI(RenderAPI::DX12, WindowAPI::WINDOWSAPI);
+        WindowFactory::registerRenderAPI(RenderAPI::DX11,
+                                         WindowAPI::WINDOWSAPI);
+        WindowFactory::registerRenderAPI(RenderAPI::DX12,
+                                         WindowAPI::WINDOWSAPI);
 
         WindowFactory::registerWindowCreationFunc(WindowAPI::GLFW, []() {
             return std::make_unique<GLFWWindow>();

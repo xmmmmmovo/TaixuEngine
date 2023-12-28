@@ -12,8 +12,8 @@
 #include <refl.hpp>
 #include <simdjson.h>
 
-#include <common/base/macro.hpp>
 #include "serializable.hpp"
+#include <common/base/macro.hpp>
 
 namespace taixu {
 

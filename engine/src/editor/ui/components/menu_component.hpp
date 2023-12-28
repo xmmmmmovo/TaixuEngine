@@ -9,8 +9,8 @@
 #include <imgui.h>
 
 #include "ui/common/ui_component.hpp"
-#include <platform/os/path.hpp>
 #include <common/utils/function_utils.hpp>
+#include <platform/os/path.hpp>
 
 namespace taixu::editor {
 

@@ -6,10 +6,10 @@
 #define ENGINE_RUNTIME_CORE_CONTAINER_MAP_ARRAY_HPP
 
 #include <array>
+#include <cassert>
 #include <cstddef>
 #include <unordered_map>
 #include <vector>
-#include <cassert>
 
 #include "common/base/macro.hpp"
 
