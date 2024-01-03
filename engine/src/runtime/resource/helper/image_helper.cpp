@@ -45,13 +45,13 @@ std::optional<Image> loadImage(std::filesystem::path const& path,
 
     if (new_size != width || new_size != height) {
         // call stb resize
-        uint8_t*  out_data = malloc_bytes<uint8_t>(new_data_size);
-        int const ret      = stbir_resize_uint8_linear(data, width, height, 0,
-                                                       out_data, new_size, new_size,
-                                                       0, desired_channels);
+        uint8_t*       out_data = malloc_bytes<uint8_t>(new_data_size);
+        const uint8_t* ret =
+                stbir_resize_uint8_linear(data, width, height, 0, out_data,
+                                          new_size, new_size, 0, STBIR_RGBA);
         // free origin data
         free(data);
-        if (0 == ret) {
+        if (nullptr == ret) {
             free(out_data);
             return std::nullopt;
         }

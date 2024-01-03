@@ -42,6 +42,13 @@ macro(FIND_GLSL platform suffix args)
     set_target_properties("${TARGET_NAME}_${suffix_upper}" PROPERTIES FOLDER "EngineShader")
 endmacro()
 
+macro(FIND_HLSL platform suffix args)
+    GET_HLSL_SHADER_FILES(${platform}_SHADER_FILES "hlsl/${platform}")
+    SOURCE_GROUP("shaders_${suffix}" FILES ${${platform}_SHADER_FILES})
+    string(TOUPPER ${suffix} suffix_upper)
+
+endmacro()
+
 # shaders
 # add glsl compiler
 if (USE_VULKAN)
@@ -71,6 +78,9 @@ if (USE_DX11)
     endif ()
 endif ()
 
+set(GLSL_INCLUDE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/glsl/include)
+set(GENERATED_SHADER_FOLDER "generated")
+
 if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER})
     file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER})
 endif ()
@@ -81,20 +91,14 @@ endif ()
 
 include(ShaderCompile)
 
-set(GLSL_INCLUDE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/glsl/include)
-
-set(GENERATED_SHADER_FOLDER "generated")
-
 if (USE_VULKAN)
     FIND_GLSL(vulkan vk "-V100")
 endif ()
 
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-
-else ()
-
-endif ()
-
 if (USE_DX11)
+    if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 
+    else ()
+
+    endif ()
 endif ()

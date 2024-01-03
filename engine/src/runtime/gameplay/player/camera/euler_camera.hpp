@@ -13,7 +13,14 @@
 
 namespace taixu {
 
-enum class CameraMovement { FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN };
+enum class CameraMovement : std::uint8_t {
+    FORWARD,
+    BACKWARD,
+    LEFT,
+    RIGHT,
+    UP,
+    DOWN
+};
 
 // Default camera values
 static constexpr float YAW          = -90.0f;
@@ -40,10 +47,7 @@ public:
     float     MovementSpeed;
     float     MouseSensitivity;
     float     Zoom;
-
-
-    // float aspectRatio {4/3} ;
-
+    
     // constructor with vectors
     explicit EulerCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
                          glm::vec3 up       = glm::vec3(0.0f, 1.0f, 0.0f),

@@ -22,11 +22,15 @@ endif ()
 
 # ------ third-party -------
 
-# add Vulkan
-include(FindVulkanLib)
+if (USE_VULKAN)
+    # add Vulkan
+    include(FindVulkanLib)
+endif ()
 
-# add DX11
-include(FindDirectX11)
+if (USE_DX11)
+    # add DX11
+    include(FindDirectX11)
+endif ()
 
 # add HarfBuzz
 include(FindHarfBuzz)
