@@ -5,19 +5,17 @@
 #include "imgui_surface.hpp"
 
 #include "IconsFontAwesome6.h"
-#include "backends/imgui_impl_glfw.h"
-#include "backends/imgui_impl_opengl3.h"
-#include <common/base/macro.hpp>
+#include "ImGuizmo.h"
 #include "imgui.h"
 #include "imgui_internal.h"
-#include "ImGuizmo.h"
+#include <common/base/macro.hpp>
 
 namespace taixu::editor {
 
-void ImguiSurface::init(GLFWwindow *window) {
+void ImguiLayers::init() {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-    ImGuiIO &io = ImGui::GetIO();
+    ImGuiIO& io = ImGui::GetIO();
     io.Fonts->AddFontDefault();
 
     // add source hans font
@@ -38,10 +36,11 @@ void ImguiSurface::init(GLFWwindow *window) {
 
     io.ConfigFlags |=
             ImGuiConfigFlags_NavEnableKeyboard;// Enable Keyboard Controls
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
-    io.ConfigFlags |=
-            ImGuiConfigFlags_ViewportsEnable;// Enable Multi-Viewport / Platform Windows
+    // io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable
+    // Gamepad Controls
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;  // Enable Docking
+    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;// Enable Multi-Viewport
+                                                       // / Platform Windows
 
     ImGui::StyleColorsDark();
 
@@ -54,7 +53,7 @@ void ImguiSurface::init(GLFWwindow *window) {
 // text
 #define TEXT(v) ImVec4(0.860f, 0.930f, 0.890f, v)
 
-    auto &style = ImGui::GetStyle();
+    auto& style = ImGui::GetStyle();
 
     style.Colors[ImGuiCol_Tab]          = ImVec4{0.15f, 0.15f, 0.15f, 1.0f};
     style.Colors[ImGuiCol_TabHovered]   = ImVec4{0.38f, 0.38f, 0.38f, 1.0f};
@@ -124,26 +123,21 @@ void ImguiSurface::init(GLFWwindow *window) {
     style.WindowRounding   = 0.0f;
     style.WindowBorderSize = 0.0f;
     style.WindowPadding    = ImVec2(0.0f, 0.0f);
-
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init(OPENGL_VERSION.data());
 }
 
-void ImguiSurface::preUpdate() {
+void ImguiLayers::preUpdate() {
     // Start the Dear ImGui frame
-    ImGui_ImplOpenGL3_NewFrame();
-    ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
-    
-    ImGuiViewport *viewport = ImGui::GetMainViewport();
+
+    ImGuiViewport* viewport = ImGui::GetMainViewport();
     ImGui::SetNextWindowPos(viewport->Pos);
     ImGui::SetNextWindowSize(viewport->Size);
     ImGui::SetNextWindowViewport(viewport->ID);
 }
 
-void ImguiSurface::addWidget(const char                  *name,
-                             std::function<void()> const &update,
-                             ImGuiWindowFlags const flags, bool *open) {
+void ImguiLayers::addWidget(const char*                  name,
+                            std::function<void()> const& update,
+                            ImGuiWindowFlags const flags, bool* open) {
     if (!ImGui::Begin(name, open, flags)) {
         ImGui::End();
         return;
@@ -152,25 +146,18 @@ void ImguiSurface::addWidget(const char                  *name,
     ImGui::End();
 }
 
-void ImguiSurface::update() {
+void ImguiLayers::update() {
     // Rendering
     ImGui::Render();
-    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-    ImGuiIO const &io = ImGui::GetIO();
+    ImGuiIO const& io = ImGui::GetIO();
 
     if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
-        GLFWwindow *backup_current_context = glfwGetCurrentContext();
         ImGui::UpdatePlatformWindows();
         ImGui::RenderPlatformWindowsDefault();
-        glfwMakeContextCurrent(backup_current_context);
     }
 }
 
-void ImguiSurface::destroy() {
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
-}
+void ImguiLayers::destroy() { ImGui::DestroyContext(); }
 
 }// namespace taixu::editor

@@ -10,36 +10,29 @@
 
 #include <backends/imgui_impl_glfw.h>
 
-#include "runtime/gameplay/player/camera/euler_camera.hpp"
-#include "runtime/management/components/renderable/renderable_component.hpp"
+#include "gameplay/player/camera/euler_camera.hpp"
+#include "management/components/renderable/renderable_component.hpp"
 #include <common/base/clock.hpp>
 #include <common/base/hash.hpp>
-#include <common/base/noncopyable.hpp>
-#include <runtime/management/ecs/core/ecs_types.hpp>
-#include <runtime/management/ecs/system/system.hpp>
-#include <runtime/management/graphics/frontend/lightsInfo.hpp>
-#include <runtime/management/graphics/frontend/materialInfo.hpp>
-#include <runtime/management/graphics/frontend/matrices.hpp>
-#include <runtime/management/graphics/render/framebuffer.hpp>
-#include <runtime/management/graphics/render/render_api.hpp>
-#include <runtime/management/graphics/render/shader.hpp>
-#include <runtime/management/graphics/render/texture_2d.hpp>
-#include <runtime/management/scene/scene.hpp>
-#include <runtime/platform/opengl/ogl_shader.hpp>
+#include <common/designs/noncopyable.hpp>
+#include <management/ecs/core/ecs_types.hpp>
+#include <management/ecs/system/system.hpp>
+#include <management/graphics/common/lightsInfo.hpp>
+#include <management/graphics/common/materialInfo.hpp>
+#include <management/graphics/common/matrices.hpp>
+#include <management/input/input_system.hpp>
+#include <management/scene/scene.hpp>
 
 namespace taixu {
 
-class AbstractRenderer : private noncopyable {
+class AbstractRenderer : private Noncopyable {
     PROTOTYPE_DFT(protected, bool, move_mode, false);
-    PROTOTYPE_DFT(protected, ITexture2D*, default_texture, nullptr);
 
 public:
     virtual void init()                                   = 0;
     virtual void update(float delta_time)                 = 0;
     virtual void clear(const std::array<float, 3>& color) = 0;
     virtual void clearSurface()                           = 0;
-
-    virtual IFrameBuffer* getRenderFramebuffer() = 0;
 
     virtual void bindScene(Scene* scene) = 0;
 };
@@ -54,10 +47,6 @@ protected:
     static constexpr SystemIdType RENDERABLE_SYSTEM_ID = "render_system"_hash64;
     static constexpr SystemIdType LIGHT_SYSTEM_ID      = "light_system"_hash64;
 
-    std::unique_ptr<IShaderProgram> _render_shader{nullptr};
-    std::unique_ptr<IShaderProgram> _skybox_shader{nullptr};
-    std::unique_ptr<IShaderProgram> _animation_shader{nullptr};
-
     Matrices     _matrices{};
     LightsInfo   _lights{};
     MaterialInfo _material{};
@@ -67,38 +56,38 @@ protected:
     void updateCamera(float delta_time) {
         if (_current_scene->_camera != nullptr) {
             auto const& inputsystem = InputSystem::getInstance();
-
-            if (inputsystem.getInputState(GLFW_KEY_W)) {
-                _current_scene->_camera->processKeyboard(
-                        CameraMovement::FORWARD, delta_time);
-            }
-            if (inputsystem.getInputState(GLFW_KEY_S)) {
-                _current_scene->_camera->processKeyboard(
-                        CameraMovement::BACKWARD, delta_time);
-            }
-            if (inputsystem.getInputState(GLFW_KEY_A)) {
-                _current_scene->_camera->processKeyboard(CameraMovement::LEFT,
-                                                         delta_time);
-            }
-            if (inputsystem.getInputState(GLFW_KEY_D)) {
-                _current_scene->_camera->processKeyboard(CameraMovement::RIGHT,
-                                                         delta_time);
-            }
-
-            if (inputsystem.getInputState(GLFW_KEY_E)) {
-                _current_scene->_camera->processKeyboard(CameraMovement::UP,
-                                                         delta_time);
-            }
-            if (inputsystem.getInputState(GLFW_KEY_Q)) {
-                _current_scene->_camera->processKeyboard(CameraMovement::DOWN,
-                                                         delta_time);
-            }
-
-            if (inputsystem.getInputState(GLFW_KEY_LEFT_SHIFT)) {
-                _current_scene->_camera->accelerate();
-            } else {
-                _current_scene->_camera->decelerate();
-            }
+            //
+            //            if (inputsystem.getInputState(GLFW_KEY_W)) {
+            //                _current_scene->_camera->processKeyboard(
+            //                        CameraMovement::FORWARD, delta_time);
+            //            }
+            //            if (inputsystem.getInputState(GLFW_KEY_S)) {
+            //                _current_scene->_camera->processKeyboard(
+            //                        CameraMovement::BACKWARD, delta_time);
+            //            }
+            //            if (inputsystem.getInputState(GLFW_KEY_A)) {
+            //                _current_scene->_camera->processKeyboard(CameraMovement::LEFT,
+            //                                                         delta_time);
+            //            }
+            //            if (inputsystem.getInputState(GLFW_KEY_D)) {
+            //                _current_scene->_camera->processKeyboard(CameraMovement::RIGHT,
+            //                                                         delta_time);
+            //            }
+            //
+            //            if (inputsystem.getInputState(GLFW_KEY_E)) {
+            //                _current_scene->_camera->processKeyboard(CameraMovement::UP,
+            //                                                         delta_time);
+            //            }
+            //            if (inputsystem.getInputState(GLFW_KEY_Q)) {
+            //                _current_scene->_camera->processKeyboard(CameraMovement::DOWN,
+            //                                                         delta_time);
+            //            }
+            //
+            //            if (inputsystem.getInputState(GLFW_KEY_LEFT_SHIFT)) {
+            //                _current_scene->_camera->accelerate();
+            //            } else {
+            //                _current_scene->_camera->decelerate();
+            //            }
 
             if (_move_mode) {
                 _current_scene->_camera->processMouseMovement(
@@ -141,7 +130,6 @@ protected:
                 coordinator.setsystemSignature(LIGHT_SYSTEM_ID,
                                                light_signature);
             }
-
         } else {
             _renderable_system = nullptr;
             _light_system      = nullptr;

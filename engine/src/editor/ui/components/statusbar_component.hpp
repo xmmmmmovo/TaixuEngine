@@ -5,18 +5,18 @@
 #ifndef TAIXUENGINE_STATUSBAR_COMPONENT_HPP
 #define TAIXUENGINE_STATUSBAR_COMPONENT_HPP
 
-#include "ui/ui_component.hpp"
+#include "ui/common/ui_component.hpp"
 
 namespace taixu::editor {
 
 class StatusBarComponent : public AbstractUIComponent {
 public:
-    explicit StatusBarComponent(ViewModel *view_model)
+    explicit StatusBarComponent(ViewModel* view_model)
         : AbstractUIComponent(view_model) {}
 
     void update() override {
-        float const   &status_window_height = ImGui::GetFrameHeight() * 1.3f;
-        ImGuiViewport *viewport             = ImGui::GetMainViewport();
+        float const&   status_window_height = ImGui::GetFrameHeight() * 1.3f;
+        ImGuiViewport* viewport             = ImGui::GetMainViewport();
         ImGui::SetNextWindowPos(
                 ImVec2(viewport->Pos.x, viewport->Pos.y + viewport->Size.y -
                                                 status_window_height));
@@ -41,4 +41,4 @@ public:
 
 }// namespace taixu::editor
 
-#endif//TAIXUENGINE_STATUSBAR_COMPONENT_HPP
+#endif// TAIXUENGINE_STATUSBAR_COMPONENT_HPP

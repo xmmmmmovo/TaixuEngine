@@ -5,14 +5,12 @@
 #ifndef TAIXUENGINE_FILE_COMPONENT_HPP
 #define TAIXUENGINE_FILE_COMPONENT_HPP
 
-#include <spdlog/spdlog.h>
-
 #include <filesystem>
 #include <string>
 #include <vector>
 
-#include "ui/ui_component.hpp"
-#include "ui/view_model.hpp"
+#include "ui/common/ui_component.hpp"
+#include "ui/common/view_model.hpp"
 #include "useful_obj_hierarchy_component.hpp"
 
 namespace taixu::editor {
@@ -57,7 +55,7 @@ private:
                         ImGui::IsItemHovered(ImGuiHoveredFlags_None)) {
                         if (!child.expanded) { expandTreeNode(child); }
                         child.expanded = !child.expanded;
-                        spdlog::info("Double Clicked on: {}", child.name);
+                        INFO_LOG("Double Clicked on: {}", child.name);
                         _view_model->selected_path = child.data;
                         _view_model->selected_node = &child;
                     }

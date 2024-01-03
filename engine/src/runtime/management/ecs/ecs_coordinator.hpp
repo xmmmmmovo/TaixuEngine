@@ -7,14 +7,14 @@
 
 #include <memory>
 
-#include <runtime/management/ecs/core/component_array.hpp>
-#include <runtime/management/ecs/core/component_manager.hpp>
-#include <runtime/management/ecs/core/ecs_types.hpp>
-#include <runtime/management/ecs/core/event.hpp>
-#include <runtime/management/ecs/core/event_manager.hpp>
-#include <runtime/management/ecs/system/system.hpp>
-#include <runtime/management/ecs/system/system_manager.hpp>
-#include <runtime/resource/manager/asset_manager.hpp>
+#include <management/ecs/core/component_array.hpp>
+#include <management/ecs/core/component_manager.hpp>
+#include <management/ecs/core/ecs_types.hpp>
+#include <management/ecs/core/event.hpp>
+#include <management/ecs/core/event_manager.hpp>
+#include <management/ecs/system/system.hpp>
+#include <management/ecs/system/system_manager.hpp>
+#include <resource/manager/asset_manager.hpp>
 
 namespace taixu {
 

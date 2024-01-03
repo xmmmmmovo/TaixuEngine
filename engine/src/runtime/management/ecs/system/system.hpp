@@ -6,7 +6,7 @@
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_HPP
 
 #include <common/base/macro.hpp>
-#include <runtime/management/ecs/core/ecs_types.hpp>
+#include <management/ecs/core/ecs_types.hpp>
 
 #include <algorithm>
 #include <unordered_set>
@@ -45,4 +45,4 @@ public:
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_HPP
+#endif// ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_HPP

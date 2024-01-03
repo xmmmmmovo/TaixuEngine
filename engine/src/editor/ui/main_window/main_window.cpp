@@ -1,22 +1,18 @@
 //
 // Created by xmmmmmovo on 2023/2/12.
 //
-#include "glm/glm.hpp"
-#include "glm/gtx/matrix_decompose.hpp"
-
 #include "main_window.hpp"
 #include <imgui.h>
-#include <spdlog/spdlog.h>
-
-#include <common/base/path.hpp>
 
 #include <GraphEditor.h>
-#include <runtime/gameplay/gui/imgui_surface.hpp>
-#include <runtime/platform/os/path.hpp>
+#include <gameplay/gui/imgui_surface.hpp>
+#include <platform/glfw/window.hpp>
+#include <platform/os/path.hpp>
+#include <utility>
 
 namespace taixu::editor {
 
-void MainWindow::buildUpUsefulObjHierachy() {
+void MainWindow::buildUpUsefulObjHierarchy() {
     _view_model.useful_objs_hierarchy = {
             {
                     .name = "Objects",
@@ -45,7 +41,7 @@ void MainWindow::buildUpUsefulObjHierachy() {
                           }}}};
 }
 
-void MainWindow::buildUpPathHierachy() {
+void MainWindow::buildUpPathHierarchy() {
     _view_model.selected_path = "";
     _view_model.selected_node = nullptr;
 
@@ -65,42 +61,46 @@ void MainWindow::buildUpPathHierachy() {
     }
 }
 
-void MainWindow::init() {
-    spdlog::info("Main window init start!");
+void MainWindow::init(const std::vector<std::string>& args) {
+    _view_model.init(args);
 
-    _context_ptr->registerOnMouseButtonFn(
-            [this](int button, int action, int /*mods*/) {
-                if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-                    if (_view_model.renderer->move_mode()) {
-                        _view_model.renderer->set_move_mode(false);
-                        glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
-                                         GLFW_CURSOR_NORMAL);
-                    } else {
-                        if (isCursorInRenderComponent()) {
-                            _view_model.renderer->set_move_mode(true);
-                            glfwSetInputMode(_context_ptr->_window, GLFW_CURSOR,
-                                             GLFW_CURSOR_DISABLED);
-                        }
-                    }
-                }
-            });
+    INFO_LOG("Main window init start!");
+    RenderAPI const api = _view_model.engine_runtime_ptr->getContext()
+                                  ._engine_args->render_api();
+    _window_ptr = WindowFactory::createWindow(api);
+    _window_ptr->init();
+    _window_ptr->showWindow(_window_title, _width, _height);
+    //    _window_ptr->registerOnMouseButtonFn(
+    //            [this](int button, int action, int /*mods*/) {
+    //                if (button == GLFW_MOUSE_BUTTON_RIGHT && action ==
+    //                GLFW_PRESS) {
+    //                    if (_view_model.renderer->move_mode()) {
+    //                        _view_model.renderer->set_move_mode(false);
+    //                        glfwSetInputMode(_window_ptr->_window,
+    //                        GLFW_CURSOR,
+    //                                         GLFW_CURSOR_NORMAL);
+    //                    } else {
+    //                        if (isCursorInRenderComponent()) {
+    //                            _view_model.renderer->set_move_mode(true);
+    //                            glfwSetInputMode(_window_ptr->_window,
+    //                            GLFW_CURSOR,
+    //                                             GLFW_CURSOR_DISABLED);
+    //                        }
+    //                    }
+    //                }
+    //            });
 
-    buildUpUsefulObjHierachy();
+    buildUpUsefulObjHierarchy();
 
-    spdlog::info("Main window init finished!");
+    //    INFO_LOG("Main window init finished!");
 }
 
 void MainWindow::preUpdate() {
-    ImguiSurface::preUpdate();
+    ImguiLayers::preUpdate();
 
-#ifndef NDEBUG
-    if (nullptr == _view_model.engine_runtime_ptr->getOpenedProject()) {
-        onOpenProjectCb(DEBUG_PATH "/example_proj");
-        return;
-    }
-#else
-    if (nullptr == _engine_runtime->getOpenedProject()) { return; }
-#endif
+    //    if (nullptr == _view_model.engine_runtime_ptr->getOpenedProject()) {
+    //        return;
+    //    }
 
     ImGui::Begin("Editor Menu", nullptr, DOCK_SPACE_FLAGS);
 
@@ -118,62 +118,61 @@ void MainWindow::preUpdate() {
 
     ImGui::End();
 
-    menu_component.processFileDialog();
-
-    ImguiSurface::addWidget(WORLD_OBJ_COMPONENT_NAME.data(),
-                            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
-                                    world_object_component.update));
-    ImguiSurface::addWidget(
-            RENDER_COMPONENT_NAME.data(),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component.update),
-            ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_MenuBar);
-    ImguiSurface::addWidget(
-            DETAILS_COMPONENT_NAME.data(),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component.update));
-    ImguiSurface::addWidget(
-            FILE_COMPONENT_NAME.data(),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(file_component.update));
-    ImguiSurface::addWidget(
-            STATUS_COMPONENT_NAME.data(),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(status_component.update));
-    ImguiSurface::addWidget(
-            USEFUL_OBJ_COMPONENT_NAME.data(),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component.update));
+    //    menu_component.processFileDialog();
+    //
+    //    ImguiSurface::addWidget(WORLD_OBJ_COMPONENT_NAME.data(),
+    //                            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
+    //                                    world_object_component.update));
+    //    ImguiSurface::addWidget(
+    //            RENDER_COMPONENT_NAME.data(),
+    //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component.update),
+    //            ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_MenuBar);
+    //    ImguiSurface::addWidget(
+    //            DETAILS_COMPONENT_NAME.data(),
+    //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component.update));
+    //    ImguiSurface::addWidget(
+    //            FILE_COMPONENT_NAME.data(),
+    //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(file_component.update));
+    //    ImguiSurface::addWidget(
+    //            STATUS_COMPONENT_NAME.data(),
+    //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(status_component.update));
+    //    ImguiSurface::addWidget(
+    //            USEFUL_OBJ_COMPONENT_NAME.data(),
+    //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component.update));
 }
 
 bool MainWindow::isCursorInRenderComponent() const {
-    spdlog::debug("Mouse pos: {}, {}", _context_ptr->_input_state->mouse_x,
-                  _context_ptr->_input_state->mouse_y);
-    spdlog::debug("Render rect: {}, {}, {}, {}",
-                  render_component._render_rect.Min.x,
-                  render_component._render_rect.Min.y,
-                  render_component._render_rect.Max.x,
-                  render_component._render_rect.Max.y);
-    return render_component._render_rect.Contains(
-            ImVec2{_context_ptr->_input_state->mouse_x,
-                   _context_ptr->_input_state->mouse_y});
+    //    spdlog::debug("Mouse pos: {}, {}", _window_ptr->_input_state->mouse_x,
+    //                  _window_ptr->_input_state->mouse_y);
+    //    spdlog::debug("Render rect: {}, {}, {}, {}",
+    //                  render_component._render_rect.Min.x,
+    //                  render_component._render_rect.Min.y,
+    //                  render_component._render_rect.Max.x,
+    //                  render_component._render_rect.Max.y);
+    //    return render_component._render_rect.Contains(
+    //            ImVec2{_window_ptr->_input_state->mouse_x,
+    //                   _window_ptr->_input_state->mouse_y});
 }
 
 void MainWindow::update() {
     preUpdate();
-    ImguiSurface::update();
+    ImguiLayers::update();
+}
+
+void MainWindow::show() {
+    while (!_window_ptr->shouldClose()) {
+        //        DEBUG_LOG("{}", _window_ptr->shouldClose());
+        _window_ptr->handleEvents();
+    }
 }
 
 void MainWindow::destroy() {
-    ImguiSurface::destroy();
-    _context_ptr->destroy();
+    ImguiLayers::destroy();
+    _window_ptr->destroy();
 }
 
-void MainWindow::initWithEngineRuntime(Engine* engine_runtime_ptr) {
-    _view_model.engine_runtime_ptr = engine_runtime_ptr;
-    _view_model.renderer           = engine_runtime_ptr->getRenderer();
-
-    ImguiSurface::init(_context_ptr->_window);
-    _view_model.framebuffer = _view_model.renderer->getRenderFramebuffer();
-}
-
-MainWindow::MainWindow(WindowContext* const context_ptr)
-    : _context_ptr(context_ptr) {
+MainWindow::MainWindow(std::string title, int32_t width, int32_t height)
+    : _window_title(std::move(title)), _width(width), _height(height) {
     this->menu_component.bindCallbacks(
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
@@ -185,9 +184,9 @@ MainWindow::MainWindow(WindowContext* const context_ptr)
 void MainWindow::onNewProjectCb(std::string_view const& path) {}
 
 void MainWindow::onOpenProjectCb(std::string_view const& path) {
-    _view_model.engine_runtime_ptr->loadProject(path);
+    //    _view_model.engine_runtime_ptr->loadProject(path);
     _view_model.project_path = path;
-    buildUpPathHierachy();
+    buildUpPathHierarchy();
 }
 
 void MainWindow::onSaveProjectCb() {}

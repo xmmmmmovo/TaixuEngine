@@ -14,23 +14,23 @@ namespace taixu {
 std::filesystem::path getRelativePath(const std::filesystem::path& directory,
                                       const std::filesystem::path& file_path);
 
-std::filesystem::path fromRelativePath(
-        const std::filesystem::path& directory,
-        const std::filesystem::path& relative_path);
+std::filesystem::path
+fromRelativePath(const std::filesystem::path& directory,
+                 const std::filesystem::path& relative_path);
 
-std::filesystem::path fromRelativePath(
-        const std::filesystem::path& relative_path);
+std::filesystem::path
+fromRelativePath(const std::filesystem::path& relative_path);
 
-std::vector<std::string> getPathSegments(
-        const std::filesystem::path& file_path);
+std::vector<std::string>
+getPathSegments(const std::filesystem::path& file_path);
 
 /**
  * @brief
  * @param file_path
  * @return
  */
-std::vector<std::string> getFileExtensions(
-        const std::filesystem::path& file_path);
+std::vector<std::string>
+getFileExtensions(const std::filesystem::path& file_path);
 
 /**
  * @brief get last extension
@@ -49,8 +49,8 @@ std::filesystem::path getRootPath();
 /**
  * @brief 获取文件的文件夹路径
  */
-[[maybe_unused]] std::filesystem::path getDirectoryPath(
-        const std::filesystem::path& file_path);
+[[maybe_unused]] std::filesystem::path
+getDirectoryPath(const std::filesystem::path& file_path);
 }// namespace taixu
 
-#endif//TAIXUENGINE_PATH_HPP
+#endif// TAIXUENGINE_PATH_HPP

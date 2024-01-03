@@ -27,16 +27,16 @@ public:
     EventIdType GetEventType() const noexcept { return _event_type; }
 
     template<typename T>
-    void AddParam(EventIdType id, T &&param) {
+    void AddParam(EventIdType id, T&& param) {
         _params.emplace(id, std::forward<T>(param));
     }
 
     template<typename T>
-    T &GetParam(EventIdType id) {
-        return std::any_cast<T &>(_params[id]);
+    T& GetParam(EventIdType id) {
+        return std::any_cast<T&>(_params[id]);
     }
 };
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_MANAGEMENT_ECS_SYSTEM_EVENT_HPP
+#endif// ENGINE_RUNTIME_MANAGEMENT_ECS_SYSTEM_EVENT_HPP

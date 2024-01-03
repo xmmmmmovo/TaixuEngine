@@ -13,18 +13,18 @@ namespace taixu {
 
 class EventManager final {
 private:
-    std::queue<Event>                                             _event_queue;
-    std::unordered_map<EventIdType, std::function<void(Event &)>> _listeners;
+    std::queue<Event>                                            _event_queue;
+    std::unordered_map<EventIdType, std::function<void(Event&)>> _listeners;
 
 public:
     EventManager() = default;
 
-    void addListener(EventIdType                         event_type,
-                     const std::function<void(Event &)> &listener);
+    void addListener(EventIdType                        event_type,
+                     const std::function<void(Event&)>& listener);
 
     void removeListener(EventIdType event_type);
 
-    void addEvent(Event const &event);
+    void addEvent(Event const& event);
 
     void addEvent(EventIdType event_type);
 
@@ -33,4 +33,4 @@ public:
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_MANAGEMENT_ECS_SYSTEM_EVENT_MANAGER_HPP
+#endif// ENGINE_RUNTIME_MANAGEMENT_ECS_SYSTEM_EVENT_MANAGER_HPP

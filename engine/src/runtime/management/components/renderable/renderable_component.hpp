@@ -5,18 +5,16 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP
 
-#include "runtime/management/graphics/render/vertex_array.hpp"
-#include "runtime/resource/raw_data/material.hpp"
-#include "runtime/resource/raw_data/model.hpp"
+#include "resource/res_type/raw_data/material.hpp"
+#include "resource/res_type/raw_data/model.hpp"
 
 namespace taixu {
 
 class RenderableComponent {
 public:
-    Model *model{nullptr};
-    bool   visiable{true};
+    bool visiable{true};
 };
 
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP
+#endif// ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP

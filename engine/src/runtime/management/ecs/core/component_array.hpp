@@ -8,8 +8,8 @@
 #include <common/base/macro.hpp>
 #include <common/container/map_array.hpp>
 
-#include <runtime/management/ecs/core/entity_manager.hpp>
-#include <runtime/management/ecs/object/guid_genenrator.hpp>
+#include <management/ecs/core/entity_manager.hpp>
+#include <management/ecs/object/guid_genenrator.hpp>
 
 namespace taixu {
 
@@ -22,7 +22,7 @@ public:
 template<typename T>
 class ComponentArray : public IComponentArray {
 public:
-    void insertData(Entity entity, T &&component) {
+    void insertData(Entity entity, T&& component) {
         assert(_map_array.contains(entity) == false &&
                "Component added to same entity more than once.");
 
@@ -31,7 +31,7 @@ public:
 
     void removeData(Entity entity) { _map_array.removeData(entity); }
 
-    T &getData(Entity entity) { return _map_array.getData(entity); }
+    T& getData(Entity entity) { return _map_array.getData(entity); }
 
     [[nodiscard]] bool contains(Entity entity) const {
         return _map_array.contains(entity);

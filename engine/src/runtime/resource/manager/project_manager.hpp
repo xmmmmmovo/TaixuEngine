@@ -12,9 +12,9 @@
 
 #include <simdjson.h>
 
-#include "runtime/resource/converted_data/project.hpp"
-
+#include <common/base/core.hpp>
 #include <common/base/macro.hpp>
+#include <resource/res_type/json_data/project.hpp>
 
 namespace taixu {
 

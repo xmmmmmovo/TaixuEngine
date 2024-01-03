@@ -21,4 +21,4 @@ struct InputState {
 };
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_MANAGEMENT_INPUT_INPUT_STATE_HPP
+#endif// ENGINE_RUNTIME_MANAGEMENT_INPUT_INPUT_STATE_HPP

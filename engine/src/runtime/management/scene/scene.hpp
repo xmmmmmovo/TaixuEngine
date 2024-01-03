@@ -5,33 +5,16 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 
-#include "runtime/gameplay/player/camera/euler_camera.hpp"
-#include "runtime/management/components/camera/camera_component.hpp"
-#include "runtime/management/components/renderable/renderable_component.hpp"
-#include "runtime/management/components/transform/transform_component.hpp"
+#include "gameplay/player/camera/euler_camera.hpp"
+#include "management/components/camera/camera_component.hpp"
+#include "management/components/renderable/renderable_component.hpp"
+#include "management/components/transform/transform_component.hpp"
 
-#include <runtime/management/ecs/core/ecs_types.hpp>
-#include <runtime/management/ecs/ecs_coordinator.hpp>
-#include <runtime/management/ecs/object/game_object.hpp>
-#include <runtime/management/graphics/render/texture_cube.hpp>
-#include <runtime/management/input/input_system.hpp>
+#include <management/ecs/core/ecs_types.hpp>
+#include <management/ecs/ecs_coordinator.hpp>
+#include <management/ecs/object/game_object.hpp>
 
-#include <runtime/platform/opengl/ogl_shader.hpp>
-
-#include <runtime/management/graphics/frontend/skybox.hpp>
-#include <runtime/management/graphics/render/texture_2d.hpp>
-#include <runtime/platform/opengl/ogl_texture2d.hpp>
-#include <runtime/platform/opengl/ogl_texture_cube.hpp>
-#include <runtime/resource/manager/asset_manager.hpp>
-
-#include "skybox_frag.h"
-#include "skybox_vert.h"
-
-#include "frag_frag.h"
-#include "vert_vert.h"
-
-#include "skeleton_frag.h"
-#include "skeleton_vert.h"
+#include <resource/manager/asset_manager.hpp>
 
 #include <memory>
 
@@ -58,8 +41,6 @@ private:
 
 public:
     ECSCoordinator _ecs_coordinator{};
-
-    std::unique_ptr<ITextureCube> _skybox_texture{nullptr};
 
     std::unique_ptr<EulerCamera> _camera{
             std::make_unique<EulerCamera>(glm::vec3(0.0f, 2.0f, 10.5f))};

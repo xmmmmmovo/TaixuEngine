@@ -5,15 +5,13 @@
 #ifndef TAIXUENGINE_MAIN_WINDOW_HPP
 #define TAIXUENGINE_MAIN_WINDOW_HPP
 
-#include "glad/glad.h"
-
 #include <memory>
 
-#include "GLFW/glfw3.h"
 #include "imgui.h"
 #include "imgui_internal.h"
 
 // "" headers
+#include "ui/common/view_model.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
@@ -22,20 +20,19 @@
 #include "ui/components/render_component.hpp"
 #include "ui/components/statusbar_component.hpp"
 #include "ui/components/useful_obj_hierarchy_component.hpp"
-#include "ui/view_model.hpp"
 
-#include <runtime/engine.hpp>
-#include <runtime/gameplay/gui/window.hpp>
-#include <runtime/management/components/transform/transform_component.hpp>
-#include <runtime/management/ecs/core/ecs_types.hpp>
-#include <runtime/management/ecs/ecs_coordinator.hpp>
-#include <runtime/management/ecs/system/system.hpp>
-#include <runtime/management/graphics/renderer.hpp>
-#include <runtime/management/scene/scene.hpp>
+#include <engine/engine.hpp>
+#include <gameplay/gui/window.hpp>
+#include <management/components/transform/transform_component.hpp>
+#include <management/ecs/core/ecs_types.hpp>
+#include <management/ecs/ecs_coordinator.hpp>
+#include <management/ecs/system/system.hpp>
+#include <management/graphics/renderer.hpp>
+#include <management/scene/scene.hpp>
 
 namespace taixu::editor {
 
-class MainWindow : public IWindow {
+class MainWindow {
 private:
     // names
     static std::string_view constexpr DOCK_SPACE_NAME{"TaixuEditorDock"};
@@ -60,8 +57,11 @@ private:
 
 private:
     // context
-    WindowContext* _context_ptr{nullptr};
-    ViewModel      _view_model{};
+    std::unique_ptr<Window> _window_ptr{nullptr};
+    ViewModel               _view_model{};
+
+    std::string _window_title{};
+    int32_t     _width, _height{0};
 
 private:
     /**
@@ -75,17 +75,17 @@ private:
             ImGuiWindowFlags_NoBringToFrontOnFocus;
 
 private:
-    void buildUpUsefulObjHierachy();
-    void buildUpPathHierachy();
+    void buildUpUsefulObjHierarchy();
+    void buildUpPathHierarchy();
 
 public:
-    explicit MainWindow(WindowContext* context_ptr);
+    explicit MainWindow(std::string title, int32_t width, int32_t height);
 
-    void init() override;
-    void update() override;
-    void destroy() override;
+    void init(const std::vector<std::string>& args);
+    void update();
+    void destroy();
 
-    void initWithEngineRuntime(Engine* engine_runtime_ptr) override;
+    void show();
 
 private:
     void preUpdate();

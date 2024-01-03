@@ -4,12 +4,10 @@
 
 #include "file_service.hpp"
 
-#include <spdlog/spdlog.h>
-
 namespace taixu {
 
-std::vector<std::filesystem::path> getFiles(
-        const std::filesystem::path& directory) {
+std::vector<std::filesystem::path>
+getFiles(const std::filesystem::path& directory) {
     std::vector<std::filesystem::path> files;
     auto                               recursive_iter =
             std::filesystem::recursive_directory_iterator{directory};

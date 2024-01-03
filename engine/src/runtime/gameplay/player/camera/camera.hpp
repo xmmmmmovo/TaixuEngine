@@ -20,8 +20,8 @@ class Camera {
 
     void rorateZ(float angle) {}
 
-    void move(glm::vec3 const &direction) {}
+    void move(glm::vec3 const& direction) {}
 };
 }// namespace taixu
 
-#endif//ENGINE_RUNTIME_GAMEPLAY_PLAYER_CAMERA_CAMERA_HPP
+#endif// ENGINE_RUNTIME_GAMEPLAY_PLAYER_CAMERA_CAMERA_HPP
