@@ -6,7 +6,7 @@ on:
       - "engine/**"
 
 jobs:
-  foramt:
+  format:
     name: Clang Format
     runs-on: ubuntu-latest
     steps:
@@ -31,7 +31,19 @@ jobs:
 
   lint:
     name: Clang Tidy
-    needs: foramt
+    needs: format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      # Optionally generate compile_commands.json
+      - uses: ZedThree/clang-tidy-review@v0.14.0
+        id: review
+
+      # Uploads an artefact containing clang_fixes.json
+      - uses: ZedThree/clang-tidy-review/upload@v0.14.0
+        id: upload-review
+
+      # If there are any comments, fail the check
+      - if: steps.review.outputs.total_comments > 0
+        run: exit 1
