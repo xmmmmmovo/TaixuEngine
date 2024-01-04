@@ -42,11 +42,22 @@ macro(FIND_GLSL platform suffix args)
     set_target_properties("${TARGET_NAME}_${suffix_upper}" PROPERTIES FOLDER "EngineShader")
 endmacro()
 
-macro(FIND_HLSL platform suffix args)
+macro(FIND_HLSL platform suffix debug args)
     GET_HLSL_SHADER_FILES(${platform}_SHADER_FILES "hlsl/${platform}")
     SOURCE_GROUP("shaders_${suffix}" FILES ${${platform}_SHADER_FILES})
     string(TOUPPER ${suffix} suffix_upper)
 
+    compile_hlsl_shader(
+            "${${platform}_SHADER_FILES}"
+            "${TARGET_NAME}_${suffix_upper}"
+            "${GENERATED_SHADER_FOLDER}"
+            "${HLSL_COMPILER}"
+            ${debug}
+            "${suffix}"
+            ${args}
+    )
+
+    set_target_properties("${TARGET_NAME}_${suffix_upper}" PROPERTIES FOLDER "EngineShader")
 endmacro()
 
 # shaders
@@ -69,12 +80,15 @@ if (USE_VULKAN)
 endif ()
 
 if (USE_DX11)
-    find_program(DXC_EXECUTABLE fxc
+    find_program(FXC_EXECUTABLE fxc
             PATHS "${TAIXUENGINE_ROOT_DIR}/3rd_party/bin"
             DOC "The DirectX shader compiler"
     )
-    if (NOT DXC_EXECUTABLE)
+    if (NOT FXC_EXECUTABLE)
         message(FATAL_ERROR "fxc compiler not found!")
+    else ()
+        set(HLSL_COMPILER ${FXC_EXECUTABLE})
+        message("fxc ${FXC_EXECUTABLE}")
     endif ()
 endif ()
 
@@ -88,6 +102,9 @@ endif ()
 if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER}/spv)
     file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER}/spv)
 endif ()
+if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER}/cpp)
+    file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${GENERATED_SHADER_FOLDER}/cpp)
+endif ()
 
 include(ShaderCompile)
 
@@ -97,8 +114,8 @@ endif ()
 
 if (USE_DX11)
     if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-
+        FIND_HLSL(dx11 dx11 TRUE /Zi /Od /nologo)
     else ()
-
+        FIND_HLSL(dx11 dx11 FALSE /O3 /nologo /WX)
     endif ()
 endif ()

@@ -1,4 +1,4 @@
-name: Lint Cpp
+name: Format and Lint Cpp
 
 on:
   pull_request:
