@@ -25,9 +25,9 @@ if (USE_PCH)
 endif ()
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/imgui.ini" -DDEST_PATH="${OUTPUT_DIR}/imgui.ini" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
-        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/assets" -DDEST_PATH="${OUTPUT_DIR}/assets" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
-        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/res" -DDEST_PATH="${OUTPUT_DIR}/res" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
+        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/imgui.ini" -DDEST_PATH="${OUTPUT_DIR}" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
+        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/assets" -DDEST_PATH="${OUTPUT_DIR}" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
+        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/res" -DDEST_PATH="${OUTPUT_DIR}" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
 )
 
 if (${CMAKE_BUILD_TYPE})
