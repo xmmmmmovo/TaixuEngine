@@ -8,6 +8,16 @@
     #define _WIN32
 #endif /* _WIN32 */
 
+#if defined(__WIN32__) || defined(WIN32) || defined(_WIN32) ||                 \
+        defined(__WIN64__) || defined(WIN64) || defined(_WIN64) ||             \
+        defined(_MSC_VER)
+    #define TX_WINDOWS
+#endif
+
+#if !defined(_DEBUG) && defined(DEBUG)
+    #define _DEBUG
+#endif
+
 #if defined(TX_FORCE_INLINE)
     #if _MSC_VER
         #define TX_INLINE __forceinline
@@ -31,6 +41,8 @@
     #define TX_INLINE inline
     #define TX_NEVER_INLINE
 #endif
+
+// NOLINTBEGIN
 
 #define PROTOTYPE_GETTER(type, name)                                           \
 public:                                                                        \
@@ -86,6 +98,8 @@ access:                                                                        \
 #define PROTOTYPE(access, type, name)                                          \
     PROTOTYPE_DFT_ONLY_GETTER(access, type, name, )                            \
     PROTOTYPE_SETTER(type, name)
+
+// NOLINTEND
 
 #define TX_SLEEP_FOR(MS)                                                       \
     std::this_thread::sleep_for(std::chrono::milliseconds(MS));

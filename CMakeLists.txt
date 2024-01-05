@@ -57,6 +57,13 @@ else ()
     set(OUTPUT_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 endif ()
 
+# accelerate the msvc project
+if (MSVC)
+    add_compile_options("/MP")
+    add_compile_options("/utf-8")
+    add_definitions(-DUNICODE -D_UNICODE)
+endif ()
+
 add_subdirectory(engine)
 add_subdirectory(docs)
 add_subdirectory(tests)
