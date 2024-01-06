@@ -2,14 +2,14 @@
 // Created by xmmmmmovo on 2023/3/2.
 //
 
-#ifndef TAIXUENGINE_CLOCK_HPP
-#define TAIXUENGINE_CLOCK_HPP
+#ifndef TAIXUENGINE_CLOCK_HPP_7AAF21E5E5DB40FEA443453F3D77703A
+#define TAIXUENGINE_CLOCK_HPP_7AAF21E5E5DB40FEA443453F3D77703A
 
 #include <chrono>
 
 namespace taixu {
 
-class Clock {
+class CpuClock {
 private:
     std::chrono::high_resolution_clock::time_point start_time;
     std::chrono::high_resolution_clock::time_point last_time;
@@ -17,16 +17,12 @@ private:
     std::chrono::duration<float>                   elapsed_time{};
 
     float delta_time{};
-    float time_scale{};
-
     float time_since_start{};
-    bool  unreset{false};
 
 public:
+    float time_scale{1.0f};
+    
     [[nodiscard]] float getDeltaTime() const { return delta_time; }
-
-    [[nodiscard]] float getTimeScale() const { return time_scale; }
-
     [[nodiscard]] float getTimeSinceStart() const { return time_since_start; }
 
     void reset() {
@@ -35,15 +31,10 @@ public:
         current_time = start_time;
 
         delta_time       = 0.0f;
-        time_scale       = 1.0f;
         time_since_start = 0.0f;
     }
 
     void update() {
-        if (unreset) {
-            reset();
-            unreset = false;
-        }
         last_time    = current_time;
         current_time = std::chrono::high_resolution_clock::now();
         elapsed_time = current_time - last_time;
@@ -59,4 +50,4 @@ public:
 
 }// namespace taixu
 
-#endif// TAIXUENGINE_CLOCK_HPP
+#endif// TAIXUENGINE_CLOCK_HPP_7AAF21E5E5DB40FEA443453F3D77703A

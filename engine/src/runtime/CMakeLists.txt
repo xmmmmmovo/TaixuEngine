@@ -32,9 +32,8 @@ if (USE_PCH)
             ${ENGINE_ROOT_DIR}/precompile/pch_std.hpp)
 endif ()
 
-target_link_libraries(${TARGET_NAME} PRIVATE magic_enum::magic_enum stb)
-
 # public link
+target_link_libraries(${TARGET_NAME} PUBLIC magic_enum::magic_enum stb)
 target_link_libraries(${TARGET_NAME} PUBLIC simdjson Threads::Threads freetype glfw)
 target_link_libraries(${TARGET_NAME} PUBLIC Jolt)
 target_link_libraries(${TARGET_NAME} PUBLIC refl-cpp::refl-cpp assimp)

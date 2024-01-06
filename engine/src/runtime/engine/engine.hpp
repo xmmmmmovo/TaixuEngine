@@ -14,15 +14,12 @@ namespace taixu {
 class Engine final : public PublicSingleton<Engine> {
     friend class PublicSingleton<Engine>;
 
-private:
-    EngineContext _context;
+    PROTOTYPE_ONLY_GETTER_CONST(private, EngineContext, context);
 
 public:
     void init(const std::vector<std::string>& args);
     void update();
     void destroy();
-
-    EngineContext const& getContext() { return _context; }
 };
 
 }// namespace taixu

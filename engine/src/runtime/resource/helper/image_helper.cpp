@@ -12,6 +12,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
 
+#include <common/exception/notimplemented_exception.hpp>
 #include <stb_dxt.h>
 #include <stb_image.h>
 #include <stb_image_resize2.h>
@@ -77,7 +78,7 @@ free_unique_ptr<uint8_t> compressImage(uint8_t* data, int width, int height,
 free_unique_ptr<uint8_t> combineImages(uint8_t* red, uint8_t* green,
                                        uint8_t* blue, uint8_t* alpha, int width,
                                        int height) {
-    assert(false && "Not implemented!");
+    NOT_IMPL_ASSERT();
     return nullptr;
 }
 

@@ -5,6 +5,7 @@
 #ifndef ENGINE_SRC_RUNTIME_ENGINE_CONTEXT_AFC9470FE8DF4FD682C297E3488583D5
 #define ENGINE_SRC_RUNTIME_ENGINE_CONTEXT_AFC9470FE8DF4FD682C297E3488583D5
 
+#include "common/base/cpu_clock.hpp"
 #include <gameplay/gui/window.hpp>
 #include <management/ecs/ecs_coordinator.hpp>
 #include <management/graphics/renderer.hpp>
@@ -32,11 +33,13 @@ public:
     /**
      * @brief engine clock
      */
-    Clock _clock{};
+    CpuClock _clock{};
 
     void init(const std::vector<std::string>& args) {
         _engine_args->initWithArgs(args);
     }
+
+    void destroy() {}
 };
 
 }// namespace taixu

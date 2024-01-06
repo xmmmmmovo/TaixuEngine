@@ -34,7 +34,7 @@ private:
         WindowFactory::registerRenderAPI(RenderAPI::DX12,
                                          WindowAPI::WINDOWSAPI);
 
-        WindowFactory::registerWindowCreationFunc(WindowAPI::GLFW, []() {
+        WindowFactory::registerCreationFunc(WindowAPI::GLFW, []() {
             return std::make_unique<GLFWWindow>();
         });
     }

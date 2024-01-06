@@ -10,6 +10,14 @@
 
 namespace taixu {
 
+/**
+ * @brief
+ * @param strFile filename
+ * @param dwLine fileline
+ * @param hr function name
+ * @param strMsg error message
+ * @return
+ */
 HRESULT WINAPI dx11TraceW(_In_z_ const char* strFile, _In_ std::int32_t dwLine,
                           _In_ HRESULT hr, _In_opt_ const char* strMsg);
 

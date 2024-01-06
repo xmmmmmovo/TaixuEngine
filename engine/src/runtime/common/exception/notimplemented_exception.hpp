@@ -7,7 +7,7 @@
 
 #include <stdexcept>
 
-#define NOT_IMPL_ASSERT assert(false && "Not implemented!");
+#define NOT_IMPL_ASSERT() assert(false && "Not implemented!");
 
 namespace taixu {
 

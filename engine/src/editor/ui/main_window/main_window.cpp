@@ -62,11 +62,14 @@ void MainWindow::buildUpPathHierarchy() {
 }
 
 void MainWindow::init(const std::vector<std::string>& args) {
-    _view_model.init(args);
+    _engine_runtime_ptr = &Engine::getInstance();
+    _engine_runtime_ptr->init(args);
+
+    _view_model.init(_engine_runtime_ptr);
 
     INFO_LOG("Main window init start!");
-    RenderAPI const api = _view_model.engine_runtime_ptr->getContext()
-                                  ._engine_args->render_api();
+    RenderAPI const api =
+            _engine_runtime_ptr->context()._engine_args->render_api();
     _window_ptr = WindowFactory::createWindow(api);
     _window_ptr->init();
     _window_ptr->showWindow(_window_title, _width, _height);
@@ -152,6 +155,7 @@ bool MainWindow::isCursorInRenderComponent() const {
     //    return render_component._render_rect.Contains(
     //            ImVec2{_window_ptr->_input_state->mouse_x,
     //                   _window_ptr->_input_state->mouse_y});
+    return true;
 }
 
 void MainWindow::update() {
@@ -159,14 +163,14 @@ void MainWindow::update() {
     ImguiLayers::update();
 }
 
-void MainWindow::show() {
+void MainWindow::show() const {
     while (!_window_ptr->shouldClose()) {
         //        DEBUG_LOG("{}", _window_ptr->shouldClose());
         _window_ptr->handleEvents();
     }
 }
 
-void MainWindow::destroy() {
+void MainWindow::destroy() const {
     ImguiLayers::destroy();
     _window_ptr->destroy();
 }

@@ -42,6 +42,19 @@
     #define TX_NEVER_INLINE
 #endif
 
+#define TX_NO_RETURN __attribute__((noreturn))
+#define TX_NO_ESCAPE __attribute__((noescape))
+#define TX_NO_INLINE __attribute__((noinline))
+
+#define TX_UNUSED(x) (void) (x)
+
+#define TX_ALIGNED(n) __attribute__((aligned(n)))
+
+#define TX_ASSERT(x) assert((x))
+#define TX_ASSERT_MSG(x, msg) assert((x) && msg)
+
+#define TX_UNREACHABLE() assert(false)
+
 // NOLINTBEGIN
 
 #define PROTOTYPE_GETTER(type, name)                                           \

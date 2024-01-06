@@ -58,6 +58,7 @@ private:
 private:
     // context
     std::unique_ptr<Window> _window_ptr{nullptr};
+    Engine*                 _engine_runtime_ptr{nullptr};
     ViewModel               _view_model{};
 
     std::string _window_title{};
@@ -83,9 +84,9 @@ public:
 
     void init(const std::vector<std::string>& args);
     void update();
-    void destroy();
+    void destroy() const;
 
-    void show();
+    void show() const;
 
 private:
     void preUpdate();

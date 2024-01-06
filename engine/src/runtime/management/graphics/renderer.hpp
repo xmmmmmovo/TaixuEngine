@@ -12,7 +12,6 @@
 
 #include "gameplay/player/camera/euler_camera.hpp"
 #include "management/components/renderable/renderable_component.hpp"
-#include <common/base/clock.hpp>
 #include <common/base/hash.hpp>
 #include <common/designs/noncopyable.hpp>
 #include <management/ecs/core/ecs_types.hpp>

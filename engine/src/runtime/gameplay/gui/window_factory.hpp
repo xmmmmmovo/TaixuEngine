@@ -10,41 +10,23 @@
 
 #include "common/base/core.hpp"
 #include "common/base/macro.hpp"
+#include "common/designs/abstract_factory.hpp"
 #include "common/log/logger.hpp"
 #include "window.hpp"
 
 namespace taixu {
 
-class WindowFactory : private Noncopyable {
+class WindowFactory : private Noncopyable,
+                      public AbstractFactory<WindowAPI, Window> {
     using create_window_func_t = std::function<std::unique_ptr<Window>()>;
 
 private:
-    TX_INLINE static std::unordered_map<WindowAPI, create_window_func_t>
-            _windows_creation_map{};
     TX_INLINE static std::unordered_map<RenderAPI, WindowAPI>
             _render_api_window_mapping{};
 
 public:
     static std::unique_ptr<Window> createWindow(RenderAPI render_api) {
-        decltype(auto) iter = _windows_creation_map.find(
-                getRenderAPIMappedWindowAPI(render_api));
-
-        if (iter == _windows_creation_map.end()) {
-            FATAL_LOG("Cannot find this window api!");
-            return nullptr;
-        }
-        return iter->second();
-    }
-
-    static void registerWindowCreationFunc(WindowAPI            api,
-                                           create_window_func_t func) {
-        auto iter = _windows_creation_map.find(api);
-        if (iter != _windows_creation_map.end()) {
-            WARN_LOG("This window have already registered");
-            iter->second = std::move(func);
-        } else {
-            _windows_creation_map[api] = func;
-        }
+        return createProduct(getRenderAPIMappedWindowAPI(render_api));
     }
 
     static void registerRenderAPI(RenderAPI render_api, WindowAPI window_api) {
