@@ -4,8 +4,6 @@
 
 #include "image_helper.hpp"
 
-#include <array>
-
 #include <common/utils/binary_utils.hpp>
 
 #define STB_DXT_IMPLEMENTATION
@@ -13,6 +11,7 @@
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
 
 #include <common/exception/notimplemented_exception.hpp>
+
 #include <stb_dxt.h>
 #include <stb_image.h>
 #include <stb_image_resize2.h>

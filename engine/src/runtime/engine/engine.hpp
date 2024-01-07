@@ -16,8 +16,18 @@ class Engine final : public PublicSingleton<Engine> {
 
     PROTOTYPE_ONLY_GETTER_CONST(private, EngineContext, context);
 
+private:
+    /**
+     * @brief engine clock
+     */
+    CpuClock _clock{};
+
 public:
     void init(const std::vector<std::string>& args);
+    /**
+     * @brief This function only need call once before main loop
+     */
+    void start();
     void update();
     void destroy();
 };

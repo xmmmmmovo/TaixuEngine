@@ -7,11 +7,10 @@
 
 #include "common/base/macro.hpp"
 
-#include <DirectXCollision.h>// 已包含DirectXMath.h
-#include <DirectXColors.h>
-#include <DirectXPackedVector.h>
-#include <d3d11_1.h>// 已包含Windows.h
+#include "platform/os/windows/windows_min.hpp"
 
+#include <cstdint>
+#include <d3d11_1.h>// 已包含Windows.h
 
 namespace taixu {
 

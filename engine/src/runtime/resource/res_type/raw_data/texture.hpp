@@ -8,13 +8,12 @@
 #include <common/utils/pointer_utils.hpp>
 #include <memory>
 
-#include "engine/engine_args.hpp"
 #include "platform/os/path.hpp"
 #include "raw_data.hpp"
 
 namespace taixu {
 
-enum class TextureType {
+enum class TextureType : std::uint8_t {
     DIFFUSE,
     SPECULAR,
     NORMAL,
@@ -83,7 +82,6 @@ struct Image final {
     bool     is_hdr{false};
     bool     is_srgb{false};
     bool     is_cube{false};
-
 
     ~Image() { free(data); }
 };

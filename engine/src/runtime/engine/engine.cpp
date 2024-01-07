@@ -13,10 +13,11 @@ void Engine::init(const std::vector<std::string>& args) {
     _context.init(args);
 }
 
+void Engine::start() { _clock.reset(); }
+
 void Engine::update() {
-    //    _clock.update();
-    //    float const delta_time = _clock.getDeltaTime();
-    //
+    _clock.update();
+    float const delta_time = _clock.getDeltaTime();
     //    _renderer->clearSurface();
     //    _renderer->update(delta_time);
     //    if (_current_scene != nullptr) {

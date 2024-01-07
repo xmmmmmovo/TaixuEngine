@@ -5,11 +5,8 @@
 #ifndef ENGINE_SRC_RUNTIME_PLATFORM_GLFW_WINDOW_039D648EBA9E48E3A7B82825AD1D92E8
 #define ENGINE_SRC_RUNTIME_PLATFORM_GLFW_WINDOW_039D648EBA9E48E3A7B82825AD1D92E8
 
+#include "common/base/macro.hpp"
 #include "gameplay/gui/window.hpp"
-
-#ifdef _WIN32
-    #include "platform/os/windows/windows_headers.hpp"
-#endif
 
 #define GLFW_INCLUDE_NONE
 #ifdef VK_HEADER_VERSION
@@ -17,7 +14,9 @@
 #endif
 #include <GLFW/glfw3.h>
 
-#ifdef _WIN32
+#ifdef TX_WINDOWS
+    #include "platform/os/windows/windows_min.hpp"
+
     #define GLFW_EXPOSE_NATIVE_WIN32
     #include <GLFW/glfw3native.h>
 #endif

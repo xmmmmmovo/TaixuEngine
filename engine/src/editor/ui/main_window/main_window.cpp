@@ -69,7 +69,8 @@ void MainWindow::init(const std::vector<std::string>& args) {
 
     INFO_LOG("Main window init start!");
     RenderAPI const api =
-            _engine_runtime_ptr->context()._engine_args->render_api();
+            _engine_runtime_ptr->context().engine_args->render_api();
+
     _window_ptr = WindowFactory::createWindow(api);
     _window_ptr->init();
     _window_ptr->showWindow(_window_title, _width, _height);
@@ -164,8 +165,9 @@ void MainWindow::update() {
 }
 
 void MainWindow::show() const {
+    _engine_runtime_ptr->start();
     while (!_window_ptr->shouldClose()) {
-        //        DEBUG_LOG("{}", _window_ptr->shouldClose());
+        _engine_runtime_ptr->update();
         _window_ptr->handleEvents();
     }
 }

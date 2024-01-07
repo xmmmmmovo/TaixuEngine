@@ -27,7 +27,6 @@
 #include <management/ecs/core/ecs_types.hpp>
 #include <management/ecs/ecs_coordinator.hpp>
 #include <management/ecs/system/system.hpp>
-#include <management/graphics/renderer.hpp>
 #include <management/scene/scene.hpp>
 
 namespace taixu::editor {

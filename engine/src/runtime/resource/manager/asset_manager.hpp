@@ -5,10 +5,11 @@
 #ifndef TAIXUENGINE_RESOURCE_MANAGER_HPP
 #define TAIXUENGINE_RESOURCE_MANAGER_HPP
 
-#include "assimp/BaseImporter.h"
-#include "assimp/Importer.hpp"
-#include "assimp/postprocess.h"
-#include "assimp/scene.h"
+#include <assimp/BaseImporter.h>
+#include <assimp/Importer.hpp>
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
+
 #include <filesystem>
 
 #include <memory>
@@ -16,7 +17,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "glm/gtc/type_ptr.hpp"
+#include <glm/gtc/type_ptr.hpp>
 #include <platform/os/path.hpp>
 #include <resource/res_type/raw_data/mesh.hpp>
 #include <resource/res_type/raw_data/model.hpp>

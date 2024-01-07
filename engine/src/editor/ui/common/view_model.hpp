@@ -9,7 +9,6 @@
 #include "engine/engine.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/object/game_object.hpp"
-#include "management/graphics/renderer.hpp"
 #include <filesystem>
 #include <string>
 
@@ -38,7 +37,6 @@ struct ViewModel {
     std::vector<HierarchyNode<std::string>> useful_objs_hierarchy{};
 
     EngineContext const* engine_context_ptr{nullptr};
-    AbstractRenderer*    renderer{nullptr};
 
     void init(Engine* engine) { this->engine_context_ptr = &engine->context(); }
 };

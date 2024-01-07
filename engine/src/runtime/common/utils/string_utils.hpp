@@ -10,7 +10,7 @@
 #include <string>
 
 #ifdef TX_WINDOWS
-    #include "platform/os/windows/windows_headers.hpp"
+    #include "platform/os/windows/windows_min.hpp"
     #include <stringapiset.h>
 #endif
 

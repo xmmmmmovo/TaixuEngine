@@ -61,7 +61,7 @@ endif ()
 if (MSVC)
     add_compile_options("/MP")
     add_compile_options("/utf-8")
-    add_definitions(-DUNICODE -D_UNICODE)
+    add_compile_definitions(UNICODE _UNICODE)
 endif ()
 
 add_subdirectory(engine)

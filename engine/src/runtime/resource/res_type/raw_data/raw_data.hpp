@@ -7,8 +7,6 @@
 
 #include <filesystem>
 
-#include "common/base/macro.hpp"
-
 namespace taixu {
 
 struct AbstractAssetData {

@@ -49,8 +49,7 @@ endif ()
 if (USE_DX11)
     add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_DX11)
 
-    target_link_libraries(${TARGET_NAME} PRIVATE d3d11.lib dxgi.lib dxguid.lib
-            D3DCompiler.lib d2d1.lib dwrite.lib winmm.lib)
+    target_link_libraries(${TARGET_NAME} PRIVATE d3d11.lib dxgi.lib dxguid.lib)
 endif ()
 
 target_include_directories(

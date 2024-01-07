@@ -7,7 +7,6 @@
 
 #include "common/base/macro.hpp"
 
-
 namespace taixu {
 
 constexpr std::int32_t const ZERO_VALUE_FLAG = -1;
