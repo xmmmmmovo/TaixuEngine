@@ -4,24 +4,16 @@ macro(FIND_GLOB_RECURSE OUT_VAR)
     file(GLOB_RECURSE ${OUT_VAR} ${ARGN})
 endmacro()
 
-FIND_GLOB_RECURSE(COMMON_HEADERS "common/*.hpp")
-FIND_GLOB_RECURSE(COMMON_FILES "common/*.cpp")
-FIND_GLOB_RECURSE(ENGINE_HEADERS "engine/*.hpp")
-FIND_GLOB_RECURSE(ENGINE_FILES "engine/*.cpp")
-FIND_GLOB_RECURSE(GAMEPLAY_HEADERS "gameplay/*.hpp")
-FIND_GLOB_RECURSE(GAMEPLAY_FILES "gameplay/*.cpp")
-FIND_GLOB_RECURSE(MANAGEMENT_HEADERS "management/*.hpp")
-FIND_GLOB_RECURSE(MANAGEMENT_FILES "management/*.cpp")
-FIND_GLOB_RECURSE(RESOURCE_HEADERS "resource/*.hpp")
-FIND_GLOB_RECURSE(RESOURCE_FILES "resource/*.cpp")
+FIND_GLOB_RECURSE(SOURCE_FILES
+        "source/common/*.cpp"
+        "source/engine/*.cpp"
+        "source/gameplay/*.cpp"
+        "source/management/*.cpp"
+        "source/resource/*.cpp")
 
-FIND_GLOB_RECURSE(PLATFORM_HEADERS "platform/*.hpp")
-FIND_GLOB_RECURSE(PLATFORM_FILES "platform/*.cpp")
+FIND_GLOB_RECURSE(PLATFORM_FILES "source/platform/*.cpp")
 
-set(HEADER_FILES ${COMMON_HEADERS} ${ENGINE_HEADERS} ${GAMEPLAY_HEADERS}
-        ${MANAGEMENT_HEADERS} ${RESOURCE_HEADERS} ${PLATFORM_HEADERS})
-set(SOURCE_FILES ${COMMON_FILES} ${ENGINE_FILES} ${GAMEPLAY_FILES}
-        ${MANAGEMENT_FILES} ${RESOURCE_FILES} ${PLATFORM_FILES})
+set(SOURCE_FILES ${SOURCE_FILES} ${PLATFORM_FILES})
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_FILES})
 
@@ -58,6 +50,6 @@ target_include_directories(
 
 target_include_directories(
         ${TARGET_NAME}
-        PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/src/runtime>
+        PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/src/runtime/include>
         $<INSTALL_INTERFACE:include/${INSTALL_DIR}/${TARGET_NAME}>
 )

@@ -72,8 +72,8 @@ void MainWindow::init(const std::vector<std::string>& args) {
             _engine_runtime_ptr->context().engine_args->render_api();
 
     _window_ptr = WindowFactory::createWindow(api);
-    _window_ptr->init();
-    _window_ptr->showWindow(_window_title, _width, _height);
+    _window_ptr->init(_window_title, _width, _height);
+    _window_ptr->showWindow();
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
     //                if (button == GLFW_MOUSE_BUTTON_RIGHT && action ==
@@ -179,7 +179,7 @@ void MainWindow::destroy() const {
 
 MainWindow::MainWindow(std::string title, int32_t width, int32_t height)
     : _window_title(std::move(title)), _width(width), _height(height) {
-    this->menu_component.bindCallbacks(
+    this->_window_ptr, this->menu_component.bindCallbacks(
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
             INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
             INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
