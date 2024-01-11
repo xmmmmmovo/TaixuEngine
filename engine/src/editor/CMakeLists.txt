@@ -16,6 +16,9 @@ set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "EngineEditor")
 
 # 使用MSVC标准
 target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/WX->")
+if (MSVC)
+    target_link_options(${TARGET_NAME} PRIVATE "/SUBSYSTEM:WINDOWS" "/ENTRY:mainCRTStartup")
+endif ()
 
 # link libraries
 target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime)
@@ -25,9 +28,9 @@ if (USE_PCH)
 endif ()
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/imgui.ini" -DDEST_PATH="${OUTPUT_DIR}/imgui.ini" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
-        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/assets" -DDEST_PATH="${OUTPUT_DIR}/assets" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
-        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/res" -DDEST_PATH="${OUTPUT_DIR}/res" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
+        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/imgui.ini" -DDEST_PATH="${OUTPUT_DIR}" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
+        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/assets" -DDEST_PATH="${OUTPUT_DIR}" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
+        COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${ENGINE_ROOT_DIR}/src/editor/res" -DDEST_PATH="${OUTPUT_DIR}" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
 )
 
 if (${CMAKE_BUILD_TYPE})

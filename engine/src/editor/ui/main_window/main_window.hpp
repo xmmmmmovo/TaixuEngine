@@ -27,7 +27,6 @@
 #include <management/ecs/core/ecs_types.hpp>
 #include <management/ecs/ecs_coordinator.hpp>
 #include <management/ecs/system/system.hpp>
-#include <management/graphics/renderer.hpp>
 #include <management/scene/scene.hpp>
 
 namespace taixu::editor {
@@ -58,6 +57,7 @@ private:
 private:
     // context
     std::unique_ptr<Window> _window_ptr{nullptr};
+    Engine*                 _engine_runtime_ptr{nullptr};
     ViewModel               _view_model{};
 
     std::string _window_title{};
@@ -83,9 +83,9 @@ public:
 
     void init(const std::vector<std::string>& args);
     void update();
-    void destroy();
+    void destroy() const;
 
-    void show();
+    void show() const;
 
 private:
     void preUpdate();

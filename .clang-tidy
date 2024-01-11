@@ -63,8 +63,8 @@ Checks: >
   performance-unnecessary-copy-initialization,
   performance-unnecessary-value-param,
   portability-simd-intrinsics,
+  
   readability-braces-around-statements,
-  readability-identifier-length,
   readability-magic-numbers,
   readability-named-parameter,
   readability-redundant-declaration,

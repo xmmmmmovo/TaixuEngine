@@ -4,24 +4,16 @@ macro(FIND_GLOB_RECURSE OUT_VAR)
     file(GLOB_RECURSE ${OUT_VAR} ${ARGN})
 endmacro()
 
-FIND_GLOB_RECURSE(COMMON_HEADERS "common/*.hpp")
-FIND_GLOB_RECURSE(COMMON_FILES "common/*.cpp")
-FIND_GLOB_RECURSE(ENGINE_HEADERS "engine/*.hpp")
-FIND_GLOB_RECURSE(ENGINE_FILES "engine/*.cpp")
-FIND_GLOB_RECURSE(GAMEPLAY_HEADERS "gameplay/*.hpp")
-FIND_GLOB_RECURSE(GAMEPLAY_FILES "gameplay/*.cpp")
-FIND_GLOB_RECURSE(MANAGEMENT_HEADERS "management/*.hpp")
-FIND_GLOB_RECURSE(MANAGEMENT_FILES "management/*.cpp")
-FIND_GLOB_RECURSE(RESOURCE_HEADERS "resource/*.hpp")
-FIND_GLOB_RECURSE(RESOURCE_FILES "resource/*.cpp")
+FIND_GLOB_RECURSE(SOURCE_FILES
+        "source/common/*.cpp"
+        "source/engine/*.cpp"
+        "source/gameplay/*.cpp"
+        "source/management/*.cpp"
+        "source/resource/*.cpp")
 
-FIND_GLOB_RECURSE(PLATFORM_HEADERS "platform/*.hpp")
-FIND_GLOB_RECURSE(PLATFORM_FILES "platform/*.cpp")
+FIND_GLOB_RECURSE(PLATFORM_FILES "source/platform/*.cpp")
 
-set(HEADER_FILES ${COMMON_HEADERS} ${ENGINE_HEADERS} ${GAMEPLAY_HEADERS}
-        ${MANAGEMENT_HEADERS} ${RESOURCE_HEADERS} ${PLATFORM_HEADERS})
-set(SOURCE_FILES ${COMMON_FILES} ${ENGINE_FILES} ${GAMEPLAY_FILES}
-        ${MANAGEMENT_FILES} ${RESOURCE_FILES} ${PLATFORM_FILES})
+set(SOURCE_FILES ${SOURCE_FILES} ${PLATFORM_FILES})
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_FILES})
 
@@ -32,9 +24,8 @@ if (USE_PCH)
             ${ENGINE_ROOT_DIR}/precompile/pch_std.hpp)
 endif ()
 
-target_link_libraries(${TARGET_NAME} PRIVATE magic_enum::magic_enum stb)
-
 # public link
+target_link_libraries(${TARGET_NAME} PUBLIC magic_enum::magic_enum stb)
 target_link_libraries(${TARGET_NAME} PUBLIC simdjson Threads::Threads freetype glfw)
 target_link_libraries(${TARGET_NAME} PUBLIC Jolt)
 target_link_libraries(${TARGET_NAME} PUBLIC refl-cpp::refl-cpp assimp)
@@ -50,8 +41,7 @@ endif ()
 if (USE_DX11)
     add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_DX11)
 
-    target_link_libraries(${TARGET_NAME} PRIVATE d3d11.lib dxgi.lib dxguid.lib
-            D3DCompiler.lib d2d1.lib dwrite.lib winmm.lib)
+    target_link_libraries(${TARGET_NAME} PRIVATE d3d11.lib dxgi.lib dxguid.lib)
 endif ()
 
 target_include_directories(
@@ -60,6 +50,6 @@ target_include_directories(
 
 target_include_directories(
         ${TARGET_NAME}
-        PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/src/runtime>
+        PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/src/runtime/include>
         $<INSTALL_INTERFACE:include/${INSTALL_DIR}/${TARGET_NAME}>
 )

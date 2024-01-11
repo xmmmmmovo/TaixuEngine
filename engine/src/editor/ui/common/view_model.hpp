@@ -9,7 +9,6 @@
 #include "engine/engine.hpp"
 #include "management/ecs/core/ecs_types.hpp"
 #include "management/ecs/object/game_object.hpp"
-#include "management/graphics/renderer.hpp"
 #include <filesystem>
 #include <string>
 
@@ -37,13 +36,9 @@ struct ViewModel {
 
     std::vector<HierarchyNode<std::string>> useful_objs_hierarchy{};
 
-    Engine*           engine_runtime_ptr{nullptr};
-    AbstractRenderer* renderer{nullptr};
+    EngineContext const* engine_context_ptr{nullptr};
 
-    void init(const std::vector<std::string>& args) {
-        engine_runtime_ptr = &Engine::getInstance();
-        engine_runtime_ptr->init(args);
-    }
+    void init(Engine* engine) { this->engine_context_ptr = &engine->context(); }
 };
 
 }// namespace taixu::editor

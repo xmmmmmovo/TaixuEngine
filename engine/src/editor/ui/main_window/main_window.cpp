@@ -62,14 +62,18 @@ void MainWindow::buildUpPathHierarchy() {
 }
 
 void MainWindow::init(const std::vector<std::string>& args) {
-    _view_model.init(args);
+    _engine_runtime_ptr = &Engine::getInstance();
+    _engine_runtime_ptr->init(args);
+
+    _view_model.init(_engine_runtime_ptr);
 
     INFO_LOG("Main window init start!");
-    RenderAPI const api = _view_model.engine_runtime_ptr->getContext()
-                                  ._engine_args->render_api();
+    RenderAPI const api =
+            _engine_runtime_ptr->context().engine_args->render_api();
+
     _window_ptr = WindowFactory::createWindow(api);
-    _window_ptr->init();
-    _window_ptr->showWindow(_window_title, _width, _height);
+    _window_ptr->init(_window_title, _width, _height);
+    _window_ptr->showWindow();
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
     //                if (button == GLFW_MOUSE_BUTTON_RIGHT && action ==
@@ -152,6 +156,7 @@ bool MainWindow::isCursorInRenderComponent() const {
     //    return render_component._render_rect.Contains(
     //            ImVec2{_window_ptr->_input_state->mouse_x,
     //                   _window_ptr->_input_state->mouse_y});
+    return true;
 }
 
 void MainWindow::update() {
@@ -159,25 +164,27 @@ void MainWindow::update() {
     ImguiLayers::update();
 }
 
-void MainWindow::show() {
+void MainWindow::show() const {
+    _engine_runtime_ptr->start();
     while (!_window_ptr->shouldClose()) {
-        //        DEBUG_LOG("{}", _window_ptr->shouldClose());
+        _engine_runtime_ptr->update();
         _window_ptr->handleEvents();
     }
 }
 
-void MainWindow::destroy() {
+void MainWindow::destroy() const {
     ImguiLayers::destroy();
     _window_ptr->destroy();
 }
 
 MainWindow::MainWindow(std::string title, int32_t width, int32_t height)
     : _window_title(std::move(title)), _width(width), _height(height) {
-    this->menu_component.bindCallbacks(
-            INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
-            INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
-            INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onSaveAsProjectCb));
+    this->_window_ptr,
+            this->menu_component.bindCallbacks(
+                    INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
+                    INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
+                    INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
+                    INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onSaveAsProjectCb));
 }
 
 // for callbacks
