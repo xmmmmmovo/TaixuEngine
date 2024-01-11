@@ -18,9 +18,9 @@
 
 namespace taixu {
 
-class SceneRendererFactory : private Noncopyable,
-                             public AbstractFactory<RenderAPI, AbstractSceneRenderer> {
-};
+class SceneRendererFactory
+    : private Noncopyable,
+      public AbstractFactory<RenderAPI, AbstractSceneRenderer> {};
 
 }// namespace taixu
 

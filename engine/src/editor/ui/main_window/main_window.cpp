@@ -179,11 +179,12 @@ void MainWindow::destroy() const {
 
 MainWindow::MainWindow(std::string title, int32_t width, int32_t height)
     : _window_title(std::move(title)), _width(width), _height(height) {
-    this->_window_ptr, this->menu_component.bindCallbacks(
-            INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
-            INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
-            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
-            INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onSaveAsProjectCb));
+    this->_window_ptr,
+            this->menu_component.bindCallbacks(
+                    INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
+                    INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
+                    INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
+                    INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onSaveAsProjectCb));
 }
 
 // for callbacks

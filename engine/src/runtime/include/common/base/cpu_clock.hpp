@@ -21,7 +21,7 @@ private:
 
 public:
     float time_scale{1.0f};
-    
+
     [[nodiscard]] float getDeltaTime() const { return delta_time; }
     [[nodiscard]] float getTimeSinceStart() const { return time_since_start; }
 
