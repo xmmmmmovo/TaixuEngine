@@ -14,6 +14,10 @@ option(USE_VULKAN "use vulkan" ON)
 option(USE_DX11 "use dx11" ON)
 option(USE_DX12 "use dx12" OFF)
 
+if (MAC)
+    set(USE_DX11 OFF)
+endif ()
+
 # for project properties
 set(ENGINE_VERSION 0.1)
 
@@ -42,20 +46,20 @@ project(
         LANGUAGES CXX C
 )
 
-# add cmake package manager
-include(CPM)
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
 set(TAIXUENGINE_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_INSTALL_PREFIX "${TAIXUENGINE_ROOT_DIR}/bin")
 set(BINARY_ROOT_DIR "${CMAKE_INSTALL_PREFIX}/")
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 if ("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
     set(OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR})
 else ()
     set(OUTPUT_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 endif ()
+
+# add cmake package manager
+set(CPM_SOURCE_CACHE "${TAIXUENGINE_ROOT_DIR}/.cpm_cache")
+include(CPM)
 
 # accelerate the msvc project
 if (MSVC)
