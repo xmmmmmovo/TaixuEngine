@@ -118,11 +118,11 @@ access:                                                                        \
     std::this_thread::sleep_for(std::chrono::milliseconds(MS));
 
 #define TX_SLEEP_UNTIL(TIME)                                                   \
-    std::this_thread::sleep_until(std::chrono::system_clock::now() + TIME);
+    std::this_thread::sleep_until(std::chrono::system_clock::now() + (TIME));
 
 #define TX_THREAD_NAME(NAME)                                                   \
     std::stringstream ss;                                                      \
-    ss << NAME;                                                                \
+    ss << (NAME);                                                              \
     std::string     name    = ss.str();                                        \
     std::thread::id this_id = std::this_thread::get_id();                      \
     pthread_setname_np(pthread_self(), name.c_str());
@@ -135,7 +135,7 @@ access:                                                                        \
 
 #define TX_THREAD_NAME_DEFAULT_WITH_ID(ID)                                     \
     std::stringstream ss;                                                      \
-    ss << "Thread " << ID;                                                     \
+    ss << "Thread " << (ID);                                                   \
     std::string name = ss.str();                                               \
     pthread_setname_np(pthread_self(), name.c_str());
 
