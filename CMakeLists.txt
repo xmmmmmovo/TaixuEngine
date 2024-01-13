@@ -14,12 +14,13 @@ option(USE_VULKAN "use vulkan" ON)
 option(USE_DX11 "use dx11" ON)
 option(USE_DX12 "use dx12" OFF)
 
-if (MAC)
+if (APPLE)
     set(USE_DX11 OFF)
+    set(USE_DX12 OFF)
 endif ()
 
 # for project properties
-set(ENGINE_VERSION 0.1)
+set(ENGINE_VERSION 0.1.1)
 
 # add dirs to module path to make include more convenient
 list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)

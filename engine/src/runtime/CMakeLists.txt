@@ -13,16 +13,15 @@ FIND_GLOB_RECURSE(SOURCE_FILES
 
 FIND_GLOB_RECURSE(PLATFORM_FILES "source/platform/*.cpp")
 
-set(SOURCE_FILES ${SOURCE_FILES} ${PLATFORM_FILES})
+FIND_GLOB_RECURSE(HEADER_FILES "include/*.hpp")
+
+set(SOURCE_FILES ${SOURCE_FILES} ${PLATFORM_FILES} ${HEADER_FILES})
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_FILES})
 
 add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 
-if (USE_PCH)
-    target_precompile_headers(${TARGET_NAME} PRIVATE
-            ${ENGINE_ROOT_DIR}/precompile/pch_std.hpp)
-endif ()
+set(PCH_FILES "${PCH_DIR}/pch_std.hpp" "${PCH_DIR}/pch_runtime.hpp")
 
 # public link
 target_link_libraries(${TARGET_NAME} PUBLIC magic_enum::magic_enum stb)
@@ -34,6 +33,7 @@ target_link_libraries(${TARGET_NAME} PUBLIC glm imgui argparse spdlog::spdlog fm
 if (USE_VULKAN)
     add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)
 
+    list (APPEND PCH_FILES "${PCH_DIR}/pch_vulkan.hpp")
     target_link_libraries(${TARGET_NAME} PRIVATE Vulkan::Vulkan volk VulkanMemoryAllocator)
     target_include_directories(${TARGET_NAME} PRIVATE ${Vulkan_INCLUDE_DIRS})
 endif ()
@@ -41,7 +41,12 @@ endif ()
 if (USE_DX11)
     add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_DX11)
 
-    target_link_libraries(${TARGET_NAME} PRIVATE d3d11.lib dxgi.lib dxguid.lib)
+    list (APPEND PCH_FILES "${PCH_DIR}/pch_dx11.hpp")
+    target_link_libraries(${TARGET_NAME} PRIVATE ${DX11_LIB})
+endif ()
+
+if (USE_PCH)
+    target_precompile_headers(${TARGET_NAME} PRIVATE ${PCH_FILES})
 endif ()
 
 target_include_directories(
