@@ -8,7 +8,7 @@ on:
 jobs:
   format:
     name: Clang Format
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
@@ -32,7 +32,7 @@ jobs:
   lint:
     name: Clang Tidy
     needs: format
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
 
