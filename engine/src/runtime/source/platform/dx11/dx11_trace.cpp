@@ -10,8 +10,7 @@
 
 namespace taixu {
 
-HRESULT dx11TraceW(const char* strFile, std::int32_t dwLine, HRESULT hr,
-                   const char* strMsg) {
+HRESULT dx11TraceW(source_loc_t loc, HRESULT hr) {
     std::array<wchar_t, 256> str_buffer_error{};
 
     // Windows
@@ -21,7 +20,6 @@ HRESULT dx11TraceW(const char* strFile, std::int32_t dwLine, HRESULT hr,
                    nullptr, hr, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
                    str_buffer_error.data(), str_buffer_error.size(), nullptr);
 
-    source_loc_t const loc{strFile, dwLine, strMsg};
 #ifdef _DEBUG
     ERROR_LOG_LOC(loc, "出现错误: {}({:#x})",
                   utf8Encode(str_buffer_error.data()), hr);
