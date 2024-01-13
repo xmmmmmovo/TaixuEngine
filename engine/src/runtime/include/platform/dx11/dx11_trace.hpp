@@ -6,8 +6,7 @@
 #define ENGINE_SRC_RUNTIME_PLATFORM_DX11_DX11_TRACE_61772769F83E46928B4697CD072E91A2
 
 #include "common/base/macro.hpp"
-
-#include "platform/os/windows/windows_min.hpp"
+#include "platform/windows/windows_min.hpp"
 
 namespace taixu {
 
@@ -22,6 +21,8 @@ namespace taixu {
 HRESULT dx11TraceW(const char* strFile, std::int32_t dwLine, HRESULT hr,
                    const char* strMsg);
 
+// NOLINTBEGIN
+
 #if defined(_DEBUG)
     #ifndef HR_CHECK
         #define HR_CHECK(x)                                                    \
@@ -35,6 +36,8 @@ HRESULT dx11TraceW(const char* strFile, std::int32_t dwLine, HRESULT hr,
         #define HR_CHECK(x) (x)
     #endif
 #endif
+
+// NOLINTEND
 
 }// namespace taixu
 

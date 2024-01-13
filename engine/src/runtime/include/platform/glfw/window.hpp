@@ -162,9 +162,11 @@ public:
      * below code only for windows that can get HWND
      */
 #ifdef TX_WINDOWS
-    [[nodiscard]] HWND getHWND() const { return glfwGetWin32Window(_window); }
+    [[nodiscard]] HWND getHWND() const override {
+        return glfwGetWin32Window(_window);
+    }
 
-    [[nodiscard]] HINSTANCE getHINSTANCE() const {
+    [[nodiscard]] HINSTANCE getHINSTANCE() const override {
         return GetModuleHandle(nullptr);
     }
 #endif
