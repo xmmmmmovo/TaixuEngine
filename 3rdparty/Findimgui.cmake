@@ -20,6 +20,12 @@ if (imgui_ADDED)
         list(APPEND imgui_impl ${imgui_SOURCE_DIR}/backends/imgui_impl_vulkan.h)
     endif ()
 
+    if (USE_DX11)
+        # append file to imgui_impl
+        list(APPEND imgui_impl ${imgui_SOURCE_DIR}/backends/imgui_impl_dx11.cpp)
+        list(APPEND imgui_impl ${imgui_SOURCE_DIR}/backends/imgui_impl_dx11.h)
+    endif ()
+
     file(GLOB imgui_ext_sources CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/3rdparty/imgui/*.cpp)
 
     add_library(imgui STATIC ${imgui_sources} ${imgui_impl} ${imgui_ext_sources})
@@ -32,6 +38,10 @@ if (imgui_ADDED)
     if (USE_VULKAN)
         target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${Vulkan_INCLUDE_DIR}>)
         target_link_libraries(imgui PUBLIC Vulkan::Vulkan)
+    endif ()
+
+    if (USE_DX11)
+        target_link_libraries(imgui PUBLIC ${DX11_LIB})
     endif ()
 
     set_target_properties(imgui PROPERTIES LINKER_LANGUAGE CXX)

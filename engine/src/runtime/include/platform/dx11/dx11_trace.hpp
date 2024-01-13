@@ -7,7 +7,8 @@
 
 #include "common/base/macro.hpp"
 #include "common/log/logger.hpp"
-#include "platform/windows/windows_min.hpp"
+
+#include <d3d11_1.h>
 
 namespace taixu {
 

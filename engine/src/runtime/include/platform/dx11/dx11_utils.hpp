@@ -7,8 +7,6 @@
 
 #include "common/base/macro.hpp"
 
-#include "platform/windows/windows_min.hpp"
-
 #include <cstdint>
 
 namespace taixu {
