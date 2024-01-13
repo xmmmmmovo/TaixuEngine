@@ -35,7 +35,7 @@ constexpr void SAFE_RELEASE(IUnknown*& ptr) {
 
 template<uint32_t NameLengthT>
 TX_INLINE void dx11SetDebugObjectName(ID3D11DeviceChild* resource,
-                                      const char         (&name)[NameLengthT]) {
+                                      const char (&name)[NameLengthT]) {
 #if (defined(DEBUG) || defined(_DEBUG)) && (GRAPHICS_DEBUGGER_OBJECT_NAME)
     resource->SetPrivateData(WKPDID_D3DDebugObjectName, NameLengthT - 1, name);
 #else
