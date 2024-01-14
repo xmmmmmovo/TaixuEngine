@@ -114,24 +114,53 @@ access:                                                                        \
 
 // NOLINTEND
 
+/**
+ * @brief 使用delete copy trait
+ */
+#define DELETE_COPY_TRAIT(classname)                                           \
+public:                                                                        \
+    classname(const classname& other)              = delete;                   \
+    (classname)& operator=(const classname& other) = delete;
+
+/**
+ * @brief
+ * @param MS 毫秒
+ */
 #define TX_SLEEP_FOR(MS)                                                       \
     std::this_thread::sleep_for(std::chrono::milliseconds(MS));
 
+/**
+ * @brief
+ * @param TIME duration time
+ */
 #define TX_SLEEP_UNTIL(TIME)                                                   \
     std::this_thread::sleep_until(std::chrono::system_clock::now() + (TIME));
 
+/**
+ * @brief
+ * @param NAME name存放的变量
+ */
 #define TX_THREAD_NAME(NAME)                                                   \
-    std::stringstream ss;                                                      \
-    ss << (NAME);                                                              \
-    std::string     name    = ss.str();                                        \
-    std::thread::id this_id = std::this_thread::get_id();                      \
-    pthread_setname_np(pthread_self(), name.c_str());
+    {                                                                          \
+        std::stringstream ss;                                                  \
+        ss << (NAME);                                                          \
+        std::string     name    = ss.str();                                    \
+        std::thread::id this_id = std::this_thread::get_id();                  \
+        pthread_setname_np(pthread_self(), name.c_str());                      \
+    }
 
+/**
+ * @todo
+ * @brief
+ *
+ */
 #define TX_THREAD_NAME_DEFAULT                                                 \
-    std::stringstream ss;                                                      \
-    ss << "Thread " << std::this_thread::get_id();                             \
-    std::string name = ss.str();                                               \
-    pthread_setname_np(pthread_self(), name.c_str());
+    {                                                                          \
+        std::stringstream ss;                                                  \
+        ss << "Thread " << std::this_thread::get_id();                         \
+        std::string name = ss.str();                                           \
+        pthread_setname_np(pthread_self(), name.c_str());                      \
+    }
 
 #define TX_THREAD_NAME_DEFAULT_WITH_ID(ID)                                     \
     std::stringstream ss;                                                      \

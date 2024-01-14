@@ -4,6 +4,4 @@
 
 #include "management/graphics/rhi/tx_scene_renderer.hpp"
 
-namespace taixu {
-AbstractSceneRenderer::~AbstractSceneRenderer() {}
-}// namespace taixu
+namespace taixu {}// namespace taixu
