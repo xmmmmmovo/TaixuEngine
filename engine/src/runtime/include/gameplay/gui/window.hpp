@@ -14,35 +14,42 @@
     #include "platform/windows/windows_min.hpp"
 #endif
 
+struct DPIScale {
+    float x_scale{0.0f};
+    float y_scale{0.0f};
+};
+
 namespace taixu {
 
 class Window : private Noncopyable {
 protected:
-    using on_reset_fn        = std::function<void()>;
-    using on_key_fn          = std::function<void(int, int, int, int)>;
-    using on_char_fn         = std::function<void(unsigned int)>;
-    using on_char_mods_fn    = std::function<void(unsigned int, int)>;
-    using on_mouse_button_fn = std::function<void(int, int, int)>;
-    using on_cursor_pos_fn   = std::function<void(double, double)>;
-    using on_cursor_enter_fn = std::function<void(int)>;
-    using on_scroll_fn       = std::function<void(double, double)>;
-    using on_drop_fn         = std::function<void(int, const char**)>;
-    using on_window_size_fn  = std::function<void(int, int)>;
-    using on_window_close_fn = std::function<void()>;
-    using on_error_fn        = std::function<void(int, char const*)>;
+    using on_reset_fn              = std::function<void()>;
+    using on_key_fn                = std::function<void(int, int, int, int)>;
+    using on_char_fn               = std::function<void(unsigned int)>;
+    using on_char_mods_fn          = std::function<void(unsigned int, int)>;
+    using on_mouse_button_fn       = std::function<void(int, int, int)>;
+    using on_cursor_pos_fn         = std::function<void(double, double)>;
+    using on_cursor_enter_fn       = std::function<void(int)>;
+    using on_scroll_fn             = std::function<void(double, double)>;
+    using on_drop_fn               = std::function<void(int, const char**)>;
+    using on_window_size_fn        = std::function<void(int, int)>;
+    using on_window_dpi_changed_fn = std::function<void(float, float)>;
+    using on_window_close_fn       = std::function<void()>;
+    using on_error_fn              = std::function<void(int, char const*)>;
 
-    std::vector<on_reset_fn>        on_reset_fns;
-    std::vector<on_key_fn>          on_key_fns;
-    std::vector<on_char_fn>         on_char_fns;
-    std::vector<on_char_mods_fn>    on_char_mods_fns;
-    std::vector<on_mouse_button_fn> on_mouse_button_fns;
-    std::vector<on_cursor_pos_fn>   on_cursor_pos_fns;
-    std::vector<on_cursor_enter_fn> on_cursor_enter_fns;
-    std::vector<on_scroll_fn>       on_scroll_fns;
-    std::vector<on_drop_fn>         on_drop_fns;
-    std::vector<on_window_size_fn>  on_window_size_fns;
-    std::vector<on_window_close_fn> on_window_close_fns;
-    on_error_fn                     on_error;
+    std::vector<on_reset_fn>              on_reset_fns{};
+    std::vector<on_key_fn>                on_key_fns{};
+    std::vector<on_char_fn>               on_char_fns{};
+    std::vector<on_char_mods_fn>          on_char_mods_fns{};
+    std::vector<on_mouse_button_fn>       on_mouse_button_fns{};
+    std::vector<on_cursor_pos_fn>         on_cursor_pos_fns{};
+    std::vector<on_cursor_enter_fn>       on_cursor_enter_fns{};
+    std::vector<on_scroll_fn>             on_scroll_fns{};
+    std::vector<on_drop_fn>               on_drop_fns{};
+    std::vector<on_window_size_fn>        on_window_size_fns{};
+    std::vector<on_window_dpi_changed_fn> on_window_dpi_changed_fns{};
+    std::vector<on_window_close_fn>       on_window_close_fns{};
+    on_error_fn                           on_error{};
 
 
 protected:
@@ -53,56 +60,62 @@ protected:
     PROTOTYPE_ONLY_GETTER_CONST(protected, std::string_view, title);
     PROTOTYPE_DFT_ONLY_GETTER_CONST(protected, int32_t, width, 0);
     PROTOTYPE_DFT_ONLY_GETTER_CONST(protected, int32_t, height, 0);
-
-public:
-    void resize(int32_t width, int32_t height) {}
+    PROTOTYPE_ONLY_GETTER_CONST(protected, DPIScale, dpi_scale);
 
 protected:
-    void onReset() {
+    void onReset() const {
         for (auto const& func : on_reset_fns) { func(); }
     }
 
-    void onKey(int key, int scancode, int action, int mods) {
+    void onKey(const int key, const int scancode, const int action,
+               const int mods) const {
         for (auto const& func : on_key_fns) {
             func(key, scancode, action, mods);
         }
     }
 
-    void onChar(unsigned int codepoint) {
+    void onChar(const unsigned int codepoint) const {
         for (auto const& func : on_char_fns) { func(codepoint); }
     }
 
-    void onCharMods(unsigned int codepoint, int mods) {
+    void onCharMods(const unsigned int codepoint, const int mods) const {
         for (auto const& func : on_char_mods_fns) { func(codepoint, mods); }
     }
 
-    void onMouseButton(int button, int action, int mods) {
+    void onMouseButton(const int button, const int action,
+                       const int mods) const {
         for (auto const& func : on_mouse_button_fns) {
             func(button, action, mods);
         }
     }
 
-    void onCursorPos(double xpos, double ypos) {
+    void onCursorPos(const double xpos, const double ypos) const {
         for (auto const& func : on_cursor_pos_fns) { func(xpos, ypos); }
     }
 
-    void onCursorEnter(int entered) {
+    void onCursorEnter(const int entered) const {
         for (auto const& func : on_cursor_enter_fns) { func(entered); }
     }
 
-    void onScroll(double xoffset, double yoffset) {
+    void onScroll(const double xoffset, const double yoffset) const {
         for (auto const& func : on_scroll_fns) { func(xoffset, yoffset); }
     }
 
-    void onDrop(int count, const char** paths) {
+    void onDrop(const int count, const char** paths) const {
         for (auto const& func : on_drop_fns) { func(count, paths); }
     }
 
-    void onWindowSize(int width, int height) {
+    void onWindowSize(const int width, const int height) const {
         for (auto const& func : on_window_size_fns) { func(width, height); }
     }
 
-    void onWindowClose() {
+    void onWindowDPIChanged(const float xscale, const float yscale) const {
+        for (auto const& func : on_window_dpi_changed_fns) {
+            func(xscale, yscale);
+        }
+    }
+
+    void onWindowClose() const {
         for (auto const& func : on_window_close_fns) { func(); }
     }
 

@@ -154,7 +154,7 @@ void DX11SceneRenderer::init(Window* window) {
 
     // 设置调试对象名
     dx11SetDebugObjectName(_device_context.Get(), "ImmediateContext");
-    //    dx11SetDebugObjectName(_swap_chain.Get(), "SwapChain");
+    dxgiSetDebugObjectName(_swap_chain.Get(), "SwapChain");
 
     // 每当窗口被重新调整大小的时候，都需要调用这个OnResize函数。现在调用
     // 以避免代码重复
@@ -167,6 +167,6 @@ void DX11SceneRenderer::onResize(int width, int height) {}
 
 void DX11SceneRenderer::update(float delta_time, Scene* scene) {}
 
-DX11SceneRenderer::~DX11SceneRenderer() {}
+DX11SceneRenderer::~DX11SceneRenderer() = default;
 
 }// namespace taixu

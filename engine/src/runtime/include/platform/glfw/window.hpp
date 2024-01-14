@@ -32,61 +32,63 @@ protected:
         FATAL_LOG("GLFW Error: {}, {}", error, description);
     }
 
-    static void keyCallback(GLFWwindow* window, int key, int scancode,
-                            int action, int mods) {
-        auto* context =
+    static void keyCallback(GLFWwindow* window, const int key,
+                            const int scancode, const int action,
+                            const int mods) {
+        const auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onKey(key, scancode, action, mods);
     }
 
-    static void charCallback(GLFWwindow* window, unsigned int codepoint) {
-        auto* context =
+    static void charCallback(GLFWwindow* window, const unsigned int codepoint) {
+        const auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onChar(codepoint);
     }
 
-    static void charModsCallback(GLFWwindow* window, unsigned int codepoint,
-                                 int mods) {
-        auto* context =
+    static void charModsCallback(GLFWwindow*        window,
+                                 const unsigned int codepoint, const int mods) {
+        const auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onCharMods(codepoint, mods);
     }
 
-    static void mouseButtonCallback(GLFWwindow* window, int button, int action,
-                                    int mods) {
-        auto* context =
+    static void mouseButtonCallback(GLFWwindow* window, const int button,
+                                    const int action, const int mods) {
+        const auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onMouseButton(button, action, mods);
     }
 
-    static void cursorPosCallback(GLFWwindow* window, double xpos,
-                                  double ypos) {
-        auto* context =
+    static void cursorPosCallback(GLFWwindow* window, const double xpos,
+                                  const double ypos) {
+        const auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onCursorPos(xpos, ypos);
     }
 
-    static void cursorEnterCallback(GLFWwindow* window, int entered) {
-        auto* context =
+    static void cursorEnterCallback(GLFWwindow* window, const int entered) {
+        const auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onCursorEnter(entered);
     }
 
-    static void scrollCallback(GLFWwindow* window, double xoffset,
-                               double yoffset) {
-        auto* context =
+    static void scrollCallback(GLFWwindow* window, const double xoffset,
+                               const double yoffset) {
+        const auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onScroll(xoffset, yoffset);
     }
 
-    static void dropCallback(GLFWwindow* window, int count,
+    static void dropCallback(GLFWwindow* window, const int count,
                              const char** paths) {
-        auto* context =
+        const auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onDrop(count, paths);
     }
 
-    static void windowSizeCallback(GLFWwindow* window, int width, int height) {
+    static void windowSizeCallback(GLFWwindow* window, const int width,
+                                   const int height) {
         auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->_width  = width;
@@ -95,17 +97,27 @@ protected:
         context->onWindowSize(width, height);
     }
 
+    static void windowDPIChangedCallback(GLFWwindow* window, const float xscale,
+                                         const float yscale) {
+
+        auto* context =
+                static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
+        context->_dpi_scale.x_scale = xscale;
+        context->_dpi_scale.y_scale = yscale;
+        context->onWindowDPIChanged(xscale, yscale);
+    }
+
     static void windowCloseCallback(GLFWwindow* window) {
         DEBUG_LOG("clicked close!");
         glfwSetWindowShouldClose(window, true);
-        auto* context =
+        const auto* context =
                 static_cast<GLFWWindow*>(glfwGetWindowUserPointer(window));
         context->onWindowClose();
     }
 
 public:
-    void init(const std::string_view& title, int32_t width,
-              int32_t height) override {
+    void init(const std::string_view& title, const int32_t width,
+              const int32_t height) override {
         this->_title  = title;
         this->_width  = width;
         this->_height = height;
@@ -139,6 +151,7 @@ public:
         glfwSetDropCallback(_window, dropCallback);
         glfwSetWindowSizeCallback(_window, windowSizeCallback);
         glfwSetWindowCloseCallback(_window, windowCloseCallback);
+        glfwSetWindowContentScaleCallback(_window, windowDPIChangedCallback);
 
         glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     }
