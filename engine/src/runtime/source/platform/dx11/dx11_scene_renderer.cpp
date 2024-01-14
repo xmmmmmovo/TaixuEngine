@@ -20,12 +20,12 @@ void DX11SceneRenderer::init(Window* window) {
     create_device_flags |= D3D11_CREATE_DEVICE_DEBUG;
 #endif
     // 驱动类型数组
-    std::array<D3D_DRIVER_TYPE, 3> const driver_types{
-            D3D_DRIVER_TYPE_HARDWARE, D3D_DRIVER_TYPE_WARP,
-            D3D_DRIVER_TYPE_REFERENCE};
+    constexpr std::array driver_types{D3D_DRIVER_TYPE_HARDWARE,
+                                      D3D_DRIVER_TYPE_WARP,
+                                      D3D_DRIVER_TYPE_REFERENCE};
 
     // 特性等级数组
-    std::array<D3D_FEATURE_LEVEL, 2> feature_levels = {
+    constexpr std::array feature_levels = {
             D3D_FEATURE_LEVEL_11_1,
             D3D_FEATURE_LEVEL_11_0,
     };

@@ -37,19 +37,19 @@ protected:
     using on_window_close_fn       = std::function<void()>;
     using on_error_fn              = std::function<void(int, char const*)>;
 
-    std::vector<on_reset_fn>              on_reset_fns{};
-    std::vector<on_key_fn>                on_key_fns{};
-    std::vector<on_char_fn>               on_char_fns{};
-    std::vector<on_char_mods_fn>          on_char_mods_fns{};
-    std::vector<on_mouse_button_fn>       on_mouse_button_fns{};
-    std::vector<on_cursor_pos_fn>         on_cursor_pos_fns{};
-    std::vector<on_cursor_enter_fn>       on_cursor_enter_fns{};
-    std::vector<on_scroll_fn>             on_scroll_fns{};
-    std::vector<on_drop_fn>               on_drop_fns{};
-    std::vector<on_window_size_fn>        on_window_size_fns{};
-    std::vector<on_window_dpi_changed_fn> on_window_dpi_changed_fns{};
-    std::vector<on_window_close_fn>       on_window_close_fns{};
-    on_error_fn                           on_error{};
+    std::vector<on_reset_fn>              _on_reset_fns{};
+    std::vector<on_key_fn>                _on_key_fns{};
+    std::vector<on_char_fn>               _on_char_fns{};
+    std::vector<on_char_mods_fn>          _on_char_mods_fns{};
+    std::vector<on_mouse_button_fn>       _on_mouse_button_fns{};
+    std::vector<on_cursor_pos_fn>         _on_cursor_pos_fns{};
+    std::vector<on_cursor_enter_fn>       _on_cursor_enter_fns{};
+    std::vector<on_scroll_fn>             _on_scroll_fns{};
+    std::vector<on_drop_fn>               _on_drop_fns{};
+    std::vector<on_window_size_fn>        _on_window_size_fns{};
+    std::vector<on_window_dpi_changed_fn> _on_window_dpi_changed_fns{};
+    std::vector<on_window_close_fn>       _on_window_close_fns{};
+    on_error_fn                           _on_error{};
 
 
 protected:
@@ -63,61 +63,64 @@ protected:
     PROTOTYPE_ONLY_GETTER_CONST(protected, DPIScale, dpi_scale);
 
 protected:
+    // NOLINTBEGIN
     void onReset() const {
-        for (auto const& func : on_reset_fns) { func(); }
+        for (auto const& func : _on_reset_fns) { func(); }
     }
 
     void onKey(const int key, const int scancode, const int action,
                const int mods) const {
-        for (auto const& func : on_key_fns) {
+        for (auto const& func : _on_key_fns) {
             func(key, scancode, action, mods);
         }
     }
 
     void onChar(const unsigned int codepoint) const {
-        for (auto const& func : on_char_fns) { func(codepoint); }
+        for (auto const& func : _on_char_fns) { func(codepoint); }
     }
 
     void onCharMods(const unsigned int codepoint, const int mods) const {
-        for (auto const& func : on_char_mods_fns) { func(codepoint, mods); }
+        for (auto const& func : _on_char_mods_fns) { func(codepoint, mods); }
     }
 
     void onMouseButton(const int button, const int action,
                        const int mods) const {
-        for (auto const& func : on_mouse_button_fns) {
+        for (auto const& func : _on_mouse_button_fns) {
             func(button, action, mods);
         }
     }
 
     void onCursorPos(const double xpos, const double ypos) const {
-        for (auto const& func : on_cursor_pos_fns) { func(xpos, ypos); }
+        for (auto const& func : _on_cursor_pos_fns) { func(xpos, ypos); }
     }
 
     void onCursorEnter(const int entered) const {
-        for (auto const& func : on_cursor_enter_fns) { func(entered); }
+        for (auto const& func : _on_cursor_enter_fns) { func(entered); }
     }
 
     void onScroll(const double xoffset, const double yoffset) const {
-        for (auto const& func : on_scroll_fns) { func(xoffset, yoffset); }
+        for (auto const& func : _on_scroll_fns) { func(xoffset, yoffset); }
     }
 
     void onDrop(const int count, const char** paths) const {
-        for (auto const& func : on_drop_fns) { func(count, paths); }
+        for (auto const& func : _on_drop_fns) { func(count, paths); }
     }
 
     void onWindowSize(const int width, const int height) const {
-        for (auto const& func : on_window_size_fns) { func(width, height); }
+        for (auto const& func : _on_window_size_fns) { func(width, height); }
     }
 
     void onWindowDPIChanged(const float xscale, const float yscale) const {
-        for (auto const& func : on_window_dpi_changed_fns) {
+        for (auto const& func : _on_window_dpi_changed_fns) {
             func(xscale, yscale);
         }
     }
 
     void onWindowClose() const {
-        for (auto const& func : on_window_close_fns) { func(); }
+        for (auto const& func : _on_window_close_fns) { func(); }
     }
+
+    // NOLINTEND
 
 public:
     virtual void init(const std::string_view& title, int32_t width,
@@ -142,48 +145,48 @@ public:
     [[nodiscard]] virtual bool shouldClose() const = 0;
 
     void registerOnResetFn(on_reset_fn const& func) {
-        on_reset_fns.push_back(func);
+        _on_reset_fns.push_back(func);
     }
 
-    void registerOnKeyFn(on_key_fn const& func) { on_key_fns.push_back(func); }
+    void registerOnKeyFn(on_key_fn const& func) { _on_key_fns.push_back(func); }
 
     void registerOnCharFn(on_char_fn const& func) {
-        on_char_fns.push_back(func);
+        _on_char_fns.push_back(func);
     }
 
     void registerOnCharModsFn(on_char_mods_fn const& func) {
-        on_char_mods_fns.push_back(func);
+        _on_char_mods_fns.push_back(func);
     }
 
     void registerOnMouseButtonFn(on_mouse_button_fn const& func) {
-        on_mouse_button_fns.push_back(func);
+        _on_mouse_button_fns.push_back(func);
     }
 
     void registerOnCursorPosFn(on_cursor_pos_fn const& func) {
-        on_cursor_pos_fns.push_back(func);
+        _on_cursor_pos_fns.push_back(func);
     }
 
     void registerOnCursorEnterFn(on_cursor_enter_fn const& func) {
-        on_cursor_enter_fns.push_back(func);
+        _on_cursor_enter_fns.push_back(func);
     }
 
     void registerOnScrollFn(on_scroll_fn const& func) {
-        on_scroll_fns.push_back(func);
+        _on_scroll_fns.push_back(func);
     }
 
     void registerOnDropFn(on_drop_fn const& func) {
-        on_drop_fns.push_back(func);
+        _on_drop_fns.push_back(func);
     }
 
     void registerOnWindowSizeFn(on_window_size_fn const& func) {
-        on_window_size_fns.push_back(func);
+        _on_window_size_fns.push_back(func);
     }
 
     void registerOnWindowCloseFn(on_window_close_fn const& func) {
-        on_window_close_fns.push_back(func);
+        _on_window_close_fns.push_back(func);
     }
 
-    void setOnError(on_error_fn const&& func) { this->on_error = func; }
+    void setOnError(on_error_fn const&& func) { this->_on_error = func; }
 };
 
 }// namespace taixu
