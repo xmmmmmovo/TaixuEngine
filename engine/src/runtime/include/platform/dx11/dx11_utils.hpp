@@ -7,8 +7,6 @@
 
 #include "common/base/macro.hpp"
 
-#include "platform/os/windows/windows_min.hpp"
-
 #include <cstdint>
 
 namespace taixu {
@@ -24,14 +22,12 @@ namespace taixu {
 #endif
 
 // 安全COM组件释放宏
-#define SAFE_RELEASE(p)                                                        \
-    {                                                                          \
-        if ((p)) {                                                             \
-            (p)->Release();                                                    \
-            (p) = nullptr;                                                     \
-        }                                                                      \
+constexpr void SAFE_RELEASE(IUnknown*& ptr) {
+    if (ptr) {
+        ptr->Release();
+        ptr = nullptr;
     }
-
+}
 
 // -----------------------------
 // 下面都是dx11辅助调试宏

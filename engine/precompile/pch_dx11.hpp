@@ -5,8 +5,40 @@
 #ifndef ENGINE_PRECOMPILE_PCH_DX11_8770F038AFF945FDBD131C2003164E00
 #define ENGINE_PRECOMPILE_PCH_DX11_8770F038AFF945FDBD131C2003164E00
 
-#include <DirectXMath.h>
-#include <d3d11_1.h>
 #include <wrl.h>
+
+#define NOGDICAPMASKS
+#define NOVIRTUALKEYCODES
+#define NOWINSTYLES
+#define NOSYSMETRICS
+#define NOMENUS
+#define NOICONS
+#define NOKEYSTATES
+#define NOSYSCOMMANDS
+#define NORASTEROPS
+#define NOSHOWWINDOW
+#define OEMRESOURCE
+#define NOATOM
+#define NOCLIPBOARD
+#define NOCOLOR
+#define NOCTLMGR
+#define NODRAWTEXT
+#define NOGDI
+#define NOKERNEL
+// #define NOUSER
+// #define NONLS
+#define NOMB
+#define NOMEMMGR
+#define NOMETAFILE
+// #define NOMSG
+#define NOOPENFILE
+#define NOSCROLL
+#define NOSERVICE
+
+#define NOMINMAX
+
+#include <d3d11_1.h>
+
+#define USE_DX11
 
 #endif// ENGINE_PRECOMPILE_PCH_DX11_8770F038AFF945FDBD131C2003164E00

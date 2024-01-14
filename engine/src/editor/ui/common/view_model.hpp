@@ -23,6 +23,10 @@ struct HierarchyNode {
 };
 
 struct ViewModel {
+private:
+    EngineContext const* engine_context_ptr{nullptr};
+
+public:
     std::filesystem::path                             project_path{};
     std::filesystem::path                             selected_path{};
     HierarchyNode<std::filesystem::path>*             selected_node{nullptr};
@@ -36,9 +40,11 @@ struct ViewModel {
 
     std::vector<HierarchyNode<std::string>> useful_objs_hierarchy{};
 
-    EngineContext const* engine_context_ptr{nullptr};
-
     void init(Engine* engine) { this->engine_context_ptr = &engine->context(); }
+
+    EngineContext const* getEngineContext() const {
+        return this->engine_context_ptr;
+    }
 };
 
 }// namespace taixu::editor

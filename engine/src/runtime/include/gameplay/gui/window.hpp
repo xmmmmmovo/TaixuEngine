@@ -11,7 +11,7 @@
 #include "common/designs/noncopyable.hpp"
 
 #ifdef TX_WINDOWS
-    #include "platform/os/windows/windows_min.hpp"
+    #include "platform/windows/windows_min.hpp"
 #endif
 
 namespace taixu {
@@ -116,9 +116,9 @@ public:
     virtual void destroy() = 0;
 
 #ifdef TX_WINDOWS
-    virtual HWND getHWND() const = 0;
+    [[nodiscard]] virtual HWND getHWND() const = 0;
 
-    virtual HINSTANCE getHINSTANCE() const = 0;
+    [[nodiscard]] virtual HINSTANCE getHINSTANCE() const = 0;
 #endif
 
     // vsync

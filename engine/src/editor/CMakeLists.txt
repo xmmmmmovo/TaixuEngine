@@ -24,7 +24,7 @@ endif ()
 target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime)
 
 if (USE_PCH)
-    target_precompile_headers(${TARGET_NAME} PRIVATE ${ENGINE_ROOT_DIR}/precompile/pch_std.hpp)
+    target_precompile_headers(${TARGET_NAME} PRIVATE ${PCH_DIR}/pch_std.hpp)
 endif ()
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
