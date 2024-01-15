@@ -23,7 +23,7 @@ private:
     CpuClock _clock{};
 
 public:
-    void preInit(std::vector<std::string> const& args);
+    void preInit(std::vector<std::string> const& args) const;
     void init(Window* window);
     /**
      * @brief This function only need call once before main loop

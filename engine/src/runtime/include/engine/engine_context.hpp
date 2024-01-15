@@ -38,7 +38,6 @@ public:
     }
 
     void update(float const delta_t) {
-
         renderer->update(delta_t, nullptr);
         renderer->presentToWindow();
     }

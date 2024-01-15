@@ -8,7 +8,7 @@
 
 namespace taixu {
 
-void Engine::preInit(std::vector<std::string> const& args) {
+void Engine::preInit(std::vector<std::string> const& args) const {
     Logger::init();
     _context.engine_args->initWithArgs(args);
 }

@@ -67,11 +67,7 @@ void MainWindow::init(const std::vector<std::string>& args) {
     INFO_LOG("Main window init start!");
 
     _view_model.init(_engine_runtime_ptr);
-
-    RenderAPI const api =
-            _engine_runtime_ptr->context().engine_args->render_api();
-
-    _window_ptr = WindowFactory::createWindow(api);
+    _window_ptr = std::make_unique<Window>();
     _window_ptr->init(_window_title, _width, _height);
     _window_ptr->showWindow();
 

@@ -12,6 +12,16 @@
 
 #include <common/base/macro.hpp>
 
+#include <backends/imgui_impl_glfw.h>
+
+#ifdef USE_VULKAN
+    #include <backends/imgui_impl_vulkan.h>
+#endif
+
+#ifdef USE_DX11
+    #include <backends/imgui_impl_dx11.h>
+#endif
+
 namespace taixu::editor {
 
 void ImguiLayer::loadCNFont() const {
@@ -41,8 +51,8 @@ void ImguiLayer::loadStyle() {
     // Gamepad Controls
     _io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
     _io->ConfigFlags |=
-            ImGuiConfigFlags_ViewportsEnable;          // Enable Multi-Viewport
-                                                       // / Platform Windows
+            ImGuiConfigFlags_ViewportsEnable;// Enable Multi-Viewport
+                                             // / Platform Windows
 
     ImGui::StyleColorsDark();
 
