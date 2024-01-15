@@ -160,9 +160,7 @@ public:
 
     void handleEvents() override { glfwPollEvents(); }
 
-    void destroy() override {
-        glfwTerminate();
-    }
+    void destroy() override { glfwTerminate(); }
 
     ~GLFWWindow() override { destroy(); }
 

@@ -257,16 +257,15 @@ void DX11SceneRenderer::presentToWindow() {
     _device_context->ClearRenderTargetView(_render_target_view.Get(),
                                            black.data());
     _device_context->ClearDepthStencilView(
-            _depth_stencil_view.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+            _depth_stencil_view.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL,
+            1.0f, 0);
 
     // 绘制三角形
     HR_CHECK(_swap_chain->Present(0, 0));
 }
 
 DX11SceneRenderer::~DX11SceneRenderer() {
-    if (_device_context != nullptr) {
-        _device_context->ClearState();
-    }
+    if (_device_context != nullptr) { _device_context->ClearState(); }
 };
 
 }// namespace taixu

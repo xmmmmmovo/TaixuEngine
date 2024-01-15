@@ -13,9 +13,7 @@ void Engine::preInit(std::vector<std::string> const& args) {
     _context.engine_args->initWithArgs(args);
 }
 
-void Engine::init(Window* window) {
-    _context.init(window);
-}
+void Engine::init(Window* window) { _context.init(window); }
 
 void Engine::start() { _clock.reset(); }
 

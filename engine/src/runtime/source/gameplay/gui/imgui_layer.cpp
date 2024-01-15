@@ -32,16 +32,17 @@ void ImguiLayer::loadCNFont() const {
     icons_config.MergeMode  = true;
     icons_config.PixelSnapH = true;
     _io->Fonts->AddFontFromFileTTF("res/fonts/fa-solid-900.ttf", FONT_SIZE,
-                                  &icons_config, K_ICONS_RANGES.data());
+                                   &icons_config, K_ICONS_RANGES.data());
 }
 void ImguiLayer::loadStyle() {
     _io->ConfigFlags |=
             ImGuiConfigFlags_NavEnableKeyboard;// Enable Keyboard Controls
     // io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable
     // Gamepad Controls
-    _io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;  // Enable Docking
-    _io->ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;// Enable Multi-Viewport
-                                                        // / Platform Windows
+    _io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
+    _io->ConfigFlags |=
+            ImGuiConfigFlags_ViewportsEnable;          // Enable Multi-Viewport
+                                                       // / Platform Windows
 
     ImGui::StyleColorsDark();
 
@@ -60,20 +61,21 @@ void ImguiLayer::loadStyle() {
     _style->Colors[ImGuiCol_TabHovered]   = ImVec4{0.38f, 0.38f, 0.38f, 1.0f};
     _style->Colors[ImGuiCol_TabActive]    = ImVec4{0.28f, 0.28f, 0.28f, 1.0f};
     _style->Colors[ImGuiCol_TabUnfocused] = ImVec4{0.15f, 0.15f, 0.15f, 1.0f};
-    _style->Colors[ImGuiCol_TabUnfocusedActive] = ImVec4{0.2f, 0.2f, 0.2f, 1.0f};
+    _style->Colors[ImGuiCol_TabUnfocusedActive] =
+            ImVec4{0.2f, 0.2f, 0.2f, 1.0f};
 
-    _style->Colors[ImGuiCol_Text]           = TEXT_COL(0.78f);
-    _style->Colors[ImGuiCol_TextDisabled]   = TEXT_COL(0.28f);
-    _style->Colors[ImGuiCol_WindowBg]       = ImVec4(0.13f, 0.14f, 0.17f, 1.00f);
-    _style->Colors[ImGuiCol_ChildBg]        = BG_COL(0.58f);
-    _style->Colors[ImGuiCol_PopupBg]        = BG_COL(0.9f);
-    _style->Colors[ImGuiCol_Border]         = ImVec4(0.31f, 0.31f, 1.00f, 0.00f);
-    _style->Colors[ImGuiCol_BorderShadow]   = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-    _style->Colors[ImGuiCol_FrameBg]        = BG_COL(1.00f);
-    _style->Colors[ImGuiCol_FrameBgHovered] = MED_COL(0.78f);
-    _style->Colors[ImGuiCol_FrameBgActive]  = MED_COL(1.00f);
-    _style->Colors[ImGuiCol_TitleBg]        = LOW_COL(1.00f);
-    _style->Colors[ImGuiCol_TitleBgActive]  = HI_COL(1.00f);
+    _style->Colors[ImGuiCol_Text]         = TEXT_COL(0.78f);
+    _style->Colors[ImGuiCol_TextDisabled] = TEXT_COL(0.28f);
+    _style->Colors[ImGuiCol_WindowBg]     = ImVec4(0.13f, 0.14f, 0.17f, 1.00f);
+    _style->Colors[ImGuiCol_ChildBg]      = BG_COL(0.58f);
+    _style->Colors[ImGuiCol_PopupBg]      = BG_COL(0.9f);
+    _style->Colors[ImGuiCol_Border]       = ImVec4(0.31f, 0.31f, 1.00f, 0.00f);
+    _style->Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+    _style->Colors[ImGuiCol_FrameBg]      = BG_COL(1.00f);
+    _style->Colors[ImGuiCol_FrameBgHovered]   = MED_COL(0.78f);
+    _style->Colors[ImGuiCol_FrameBgActive]    = MED_COL(1.00f);
+    _style->Colors[ImGuiCol_TitleBg]          = LOW_COL(1.00f);
+    _style->Colors[ImGuiCol_TitleBgActive]    = HI_COL(1.00f);
     _style->Colors[ImGuiCol_TitleBgCollapsed] = BG_COL(0.75f);
     _style->Colors[ImGuiCol_MenuBarBg]        = BG_COL(0.47f);
     _style->Colors[ImGuiCol_ScrollbarBg]      = BG_COL(1.00f);
