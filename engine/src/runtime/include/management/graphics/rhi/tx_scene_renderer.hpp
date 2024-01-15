@@ -15,8 +15,8 @@ class AbstractSceneRenderer : private Noncopyable {
 public:
     virtual void init(Window* window)                   = 0;
     virtual void update(float delta_time, Scene* scene) = 0;
-
-    virtual void onResize(int width, int height) = 0;
+    virtual void presentToWindow()                      = 0;
+    virtual void onResize(int width, int height)        = 0;
 };
 
 }// namespace taixu

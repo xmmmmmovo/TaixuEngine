@@ -161,7 +161,6 @@ public:
     void handleEvents() override { glfwPollEvents(); }
 
     void destroy() override {
-        glfwDestroyWindow(_window);
         glfwTerminate();
     }
 

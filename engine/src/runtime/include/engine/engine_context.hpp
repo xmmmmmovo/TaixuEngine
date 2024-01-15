@@ -29,12 +29,18 @@ public:
     EngineState state{EngineState::IDLEMODE};
     EngineArgs* engine_args{&EngineArgs::getInstance()};
 
-    void init(const std::vector<std::string>& args) {
-        engine_args->initWithArgs(args);
-
+    void init(Window* window) {
         renderer =
                 SceneRendererFactory::createProduct(engine_args->render_api());
+        renderer->init(window);
+
         asset_manager = std::make_unique<AssetManager>();
+    }
+
+    void update(float const delta_t) {
+
+        renderer->update(delta_t, nullptr);
+        renderer->presentToWindow();
     }
 
     void destroy() {}

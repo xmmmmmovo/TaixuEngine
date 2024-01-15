@@ -11,6 +11,8 @@
 #include "imgui_internal.h"
 
 // "" headers
+#include "gameplay/gui/imgui_layer.hpp"
+
 #include "ui/common/view_model.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
@@ -57,6 +59,7 @@ private:
 private:
     // context
     std::unique_ptr<Window> _window_ptr{nullptr};
+    ImguiLayer              _imgui_layer{};
     Engine*                 _engine_runtime_ptr{nullptr};
     ViewModel               _view_model{};
 

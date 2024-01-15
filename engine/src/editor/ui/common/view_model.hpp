@@ -40,7 +40,9 @@ public:
 
     std::vector<HierarchyNode<std::string>> useful_objs_hierarchy{};
 
-    void init(Engine* engine) { this->engine_context_ptr = &engine->context(); }
+    void init(const Engine* engine) {
+        this->engine_context_ptr = &engine->context();
+    }
 
     EngineContext const* getEngineContext() const {
         return this->engine_context_ptr;

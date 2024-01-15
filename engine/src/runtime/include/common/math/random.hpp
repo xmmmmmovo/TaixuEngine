@@ -11,7 +11,7 @@
 namespace taixu {
 
 template<typename RandomEngine = std::default_random_engine>
-class RandomNumberGenerator : public Noncopyable {
+class RandomNumberGenerator final : public Noncopyable {
 private:
     RandomEngine _random_engine;
 
@@ -19,7 +19,7 @@ public:
     template<typename... Params>
     explicit RandomNumberGenerator(Params&&... params)
         : _random_engine(std::forward<Params>(params)...){};
-    ~RandomNumberGenerator() = default;
+    ~RandomNumberGenerator() override = default;
 
     template<typename... Params>
     void seed(Params&&... params) {

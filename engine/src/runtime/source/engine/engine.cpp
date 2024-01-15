@@ -8,9 +8,13 @@
 
 namespace taixu {
 
-void Engine::init(const std::vector<std::string>& args) {
+void Engine::preInit(std::vector<std::string> const& args) {
     Logger::init();
-    _context.init(args);
+    _context.engine_args->initWithArgs(args);
+}
+
+void Engine::init(Window* window) {
+    _context.init(window);
 }
 
 void Engine::start() { _clock.reset(); }
@@ -18,11 +22,7 @@ void Engine::start() { _clock.reset(); }
 void Engine::update() {
     _clock.update();
     float const delta_time = _clock.getDeltaTime();
-    //    _renderer->clearSurface();
-    //    _renderer->update(delta_time);
-    //    if (_current_scene != nullptr) {
-    //        _current_scene->_ecs_coordinator.update();
-    //    }
+    _context.update(delta_time);
 }
 
 void Engine::destroy() { Logger::destroy(); }
