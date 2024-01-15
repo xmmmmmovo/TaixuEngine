@@ -4,9 +4,8 @@
 #include "main_window.hpp"
 #include <imgui.h>
 
+#include "gameplay/gui/imgui_layer.hpp"
 #include <GraphEditor.h>
-#include <gameplay/gui/imgui_surface.hpp>
-#include <platform/glfw/window.hpp>
 #include <platform/os/path.hpp>
 #include <utility>
 
@@ -63,17 +62,17 @@ void MainWindow::buildUpPathHierarchy() {
 
 void MainWindow::init(const std::vector<std::string>& args) {
     _engine_runtime_ptr = &Engine::getInstance();
-    _engine_runtime_ptr->init(args);
-
-    _view_model.init(_engine_runtime_ptr);
+    _engine_runtime_ptr->preInit(args);
 
     INFO_LOG("Main window init start!");
-    RenderAPI const api =
-            _engine_runtime_ptr->context().engine_args->render_api();
 
-    _window_ptr = WindowFactory::createWindow(api);
+    _view_model.init(_engine_runtime_ptr);
+    _window_ptr = std::make_unique<Window>();
     _window_ptr->init(_window_title, _width, _height);
     _window_ptr->showWindow();
+
+    _engine_runtime_ptr->init(_window_ptr.get());
+
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
     //                if (button == GLFW_MOUSE_BUTTON_RIGHT && action ==
@@ -93,14 +92,12 @@ void MainWindow::init(const std::vector<std::string>& args) {
     //                    }
     //                }
     //            });
-
     buildUpUsefulObjHierarchy();
 
     //    INFO_LOG("Main window init finished!");
 }
 
 void MainWindow::preUpdate() {
-    ImguiLayers::preUpdate();
 
     //    if (nullptr == _view_model.engine_runtime_ptr->getOpenedProject()) {
     //        return;
@@ -124,23 +121,23 @@ void MainWindow::preUpdate() {
 
     //    menu_component.processFileDialog();
     //
-    //    ImguiSurface::addWidget(WORLD_OBJ_COMPONENT_NAME.data(),
+    //    ImguiSurface::addComponents(WORLD_OBJ_COMPONENT_NAME.data(),
     //                            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
     //                                    world_object_component.update));
-    //    ImguiSurface::addWidget(
+    //    ImguiSurface::addComponents(
     //            RENDER_COMPONENT_NAME.data(),
     //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component.update),
     //            ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_MenuBar);
-    //    ImguiSurface::addWidget(
+    //    ImguiSurface::addComponents(
     //            DETAILS_COMPONENT_NAME.data(),
     //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component.update));
-    //    ImguiSurface::addWidget(
+    //    ImguiSurface::addComponents(
     //            FILE_COMPONENT_NAME.data(),
     //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(file_component.update));
-    //    ImguiSurface::addWidget(
+    //    ImguiSurface::addComponents(
     //            STATUS_COMPONENT_NAME.data(),
     //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(status_component.update));
-    //    ImguiSurface::addWidget(
+    //    ImguiSurface::addComponents(
     //            USEFUL_OBJ_COMPONENT_NAME.data(),
     //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component.update));
 }
@@ -159,10 +156,7 @@ bool MainWindow::isCursorInRenderComponent() const {
     return true;
 }
 
-void MainWindow::update() {
-    preUpdate();
-    ImguiLayers::update();
-}
+void MainWindow::update() { preUpdate(); }
 
 void MainWindow::show() const {
     _engine_runtime_ptr->start();
@@ -172,10 +166,7 @@ void MainWindow::show() const {
     }
 }
 
-void MainWindow::destroy() const {
-    ImguiLayers::destroy();
-    _window_ptr->destroy();
-}
+void MainWindow::destroy() const { _window_ptr->destroy(); }
 
 MainWindow::MainWindow(std::string title, int32_t width, int32_t height)
     : _window_title(std::move(title)), _width(width), _height(height) {

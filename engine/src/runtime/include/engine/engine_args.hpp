@@ -10,10 +10,8 @@
 #include <common/base/core.hpp>
 #include <common/designs/public_singleton.hpp>
 #include <common/log/logger.hpp>
-#include <gameplay/gui/window_factory.hpp>
 #include <management/graphics/rhi/tx_renderer_factory.hpp>
 #include <platform/dx11/dx11_scene_renderer.hpp>
-#include <platform/glfw/window.hpp>
 
 namespace taixu {
 
@@ -29,26 +27,13 @@ private:
     static constexpr const char* LOCALE = "--locale";
 
 private:
-    static void registerWindowFactory() {
-        WindowFactory::registerRenderAPI(RenderAPI::VULKAN, WindowAPI::GLFW);
-        WindowFactory::registerRenderAPI(RenderAPI::DX11, WindowAPI::GLFW);
-        WindowFactory::registerRenderAPI(RenderAPI::DX12, WindowAPI::GLFW);
-
-        WindowFactory::registerCreationFunc(WindowAPI::GLFW, []() {
-            return std::make_unique<GLFWWindow>();
-        });
-    }
-
     static void registerRendererFactory() {
         SceneRendererFactory::registerCreationFunc(RenderAPI::DX11, []() {
             return std::make_unique<DX11SceneRenderer>();
         });
     }
 
-    void registerWithArgs() {
-        registerWindowFactory();
-        registerRendererFactory();
-    }
+    static void registerWithArgs() { registerRendererFactory(); }
 
 public:
     void initWithArgs(const std::vector<std::string>& args) {

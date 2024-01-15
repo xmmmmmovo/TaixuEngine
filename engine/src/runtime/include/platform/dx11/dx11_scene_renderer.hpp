@@ -19,6 +19,13 @@ private:
     using ComPtrT = Microsoft::WRL::ComPtr<T>;
 
 private:
+    ///
+    /// 下面的变量都是为了present to screen准备的。
+    ///
+
+    /**
+     * @brief 设备
+     */
     ComPtrT<ID3D11Device>        _device{};
     ComPtrT<ID3D11DeviceContext> _device_context{};
     ComPtrT<IDXGISwapChain>      _swap_chain{};
@@ -34,10 +41,14 @@ private:
 
     bool          _enable_4x_msaa{false};
     std::uint32_t _4x_msaa_quality_support{0};
+    ///
+    /// 到这里为止
+    ///
 
 public:
     void init(Window* window) override;
     void update(float delta_time, Scene* scene) override;
+    void presentToWindow() override;
 
     void onResize(int width, int height) override;
 

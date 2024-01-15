@@ -21,7 +21,7 @@ static constexpr int32_t          MAIN_WINDOW_HEIGHT = 1080;
  */
 static constexpr std::string_view MAIN_WINDOW_TITLE  = "TaixuEngineEditor";
 
-int main(int argc, char* argv[]) {
+auto main(int argc, char* argv[]) -> int {
     // avoid c-style array
     std::vector<std::string> const args(argv, argv + argc);
 

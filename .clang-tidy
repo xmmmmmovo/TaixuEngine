@@ -92,6 +92,7 @@ Checks: >
   readability-uniqueptr-delete-release,
   readability-use-anyofallof,
   readability-identifier-naming,
+  readability-uppercase-literal-suffix,
   
   cert-dcl21-cpp,
   cert-dcl58-cpp,
@@ -238,3 +239,4 @@ CheckOptions:
   readability-identifier-naming.TypedefCase: CamelCase
   readability-identifier-naming.UnionCase: CamelCase
   readability-identifier-naming.UsingCase: CamelCase
+  misc-non-private-member-variables-in-classes: IgnorePublicMemberVariables

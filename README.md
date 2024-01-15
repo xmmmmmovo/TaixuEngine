@@ -14,3 +14,20 @@ make
 ```
 
 ## Features
+
+## Architecture
+
+```mermaid
+flowchart TD
+    editor --> runtime;
+    runtime --> engine;
+    engine --> common;
+    engine --> management;
+    management --> gameplay;
+    management --> resource;
+    management --> platform;
+    gameplay --> common;
+    management --> common;
+    platform --> common;
+    resource --> common;
+```
