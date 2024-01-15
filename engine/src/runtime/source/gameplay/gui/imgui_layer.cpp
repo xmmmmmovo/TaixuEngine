@@ -51,8 +51,8 @@ void ImguiLayer::loadStyle() {
     // Gamepad Controls
     _io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
     _io->ConfigFlags |=
-            ImGuiConfigFlags_ViewportsEnable;// Enable Multi-Viewport
-                                             // / Platform Windows
+            ImGuiConfigFlags_ViewportsEnable;          // Enable Multi-Viewport
+                                                       // / Platform Windows
 
     ImGui::StyleColorsDark();
 
