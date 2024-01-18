@@ -1,0 +1,14 @@
+//
+// Created by xmmmmmovo on 1/19/2024.
+//
+
+#ifndef TX_SWAPCHAIN_HPP_CE0743299870403FA655FBDE9A487C83
+#define TX_SWAPCHAIN_HPP_CE0743299870403FA655FBDE9A487C83
+
+namespace taixu {
+
+class TXSwapChain {};
+
+}// namespace taixu
+
+#endif// TX_SWAPCHAIN_HPP_CE0743299870403FA655FBDE9A487C83

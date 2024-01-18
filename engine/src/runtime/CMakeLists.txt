@@ -1,8 +1,10 @@
 set(TARGET_NAME TaixuRuntime)
 
-macro(FIND_GLOB_RECURSE OUT_VAR)
-    file(GLOB_RECURSE ${OUT_VAR} ${ARGN})
-endmacro()
+include(SourceUtils)
+
+set(COMMON_TARGET "TaixuCommonLib")
+set(ENGINE_TARGET "TaixuEngineRuntimeLib")
+set(GAMEPLAY_TARGET "TaixuGameplayRuntimeLib")
 
 FIND_GLOB_RECURSE(SOURCE_FILES
         "source/common/*.cpp"
@@ -33,7 +35,7 @@ target_link_libraries(${TARGET_NAME} PUBLIC glm imgui argparse spdlog::spdlog fm
 if (USE_VULKAN)
     add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)
 
-    list (APPEND PCH_FILES "${PCH_DIR}/pch_vulkan.hpp")
+    list(APPEND PCH_FILES "${PCH_DIR}/pch_vulkan.hpp")
     target_link_libraries(${TARGET_NAME} PRIVATE Vulkan::Vulkan volk VulkanMemoryAllocator)
     target_include_directories(${TARGET_NAME} PRIVATE ${Vulkan_INCLUDE_DIRS})
 endif ()
@@ -41,7 +43,7 @@ endif ()
 if (USE_DX11)
     add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_DX11)
 
-    list (APPEND PCH_FILES "${PCH_DIR}/pch_dx11.hpp")
+    list(APPEND PCH_FILES "${PCH_DIR}/pch_dx11.hpp")
     target_link_libraries(${TARGET_NAME} PRIVATE ${DX11_LIB})
 endif ()
 

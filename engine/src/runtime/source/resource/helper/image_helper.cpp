@@ -16,6 +16,8 @@
 #include <stb_image.h>
 #include <stb_image_resize2.h>
 
+constexpr std::int32_t const ZERO_VALUE_FLAG = -1;
+
 namespace taixu {
 
 std::optional<Image> loadImage(std::filesystem::path const& path,

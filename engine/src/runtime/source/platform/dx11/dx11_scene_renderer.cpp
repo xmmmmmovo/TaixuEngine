@@ -95,8 +95,8 @@ void DX11SceneRenderer::init(Window* window) {
         // 填充各种结构体用以描述交换链
         DXGI_SWAP_CHAIN_DESC1 sd;
         ZeroMemory(&sd, sizeof(sd));
-        sd.Width  = window->width();
-        sd.Height = window->height();
+        sd.Width  = window->window_info().width;
+        sd.Height = window->window_info().height;
         sd.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
         // 是否开启4倍多重采样？
         if (_enable_4x_msaa) {
@@ -127,8 +127,8 @@ void DX11SceneRenderer::init(Window* window) {
         DXGI_SWAP_CHAIN_DESC sd;
         ZeroMemory(&sd, sizeof(sd));
 
-        sd.BufferDesc.Width                   = window->width();
-        sd.BufferDesc.Height                  = window->height();
+        sd.BufferDesc.Width                   = window->window_info().width;
+        sd.BufferDesc.Height                  = window->window_info().height;
         sd.BufferDesc.RefreshRate.Numerator   = 60;
         sd.BufferDesc.RefreshRate.Denominator = 1;
         sd.BufferDesc.Format                  = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -163,12 +163,13 @@ void DX11SceneRenderer::init(Window* window) {
 
     // 每当窗口被重新调整大小的时候，都需要调用这个OnResize函数。现在调用
     // 以避免代码重复
-    onResize(window->width(), window->height());
-    window->registerOnWindowSizeFn(
-            [this](int width, int height) { this->onResize(width, height); });
+    onResize(window->window_info().width, window->window_info().height);
+    window->registerOnWindowSizeFn([this](const int width, const int height) {
+        this->onResize(width, height);
+    });
 }
 
-void DX11SceneRenderer::onResize(int width, int height) {
+void DX11SceneRenderer::onResize(const int width, const int height) {
     TX_ASSERT(_device);
     TX_ASSERT(_device_context);
     TX_ASSERT(_swap_chain);
@@ -249,11 +250,12 @@ void DX11SceneRenderer::onResize(int width, int height) {
 }
 
 void DX11SceneRenderer::update(float delta_time, Scene* scene) {}
+
 void DX11SceneRenderer::presentToWindow() {
     TX_ASSERT(_device_context);
     TX_ASSERT(_swap_chain);
 
-    static std::array black{0.0f, 0.0f, 0.0f, 1.0f};// RGBA = (0,0,0,255)
+    static std::array black{0.1f, 0.1f, 0.1f, 1.0f};
     _device_context->ClearRenderTargetView(_render_target_view.Get(),
                                            black.data());
     _device_context->ClearDepthStencilView(

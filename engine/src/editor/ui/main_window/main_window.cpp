@@ -4,7 +4,6 @@
 #include "main_window.hpp"
 #include <imgui.h>
 
-#include "gameplay/gui/imgui_layer.hpp"
 #include <GraphEditor.h>
 #include <platform/os/path.hpp>
 #include <utility>
@@ -68,7 +67,7 @@ void MainWindow::init(const std::vector<std::string>& args) {
 
     _view_model.init(_engine_runtime_ptr);
     _window_ptr = std::make_unique<Window>();
-    _window_ptr->init(_window_title, _width, _height);
+    _window_ptr->init({_window_title, _width, _height});
     _window_ptr->showWindow();
 
     _engine_runtime_ptr->init(_window_ptr.get());

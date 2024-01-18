@@ -21,7 +21,7 @@ static constexpr int32_t          MAIN_WINDOW_HEIGHT = 1080;
  */
 static constexpr std::string_view MAIN_WINDOW_TITLE  = "TaixuEngineEditor";
 
-auto main(int argc, char* argv[]) -> int {
+int main(const int argc, char* argv[]) try {
     // avoid c-style array
     std::vector<std::string> const args(argv, argv + argc);
 
@@ -33,4 +33,8 @@ auto main(int argc, char* argv[]) -> int {
     main_window.destroy();
 
     return EXIT_SUCCESS;
+} catch (std::exception const& eErr) {
+    std::fprintf(stderr, "\n");
+    std::fprintf(stderr, "Error: %s\n", eErr.what());
+    return 1;
 }
