@@ -37,6 +37,8 @@ add_executable(${TARGET_NAME} ${unit_tests_src} ${benchmarks_src})
 
 target_link_libraries(${TARGET_NAME} TaixuRuntime Catch2::Catch2WithMain)
 
+target_include_directories(${TARGET_NAME} PRIVATE $<TARGET_PROPERTY:TaixuRuntime,INCLUDE_DIRECTORIES>)
+
 enable_testing()
 add_test(${TARGET_NAME} taixu_unit_tests)
 

@@ -21,13 +21,8 @@
 #include "ui/components/statusbar_component.hpp"
 #include "ui/components/useful_obj_hierarchy_component.hpp"
 
-#include <engine/engine.hpp>
 #include <gameplay/gui/window.hpp>
-#include <management/components/transform/transform_component.hpp>
-#include <management/ecs/core/ecs_types.hpp>
-#include <management/ecs/ecs_coordinator.hpp>
-#include <management/ecs/system/system.hpp>
-#include <management/scene/scene.hpp>
+#include <engine/engine.hpp>
 
 namespace taixu::editor {
 
@@ -85,7 +80,7 @@ public:
     void update();
     void destroy() const;
 
-    void show() const;
+    void start() const;
 
 private:
     void preUpdate();

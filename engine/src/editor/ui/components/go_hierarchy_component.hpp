@@ -8,7 +8,6 @@
 #include "imgui.h"
 #include "ui/common/ui_component.hpp"
 #include <array>
-#include <management/ecs/object/game_object.hpp>
 #include <string>
 #include <string_view>
 

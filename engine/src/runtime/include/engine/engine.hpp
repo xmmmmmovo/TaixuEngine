@@ -1,38 +1,40 @@
-#ifndef ENGINE_H
-#define ENGINE_H
 
-#include <common/base/macro.hpp>
-#include <common/designs/public_singleton.hpp>
+#pragma once
 
-#include <filesystem>
-#include <memory>
-
+#include "common/base/cpu_clock.hpp"
+#include "common/designs/public_singleton.hpp"
 #include "engine_context.hpp"
+
+#include <string>
+
 
 namespace taixu {
 
 class Engine final : public PublicSingleton<Engine> {
-    friend class PublicSingleton<Engine>;
-
-    PROTOTYPE_ONLY_GETTER_CONST(private, EngineContext, context);
+    friend class PublicSingleton;
 
 private:
+    /**
+     * Context
+     */
+    TX_INLINE static EngineContext _context{};
+
     /**
      * @brief engine clock
      */
     CpuClock _clock{};
 
 public:
-    void preInit(std::vector<std::string> const& args) const;
+    void preInit(std::vector<std::string> const& args);
     void init(Window* window);
     /**
      * @brief This function only need call once before main loop
      */
-    void start();
+    void beforeStart();
     void update();
     void destroy();
+
+    [[nodiscard]] static EngineContext* getContext();
 };
 
 }// namespace taixu
-
-#endif// ENGINE_H

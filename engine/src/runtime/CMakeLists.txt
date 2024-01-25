@@ -8,10 +8,16 @@ set(GAMEPLAY_TARGET "TaixuGameplayRuntimeLib")
 
 FIND_GLOB_RECURSE(SOURCE_FILES
         "source/common/*.cpp"
+        "source/common/*.hpp"
         "source/engine/*.cpp"
+        "source/engine/*.hpp"
         "source/gameplay/*.cpp"
+        "source/gameplay/*.hpp"
         "source/management/*.cpp"
-        "source/resource/*.cpp")
+        "source/management/*.hpp"
+        "source/resource/*.cpp"
+        "source/resource/*.hpp"
+)
 
 FIND_GLOB_RECURSE(PLATFORM_FILES "source/platform/*.cpp")
 
@@ -53,7 +59,10 @@ endif ()
 
 target_include_directories(
         ${TARGET_NAME}
-        PUBLIC $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/shaders/generated/cpp>)
+        PRIVATE $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/shaders/generated/cpp>)
+target_include_directories(
+        ${TARGET_NAME}
+        PRIVATE $<BUILD_INTERFACE:${ENGINE_ROOT_DIR}/src/runtime/source>)
 
 target_include_directories(
         ${TARGET_NAME}

@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 2023/4/27.
 //
 
-#include "resource/helper/image_helper.hpp"
+#include "image_helper.hpp"
 
 #include <common/utils/binary_utils.hpp>
 

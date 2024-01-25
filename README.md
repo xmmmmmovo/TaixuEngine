@@ -19,8 +19,8 @@ make
 
 ```mermaid
 flowchart TD
-    editor --> runtime;
-    runtime --> engine;
+    editor --> runtime/include;
+    runtime/include --> engine;
     engine --> common;
     engine --> management;
     management --> gameplay;

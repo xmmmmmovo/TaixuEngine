@@ -2,6 +2,8 @@
 // Created by xmmmmmovo on 2023/2/12.
 //
 #include "main_window.hpp"
+
+#include "common/utils/function_utils.hpp"
 #include <imgui.h>
 
 #include <GraphEditor.h>
@@ -65,8 +67,8 @@ void MainWindow::init(const std::vector<std::string>& args) {
 
     INFO_LOG("Main window init start!");
 
-    _view_model.init(_engine_runtime_ptr);
-    _window_ptr = std::make_unique<Window>();
+    _view_model.engine_context_ptr = _engine_runtime_ptr->getContext();
+    _window_ptr                    = std::make_unique<Window>();
     _window_ptr->init({_window_title, _width, _height});
     _window_ptr->showWindow();
 
@@ -157,8 +159,8 @@ bool MainWindow::isCursorInRenderComponent() const {
 
 void MainWindow::update() { preUpdate(); }
 
-void MainWindow::show() const {
-    _engine_runtime_ptr->start();
+void MainWindow::start() const {
+    _engine_runtime_ptr->beforeStart();
     while (!_window_ptr->shouldClose()) {
         _engine_runtime_ptr->update();
         _window_ptr->handleEvents();

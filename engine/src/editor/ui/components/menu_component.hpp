@@ -8,9 +8,9 @@
 #include <ImGuiFileDialog.h>
 #include <imgui.h>
 
+#include "common/utils/function_utils.hpp"
+#include "platform/os/path.hpp"
 #include "ui/common/ui_component.hpp"
-#include <common/utils/function_utils.hpp>
-#include <platform/os/path.hpp>
 
 namespace taixu::editor {
 
@@ -66,7 +66,7 @@ public:
         ImGui::Separator();
 
         if (ImGui::MenuItem("Exit")) {
-            glfwSetWindowShouldClose(glfwGetCurrentContext(), GLFW_TRUE);
+            // glfwSetWindowShouldClose(glfwGetCurrentContext(), GLFW_TRUE);
             exit(0);
         }
     }

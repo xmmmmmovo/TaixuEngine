@@ -1,0 +1,37 @@
+//
+// Created by xmmmmmovo on 1/20/2024.
+//
+
+#ifndef DX11_SWAPCHAIN_HPP_0F750F7CBBA44E3DA7757F24FF347D30
+#define DX11_SWAPCHAIN_HPP_0F750F7CBBA44E3DA7757F24FF347D30
+
+#include "dx11_context.hpp"
+#include "dx11_core.hpp"
+
+#include "management/graphics/rhi/tx_swapchain.hpp"
+
+#include <d3d11_1.h>
+
+namespace taixu {
+
+class DX11SwapChain final
+    : public TXSwapChain<ComPtrT<IDXGISwapChain>, D3D11_VIEWPORT> {
+
+protected:
+    ComPtrT<ID3D11Texture2D>        _depth_stencil_texture{};
+    ComPtrT<ID3D11RenderTargetView> _render_target_view{};
+    ComPtrT<ID3D11DepthStencilView> _depth_stencil_view{};
+
+    DX11Context* _context{nullptr};
+
+public:
+    void init(DX11Context* context, Window* window);
+
+    void presentToWindow() const;
+
+    void resize(int32_t width, int32_t height);
+};
+
+}// namespace taixu
+
+#endif// DX11_SWAPCHAIN_HPP_0F750F7CBBA44E3DA7757F24FF347D30

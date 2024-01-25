@@ -6,9 +6,9 @@
 
 #include "IconsFontAwesome6.h"
 #include "ImGuizmo.h"
-#include "common/log/logger.hpp"
 #include "imgui.h"
 #include "imgui_internal.h"
+#include "common/log/logger.hpp"
 
 #include <common/base/macro.hpp>
 
@@ -138,7 +138,9 @@ void Window::loadStyle() {
     _style->WindowPadding    = ImVec2(0.0f, 0.0f);
 }
 
-void Window::initForWindow() const { ImGui_ImplGlfw_InitForOther(_window, true); }
+void Window::initForWindow() const {
+    ImGui_ImplGlfw_InitForOther(_window, true);
+}
 
 void Window::initForGraphicsAPI() {}
 

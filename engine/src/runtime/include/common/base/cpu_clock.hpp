@@ -22,30 +22,15 @@ private:
 public:
     float time_scale{1.0f};
 
-    [[nodiscard]] float getDeltaTime() const { return delta_time; }
-    [[nodiscard]] float getTimeSinceStart() const { return time_since_start; }
+    [[nodiscard]] float getDeltaTime() const;
+    [[nodiscard]] float getTimeSinceStart() const ;
 
-    void reset() {
-        start_time   = std::chrono::high_resolution_clock::now();
-        last_time    = start_time;
-        current_time = start_time;
+    void reset();
 
-        delta_time       = 0.0f;
-        time_since_start = 0.0f;
-    }
-
-    void update() {
-        last_time    = current_time;
-        current_time = std::chrono::high_resolution_clock::now();
-        elapsed_time = current_time - last_time;
-
-        // TODO: time scale need to be proved
-        delta_time = elapsed_time.count() * time_scale;
-        time_since_start += delta_time;
-    }
+    void update();
 
     // calculate the fps
-    [[nodiscard]] float getFPS() const { return 1.0f / delta_time; }
+    [[nodiscard]] float getFPS() const;
 };
 
 }// namespace taixu

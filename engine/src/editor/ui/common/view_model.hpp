@@ -7,8 +7,6 @@
 
 #include "ImGuizmo.h"
 #include "engine/engine.hpp"
-#include "management/ecs/core/ecs_types.hpp"
-#include "management/ecs/object/game_object.hpp"
 #include <filesystem>
 #include <string>
 
@@ -23,10 +21,8 @@ struct HierarchyNode {
 };
 
 struct ViewModel {
-private:
-    EngineContext const* engine_context_ptr{nullptr};
+    EngineContext* engine_context_ptr{nullptr};
 
-public:
     std::filesystem::path                             project_path{};
     std::filesystem::path                             selected_path{};
     HierarchyNode<std::filesystem::path>*             selected_node{nullptr};
@@ -35,18 +31,9 @@ public:
     ImGuizmo::MODE      guizmo_mode{ImGuizmo::MODE::LOCAL};
     ImGuizmo::OPERATION guizmo_operation{ImGuizmo::OPERATION::TRANSLATE};
 
-    Entity selected_entity{0};
-    bool   is_entity_selected{false};
+    bool is_entity_selected{false};
 
     std::vector<HierarchyNode<std::string>> useful_objs_hierarchy{};
-
-    void init(const Engine* engine) {
-        this->engine_context_ptr = &engine->context();
-    }
-
-    EngineContext const* getEngineContext() const {
-        return this->engine_context_ptr;
-    }
 };
 
 }// namespace taixu::editor

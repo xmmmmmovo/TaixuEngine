@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 1/19/2024.
 //
 
-#include "common/utils/binary_utils.hpp"
+#include "binary_utils.hpp"
 
 constexpr std::int32_t const ZERO_VALUE_FLAG = -1;
 

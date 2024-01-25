@@ -2,13 +2,13 @@
 // Created by xmmmmmovo on 2023/2/19.
 //
 
-#include "resource/manager/project_manager.hpp"
+#include "project_manager.hpp"
 
 #include <filesystem>
 
+#include <platform/os/file_service.hpp>
 #include <common/log/logger.hpp>
 #include <optional>
-#include <platform/os/file_service.hpp>
 #include <resource/json/json_parser.hpp>
 #include <string>
 

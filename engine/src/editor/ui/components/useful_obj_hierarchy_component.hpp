@@ -5,7 +5,6 @@
 #ifndef TAIXUENGINE_HIERARCHY_COMPONENT_HPP
 #define TAIXUENGINE_HIERARCHY_COMPONENT_HPP
 
-#include <iostream>
 #include <string>
 
 #include "ui/common/ui_component.hpp"

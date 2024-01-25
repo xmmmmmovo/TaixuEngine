@@ -5,8 +5,6 @@
 #ifndef TAIXUENGINE_UI_COMPONENT_HPP
 #define TAIXUENGINE_UI_COMPONENT_HPP
 
-#include "imgui.h"
-
 #include "common/designs/noncopyable.hpp"
 #include "view_model.hpp"
 
@@ -15,7 +13,7 @@ namespace taixu::editor {
 /**
  * @brief UI component interface
  */
-class AbstractUIComponent : private Noncopyable {
+class AbstractUIComponent : Noncopyable {
 protected:
     ViewModel* _view_model{nullptr};
 

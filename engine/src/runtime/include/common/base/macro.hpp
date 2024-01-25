@@ -57,17 +57,22 @@
 
 // NOLINTBEGIN
 
-#define PROTOTYPE_GETTER(type, name)                                           \
+#define PROTOTYPE_GETTER_REF(type, name, ref)                                  \
 public:                                                                        \
-    [[nodiscard]] inline type& name() { return _##name; }
+    [[nodiscard]] type ref name() { return _##name; }
 
-#define PROTOTYPE_CONST_GETTER(type, name)                                     \
+#define PROTOTYPE_GETTER_VAL(type, name)                                       \
 public:                                                                        \
-    [[nodiscard]] inline type const& name() const { return _##name; }
+    [[nodiscard]] type name() const { return _##name; }
 
-#define PROTOTYPE_SETTER(type, name)                                           \
+
+#define PROTOTYPE_CONST_GETTER_REF(type, name, ref)                            \
 public:                                                                        \
-    inline void set_##name(type const& value) { _##name = value; }
+    [[nodiscard]] type const ref name() const { return _##name; }
+
+#define PROTOTYPE_SETTER(type, name, ref)                                      \
+public:                                                                        \
+    void set_##name(type const ref value) { _##name = value; }
 
 /**
  * @brief 简化const getter
@@ -76,14 +81,14 @@ public:                                                                        \
 access:                                                                        \
     type _##name{default_val};                                                 \
                                                                                \
-    PROTOTYPE_CONST_GETTER(type, name)
+    PROTOTYPE_CONST_GETTER_REF(type, name, &)
 
 /**
  * @brief 简化getter
  */
 #define PROTOTYPE_DFT_ONLY_GETTER(access, type, name, default_val)             \
     PROTOTYPE_DFT_ONLY_GETTER_CONST(access, type, name, default_val)           \
-    PROTOTYPE_GETTER(type, name)
+    PROTOTYPE_GETTER_REF(type, name, &)
 
 
 /**
@@ -103,14 +108,47 @@ access:                                                                        \
  */
 #define PROTOTYPE_DFT(access, type, name, default_val)                         \
     PROTOTYPE_DFT_ONLY_GETTER(access, type, name, default_val)                 \
-    PROTOTYPE_SETTER(type, name)
+    PROTOTYPE_SETTER(type, name, &)
 
 /**
  * @brief 简化getter setter
  */
 #define PROTOTYPE(access, type, name)                                          \
     PROTOTYPE_DFT_ONLY_GETTER(access, type, name, )                            \
-    PROTOTYPE_SETTER(type, name)
+    PROTOTYPE_SETTER(type, name, &)
+
+///
+/// 下面的都是pass by value的内容
+///
+
+/**
+ * @brief 简化const getter
+ */
+#define PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, default_val)     \
+access:                                                                        \
+    type _##name{default_val};                                                 \
+                                                                               \
+    PROTOTYPE_GETTER_VAL(type, name)
+/**
+ * @brief 简化getter
+ */
+#define PROTOTYPE_ONLY_GETTER_VALPASS(access, type, name)                      \
+    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, )
+
+/**
+ * @brief 简化getter setter
+ */
+#define PROTOTYPE_DFT_VALPASS(access, type, name, default_val)                 \
+    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, default_val)         \
+    PROTOTYPE_SETTER(type, name, )
+
+/**
+ * @brief 简化getter setter
+ */
+#define PROTOTYPE_VALPASS(access, type, name)                                  \
+    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, )                    \
+    PROTOTYPE_SETTER(type, name, )
+
 
 // NOLINTEND
 

@@ -2,9 +2,9 @@
 // Created by xmmmmmovo on 2023/4/29.
 //
 
-#include "management/ecs/ecs_coordinator.hpp"
-#include "management/ecs/system/system.hpp"
-#include "management/ecs/system/system_manager.hpp"
+#include "ecs_coordinator.hpp"
+#include "system/system.hpp"
+#include "system/system_manager.hpp"
 
 namespace taixu {
 
