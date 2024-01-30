@@ -63,16 +63,15 @@ void MainWindow::buildUpPathHierarchy() {
 
 void MainWindow::init(const std::vector<std::string>& args) {
     _engine_runtime_ptr = &Engine::getInstance();
-    _engine_runtime_ptr->preInit(args);
+    _engine_runtime_ptr->preInit();
 
     INFO_LOG("Main window init start!");
 
-    _view_model.engine_context_ptr = _engine_runtime_ptr->getContext();
-    _window_ptr                    = std::make_unique<Window>();
+    _window_ptr = std::make_unique<Window>();
     _window_ptr->init({_window_title, _width, _height});
     _window_ptr->showWindow();
 
-    _engine_runtime_ptr->init(_window_ptr.get());
+    _engine_runtime_ptr->init(args, _window_ptr.get());
 
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {

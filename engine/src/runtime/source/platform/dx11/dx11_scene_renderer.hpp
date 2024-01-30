@@ -7,7 +7,7 @@
 
 #include "dx11_context.hpp"
 #include "dx11_swapchain.hpp"
-#include "management/graphics/rhi/tx_scene_renderer.hpp"
+#include "management/scene/tx_scene_renderer.hpp"
 
 #include <wrl/client.h>
 

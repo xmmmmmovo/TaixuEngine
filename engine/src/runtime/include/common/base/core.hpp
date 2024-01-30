@@ -10,12 +10,12 @@ namespace taixu {
 /**
  * @brief status enum
  */
-enum class Status : std::uint8_t {
+enum class EnumStatus : std::uint8_t {
     OK,                 // access allowed
     PERMISSION_FAILED,  // access permission failed
     NO_SUCH_FILE_FAILED,// cannot find file path
 
-    NO_OPEN_PROJECT,    // no project opened
+    NO_OPEN_PROJECT,// no project opened
 
     // RENDER STATUS CODES
 
@@ -25,7 +25,7 @@ enum class Status : std::uint8_t {
 /**
  * @brief editor status enum
  */
-enum class EngineState : std::uint8_t {
+enum class EnumEngineState : std::uint8_t {
     EDITORMODE,  /*Editor mode*/
     PREVIEWMODE, /*play mode*/
     IDLEMODE,    /*idle mode, this mode will be used until project opened*/
@@ -35,17 +35,17 @@ enum class EngineState : std::uint8_t {
 /**
  * @brief render API supported
  */
-enum class RenderAPI : std::uint8_t { VULKAN, DX11, DX12, NONE };
+enum class EnumRenderAPI : std::uint8_t { VULKAN, DX11, DX12, NONE };
 
 /**
  * @brief window API supported
  */
-enum class WindowAPI : std::uint8_t { GLFW, WINDOWSAPI, NONE };
+enum class EnumWindowAPI : std::uint8_t { GLFW, WINDOWSAPI, NONE };
 
 /**
  * @brief window type supported
  */
-enum class WindowType : std::uint8_t {
+enum class EnumWindowType : std::uint8_t {
     WINDOWED,
     FULLSCREEN,
     FULLSCREEN_DESKTOP

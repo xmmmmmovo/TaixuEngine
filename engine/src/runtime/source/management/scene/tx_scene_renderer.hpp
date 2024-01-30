@@ -6,7 +6,7 @@
 #define ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_SCENE_RENDERER_0906B2209CBE4868A97BEE1FF83AFD22
 
 #include "gameplay/gui/window.hpp"
-#include "management/scene/scene.hpp"
+#include "scene.hpp"
 
 namespace taixu {
 

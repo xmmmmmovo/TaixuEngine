@@ -25,9 +25,9 @@ std::optional<Project> createProject(std::filesystem::path const& path,
                                      std::string const&           author,
                                      std::string const&           description);
 
-Status saveProject();
+EnumStatus saveProject();
 
-Status saveAsProject(std::filesystem::path const& path);
+EnumStatus saveAsProject(std::filesystem::path const& path);
 
 
 }// namespace taixu

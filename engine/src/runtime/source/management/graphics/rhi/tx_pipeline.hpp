@@ -6,8 +6,18 @@
 
 #include <cstdint>
 
+#include "common/base/macro.hpp"
+
 namespace taixu {
 
-enum class PipelineType : uint8_t { GRAPHICS, ASYNC_COMPUTE };
+enum class EnumPipelineType : uint8_t { GRAPHICS, ASYNC_COMPUTE };
 
-}
+struct TXPipelineCreateInfo {
+
+
+
+};
+
+class TXPipeline {};
+
+}// namespace taixu

@@ -6,7 +6,6 @@
 #define TAIXUENGINE_VIEW_MODEL_HPP
 
 #include "ImGuizmo.h"
-#include "engine/engine.hpp"
 #include <filesystem>
 #include <string>
 
@@ -21,8 +20,6 @@ struct HierarchyNode {
 };
 
 struct ViewModel {
-    EngineContext* engine_context_ptr{nullptr};
-
     std::filesystem::path                             project_path{};
     std::filesystem::path                             selected_path{};
     HierarchyNode<std::filesystem::path>*             selected_node{nullptr};

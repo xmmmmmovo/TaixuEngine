@@ -15,7 +15,8 @@ class EngineArgs {
     PROTOTYPE_DFT_ONLY_GETTER_CONST(private, bool, is_debug, true);
     PROTOTYPE_DFT_ONLY_GETTER_CONST(private, std::string, locale, "zh_CN");
 
-    PROTOTYPE_DFT_ONLY_GETTER(private, RenderAPI, render_api, RenderAPI::DX11);
+    PROTOTYPE_DFT_ONLY_GETTER(private, EnumRenderAPI, render_api,
+                              EnumRenderAPI::DX11);
 
 private:
     static constexpr const char* LOCALE = "--locale";

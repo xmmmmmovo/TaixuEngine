@@ -9,7 +9,6 @@
 #include <cassert>
 #include <cstddef>
 #include <unordered_map>
-#include <vector>
 
 #include "common/base/macro.hpp"
 
@@ -58,7 +57,7 @@ public:
     }
 
     void removeData(const Key& key) {
-        assert(contains(key) && "Key does not exist.");
+        TX_ASSERT_MSG(contains(key), "Key does not exist.");
         std::size_t idx_of_removed_element = _key_to_index_map[key];
         std::size_t idx_of_last_element    = _size - 1;
 
@@ -80,12 +79,12 @@ public:
     }
 
     Value& getData(const Key& key) {
-        assert(contains(key) && "Key does not exist.");
+        TX_ASSERT_MSG(contains(key), "Key does not exist.");
         return _values[_key_to_index_map[key]];
     }
 
     Value const& getData(const Key& key) const {
-        assert(contains(key) && "Key does not exist.");
+        TX_ASSERT_MSG(contains(key), "Key does not exist.");
         return _values[_key_to_index_map[key]];
     }
 

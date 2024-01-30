@@ -6,7 +6,6 @@
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_ENTITY_MANAGER_HPP
 
 #include "ecs_types.hpp"
-#include <cassert>
 #include <cstdint>
 #include <queue>
 
@@ -19,48 +18,17 @@ private:
     std::uint32_t                       _living_entity_count{};
 
 public:
-    explicit EntityManager() {
-        for (auto i = 0; i < MAX_ENTITIES; ++i) { _available_entities.push(i); }
-    }
+    explicit EntityManager();
 
-    [[nodiscard]] Entity createEntity() {
-        assert(_living_entity_count < MAX_ENTITIES &&
-               "Too many entities in existence.");
+    [[nodiscard]] Entity createEntity();
 
-        // Take an ID from the front of the queue
-        Entity const id = _available_entities.front();
-        _available_entities.pop();
-        ++_living_entity_count;
+    void destroyEntity(Entity entity);
 
-        return id;
-    }
+    void setSignature(Entity entity, Signature const& signature);
 
-    void destroyEntity(Entity entity) {
-        assert(entity < MAX_ENTITIES && "Entity out of range.");
+    [[nodiscard]] Signature getSignature(Entity entity) const;
 
-        // Invalidate the destroyed entity's signature
-        _signatures[entity].reset();
-
-        // Put the destroyed ID at the back of the queue
-        _available_entities.push(entity);
-        --_living_entity_count;
-    }
-
-    void setSignature(Entity entity, Signature const& signature) {
-        assert(entity < MAX_ENTITIES && "Entity out of range.");
-
-        _signatures[entity] = signature;
-    }
-
-    [[nodiscard]] Signature getSignature(Entity entity) {
-        assert(entity < MAX_ENTITIES && "Entity out of range.");
-
-        return _signatures[entity];
-    }
-
-    [[nodiscard]] std::uint32_t livingEntityCount() const {
-        return _living_entity_count;
-    }
+    [[nodiscard]] std::uint32_t livingEntityCount() const;
 };
 
 }// namespace taixu

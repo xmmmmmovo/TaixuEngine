@@ -8,18 +8,18 @@
 #include <cstdint>
 namespace taixu {
 
-enum class KeyCode : std::int16_t {
+enum class EnumKeyCode : std::int16_t {
     UNKNOWN = -1,
 };
 
-enum class KeyState : std::uint8_t {
+enum class EnumKeyState : std::uint8_t {
     PRESS   = 0,
     RELEASE = 1,
 };
 
 struct KeyEvent {
-    KeyCode  code;
-    KeyState state;
+    EnumKeyCode code;
+    EnumKeyState state;
 };
 
 }// namespace taixu

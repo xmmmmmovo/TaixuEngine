@@ -17,7 +17,7 @@ struct Project;
 class EngineArgs;
 class Window;
 
-class EngineContext {
+class EngineContext final {
 public:
     std::shared_ptr<AbstractSceneRenderer> renderer{nullptr};
     std::shared_ptr<AssetManager>          asset_manager{nullptr};
@@ -28,13 +28,20 @@ public:
     /**
      * @brief editor state
      */
-    EngineState state{EngineState::IDLEMODE};
+    EnumEngineState state{EnumEngineState::IDLEMODE};
     EngineArgs  engine_args{};
 
-    void init(Window* window);
+    /**
+     * @brief hold window from init function
+     */
+    Window* window{nullptr};
+
+    void init(std::vector<std::string> const& args, Window* window);
 
     void destroy() const;
 };
+
+extern EngineContext g_engine_context;
 
 }// namespace taixu
 

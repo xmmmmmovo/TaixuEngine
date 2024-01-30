@@ -29,9 +29,10 @@ private:
 public:
     void initWindow(Window* window) {
         auto key_func = [this](int key, int action) {
-            if (static_cast<KeyState>(action) == KeyState::PRESS) {
+            if (static_cast<EnumKeyState>(action) == EnumKeyState::PRESS) {
                 _state.keys[key] = 1;
-            } else if (static_cast<KeyState>(action) == KeyState::RELEASE) {
+            } else if (static_cast<EnumKeyState>(action) ==
+                       EnumKeyState::RELEASE) {
                 _state.keys[key] = 0;
             }
         };

@@ -1,15 +1,9 @@
 #ifndef TAIXUENGINE_ENTITY_COMPONENT
 #define TAIXUENGINE_ENTITY_COMPONENT
 
-#include <cstdint>
-#include <typeinfo>
-#include <unordered_map>
-
-#include <common/base/macro.hpp>
 #include <common/container/map_array.hpp>
 
 #include <management/ecs/core/entity_manager.hpp>
-#include <management/ecs/object/guid_genenrator.hpp>
 
 namespace taixu {
 
@@ -20,7 +14,7 @@ public:
 };
 
 template<typename T>
-class ComponentArray : public IComponentArray {
+class ComponentArray final : public IComponentArray {
 public:
     void insertData(Entity entity, T&& component) {
         assert(_map_array.contains(entity) == false &&
@@ -42,7 +36,7 @@ public:
     }
 
 private:
-    MapArray<Entity, T, MAX_ENTITIES> _map_array;
+    MapArray<Entity, T, MAX_ENTITIES> _map_array{};
 };
 
 }// namespace taixu

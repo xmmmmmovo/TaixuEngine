@@ -101,10 +101,10 @@ protected:
     void initForGraphicsAPI();
 
 public:
-    void        init(WindowInfo const& info);
-    void        showWindow();
-    void        update();
-    static void destroy();
+    void init(WindowInfo const& info);
+    void showWindow();
+    void update();
+    void destroy();
 
     void initForImgui();
     /**

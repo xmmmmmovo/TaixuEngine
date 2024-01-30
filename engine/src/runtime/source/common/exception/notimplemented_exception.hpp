@@ -11,8 +11,12 @@
 
 namespace taixu {
 
-class NotImplementedException : public std::logic_error {
+class NotImplementedException final : public std::logic_error {
 public:
+    explicit NotImplementedException(const std::string& _Message)
+        : logic_error(_Message) {}
+    explicit NotImplementedException(const char* _Message)
+        : logic_error(_Message) {}
     [[nodiscard]] char const* what() const noexcept override {
         return "Function not yet implemented.";
     }

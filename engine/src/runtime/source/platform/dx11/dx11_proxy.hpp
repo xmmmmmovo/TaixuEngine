@@ -7,10 +7,7 @@
 
 namespace taixu {
 
-class DX11Proxy {
 
-
-};
 
 }// namespace taixu
 

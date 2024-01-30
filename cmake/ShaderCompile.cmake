@@ -31,7 +31,7 @@ function(compile_glsl_shader SHADERS TARGET_NAME SHADER_INCLUDE_FOLDER GENERATED
         add_custom_command(
                 OUTPUT ${CPP_FILE}
                 COMMAND ${CMAKE_COMMAND} -DPATH=${SPV_FILE} -DHEADER="${CPP_FILE}"
-                -DGLOBAL= "${GLOBAL_SHADER_VAR}_${PLATFORM_UPPER}" -P "${PROJECT_SOURCE_DIR}/cmake/GenerateShaderCPPFile.cmake"
+                -DGLOBAL="${GLOBAL_SHADER_VAR}_${PLATFORM_UPPER}" -P "${PROJECT_SOURCE_DIR}/cmake/GenerateShaderCPPFile.cmake"
                 DEPENDS ${SPV_FILE}
                 WORKING_DIRECTORY "${working_dir}")
 
@@ -75,18 +75,18 @@ function(compile_hlsl_shader SHADERS TARGET_NAME GENERATED_DIR FXC_BIN DEBUG PLA
         set(CPP_FILE "${generated_path}/cpp/${HEADER_FILE_NAME}")
 
         set(ENTRY_POINT "${HEADER_NAME}_main")
-        # if shader_type equal vs
-        if (SHADER_TYPE STREQUAL ".vs")
+        # get type
+        if (SHADER_TYPE STREQUAL ".vert")
             set(SHADER_TYPE "vs_5_0")
-        elseif (SHADER_TYPE STREQUAL ".ps")
+        elseif (SHADER_TYPE STREQUAL ".frag")
             set(SHADER_TYPE "ps_5_0")
-        elseif (SHADER_TYPE STREQUAL ".cs")
+        elseif (SHADER_TYPE STREQUAL ".comp")
             set(SHADER_TYPE "cs_5_0")
-        elseif (SHADER_TYPE STREQUAL ".hs")
+        elseif (SHADER_TYPE STREQUAL ".hull")
             set(SHADER_TYPE "hs_5_0")
-        elseif (SHADER_TYPE STREQUAL ".ds")
+        elseif (SHADER_TYPE STREQUAL ".dom")
             set(SHADER_TYPE "ds_5_0")
-        elseif (SHADER_TYPE STREQUAL ".gs")
+        elseif (SHADER_TYPE STREQUAL ".geom")
             set(SHADER_TYPE "gs_5_0")
         else ()
             message(FATAL_ERROR "Unknown shader type ${SHADER_TYPE}")
@@ -94,7 +94,7 @@ function(compile_hlsl_shader SHADERS TARGET_NAME GENERATED_DIR FXC_BIN DEBUG PLA
 
         add_custom_command(
                 OUTPUT ${CPP_FILE}
-                COMMAND ${FXC_BIN} ${ARGS} /E ${ENTRY_POINT} /T ${SHADER_TYPE} /Vn ${GLOBAL_SHADER_VAR} /Fh ${CPP_FILE} ${SHADER}
+                COMMAND ${FXC_BIN} ${ARGS} /E ${ENTRY_POINT} /T ${SHADER_TYPE} /Vn ${GLOBAL_SHADER_VAR}_DX11 /Fh ${CPP_FILE} ${SHADER}
                 DEPENDS ${SHADER}
                 WORKING_DIRECTORY "${working_dir}")
 

@@ -10,7 +10,7 @@
 #include "common/designs/abstract_factory.hpp"
 #include "common/designs/noncopyable.hpp"
 
-#include "tx_scene_renderer.hpp"
+#include "../../scene/tx_scene_renderer.hpp"
 
 #include <functional>
 #include <memory>
@@ -20,7 +20,7 @@ namespace taixu {
 
 class SceneRendererFactory
     : private Noncopyable,
-      public AbstractFactory<RenderAPI, AbstractSceneRenderer> {};
+      public AbstractFactory<EnumRenderAPI, AbstractSceneRenderer> {};
 
 }// namespace taixu
 

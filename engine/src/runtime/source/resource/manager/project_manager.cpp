@@ -45,8 +45,8 @@ std::optional<Project> createProject(std::filesystem::path const& path,
     return project;
 }
 
-Status saveAsProject(const std::filesystem::path& path) { return Status::OK; }
+EnumStatus saveAsProject(const std::filesystem::path& path) { return EnumStatus::OK; }
 
-Status saveProject() { return Status::OK; }
+EnumStatus saveProject() { return EnumStatus::OK; }
 
 }// namespace taixu

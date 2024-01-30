@@ -1,5 +1,4 @@
-#ifndef ENGINE_RUNTIME_CORE_BASE_MACRO
-#define ENGINE_RUNTIME_CORE_BASE_MACRO
+#pragma once
 
 /* If we are we on Windows, we want a single define for it.
  */
@@ -10,8 +9,17 @@
 
 #if defined(__WIN32__) || defined(WIN32) || defined(_WIN32) ||                 \
         defined(__WIN64__) || defined(WIN64) || defined(_WIN64) ||             \
-        defined(_MSC_VER)
+        defined(_MSC_VER) || defined(WINCE) || defined(__MINGW32__) ||         \
+        defined(__CYWIN__)
     #define TX_WINDOWS
+#endif
+
+#if defined(__GNUC__)
+    #define TX_GCC
+#endif
+
+#if defined(_MSC_VER)
+    #define TX_MSVC
 #endif
 
 #if !defined(_DEBUG) && defined(DEBUG)
@@ -54,6 +62,25 @@
 #define TX_ASSERT_MSG(x, msg) assert((x) && msg)
 
 #define TX_UNREACHABLE() assert(false)
+#define TX_STATIC_UNREACHABLE static_assert(false)
+
+#define TX_UNREACHABLE_MSG(msg) assert(false && (msg))
+#define TX_STATIC_UNREACHABLE_MSG(msg) static_assert(false, msg)
+
+#define TX_UNUSED_MSG(msg) (void) (msg)
+
+#ifdef TX_GCC
+    #define TX_LIKELY(x) __builtin_expect(!!(x), 1)
+    #define TX_UNLIKELY(x) __builtin_expect(!!(x), 0)
+#else
+    #define TX_LIKELY(x) (!!(x))
+    #define TX_UNLIKELY(x) (!!(x))
+#endif
+
+#define TX_UNREACHABLE_IF(x)                                                   \
+    if (TX_UNLIKELY(x)) { TX_UNREACHABLE(); }
+#define TX_UNREACHABLE_IF_MSG(x, msg)                                          \
+    if (TX_UNLIKELY(x)) { TX_UNREACHABLE_MSG(msg); }
 
 // NOLINTBEGIN
 
@@ -78,7 +105,7 @@ public:                                                                        \
  * @brief 简化const getter
  */
 #define PROTOTYPE_DFT_ONLY_GETTER_CONST(access, type, name, default_val)       \
-access:                                                                        \
+    access:                                                                    \
     type _##name{default_val};                                                 \
                                                                                \
     PROTOTYPE_CONST_GETTER_REF(type, name, &)
@@ -125,7 +152,7 @@ access:                                                                        \
  * @brief 简化const getter
  */
 #define PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, default_val)     \
-access:                                                                        \
+    access:                                                                    \
     type _##name{default_val};                                                 \
                                                                                \
     PROTOTYPE_GETTER_VAL(type, name)
@@ -205,5 +232,3 @@ public:                                                                        \
     ss << "Thread " << (ID);                                                   \
     std::string name = ss.str();                                               \
     pthread_setname_np(pthread_self(), name.c_str());
-
-#endif /* ENGINE_RUNTIME_CORE_BASE_MACRO */

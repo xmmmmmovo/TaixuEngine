@@ -21,8 +21,8 @@
 #include "ui/components/statusbar_component.hpp"
 #include "ui/components/useful_obj_hierarchy_component.hpp"
 
-#include <gameplay/gui/window.hpp>
 #include <engine/engine.hpp>
+#include <gameplay/gui/window.hpp>
 
 namespace taixu::editor {
 
@@ -35,7 +35,7 @@ private:
     static std::string_view constexpr DETAILS_COMPONENT_NAME{
             "Components Details"};
     static std::string_view constexpr WORLD_OBJ_COMPONENT_NAME{"World Objects"};
-    static std::string_view constexpr STATUS_COMPONENT_NAME{"Status"};
+    static std::string_view constexpr STATUS_COMPONENT_NAME{"EnumStatus"};
     static std::string_view constexpr USEFUL_OBJ_COMPONENT_NAME{
             "Useful Objects"};
 
@@ -50,7 +50,6 @@ private:
     StatusBarComponent    status_bar_component{&_view_model};
 
 private:
-    // context
     std::unique_ptr<Window> _window_ptr{nullptr};
     Engine*                 _engine_runtime_ptr{nullptr};
     ViewModel               _view_model{};

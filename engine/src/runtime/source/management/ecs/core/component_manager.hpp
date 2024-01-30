@@ -14,8 +14,8 @@ public:
     void registerComponent() {
         const char* type_name = typeid(T).name();
 
-        assert(_component_types.find(type_name) == _component_types.end() &&
-               "Registering component type more than once.");
+        TX_ASSERT_MSG(_component_types.contains(type_name),
+                      "Registering component type more than once.");
 
         // Add this component type to the component type map
         _component_types.insert({type_name, _next_component_type});
@@ -34,8 +34,8 @@ public:
     ComponentType getComponentType() {
         const char* type_name = typeid(T).name();
 
-        assert(_component_types.find(type_name) != _component_types.end() &&
-               "Component not registered before use.");
+        TX_ASSERT_MSG(_component_types.contains(type_name),
+                      "Component not registered before use.");
 
         // Return this component's type - used for creating signatures
         return _component_types[type_name];
@@ -62,17 +62,16 @@ public:
     template<typename T>
     bool contains(Entity entity) {
         // Check if an entity has a component (based on component type)
-        assert(_component_types.find(typeid(T).name()) !=
-                       _component_types.end() &&
-               "Component not registered before use.");
+        TX_ASSERT_MSG(_component_types.contains(typeid(T).name()),
+                      "Component not registered before use.");
         return getComponentArray<T>()->contains(entity);
     }
 
-    void entityDestroyed(Entity entity) {
+    void entityDestroyed(const Entity entity) const {
         // Notify each component array that an entity has been destroyed
         // If it has a component for that entity, it will remove it
-        for (auto const& pair : _component_arrays) {
-            auto const& component = pair.second;
+        for (const auto& val : _component_arrays | std::views::values) {
+            auto const& component = val;
             component->entityDestroyed(entity);
         }
     }
@@ -95,8 +94,8 @@ private:
     ComponentArray<T>* getComponentArray() {
         const char* type_name = typeid(T).name();
 
-        assert(_component_types.find(type_name) != _component_types.end() &&
-               "Component not registered before use.");
+        TX_ASSERT_MSG(_component_types.contains(type_name),
+                      "Component not registered before use.");
 
         return static_cast<ComponentArray<T>*>(
                 _component_arrays[type_name].get());

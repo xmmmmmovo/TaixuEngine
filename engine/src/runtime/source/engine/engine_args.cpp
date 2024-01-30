@@ -13,7 +13,7 @@ namespace taixu {
 
 
 void EngineArgs::registerRendererFactory() {
-    SceneRendererFactory::registerCreationFunc(RenderAPI::DX11, [] {
+    SceneRendererFactory::registerCreationFunc(EnumRenderAPI::DX11, [] {
         return std::make_unique<DX11SceneRenderer>();
     });
 }

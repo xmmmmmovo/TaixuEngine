@@ -22,9 +22,9 @@ private:
 public:
     Event() = delete;
 
-    explicit Event(EventIdType type) : _event_type(type) {}
+    explicit Event(const EventIdType type) : _event_type(type) {}
 
-    EventIdType GetEventType() const noexcept { return _event_type; }
+    [[nodiscard]] EventIdType GetEventType() const noexcept;
 
     template<typename T>
     void AddParam(EventIdType id, T&& param) {
@@ -32,7 +32,7 @@ public:
     }
 
     template<typename T>
-    T& GetParam(EventIdType id) {
+    T& GetParam(const EventIdType id) {
         return std::any_cast<T&>(_params[id]);
     }
 };

@@ -13,7 +13,7 @@
 
 namespace taixu {
 
-enum class CameraMovement : std::uint8_t {
+enum class EnumCameraMovement : std::uint8_t {
     FORWARD,
     BACKWARD,
     LEFT,
@@ -71,20 +71,20 @@ public:
     // processes input received from any keyboard-like input system. Accepts
     // input parameter in the form of camera defined ENUM (to abstract it from
     // windowing systems)
-    void processKeyboard(CameraMovement direction, float deltaTime) {
+    void processKeyboard(EnumCameraMovement direction, float deltaTime) {
         float const velocity = MovementSpeed * deltaTime;
-        if (direction == CameraMovement::FORWARD) {
+        if (direction == EnumCameraMovement::FORWARD) {
             Position += Front * velocity;
         }
-        if (direction == CameraMovement::BACKWARD) {
+        if (direction == EnumCameraMovement::BACKWARD) {
             Position -= Front * velocity;
         }
-        if (direction == CameraMovement::LEFT) { Position -= Right * velocity; }
-        if (direction == CameraMovement::RIGHT) {
+        if (direction == EnumCameraMovement::LEFT) { Position -= Right * velocity; }
+        if (direction == EnumCameraMovement::RIGHT) {
             Position += Right * velocity;
         }
-        if (direction == CameraMovement::UP) { Position += Up * velocity; }
-        if (direction == CameraMovement::DOWN) { Position -= Up * velocity; }
+        if (direction == EnumCameraMovement::UP) { Position += Up * velocity; }
+        if (direction == EnumCameraMovement::DOWN) { Position -= Up * velocity; }
     }
 
     void accelerate() { MovementSpeed = FASTS_PEED; }

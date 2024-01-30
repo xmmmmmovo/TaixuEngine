@@ -6,9 +6,9 @@
 
 #include "IconsFontAwesome6.h"
 #include "ImGuizmo.h"
+#include "common/log/logger.hpp"
 #include "imgui.h"
 #include "imgui_internal.h"
-#include "common/log/logger.hpp"
 
 #include <common/base/macro.hpp>
 
@@ -67,6 +67,7 @@ void Window::loadStyle() {
 
     _style = &ImGui::GetStyle();
 
+    // NOLINTBEGIN
     _style->Colors[ImGuiCol_Tab]          = ImVec4{0.15f, 0.15f, 0.15f, 1.0f};
     _style->Colors[ImGuiCol_TabHovered]   = ImVec4{0.38f, 0.38f, 0.38f, 1.0f};
     _style->Colors[ImGuiCol_TabActive]    = ImVec4{0.28f, 0.28f, 0.28f, 1.0f};
@@ -136,6 +137,7 @@ void Window::loadStyle() {
     _style->WindowRounding   = 0.0f;
     _style->WindowBorderSize = 0.0f;
     _style->WindowPadding    = ImVec2(0.0f, 0.0f);
+    // NOLINTEND
 }
 
 void Window::initForWindow() const {
@@ -233,7 +235,7 @@ void Window::update() {
 
 void Window::destroy() {
     glfwTerminate();
-    ImGui::DestroyContext();
+    if (_imgui_enabled) { ImGui::DestroyContext(); }
 }
 
 void Window::handleEvents() { glfwPollEvents(); }

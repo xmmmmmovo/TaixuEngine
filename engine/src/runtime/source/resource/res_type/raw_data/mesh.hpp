@@ -15,7 +15,7 @@
 
 namespace taixu {
 
-enum class MeshType { TRIANGLE, QUAD, POINT };
+enum class EnumMeshType { TRIANGLE, QUAD, POINT };
 
 struct Mesh final {
     std::vector<glm::vec3> vertices;

@@ -15,26 +15,19 @@ class Engine final : public PublicSingleton<Engine> {
 
 private:
     /**
-     * Context
-     */
-    TX_INLINE static EngineContext _context{};
-
-    /**
      * @brief engine clock
      */
     CpuClock _clock{};
 
 public:
-    void preInit(std::vector<std::string> const& args);
-    void init(Window* window);
+    void preInit();
+    void init(std::vector<std::string> const& args, Window* window);
     /**
      * @brief This function only need call once before main loop
      */
     void beforeStart();
     void update();
     void destroy();
-
-    [[nodiscard]] static EngineContext* getContext();
 };
 
 }// namespace taixu

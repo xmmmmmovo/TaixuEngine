@@ -8,7 +8,6 @@
 #include <common/base/macro.hpp>
 #include <management/ecs/core/ecs_types.hpp>
 
-#include <algorithm>
 #include <unordered_set>
 #include <vector>
 
@@ -21,26 +20,11 @@ private:
     std::unordered_set<Entity> _entities_set{};
 
 public:
-    inline void addEntity(Entity entity) {
-        if (hasEntity(entity)) { return; }
-        _entities_set.insert(entity);
-        _entities.push_back(entity);
-    }
+    void addEntity(Entity entity);
 
-    inline void removeEntity(Entity entity) {
-        if (!hasEntity(entity)) { return; }
-        _entities_set.erase(entity);
-        if (auto found_iter =
-                    std::find(_entities.begin(), _entities.end(), entity);
-            found_iter != _entities.end()) {
-            std::swap(_entities.back(), *found_iter);
-            _entities.pop_back();
-        }
-    }
+    void removeEntity(Entity entity);
 
-    inline bool hasEntity(Entity entity) {
-        return _entities_set.find(entity) != _entities_set.end();
-    }
+    [[nodiscard]] bool hasEntity(Entity entity) const;
 };
 
 }// namespace taixu
