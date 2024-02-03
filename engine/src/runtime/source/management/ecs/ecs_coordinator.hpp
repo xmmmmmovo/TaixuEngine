@@ -7,7 +7,6 @@
 
 #include <memory>
 
-#include <resource/manager/asset_manager.hpp>
 #include <management/ecs/core/component_array.hpp>
 #include <management/ecs/core/component_manager.hpp>
 #include <management/ecs/core/ecs_types.hpp>
@@ -15,6 +14,7 @@
 #include <management/ecs/core/event_manager.hpp>
 #include <management/ecs/system/system.hpp>
 #include <management/ecs/system/system_manager.hpp>
+#include <resource/manager/asset_manager.hpp>
 
 namespace taixu {
 
@@ -30,16 +30,16 @@ public:
     void init();
 
     /// Entity methods ///
-    Entity createEntity();
+    Entity createEntity() const;
 
-    void destroyEntity(Entity entity);
+    void destroyEntity(Entity entity) const;
 
     [[nodiscard]] std::uint32_t getEntityCount() const;
 
     /// Component methods ///
 
     template<typename T>
-    void registerComponent() {
+    void registerComponent() const {
         _component_manager->registerComponent<T>();
     }
 
@@ -55,7 +55,7 @@ public:
     }
 
     template<typename T>
-    void removeComponent(Entity entity) {
+    void removeComponent(const Entity entity) const {
         _component_manager->removeComponent<T>(entity);
 
         auto signature = _entity_manager->getSignature(entity);
@@ -66,12 +66,17 @@ public:
     }
 
     template<typename T>
-    T& getComponent(Entity entity) {
+    T& getComponent(const Entity entity) {
         return _component_manager->getComponent<T>(entity);
     }
 
     template<typename T>
-    ComponentType getComponentType() {
+    const T& getComponent(const Entity entity) const {
+        return _component_manager->getComponent<T>(entity);
+    }
+
+    template<typename T>
+    [[nodiscard]] ComponentType getComponentType() const {
         return _component_manager->getComponentType<T>();
     }
 
@@ -92,21 +97,22 @@ public:
 
 
     /// System methods ///
-    System* registerSystem(SystemIdType systemId);
+    System* registerSystem(SystemIdType systemId) const;
 
-    void setsystemSignature(SystemIdType systemId, Signature const& signature);
+    void setsystemSignature(SystemIdType     systemId,
+                            Signature const& signature) const;
 
     // Event methods
     void addEventListener(EventIdType                        eventId,
-                          std::function<void(Event&)> const& listener);
+                          std::function<void(Event&)> const& listener) const;
 
-    void removeEventListener(EventIdType eventId);
+    void removeEventListener(EventIdType eventId) const;
 
-    void sendEvent(Event& event);
+    void sendEvent(const Event& event) const;
 
-    void sendEvent(EventIdType eventId);
+    void sendEvent(EventIdType eventId) const;
 
-    void update();
+    void update() const;
 
 private:
     std::unique_ptr<ComponentManager> _component_manager{nullptr};
