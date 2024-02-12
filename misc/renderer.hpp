@@ -30,7 +30,7 @@ class AbstractRenderer : private Noncopyable {
 public:
     virtual void init()                                   = 0;
     virtual void update(float delta_time)                 = 0;
-    virtual void clear(const std::array<float, 3>& color) = 0;
+    virtual void clearWindow(const std::array<float, 3>& color) = 0;
     virtual void clearSurface()                           = 0;
 
     virtual void bindScene(Scene* scene) = 0;

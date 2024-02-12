@@ -5,11 +5,11 @@
 
 #ifdef USE_DX11
     #ifdef _DEBUG
-        #include "triangle_frag_dx11_d.hpp"
-        #include "triangle_vert_dx11_d.hpp"
+        #include "forward_frag_dx11_d.hpp"
+        #include "forward_vert_dx11_d.hpp"
     #else
-        #include "triangle_frag_dx11.hpp"
-        #include "triangle_vert_dx11.hpp"
+        #include "forward_frag_dx11.hpp"
+        #include "forward_vert_dx11.hpp"
     #endif
 #endif
 

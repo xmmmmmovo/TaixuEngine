@@ -3,6 +3,7 @@
 //
 #pragma once
 
+#include "common/base/hash.hpp"
 #include <array>
 
 #include <magic_enum.hpp>
@@ -12,9 +13,10 @@
 namespace taixu {
 
 enum class EnumTXBuiltinShader : uint8_t {
-    TRIANGLE_VERT = 0,
-    TRIANGLE_FRAG = 1,
+    FORWARD_VERT = 0,
+    FORWARD_FRAG = 1,
 };
+
 static constexpr std::size_t TX_BUILTIN_SHADER_SIZE =
         magic_enum::enum_count<EnumTXBuiltinShader>();
 
@@ -24,51 +26,57 @@ using TXBuiltinShaderModulePtrArrT =
         std::array<std::shared_ptr<TXShaderModule>, TX_BUILTIN_SHADER_SIZE>;
 
 
-#define INIT_BUILTIN_SHADER_MODULE_CREATE_INFO(name, stage_, binaries_, size,  \
-                                               type, infos)                    \
+#define INIT_BUILTIN_SHADER_MODULE_CREATE_INFO(name_, binaries_, size, type,   \
+                                               stage_, infos)                  \
     {                                                                          \
-        auto& info         = (infos)[static_cast<size_t>(name)];               \
-        info.stage         = stage_;                                           \
+        auto& info         = (infos)[static_cast<size_t>(name_)];              \
+        info.name          = magic_enum::enum_name(name_);                     \
         info.binaries      = binaries_;                                        \
         info.binaries_size = size;                                             \
         info.source_type   = type;                                             \
+        info.stage         = (stage_);                                         \
     }
 
-class TXShaderModuleAdapter {
+#define INIT_BUILTIN_SHADER_MODULE_CREATE_INFO_ATTR_DESC(name_, attr)          \
+    {                                                                          \
+        auto& info        = (infos)[static_cast<size_t>(name_)];               \
+        info.in_attr_desc = (attr);                                            \
+    }
 
+
+class TXShaderModuleAdapter {
 public:
     virtual std::shared_ptr<TXShaderModule>
     create(TXShaderModuleCreateInfo const& info) = 0;
     virtual void
     initForBuiltinShaderCreateInfo(TXBuiltinShaderCreateInfoArrT& infos) = 0;
 
-    TXShaderModuleAdapter()          = default;
+    explicit TXShaderModuleAdapter() = default;
     virtual ~TXShaderModuleAdapter() = default;
 };
 
-
-class TXShadrModuleManager final {
+class TXShaderModuleManager final {
 private:
-    static TXBuiltinShaderCreateInfoArrT _builtin_shader_create_infos;
-    static TXBuiltinShaderModulePtrArrT  _builtin_modules;
+    TX_INLINE static TXBuiltinShaderCreateInfoArrT _builtin_shader_create_infos;
+    TX_INLINE static TXBuiltinShaderModulePtrArrT  _builtin_modules;
 
-    std::unordered_map<const char*, std::shared_ptr<TXShaderModule>>
+    std::unordered_map<hash32_t, std::shared_ptr<TXShaderModule>>
             _custom_modules;
 
     using AdapterPtrT = std::unique_ptr<TXShaderModuleAdapter>;
     AdapterPtrT _adapter;
 
-    std::shared_ptr<TXShaderModule>
-    createShaderModuleInner(TXShaderModuleCreateInfo const& info);
+    [[nodiscard]] std::shared_ptr<TXShaderModule>
+    createShaderModuleInner(TXShaderModuleCreateInfo const& info) const;
 
 public:
-    explicit TXShadrModuleManager(AdapterPtrT&& proxy);
+    void init(AdapterPtrT&& adapter);
 
     std::shared_ptr<TXShaderModule>
-    createShaderModule(TXShaderModuleCreateInfo const& info);
+    createCustomShaderModule(const TXShaderModuleCreateInfo& info);
 
-    std::shared_ptr<TXShaderModule>
-    getBuiltinShaderModule(EnumTXBuiltinShader builtin_shader);
+    [[nodiscard]] std::shared_ptr<TXShaderModule>
+    getBuiltinShaderModule(EnumTXBuiltinShader builtin_shader) const;
 };
 
 

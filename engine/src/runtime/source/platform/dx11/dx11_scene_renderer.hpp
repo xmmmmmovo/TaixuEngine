@@ -5,7 +5,9 @@
 #ifndef ENGINE_SRC_RUNTIME_PLATFORM_DX11_DX11_SCENE_RENDERER_499239DA41144D1D9535ADB888492EF1
 #define ENGINE_SRC_RUNTIME_PLATFORM_DX11_DX11_SCENE_RENDERER_499239DA41144D1D9535ADB888492EF1
 
+#include "common/math/vector.hpp"
 #include "dx11_context.hpp"
+#include "dx11_shader.hpp"
 #include "dx11_swapchain.hpp"
 #include "management/scene/tx_scene_renderer.hpp"
 
@@ -13,11 +15,12 @@
 
 namespace taixu {
 
-class DX11SceneRenderer final : public AbstractSceneRenderer {
-private:
-    template<typename T>
-    using ComPtrT = Microsoft::WRL::ComPtr<T>;
+struct V {
+    Vec3 pos;
+    Vec4 color;
+};
 
+class DX11SceneRenderer final : public AbstractSceneRenderer {
 private:
     ///
     /// 下面的变量都是为了present to screen准备的。
@@ -30,11 +33,16 @@ private:
     /// 到这里为止
     ///
 
+    // test
+    std::shared_ptr<DX11ShaderModule<ID3D11VertexShader>> vert;
+    std::shared_ptr<DX11ShaderModule<ID3D11PixelShader>>  frag;
+    ComPtrT<ID3D11Buffer>                                 buffer;
+
 public:
     void init(Window* window) override;
     void update(float delta_time, Scene* scene) override;
-    void destory() override;
-    ~    DX11SceneRenderer() override;
+    void destroy() override;
+    ~DX11SceneRenderer() override;
 };
 
 }// namespace taixu

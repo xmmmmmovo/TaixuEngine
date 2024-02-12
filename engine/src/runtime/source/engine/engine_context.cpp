@@ -26,6 +26,6 @@ void EngineContext::init(std::vector<std::string> const& args, Window* window) {
     scene         = std::make_shared<Scene>();
 }
 
-void EngineContext::destroy() const { renderer->destory(); }
+void EngineContext::destroy() const { renderer->destroy(); }
 
 }// namespace taixu

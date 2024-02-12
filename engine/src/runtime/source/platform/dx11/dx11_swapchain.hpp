@@ -8,14 +8,13 @@
 #include "dx11_context.hpp"
 #include "dx11_core.hpp"
 
-#include "management/graphics/rhi/tx_swapchain.hpp"
-
 #include <d3d11_1.h>
 
 namespace taixu {
 
-class DX11SwapChain final
-    : public TXSwapChain<ComPtrT<IDXGISwapChain>, D3D11_VIEWPORT> {
+class DX11SwapChain final {
+    PROTOTYPE_ONLY_GETTER(protected, ComPtrT<IDXGISwapChain>, swap_chain);
+    PROTOTYPE_ONLY_GETTER(protected, D3D11_VIEWPORT, view_port);
 
 protected:
     ComPtrT<ID3D11Texture2D>        _depth_stencil_texture{};
@@ -26,6 +25,8 @@ protected:
 
 public:
     void init(DX11Context* context, Window* window);
+
+    void clearWindow() const;
 
     void presentToWindow() const;
 

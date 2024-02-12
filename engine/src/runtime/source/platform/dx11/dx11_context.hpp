@@ -11,8 +11,6 @@
 
 namespace taixu {
 
-#define DX_MAX_MSAA_COUNT 8
-
 class DX11Context final : public TXContext {
 
     using DeviceT        = ComPtrT<ID3D11Device>;
@@ -28,7 +26,7 @@ protected:
     PROTOTYPE_ONLY_GETTER(protected, FactoryT, dxgi_factory);
     PROTOTYPE_ONLY_GETTER(protected, AdapterT, dxgi_adapter);
 
-    void featureToVersion(D3D_FEATURE_LEVEL feature_level);
+    void featureLevel2Version(D3D_FEATURE_LEVEL feature_level);
 
 public:
     ~DX11Context() override;

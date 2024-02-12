@@ -39,11 +39,7 @@ private:
 public:
     ECSCoordinator _ecs_coordinator{};
 
-    explicit Scene() {
-        _ecs_coordinator.init();
-        _ecs_coordinator.registerComponent<RenderableComponent>();
-        _ecs_coordinator.registerComponent<TransformComponent>();
-    }
+    explicit Scene() { _ecs_coordinator.init(); }
 };
 
 }// namespace taixu

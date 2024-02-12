@@ -1,7 +1,8 @@
 #ifndef ENGINE_RUNTIME_CORE_BASE_HASH
 #define ENGINE_RUNTIME_CORE_BASE_HASH
 
-#include "macro.hpp"
+#include "common/base/macro.hpp"
+
 #include <cstddef>
 #include <cstdint>
 #include <functional>
@@ -16,7 +17,8 @@ namespace taixu {
  */
 template<typename T>
 TX_INLINE void hash_combine(std::size_t& seed, const T& v) {
-    seed ^= std::hash<T>{}(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+    static constexpr auto OFFSET = 0x9e3779b9;
+    seed ^= std::hash<T>{}(v) + OFFSET + (seed << 6) + (seed >> 2);
 }
 
 /**
@@ -24,6 +26,7 @@ TX_INLINE void hash_combine(std::size_t& seed, const T& v) {
  * @tparam T
  * @param seed
  * @param v
+ * @param rest
  */
 template<typename T, typename... Ts>
 TX_INLINE void hash_combine(std::size_t& seed, const T& v, Ts... rest) {
@@ -35,14 +38,14 @@ using hash32_t = std::uint32_t;
 using hash64_t = std::uint64_t;
 
 // From: https://gist.github.com/Lee-R/3839813
-TX_INLINE constexpr hash32_t fnv1a_32(char const* s, std::size_t count) {
+TX_INLINE constexpr hash32_t fnv1a_32(char const* s, const std::size_t count) {
     return ((count ? fnv1a_32(s, count - 1)
                    : 2166136261u)// NOLINT (hicpp-signed-bitwise)
             ^ s[count]) *
-           16777619u;            // NOLINT (hicpp-signed-bitwise)
+           16777619u;// NOLINT (hicpp-signed-bitwise)
 }
 
-TX_INLINE constexpr hash64_t fnv1a_64(char const* s, std::size_t count) {
+TX_INLINE constexpr hash64_t fnv1a_64(char const* s, const std::size_t count) {
     return ((count ? fnv1a_64(s, count - 1)
                    : 14695981039346656037ULL)// NOLINT (hicpp-signed-bitwise)
             ^ s[count]) *
@@ -50,11 +53,11 @@ TX_INLINE constexpr hash64_t fnv1a_64(char const* s, std::size_t count) {
            1099511628211ULL;// NOLINT (hicpp-signed-bitwise)
 }
 
-constexpr hash32_t operator"" _hash32(char const* s, std::size_t count) {
+constexpr hash32_t operator"" _hash32(char const* s, const std::size_t count) {
     return fnv1a_32(s, count);
 }
 
-constexpr hash64_t operator"" _hash64(char const* s, std::size_t count) {
+constexpr hash64_t operator"" _hash64(char const* s, const std::size_t count) {
     return fnv1a_64(s, count);
 }
 

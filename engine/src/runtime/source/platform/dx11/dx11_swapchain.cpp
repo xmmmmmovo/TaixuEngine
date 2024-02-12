@@ -96,7 +96,7 @@ void DX11SwapChain::init(DX11Context* context, Window* window) {
     });
 }
 
-void DX11SwapChain::presentToWindow() const {
+void DX11SwapChain::clearWindow() const {
     TX_ASSERT(_context->device_context());
     TX_ASSERT(_swap_chain);
 
@@ -109,8 +109,12 @@ void DX11SwapChain::presentToWindow() const {
     _context->device_context()->ClearDepthStencilView(
             _depth_stencil_view.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL,
             default_depth, default_stencil);
+}
 
-    // 绘制三角形
+void DX11SwapChain::presentToWindow() const {
+    TX_ASSERT(_context->device_context());
+    TX_ASSERT(_swap_chain);
+
     HR_CHECK(_swap_chain->Present(0, 0));
 }
 
@@ -190,7 +194,6 @@ void DX11SwapChain::resize(int32_t const width, int32_t const height) {
     dx11SetDebugObjectName(_depth_stencil_texture.Get(), "DepthStencilBuffer");
     dx11SetDebugObjectName(_depth_stencil_view.Get(), "DepthStencilView");
     dx11SetDebugObjectName(_render_target_view.Get(), "BackBufferRTV[0]");
-
 }
 
 }// namespace taixu

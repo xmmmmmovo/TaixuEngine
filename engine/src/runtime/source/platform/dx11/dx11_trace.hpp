@@ -13,14 +13,22 @@
 namespace taixu {
 
 /**
- * @brief
+ * @brief this function use to trace strack and logging in debug mode
  * @param loc filename line function
  * @param hr function name
+ * @note Only use in debug mode
  * @return
  */
 HRESULT dx11TraceW(source_loc_t loc, HRESULT hr);
 
 // NOLINTBEGIN
+
+#define HR_FAILED_GOTO(hr, ...)                                                \
+    if (FAILED(hr)) {                                                          \
+        ERROR_LOG(__VA_ARGS__);                                                \
+        goto failed;                                                           \
+    }
+
 
 #if defined(_DEBUG)
     #ifndef HR_CHECK

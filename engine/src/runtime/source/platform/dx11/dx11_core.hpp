@@ -12,7 +12,6 @@ namespace taixu {
 template<typename T>
 using ComPtrT = Microsoft::WRL::ComPtr<T>;
 
-
 }
 
 #endif// DX11_CORE_HPP_D3FCF82A61A24017BAF5FAA96E603868

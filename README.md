@@ -2,7 +2,7 @@
 
 A simple 3D game engine.
 
-TODO: This will be a screenshot.
+TODO: There will be a screenshot.
 
 ## How to build
 

@@ -6,6 +6,7 @@
 #define ENGINE_RUNTIME_CORE_DISPATCH_THREAD_POOL_HPP
 
 #include <cstddef>
+#include <future>
 #include <mutex>
 #include <queue>
 

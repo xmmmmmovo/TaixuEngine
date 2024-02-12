@@ -21,7 +21,7 @@ constexpr std::array FEATURE_LEVELS = {
         D3D_FEATURE_LEVEL_11_0,
 };
 
-void DX11Context::featureToVersion(D3D_FEATURE_LEVEL feature_level) {
+void DX11Context::featureLevel2Version(D3D_FEATURE_LEVEL feature_level) {
 
     switch (feature_level) {
         case D3D_FEATURE_LEVEL_11_0:
@@ -49,7 +49,6 @@ void DX11Context::init(const Window* window) {
 #if defined(_DEBUG)
     create_device_flags |= D3D11_CREATE_DEVICE_DEBUG;
 #endif
-
 
     D3D_FEATURE_LEVEL feature_level;
 
@@ -80,6 +79,7 @@ void DX11Context::init(const Window* window) {
                   "graphics API or update GPU driver. eg.vulkan)");
     }
 
+    featureLevel2Version(feature_level);
 
     // 检测 MSAA支持的质量等级
     getBestSupportedMSAASettings(4, this->_msaa_best_count,
@@ -89,8 +89,9 @@ void DX11Context::init(const Window* window) {
     ComPtrT<IDXGIDevice> dxgi_device = nullptr;
 
     // 为了正确创建 DXGI交换链，首先我们需要获取创建 D3D设备 的
-    // DXGI工厂，否则会引发报错： "IDXGIFactory::CreateSwapChain: This function
-    // is being called with a device from a different IDXGIFactory."
+    // DXGI工厂，否则会引发报错： "IDXGIFactory::CreateSwapChain: This
+    // function is being called with a device from a different
+    // IDXGIFactory."
     HR_CHECK(_device.As(&dxgi_device));
     HR_CHECK(dxgi_device->GetAdapter(_dxgi_adapter.GetAddressOf()));
     HR_CHECK(_dxgi_adapter->GetParent(
@@ -124,7 +125,7 @@ void DX11Context::getBestSupportedMSAASettings(const uint32_t msaa_count,
     }
 }
 
-bool DX11Context::isSupportDX11Ver(uint32_t const level) const{
+bool DX11Context::isSupportDX11Ver(uint32_t const level) const {
     return level <= _minor_version;
 }
 
