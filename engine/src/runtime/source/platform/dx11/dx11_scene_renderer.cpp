@@ -28,36 +28,27 @@ void DX11SceneRenderer::init(Window* window) {
     V vertices[] = {{Vec3(0.0f, 0.5f, 0.5f), Vec4(0.0f, 1.0f, 0.0f, 1.0f)},
                     {Vec3(0.5f, -0.5f, 0.5f), Vec4(0.0f, 0.0f, 1.0f, 1.0f)},
                     {Vec3(-0.5f, -0.5f, 0.5f), Vec4(1.0f, 0.0f, 0.0f, 1.0f)}};
-    // 设置顶点缓冲区描述
-    D3D11_BUFFER_DESC vbd;
-    ZeroMemory(&vbd, sizeof(vbd));
-    vbd.Usage          = D3D11_USAGE_IMMUTABLE;
-    vbd.ByteWidth      = sizeof vertices;
-    vbd.BindFlags      = D3D11_BIND_VERTEX_BUFFER;
-    vbd.CPUAccessFlags = 0;
-    // 新建顶点缓冲区
-    D3D11_SUBRESOURCE_DATA InitData;
-    ZeroMemory(&InitData, sizeof(InitData));
-    InitData.pSysMem = vertices;
-    HR_CHECK(_context.device()->CreateBuffer(&vbd, &InitData,
-                                             buffer.GetAddressOf()));
+
+    buffer = DX11Buffer::create(
+            &_context,
+            {.size         = sizeof vertices,
+             .data_ptr     = vertices,
+             .usage        = EnumTXBufferUsage::VERTEX_BUFFER,
+             .memory_usage = EnumTXBufferMemoryUsage::GPU_READ_ONLY});
 
     // 输入装配阶段的顶点缓冲区设置
     UINT stride = sizeof(V);// 跨越字节数
     UINT offset = 0;        // 起始偏移量
 
-    _context.device_context()->IASetVertexBuffers(0, 1, buffer.GetAddressOf(),
-                                                  &stride, &offset);
+    _context.device_context()->IASetVertexBuffers(
+            0, 1, buffer->getBufferAddressOf(), &stride, &offset);
     // 设置图元类型，设定输入布局
     _context.device_context()->IASetPrimitiveTopology(
             D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-    _context.device_context()->IASetInputLayout(
-            vert->getInputLayoutPtr().Get());
+    _context.device_context()->IASetInputLayout(vert->getInputLayoutPtr());
     // 将着色器绑定到渲染管线
-    _context.device_context()->VSSetShader(vert->getShaderPtr().Get(), nullptr,
-                                           0);
-    _context.device_context()->PSSetShader(frag->getShaderPtr().Get(), nullptr,
-                                           0);
+    _context.device_context()->VSSetShader(vert->getShaderPtr(), nullptr, 0);
+    _context.device_context()->PSSetShader(frag->getShaderPtr(), nullptr, 0);
 }
 
 void DX11SceneRenderer::update(float delta_time, Scene* scene) {

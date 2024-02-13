@@ -100,15 +100,15 @@ void DX11SwapChain::clearWindow() const {
     TX_ASSERT(_context->device_context());
     TX_ASSERT(_swap_chain);
 
-    static constexpr std::array black{0.1f, 0.1f, 0.1f, 1.0f};
-    static constexpr float      default_depth   = 1.0f;
-    static constexpr float      default_stencil = 0.0f;
+    static constexpr std::array BLACK{0.1f, 0.1f, 0.1f, 1.0f};
+    static constexpr float      DEFAULT_DEPTH   = 1.0f;
+    static constexpr float      DEFAULT_STENCIL = 0.0f;
 
     _context->device_context()->ClearRenderTargetView(_render_target_view.Get(),
-                                                      black.data());
+                                                      BLACK.data());
     _context->device_context()->ClearDepthStencilView(
             _depth_stencil_view.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL,
-            default_depth, default_stencil);
+            DEFAULT_DEPTH, DEFAULT_STENCIL);
 }
 
 void DX11SwapChain::presentToWindow() const {
@@ -185,8 +185,6 @@ void DX11SwapChain::resize(int32_t const width, int32_t const height) {
     _view_port.TopLeftY = 0;
     _view_port.Width    = static_cast<float>(width);
     _view_port.Height   = static_cast<float>(height);
-    _view_port.MinDepth = 0.0f;
-    _view_port.MaxDepth = 1.0f;
 
     _context->device_context()->RSSetViewports(1, &_view_port);
 

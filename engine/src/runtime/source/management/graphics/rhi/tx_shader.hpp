@@ -7,6 +7,8 @@
 #include <cstdint>
 #include <memory>
 
+#include "common/designs/noncopyable.hpp"
+
 namespace taixu {
 
 enum class EnumShaderStage : uint8_t {
@@ -53,7 +55,8 @@ struct TXShaderModuleCreateInfo {
     std::optional<TXShaderModuleInAttrDesc> in_attr_desc{std::nullopt};
 };
 
-class TXShaderModule : public std::enable_shared_from_this<TXShaderModule> {
+class TXShaderModule : public std::enable_shared_from_this<TXShaderModule>,
+                       private Noncopyable {
 protected:
     EnumShaderStage _stage{};
 
@@ -63,7 +66,7 @@ public:
 
     EnumShaderStage getShaderStage() const { return _stage; }
 
-    virtual ~TXShaderModule() = default;
+    ~TXShaderModule() override = default;
 };
 
 }// namespace taixu

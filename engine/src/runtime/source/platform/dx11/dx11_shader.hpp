@@ -50,10 +50,10 @@ public:
 
     ~DX11ShaderModule() override = default;
 
-    ComPtrT<DX11ShaderT> getShaderPtr() const { return _shader_ptr; }
+    DX11ShaderT* getShaderPtr() const { return _shader_ptr.Get(); }
 
-    ComPtrT<ID3D11InputLayout> getInputLayoutPtr() const {
-        return _input_layout_ptr;
+    ID3D11InputLayout* getInputLayoutPtr() const {
+        return _input_layout_ptr.Get();
     }
 };
 
