@@ -5,10 +5,13 @@
 #include "dx11_swapchain.hpp"
 
 
+#include "common/math/color.hpp"
 #include "dx11_utils.hpp"
 #include "platform/dx11/dx11_trace.hpp"
 
 namespace taixu {
+
+using namespace taixu::color;
 
 void DX11SwapChain::init(DX11Context* context, Window* window) {
     this->_context = context;
@@ -118,12 +121,11 @@ void DX11SwapChain::clearWindow() const {
     TX_ASSERT(_context->device_context());
     TX_ASSERT(_swap_chain);
 
-    static constexpr std::array BLACK{0.1f, 0.1f, 0.1f, 1.0f};
-    static constexpr float      DEFAULT_DEPTH   = 1.0f;
-    static constexpr float      DEFAULT_STENCIL = 0.0f;
+    static constexpr float DEFAULT_DEPTH   = 1.0f;
+    static constexpr float DEFAULT_STENCIL = 0.0f;
 
-    _context->device_context()->ClearRenderTargetView(_render_target_view.Get(),
-                                                      BLACK.data());
+    _context->device_context()->ClearRenderTargetView(
+            _render_target_view.Get(), BACKGROUND_DARK_COLOR.value_ptr());
     _context->device_context()->ClearDepthStencilView(
             _depth_stencil_view.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL,
             DEFAULT_DEPTH, DEFAULT_STENCIL);
@@ -143,7 +145,7 @@ void DX11SwapChain::resize(int32_t const width, int32_t const height) {
 
     ComPtrT<ID3D11Texture2D> backbuffer;
     HR_CHECK(_swap_chain->ResizeBuffers(1, width, height,
-                                        DXGI_FORMAT_R8G8B8A8_UNORM_SRGB, 0));
+                                        DXGI_FORMAT_R8G8B8A8_UNORM, 0));
     HR_CHECK(_swap_chain->GetBuffer(
             0, __uuidof(ID3D11Texture2D),
             reinterpret_cast<void**>(backbuffer.GetAddressOf())));

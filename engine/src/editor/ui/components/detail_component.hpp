@@ -9,7 +9,6 @@
 #include "ui/components/render_component.hpp"
 
 #include "ImGuizmo.h"
-#include "imgui.h"
 #include "imgui_internal.h"
 #include "ui/widgets/slider.hpp"
 

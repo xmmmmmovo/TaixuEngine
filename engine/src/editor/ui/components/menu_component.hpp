@@ -40,27 +40,26 @@ public:
     }
 
     void update() override {
+        static IGFD::FileDialogConfig config{
+                .path              = getRootPath().generic_string(),
+                .countSelectionMax = 1,
+                .flags             = ImGuiFileDialogFlags_Modal};
+
         if (ImGui::MenuItem("New Project")) {
             ImGuiFileDialog::Instance()->OpenDialog(
-                    "NewProjectDlgKey", "Choose a Directory", nullptr,
-                    getRootPath().generic_string(), 1, nullptr,
-                    ImGuiFileDialogFlags_Modal);
+                    "NewProjectDlgKey", "Choose a Directory", nullptr, config);
         }
         ImGui::Separator();
         if (ImGui::MenuItem("open project")) {
             ImGuiFileDialog::Instance()->OpenDialog(
-                    "ChooseDirDlgKey", "Choose a Directory", nullptr,
-                    getRootPath().generic_string(), 1, nullptr,
-                    ImGuiFileDialogFlags_Modal);
+                    "ChooseDirDlgKey", "Choose a Directory", nullptr, config);
         }
         if (ImGui::MenuItem("save project")) {
             if (_on_save_project) { _on_save_project(); }
         }
         if (ImGui::MenuItem("save as project")) {
             ImGuiFileDialog::Instance()->OpenDialog(
-                    "SaveAsDirDlgKey", "Choose a Directory", nullptr,
-                    getRootPath().generic_string(), 1, nullptr,
-                    ImGuiFileDialogFlags_Modal);
+                    "SaveAsDirDlgKey", "Choose a Directory", nullptr, config);
         }
 
         ImGui::Separator();

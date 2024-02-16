@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <glm/detail/func_packing.inl>
+#include <glm/gtc/packing.hpp>
 
 namespace taixu {
 

@@ -5,6 +5,7 @@
 #ifndef ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_SCENE_RENDERER_0906B2209CBE4868A97BEE1FF83AFD22
 #define ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_SCENE_RENDERER_0906B2209CBE4868A97BEE1FF83AFD22
 
+#include "common/math/color.hpp"
 #include "gameplay/gui/window.hpp"
 #include "management/graphics/gpu/shader_manager.hpp"
 #include "scene.hpp"
@@ -19,6 +20,18 @@ struct ImguiComponent {
     std::function<void()> update_func{};
     ImGuiWindowFlags      flags{0};
     bool*                 open{nullptr};
+};
+
+struct ImguiStyleGroup {
+    Color background;
+    Color foreground;
+    Color text;
+    Color text_background;
+    Color highlight_primary;
+    Color hover_primary;
+    Color highlight_secondary;
+    Color hover_secondary;
+    Color modal_dim;
 };
 
 class AbstractSceneRenderer : private Noncopyable {
@@ -40,7 +53,7 @@ public:
 protected:
     virtual void updateScene(float delta_time, Scene* scene) = 0;
 
-    void         loadCNFont() const;
+    void         loadFont() const;
     void         loadStyle();
     static void  initImguiForWindow(const Window* window);
     /**
