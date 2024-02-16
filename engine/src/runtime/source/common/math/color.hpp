@@ -8,7 +8,6 @@
 #include "vec.hpp"
 
 #include "common/base/macro.hpp"
-#include "common/log/logger.hpp"
 
 #include <glm/gtc/type_ptr.hpp>
 #include <imgui.h>
@@ -46,7 +45,7 @@ public:
 
     constexpr Vec4& operator()() { return value; }
 
-    float const* value_ptr() const { return glm::value_ptr(value); }
+    [[nodiscard]] float const* value_ptr() const { return glm::value_ptr(value); }
 
     [[nodiscard]] constexpr ImVec4 toImVec4() const {
         return {value.x, value.y, value.z, value.w};

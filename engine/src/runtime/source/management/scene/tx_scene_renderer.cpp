@@ -81,45 +81,45 @@ void AbstractSceneRenderer::loadStyle() {
     _style->SeparatorTextBorderSize  = 1.0f;
     _style->SeparatorTextPadding     = {20.0f, 10.0f};
 
-    constexpr ImVec4 bg      = DEFAULT_GROUP.background.toImVec4();
-    constexpr ImVec4 fg      = DEFAULT_GROUP.foreground.toImVec4();
-    constexpr ImVec4 text    = DEFAULT_GROUP.text.toImVec4();
-    constexpr ImVec4 text_bg = DEFAULT_GROUP.text_background.toImVec4();
-    constexpr ImVec4 highlight_primary =
+    constexpr ImVec4 BG      = DEFAULT_GROUP.background.toImVec4();
+    constexpr ImVec4 FG      = DEFAULT_GROUP.foreground.toImVec4();
+    constexpr ImVec4 TEXT    = DEFAULT_GROUP.text.toImVec4();
+    constexpr ImVec4 TEXT_BG = DEFAULT_GROUP.text_background.toImVec4();
+    constexpr ImVec4 HIGHLIGHT_PRIMARY =
             DEFAULT_GROUP.highlight_primary.toImVec4();
-    constexpr ImVec4 hover_primary = DEFAULT_GROUP.hover_primary.toImVec4();
-    constexpr ImVec4 highlight_secondary =
+    constexpr ImVec4 HOVER_PRIMARY = DEFAULT_GROUP.hover_primary.toImVec4();
+    constexpr ImVec4 HIGHLIGHT_SECONDARY =
             DEFAULT_GROUP.highlight_secondary.toImVec4();
-    constexpr ImVec4 hover_secondary = DEFAULT_GROUP.hover_secondary.toImVec4();
-    constexpr ImVec4 modal_dim       = DEFAULT_GROUP.modal_dim.toImVec4();
+    constexpr ImVec4 HOVER_SECONDARY = DEFAULT_GROUP.hover_secondary.toImVec4();
+    constexpr ImVec4 MODAL_DIM       = DEFAULT_GROUP.modal_dim.toImVec4();
 
-    _style->Colors[ImGuiCol_WindowBg]             = bg;
-    _style->Colors[ImGuiCol_Border]               = fg;
-    _style->Colors[ImGuiCol_MenuBarBg]            = fg;
-    _style->Colors[ImGuiCol_Separator]            = text_bg;
-    _style->Colors[ImGuiCol_TitleBg]              = fg;
-    _style->Colors[ImGuiCol_TitleBgActive]        = fg;
-    _style->Colors[ImGuiCol_Tab]                  = fg;
-    _style->Colors[ImGuiCol_TabUnfocused]         = fg;
-    _style->Colors[ImGuiCol_TabUnfocusedActive]   = fg;
-    _style->Colors[ImGuiCol_TabActive]            = fg;
-    _style->Colors[ImGuiCol_TabHovered]           = fg;
-    _style->Colors[ImGuiCol_PopupBg]              = bg;
-    _style->Colors[ImGuiCol_FrameBg]              = bg;
-    _style->Colors[ImGuiCol_FrameBgHovered]       = bg;
-    _style->Colors[ImGuiCol_Text]                 = text;
-    _style->Colors[ImGuiCol_ResizeGrip]           = highlight_primary;
-    _style->Colors[ImGuiCol_ScrollbarGrabActive]  = highlight_primary;
-    _style->Colors[ImGuiCol_ScrollbarGrabHovered] = hover_primary;
-    _style->Colors[ImGuiCol_ScrollbarBg]          = bg;
-    _style->Colors[ImGuiCol_ScrollbarGrab]        = fg;
-    _style->Colors[ImGuiCol_Header]               = highlight_secondary;
-    _style->Colors[ImGuiCol_HeaderHovered]        = hover_secondary;
-    _style->Colors[ImGuiCol_HeaderActive]         = highlight_secondary;
-    _style->Colors[ImGuiCol_Button]               = fg;
-    _style->Colors[ImGuiCol_ButtonHovered]        = hover_secondary;
-    _style->Colors[ImGuiCol_ButtonActive]         = highlight_secondary;
-    _style->Colors[ImGuiCol_ModalWindowDimBg]     = modal_dim;
+    _style->Colors[ImGuiCol_WindowBg]             = BG;
+    _style->Colors[ImGuiCol_Border]               = FG;
+    _style->Colors[ImGuiCol_MenuBarBg]            = FG;
+    _style->Colors[ImGuiCol_Separator]            = TEXT_BG;
+    _style->Colors[ImGuiCol_TitleBg]              = FG;
+    _style->Colors[ImGuiCol_TitleBgActive]        = FG;
+    _style->Colors[ImGuiCol_Tab]                  = FG;
+    _style->Colors[ImGuiCol_TabUnfocused]         = FG;
+    _style->Colors[ImGuiCol_TabUnfocusedActive]   = FG;
+    _style->Colors[ImGuiCol_TabActive]            = FG;
+    _style->Colors[ImGuiCol_TabHovered]           = FG;
+    _style->Colors[ImGuiCol_PopupBg]              = BG;
+    _style->Colors[ImGuiCol_FrameBg]              = BG;
+    _style->Colors[ImGuiCol_FrameBgHovered]       = BG;
+    _style->Colors[ImGuiCol_Text]                 = TEXT;
+    _style->Colors[ImGuiCol_ResizeGrip]           = HIGHLIGHT_PRIMARY;
+    _style->Colors[ImGuiCol_ScrollbarGrabActive]  = HIGHLIGHT_PRIMARY;
+    _style->Colors[ImGuiCol_ScrollbarGrabHovered] = HOVER_PRIMARY;
+    _style->Colors[ImGuiCol_ScrollbarBg]          = BG;
+    _style->Colors[ImGuiCol_ScrollbarGrab]        = FG;
+    _style->Colors[ImGuiCol_Header]               = HIGHLIGHT_SECONDARY;
+    _style->Colors[ImGuiCol_HeaderHovered]        = HOVER_SECONDARY;
+    _style->Colors[ImGuiCol_HeaderActive]         = HIGHLIGHT_SECONDARY;
+    _style->Colors[ImGuiCol_Button]               = FG;
+    _style->Colors[ImGuiCol_ButtonHovered]        = HOVER_SECONDARY;
+    _style->Colors[ImGuiCol_ButtonActive]         = HIGHLIGHT_SECONDARY;
+    _style->Colors[ImGuiCol_ModalWindowDimBg]     = MODAL_DIM;
 }
 
 void AbstractSceneRenderer::initImguiForWindow(const Window* window) {
