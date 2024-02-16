@@ -34,6 +34,7 @@ struct TXBufferCreateInfo {
     EnumTXBufferUsage       usage{};
     EnumTXBufferMemoryUsage memory_usage{};
     EnumTXBufferSharingMode sharing_mode{};
+    size_t                  stride{0};
 };
 
 class TXBuffer : public std::enable_shared_from_this<TXBuffer>,

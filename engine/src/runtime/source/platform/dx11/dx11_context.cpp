@@ -85,24 +85,6 @@ void DX11Context::init(const Window* window) {
     getBestSupportedMSAASettings(4, this->_msaa_best_count,
                                  this->_msaa_best_qualities);
 
-
-    ComPtrT<IDXGIDevice> dxgi_device = nullptr;
-
-    // 为了正确创建 DXGI交换链，首先我们需要获取创建 D3D设备 的
-    // DXGI工厂，否则会引发报错： "IDXGIFactory::CreateSwapChain: This
-    // function is being called with a device from a different
-    // IDXGIFactory."
-    HR_CHECK(_device.As(&dxgi_device));
-    HR_CHECK(dxgi_device->GetAdapter(_dxgi_adapter.GetAddressOf()));
-    HR_CHECK(_dxgi_adapter->GetParent(
-            __uuidof(IDXGIFactory1),
-            reinterpret_cast<void**>(_dxgi_factory.GetAddressOf())));
-
-    // 可以禁止alt+enter全屏
-    HR_CHECK(_dxgi_factory->MakeWindowAssociation(
-            window->getHWND(),
-            DXGI_MWA_NO_ALT_ENTER | DXGI_MWA_NO_WINDOW_CHANGES));
-
     // 设置调试对象名
     dx11SetDebugObjectName(_device_context.Get(), "ImmediateContext");
 }

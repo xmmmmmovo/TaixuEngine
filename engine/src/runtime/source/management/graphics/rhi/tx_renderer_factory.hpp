@@ -6,15 +6,9 @@
 #define ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_RENDERER_FACTORY_DD07B240A7C841C8A00C4C34AD5907AC
 
 #include "common/base/core.hpp"
-#include "common/base/macro.hpp"
 #include "common/designs/abstract_factory.hpp"
 #include "common/designs/noncopyable.hpp"
-
-#include "../../scene/tx_scene_renderer.hpp"
-
-#include <functional>
-#include <memory>
-#include <unordered_map>
+#include "management/scene/tx_scene_renderer.hpp"
 
 namespace taixu {
 

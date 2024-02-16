@@ -92,7 +92,6 @@ Checks: >
   readability-uniqueptr-delete-release,
   readability-use-anyofallof,
   readability-identifier-naming,
-  readability-uppercase-literal-suffix,
   
   cert-dcl21-cpp,
   cert-dcl58-cpp,

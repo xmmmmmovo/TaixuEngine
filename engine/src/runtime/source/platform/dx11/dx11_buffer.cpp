@@ -56,7 +56,8 @@ D3D11_BIND_FLAG bufferUsage2BindFlags(EnumTXBufferUsage const usage) {
 }
 
 
-DX11Buffer::DX11Buffer(ComPtrT<ID3D11Buffer>&& buffer) : _buffer(buffer) {}
+DX11Buffer::DX11Buffer(ComPtrT<ID3D11Buffer>&& buffer, size_t stride)
+    : _stride(stride), _buffer(buffer) {}
 
 std::shared_ptr<DX11Buffer> DX11Buffer::create(DX11Context* context,
                                                TXBufferCreateInfo const& info) {
@@ -78,7 +79,8 @@ std::shared_ptr<DX11Buffer> DX11Buffer::create(DX11Context* context,
                                                        buffer.GetAddressOf());
     HR_FAILED_GOTO(hr, "Create buffer failed.");
 
-    return std::shared_ptr<DX11Buffer>(new DX11Buffer(std::move(buffer)));
+    return std::shared_ptr<DX11Buffer>(
+            new DX11Buffer(std::move(buffer), info.stride));
 failed:
     return nullptr;
 }

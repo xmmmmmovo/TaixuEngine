@@ -15,16 +15,12 @@ class DX11Context final : public TXContext {
 
     using DeviceT        = ComPtrT<ID3D11Device>;
     using DeviceContextT = ComPtrT<ID3D11DeviceContext>;
-    using FactoryT       = ComPtrT<IDXGIFactory1>;
-    using AdapterT       = ComPtrT<IDXGIAdapter>;
 
 protected:
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(protected, DXGI_FORMAT, format,
                                       DXGI_FORMAT_R8G8B8A8_UNORM_SRGB);
     PROTOTYPE_ONLY_GETTER(protected, DeviceT, device);
     PROTOTYPE_ONLY_GETTER(protected, DeviceContextT, device_context);
-    PROTOTYPE_ONLY_GETTER(protected, FactoryT, dxgi_factory);
-    PROTOTYPE_ONLY_GETTER(protected, AdapterT, dxgi_adapter);
 
     void featureLevel2Version(D3D_FEATURE_LEVEL feature_level);
 

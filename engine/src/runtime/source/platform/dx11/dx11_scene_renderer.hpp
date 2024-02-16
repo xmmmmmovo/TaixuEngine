@@ -5,14 +5,12 @@
 #ifndef ENGINE_SRC_RUNTIME_PLATFORM_DX11_DX11_SCENE_RENDERER_499239DA41144D1D9535ADB888492EF1
 #define ENGINE_SRC_RUNTIME_PLATFORM_DX11_DX11_SCENE_RENDERER_499239DA41144D1D9535ADB888492EF1
 
-#include "common/math/vector.hpp"
+#include "common/math/vec.hpp"
 #include "dx11_buffer.hpp"
 #include "dx11_context.hpp"
 #include "dx11_shader.hpp"
 #include "dx11_swapchain.hpp"
 #include "management/scene/tx_scene_renderer.hpp"
-
-#include <wrl/client.h>
 
 namespace taixu {
 
@@ -41,9 +39,17 @@ private:
 
 public:
     void init(Window* window) override;
-    void update(float delta_time, Scene* scene) override;
     void destroy() override;
     ~    DX11SceneRenderer() override;
+
+    void updateScene(float delta_time, Scene* scene) override;
+
+protected:
+    void initImguiForGraphicsAPI() override;
+    void imguiGraphicsPreUpdate() override;
+    void imguiGraphicsUpdate() override;
+    void imguiGraphicsDestroy() override;
+    void presentToWindow() override;
 };
 
 }// namespace taixu

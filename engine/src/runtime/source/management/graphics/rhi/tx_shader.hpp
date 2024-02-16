@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 
+#include "common/base/macro.hpp"
 #include "common/designs/noncopyable.hpp"
 
 namespace taixu {
@@ -57,15 +58,12 @@ struct TXShaderModuleCreateInfo {
 
 class TXShaderModule : public std::enable_shared_from_this<TXShaderModule>,
                        private Noncopyable {
-protected:
-    EnumShaderStage _stage{};
+    PROTOTYPE_ONLY_GETTER_VALPASS(protected, std::string_view, name);
+    PROTOTYPE_ONLY_GETTER_VALPASS(protected, EnumShaderStage, stage);
 
 public:
     explicit TXShaderModule(TXShaderModuleCreateInfo const& info)
-        : _stage{info.stage} {};
-
-    EnumShaderStage getShaderStage() const { return _stage; }
-
+        : _name(info.name), _stage{info.stage} {};
     ~TXShaderModule() override = default;
 };
 

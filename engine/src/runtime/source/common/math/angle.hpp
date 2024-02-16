@@ -8,7 +8,7 @@
 
 #include "trigonometric.hpp"
 
-namespace taixu {
+namespace taixu::literal {
 
 constexpr auto operator"" _radf(const long double value) noexcept
         -> decltype(toRadians(static_cast<float>(value))) {

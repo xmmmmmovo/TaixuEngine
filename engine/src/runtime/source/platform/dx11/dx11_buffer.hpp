@@ -17,11 +17,13 @@ uint32_t memoryUsage2CPUAccessFlags(EnumTXBufferMemoryUsage usage);
 D3D11_BIND_FLAG bufferUsage2BindFlags(EnumTXBufferUsage usage);
 
 class DX11Buffer final : public TXBuffer {
+    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, size_t, stride, 0);
+
 private:
     ComPtrT<ID3D11Buffer> _buffer{nullptr};
 
 private:
-    explicit DX11Buffer(ComPtrT<ID3D11Buffer>&& buffer);
+    explicit DX11Buffer(ComPtrT<ID3D11Buffer>&& buffer, size_t stride);
 
 public:
     static std::shared_ptr<DX11Buffer> create(DX11Context*              context,

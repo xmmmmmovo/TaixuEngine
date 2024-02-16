@@ -9,14 +9,13 @@
 
 #include "common/base/macro.hpp"
 #include "common/designs/noncopyable.hpp"
-#include "common/log/logger.hpp"
 
 #ifdef TX_WINDOWS
     #include "platform/windows/windows_min.hpp"
 #endif
 
 #define GLFW_INCLUDE_NONE
-#ifdef VK_HEADER_VERSION
+#ifdef USE_VULKAN
     #define GLFW_INCLUDE_VULKAN
 #endif
 #include <GLFW/glfw3.h>
@@ -25,9 +24,6 @@
     #define GLFW_EXPOSE_NATIVE_WIN32
     #include <GLFW/glfw3native.h>
 #endif
-
-#define IMGUI_DEFINE_MATH_OPERATORS
-#include "imgui.h"
 
 struct WindowInfo {
     std::string_view title{};
@@ -38,13 +34,6 @@ struct WindowInfo {
 struct DPIScale {
     float x_scale{0.0f};
     float y_scale{0.0f};
-};
-
-struct ImguiComponent {
-    std::string_view      name{};
-    std::function<void()> update_func{};
-    ImGuiWindowFlags      flags{0};
-    bool*                 open{nullptr};
 };
 
 namespace taixu {
@@ -82,23 +71,12 @@ protected:
 protected:
     GLFWwindow* _window{nullptr};
 
-    std::vector<ImguiComponent> _components{};
-    ImGuiIO*                    _io{nullptr};
-    ImGuiStyle*                 _style{nullptr};
-
     bool minimize{false};
     bool fullscreen{false};
 
     PROTOTYPE_ONLY_GETTER_CONST(protected, DPIScale, dpi_scale);
     PROTOTYPE_ONLY_GETTER_CONST(protected, WindowInfo, window_info);
-    PROTOTYPE_DFT(protected, bool, imgui_enabled, false);
 
-protected:
-    void loadCNFont() const;
-    void loadStyle();
-
-    void initForWindow() const;
-    void initForGraphicsAPI();
 
 public:
     void init(WindowInfo const& info);
@@ -106,15 +84,7 @@ public:
     void update();
     void destroy();
 
-    void initForImgui();
-    /**
-     * @brief add widget to the surface
-     * @param imgui_component imgui component add.
-     * @see
-     * https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags---Enumerations/
-     * @see tests/benchmarks/function_transfer_benchmark.hpp
-     */
-    void addComponents(const ImguiComponent& imgui_component);
+    [[nodiscard]] GLFWwindow* getRawWindow() const;
 
 #ifdef TX_WINDOWS
     [[nodiscard]] HWND getHWND() const { return glfwGetWin32Window(_window); }
@@ -124,8 +94,7 @@ public:
     }
 #endif
 
-    static void handleEvents();
-
+    static void        handleEvents();
     [[nodiscard]] bool shouldClose() const;
 
 protected:

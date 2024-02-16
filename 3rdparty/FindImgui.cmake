@@ -26,12 +26,12 @@ if (imgui_ADDED)
         list(APPEND imgui_impl ${imgui_SOURCE_DIR}/backends/imgui_impl_dx11.h)
     endif ()
 
-    file(GLOB imgui_ext_sources CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/3rdparty/imgui/*.cpp)
+    file(GLOB imgui_ext_sources CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/3rdparty/imgui_addons/*.cpp)
 
     add_library(imgui STATIC ${imgui_sources} ${imgui_impl} ${imgui_ext_sources})
 
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${imgui_SOURCE_DIR}>)
-    target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/3rdparty/imgui>)
+    target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/3rdparty/imgui_addons>)
 
     target_link_libraries(imgui PUBLIC glfw)
 

@@ -1,6 +1,6 @@
 #include "engine/engine.hpp"
 
-#include "../management/scene/tx_scene_renderer.hpp"
+#include "management/scene/tx_scene_renderer.hpp"
 #include "common/log/logger.hpp"
 #include "engine/engine_context.hpp"
 
