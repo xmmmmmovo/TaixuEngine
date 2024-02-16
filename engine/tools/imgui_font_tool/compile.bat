@@ -1,0 +1,1 @@
+cl.exe binary_to_compressed_c.cpp

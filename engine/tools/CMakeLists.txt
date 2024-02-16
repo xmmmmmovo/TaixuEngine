@@ -16,5 +16,4 @@ file(GLOB_RECURSE model_converter_source CONFIGURE_DEPENDS
 
 add_executable(ModelConverterTool ${model_converter_source})
 
-
 target_link_libraries(ModelConverterTool PRIVATE TaixuRuntime)

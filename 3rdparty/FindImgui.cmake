@@ -33,7 +33,7 @@ if (imgui_ADDED)
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${imgui_SOURCE_DIR}>)
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/3rdparty/imgui_addons>)
 
-    target_link_libraries(imgui PUBLIC glfw)
+    target_link_libraries(imgui PUBLIC freetype glfw)
 
     if (USE_VULKAN)
         target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${Vulkan_INCLUDE_DIR}>)

@@ -7,8 +7,12 @@
 #include "common/log/logger.hpp"
 #include "common/math/literal.hpp"
 
+#include "gameplay/gui/fonts/fa_solid_900_iconfont.hpp"
+#include "gameplay/gui/fonts/source_han_sans_cn_font.hpp"
+
 #include <IconsFontAwesome6.h>
 #include <backends/imgui_impl_glfw.h>
+
 
 namespace taixu {
 
@@ -26,8 +30,8 @@ static constexpr ImguiStyleGroup DEFAULT_GROUP{
         Color{0_uc, 0_uc, 0_uc, 255_uc}};
 
 void AbstractSceneRenderer::update(float delta_time, Scene* scene) {
-    if (_enable_imgui) { imguiPreUpdate(); }
     updateScene(delta_time, scene);
+    if (_enable_imgui) { imguiPreUpdate(); }
     if (_enable_imgui) { imguiUpdate(); }
     presentToWindow();
 }
@@ -35,10 +39,12 @@ void AbstractSceneRenderer::update(float delta_time, Scene* scene) {
 void AbstractSceneRenderer::loadFont() const {
     _io->Fonts->AddFontDefault();
 
+    static constexpr float FONT_SIZE{18.0f};
     // add source hans font
     // Default + Selection of 2500 Ideographs used by Simplified Chinese
-    const auto font = _io->Fonts->AddFontFromFileTTF(
-            "res/fonts/SourceHanSansCN-Bold.otf", 18.0f, nullptr,
+    const auto             font = _io->Fonts->AddFontFromMemoryCompressedTTF(
+            source_han_sans_cn_font_compressed_data,
+            source_han_sans_cn_font_compressed_size, FONT_SIZE, nullptr,
             // 这里包括了Latin范围
             _io->Fonts->GetGlyphRangesChineseSimplifiedCommon());
     _io->FontDefault = font;
@@ -46,12 +52,13 @@ void AbstractSceneRenderer::loadFont() const {
     // merge in icons from Font Awesome
     static constexpr std::array<ImWchar, 3> K_ICONS_RANGES{ICON_MIN_FA,
                                                            ICON_MAX_16_FA, 0};
-    static constexpr float                  FONT_SIZE{16.0f};
+    static constexpr float                  ICONFONT_SIZE{16.0f};
     ImFontConfig                            icons_config;
     icons_config.MergeMode  = true;
     icons_config.PixelSnapH = true;
-    _io->Fonts->AddFontFromFileTTF("res/fonts/fa-solid-900.ttf", FONT_SIZE,
-                                   &icons_config, K_ICONS_RANGES.data());
+    _io->Fonts->AddFontFromMemoryCompressedBase85TTF(
+            fa_solid_900_iconfont_compressed_data_base85, ICONFONT_SIZE,
+            &icons_config, K_ICONS_RANGES.data());
 }
 
 void AbstractSceneRenderer::loadStyle() {
