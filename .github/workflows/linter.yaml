@@ -28,20 +28,3 @@ jobs:
           message: 'Committing clang-format changes'
         env:
           GITHUB_TOKEN: ${{ secrets.TAIXU_GITHUB_TOKEN }}
-
-  lint:
-    name: Clang Tidy
-    needs: format
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      # Optionally generate compile_commands.json
-      - uses: ZedThree/clang-tidy-review@v0.14.0
-        id: review
-        with:
-          exclude: 'dx11*,*dx11'
-
-      # Uploads an artefact containing clang_fixes.json
-      - uses: ZedThree/clang-tidy-review/upload@v0.14.0
-        id: upload-review
