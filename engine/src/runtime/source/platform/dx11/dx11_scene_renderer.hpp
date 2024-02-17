@@ -38,18 +38,17 @@ private:
     std::shared_ptr<DX11Buffer>                           buffer;
 
 public:
-    void init(Window* window) override;
-    void destroy() override;
     ~    DX11SceneRenderer() override;
-
     void updateScene(float delta_time, Scene* scene) override;
 
 protected:
-    void initImguiForGraphicsAPI() override;
+    void imguiForGraphicsAPIInit() override;
     void imguiGraphicsPreUpdate() override;
     void imguiGraphicsUpdate() override;
     void imguiGraphicsDestroy() override;
     void presentToWindow() override;
+    void initForGraphicsAPI(Window* window) override;
+    void destroyGraphicsAPI() override;
 };
 
 }// namespace taixu

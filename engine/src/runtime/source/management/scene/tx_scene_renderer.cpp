@@ -18,7 +18,7 @@ namespace taixu {
 
 using namespace literal;
 
-static constexpr ImguiStyleGroup DEFAULT_GROUP{
+static constexpr ImguiStyleGroup DEFAULT_STYLE_GROUP{
         Color{34_uc, 35, 42_uc, 255_uc},
         Color{42_uc, 44_uc, 54_uc, 255_uc},
         Color{230_uc, 175_uc, 137_uc, 255_uc},
@@ -29,11 +29,20 @@ static constexpr ImguiStyleGroup DEFAULT_GROUP{
         Color{105_uc, 50_uc, 68_uc, 255_uc},
         Color{0_uc, 0_uc, 0_uc, 255_uc}};
 
+void AbstractSceneRenderer::init(Window* window) {
+    initForGraphicsAPI(window);
+    initImgui(window);
+}
+
 void AbstractSceneRenderer::update(float delta_time, Scene* scene) {
     updateScene(delta_time, scene);
-    if (_enable_imgui) { imguiPreUpdate(); }
     if (_enable_imgui) { imguiUpdate(); }
     presentToWindow();
+}
+
+void AbstractSceneRenderer::destroy() {
+    destroyGraphicsAPI();
+    imguiDestroy();
 }
 
 void AbstractSceneRenderer::loadFont() const {
@@ -88,17 +97,19 @@ void AbstractSceneRenderer::loadStyle() {
     _style->SeparatorTextBorderSize  = 1.0f;
     _style->SeparatorTextPadding     = {20.0f, 10.0f};
 
-    constexpr ImVec4 BG      = DEFAULT_GROUP.background.toImVec4();
-    constexpr ImVec4 FG      = DEFAULT_GROUP.foreground.toImVec4();
-    constexpr ImVec4 TEXT    = DEFAULT_GROUP.text.toImVec4();
-    constexpr ImVec4 TEXT_BG = DEFAULT_GROUP.text_background.toImVec4();
+    constexpr ImVec4 BG      = DEFAULT_STYLE_GROUP.background.toImVec4();
+    constexpr ImVec4 FG      = DEFAULT_STYLE_GROUP.foreground.toImVec4();
+    constexpr ImVec4 TEXT    = DEFAULT_STYLE_GROUP.text.toImVec4();
+    constexpr ImVec4 TEXT_BG = DEFAULT_STYLE_GROUP.text_background.toImVec4();
     constexpr ImVec4 HIGHLIGHT_PRIMARY =
-            DEFAULT_GROUP.highlight_primary.toImVec4();
-    constexpr ImVec4 HOVER_PRIMARY = DEFAULT_GROUP.hover_primary.toImVec4();
+            DEFAULT_STYLE_GROUP.highlight_primary.toImVec4();
+    constexpr ImVec4 HOVER_PRIMARY =
+            DEFAULT_STYLE_GROUP.hover_primary.toImVec4();
     constexpr ImVec4 HIGHLIGHT_SECONDARY =
-            DEFAULT_GROUP.highlight_secondary.toImVec4();
-    constexpr ImVec4 HOVER_SECONDARY = DEFAULT_GROUP.hover_secondary.toImVec4();
-    constexpr ImVec4 MODAL_DIM       = DEFAULT_GROUP.modal_dim.toImVec4();
+            DEFAULT_STYLE_GROUP.highlight_secondary.toImVec4();
+    constexpr ImVec4 HOVER_SECONDARY =
+            DEFAULT_STYLE_GROUP.hover_secondary.toImVec4();
+    constexpr ImVec4 MODAL_DIM = DEFAULT_STYLE_GROUP.modal_dim.toImVec4();
 
     _style->Colors[ImGuiCol_WindowBg]             = BG;
     _style->Colors[ImGuiCol_Border]               = FG;
@@ -133,7 +144,7 @@ void AbstractSceneRenderer::initImguiForWindow(const Window* window) {
     ImGui_ImplGlfw_InitForOther(window->getRawWindow(), true);
 }
 
-void AbstractSceneRenderer::initAllForImgui(const Window* window) {
+void AbstractSceneRenderer::initImgui(const Window* window) {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     _io = &ImGui::GetIO();
@@ -149,10 +160,10 @@ void AbstractSceneRenderer::initAllForImgui(const Window* window) {
     loadStyle();
 
     initImguiForWindow(window);
-    initImguiForGraphicsAPI();
+    imguiForGraphicsAPIInit();
 }
 
-void AbstractSceneRenderer::imguiPreUpdate() {
+void AbstractSceneRenderer::imguiUpdate() {
     imguiGraphicsPreUpdate();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
@@ -173,13 +184,13 @@ void AbstractSceneRenderer::imguiPreUpdate() {
         static int   counter = 0;
 
         ImGui::Begin("Hello, world!");// Create a window called "Hello, world!"
-                                      // and append into it.
+        // and append into it.
 
         ImGui::Text("This is some useful text.");// Display some text (you can
-                                                 // use a format strings too)
+        // use a format strings too)
         ImGui::Checkbox("Demo Window",
                         &show_demo_window);// Edit bools storing our window
-                                           // open/close state
+        // open/close state
 
         ImGui::SliderFloat(
                 "float", &f, 0.0f,
@@ -204,9 +215,7 @@ void AbstractSceneRenderer::imguiPreUpdate() {
         update_func();
         ImGui::End();
     }
-}
 
-void AbstractSceneRenderer::imguiUpdate() {
     ImGui::Render();
     imguiGraphicsUpdate();
     if (_io->ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {

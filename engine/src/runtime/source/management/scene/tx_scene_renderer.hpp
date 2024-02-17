@@ -47,31 +47,32 @@ protected:
     std::vector<ImguiComponent> _components{};
 
 public:
-    virtual void init(Window* window) = 0;
-    void         update(float delta_time, Scene* scene);
-    virtual void destroy() = 0;
+    void init(Window* window);
+    void update(float delta_time, Scene* scene);
+    void destroy();
+
+private:
+    void        loadFont() const;
+    void        loadStyle();
+    static void initImguiForWindow(const Window* window);
+    void        initImgui(const Window* window);
+    void        imguiUpdate();
+    void        imguiDestroy();
 
 protected:
     virtual void updateScene(float delta_time, Scene* scene) = 0;
-
-    void         loadFont() const;
-    void         loadStyle();
-    static void  initImguiForWindow(const Window* window);
     /**
      * @brief 这里因为要适配不同的API所以是虚函数
      */
-    virtual void initImguiForGraphicsAPI() = 0;
-    void         initAllForImgui(const Window* window);
+    virtual void imguiForGraphicsAPIInit()                   = 0;
+    virtual void initForGraphicsAPI(Window* window)          = 0;
 
     virtual void imguiGraphicsPreUpdate() = 0;
-    void         imguiPreUpdate();
-    virtual void imguiGraphicsUpdate() = 0;
-    void         imguiUpdate();
+    virtual void imguiGraphicsUpdate()    = 0;
+    virtual void imguiGraphicsDestroy()   = 0;
+    virtual void presentToWindow()        = 0;
 
-    virtual void imguiGraphicsDestroy() = 0;
-    void         imguiDestroy();
-
-    virtual void presentToWindow() = 0;
+    virtual void destroyGraphicsAPI() = 0;
 
 public:
     /**

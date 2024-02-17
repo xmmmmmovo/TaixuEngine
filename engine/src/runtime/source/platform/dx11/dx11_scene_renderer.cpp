@@ -11,11 +11,37 @@
 
 namespace taixu {
 
-void DX11SceneRenderer::init(Window* window) {
+DX11SceneRenderer::~DX11SceneRenderer() = default;
+
+void DX11SceneRenderer::updateScene(float delta_time, Scene* scene) {
+    _swap_chain.clearWindow();
+
+    // 首先先set states
+    // TODO: 删除
+    _context.device_context()->RSSetViewports(1, &_swap_chain.view_port());
+
+    // 渲染逻辑
+    _context.device_context()->Draw(3, 0);
+}
+
+void DX11SceneRenderer::imguiForGraphicsAPIInit() {
+    ImGui_ImplDX11_Init(_context.device().Get(),
+                        _context.device_context().Get());
+}
+
+void DX11SceneRenderer::imguiGraphicsPreUpdate() { ImGui_ImplDX11_NewFrame(); }
+
+void DX11SceneRenderer::imguiGraphicsUpdate() {
+    ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+}
+
+void DX11SceneRenderer::imguiGraphicsDestroy() { ImGui_ImplDX11_Shutdown(); }
+
+void DX11SceneRenderer::presentToWindow() { _swap_chain.presentToWindow(); }
+
+void DX11SceneRenderer::initForGraphicsAPI(Window* window) {
     _context.init(window);
     _swap_chain.init(&_context, window);
-
-    initAllForImgui(window);
 
     std::unique_ptr<DX11ShaderModuleAdapter> adapter =
             std::make_unique<DX11ShaderModuleAdapter>(&_context);
@@ -55,34 +81,6 @@ void DX11SceneRenderer::init(Window* window) {
     _context.device_context()->PSSetShader(frag->getShaderPtr(), nullptr, 0);
 }
 
-void DX11SceneRenderer::destroy() {}
-
-DX11SceneRenderer::~DX11SceneRenderer() = default;
-
-void DX11SceneRenderer::updateScene(float delta_time, Scene* scene) {
-    _swap_chain.clearWindow();
-
-    // 首先先set states
-    // TODO: 删除
-    _context.device_context()->RSSetViewports(1, &_swap_chain.view_port());
-
-    // 渲染逻辑
-    _context.device_context()->Draw(3, 0);
-}
-
-void DX11SceneRenderer::initImguiForGraphicsAPI() {
-    ImGui_ImplDX11_Init(_context.device().Get(),
-                        _context.device_context().Get());
-}
-
-void DX11SceneRenderer::imguiGraphicsPreUpdate() { ImGui_ImplDX11_NewFrame(); }
-
-void DX11SceneRenderer::imguiGraphicsUpdate() {
-    ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
-}
-
-void DX11SceneRenderer::imguiGraphicsDestroy() { ImGui_ImplDX11_Shutdown(); }
-
-void DX11SceneRenderer::presentToWindow() { _swap_chain.presentToWindow(); }
+void DX11SceneRenderer::destroyGraphicsAPI() {}
 
 }// namespace taixu
