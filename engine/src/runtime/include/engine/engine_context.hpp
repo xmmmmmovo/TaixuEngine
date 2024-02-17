@@ -29,7 +29,7 @@ public:
      * @brief editor state
      */
     EnumEngineState state{EnumEngineState::IDLEMODE};
-    EngineArgs  engine_args{};
+    EngineArgs      engine_args{};
 
     /**
      * @brief hold window from init function

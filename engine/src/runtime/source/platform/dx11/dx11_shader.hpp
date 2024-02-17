@@ -23,7 +23,7 @@ private:
 
 public:
     explicit DX11ShaderModuleAdapter(DX11Context* context);
-    ~        DX11ShaderModuleAdapter() override = default;
+    ~DX11ShaderModuleAdapter() override = default;
 
     std::shared_ptr<TXShaderModule>
          create(const TXShaderModuleCreateInfo& info) override;

@@ -23,7 +23,7 @@ public:
     float time_scale{1.0f};
 
     [[nodiscard]] float getDeltaTime() const;
-    [[nodiscard]] float getTimeSinceStart() const ;
+    [[nodiscard]] float getTimeSinceStart() const;
 
     void reset();
 

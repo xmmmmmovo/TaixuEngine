@@ -15,7 +15,7 @@ enum class EnumStatus : std::uint8_t {
     PERMISSION_FAILED,  // access permission failed
     NO_SUCH_FILE_FAILED,// cannot find file path
 
-    NO_OPEN_PROJECT,// no project opened
+    NO_OPEN_PROJECT,    // no project opened
 
     // RENDER STATUS CODES
 

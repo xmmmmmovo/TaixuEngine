@@ -6,9 +6,9 @@
 
 #include <filesystem>
 
-#include <platform/os/file_service.hpp>
 #include <common/log/logger.hpp>
 #include <optional>
+#include <platform/os/file_service.hpp>
 #include <resource/json/json_parser.hpp>
 #include <string>
 
@@ -45,7 +45,9 @@ std::optional<Project> createProject(std::filesystem::path const& path,
     return project;
 }
 
-EnumStatus saveAsProject(const std::filesystem::path& path) { return EnumStatus::OK; }
+EnumStatus saveAsProject(const std::filesystem::path& path) {
+    return EnumStatus::OK;
+}
 
 EnumStatus saveProject() { return EnumStatus::OK; }
 

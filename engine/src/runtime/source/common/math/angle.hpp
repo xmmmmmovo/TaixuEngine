@@ -20,4 +20,4 @@ constexpr auto operator"" _degf(const long double value) noexcept
 }
 
 
-}// namespace taixu
+}// namespace taixu::literal
