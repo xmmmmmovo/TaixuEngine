@@ -9,14 +9,13 @@
 
 #include "common/base/macro.hpp"
 #include "common/designs/noncopyable.hpp"
-#include "common/log/logger.hpp"
 
 #ifdef TX_WINDOWS
     #include "platform/windows/windows_min.hpp"
 #endif
 
 #define GLFW_INCLUDE_NONE
-#ifdef VK_HEADER_VERSION
+#ifdef USE_VULKAN
     #define GLFW_INCLUDE_VULKAN
 #endif
 #include <GLFW/glfw3.h>
@@ -26,6 +25,11 @@
     #include <GLFW/glfw3native.h>
 #endif
 
+struct WindowInfo {
+    std::string_view title{};
+    int32_t          width{0};
+    int32_t          height{0};
+};
 
 struct DPIScale {
     float x_scale{0.0f};
@@ -64,17 +68,34 @@ protected:
     std::vector<on_window_close_fn>       _on_window_close_fns{};
     on_error_fn                           _on_error{};
 
-
 protected:
     GLFWwindow* _window{nullptr};
 
     bool minimize{false};
     bool fullscreen{false};
 
-    PROTOTYPE_ONLY_GETTER_CONST(protected, std::string_view, title);
-    PROTOTYPE_DFT_ONLY_GETTER_CONST(protected, int32_t, width, 0);
-    PROTOTYPE_DFT_ONLY_GETTER_CONST(protected, int32_t, height, 0);
     PROTOTYPE_ONLY_GETTER_CONST(protected, DPIScale, dpi_scale);
+    PROTOTYPE_ONLY_GETTER_CONST(protected, WindowInfo, window_info);
+
+
+public:
+    void init(WindowInfo const& info);
+    void showWindow();
+    void update();
+    void destroy();
+
+    [[nodiscard]] GLFWwindow* getRawWindow() const;
+
+#ifdef TX_WINDOWS
+    [[nodiscard]] HWND getHWND() const { return glfwGetWin32Window(_window); }
+
+    [[nodiscard]] static HINSTANCE getHINSTANCE() {
+        return GetModuleHandle(nullptr);
+    }
+#endif
+
+    static void        handleEvents();
+    [[nodiscard]] bool shouldClose() const;
 
 protected:
     // NOLINTBEGIN
@@ -137,147 +158,23 @@ protected:
     // NOLINTEND
 
 protected:
-    static void errorCallBack(int error, const char* description) {
-        FATAL_LOG("GLFW Error: {}, {}", error, description);
-    }
-
-    static void keyCallback(GLFWwindow* window, const int key,
-                            const int scancode, const int action,
-                            const int mods) {
-        const auto* context =
-                static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->onKey(key, scancode, action, mods);
-    }
-
-    static void charCallback(GLFWwindow* window, const unsigned int codepoint) {
-        const auto* context =
-                static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->onChar(codepoint);
-    }
-
-    static void charModsCallback(GLFWwindow*        window,
-                                 const unsigned int codepoint, const int mods) {
-        const auto* context =
-                static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->onCharMods(codepoint, mods);
-    }
-
-    static void mouseButtonCallback(GLFWwindow* window, const int button,
-                                    const int action, const int mods) {
-        const auto* context =
-                static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->onMouseButton(button, action, mods);
-    }
-
-    static void cursorPosCallback(GLFWwindow* window, const double xpos,
-                                  const double ypos) {
-        const auto* context =
-                static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->onCursorPos(xpos, ypos);
-    }
-
-    static void cursorEnterCallback(GLFWwindow* window, const int entered) {
-        const auto* context =
-                static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->onCursorEnter(entered);
-    }
-
-    static void scrollCallback(GLFWwindow* window, const double xoffset,
-                               const double yoffset) {
-        const auto* context =
-                static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->onScroll(xoffset, yoffset);
-    }
-
-    static void dropCallback(GLFWwindow* window, const int count,
-                             const char** paths) {
-        const auto* context =
-                static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->onDrop(count, paths);
-    }
-
-    static void windowSizeCallback(GLFWwindow* window, const int width,
-                                   const int height) {
-        auto* context = static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->_width  = width;
-        context->_height = height;
-        context->onReset();
-        context->onWindowSize(width, height);
-    }
-
-    static void windowDPIChangedCallback(GLFWwindow* window, const float xscale,
-                                         const float yscale) {
-
-        auto* context = static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->_dpi_scale.x_scale = xscale;
-        context->_dpi_scale.y_scale = yscale;
-        context->onWindowDPIChanged(xscale, yscale);
-    }
-
-    static void windowCloseCallback(GLFWwindow* window) {
-        DEBUG_LOG("clicked close!");
-        glfwSetWindowShouldClose(window, true);
-        const auto* context =
-                static_cast<Window*>(glfwGetWindowUserPointer(window));
-        context->onWindowClose();
-    }
-
-public:
-    void init(const std::string_view& title, int32_t width, int32_t height) {
-        this->_title  = title;
-        this->_width  = width;
-        this->_height = height;
-
-        glfwSetErrorCallback(errorCallBack);
-
-        if (GLFW_TRUE != glfwInit()) { FATAL_LOG("GLFW init failed!"); }
-
-        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    }
-
-    void showWindow() {
-        _window = glfwCreateWindow(_width, _height, _title.data(), nullptr,
-                                   nullptr);
-
-        if (!_window) {
-            glfwTerminate();
-            FATAL_LOG("Failed to create GLFW window");
-        }
-
-        glfwSetWindowUserPointer(_window, this);
-
-        glfwSetKeyCallback(_window, keyCallback);
-        glfwSetErrorCallback(errorCallBack);
-        glfwSetCharCallback(_window, charCallback);
-        glfwSetCharModsCallback(_window, charModsCallback);
-        glfwSetMouseButtonCallback(_window, mouseButtonCallback);
-        glfwSetCursorPosCallback(_window, cursorPosCallback);
-        glfwSetCursorEnterCallback(_window, cursorEnterCallback);
-        glfwSetScrollCallback(_window, scrollCallback);
-        glfwSetDropCallback(_window, dropCallback);
-        glfwSetWindowSizeCallback(_window, windowSizeCallback);
-        glfwSetWindowCloseCallback(_window, windowCloseCallback);
-        glfwSetWindowContentScaleCallback(_window, windowDPIChangedCallback);
-
-        glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-    }
-
-    void update() { destroy(); }
-    void destroy() { glfwTerminate(); }
-
-#ifdef TX_WINDOWS
-    [[nodiscard]] HWND getHWND() const { return glfwGetWin32Window(_window); }
-
-    [[nodiscard]] HINSTANCE getHINSTANCE() const {
-        return GetModuleHandle(nullptr);
-    }
-#endif
-
-    void handleEvents() { glfwPollEvents(); }
-
-    [[nodiscard]] bool shouldClose() const {
-        return glfwWindowShouldClose(_window);
-    }
+    static void errorCallBack(int error, const char* description);
+    static void keyCallback(GLFWwindow* window, int key, int scancode,
+                            int action, int mods);
+    static void charCallback(GLFWwindow* window, unsigned int codepoint);
+    static void charModsCallback(GLFWwindow* window, unsigned int codepoint,
+                                 int mods);
+    static void mouseButtonCallback(GLFWwindow* window, int button, int action,
+                                    int mods);
+    static void cursorPosCallback(GLFWwindow* window, double xpos, double ypos);
+    static void cursorEnterCallback(GLFWwindow* window, int entered);
+    static void scrollCallback(GLFWwindow* window, double xoffset,
+                               double yoffset);
+    static void dropCallback(GLFWwindow* window, int count, const char** paths);
+    static void windowSizeCallback(GLFWwindow* window, int width, int height);
+    static void windowDPIChangedCallback(GLFWwindow* window, float xscale,
+                                         float yscale);
+    static void windowCloseCallback(GLFWwindow* window);
 
 public:
     void registerOnResetFn(on_reset_fn const& func) {

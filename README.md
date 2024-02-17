@@ -2,7 +2,7 @@
 
 A simple 3D game engine.
 
-TODO: This will be a screenshot.
+TODO: There will be a screenshot.
 
 ## How to build
 
@@ -19,8 +19,8 @@ make
 
 ```mermaid
 flowchart TD
-    editor --> runtime;
-    runtime --> engine;
+    editor --> runtime/include;
+    runtime/include --> engine;
     engine --> common;
     engine --> management;
     management --> gameplay;

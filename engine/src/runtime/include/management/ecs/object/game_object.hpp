@@ -6,7 +6,6 @@
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_OBJECT_GAME_OBJECT_HPP
 
 #include <common/base/macro.hpp>
-#include <management/ecs/core/ecs_types.hpp>
 #include <management/ecs/object/guid_genenrator.hpp>
 
 namespace taixu {

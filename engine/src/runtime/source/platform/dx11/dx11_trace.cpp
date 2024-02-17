@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 1/5/2024.
 //
 
-#include "platform/dx11/dx11_trace.hpp"
+#include "dx11_trace.hpp"
 
 #include "common/log/logger.hpp"
 

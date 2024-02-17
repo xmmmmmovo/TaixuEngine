@@ -5,19 +5,16 @@
 #ifndef TAIXUENGINE_RENDER_COMPONENT_HPP
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
+#include "common/log/logger.hpp"
 #include <IconsFontAwesome6.h>
 #include <ImGuizmo.h>
-#include <backends/imgui_impl_opengl3.h>
 #include <glm/glm.hpp>
 #include <glm/gtx/matrix_decompose.hpp>
 #include <imgui.h>
 
+#include "common/math/imvec2.hpp"
 #include "ui/common/ui_component.hpp"
 #include "ui/common/view_model.hpp"
-#include <common/math/imvec2.hpp>
-#include <management/components/transform/transform_component.hpp>
-#include <management/input/input_system.hpp>
-#include <management/scene/scene.hpp>
 
 namespace taixu::editor {
 

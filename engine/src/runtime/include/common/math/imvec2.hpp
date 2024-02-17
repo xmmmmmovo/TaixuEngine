@@ -9,11 +9,11 @@
 
 namespace taixu {
 
-inline ImVec2 operator-(const ImVec2& a, const ImVec2& b) {
+TX_INLINE ImVec2 operator-(const ImVec2& a, const ImVec2& b) {
     return {a.x - b.x, a.y - b.y};
 }
 
-inline bool operator!=(ImVec2 const& a, ImVec2 const& b) {
+TX_INLINE bool operator!=(ImVec2 const& a, ImVec2 const& b) {
     return (a.x != b.x) || (a.y != b.y);
 }
 

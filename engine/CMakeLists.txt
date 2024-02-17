@@ -88,4 +88,3 @@ add_subdirectory(tools)
 # editor and runtime
 add_subdirectory(src/editor)
 add_subdirectory(src/runtime)
-add_subdirectory(src/script)

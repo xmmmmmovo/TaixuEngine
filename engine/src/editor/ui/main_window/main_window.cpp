@@ -2,9 +2,10 @@
 // Created by xmmmmmovo on 2023/2/12.
 //
 #include "main_window.hpp"
+
+#include "common/utils/function_utils.hpp"
 #include <imgui.h>
 
-#include "gameplay/gui/imgui_layer.hpp"
 #include <GraphEditor.h>
 #include <platform/os/path.hpp>
 #include <utility>
@@ -62,16 +63,15 @@ void MainWindow::buildUpPathHierarchy() {
 
 void MainWindow::init(const std::vector<std::string>& args) {
     _engine_runtime_ptr = &Engine::getInstance();
-    _engine_runtime_ptr->preInit(args);
+    _engine_runtime_ptr->preInit();
 
     INFO_LOG("Main window init start!");
 
-    _view_model.init(_engine_runtime_ptr);
     _window_ptr = std::make_unique<Window>();
-    _window_ptr->init(_window_title, _width, _height);
+    _window_ptr->init({_window_title, _width, _height});
     _window_ptr->showWindow();
 
-    _engine_runtime_ptr->init(_window_ptr.get());
+    _engine_runtime_ptr->init(args, _window_ptr.get());
 
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
@@ -158,8 +158,8 @@ bool MainWindow::isCursorInRenderComponent() const {
 
 void MainWindow::update() { preUpdate(); }
 
-void MainWindow::show() const {
-    _engine_runtime_ptr->start();
+void MainWindow::start() const {
+    _engine_runtime_ptr->beforeStart();
     while (!_window_ptr->shouldClose()) {
         _engine_runtime_ptr->update();
         _window_ptr->handleEvents();

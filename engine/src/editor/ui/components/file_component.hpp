@@ -9,9 +9,9 @@
 #include <string>
 #include <vector>
 
+#include "platform/os/path.hpp"
 #include "ui/common/ui_component.hpp"
 #include "ui/common/view_model.hpp"
-#include "useful_obj_hierarchy_component.hpp"
 
 namespace taixu::editor {
 
@@ -76,8 +76,8 @@ public:
         {
             ImGui::BeginChild(
                     "FileTree",
-                    ImVec2(ImGui::GetWindowContentRegionWidth() * 0.2f, 0.f),
-                    false, window_flags);
+                    ImVec2(ImGui::GetContentRegionAvail().x * 0.2f, 0.f), false,
+                    window_flags);
 
             for (auto& parent_entry : _view_model->path_hierarchy) {
                 auto flag = parent_flags;

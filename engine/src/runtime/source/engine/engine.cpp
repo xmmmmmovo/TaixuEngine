@@ -1,26 +1,23 @@
 #include "engine/engine.hpp"
 
-#include <magic_enum.hpp>
-#include <optional>
-
-#include "engine/engine_args.hpp"
-#include <common/log/logger.hpp>
+#include "management/scene/tx_scene_renderer.hpp"
+#include "common/log/logger.hpp"
+#include "engine/engine_context.hpp"
 
 namespace taixu {
 
-void Engine::preInit(std::vector<std::string> const& args) const {
-    Logger::init();
-    _context.engine_args->initWithArgs(args);
+void Engine::preInit() { Logger::init(); }
+
+void Engine::init(std::vector<std::string> const& args, Window* window) {
+    g_engine_context.init(args, window);
 }
 
-void Engine::init(Window* window) { _context.init(window); }
-
-void Engine::start() { _clock.reset(); }
+void Engine::beforeStart() { _clock.reset(); }
 
 void Engine::update() {
     _clock.update();
     float const delta_time = _clock.getDeltaTime();
-    _context.update(delta_time);
+    g_engine_context.renderer->update(delta_time, nullptr);
 }
 
 void Engine::destroy() { Logger::destroy(); }

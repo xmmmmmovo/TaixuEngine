@@ -5,45 +5,43 @@
 #ifndef ENGINE_SRC_RUNTIME_ENGINE_CONTEXT_AFC9470FE8DF4FD682C297E3488583D5
 #define ENGINE_SRC_RUNTIME_ENGINE_CONTEXT_AFC9470FE8DF4FD682C297E3488583D5
 
-#include "common/base/cpu_clock.hpp"
-#include "engine_args.hpp"
-#include <gameplay/gui/window.hpp>
-#include <management/graphics/rhi/tx_scene_renderer.hpp>
-#include <management/scene/scene.hpp>
-#include <resource/manager/asset_manager.hpp>
-#include <resource/manager/project_manager.hpp>
+#include "engine/engine_args.hpp"
 
 namespace taixu {
 
-class EngineContext {
-public:
-    std::unique_ptr<AbstractSceneRenderer> renderer{nullptr};
-    std::unique_ptr<AssetManager>          asset_manager{nullptr};
-    std::unique_ptr<Scene>                 scene{nullptr};
+class AssetManager;
+class AbstractSceneRenderer;
+class Scene;
+struct Project;
 
-    std::optional<Project> opened_project{std::nullopt};
+class EngineArgs;
+class Window;
+
+class EngineContext final {
+public:
+    std::shared_ptr<AbstractSceneRenderer> renderer{nullptr};
+    std::shared_ptr<AssetManager>          asset_manager{nullptr};
+    std::shared_ptr<Scene>                 scene{nullptr};
+
+    std::shared_ptr<Project> opened_project{nullptr};
 
     /**
      * @brief editor state
      */
-    EngineState state{EngineState::IDLEMODE};
-    EngineArgs* engine_args{&EngineArgs::getInstance()};
+    EnumEngineState state{EnumEngineState::IDLEMODE};
+    EngineArgs  engine_args{};
 
-    void init(Window* window) {
-        renderer =
-                SceneRendererFactory::createProduct(engine_args->render_api());
-        renderer->init(window);
+    /**
+     * @brief hold window from init function
+     */
+    Window* window{nullptr};
 
-        asset_manager = std::make_unique<AssetManager>();
-    }
+    void init(std::vector<std::string> const& args, Window* window);
 
-    void update(float const delta_t) {
-        renderer->update(delta_t, nullptr);
-        renderer->presentToWindow();
-    }
-
-    void destroy() {}
+    void destroy() const;
 };
+
+extern EngineContext g_engine_context;
 
 }// namespace taixu
 

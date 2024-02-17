@@ -11,8 +11,6 @@
 #include "imgui_internal.h"
 
 // "" headers
-#include "gameplay/gui/imgui_layer.hpp"
-
 #include "ui/common/view_model.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
@@ -25,11 +23,6 @@
 
 #include <engine/engine.hpp>
 #include <gameplay/gui/window.hpp>
-#include <management/components/transform/transform_component.hpp>
-#include <management/ecs/core/ecs_types.hpp>
-#include <management/ecs/ecs_coordinator.hpp>
-#include <management/ecs/system/system.hpp>
-#include <management/scene/scene.hpp>
 
 namespace taixu::editor {
 
@@ -42,7 +35,7 @@ private:
     static std::string_view constexpr DETAILS_COMPONENT_NAME{
             "Components Details"};
     static std::string_view constexpr WORLD_OBJ_COMPONENT_NAME{"World Objects"};
-    static std::string_view constexpr STATUS_COMPONENT_NAME{"Status"};
+    static std::string_view constexpr STATUS_COMPONENT_NAME{"EnumStatus"};
     static std::string_view constexpr USEFUL_OBJ_COMPONENT_NAME{
             "Useful Objects"};
 
@@ -57,9 +50,7 @@ private:
     StatusBarComponent    status_bar_component{&_view_model};
 
 private:
-    // context
     std::unique_ptr<Window> _window_ptr{nullptr};
-    ImguiLayer              _imgui_layer{};
     Engine*                 _engine_runtime_ptr{nullptr};
     ViewModel               _view_model{};
 
@@ -88,7 +79,7 @@ public:
     void update();
     void destroy() const;
 
-    void show() const;
+    void start() const;
 
 private:
     void preUpdate();

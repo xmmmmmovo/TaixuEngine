@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 2023/4/27.
 //
 
-#include "resource/helper/image_helper.hpp"
+#include "image_helper.hpp"
 
 #include <common/utils/binary_utils.hpp>
 
@@ -15,6 +15,8 @@
 #include <stb_dxt.h>
 #include <stb_image.h>
 #include <stb_image_resize2.h>
+
+constexpr std::int32_t const ZERO_VALUE_FLAG = -1;
 
 namespace taixu {
 

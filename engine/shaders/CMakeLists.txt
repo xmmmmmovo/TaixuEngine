@@ -81,7 +81,7 @@ endif ()
 
 if (USE_DX11)
     find_program(FXC_EXECUTABLE fxc
-            PATHS "${TAIXUENGINE_ROOT_DIR}/3rd_party/bin"
+            PATHS "${TAIXUENGINE_ROOT_DIR}/3rdparty/bin/fxc"
             DOC "The DirectX shader compiler"
     )
     if (NOT FXC_EXECUTABLE)

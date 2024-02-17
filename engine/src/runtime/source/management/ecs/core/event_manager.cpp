@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 2023/5/2.
 //
 
-#include <management/ecs/core/event_manager.hpp>
+#include "event_manager.hpp"
 
 namespace taixu {
 
@@ -24,9 +24,9 @@ void EventManager::addEvent(EventIdType event_type) {
 
 void EventManager::processEvents() {
     while (!_event_queue.empty()) {
-        auto& event = _event_queue.front();
 
-        if (_listeners.find(event.GetEventType()) != _listeners.end()) {
+        if (auto& event = _event_queue.front();
+            _listeners.contains(event.GetEventType())) {
             _listeners[event.GetEventType()](event);
         }
 
