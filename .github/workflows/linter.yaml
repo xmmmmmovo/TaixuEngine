@@ -17,7 +17,7 @@ jobs:
       - uses: DoozyX/clang-format-lint-action@v0.16.1
         with:
           source: './engine'
-          exclude: './engine/assets ./engine/shaders'
+          exclude: './engine/assets ./engine/shaders *font'
           extensions: 'hpp,cpp,inl'
           clangFormatVersion: 16
           inplace: True
