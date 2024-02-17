@@ -79,12 +79,16 @@ public:
         if (direction == EnumCameraMovement::BACKWARD) {
             Position -= Front * velocity;
         }
-        if (direction == EnumCameraMovement::LEFT) { Position -= Right * velocity; }
+        if (direction == EnumCameraMovement::LEFT) {
+            Position -= Right * velocity;
+        }
         if (direction == EnumCameraMovement::RIGHT) {
             Position += Right * velocity;
         }
         if (direction == EnumCameraMovement::UP) { Position += Up * velocity; }
-        if (direction == EnumCameraMovement::DOWN) { Position -= Up * velocity; }
+        if (direction == EnumCameraMovement::DOWN) {
+            Position -= Up * velocity;
+        }
     }
 
     void accelerate() { MovementSpeed = FASTS_PEED; }

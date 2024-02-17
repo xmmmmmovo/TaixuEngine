@@ -14,15 +14,15 @@ namespace taixu {
  */
 class Noncopyable {
 protected:
-             Noncopyable() = default;
+    Noncopyable()          = default;
     virtual ~Noncopyable() = default;
 
 public:
-                 Noncopyable(const Noncopyable&) = delete;
-    Noncopyable& operator=(const Noncopyable&)   = delete;
+    Noncopyable(const Noncopyable&)            = delete;
+    Noncopyable& operator=(const Noncopyable&) = delete;
 
-                 Noncopyable(Noncopyable&& other) noexcept = delete;
-    Noncopyable& operator=(Noncopyable&& other) noexcept   = default;
+    Noncopyable(Noncopyable&& other) noexcept            = delete;
+    Noncopyable& operator=(Noncopyable&& other) noexcept = default;
 };
 
 struct StructDataNoncopyable {

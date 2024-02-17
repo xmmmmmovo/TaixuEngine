@@ -18,7 +18,7 @@ enum class EnumKeyState : std::uint8_t {
 };
 
 struct KeyEvent {
-    EnumKeyCode code;
+    EnumKeyCode  code;
     EnumKeyState state;
 };
 
