@@ -38,7 +38,7 @@ private:
     std::shared_ptr<DX11Buffer>                           buffer;
 
 public:
-    ~DX11SceneRenderer() override;
+    ~    DX11SceneRenderer() override;
     void updateScene(float delta_time, Scene* scene) override;
 
 protected:
@@ -46,7 +46,10 @@ protected:
     void imguiGraphicsPreUpdate() override;
     void imguiGraphicsUpdate() override;
     void imguiGraphicsDestroy() override;
+
+    void clearWindow() override;
     void presentToWindow() override;
+
     void initForGraphicsAPI(Window* window) override;
     void destroyGraphicsAPI() override;
 };

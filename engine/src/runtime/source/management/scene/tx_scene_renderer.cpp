@@ -6,6 +6,7 @@
 
 #include "common/log/logger.hpp"
 #include "common/math/literal.hpp"
+#include "engine/engine_context.hpp"
 
 #include "gameplay/gui/fonts/fa_solid_900_iconfont.hpp"
 #include "gameplay/gui/fonts/source_han_sans_cn_font.hpp"
@@ -35,6 +36,8 @@ void AbstractSceneRenderer::init(Window* window) {
 }
 
 void AbstractSceneRenderer::update(float delta_time, Scene* scene) {
+    if (!_enable_imgui) { clearWindow(); }
+    clearWindow();
     updateScene(delta_time, scene);
     if (_enable_imgui) { imguiUpdate(); }
     presentToWindow();
@@ -153,7 +156,7 @@ void AbstractSceneRenderer::initImgui(const Window* window) {
             ImGuiConfigFlags_NavEnableKeyboard;// Enable Keyboard Controls
     _io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
     _io->ConfigFlags |=
-            ImGuiConfigFlags_ViewportsEnable;          // Enable Multi-Viewport
+            ImGuiConfigFlags_ViewportsEnable;// Enable Multi-Viewport
     // Platform Windows
 
     loadFont();
@@ -169,10 +172,10 @@ void AbstractSceneRenderer::imguiUpdate() {
     ImGui::NewFrame();
 
     // TODO: 转移到组件中
-    const ImGuiViewport* viewport = ImGui::GetMainViewport();
-    ImGui::SetNextWindowPos(viewport->Pos);
-    ImGui::SetNextWindowSize(viewport->Size);
-    ImGui::SetNextWindowViewport(viewport->ID);
+    // const ImGuiViewport* viewport = ImGui::GetMainViewport();
+    // ImGui::SetNextWindowPos(viewport->Pos);
+    // ImGui::SetNextWindowSize(viewport->Size);
+    // ImGui::SetNextWindowViewport(viewport->ID);
 
     static bool show_demo_window = true;
     ImGui::ShowDemoWindow(&show_demo_window);
@@ -186,7 +189,7 @@ void AbstractSceneRenderer::imguiUpdate() {
         ImGui::Begin("Hello, world!");// Create a window called "Hello, world!"
         // and append into it.
 
-        ImGui::Text("This is some useful text.");// Display some text (you can
+        ImGui::Text("T中英文t.");// Display some text (you can
         // use a format strings too)
         ImGui::Checkbox("Demo Window",
                         &show_demo_window);// Edit bools storing our window
@@ -217,6 +220,7 @@ void AbstractSceneRenderer::imguiUpdate() {
     }
 
     ImGui::Render();
+    clearWindow();
     imguiGraphicsUpdate();
     if (_io->ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
         ImGui::UpdatePlatformWindows();

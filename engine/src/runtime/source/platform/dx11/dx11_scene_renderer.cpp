@@ -13,16 +13,7 @@ namespace taixu {
 
 DX11SceneRenderer::~DX11SceneRenderer() = default;
 
-void DX11SceneRenderer::updateScene(float delta_time, Scene* scene) {
-    _swap_chain.clearWindow();
-
-    // 首先先set states
-    // TODO: 删除
-    _context.device_context()->RSSetViewports(1, &_swap_chain.view_port());
-
-    // 渲染逻辑
-    _context.device_context()->Draw(3, 0);
-}
+void DX11SceneRenderer::updateScene(float delta_time, Scene* scene) {}
 
 void DX11SceneRenderer::imguiForGraphicsAPIInit() {
     ImGui_ImplDX11_Init(_context.device().Get(),
@@ -37,6 +28,7 @@ void DX11SceneRenderer::imguiGraphicsUpdate() {
 
 void DX11SceneRenderer::imguiGraphicsDestroy() { ImGui_ImplDX11_Shutdown(); }
 
+void DX11SceneRenderer::clearWindow() { _swap_chain.clearWindow(); }
 void DX11SceneRenderer::presentToWindow() { _swap_chain.presentToWindow(); }
 
 void DX11SceneRenderer::initForGraphicsAPI(Window* window) {

@@ -46,6 +46,8 @@ protected:
 
     std::vector<ImguiComponent> _components{};
 
+    bool is_editor_mode{false};
+
 public:
     void init(Window* window);
     void update(float delta_time, Scene* scene);
@@ -70,7 +72,9 @@ protected:
     virtual void imguiGraphicsPreUpdate() = 0;
     virtual void imguiGraphicsUpdate()    = 0;
     virtual void imguiGraphicsDestroy()   = 0;
-    virtual void presentToWindow()        = 0;
+
+    virtual void clearWindow()     = 0;
+    virtual void presentToWindow() = 0;
 
     virtual void destroyGraphicsAPI() = 0;
 
