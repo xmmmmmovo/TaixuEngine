@@ -8,7 +8,6 @@
 #include <ImGuiFileDialog.h>
 #include <imgui.h>
 
-#include "common/utils/function_utils.hpp"
 #include "platform/os/path.hpp"
 #include "ui/common/ui_component.hpp"
 
@@ -19,6 +18,9 @@ namespace taixu::editor {
  */
 class MenuComponent : public AbstractUIComponent {
 private:
+    template<typename... Args>
+    using callback = std::function<void(Args...)>;
+
     callback<std::string_view const&> _on_new_project{nullptr};
     callback<std::string_view const&> _on_open_project{nullptr};
     callback<>                        _on_save_project{nullptr};
@@ -40,7 +42,7 @@ public:
     }
 
     void update() override {
-        if (ImGui::BeginMenu("MainMenu")) {
+        if (ImGui::BeginMenu("#MainMenu")) {
             static IGFD::FileDialogConfig const config{
                     .path              = getRootPath().generic_string(),
                     .countSelectionMax = 1,
@@ -68,12 +70,9 @@ public:
 
             ImGui::Separator();
 
-            if (ImGui::MenuItem("Exit")) {
-                // glfwSetWindowShouldClose(glfwGetCurrentContext(), GLFW_TRUE);
-                exit(0);
-            }
+            if (ImGui::MenuItem("Exit")) { exit(0); }
 
-            ImGui::EndMenuBar();
+            ImGui::EndMenu();
         }
     }
 

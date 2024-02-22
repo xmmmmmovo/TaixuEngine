@@ -3,7 +3,6 @@
 //
 #include "main_window.hpp"
 
-#include "common/utils/function_utils.hpp"
 #include "management/scene/tx_scene_renderer.hpp"
 
 #include <imgui.h>
@@ -92,8 +91,10 @@ void MainWindow::init(const std::vector<std::string>& args) {
     buildUpUsefulObjHierarchy();
 
     _engine_runtime_ptr->renderer->addComponent(
-            {.name           = "TXEditorMenu",
-             .update_func    = menu_component.update,
+            {.name           = "#TXEditorMenuBar",
+             .update_func    = [this]() {
+                 menu_component.update();
+             },
              .component_type = EnumImguiComponentType::MENUBAR});
 
     INFO_LOG("Main window init finished!");
@@ -169,12 +170,12 @@ void MainWindow::destroy() const { _window_ptr->destroy(); }
 
 MainWindow::MainWindow(std::string title, int32_t width, int32_t height)
     : _window_title(std::move(title)), _width(width), _height(height) {
-    this->_window_ptr,
-            this->menu_component.bindCallbacks(
-                    INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
-                    INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
-                    INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
-                    INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onSaveAsProjectCb));
+    // this->_window_ptr,
+    //         this->menu_component.bindCallbacks(
+    //                 INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
+    //                 INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
+    //                 INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
+    //                 INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onSaveAsProjectCb));
 }
 
 // for callbacks

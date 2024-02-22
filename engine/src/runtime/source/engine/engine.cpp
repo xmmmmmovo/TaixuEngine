@@ -13,7 +13,7 @@ Engine g_engine;
 
 void Engine::init(std::vector<std::string> const& args, Window* window) {
     Logger::init();
-
+    INFO_LOG("Logger inited, start init engine");
     _engine_args.initWithArgs(args);
 
     this->window = window;

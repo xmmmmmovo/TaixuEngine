@@ -215,7 +215,6 @@ void AbstractSceneRenderer::imguiUpdate() {
                     ERROR_LOG("Unsupport component type, {}", name);
             }
             if (end_call_back != nullptr) { end_call_back(); }
-            return;
         }
     }
 
