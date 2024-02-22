@@ -4,10 +4,10 @@
 #include "main_window.hpp"
 
 #include "common/utils/function_utils.hpp"
+#include "management/scene/tx_scene_renderer.hpp"
+
 #include <imgui.h>
 
-#include <GraphEditor.h>
-#include <platform/os/path.hpp>
 #include <utility>
 
 namespace taixu::editor {
@@ -91,10 +91,10 @@ void MainWindow::init(const std::vector<std::string>& args) {
     //            });
     buildUpUsefulObjHierarchy();
 
-    // g_engine_context.renderer->addComponent(
-    //         {.name           = "TXEditorMenu",
-    //          .update_func    = menu_component.update,
-    //          .component_type = EnumImguiComponentType::MENUBAR});
+    _engine_runtime_ptr->renderer->addComponent(
+            {.name           = "TXEditorMenu",
+             .update_func    = menu_component.update,
+             .component_type = EnumImguiComponentType::MENUBAR});
 
     INFO_LOG("Main window init finished!");
 }

@@ -5,8 +5,8 @@
 #pragma once
 
 #include "dx11_context.hpp"
-#include "management/graphics/gpu/shader_manager.hpp"
-#include "management/graphics/rhi/tx_shader.hpp"
+#include "management/gpu/shader_manager.hpp"
+#include "management/rhi/tx_shader.hpp"
 
 namespace taixu {
 

@@ -1,12 +1,12 @@
 //
 // Created by xmmmmmovo on 1/7/2024.
 //
-
-#include "tx_scene_renderer.hpp"
+#include "management/scene/tx_scene_renderer.hpp"
 
 #include "common/log/logger.hpp"
 #include "common/math/literal.hpp"
 #include "engine/engine.hpp"
+#include "gameplay/gui/window.hpp"
 
 #include "generated/fonts/fa_solid_900_iconfont.hpp"
 #include "generated/fonts/source_han_sans_cn_font.hpp"

@@ -6,7 +6,7 @@
 
 #include "dx11_context.hpp"
 #include "dx11_core.hpp"
-#include "management/graphics/rhi/tx_buffer.hpp"
+#include "management/rhi/tx_buffer.hpp"
 
 namespace taixu {
 

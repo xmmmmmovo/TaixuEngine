@@ -32,11 +32,12 @@ add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 set(PCH_FILES "${PCH_DIR}/pch_std.hpp" "${PCH_DIR}/pch_runtime.hpp")
 
 # public link
-target_link_libraries(${TARGET_NAME} PUBLIC magic_enum::magic_enum stb)
-target_link_libraries(${TARGET_NAME} PUBLIC simdjson Threads::Threads freetype glfw)
-target_link_libraries(${TARGET_NAME} PUBLIC Jolt)
-target_link_libraries(${TARGET_NAME} PUBLIC refl-cpp::refl-cpp assimp)
-target_link_libraries(${TARGET_NAME} PUBLIC glm imgui argparse spdlog::spdlog fmt::fmt)
+target_link_libraries(${TARGET_NAME} PRIVATE stb)
+target_link_libraries(${TARGET_NAME} PRIVATE simdjson Threads::Threads freetype glfw)
+target_link_libraries(${TARGET_NAME} PRIVATE refl-cpp::refl-cpp assimp)
+target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
+
+target_link_libraries(${TARGET_NAME} PUBLIC imgui spdlog::spdlog fmt::fmt magic_enum::magic_enum glm)
 
 if (USE_VULKAN)
     add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)

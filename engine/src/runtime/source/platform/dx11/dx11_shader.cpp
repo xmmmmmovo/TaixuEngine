@@ -8,7 +8,7 @@
 
 #include "common/log/logger.hpp"
 #include "dx11_trace.hpp"
-#include "management/graphics/gpu/shaders/shader_inc_list.hpp"
+#include "management/gpu/shaders/intern/shader_inc_list.hpp"
 
 namespace taixu {
 

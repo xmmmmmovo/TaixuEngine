@@ -4,13 +4,13 @@
 #include "common/base/cpu_clock.hpp"
 #include "common/designs/noncopyable.hpp"
 #include "engine/engine_args.hpp"
+#include "management/scene/tx_scene_renderer.hpp"
 
 #include <string>
 
 namespace taixu {
 
 class AssetManager;
-class AbstractSceneRenderer;
 class Scene;
 class EngineArgs;
 class Window;

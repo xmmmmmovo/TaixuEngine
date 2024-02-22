@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 1/28/2024.
 //
 
-#include "shader_manager.hpp"
+#include "management/gpu/shader_manager.hpp"
 
 namespace taixu {
 

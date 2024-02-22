@@ -7,7 +7,7 @@
 
 #include "dx11_core.hpp"
 #include "gameplay/gui/window.hpp"
-#include "management/graphics/rhi/tx_context.hpp"
+#include "management/rhi/tx_context.hpp"
 
 namespace taixu {
 

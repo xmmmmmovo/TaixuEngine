@@ -1,7 +1,7 @@
 #include "engine/engine.hpp"
 
 #include "common/log/logger.hpp"
-#include "management/graphics/rhi/tx_renderer_factory.hpp"
+#include "management/scene/tx_renderer_factory.hpp"
 #include "management/scene/tx_scene_renderer.hpp"
 
 #include "management/scene/scene.hpp"

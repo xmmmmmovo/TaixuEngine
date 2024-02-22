@@ -6,7 +6,7 @@
 
 #include <argparse/argparse.hpp>
 
-#include "management/graphics/rhi/tx_renderer_factory.hpp"
+#include "management/scene/tx_renderer_factory.hpp"
 #include "platform/dx11/dx11_scene_renderer.hpp"
 
 namespace taixu {

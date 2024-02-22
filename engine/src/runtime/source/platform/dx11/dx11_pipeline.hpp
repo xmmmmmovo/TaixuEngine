@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "management/graphics/rhi/tx_pipeline.hpp"
+#include "management/rhi/tx_pipeline.hpp"
 
 namespace taixu {
 

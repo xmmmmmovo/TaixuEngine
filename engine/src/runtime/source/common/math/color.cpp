@@ -2,7 +2,8 @@
 // Created by xmmmmmovo on 2/16/2024.
 //
 
-#include "color.hpp"
+
+#include "common/math/color.hpp"
 
 #include "pack.hpp"
 

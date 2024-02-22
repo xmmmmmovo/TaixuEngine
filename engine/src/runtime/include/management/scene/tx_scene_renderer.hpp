@@ -5,12 +5,15 @@
 #ifndef ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_SCENE_RENDERER_0906B2209CBE4868A97BEE1FF83AFD22
 #define ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_SCENE_RENDERER_0906B2209CBE4868A97BEE1FF83AFD22
 
+#include "common/base/macro.hpp"
+#include "common/designs/noncopyable.hpp"
 #include "common/math/color.hpp"
-#include "gameplay/gui/window.hpp"
-#include "management/graphics/gpu/shader_manager.hpp"
-#include "scene.hpp"
+#include "management/gpu/shader_manager.hpp"
 
 namespace taixu {
+
+class Window;
+class Scene;
 
 enum class EnumImguiComponentType : std::uint8_t { WIDGET, MENUBAR };
 
@@ -41,7 +44,7 @@ class AbstractSceneRenderer : private Noncopyable {
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(protected, bool, enable_imgui, true);
 
 protected:
-    TXShaderModuleManager _shader_module_manager{};
+    TXShaderModuleManager _shader_module_manager;
 
     ///
     /// ImGui使用

@@ -3,12 +3,12 @@
 //
 #pragma once
 
-#include "common/base/hash.hpp"
 #include <array>
 
 #include <magic_enum.hpp>
 
-#include "management/graphics/rhi/tx_shader.hpp"
+#include "common/base/hash.hpp"
+#include "management/rhi/tx_shader.hpp"
 
 namespace taixu {
 
