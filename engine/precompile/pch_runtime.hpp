@@ -53,6 +53,9 @@
 
 #define IMGUI_ENABLE_FREETYPE
 #define IMGUI_DEFINE_MATH_OPERATORS
+#include <imgui_freetype.h>
+#include <imgui_internal.h>
+
 #include <imgui.h>
 
 #endif// ENGINE_PRECOMPILE_PCH_RUNTIME_0A0D878DBB714C9499D420BF61F1C4D8

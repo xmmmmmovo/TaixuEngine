@@ -29,6 +29,12 @@ void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
             .default_value(false)
             .implicit_value(true);
 
+    program.add_argument(IMMEDIATE_RENDER_ARG)
+            .help("Is use immediate rendering mode")
+            .default_value(false)
+            .implicit_value(true);
+
+
     try {
         program.parse_args(args);
     } catch (const std::runtime_error& err) {
@@ -47,8 +53,8 @@ void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
     Logger::setLevel(Logger::LogLevel::DEBUG);// Set global log level to info
 #endif
 
-    _is_editor = program.get<bool>(EDITOR_ARG);
-    DEBUG_LOG("{}", _is_editor);
+    _is_editor                = program.get<bool>(EDITOR_ARG);
+    _is_immediate_render_mode = program.get<bool>(IMMEDIATE_RENDER_ARG);
 }
 
 }// namespace taixu

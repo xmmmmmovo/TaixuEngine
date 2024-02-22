@@ -29,7 +29,6 @@ namespace taixu::editor {
 class MainWindow {
 private:
     // names
-    static std::string_view constexpr DOCK_SPACE_NAME{"TaixuEditorDock"};
     static std::string_view constexpr RENDER_COMPONENT_NAME{"Scene"};
     static std::string_view constexpr FILE_COMPONENT_NAME{"Files"};
     static std::string_view constexpr DETAILS_COMPONENT_NAME{

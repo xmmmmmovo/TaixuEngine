@@ -22,10 +22,14 @@ class EngineArgs {
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, EnumRenderAPI, render_api,
                                       EnumRenderAPI::DX11);
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, bool, is_editor, false);
+    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, bool, is_immediate_render_mode,
+                                      false);
 
 public:
     static constexpr std::string_view LOCALE_ARG = "--locale"sv;
     static constexpr std::string_view EDITOR_ARG = "--editor"sv;
+    static constexpr std::string_view IMMEDIATE_RENDER_ARG =
+            "--immediate-render"sv;
 
 private:
     static void registerRendererFactory();

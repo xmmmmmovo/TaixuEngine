@@ -14,11 +14,6 @@
 
 namespace taixu {
 
-struct V {
-    Vec3 pos;
-    Vec4 color;
-};
-
 class DX11SceneRenderer final : public AbstractSceneRenderer {
 private:
     ///

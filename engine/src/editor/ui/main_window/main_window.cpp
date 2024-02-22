@@ -62,10 +62,7 @@ void MainWindow::buildUpPathHierarchy() {
 }
 
 void MainWindow::init(const std::vector<std::string>& args) {
-    _engine_runtime_ptr = &Engine::getInstance();
-    _engine_runtime_ptr->preInit();
-
-    INFO_LOG("Main window init start!");
+    _engine_runtime_ptr = &g_engine;
 
     _window_ptr = std::make_unique<Window>();
     _window_ptr->init({_window_title, _width, _height});
@@ -94,7 +91,12 @@ void MainWindow::init(const std::vector<std::string>& args) {
     //            });
     buildUpUsefulObjHierarchy();
 
-    //    INFO_LOG("Main window init finished!");
+    // g_engine_context.renderer->addComponent(
+    //         {.name           = "TXEditorMenu",
+    //          .update_func    = menu_component.update,
+    //          .component_type = EnumImguiComponentType::MENUBAR});
+
+    INFO_LOG("Main window init finished!");
 }
 
 void MainWindow::preUpdate() {
@@ -105,9 +107,6 @@ void MainWindow::preUpdate() {
 
     ImGui::Begin("Editor Menu", nullptr, DOCK_SPACE_FLAGS);
 
-    ImGuiID const dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
-
-    ImGui::DockSpace(dock_space_id, ImVec2(0.0F, 0.0F));
 
     if (ImGui::BeginMenuBar()) {
         if (ImGui::BeginMenu("Menu")) {
@@ -156,7 +155,7 @@ bool MainWindow::isCursorInRenderComponent() const {
     return true;
 }
 
-void MainWindow::update() { preUpdate(); }
+void MainWindow::update() {}
 
 void MainWindow::start() const {
     _engine_runtime_ptr->beforeStart();

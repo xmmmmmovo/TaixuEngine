@@ -10,43 +10,72 @@
 #include "management/graphics/gpu/shader_manager.hpp"
 #include "scene.hpp"
 
-#define IMGUI_ENABLE_FREETYPE
-#define IMGUI_DEFINE_MATH_OPERATORS
-#include "imgui.h"
-
 namespace taixu {
 
+enum class EnumImguiComponentType : std::uint8_t { WIDGET, MENUBAR };
+
 struct ImguiComponent {
-    std::string_view      name{};
-    std::function<void()> update_func{};
-    ImGuiWindowFlags      flags{0};
-    bool*                 open{nullptr};
+    using ImGuiComponentCallbackT = std::function<void()>;
+
+    std::string_view        name{};
+    ImGuiComponentCallbackT update_func{nullptr};
+    ImGuiWindowFlags        flags{0};
+    bool*                   open{nullptr};
+    EnumImguiComponentType  component_type{};
+    ImGuiComponentCallbackT end_call_back{nullptr};
 };
 
 struct ImguiStyleGroup {
-    Color background;
-    Color foreground;
-    Color text;
-    Color text_background;
-    Color highlight_primary;
-    Color hover_primary;
-    Color highlight_secondary;
-    Color hover_secondary;
-    Color modal_dim;
+    Color background{0.0f, 0.0f, 0.0f, 0.0f};
+    Color foreground{0.0f, 0.0f, 0.0f, 0.0f};
+    Color text{0.0f, 0.0f, 0.0f, 0.0f};
+    Color text_background{0.0f, 0.0f, 0.0f, 0.0f};
+    Color highlight_primary{0.0f, 0.0f, 0.0f, 0.0f};
+    Color hover_primary{0.0f, 0.0f, 0.0f, 0.0f};
+    Color highlight_secondary{0.0f, 0.0f, 0.0f, 0.0f};
+    Color hover_secondary{0.0f, 0.0f, 0.0f, 0.0f};
+    Color modal_dim{0.0f, 0.0f, 0.0f, 0.0f};
 };
 
 class AbstractSceneRenderer : private Noncopyable {
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(protected, bool, enable_imgui, true);
 
 protected:
-    TXShaderModuleManager _shader_module_manager;
+    TXShaderModuleManager _shader_module_manager{};
 
+    ///
+    /// ImGui使用
+    ///
+
+    /**
+     * @brief ImGui io接口
+     **/
     ImGuiIO*    _io{nullptr};
+    /**
+     * @brief ImGui style
+     */
     ImGuiStyle* _style{nullptr};
 
+    /**
+     * @brief ImGui component 集合
+     */
     std::vector<ImguiComponent> _components{};
 
-    bool is_editor_mode{false};
+    /**
+     * @brief 判断是否是editor模式
+     */
+    bool    _is_editor_mode{false};
+    ImGuiID _dock_space_id{0};
+
+    static constexpr ImGuiWindowFlags IMGUI_WINDOW_FLAG{
+            ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking |
+            ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse |
+            ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
+            ImGuiWindowFlags_NoBringToFrontOnFocus |
+            ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground};
+    static constexpr ImGuiDockNodeFlags IMGUI_DOCKSPACE_FLAGS{
+            ImGuiDockNodeFlags_None ^ ImGuiDockNodeFlags_PassthruCentralNode};
+    static constexpr std::string_view DOCK_SPACE_NAME{"TaixuEditorDock"};
 
 public:
     void init(Window* window);
