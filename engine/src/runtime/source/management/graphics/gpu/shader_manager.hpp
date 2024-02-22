@@ -64,7 +64,7 @@ private:
             _custom_modules;
 
     using AdapterPtrT = std::unique_ptr<TXShaderModuleAdapter>;
-    AdapterPtrT _adapter;
+    AdapterPtrT _adapter{};
 
     [[nodiscard]] std::shared_ptr<TXShaderModule>
     createShaderModuleInner(TXShaderModuleCreateInfo const& info) const;

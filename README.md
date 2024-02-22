@@ -2,7 +2,9 @@
 
 A simple 3D game engine.
 
-TODO: There will be a screenshot.
+![Cover](.github/images/cover.png)
+
+Note: This is in OpenGL version in [main branch](https://github.com/xmmmmmovo/TaixuEngine/tree/main)
 
 ## How to build
 

@@ -6,7 +6,6 @@
 
 #include "IconsFontAwesome6.h"
 #include "common/log/logger.hpp"
-#include "engine/engine_context.hpp"
 
 #include <common/base/macro.hpp>
 

@@ -16,8 +16,6 @@ using namespace taixu::color;
 void DX11SwapChain::init(DX11Context* context, Window* window) {
     this->_context = context;
 
-    ZeroMemory(&_view_port, sizeof(D3D11_VIEWPORT));
-
     ComPtrT<IDXGIDevice> dxgi_device = nullptr;
 
     // 为了正确创建 DXGI交换链，首先我们需要获取创建 D3D设备 的
@@ -121,14 +119,10 @@ void DX11SwapChain::clearWindow() const {
     TX_ASSERT(_context->device_context());
     TX_ASSERT(_swap_chain);
 
-    static constexpr float DEFAULT_DEPTH   = 1.0f;
-    static constexpr float DEFAULT_STENCIL = 0.0f;
-
+    _context->device_context()->OMSetRenderTargets(
+            1, _render_target_view.GetAddressOf(), nullptr);
     _context->device_context()->ClearRenderTargetView(
             _render_target_view.Get(), BACKGROUND_DARK_COLOR.value_ptr());
-    _context->device_context()->ClearDepthStencilView(
-            _depth_stencil_view.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL,
-            DEFAULT_DEPTH, DEFAULT_STENCIL);
 }
 
 void DX11SwapChain::presentToWindow() const {
@@ -138,10 +132,9 @@ void DX11SwapChain::presentToWindow() const {
 }
 
 void DX11SwapChain::resize(int32_t const width, int32_t const height) {
+    DEBUG_LOG("resize width: {}, height: {}", width, height);
 
     _render_target_view.Reset();
-    _depth_stencil_view.Reset();
-    _depth_stencil_texture.Reset();
 
     ComPtrT<ID3D11Texture2D> backbuffer;
     HR_CHECK(_swap_chain->ResizeBuffers(1, width, height,
@@ -180,28 +173,9 @@ void DX11SwapChain::resize(int32_t const width, int32_t const height) {
     depth_stencil_desc.CPUAccessFlags = 0;
     depth_stencil_desc.MiscFlags      = 0;
 
-    // 创建深度缓冲区以及深度模板视图
-    HR_CHECK(_context->device()->CreateTexture2D(
-            &depth_stencil_desc, nullptr,
-            _depth_stencil_texture.GetAddressOf()));
-    HR_CHECK(_context->device()->CreateDepthStencilView(
-            _depth_stencil_texture.Get(), nullptr,
-            _depth_stencil_view.GetAddressOf()));
-
-    // 将渲染目标视图和深度/模板缓冲区结合到管线
+    // 绑定target
     _context->device_context()->OMSetRenderTargets(
-            1, _render_target_view.GetAddressOf(), _depth_stencil_view.Get());
-
-    // 设置视口变换
-    _view_port.TopLeftX = 0;
-    _view_port.TopLeftY = 0;
-    _view_port.Width    = static_cast<float>(width);
-    _view_port.Height   = static_cast<float>(height);
-
-    // 设置调试对象名
-    dx11SetDebugObjectName(_depth_stencil_texture.Get(), "DepthStencilBuffer");
-    dx11SetDebugObjectName(_depth_stencil_view.Get(), "DepthStencilView");
-    dx11SetDebugObjectName(_render_target_view.Get(), "BackBufferRTV[0]");
+            1, _render_target_view.GetAddressOf(), nullptr);
 }
 
 }// namespace taixu

@@ -6,13 +6,15 @@
 
 #include "common/log/logger.hpp"
 #include "common/math/literal.hpp"
+#include "engine/engine.hpp"
 
-#include "gameplay/gui/fonts/fa_solid_900_iconfont.hpp"
-#include "gameplay/gui/fonts/source_han_sans_cn_font.hpp"
+#include "generated/fonts/fa_solid_900_iconfont.hpp"
+#include "generated/fonts/source_han_sans_cn_font.hpp"
 
 #include <IconsFontAwesome6.h>
 #include <backends/imgui_impl_glfw.h>
 
+#include <imgui.h>
 
 namespace taixu {
 
@@ -30,11 +32,14 @@ static constexpr ImguiStyleGroup DEFAULT_STYLE_GROUP{
         Color{0_uc, 0_uc, 0_uc, 255_uc}};
 
 void AbstractSceneRenderer::init(Window* window) {
+    _is_editor_mode = g_engine.getArgs().is_editor();
+
     initForGraphicsAPI(window);
     initImgui(window);
 }
 
-void AbstractSceneRenderer::update(float delta_time, Scene* scene) {
+void AbstractSceneRenderer::update(const float delta_time, Scene* scene) {
+    clearWindow();
     updateScene(delta_time, scene);
     if (_enable_imgui) { imguiUpdate(); }
     presentToWindow();
@@ -75,6 +80,7 @@ void AbstractSceneRenderer::loadStyle() {
 
     _style = &ImGui::GetStyle();
 
+    // NOLINTBEGIN
     _style->WindowBorderSize         = 1.0f;
     _style->WindowRounding           = 8.0f;
     _style->PopupRounding            = 8.0f;
@@ -96,6 +102,7 @@ void AbstractSceneRenderer::loadStyle() {
     _style->SeparatorTextAlign       = {0.0f, 0.5f};
     _style->SeparatorTextBorderSize  = 1.0f;
     _style->SeparatorTextPadding     = {20.0f, 10.0f};
+    // NOLINTEND
 
     constexpr ImVec4 BG      = DEFAULT_STYLE_GROUP.background.toImVec4();
     constexpr ImVec4 FG      = DEFAULT_STYLE_GROUP.foreground.toImVec4();
@@ -168,53 +175,51 @@ void AbstractSceneRenderer::imguiUpdate() {
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    // TODO: 转移到组件中
     const ImGuiViewport* viewport = ImGui::GetMainViewport();
     ImGui::SetNextWindowPos(viewport->Pos);
     ImGui::SetNextWindowSize(viewport->Size);
     ImGui::SetNextWindowViewport(viewport->ID);
 
-    static bool show_demo_window = true;
-    ImGui::ShowDemoWindow(&show_demo_window);
-
-    // 2. Show a simple window that we create ourselves. We use a Begin/End pair
-    // to create a named window.
-    {
-        static float f       = 0.0f;
-        static int   counter = 0;
-
-        ImGui::Begin("Hello, world!");// Create a window called "Hello, world!"
-        // and append into it.
-
-        ImGui::Text("This is some useful text.");// Display some text (you can
-        // use a format strings too)
-        ImGui::Checkbox("Demo Window",
-                        &show_demo_window);// Edit bools storing our window
-        // open/close state
-
-        ImGui::SliderFloat(
-                "float", &f, 0.0f,
-                1.0f);// Edit 1 float using a slider from 0.0f to 1.0f
-
-        if (ImGui::Button("Button")) counter++;
-        ImGui::SameLine();
-        ImGui::Text("counter = %d", counter);
-
-        ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
-                    1000.0f / _io->Framerate, _io->Framerate);
-        ImGui::End();
+    if (_is_editor_mode) {
+        ImGui::Begin("#TaixuEditorViewHolder", nullptr, IMGUI_WINDOW_FLAG);
+        _dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
+        ImGui::DockSpace(_dock_space_id, ImVec2{0.0f, 0.0f},
+                         IMGUI_DOCKSPACE_FLAGS);
     }
 
-
-    for (const auto& [name, update_func, flags, open] : _components) {
+    static bool succ = false;
+    for (const auto& [name, update_func, flags, open, component_type,
+                      end_call_back] : _components) {
         // render the components
-        if (!ImGui::Begin(name.data(), open, flags)) {
-            ImGui::End();
+        switch (component_type) {
+            case EnumImguiComponentType::WIDGET:
+                succ = ImGui::Begin(name.data(), open, flags);
+                break;
+            case EnumImguiComponentType::MENUBAR:
+                succ = ImGui::BeginMenuBar();
+                break;
+            default:
+                ERROR_LOG("Unsupport component type, {}", name);
+        }
+
+        if (succ) {
+            if (update_func != nullptr) { update_func(); }
+            switch (component_type) {
+                case EnumImguiComponentType::WIDGET:
+                    ImGui::End();
+                    break;
+                case EnumImguiComponentType::MENUBAR:
+                    ImGui::EndMenuBar();
+                    break;
+                default:
+                    ERROR_LOG("Unsupport component type, {}", name);
+            }
+            if (end_call_back != nullptr) { end_call_back(); }
             return;
         }
-        update_func();
-        ImGui::End();
     }
+
+    if (_is_editor_mode) { ImGui::End(); }
 
     ImGui::Render();
     imguiGraphicsUpdate();

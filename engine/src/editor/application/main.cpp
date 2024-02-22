@@ -1,6 +1,4 @@
-#include <array>
 #include <cstdlib>
-#include <string>
 
 #include "ui/main_window/main_window.hpp"
 
@@ -18,8 +16,14 @@ static constexpr int32_t          MAIN_WINDOW_HEIGHT = 1080;
 static constexpr std::string_view MAIN_WINDOW_TITLE  = "TaixuEngineEditor";
 
 int main(const int argc, char* argv[]) try {
+
+    using namespace std::literals;
+
     // avoid c-style array
-    std::vector<std::string> const args(argv, argv + argc);
+    std::vector<std::string> args(argv, argv + argc);
+
+    static constexpr auto EDITOR_ARG = "--editor"sv;
+    args.emplace_back(EDITOR_ARG);
 
     taixu::editor::MainWindow main_window{
             MAIN_WINDOW_TITLE.data(), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT};

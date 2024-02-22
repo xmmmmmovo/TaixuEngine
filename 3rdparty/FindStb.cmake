@@ -2,8 +2,7 @@
 CPMAddPackage(
         NAME stb
         GIT_REPOSITORY https://github.com/nothings/stb.git
-        GIT_TAG f4a71b13373436a2866c5d68f8f80ac6f0bc1ffe
-        GIT_SHALLOW TRUE
+        GIT_TAG ae721c50eaf761660b4f90cc590453cdb0c2acd0
         DOWNLOAD_ONLY YES
 )
 

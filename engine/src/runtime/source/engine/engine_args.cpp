@@ -24,6 +24,17 @@ void EngineArgs::registerWithArgs() { registerRendererFactory(); }
 void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
     argparse::ArgumentParser program("TaixuEngineEditor");
 
+    program.add_argument(EDITOR_ARG)
+            .help("Is the editor mode")
+            .default_value(false)
+            .implicit_value(true);
+
+    program.add_argument(IMMEDIATE_RENDER_ARG)
+            .help("Is use immediate rendering mode")
+            .default_value(false)
+            .implicit_value(true);
+
+
     try {
         program.parse_args(args);
     } catch (const std::runtime_error& err) {
@@ -41,6 +52,9 @@ void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
     this->_is_debug = true;
     Logger::setLevel(Logger::LogLevel::DEBUG);// Set global log level to info
 #endif
+
+    _is_editor                = program.get<bool>(EDITOR_ARG);
+    _is_immediate_render_mode = program.get<bool>(IMMEDIATE_RENDER_ARG);
 }
 
 }// namespace taixu

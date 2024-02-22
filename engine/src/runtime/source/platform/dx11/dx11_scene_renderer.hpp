@@ -14,11 +14,6 @@
 
 namespace taixu {
 
-struct V {
-    Vec3 pos;
-    Vec4 color;
-};
-
 class DX11SceneRenderer final : public AbstractSceneRenderer {
 private:
     ///
@@ -46,7 +41,10 @@ protected:
     void imguiGraphicsPreUpdate() override;
     void imguiGraphicsUpdate() override;
     void imguiGraphicsDestroy() override;
+
+    void clearWindow() override;
     void presentToWindow() override;
+
     void initForGraphicsAPI(Window* window) override;
     void destroyGraphicsAPI() override;
 };

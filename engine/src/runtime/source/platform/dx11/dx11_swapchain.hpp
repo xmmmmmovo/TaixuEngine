@@ -14,16 +14,13 @@ namespace taixu {
 
 class DX11SwapChain final {
     PROTOTYPE_ONLY_GETTER(protected, ComPtrT<IDXGISwapChain>, swap_chain);
-    PROTOTYPE_ONLY_GETTER(protected, D3D11_VIEWPORT, view_port);
     PROTOTYPE_DFT_VALPASS(protected, bool, vsync, true);
     PROTOTYPE_ONLY_GETTER(protected, ComPtrT<IDXGIFactory1>, dxgi_factory);
     PROTOTYPE_ONLY_GETTER(protected, ComPtrT<IDXGIAdapter>, dxgi_adapter);
     PROTOTYPE_ONLY_GETTER(protected, ComPtrT<IDXGIOutput>, dxgi_output);
 
 protected:
-    ComPtrT<ID3D11Texture2D>        _depth_stencil_texture{};
     ComPtrT<ID3D11RenderTargetView> _render_target_view{};
-    ComPtrT<ID3D11DepthStencilView> _depth_stencil_view{};
 
     DX11Context* _context{nullptr};
 
