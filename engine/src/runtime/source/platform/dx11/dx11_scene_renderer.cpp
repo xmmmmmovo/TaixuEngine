@@ -49,7 +49,8 @@ void DX11SceneRenderer::initForGraphicsAPI(Window* window) {
     // // 设置三角形顶点
     // V vertices[] = {{Vec3(0.0f, 0.5f, 0.5f), Vec4(0.0f, 1.0f, 0.0f, 1.0f)},
     //                 {Vec3(0.5f, -0.5f, 0.5f), Vec4(0.0f, 0.0f, 1.0f, 1.0f)},
-    //                 {Vec3(-0.5f, -0.5f, 0.5f), Vec4(1.0f, 0.0f, 0.0f, 1.0f)}};
+    //                 {Vec3(-0.5f, -0.5f, 0.5f), Vec4(1.0f, 0.0f,
+    //                 0.0f, 1.0f)}};
     //
     // buffer = DX11Buffer::create(
     //         &_context,
