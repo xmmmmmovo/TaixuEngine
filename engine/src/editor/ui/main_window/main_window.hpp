@@ -21,9 +21,6 @@
 #include "ui/components/statusbar_component.hpp"
 #include "ui/components/useful_obj_hierarchy_component.hpp"
 
-#include <engine/engine.hpp>
-#include <gameplay/gui/window.hpp>
-
 namespace taixu::editor {
 
 class MainWindow {
@@ -49,9 +46,7 @@ private:
     StatusBarComponent    status_bar_component{&_view_model};
 
 private:
-    std::unique_ptr<Window> _window_ptr{nullptr};
-    Engine*                 _engine_runtime_ptr{nullptr};
-    ViewModel               _view_model{};
+    ViewModel _view_model{};
 
     std::string _window_title{};
     int32_t     _width, _height{0};
@@ -81,8 +76,6 @@ public:
     void start() const;
 
 private:
-    void preUpdate();
-
     [[nodiscard]] inline bool isCursorInRenderComponent() const;
 
 private:

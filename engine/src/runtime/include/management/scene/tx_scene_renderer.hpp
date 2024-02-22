@@ -21,11 +21,11 @@ struct ImguiComponent {
     using ImGuiComponentCallbackT = std::function<void()>;
 
     std::string_view        name{};
+    EnumImguiComponentType  component_type{};
     ImGuiComponentCallbackT update_func{nullptr};
+    ImGuiComponentCallbackT end_call_back{nullptr};
     ImGuiWindowFlags        flags{0};
     bool*                   open{nullptr};
-    EnumImguiComponentType  component_type{};
-    ImGuiComponentCallbackT end_call_back{nullptr};
 };
 
 struct ImguiStyleGroup {

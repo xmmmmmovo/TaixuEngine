@@ -9,6 +9,9 @@
 #include <filesystem>
 #include <string>
 
+#include <engine/engine.hpp>
+#include <gameplay/gui/window.hpp>
+
 namespace taixu::editor {
 
 template<typename Data>
@@ -31,6 +34,9 @@ struct ViewModel {
     bool is_entity_selected{false};
 
     std::vector<HierarchyNode<std::string>> useful_objs_hierarchy{};
+
+    std::unique_ptr<Window> window_ptr{nullptr};
+    Engine*                 engine_runtime_ptr{nullptr};
 };
 
 }// namespace taixu::editor

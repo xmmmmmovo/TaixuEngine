@@ -61,13 +61,13 @@ void MainWindow::buildUpPathHierarchy() {
 }
 
 void MainWindow::init(const std::vector<std::string>& args) {
-    _engine_runtime_ptr = &g_engine;
+    _view_model.engine_runtime_ptr = &g_engine;
 
-    _window_ptr = std::make_unique<Window>();
-    _window_ptr->init({_window_title, _width, _height});
-    _window_ptr->showWindow();
+    _view_model.window_ptr = std::make_unique<Window>();
+    _view_model.window_ptr->init({_window_title, _width, _height});
+    _view_model.window_ptr->showWindow();
 
-    _engine_runtime_ptr->init(args, _window_ptr.get());
+    _view_model.engine_runtime_ptr->init(args, _view_model.window_ptr.get());
 
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
@@ -90,56 +90,13 @@ void MainWindow::init(const std::vector<std::string>& args) {
     //            });
     buildUpUsefulObjHierarchy();
 
-    _engine_runtime_ptr->renderer->addComponent(
+    _view_model.engine_runtime_ptr->renderer->addComponent(
             {.name           = "#TXEditorMenuBar",
-             .update_func    = [this]() {
-                 menu_component.update();
-             },
-             .component_type = EnumImguiComponentType::MENUBAR});
+             .component_type = EnumImguiComponentType::MENUBAR,
+             .update_func    = [this]() { menu_component.update(); },
+             .end_call_back  = [this]() {}});
 
     INFO_LOG("Main window init finished!");
-}
-
-void MainWindow::preUpdate() {
-
-    //    if (nullptr == _view_model.engine_runtime_ptr->getOpenedProject()) {
-    //        return;
-    //    }
-
-    ImGui::Begin("Editor Menu", nullptr, DOCK_SPACE_FLAGS);
-
-
-    if (ImGui::BeginMenuBar()) {
-        if (ImGui::BeginMenu("Menu")) {
-            menu_component.update();
-            ImGui::EndMenu();
-        }
-        ImGui::EndMenuBar();
-    }
-
-    ImGui::End();
-
-    //    menu_component.processFileDialog();
-    //
-    //    ImguiSurface::addComponents(WORLD_OBJ_COMPONENT_NAME.data(),
-    //                            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(
-    //                                    world_object_component.update));
-    //    ImguiSurface::addComponents(
-    //            RENDER_COMPONENT_NAME.data(),
-    //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(render_component.update),
-    //            ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_MenuBar);
-    //    ImguiSurface::addComponents(
-    //            DETAILS_COMPONENT_NAME.data(),
-    //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(detail_component.update));
-    //    ImguiSurface::addComponents(
-    //            FILE_COMPONENT_NAME.data(),
-    //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(file_component.update));
-    //    ImguiSurface::addComponents(
-    //            STATUS_COMPONENT_NAME.data(),
-    //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(status_component.update));
-    //    ImguiSurface::addComponents(
-    //            USEFUL_OBJ_COMPONENT_NAME.data(),
-    //            INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(useful_obj_component.update));
 }
 
 bool MainWindow::isCursorInRenderComponent() const {
@@ -159,14 +116,14 @@ bool MainWindow::isCursorInRenderComponent() const {
 void MainWindow::update() {}
 
 void MainWindow::start() const {
-    _engine_runtime_ptr->beforeStart();
-    while (!_window_ptr->shouldClose()) {
-        _engine_runtime_ptr->update();
-        _window_ptr->handleEvents();
+    _view_model.engine_runtime_ptr->beforeStart();
+    while (!_view_model.window_ptr->shouldClose()) {
+        _view_model.engine_runtime_ptr->update();
+        _view_model.window_ptr->handleEvents();
     }
 }
 
-void MainWindow::destroy() const { _window_ptr->destroy(); }
+void MainWindow::destroy() const { _view_model.window_ptr->destroy(); }
 
 MainWindow::MainWindow(std::string title, int32_t width, int32_t height)
     : _window_title(std::move(title)), _width(width), _height(height) {
