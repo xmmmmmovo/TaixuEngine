@@ -2,6 +2,8 @@ name: Format and Lint Cpp
 
 on:
   pull_request:
+    branches-ignore:
+      - main
     paths:
       - "engine/**"
 
