@@ -6,7 +6,6 @@
 
 #include "resource/helper/image_helper.hpp"
 
-namespace {
 
 TEST_CASE("load image tests", "[image helper tests]") {
     constexpr auto path        = "./test-assets/textures/block.png";
@@ -21,5 +20,3 @@ TEST_CASE("load image tests", "[image helper tests]") {
 TEST_CASE("compress image tests", "[image helper tests]") {
     constexpr auto path = "/example_proj/assets/textures/concreteTexture.png";
 }
-
-}// namespace

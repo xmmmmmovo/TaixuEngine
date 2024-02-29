@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 11)
 
@@ -61,13 +62,6 @@ endif ()
 # add cmake package manager
 set(CPM_SOURCE_CACHE "${TAIXUENGINE_ROOT_DIR}/.cpm_cache")
 include(CPM)
-
-# accelerate the msvc project
-if (MSVC)
-    add_compile_options("/MP")
-    add_compile_options("/utf-8")
-    add_compile_definitions(UNICODE _UNICODE)
-endif ()
 
 add_subdirectory(engine)
 add_subdirectory(docs)

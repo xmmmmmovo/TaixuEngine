@@ -1,11 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(TaixuEngineTests LANGUAGES CXX)
-
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_C_STANDARD 11)
+project(TaixuEngineTestFramework LANGUAGES CXX)
 
 # ---- Options ----
 
@@ -22,26 +17,32 @@ include(FindCatch2)
 
 # ---- Add Options ----
 
-# ---- Add Tests ----
+# for the msvc project
+if (MSVC)
+    add_compile_options("/utf-8")
+    add_compile_definitions(UNICODE _UNICODE)
+endif ()
 
-file(GLOB_RECURSE tests_lib "lib/*.hpp")
+# ---- Add Tests ----
 
 file(GLOB_RECURSE unit_tests_src "unit_tests/*.cpp")
 file(GLOB_RECURSE benchmarks_src "benchmarks/*.cpp")
 
-set(TARGET_NAME taixu_tests)
+set(ALL_FILE ${unit_tests_src} ${benchmarks_src})
+
+set(TARGET_NAME_ALL TaixuAllTests)
 set(TEST_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Add a testing executable
-add_executable(${TARGET_NAME} ${unit_tests_src} ${benchmarks_src})
+add_executable(${TARGET_NAME_ALL} ${unit_tests_src} ${benchmarks_src})
 
-target_link_libraries(${TARGET_NAME} TaixuRuntime Catch2::Catch2WithMain)
-
-target_include_directories(${TARGET_NAME} PRIVATE $<TARGET_PROPERTY:TaixuRuntime,INCLUDE_DIRECTORIES>)
+target_link_libraries(${TARGET_NAME_ALL} Catch2::Catch2WithMain)
+target_link_libraries(${TARGET_NAME_ALL} TaixuRuntime)
+target_include_directories(${TARGET_NAME_ALL} PRIVATE $<TARGET_PROPERTY:TaixuRuntime,INCLUDE_DIRECTORIES>)
 
 enable_testing()
-add_test(${TARGET_NAME} taixu_unit_tests)
+add_test(${TARGET_NAME_ALL} taixu_tests)
 
-add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
+add_custom_command(TARGET ${TARGET_NAME_ALL} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -DSRC_PATH="${TEST_ROOT_DIR}/test-assets" -DDEST_PATH="${OUTPUT_DIR}" -P ${TAIXUENGINE_ROOT_DIR}/cmake/MoveByPath.cmake
 )

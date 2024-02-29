@@ -8,8 +8,6 @@
 #include <memory>
 #include <vector>
 
-namespace {
-
 struct A {
     int a{0};
 };
@@ -21,12 +19,6 @@ struct B {
 struct C : B {
     void f() override {}
 };
-
-TEST_CASE("size type", "[C++ trait tests]") {
-    std::vector<int> v{0};
-    auto             s = v.size();
-    std::cout << "type " << typeid(s).name() << std::endl;
-}
 
 TEST_CASE("smart pointer", "[C++ trait tests]") {
     std::shared_ptr<A> a       = std::make_shared<A>();
@@ -84,5 +76,3 @@ TEST_CASE("test c++", "[C++ trait tests]") {
 
     REQUIRE(ptr == raw_ptr);
 }
-
-}// namespace
