@@ -53,7 +53,8 @@
 
 #define IMGUI_ENABLE_FREETYPE
 #define IMGUI_DEFINE_MATH_OPERATORS
-#include <imgui_freetype.h>
+#include <imgui/tools/imgui_freetype.h>
+
 #include <imgui_internal.h>
 
 #include <imgui.h>

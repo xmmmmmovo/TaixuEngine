@@ -72,7 +72,7 @@ inline EnumTextureType textureTypeFromAssimpType(aiTextureType aitype) {
     }
 }
 
-struct Image final {
+struct Image final : std::enable_shared_from_this<Image> {
     uint8_t* data{nullptr};
     int32_t  size{0};
     int32_t  w{0};

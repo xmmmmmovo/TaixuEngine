@@ -17,14 +17,16 @@ class AbstractUIComponent : Noncopyable {
 protected:
     ViewModel* _view_model{nullptr};
 
-public:
-    explicit AbstractUIComponent(ViewModel* view_model)
-        : _view_model(view_model) {}
+    ImGuiComponentInfo const _component_info{};
 
-    /**
-     * @brief render updateWindow
-     */
-    virtual void update() = 0;
+public:
+    explicit AbstractUIComponent(ViewModel*                view_model,
+                                 ImGuiComponentInfo const& component_info)
+        : _view_model(view_model), _component_info(component_info) {}
+
+    [[nodiscard]] ImGuiComponentInfo const& getComponentInfo() const {
+        return _component_info;
+    }
 };
 
 }// namespace taixu::editor

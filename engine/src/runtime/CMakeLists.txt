@@ -33,7 +33,7 @@ set(PCH_FILES "${PCH_DIR}/pch_std.hpp" "${PCH_DIR}/pch_runtime.hpp")
 
 # add options
 if (MSVC AND CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_compile_options(${TARGET_NAME} PRIVATE "/DEBUG" "/Zf" "/nologo" "/W3" "/Od" "/Ob2")
+    target_compile_options(${TARGET_NAME} PRIVATE "/DEBUG" "/Zf" "/nologo" "/W3" "/Od")
 endif ()
 
 # public link

@@ -14,6 +14,7 @@ constexpr auto operator"" _radf(const long double value) noexcept
         -> decltype(toRadians(static_cast<float>(value))) {
     return toRadians(static_cast<float>(value));
 }
+
 constexpr auto operator"" _degf(const long double value) noexcept
         -> decltype(toDegrees(static_cast<float>(value))) {
     return toDegrees(static_cast<float>(value));

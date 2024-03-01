@@ -14,17 +14,24 @@ namespace taixu::editor {
 
 
 class UsefulObjectComponent : public AbstractUIComponent {
-protected:
+private:
     ImGuiTreeNodeFlags const parent_flags = ImGuiTreeNodeFlags_SpanAvailWidth;
     ImGuiTreeNodeFlags const leaf_flags   = ImGuiTreeNodeFlags_SpanAvailWidth |
                                           ImGuiTreeNodeFlags_Leaf |
                                           ImGuiTreeNodeFlags_NoTreePushOnOpen;
 
+    static std::string_view constexpr USEFUL_OBJ_COMPONENT_NAME{
+            "Useful Objects"};
+
 public:
     explicit UsefulObjectComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model) {}
+        : AbstractUIComponent(view_model,
+                              {.name           = USEFUL_OBJ_COMPONENT_NAME,
+                               .component_type = EnumImguiComponentType::WIDGET,
+                               .update_func    = [this]() { this->update(); },
+                               .end_call_back  = nullptr}) {}
 
-    void update() override {
+    void update() {
         for (auto& obj : _view_model->useful_objs_hierarchy) {
             if (ImGui::TreeNodeEx(obj.name.c_str(), parent_flags)) {
                 for (auto& child : obj.children) {

@@ -11,9 +11,14 @@ namespace taixu::editor {
 class ConsoleComponent : public AbstractUIComponent {
 public:
     explicit ConsoleComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model) {}
+        : AbstractUIComponent(view_model,
+                              {.name           = "Console",
+                               .component_type = EnumImguiComponentType::WIDGET,
+                               .update_func    = [this]() { this->update(); },
+                               .end_call_back  = nullptr}) {}
 
-    void update() override {}
+private:
+    void update() const {}
 };
 }// namespace taixu::editor
 

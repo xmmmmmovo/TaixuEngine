@@ -11,10 +11,9 @@
 #include "generated/fonts/fa_solid_900_iconfont.hpp"
 #include "generated/fonts/source_han_sans_cn_font.hpp"
 
-#include <IconsFontAwesome6.h>
-#include <backends/imgui_impl_glfw.h>
-
-#include <imgui.h>
+#include "backends/imgui_impl_glfw.h"
+#include "imgui.h"
+#include "imgui/icons/IconsFontAwesome6.h"
 
 namespace taixu {
 
@@ -188,23 +187,23 @@ void AbstractSceneRenderer::imguiUpdate() {
     }
 
     static bool succ = false;
-    for (const auto& [name, update_func, flags, open, component_type,
-                      end_call_back] : _components) {
+
+    for (const auto& comp : _components) {
         // render the components
-        switch (component_type) {
+        switch (comp.component_type) {
             case EnumImguiComponentType::WIDGET:
-                succ = ImGui::Begin(name.data(), open, flags);
+                succ = ImGui::Begin(comp.name.data(), comp.open, comp.flags);
                 break;
             case EnumImguiComponentType::MENUBAR:
                 succ = ImGui::BeginMenuBar();
                 break;
             default:
-                ERROR_LOG("Unsupport component type, {}", name);
+                ERROR_LOG("Unsupported component type, {}", comp.name);
         }
 
         if (succ) {
-            if (update_func != nullptr) { update_func(); }
-            switch (component_type) {
+            if (comp.update_func != nullptr) { comp.update_func(); }
+            switch (comp.component_type) {
                 case EnumImguiComponentType::WIDGET:
                     ImGui::End();
                     break;
@@ -212,9 +211,9 @@ void AbstractSceneRenderer::imguiUpdate() {
                     ImGui::EndMenuBar();
                     break;
                 default:
-                    ERROR_LOG("Unsupport component type, {}", name);
+                    ERROR_LOG("Unsupported component type, {}", comp.name);
             }
-            if (end_call_back != nullptr) { end_call_back(); }
+            if (comp.end_call_back != nullptr) { comp.end_call_back(); }
         }
     }
 
@@ -235,7 +234,7 @@ void AbstractSceneRenderer::imguiDestroy() {
 }
 
 void AbstractSceneRenderer::addComponent(
-        const ImguiComponent& imgui_component) {
+        const ImGuiComponentInfo& imgui_component) {
     _components.emplace_back(imgui_component);
 }
 

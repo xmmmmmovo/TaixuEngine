@@ -5,16 +5,17 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_FRONTEND_MATRICES_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_FRONTEND_MATRICES_HPP
 
-#include <glm/glm.hpp>
+#include "common/math/matrix.hpp"
+#include "common/math/vec.hpp"
 
 namespace taixu {
 
 struct Matrices {
-    glm::mat4 projection;
-    glm::mat4 view;
-    glm::mat4 vp;
+    Mat4 projection;
+    Mat4 view;
+    Mat4 vp;
 
-    glm::vec4 camera_pos;
+    Vec4 camera_pos;
 };
 
 }// namespace taixu
