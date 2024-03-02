@@ -20,7 +20,7 @@ protected:
     ViewModel* _view_model{nullptr};
 
     ImGuiComponentInfo const _component_info{};
-    TX_INLINE static bool    _enable{false};
+    TX_INLINE static bool    enable{false};
 
 public:
     explicit AbstractUIComponent(ViewModel*                view_model,

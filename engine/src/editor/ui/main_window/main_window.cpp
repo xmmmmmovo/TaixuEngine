@@ -66,7 +66,7 @@ void MainWindow::init() {
     _window_ptr->init();
     _window_ptr->showWindow();
 
-    g_editor_context.engine_ptr->initWithWindow(_window_ptr.get());
+    g_engine.initWithWindow(_window_ptr.get());
 
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
@@ -88,8 +88,7 @@ void MainWindow::init() {
     //                }
     //            });
 
-    g_editor_context.engine_ptr->renderer->addComponent(
-            menu_component.getComponentInfo());
+    g_engine.renderer->addComponent(menu_component.getComponentInfo());
 
     INFO_LOG("Main _window init finished!");
 }
@@ -111,9 +110,9 @@ bool MainWindow::isCursorInRenderComponent() const {
 void MainWindow::update() {}
 
 void MainWindow::start() const {
-    g_editor_context.engine_ptr->beforeStart();
+    g_engine.beforeStart();
     while (!_window_ptr->shouldClose()) {
-        g_editor_context.engine_ptr->update();
+        g_engine.update();
         _window_ptr->handleEvents();
     }
 }

@@ -45,7 +45,9 @@ void MenuComponent::buildFileMenu() {
                     nullptr, kconfig);
         }
 
-        if (ImGui::MenuItem(ICON_ENTRY(ICON_LC_SAVE, "Save Project"))) {}
+        if (enable) {
+            if (ImGui::MenuItem(ICON_ENTRY(ICON_LC_SAVE, "Save Project"))) {}
+        }
 
         ImGui::Separator();
 
@@ -85,9 +87,11 @@ void MenuComponent::buildHelpMenu() {
 
 void MenuComponent::update() {
     buildFileMenu();
-    buildEditMenu();
-    buildWindowMenu();
-    buildHelpMenu();
+    if (enable) {
+        buildEditMenu();
+        buildWindowMenu();
+        buildHelpMenu();
+    }
 }
 
 void MenuComponent::endUpdate() {

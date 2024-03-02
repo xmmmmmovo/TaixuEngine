@@ -20,7 +20,7 @@ std::shared_ptr<Project> openProject(std::filesystem::path const& path) {
     if (std::optional<Manifest> const manifest =
                 loadFromJsonFile<Manifest>(manifest_path);
         manifest.has_value()) {
-        project->manifest = std::move(manifest.value());
+        project->manifest = manifest.value();
     } else {
         return nullptr;
     }

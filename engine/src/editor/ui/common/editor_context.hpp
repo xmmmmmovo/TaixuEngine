@@ -19,7 +19,6 @@ enum class EnumCallbacks : uint16_t {
 };
 
 struct EditorContext final {
-    Engine*                                    engine_ptr{nullptr};
     std::unordered_map<EnumCallbacks, Handler> callback_func_map{};
 };
 
