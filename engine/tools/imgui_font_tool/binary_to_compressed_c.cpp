@@ -279,7 +279,7 @@ static int stb_compress_chunk(stb_uchar* history, stb_uchar* start,
                               stb_uchar* end, int length, int* pending_literals,
                               stb_uchar** chash, stb_uint mask) {
     (void) history;
-    int        window = stb__window;
+    int        _window = stb__window;
     stb_uint   match_max;
     stb_uchar* lit_start = start - *pending_literals;
     stb_uchar* q         = start;
@@ -300,7 +300,7 @@ static int stb_compress_chunk(stb_uchar* history, stb_uchar* start,
             match_max = 65536;
 
 #define stb__nc(b, d)                                                          \
-    ((d) <= window && ((b) > 9 || stb_not_crap((int) (b), (int) (d))))
+    ((d) <= _window && ((b) > 9 || stb_not_crap((int) (b), (int) (d))))
 
 #define STB__TRY(t, p) /* avoid retrying a match we already tried */           \
     if (p ? dist != (int) (q - t) : 1)                                         \

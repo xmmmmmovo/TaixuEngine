@@ -3,10 +3,10 @@
 //
 #include "main_window.hpp"
 
+#include "imgui.h"
+
 #include "management/scene/tx_scene_renderer.hpp"
 #include "ui/common/editor_context.hpp"
-
-#include <imgui.h>
 
 #include <utility>
 
@@ -61,11 +61,12 @@ void MainWindow::buildUpPathHierarchy() {
     }
 }
 
-void MainWindow::init(const std::vector<std::string>& args) {
+void MainWindow::init() {
 
     _window_ptr->init();
     _window_ptr->showWindow();
-    g_editor_context.engine_ptr->init(args, _window_ptr.get());
+
+    g_editor_context.engine_ptr->initWithWindow(_window_ptr.get());
 
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
@@ -90,7 +91,7 @@ void MainWindow::init(const std::vector<std::string>& args) {
     g_editor_context.engine_ptr->renderer->addComponent(
             menu_component.getComponentInfo());
 
-    INFO_LOG("Main window init finished!");
+    INFO_LOG("Main _window init finished!");
 }
 
 bool MainWindow::isCursorInRenderComponent() const {

@@ -225,14 +225,14 @@ CheckOptions:
   readability-identifier-naming.FunctionCase: aNy_CasE
   readability-identifier-naming.VariableCase: lower_case
   readability-identifier-naming.ClassMemberCase: lower_case
-  readability-identifier-naming.ClassMemberPrefix: _
+  readability-identifier-naming.PrivateMemberPrefix: _
   readability-identifier-naming.ClassMethodCase: camelBack
   readability-identifier-naming.EnumConstantCase: UPPER_CASE
   readability-identifier-naming.ConstexprVariableCase: UPPER_CASE
   readability-identifier-naming.GlobalConstantCase: UPPER_CASE
-  readability-identifier-naming.MemberConstantCase: CamelCase
+  readability-identifier-naming.MemberConstantCase: lower_case
   readability-identifier-naming.MemberConstantPrefix: k
-  readability-identifier-naming.StaticConstantCase: CamelCase
+  readability-identifier-naming.StaticConstantCase: lower_case
   readability-identifier-naming.StaticConstantPrefix: k
   readability-function-cognitive-complexity.IgnoreMacros: true
   readability-identifier-naming.TypedefCase: CamelCase

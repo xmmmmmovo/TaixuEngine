@@ -39,20 +39,24 @@ public:
     /**
      * @brief hold window from init function
      */
-    Window* window{nullptr};
+    Window* _window{nullptr};
 
 public:
-    void init(std::vector<std::string> const& args, Window* window);
+    void initRuntime(std::vector<std::string> const& args);
+    void initWithWindow(Window* window);
+
     /**
      * @brief This function only need call once before main loop
      */
     void beforeStart();
     void update();
-    void destroy();
+    void destroy() const;
 
     EngineArgs const& getArgs();
 
     void changeEngineState(EnumEngineState state);
+
+    bool loadProject(std::filesystem::path const &path);
 };
 
 extern Engine g_engine;

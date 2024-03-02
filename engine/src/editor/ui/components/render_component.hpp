@@ -9,7 +9,7 @@
 #include "glm/glm.hpp"
 #include "glm/gtx/matrix_decompose.hpp"
 #include "imgui.h"
-#include "imgui/icons/IconsFontAwesome6.h"
+#include "imgui/icons/IconsLucide.h"
 #include "imgui/imzmo/ImGuizmo.h"
 
 #include "common/math/imvec2.hpp"
@@ -45,7 +45,7 @@ public:
 
             //            if (_view_model->engine_runtime_ptr->getState() ==
             //                EngineState::EDITORMODE) {
-            if (ImGui::Button(ICON_FA_PLAY "Play")) {}
+            if (ImGui::Button(ICON_ENTRY(ICON_LC_PLAY, "Play"))) {}
             //            } else {
             //                if (ImGui::Button(ICON_FA_STOP "Stop")) {}
             //            }

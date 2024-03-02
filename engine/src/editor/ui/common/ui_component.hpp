@@ -10,6 +10,8 @@
 
 namespace taixu::editor {
 
+#define ICON_ENTRY(ICON, STR) ICON " " STR
+
 /**
  * @brief UI component interface
  */
@@ -18,6 +20,7 @@ protected:
     ViewModel* _view_model{nullptr};
 
     ImGuiComponentInfo const _component_info{};
+    TX_INLINE static bool    _enable{false};
 
 public:
     explicit AbstractUIComponent(ViewModel*                view_model,

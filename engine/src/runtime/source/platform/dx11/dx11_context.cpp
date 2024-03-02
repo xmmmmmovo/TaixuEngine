@@ -55,7 +55,7 @@ void DX11Context::init(const Window* window) {
     for (auto const& driver_type : DRIVER_TYPES) {
         ret = D3D11CreateDevice(nullptr, driver_type, nullptr,
                                 create_device_flags, FEATURE_LEVELS.data(),
-                                FEATURE_LEVELS.size(), D3D11_SDK_VERSION,
+                                static_cast<UINT>(FEATURE_LEVELS.size()), D3D11_SDK_VERSION,
                                 _device.GetAddressOf(), &feature_level,
                                 _device_context.GetAddressOf());
 
@@ -64,7 +64,7 @@ void DX11Context::init(const Window* window) {
             // 的API不承认D3D_FEATURE_LEVEL_11_1，所以我们需要尝试特性等级11.0以及以下的版本
             ret = D3D11CreateDevice(
                     nullptr, driver_type, nullptr, create_device_flags,
-                    &FEATURE_LEVELS[1], FEATURE_LEVELS.size() - 1,
+                    &FEATURE_LEVELS[1], static_cast<UINT>(FEATURE_LEVELS.size() - 1),
                     D3D11_SDK_VERSION, _device.GetAddressOf(), &feature_level,
                     _device_context.GetAddressOf());
         }

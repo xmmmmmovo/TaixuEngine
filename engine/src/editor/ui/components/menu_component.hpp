@@ -11,75 +11,40 @@
 #include "ui/common/editor_context.hpp"
 #include "ui/common/ui_component.hpp"
 
+#include "common/log/logger.hpp"
+
 namespace taixu::editor {
 
 /**
  * @brief 菜单栏组件
  */
 class MenuComponent final : public AbstractUIComponent {
+private:
+    static constexpr std::string_view MENU_KEY        = "Menu";
+    static constexpr std::string_view FILE_MENU_KEY   = "File";
+    static constexpr std::string_view EDIT_MENU_KEY   = "Edit";
+    static constexpr std::string_view WINDOW_MENU_KEY = "Window";
+    static constexpr std::string_view HELP_MENU_KEY   = "Help";
+
+    static constexpr std::string_view FILE_NEW_PROJECT_DLG_KEY =
+            "file_new_project";
+    static constexpr std::string_view FILE_OPEN_PROJECT_DLG_KEY =
+            "file_open_project";
+
 public:
-    explicit MenuComponent(ViewModel* view_model)
-        : AbstractUIComponent(
-                  view_model,
-                  {.name           = "Menu",
-                   .component_type = EnumImguiComponentType::MENUBAR,
-                   .update_func    = [this]() { this->update(); },
-                   .end_call_back  = [this]() { this->endUpdate(); }}) {}
+    explicit MenuComponent(ViewModel* view_model);
 
 private:
-    void update() const {
-        if (ImGui::BeginMenu("File")) {
-            static IGFD::FileDialogConfig const k_config{
-                    .path              = getRootPath().generic_string(),
-                    .countSelectionMax = 1,
-                    .flags             = ImGuiFileDialogFlags_Modal};
+    static void buildFileMenu();
+    static void buildEditMenu();
+    static void buildWindowMenu();
+    static void buildHelpMenu();
 
-            if (ImGui::MenuItem("New Project")) {
-                ImGuiFileDialog::Instance()->OpenDialog("NewProjectDlgKey",
-                                                        "Choose a Directory",
-                                                        nullptr, k_config);
-            }
-            ImGui::Separator();
-            if (ImGui::MenuItem("open project")) {
-                ImGuiFileDialog::Instance()->OpenDialog("ChooseDirDlgKey",
-                                                        "Choose a Directory",
-                                                        nullptr, k_config);
-            }
+    static void update();
+    static void endUpdate();
 
-            if (ImGui::MenuItem("save project")) {}
-
-            if (ImGui::MenuItem("save as project")) {
-                ImGuiFileDialog::Instance()->OpenDialog("SaveAsDirDlgKey",
-                                                        "Choose a Directory",
-                                                        nullptr, k_config);
-            }
-
-            ImGui::Separator();
-
-            if (ImGui::MenuItem("Exit")) {
-                invokeCallback(EnumCallbacks::MENU_EXIT);
-            }
-
-            ImGui::EndMenu();
-        }
-    }
-
-    void endUpdate() {}
-
-    static void onDialogOpen(std::string_view const& key) {
-        if (ImGuiFileDialog::Instance()->Display(key.data())) {
-            // action if OK
-            if (ImGuiFileDialog::Instance()->IsOk()) {
-                std::string const file_path =
-                        ImGuiFileDialog::Instance()->GetCurrentPath();
-                // action
-                DEBUG_LOG(file_path);
-            }
-
-            // close
-            ImGuiFileDialog::Instance()->Close();
-        }
-    }
+    static void onDialogOpen(std::string_view const& key,
+                             EnumCallbacks           enum_callback);
 };
 
 }// namespace taixu::editor

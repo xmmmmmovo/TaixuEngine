@@ -28,11 +28,12 @@ int main(const int argc, char* argv[]) try {
     args.emplace_back(EDITOR_ARG);
 
     g_editor_context.engine_ptr = &taixu::g_engine;
+    g_editor_context.engine_ptr->initRuntime(args);
 
     MainWindow main_window{
             {MAIN_WINDOW_TITLE.data(), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT}};
 
-    main_window.init(args);
+    main_window.init();
     main_window.start();
     main_window.destroy();
 

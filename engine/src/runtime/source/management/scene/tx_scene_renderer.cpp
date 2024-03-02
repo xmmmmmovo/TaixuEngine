@@ -8,12 +8,12 @@
 #include "engine/engine.hpp"
 #include "gameplay/gui/window.hpp"
 
-#include "generated/fonts/fa_solid_900_iconfont.hpp"
+#include "generated/fonts/lucide_iconfont.hpp"
 #include "generated/fonts/source_han_sans_cn_font.hpp"
 
 #include "backends/imgui_impl_glfw.h"
 #include "imgui.h"
-#include "imgui/icons/IconsFontAwesome6.h"
+#include "imgui/icons/IconsLucide.h"
 
 namespace taixu {
 
@@ -52,7 +52,7 @@ void AbstractSceneRenderer::destroy() {
 void AbstractSceneRenderer::loadFont() const {
     _io->Fonts->AddFontDefault();
 
-    static constexpr float FONT_SIZE{18.0f};
+    static constexpr float FONT_SIZE{28.0f};
     // add source hans font
     // Default + Selection of 2500 Ideographs used by Simplified Chinese
     const auto             font = _io->Fonts->AddFontFromMemoryCompressedTTF(
@@ -63,14 +63,14 @@ void AbstractSceneRenderer::loadFont() const {
     _io->FontDefault = font;
 
     // merge in icons from Font Awesome
-    static constexpr std::array<ImWchar, 3> K_ICONS_RANGES{ICON_MIN_FA,
-                                                           ICON_MAX_16_FA, 0};
+    static constexpr std::array<ImWchar, 3> K_ICONS_RANGES{ICON_MIN_LC,
+                                                           ICON_MAX_16_LC, 0};
     static constexpr float                  ICONFONT_SIZE{16.0f};
     ImFontConfig                            icons_config;
     icons_config.MergeMode  = true;
     icons_config.PixelSnapH = true;
     _io->Fonts->AddFontFromMemoryCompressedBase85TTF(
-            fa_solid_900_iconfont_compressed_data_base85, ICONFONT_SIZE,
+            lucide_iconfont_compressed_data_base85, ICONFONT_SIZE,
             &icons_config, K_ICONS_RANGES.data());
 }
 

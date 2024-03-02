@@ -11,12 +11,14 @@ namespace taixu {
 
 Engine g_engine;
 
-void Engine::init(std::vector<std::string> const& args, Window* window) {
+void Engine::initRuntime(std::vector<std::string> const& args) {
     Logger::init();
     INFO_LOG("Logger inited, start init engine");
     _engine_args.initWithArgs(args);
+}
 
-    this->window = window;
+void Engine::initWithWindow(Window* window) {
+    this->_window = window;
 
     renderer = SceneRendererFactory::createProduct(_engine_args.render_api());
     renderer->init(window);
@@ -33,13 +35,17 @@ void Engine::update() {
     renderer->update(delta_time, nullptr);
 }
 
-void Engine::destroy() {
+void Engine::destroy() const {
     renderer->destroy();
     Logger::destroy();
 }
 
 EngineArgs const& Engine::getArgs() { return _engine_args; }
 
-void Engine::changeEngineState(EnumEngineState state) { _state = state; }
+void Engine::changeEngineState(const EnumEngineState state) { _state = state; }
+
+bool Engine::loadProject(std::filesystem::path const& path) {
+    return false;
+}
 
 }// namespace taixu

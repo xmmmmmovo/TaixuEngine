@@ -59,7 +59,7 @@ private:
 public:
     explicit MainWindow(WindowInfo&& window_info);
 
-    void init(const std::vector<std::string>& args);
+    void init();
     void update();
     void destroy() const;
 

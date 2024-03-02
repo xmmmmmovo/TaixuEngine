@@ -78,6 +78,7 @@ protected:
             ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground};
     static constexpr ImGuiDockNodeFlags IMGUI_DOCKSPACE_FLAGS{
             ImGuiDockNodeFlags_None ^ ImGuiDockNodeFlags_PassthruCentralNode};
+
     static constexpr std::string_view DOCK_SPACE_NAME{"TaixuEditorDock"};
 
 public:

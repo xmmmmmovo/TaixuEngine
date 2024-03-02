@@ -32,9 +32,9 @@ std::shared_ptr<Image> loadImage(std::filesystem::path const& path,
     if (nullptr == data || width < 0 || height < 0) { return nullptr; }
 
     std::shared_ptr<Image> image = std::make_shared<Image>();
-    image->channels               = channels;
-    image->desired_channels       = desired_channels;
-    image->is_srgb                = is_srgb;
+    image->channels              = channels;
+    image->desired_channels      = desired_channels;
+    image->is_srgb               = is_srgb;
 
     if (width == height && isPowerOfTwo(static_cast<uint32_t>(width)) &&
         isPowerOfTwo(static_cast<uint32_t>(height))) {

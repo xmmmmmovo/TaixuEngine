@@ -9,7 +9,7 @@
 
 #include <common/utils/pointer_utils.hpp>
 
-#include "resource/res_type/raw_data/texture.hpp"
+#include "resource/res_type/converted_data/image.hpp"
 
 namespace taixu {
 
@@ -24,8 +24,8 @@ namespace taixu {
  * @return
  */
 std::shared_ptr<Image> loadImage(std::filesystem::path const& path,
-                               int desired_channels = 4, bool is_srgb = false,
-                               bool flip_vertically = true);
+                                 int desired_channels = 4, bool is_srgb = false,
+                                 bool flip_vertically = true);
 
 /**
  * @brief 压缩图片
@@ -35,7 +35,8 @@ std::shared_ptr<Image> loadImage(std::filesystem::path const& path,
  * @param channels
  * @return
  */
-bool compressImage(std::shared_ptr<Image>const& image, int width, int height, int channels);
+bool compressImage(std::shared_ptr<Image> const& image, int width, int height,
+                   int channels);
 
 /**
  * @brief 合并多个单通道图片

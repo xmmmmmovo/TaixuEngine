@@ -4,7 +4,6 @@
 
 #include "gameplay/gui/window.hpp"
 
-#include "imgui/icons/IconsFontAwesome6.h"
 #include "common/log/logger.hpp"
 
 #include <common/base/macro.hpp>
@@ -36,7 +35,7 @@ void Window::showWindow() {
 
     if (!_window) {
         glfwTerminate();
-        FATAL_LOG("Failed to create GLFW window");
+        FATAL_LOG("Failed to create GLFW _window");
     }
 
     glfwSetWindowUserPointer(_window, this);
