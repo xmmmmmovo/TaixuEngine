@@ -22,12 +22,12 @@ HRESULT dx11TraceW(source_loc_t loc, HRESULT hr) {
                    static_cast<DWORD>(str_buffer_error.size()), nullptr);
 
 #ifdef _DEBUG
-    ERROR_LOG_LOC(loc, "出现错误: {}({:#x})", utf8Encode(str_buffer_error.data()),
-                  hr);
+    ERROR_LOG_LOC(loc, "出现错误: {}({:#x})",
+                  utf8Encode(str_buffer_error.data()), hr);
     DebugBreak();
 #else
-    FATAL_LOG_LOC(loc, "出现错误: {}({:#x})", utf8Encode(str_buffer_error.data()),
-                  hr);
+    FATAL_LOG_LOC(loc, "出现错误: {}({:#x})",
+                  utf8Encode(str_buffer_error.data()), hr);
 #endif
     return hr;
 }

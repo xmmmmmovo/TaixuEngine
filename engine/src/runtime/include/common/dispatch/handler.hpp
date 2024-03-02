@@ -19,16 +19,18 @@ namespace taixu {
  * ```
  * @brief Handler，用于回调和事件处理
  * @note 回调的返回值必须是void，参数类型可以任意
- * @note 如果想传递lambda到构造函数中需要转换为函数指针，lambda前必须要加`+`运算符
+ * @note
+ * 如果想传递lambda到构造函数中需要转换为函数指针，lambda前必须要加`+`运算符
  * @see
  * https://stackoverflow.com/questions/18889028/a-positive-lambda-what-sorcery-is-this
  */
 struct Handler {
-    void                  (*f)();
+    void (*f)();
     const std::type_info& info;
 
     template<typename T>
-    explicit Handler(T fn) : f(reinterpret_cast<void (*)()>(fn)), info(typeid(T)) {}
+    explicit Handler(T fn)
+        : f(reinterpret_cast<void (*)()>(fn)), info(typeid(T)) {}
 
     template<typename... Args>
     void operator()(Args&&... args) {

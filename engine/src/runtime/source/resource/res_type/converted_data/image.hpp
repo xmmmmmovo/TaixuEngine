@@ -31,7 +31,8 @@ enum class EnumTextureType : std::uint8_t {
     COMMON
 };
 
-TX_INLINE EnumTextureType textureTypeFromAssimpType(const aiTextureType aitype) {
+TX_INLINE EnumTextureType
+textureTypeFromAssimpType(const aiTextureType aitype) {
     switch (aitype) {
         case aiTextureType_DIFFUSE:
             return EnumTextureType::DIFFUSE;

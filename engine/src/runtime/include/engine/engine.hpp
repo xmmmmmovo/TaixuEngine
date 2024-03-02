@@ -56,7 +56,7 @@ public:
 
     void changeEngineState(EnumEngineState state);
 
-    bool loadProject(std::filesystem::path const &path);
+    bool loadProject(std::filesystem::path const& path);
 };
 
 extern Engine g_engine;
