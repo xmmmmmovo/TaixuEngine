@@ -24,6 +24,8 @@ private:
                                           ImGuiTreeNodeFlags_Leaf |
                                           ImGuiTreeNodeFlags_NoTreePushOnOpen;
 
+    static std::string_view constexpr FILE_COMPONENT_NAME{"Files"};
+
 private:
     void expandTreeNode(HierarchyNode<std::filesystem::path>& entry) {
         auto full_path = _view_model->project_path / entry.data;
@@ -70,9 +72,13 @@ private:
 
 public:
     explicit FileComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model) {}
+        : AbstractUIComponent(view_model,
+                              {.name           = FILE_COMPONENT_NAME,
+                               .component_type = EnumImguiComponentType::WIDGET,
+                               .update_func    = [this]() { this->update(); },
+                               .end_call_back  = nullptr}) {}
 
-    void update() override {
+    void update() {
         {
             ImGui::BeginChild(
                     "FileTree",

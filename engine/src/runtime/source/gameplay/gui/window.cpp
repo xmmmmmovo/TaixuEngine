@@ -4,7 +4,6 @@
 
 #include "gameplay/gui/window.hpp"
 
-#include "IconsFontAwesome6.h"
 #include "common/log/logger.hpp"
 
 #include <common/base/macro.hpp>
@@ -20,9 +19,9 @@
 
 namespace taixu {
 
-void Window::init(WindowInfo const& info) {
-    this->_window_info = info;
+Window::Window(WindowInfo const& window_info) : _window_info(window_info) {}
 
+void Window::init() {
     glfwSetErrorCallback(errorCallBack);
 
     if (GLFW_TRUE != glfwInit()) { FATAL_LOG("GLFW init failed!"); }
@@ -31,13 +30,12 @@ void Window::init(WindowInfo const& info) {
 }
 
 void Window::showWindow() {
-    _window = glfwCreateWindow(
-            this->_window_info.width, this->_window_info.height,
-            this->_window_info.title.data(), nullptr, nullptr);
+    _window = glfwCreateWindow(_window_info.width, _window_info.height,
+                               _window_info.title.data(), nullptr, nullptr);
 
     if (!_window) {
         glfwTerminate();
-        FATAL_LOG("Failed to create GLFW window");
+        FATAL_LOG("Failed to create GLFW _window");
     }
 
     glfwSetWindowUserPointer(_window, this);

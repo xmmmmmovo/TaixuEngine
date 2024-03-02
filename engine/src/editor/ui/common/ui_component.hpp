@@ -10,6 +10,8 @@
 
 namespace taixu::editor {
 
+#define ICON_ENTRY(ICON, STR) ICON " " STR
+
 /**
  * @brief UI component interface
  */
@@ -17,14 +19,17 @@ class AbstractUIComponent : Noncopyable {
 protected:
     ViewModel* _view_model{nullptr};
 
-public:
-    explicit AbstractUIComponent(ViewModel* view_model)
-        : _view_model(view_model) {}
+    ImGuiComponentInfo const _component_info{};
+    TX_INLINE static bool    _enable{false};
 
-    /**
-     * @brief render updateWindow
-     */
-    virtual void update() = 0;
+public:
+    explicit AbstractUIComponent(ViewModel*                view_model,
+                                 ImGuiComponentInfo const& component_info)
+        : _view_model(view_model), _component_info(component_info) {}
+
+    [[nodiscard]] ImGuiComponentInfo const& getComponentInfo() const {
+        return _component_info;
+    }
 };
 
 }// namespace taixu::editor

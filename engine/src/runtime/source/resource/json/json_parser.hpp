@@ -6,7 +6,6 @@
 #define ENGINE_RUNTIME_RESOURCE_JSON_JSON_PARSER_HPP
 
 #include <filesystem>
-#include <iostream>
 #include <string>
 
 #include <refl.hpp>
@@ -137,10 +136,15 @@ TX_INLINE void jsonLoad(simdjson::ondemand::document& json_object, T& value) {
  * @return
  */
 template<typename T>
-TX_INLINE T loadFromJsonStr(auto const& json_str) {
+TX_INLINE auto loadFromJsonStr(auto const& json_str) -> std::optional<T> {
     T                            value{};
     simdjson::ondemand::parser   parser;
-    simdjson::ondemand::document json_object = parser.iterate(json_str);
+    simdjson::ondemand::document json_object;
+    auto const err = parser.iterate(json_str).get(json_object);
+    if (err != simdjson::SUCCESS) {
+        ERROR_LOG("Cannot parse json: {}", magic_enum::enum_name(err));
+        return std::nullopt;
+    }
     jsonLoad(json_object, value);
     return value;
 }
@@ -152,9 +156,18 @@ TX_INLINE T loadFromJsonStr(auto const& json_str) {
  * @return
  */
 template<typename T>
-TX_INLINE T loadFromJsonFile(std::filesystem::path& file_path) {
-    simdjson::padded_string const json_str =
-            simdjson::padded_string::load(file_path.generic_string());
+TX_INLINE auto loadFromJsonFile(std::filesystem::path const& file_path)
+        -> std::optional<T> {
+    simdjson::padded_string json_str;
+    if (auto const err =
+                simdjson::padded_string::load(file_path.generic_string())
+                        .get(json_str);
+        err != simdjson::SUCCESS) {
+        ERROR_LOG("Cannot load json: {}, error: {}",
+                  file_path.filename().generic_string(),
+                  magic_enum::enum_name(err));
+        return std::nullopt;
+    }
     return loadFromJsonStr<T>(json_str);
 }
 

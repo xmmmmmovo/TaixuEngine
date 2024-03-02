@@ -7,9 +7,6 @@
 #include <vector>
 
 #include "asset_manager.hpp"
-#include <resource/res_type/raw_data/material.hpp>
-#include <resource/res_type/raw_data/mesh.hpp>
-#include <resource/res_type/raw_data/texture.hpp>
 
 namespace taixu {
 

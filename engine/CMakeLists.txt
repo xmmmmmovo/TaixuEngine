@@ -18,6 +18,13 @@ if (USE_CCACHE)
     )
 endif ()
 
+# accelerate the msvc project
+if (MSVC)
+    add_compile_options("/MP")
+    add_compile_options("/utf-8")
+    add_compile_definitions(UNICODE _UNICODE)
+endif ()
+
 # ------ third-party -------
 
 if (USE_VULKAN)
@@ -32,46 +39,33 @@ endif ()
 
 # add HarfBuzz
 include(FindHarfBuzz)
-
 # add freetype
 include(FindFreetype)
-
 # add glfw3
 include(FindGlfw3)
-
 # add glm
 include(FindGLM)
-
 # add stb
 include(FindStb)
-
 # add imgui
 include(FindImgui)
-
 # add fmt
 include(FindFmt)
-
 # add spdlog
 include(FindSpdlog)
-
 # add assimp
 include(FindAssimp)
-
 # add jsoncpp
 include(FindSimdjson)
-
 # add refl cpp
 include(FindReflCpp)
-
 # add magic enum
 include(FindMagicEnum)
-
 # add argparse
 include(FindArgparse)
-
 # add joltpyhsics
 include(FindJoltPhysics)
-
+# add threads
 find_package(Threads REQUIRED)
 
 # ------- sub-directories --------

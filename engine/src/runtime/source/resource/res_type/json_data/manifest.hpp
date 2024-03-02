@@ -9,7 +9,7 @@
 
 #include <refl.hpp>
 
-#include "serializable.hpp"
+#include "resource/json/serializable.hpp"
 
 namespace taixu {
 

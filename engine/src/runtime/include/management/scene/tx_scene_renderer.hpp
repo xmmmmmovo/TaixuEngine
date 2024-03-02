@@ -17,7 +17,7 @@ class Scene;
 
 enum class EnumImguiComponentType : std::uint8_t { WIDGET, MENUBAR };
 
-struct ImguiComponent {
+struct ImGuiComponentInfo {
     using ImGuiComponentCallbackT = std::function<void()>;
 
     std::string_view        name{};
@@ -62,7 +62,7 @@ protected:
     /**
      * @brief ImGui component 集合
      */
-    std::vector<ImguiComponent> _components{};
+    std::vector<ImGuiComponentInfo> _components{};
 
     /**
      * @brief 判断是否是editor模式
@@ -78,6 +78,7 @@ protected:
             ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground};
     static constexpr ImGuiDockNodeFlags IMGUI_DOCKSPACE_FLAGS{
             ImGuiDockNodeFlags_None ^ ImGuiDockNodeFlags_PassthruCentralNode};
+
     static constexpr std::string_view DOCK_SPACE_NAME{"TaixuEditorDock"};
 
 public:
@@ -118,7 +119,7 @@ public:
      * https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags---Enumerations/
      * @see tests/benchmarks/function_transfer_benchmark.hpp
      */
-    void addComponent(const ImguiComponent& imgui_component);
+    void addComponent(const ImGuiComponentInfo& imgui_component);
 };
 
 }// namespace taixu

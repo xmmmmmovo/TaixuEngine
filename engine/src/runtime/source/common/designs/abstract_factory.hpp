@@ -28,7 +28,7 @@ public:
         auto iter = _creation_func_map.find(key);
 
         if (iter != _creation_func_map.end()) {
-            WARN_LOG("This window have already registered");
+            WARN_LOG("This _window have already registered");
             iter->second = std::move(func);
             return true;
         } else {

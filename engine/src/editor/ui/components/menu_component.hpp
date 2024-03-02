@@ -5,101 +5,46 @@
 #ifndef ENGINE_EDITOR_UI_COMPONENTS_MENU_COMPONENT
 #define ENGINE_EDITOR_UI_COMPONENTS_MENU_COMPONENT
 
-#include <ImGuiFileDialog.h>
-#include <imgui.h>
-
+#include "imgui.h"
+#include "imgui/file-dialog/ImGuiFileDialog.h"
 #include "platform/os/path.hpp"
+#include "ui/common/editor_context.hpp"
 #include "ui/common/ui_component.hpp"
+
+#include "common/log/logger.hpp"
 
 namespace taixu::editor {
 
 /**
  * @brief 菜单栏组件
  */
-class MenuComponent : public AbstractUIComponent {
+class MenuComponent final : public AbstractUIComponent {
 private:
-    template<typename... Args>
-    using callback = std::function<void(Args...)>;
+    static constexpr std::string_view MENU_KEY        = "Menu";
+    static constexpr std::string_view FILE_MENU_KEY   = "File";
+    static constexpr std::string_view EDIT_MENU_KEY   = "Edit";
+    static constexpr std::string_view WINDOW_MENU_KEY = "Window";
+    static constexpr std::string_view HELP_MENU_KEY   = "Help";
 
-    callback<std::string_view const&> _on_new_project{nullptr};
-    callback<std::string_view const&> _on_open_project{nullptr};
-    callback<>                        _on_save_project{nullptr};
-    callback<std::string_view const&> _on_save_as_project{nullptr};
+    static constexpr std::string_view FILE_NEW_PROJECT_DLG_KEY =
+            "file_new_project";
+    static constexpr std::string_view FILE_OPEN_PROJECT_DLG_KEY =
+            "file_open_project";
 
 public:
-    explicit MenuComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model) {}
+    explicit MenuComponent(ViewModel* view_model);
 
-    void
-    bindCallbacks(callback<std::string_view const&> const& onNewProject,
-                  callback<std::string_view const&> const& onOpenProject,
-                  callback<> const&                        onSaveProject,
-                  callback<std::string_view const&> const& onSaveAsProject) {
-        this->_on_new_project     = onNewProject;
-        this->_on_open_project    = onOpenProject;
-        this->_on_save_project    = onSaveProject;
-        this->_on_save_as_project = onSaveAsProject;
-    }
+private:
+    static void buildFileMenu();
+    static void buildEditMenu();
+    static void buildWindowMenu();
+    static void buildHelpMenu();
 
-    void update() override {
-        if (ImGui::BeginMenu("#MainMenu")) {
-            static IGFD::FileDialogConfig const config{
-                    .path              = getRootPath().generic_string(),
-                    .countSelectionMax = 1,
-                    .flags             = ImGuiFileDialogFlags_Modal};
+    static void update();
+    static void endUpdate();
 
-            if (ImGui::MenuItem("New Project")) {
-                ImGuiFileDialog::Instance()->OpenDialog("NewProjectDlgKey",
-                                                        "Choose a Directory",
-                                                        nullptr, config);
-            }
-            ImGui::Separator();
-            if (ImGui::MenuItem("open project")) {
-                ImGuiFileDialog::Instance()->OpenDialog("ChooseDirDlgKey",
-                                                        "Choose a Directory",
-                                                        nullptr, config);
-            }
-            if (ImGui::MenuItem("save project")) {
-                if (_on_save_project) { _on_save_project(); }
-            }
-            if (ImGui::MenuItem("save as project")) {
-                ImGuiFileDialog::Instance()->OpenDialog("SaveAsDirDlgKey",
-                                                        "Choose a Directory",
-                                                        nullptr, config);
-            }
-
-            ImGui::Separator();
-
-            if (ImGui::MenuItem("Exit")) { exit(0); }
-
-            ImGui::EndMenu();
-        }
-    }
-
-    static void
-    onDialogOpen(std::string_view const&                  key,
-                 callback<std::string_view const&> const& callback) {
-        if (ImGuiFileDialog::Instance()->Display(key.data())) {
-            // action if OK
-            if (ImGuiFileDialog::Instance()->IsOk()) {
-                std::string const file_path =
-                        ImGuiFileDialog::Instance()->GetCurrentPath();
-                // action
-                DEBUG_LOG(file_path);
-                if (callback) { callback(file_path); }
-            }
-
-            // close
-            ImGuiFileDialog::Instance()->Close();
-        }
-    }
-
-    void processFileDialog() {
-        // display
-        onDialogOpen("NewProjectDlgKey", _on_new_project);
-        onDialogOpen("ChooseDirDlgKey", _on_open_project);
-        onDialogOpen("SaveAsDirDlgKey", _on_save_as_project);
-    }
+    static void onDialogOpen(std::string_view const& key,
+                             EnumCallbacks           enum_callback);
 };
 
 }// namespace taixu::editor

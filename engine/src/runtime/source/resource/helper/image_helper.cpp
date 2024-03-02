@@ -20,16 +20,30 @@ constexpr std::int32_t const ZERO_VALUE_FLAG = -1;
 
 namespace taixu {
 
-std::optional<Image> loadImage(std::filesystem::path const& path,
-                               int desired_channels, bool is_srgb,
-                               bool flip_vertically) {
+std::shared_ptr<Image> loadImage(std::filesystem::path const& path,
+                                 const int desired_channels, const bool is_srgb,
+                                 const bool flip_vertically) {
     stbi_set_flip_vertically_on_load(flip_vertically);
 
     int32_t width, height, channels;
 
     uint8_t* data = stbi_load(path.generic_string().c_str(), &width, &height,
                               &channels, desired_channels);
-    if (nullptr == data) { return std::nullopt; }
+    if (nullptr == data || width < 0 || height < 0) { return nullptr; }
+
+    std::shared_ptr<Image> image = std::make_shared<Image>();
+    image->channels              = channels;
+    image->desired_channels      = desired_channels;
+    image->is_srgb               = is_srgb;
+
+    if (width == height && isPowerOfTwo(static_cast<uint32_t>(width)) &&
+        isPowerOfTwo(static_cast<uint32_t>(height))) {
+        image->data = data;
+        image->size = width * height;
+        image->w    = width;
+        image->h    = height;
+        return image;
+    }
 
     // resize to 2^n size;
     std::int32_t       offset   = bitScanReverse32(width);
@@ -55,32 +69,17 @@ std::optional<Image> loadImage(std::filesystem::path const& path,
         free(data);
         if (nullptr == ret) {
             free(out_data);
-            return std::nullopt;
+            return nullptr;
         }
         data = out_data;
     }
 
-    return Image{
-            .data             = data,
-            .size             = new_data_size,
-            .w                = new_size,
-            .h                = new_size,
-            .channels         = channels,
-            .desired_channels = desired_channels,
-            .is_srgb          = is_srgb,
-    };
-}
+    image->data = data;
+    image->size = new_data_size;
+    image->w    = new_size;
+    image->h    = new_size;
 
-free_unique_ptr<uint8_t> compressImage(uint8_t* data, int width, int height,
-                                       int channels, int* out_size) {
-    return nullptr;
-}
-
-free_unique_ptr<uint8_t> combineImages(uint8_t* red, uint8_t* green,
-                                       uint8_t* blue, uint8_t* alpha, int width,
-                                       int height) {
-    NOT_IMPL_ASSERT();
-    return nullptr;
+    return image;
 }
 
 }// namespace taixu

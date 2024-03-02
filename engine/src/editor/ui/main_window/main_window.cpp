@@ -3,9 +3,10 @@
 //
 #include "main_window.hpp"
 
-#include "management/scene/tx_scene_renderer.hpp"
+#include "imgui.h"
 
-#include <imgui.h>
+#include "management/scene/tx_scene_renderer.hpp"
+#include "ui/common/editor_context.hpp"
 
 #include <utility>
 
@@ -60,14 +61,12 @@ void MainWindow::buildUpPathHierarchy() {
     }
 }
 
-void MainWindow::init(const std::vector<std::string>& args) {
-    _view_model.engine_runtime_ptr = &g_engine;
+void MainWindow::init() {
 
-    _view_model.window_ptr = std::make_unique<Window>();
-    _view_model.window_ptr->init({_window_title, _width, _height});
-    _view_model.window_ptr->showWindow();
+    _window_ptr->init();
+    _window_ptr->showWindow();
 
-    _view_model.engine_runtime_ptr->init(args, _view_model.window_ptr.get());
+    g_editor_context.engine_ptr->initWithWindow(_window_ptr.get());
 
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
@@ -88,15 +87,11 @@ void MainWindow::init(const std::vector<std::string>& args) {
     //                    }
     //                }
     //            });
-    buildUpUsefulObjHierarchy();
 
-    _view_model.engine_runtime_ptr->renderer->addComponent(
-            {.name           = "#TXEditorMenuBar",
-             .component_type = EnumImguiComponentType::MENUBAR,
-             .update_func    = [this]() { menu_component.update(); },
-             .end_call_back  = [this]() {}});
+    g_editor_context.engine_ptr->renderer->addComponent(
+            menu_component.getComponentInfo());
 
-    INFO_LOG("Main window init finished!");
+    INFO_LOG("Main _window init finished!");
 }
 
 bool MainWindow::isCursorInRenderComponent() const {
@@ -116,36 +111,18 @@ bool MainWindow::isCursorInRenderComponent() const {
 void MainWindow::update() {}
 
 void MainWindow::start() const {
-    _view_model.engine_runtime_ptr->beforeStart();
-    while (!_view_model.window_ptr->shouldClose()) {
-        _view_model.engine_runtime_ptr->update();
-        _view_model.window_ptr->handleEvents();
+    g_editor_context.engine_ptr->beforeStart();
+    while (!_window_ptr->shouldClose()) {
+        g_editor_context.engine_ptr->update();
+        _window_ptr->handleEvents();
     }
 }
 
-void MainWindow::destroy() const { _view_model.window_ptr->destroy(); }
+void MainWindow::destroy() const { _window_ptr->destroy(); }
 
-MainWindow::MainWindow(std::string title, int32_t width, int32_t height)
-    : _window_title(std::move(title)), _width(width), _height(height) {
-    // this->_window_ptr,
-    //         this->menu_component.bindCallbacks(
-    //                 INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onNewProjectCb),
-    //                 INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onOpenProjectCb),
-    //                 INCLASS_VOID_FUNCTION_LAMBDA_WRAPPER(onSaveProjectCb),
-    //                 INCLASS_STR_FUNCTION_LAMBDA_WRAPPER(onSaveAsProjectCb));
+MainWindow::MainWindow(WindowInfo&& window_info)
+    : _window_ptr(
+              std::make_unique<Window>(std::forward<WindowInfo>(window_info))) {
 }
-
-// for callbacks
-void MainWindow::onNewProjectCb(std::string_view const& path) {}
-
-void MainWindow::onOpenProjectCb(std::string_view const& path) {
-    //    _view_model.engine_runtime_ptr->loadProject(path);
-    _view_model.project_path = path;
-    buildUpPathHierarchy();
-}
-
-void MainWindow::onSaveProjectCb() {}
-
-void MainWindow::onSaveAsProjectCb(std::string_view const& path) {}
 
 }// namespace taixu::editor

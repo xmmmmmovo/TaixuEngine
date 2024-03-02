@@ -18,7 +18,8 @@ HRESULT dx11TraceW(source_loc_t loc, HRESULT hr) {
     // 不需要分配字符串内存
     FormatMessageW(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
                    nullptr, hr, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-                   str_buffer_error.data(), str_buffer_error.size(), nullptr);
+                   str_buffer_error.data(),
+                   static_cast<DWORD>(str_buffer_error.size()), nullptr);
 
 #ifdef _DEBUG
     ERROR_LOG_LOC(loc, "出现错误: {}({:#x})",

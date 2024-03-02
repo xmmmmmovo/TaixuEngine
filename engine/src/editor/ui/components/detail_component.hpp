@@ -8,19 +8,27 @@
 #include "ui/common/ui_component.hpp"
 #include "ui/components/render_component.hpp"
 
-#include "ImGuizmo.h"
+#include "imgui/imzmo/ImGuizmo.h"
 #include "imgui_internal.h"
 #include "ui/widgets/slider.hpp"
 
 
 namespace taixu::editor {
 class DetailComponent : public AbstractUIComponent {
+private:
+    static std::string_view constexpr DETAILS_COMPONENT_NAME{
+            "Components Details"};
+
 public:
     explicit DetailComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model) {}
+        : AbstractUIComponent(view_model,
+                              {.name           = DETAILS_COMPONENT_NAME,
+                               .component_type = EnumImguiComponentType::WIDGET,
+                               .update_func    = [this]() { this->update(); },
+                               .end_call_back  = nullptr}) {}
 
 
-    void update() override {
+    void update() {
         if (!_view_model->is_entity_selected) { return; }
 
         //        auto ecs =

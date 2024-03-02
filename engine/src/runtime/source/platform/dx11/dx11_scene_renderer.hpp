@@ -33,7 +33,7 @@ private:
     std::shared_ptr<DX11Buffer>                           buffer;
 
 public:
-    ~    DX11SceneRenderer() override;
+    ~DX11SceneRenderer() override;
     void updateScene(float delta_time, Scene* scene) override;
 
 protected:

@@ -1,15 +1,11 @@
-//
-// Created by xmmmmmovo on 2023/4/25.
-//
-#ifndef TAIXUENGINE_RESOURCE_RAW_DATA_TEXTURE_HPP
-#define TAIXUENGINE_RESOURCE_RAW_DATA_TEXTURE_HPP
+/*
+ Copyright (c) xmmmmmovo@2024.
+ */
 
-#include "assimp/material.h"
-#include "common/utils/pointer_utils.hpp"
-#include <memory>
+#pragma once
 
-#include "platform/os/path.hpp"
-#include "raw_data.hpp"
+#include <assimp/material.h>
+#include <cstdlib>
 
 namespace taixu {
 
@@ -35,7 +31,8 @@ enum class EnumTextureType : std::uint8_t {
     COMMON
 };
 
-inline EnumTextureType textureTypeFromAssimpType(aiTextureType aitype) {
+TX_INLINE EnumTextureType
+textureTypeFromAssimpType(const aiTextureType aitype) {
     switch (aitype) {
         case aiTextureType_DIFFUSE:
             return EnumTextureType::DIFFUSE;
@@ -72,13 +69,13 @@ inline EnumTextureType textureTypeFromAssimpType(aiTextureType aitype) {
     }
 }
 
-struct Image final {
+struct Image final : std::enable_shared_from_this<Image> {
     uint8_t* data{nullptr};
-    int32_t  size{0};
-    int32_t  w{0};
-    int32_t  h{0};
-    int32_t  channels{0};
-    int32_t  desired_channels{0};
+    uint32_t size{0};
+    uint32_t w{0};
+    uint32_t h{0};
+    uint32_t channels{0};
+    uint32_t desired_channels{0};
     bool     is_hdr{false};
     bool     is_srgb{false};
     bool     is_cube{false};
@@ -87,5 +84,3 @@ struct Image final {
 };
 
 }// namespace taixu
-
-#endif// TAIXUENGINE_RESOURCE_RAW_DATA_TEXTURE_HPP

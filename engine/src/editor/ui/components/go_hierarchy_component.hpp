@@ -17,12 +17,17 @@ private:
     static constexpr std::array<std::string_view, 3>
             ENTITY_MENU_COMBO_ITEM_NAME = {"Add Empty Entity", "Delete Entity",
                                            "Rename Game Object"};
+    static std::string_view constexpr WORLD_OBJ_COMPONENT_NAME{"World Objects"};
 
 public:
     explicit GoHierarchyComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model) {}
+        : AbstractUIComponent(view_model,
+                              {.name           = WORLD_OBJ_COMPONENT_NAME,
+                               .component_type = EnumImguiComponentType::WIDGET,
+                               .update_func    = [this]() { this->update(); },
+                               .end_call_back  = nullptr}) {}
 
-    void update() override {
+    void update() {
         //        if (_view_model->engine_runtime_ptr->getScene() == nullptr) {
         //            ImGui::Text("No Open Scene");
         //            return;

@@ -11,6 +11,7 @@
 #include "imgui_internal.h"
 
 // "" headers
+#include "gameplay/gui/window.hpp"
 #include "ui/common/view_model.hpp"
 #include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
@@ -25,16 +26,6 @@ namespace taixu::editor {
 
 class MainWindow {
 private:
-    // names
-    static std::string_view constexpr RENDER_COMPONENT_NAME{"Scene"};
-    static std::string_view constexpr FILE_COMPONENT_NAME{"Files"};
-    static std::string_view constexpr DETAILS_COMPONENT_NAME{
-            "Components Details"};
-    static std::string_view constexpr WORLD_OBJ_COMPONENT_NAME{"World Objects"};
-    static std::string_view constexpr STATUS_COMPONENT_NAME{"EnumStatus"};
-    static std::string_view constexpr USEFUL_OBJ_COMPONENT_NAME{
-            "Useful Objects"};
-
     // components
     MenuComponent         menu_component{&_view_model};
     RenderComponent       render_component{&_view_model};
@@ -48,8 +39,7 @@ private:
 private:
     ViewModel _view_model{};
 
-    std::string _window_title{};
-    int32_t     _width, _height{0};
+    std::unique_ptr<Window> _window_ptr{nullptr};
 
 private:
     /**
@@ -67,9 +57,9 @@ private:
     void buildUpPathHierarchy();
 
 public:
-    explicit MainWindow(std::string title, int32_t width, int32_t height);
+    explicit MainWindow(WindowInfo&& window_info);
 
-    void init(const std::vector<std::string>& args);
+    void init();
     void update();
     void destroy() const;
 
@@ -77,13 +67,6 @@ public:
 
 private:
     [[nodiscard]] inline bool isCursorInRenderComponent() const;
-
-private:
-    // callback functions
-    void onNewProjectCb(std::string_view const& path);
-    void onOpenProjectCb(std::string_view const& path);
-    void onSaveProjectCb();
-    void onSaveAsProjectCb(std::string_view const& path);
 };
 
 }// namespace taixu::editor

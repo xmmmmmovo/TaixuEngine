@@ -40,4 +40,6 @@ std::int32_t bitScanReverse32(std::uint32_t const value) {
 #endif
 }
 
+bool isPowerOfTwo(uint32_t const x) { return x != 0 && (x & ~x + 1) == x; }
+
 }// namespace taixu

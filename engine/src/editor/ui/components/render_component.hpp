@@ -6,11 +6,11 @@
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
 #include "common/log/logger.hpp"
-#include <IconsFontAwesome6.h>
-#include <ImGuizmo.h>
-#include <glm/glm.hpp>
-#include <glm/gtx/matrix_decompose.hpp>
-#include <imgui.h>
+#include "glm/glm.hpp"
+#include "glm/gtx/matrix_decompose.hpp"
+#include "imgui.h"
+#include "imgui/icons/IconsLucide.h"
+#include "imgui/imzmo/ImGuizmo.h"
 
 #include "common/math/imvec2.hpp"
 #include "ui/common/ui_component.hpp"
@@ -19,6 +19,9 @@
 namespace taixu::editor {
 
 class RenderComponent : public AbstractUIComponent {
+private:
+    static std::string_view constexpr RENDER_COMPONENT_NAME{"Scene"};
+
 public:
     ImVec2 _render_size{0, 0};
     ImVec2 _previous_size{0, 0};
@@ -29,16 +32,20 @@ public:
 
 public:
     explicit RenderComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model){};
+        : AbstractUIComponent(view_model,
+                              {.name           = RENDER_COMPONENT_NAME,
+                               .component_type = EnumImguiComponentType::WIDGET,
+                               .update_func    = [this]() { this->update(); },
+                               .end_call_back  = nullptr}){};
 
-    void update() override {
+    void update() {
         if (ImGui::BeginMenuBar()) {
             ImGui::SetCursorPosX(ImGui::GetWindowContentRegionMax().x * 0.6f -
                                  ImGui::GetWindowHeight());
 
             //            if (_view_model->engine_runtime_ptr->getState() ==
             //                EngineState::EDITORMODE) {
-            if (ImGui::Button(ICON_FA_PLAY "Play")) {}
+            if (ImGui::Button(ICON_ENTRY(ICON_LC_PLAY, "Play"))) {}
             //            } else {
             //                if (ImGui::Button(ICON_FA_STOP "Stop")) {}
             //            }

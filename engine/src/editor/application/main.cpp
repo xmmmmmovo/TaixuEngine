@@ -1,3 +1,4 @@
+#include "ui/common/editor_context.hpp"
 #include <cstdlib>
 
 #include "ui/main_window/main_window.hpp"
@@ -18,6 +19,7 @@ static constexpr std::string_view MAIN_WINDOW_TITLE  = "TaixuEngineEditor";
 int main(const int argc, char* argv[]) try {
 
     using namespace std::literals;
+    using namespace taixu::editor;
 
     // avoid c-style array
     std::vector<std::string> args(argv, argv + argc);
@@ -25,10 +27,13 @@ int main(const int argc, char* argv[]) try {
     static constexpr auto EDITOR_ARG = "--editor"sv;
     args.emplace_back(EDITOR_ARG);
 
-    taixu::editor::MainWindow main_window{
-            MAIN_WINDOW_TITLE.data(), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT};
+    g_editor_context.engine_ptr = &taixu::g_engine;
+    g_editor_context.engine_ptr->initRuntime(args);
 
-    main_window.init(args);
+    MainWindow main_window{
+            {MAIN_WINDOW_TITLE.data(), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT}};
+
+    main_window.init();
     main_window.start();
     main_window.destroy();
 

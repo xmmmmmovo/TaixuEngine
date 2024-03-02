@@ -36,6 +36,11 @@ struct DPIScale {
     float y_scale{0.0f};
 };
 
+struct WindowState {
+    bool minimize{false};
+    bool fullscreen{false};
+};
+
 namespace taixu {
 
 class Window final : private Noncopyable {
@@ -71,18 +76,16 @@ protected:
 protected:
     GLFWwindow* _window{nullptr};
 
-    bool minimize{false};
-    bool fullscreen{false};
-
     PROTOTYPE_ONLY_GETTER_CONST(protected, DPIScale, dpi_scale);
     PROTOTYPE_ONLY_GETTER_CONST(protected, WindowInfo, window_info);
 
-
 public:
-    void init(WindowInfo const& info);
-    void showWindow();
-    void update();
-    void destroy();
+    explicit Window(WindowInfo const& window_info);
+
+    void        init();
+    void        showWindow();
+    static void update();
+    static void destroy();
 
     [[nodiscard]] GLFWwindow* getRawWindow() const;
 

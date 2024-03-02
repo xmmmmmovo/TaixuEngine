@@ -64,7 +64,6 @@ DX11ShaderModuleAdapter::create(const TXShaderModuleCreateInfo& info) {
         return nullptr;
     } else if (info.source_type == EnumShaderSourceType::HLSL) {
         HRESULT hr;
-
         /// create scope macro
 #define SHADER_CREATE_SCOPE(ShaderType)                                         \
     ComPtrT<ID3D11##ShaderType##Shader> shader;                                 \
@@ -97,8 +96,9 @@ DX11ShaderModuleAdapter::create(const TXShaderModuleCreateInfo& info) {
         ComPtrT<ID3D11InputLayout> input_layout_ptr{nullptr};                   \
                                                                                 \
         hr = _context->device()->CreateInputLayout(                             \
-                in_attr_desc.data(), in_attr_desc.size(), info.binaries,        \
-                info.binaries_size, input_layout_ptr.GetAddressOf());           \
+                in_attr_desc.data(), static_cast<UINT>(in_attr_desc.size()),    \
+                info.binaries, info.binaries_size,                              \
+                input_layout_ptr.GetAddressOf());                               \
         HR_FAILED_GOTO(hr, "Failed to create input layout");                    \
                                                                                 \
         return std::make_shared<DX11ShaderModule<ID3D11##ShaderType##Shader>>(  \

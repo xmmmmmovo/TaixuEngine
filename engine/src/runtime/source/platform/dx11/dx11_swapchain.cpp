@@ -69,6 +69,7 @@ void DX11SwapChain::init(DX11Context* context, Window* window) {
         fd.Windowed                = TRUE;
 
         IDXGISwapChain1* swap_chain1 = nullptr;
+        auto             hwd         = window->getHWND();
         // 为当前窗口创建交换链
         HR_CHECK(dxgi_factory2->CreateSwapChainForHwnd(
                 _context->device().Get(), window->getHWND(), &sd, &fd, nullptr,

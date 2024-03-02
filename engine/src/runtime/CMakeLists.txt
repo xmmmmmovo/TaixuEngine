@@ -31,6 +31,11 @@ add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 
 set(PCH_FILES "${PCH_DIR}/pch_std.hpp" "${PCH_DIR}/pch_runtime.hpp")
 
+# add options
+if (MSVC AND CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_options(${TARGET_NAME} PRIVATE "/DEBUG" "/Zf" "/nologo" "/W3" "/Od")
+endif ()
+
 # public link
 target_link_libraries(${TARGET_NAME} PRIVATE stb)
 target_link_libraries(${TARGET_NAME} PRIVATE simdjson Threads::Threads freetype glfw)

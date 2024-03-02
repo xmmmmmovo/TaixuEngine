@@ -59,7 +59,7 @@
 #define TX_ALIGNED(n) __attribute__((aligned(n)))
 
 #define TX_ASSERT(x) assert((x))
-#define TX_ASSERT_MSG(x, msg) assert((x) && msg)
+#define TX_ASSERT_MSG(x, msg) assert((x) && (msg))
 
 #define TX_UNREACHABLE() assert(false)
 #define TX_STATIC_UNREACHABLE static_assert(false)
