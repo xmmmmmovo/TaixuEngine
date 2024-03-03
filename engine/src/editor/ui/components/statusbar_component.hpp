@@ -15,11 +15,7 @@ private:
 
 public:
     explicit StatusBarComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model,
-                              {.name           = STATUS_COMPONENT_NAME,
-                               .component_type = EnumImguiComponentType::WIDGET,
-                               .update_func    = [this]() { this->update(); },
-                               .end_call_back  = nullptr}) {}
+        : AbstractUIComponent(view_model) {}
 
     void update() {
         float const&   status_window_height = ImGui::GetFrameHeight() * 1.3f;

@@ -72,11 +72,7 @@ private:
 
 public:
     explicit FileComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model,
-                              {.name           = FILE_COMPONENT_NAME,
-                               .component_type = EnumImguiComponentType::WIDGET,
-                               .update_func    = [this]() { this->update(); },
-                               .end_call_back  = nullptr}) {}
+        : AbstractUIComponent(view_model) {}
 
     void update() {
         {

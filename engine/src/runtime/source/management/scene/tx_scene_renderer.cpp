@@ -31,15 +31,13 @@ static constexpr ImguiStyleGroup DEFAULT_STYLE_GROUP{
         Color{0_uc, 0_uc, 0_uc, 255_uc}};
 
 void AbstractSceneRenderer::init(Window* window) {
-    _is_editor_mode = g_engine.getArgs().is_editor();
-
     initForGraphicsAPI(window);
     initImgui(window);
 }
 
 void AbstractSceneRenderer::update(const float delta_time, Scene* scene) {
     clearWindow();
-    updateScene(delta_time, scene);
+    if (scene != nullptr) { updateScene(delta_time, scene); }
     if (_enable_imgui) { imguiUpdate(); }
     presentToWindow();
 }
@@ -48,6 +46,13 @@ void AbstractSceneRenderer::destroy() {
     destroyGraphicsAPI();
     imguiDestroy();
 }
+
+void AbstractSceneRenderer::enableImgui(
+        const std::function<void()>& update_func) {
+    _enable_imgui = true;
+    _imgui_update = std::move(update_func);
+}
+void AbstractSceneRenderer::disableImgui() { _enable_imgui = false; }
 
 void AbstractSceneRenderer::loadFont() const {
     _io->Fonts->AddFontDefault();
@@ -159,7 +164,7 @@ void AbstractSceneRenderer::initImgui(const Window* window) {
             ImGuiConfigFlags_NavEnableKeyboard;// Enable Keyboard Controls
     _io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
     _io->ConfigFlags |=
-            ImGuiConfigFlags_ViewportsEnable;          // Enable Multi-Viewport
+            ImGuiConfigFlags_ViewportsEnable;// Enable Multi-Viewport
     // Platform Windows
 
     loadFont();
@@ -179,45 +184,47 @@ void AbstractSceneRenderer::imguiUpdate() {
     ImGui::SetNextWindowSize(viewport->Size);
     ImGui::SetNextWindowViewport(viewport->ID);
 
-    if (_is_editor_mode) {
-        ImGui::Begin("#TaixuEditorViewHolder", nullptr, IMGUI_WINDOW_FLAG);
-        _dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
-        ImGui::DockSpace(_dock_space_id, ImVec2{0.0f, 0.0f},
-                         IMGUI_DOCKSPACE_FLAGS);
-    }
+    _imgui_update();
 
-    static bool succ = false;
-
-    for (const auto& comp : _components) {
-        // render the components
-        switch (comp.component_type) {
-            case EnumImguiComponentType::WIDGET:
-                succ = ImGui::Begin(comp.name.data(), comp.open, comp.flags);
-                break;
-            case EnumImguiComponentType::MENUBAR:
-                succ = ImGui::BeginMenuBar();
-                break;
-            default:
-                ERROR_LOG("Unsupported component type, {}", comp.name);
-        }
-
-        if (succ) {
-            if (comp.update_func != nullptr) { comp.update_func(); }
-            switch (comp.component_type) {
-                case EnumImguiComponentType::WIDGET:
-                    ImGui::End();
-                    break;
-                case EnumImguiComponentType::MENUBAR:
-                    ImGui::EndMenuBar();
-                    break;
-                default:
-                    ERROR_LOG("Unsupported component type, {}", comp.name);
-            }
-            if (comp.end_call_back != nullptr) { comp.end_call_back(); }
-        }
-    }
-
-    if (_is_editor_mode) { ImGui::End(); }
+    // if (_is_editor_mode) {
+    //     ImGui::Begin("#TaixuEditorViewHolder", nullptr, IMGUI_WINDOW_FLAG);
+    //     _dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
+    //     ImGui::DockSpace(_dock_space_id, ImVec2{0.0f, 0.0f},
+    //                      IMGUI_DOCKSPACE_FLAGS);
+    // }
+    //
+    // static bool succ = false;
+    //
+    // for (const auto& comp : _components) {
+    //     // render the components
+    //     switch (comp.component_type) {
+    //         case EnumImguiComponentType::WIDGET:
+    //             succ = ImGui::Begin(comp.name.data(), comp.open, comp.flags);
+    //             break;
+    //         case EnumImguiComponentType::MENUBAR:
+    //             succ = ImGui::BeginMenuBar();
+    //             break;
+    //         default:
+    //             ERROR_LOG("Unsupported component type, {}", comp.name);
+    //     }
+    //
+    //     if (succ) {
+    //         if (comp.update_func != nullptr) { comp.update_func(); }
+    //         switch (comp.component_type) {
+    //             case EnumImguiComponentType::WIDGET:
+    //                 ImGui::End();
+    //                 break;
+    //             case EnumImguiComponentType::MENUBAR:
+    //                 ImGui::EndMenuBar();
+    //                 break;
+    //             default:
+    //                 ERROR_LOG("Unsupported component type, {}", comp.name);
+    //         }
+    //         if (comp.end_call_back != nullptr) { comp.end_call_back(); }
+    //     }
+    // }
+    //
+    // if (_is_editor_mode) { ImGui::End(); }
 
     ImGui::Render();
     imguiGraphicsUpdate();
@@ -231,11 +238,6 @@ void AbstractSceneRenderer::imguiDestroy() {
     imguiGraphicsDestroy();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
-}
-
-void AbstractSceneRenderer::addComponent(
-        const ImGuiComponentInfo& imgui_component) {
-    _components.emplace_back(imgui_component);
 }
 
 }// namespace taixu

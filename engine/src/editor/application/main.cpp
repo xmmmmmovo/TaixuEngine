@@ -22,10 +22,7 @@ int main(const int argc, char* argv[]) try {
     using namespace taixu::editor;
 
     // avoid c-style array
-    std::vector<std::string> args(argv, argv + argc);
-
-    static constexpr auto EDITOR_ARG = "--editor"sv;
-    args.emplace_back(EDITOR_ARG);
+    std::vector<std::string> const args(argv, argv + argc);
 
     taixu::g_engine.initRuntime(args);
 

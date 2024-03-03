@@ -15,6 +15,10 @@ void Engine::initRuntime(std::vector<std::string> const& args) {
     Logger::init();
     INFO_LOG("Logger inited, start init engine");
     _engine_args.initWithArgs(args);
+
+    if (!_engine_args.project_path().empty()) {
+        loadProject(_engine_args.project_path());
+    }
 }
 
 void Engine::initWithWindow(Window* window) {

@@ -32,7 +32,6 @@ struct ViewModel {
     ImGuizmo::OPERATION guizmo_operation{ImGuizmo::OPERATION::TRANSLATE};
 
     bool                                    is_entity_selected{false};
-    std::vector<HierarchyNode<std::string>> useful_objs_hierarchy{};
 };
 
 }// namespace taixu::editor

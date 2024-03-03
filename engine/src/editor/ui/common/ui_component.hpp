@@ -19,17 +19,9 @@ class AbstractUIComponent : Noncopyable {
 protected:
     ViewModel* _view_model{nullptr};
 
-    ImGuiComponentInfo const _component_info{};
-    TX_INLINE static bool    enable{false};
-
 public:
-    explicit AbstractUIComponent(ViewModel*                view_model,
-                                 ImGuiComponentInfo const& component_info)
-        : _view_model(view_model), _component_info(component_info) {}
-
-    [[nodiscard]] ImGuiComponentInfo const& getComponentInfo() const {
-        return _component_info;
-    }
+    explicit AbstractUIComponent(ViewModel* view_model)
+        : _view_model(view_model) {}
 };
 
 }// namespace taixu::editor

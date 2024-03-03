@@ -6,40 +6,12 @@
 #include "imgui.h"
 
 #include "management/scene/tx_scene_renderer.hpp"
+#include "ui/common/dialog_helper.hpp"
 #include "ui/common/editor_context.hpp"
 
 #include <utility>
 
 namespace taixu::editor {
-
-void MainWindow::buildUpUsefulObjHierarchy() {
-    _view_model.useful_objs_hierarchy = {
-            {
-                    .name = "Objects",
-                    .data = "",
-                    .children =
-                            {
-                                    {
-                                            .name     = "Cube",
-                                            .children = {},
-                                    },
-                                    {
-                                            .name     = "Sphere",
-                                            .children = {},
-                                    },
-                            },
-            },
-            {.name     = "Lights",
-             .data     = "",
-             .children = {{
-                                  .name     = "PointLight",
-                                  .children = {},
-                          },
-                          {
-                                  .name     = "DirectionalLight",
-                                  .children = {},
-                          }}}};
-}
 
 void MainWindow::buildUpPathHierarchy() {
     _view_model.selected_path = "";
@@ -68,6 +40,7 @@ void MainWindow::init() {
 
     g_engine.initWithWindow(_window_ptr.get());
 
+    g_engine.renderer->enableImgui([this] { this->imguiUpdate(); });
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
     //                if (button == GLFW_MOUSE_BUTTON_RIGHT && action ==
@@ -88,8 +61,6 @@ void MainWindow::init() {
     //                }
     //            });
 
-    g_engine.renderer->addComponent(menu_component.getComponentInfo());
-
     INFO_LOG("Main _window init finished!");
 }
 
@@ -108,6 +79,22 @@ bool MainWindow::isCursorInRenderComponent() const {
 }
 
 void MainWindow::update() {}
+
+void MainWindow::imguiUpdate() {
+    ImGui::Begin(VIEW_HOLDER_NAME.data(), nullptr, IMGUI_WINDOW_FLAG);
+    _dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
+    ImGui::DockSpace(_dock_space_id, ImVec2{0.0f, 0.0f}, IMGUI_DOCKSPACE_FLAGS);
+
+    if (g_engine.opened_project == nullptr) {
+        openFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(), DIRECTORY_CONFIG);
+        displayAndProcessFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(),
+                                    EnumCallbacks::MENU_FILE_OPEN_PROJECT);
+    } else {
+        menu_component.update();
+    }
+
+    ImGui::End();
+}
 
 void MainWindow::start() const {
     g_engine.beforeStart();

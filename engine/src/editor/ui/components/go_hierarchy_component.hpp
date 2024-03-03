@@ -21,11 +21,7 @@ private:
 
 public:
     explicit GoHierarchyComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model,
-                              {.name           = WORLD_OBJ_COMPONENT_NAME,
-                               .component_type = EnumImguiComponentType::WIDGET,
-                               .update_func    = [this]() { this->update(); },
-                               .end_call_back  = nullptr}) {}
+        : AbstractUIComponent(view_model) {}
 
     void update() {
         //        if (_view_model->engine_runtime_ptr->getScene() == nullptr) {

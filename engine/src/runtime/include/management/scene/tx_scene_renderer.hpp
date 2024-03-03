@@ -41,8 +41,6 @@ struct ImguiStyleGroup {
 };
 
 class AbstractSceneRenderer : private Noncopyable {
-    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(protected, bool, enable_imgui, true);
-
 protected:
     TXShaderModuleManager _shader_module_manager;
 
@@ -59,32 +57,16 @@ protected:
      */
     ImGuiStyle* _style{nullptr};
 
-    /**
-     * @brief ImGui component 集合
-     */
-    std::vector<ImGuiComponentInfo> _components{};
-
-    /**
-     * @brief 判断是否是editor模式
-     */
-    bool    _is_editor_mode{false};
-    ImGuiID _dock_space_id{0};
-
-    static constexpr ImGuiWindowFlags IMGUI_WINDOW_FLAG{
-            ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking |
-            ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse |
-            ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
-            ImGuiWindowFlags_NoBringToFrontOnFocus |
-            ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground};
-    static constexpr ImGuiDockNodeFlags IMGUI_DOCKSPACE_FLAGS{
-            ImGuiDockNodeFlags_None ^ ImGuiDockNodeFlags_PassthruCentralNode};
-
-    static constexpr std::string_view DOCK_SPACE_NAME{"TaixuEditorDock"};
+    std::function<void()> _imgui_update{nullptr};
+    bool                  _enable_imgui{true};
 
 public:
     void init(Window* window);
     void update(float delta_time, Scene* scene);
     void destroy();
+
+    void enableImgui(const std::function<void()>& update_func);
+    void disableImgui();
 
 private:
     void        loadFont() const;
@@ -110,16 +92,6 @@ protected:
     virtual void presentToWindow() = 0;
 
     virtual void destroyGraphicsAPI() = 0;
-
-public:
-    /**
-     * @brief add widget to the surface
-     * @param imgui_component imgui component add.
-     * @see
-     * https://pixtur.github.io/mkdocs-for-imgui/site/api-imgui/Flags---Enumerations/
-     * @see tests/benchmarks/function_transfer_benchmark.hpp
-     */
-    void addComponent(const ImGuiComponentInfo& imgui_component);
 };
 
 }// namespace taixu

@@ -23,16 +23,41 @@ private:
     static std::string_view constexpr USEFUL_OBJ_COMPONENT_NAME{
             "Useful Objects"};
 
+    static constexpr std::array<HierarchyNode<std::string>, 2>
+            useful_objs_hierarchy{
+                    {{
+                             .name = "Objects",
+                             .data = "",
+                             .children =
+                                     {
+                                             {
+                                                     .name     = "Cube",
+                                                     .children = {},
+                                             },
+                                             {
+                                                     .name     = "Sphere",
+                                                     .children = {},
+                                             },
+                                     },
+                     },
+                     {.name     = "Lights",
+                      .data     = "",
+                      .children = {{
+                                           .name     = "PointLight",
+                                           .children = {},
+                                   },
+                                   {
+                                           .name     = "DirectionalLight",
+                                           .children = {},
+                                   }}}}};
+
+
 public:
     explicit UsefulObjectComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model,
-                              {.name           = USEFUL_OBJ_COMPONENT_NAME,
-                               .component_type = EnumImguiComponentType::WIDGET,
-                               .update_func    = [this]() { this->update(); },
-                               .end_call_back  = nullptr}) {}
+        : AbstractUIComponent(view_model) {}
 
     void update() {
-        for (auto& obj : _view_model->useful_objs_hierarchy) {
+        for (auto& obj : useful_objs_hierarchy) {
             if (ImGui::TreeNodeEx(obj.name.c_str(), parent_flags)) {
                 for (auto& child : obj.children) {
                     ImGui::TreeNodeEx(child.name.c_str(), leaf_flags);

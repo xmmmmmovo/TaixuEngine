@@ -13,7 +13,6 @@
 // "" headers
 #include "gameplay/gui/window.hpp"
 #include "ui/common/view_model.hpp"
-#include "ui/components/console_component.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
 #include "ui/components/go_hierarchy_component.hpp"
@@ -26,13 +25,16 @@ namespace taixu::editor {
 
 class MainWindow {
 private:
+    static constexpr std::string_view STARTUP_OPEN_PROJECT_DLG_KEY =
+            "startup_open_project_file_dlg";
+
+private:
     // components
     MenuComponent         menu_component{&_view_model};
     RenderComponent       render_component{&_view_model};
     GoHierarchyComponent  world_object_component{&_view_model};
     DetailComponent       detail_component{&_view_model};
     FileComponent         file_component{&_view_model};
-    ConsoleComponent      status_component{&_view_model};
     UsefulObjectComponent useful_obj_component{&_view_model};
     StatusBarComponent    status_bar_component{&_view_model};
 
@@ -43,17 +45,27 @@ private:
 
 private:
     /**
-     * 一些const代码
+     * window相关flag
      */
-    static constexpr ImGuiWindowFlags DOCK_SPACE_FLAGS =
-            ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar |
-            ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
-            ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBackground |
-            ImGuiConfigFlags_NoMouseCursorChange |
-            ImGuiWindowFlags_NoBringToFrontOnFocus;
+    static constexpr ImGuiWindowFlags IMGUI_WINDOW_FLAG{
+            ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking |
+            ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse |
+            ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
+            ImGuiWindowFlags_NoBringToFrontOnFocus |
+            ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground};
+    /**
+     * DockSpace相关flag
+     */
+    static constexpr ImGuiDockNodeFlags IMGUI_DOCKSPACE_FLAGS{
+            ImGuiDockNodeFlags_None ^ ImGuiDockNodeFlags_PassthruCentralNode};
+
+    static constexpr std::string_view VIEW_HOLDER_NAME{
+            "#TaixuEditorViewHolder"};
+    static constexpr std::string_view DOCK_SPACE_NAME{"TaixuEditorDock"};
+
+    ImGuiID _dock_space_id{0};
 
 private:
-    void buildUpUsefulObjHierarchy();
     void buildUpPathHierarchy();
 
 public:
@@ -61,6 +73,7 @@ public:
 
     void init();
     void update();
+    void imguiUpdate();
     void destroy() const;
 
     void start() const;

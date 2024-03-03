@@ -5,9 +5,6 @@
 #ifndef ENGINE_EDITOR_UI_COMPONENTS_MENU_COMPONENT
 #define ENGINE_EDITOR_UI_COMPONENTS_MENU_COMPONENT
 
-#include "imgui.h"
-#include "imgui/file-dialog/ImGuiFileDialog.h"
-#include "platform/os/path.hpp"
 #include "ui/common/editor_context.hpp"
 #include "ui/common/ui_component.hpp"
 
@@ -31,6 +28,7 @@ private:
     static constexpr std::string_view FILE_OPEN_PROJECT_DLG_KEY =
             "file_open_project";
 
+
 public:
     explicit MenuComponent(ViewModel* view_model);
 
@@ -40,11 +38,10 @@ private:
     static void buildWindowMenu();
     static void buildHelpMenu();
 
-    static void update();
     static void endUpdate();
 
-    static void onDialogOpen(std::string_view const& key,
-                             EnumCallbacks           enum_callback);
+public:
+    static void update();
 };
 
 }// namespace taixu::editor
