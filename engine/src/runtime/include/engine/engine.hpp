@@ -29,17 +29,17 @@ private:
     EnumEngineState _state{EnumEngineState::IDLEMODE};
     EngineArgs      _engine_args{};
 
-public:
-    std::shared_ptr<AbstractSceneRenderer> renderer{nullptr};
-    std::shared_ptr<AssetManager>          asset_manager{nullptr};
-    std::shared_ptr<Scene>                 scene{nullptr};
-
-    std::shared_ptr<Project> opened_project{nullptr};
+    std::shared_ptr<Project> _opened_project{nullptr};
 
     /**
      * @brief hold window from init function
      */
     Window* _window{nullptr};
+
+public:
+    std::shared_ptr<AbstractSceneRenderer> renderer{nullptr};
+    std::shared_ptr<AssetManager>          asset_manager{nullptr};
+    std::shared_ptr<Scene>                 scene{nullptr};
 
 public:
     void initRuntime(std::vector<std::string> const& args);
@@ -57,6 +57,7 @@ public:
     void changeEngineState(EnumEngineState state);
 
     bool loadProject(std::filesystem::path const& path);
+    std::shared_ptr<const Project> const& getOpenedProject();
 };
 
 extern Engine g_engine;

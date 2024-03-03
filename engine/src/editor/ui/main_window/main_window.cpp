@@ -85,7 +85,7 @@ void MainWindow::imguiUpdate() {
     _dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
     ImGui::DockSpace(_dock_space_id, ImVec2{0.0f, 0.0f}, IMGUI_DOCKSPACE_FLAGS);
 
-    if (g_engine.opened_project == nullptr) {
+    if (g_engine.getOpenedProject() == nullptr) {
         openFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(), DIRECTORY_CONFIG);
         displayAndProcessFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(),
                                     EnumCallbacks::MENU_FILE_OPEN_PROJECT);

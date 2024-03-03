@@ -13,11 +13,11 @@ namespace taixu::editor {
 MenuComponent::MenuComponent(ViewModel* view_model)
     : AbstractUIComponent(view_model) {
     registerCallback(EnumCallbacks::MENU_FILE_NEW_PROJECT,
-                     Handler{+[](std::string const& file_path) {
-
-                     }});
-    registerCallback(EnumCallbacks::MENU_FILE_OPEN_PROJECT,
                      Handler{+[](std::string const& file_path) {}});
+    registerCallback(EnumCallbacks::MENU_FILE_OPEN_PROJECT,
+                     Handler{+[](std::string const& file_path) {
+                         g_engine.loadProject(file_path);
+                     }});
     registerCallback(EnumCallbacks::MENU_FILE_SAVE_PROJECT, Handler{+[] {}});
     registerCallback(EnumCallbacks::MENU_FILE_EXIT, Handler{+[] {}});
 }
