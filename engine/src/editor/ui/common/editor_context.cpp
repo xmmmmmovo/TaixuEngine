@@ -17,7 +17,7 @@ bool registerCallback(const EnumCallbacks callback_enum,
                   magic_enum::enum_name(callback_enum));
         return false;
     }
-    INFO_LOG("Registered callback for {} successful.",
+    INFO_LOG("Register callback for {} successful.",
              magic_enum::enum_name(callback_enum));
     return true;
 }

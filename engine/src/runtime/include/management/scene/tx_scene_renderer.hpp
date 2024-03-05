@@ -8,11 +8,11 @@
 #include "common/base/macro.hpp"
 #include "common/designs/noncopyable.hpp"
 #include "common/math/color.hpp"
+#include "gameplay/gui/window.hpp"
 #include "management/gpu/shader_manager.hpp"
 
 namespace taixu {
 
-class Window;
 class Scene;
 
 enum class EnumImguiComponentType : std::uint8_t { WIDGET, MENUBAR };
@@ -69,8 +69,8 @@ public:
     void disableImgui();
 
 private:
-    void        loadFont() const;
-    void        loadStyle();
+    void        loadFont(DPIScale const& dpi_scale) const;
+    void        loadStyle(DPIScale const& dpi_scale);
     static void initImguiForWindow(const Window* window);
     void        initImgui(const Window* window);
     void        imguiUpdate();

@@ -10,6 +10,16 @@
 
 namespace taixu::editor {
 
+static constexpr std::string_view FILE_MENU_KEY   = "File";
+static constexpr std::string_view EDIT_MENU_KEY   = "Edit";
+static constexpr std::string_view WINDOW_MENU_KEY = "Window";
+static constexpr std::string_view HELP_MENU_KEY   = "Help";
+
+static constexpr std::string_view FILE_NEW_PROJECT_DLG_KEY =
+        "file_new_project";
+static constexpr std::string_view FILE_OPEN_PROJECT_DLG_KEY =
+        "file_open_project";
+
 MenuComponent::MenuComponent(ViewModel* view_model)
     : AbstractUIComponent(view_model) {
     registerCallback(EnumCallbacks::MENU_FILE_NEW_PROJECT,
@@ -19,7 +29,9 @@ MenuComponent::MenuComponent(ViewModel* view_model)
                          g_engine.loadProject(file_path);
                      }});
     registerCallback(EnumCallbacks::MENU_FILE_SAVE_PROJECT, Handler{+[] {}});
-    registerCallback(EnumCallbacks::MENU_FILE_EXIT, Handler{+[] {}});
+    registerCallback(EnumCallbacks::MENU_FILE_EXIT, Handler{+[] {
+
+    }});
 }
 
 void MenuComponent::buildFileMenu() {

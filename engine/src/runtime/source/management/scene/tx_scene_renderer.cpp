@@ -54,10 +54,10 @@ void AbstractSceneRenderer::enableImgui(
 }
 void AbstractSceneRenderer::disableImgui() { _enable_imgui = false; }
 
-void AbstractSceneRenderer::loadFont() const {
+void AbstractSceneRenderer::loadFont(DPIScale const& dpi_scale) const {
     _io->Fonts->AddFontDefault();
 
-    static constexpr float FONT_SIZE{28.0f};
+    static constexpr float FONT_SIZE{24.0f};
     // add source hans font
     // Default + Selection of 2500 Ideographs used by Simplified Chinese
     const auto             font = _io->Fonts->AddFontFromMemoryCompressedTTF(
@@ -69,17 +69,19 @@ void AbstractSceneRenderer::loadFont() const {
 
     // merge in icons from Font Awesome
     static constexpr std::array<ImWchar, 3> K_ICONS_RANGES{ICON_MIN_LC,
-                                                           ICON_MAX_16_LC, 0};
-    static constexpr float                  ICONFONT_SIZE{16.0f};
+                                                           ICON_MAX_LC, 0};
+    static constexpr float                  ICONFONT_SIZE{24.0f};
     ImFontConfig                            icons_config;
     icons_config.MergeMode  = true;
     icons_config.PixelSnapH = true;
     _io->Fonts->AddFontFromMemoryCompressedBase85TTF(
             lucide_iconfont_compressed_data_base85, ICONFONT_SIZE,
             &icons_config, K_ICONS_RANGES.data());
+
+    _io->FontGlobalScale = dpi_scale.x_scale;
 }
 
-void AbstractSceneRenderer::loadStyle() {
+void AbstractSceneRenderer::loadStyle(DPIScale const& dpi_scale) {
     ImGui::StyleColorsDark();
 
     _style = &ImGui::GetStyle();
@@ -149,6 +151,8 @@ void AbstractSceneRenderer::loadStyle() {
     _style->Colors[ImGuiCol_ButtonHovered]        = HOVER_SECONDARY;
     _style->Colors[ImGuiCol_ButtonActive]         = HIGHLIGHT_SECONDARY;
     _style->Colors[ImGuiCol_ModalWindowDimBg]     = MODAL_DIM;
+
+    _style->ScaleAllSizes(dpi_scale.x_scale);
 }
 
 void AbstractSceneRenderer::initImguiForWindow(const Window* window) {
@@ -167,8 +171,8 @@ void AbstractSceneRenderer::initImgui(const Window* window) {
             ImGuiConfigFlags_ViewportsEnable;// Enable Multi-Viewport
     // Platform Windows
 
-    loadFont();
-    loadStyle();
+    loadFont(window->dpi_scale());
+    loadStyle(window->dpi_scale());
 
     initImguiForWindow(window);
     imguiForGraphicsAPIInit();
@@ -185,46 +189,6 @@ void AbstractSceneRenderer::imguiUpdate() {
     ImGui::SetNextWindowViewport(viewport->ID);
 
     _imgui_update();
-
-    // if (_is_editor_mode) {
-    //     ImGui::Begin("#TaixuEditorViewHolder", nullptr, IMGUI_WINDOW_FLAG);
-    //     _dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
-    //     ImGui::DockSpace(_dock_space_id, ImVec2{0.0f, 0.0f},
-    //                      IMGUI_DOCKSPACE_FLAGS);
-    // }
-    //
-    // static bool succ = false;
-    //
-    // for (const auto& comp : _components) {
-    //     // render the components
-    //     switch (comp.component_type) {
-    //         case EnumImguiComponentType::WIDGET:
-    //             succ = ImGui::Begin(comp.name.data(), comp.open, comp.flags);
-    //             break;
-    //         case EnumImguiComponentType::MENUBAR:
-    //             succ = ImGui::BeginMenuBar();
-    //             break;
-    //         default:
-    //             ERROR_LOG("Unsupported component type, {}", comp.name);
-    //     }
-    //
-    //     if (succ) {
-    //         if (comp.update_func != nullptr) { comp.update_func(); }
-    //         switch (comp.component_type) {
-    //             case EnumImguiComponentType::WIDGET:
-    //                 ImGui::End();
-    //                 break;
-    //             case EnumImguiComponentType::MENUBAR:
-    //                 ImGui::EndMenuBar();
-    //                 break;
-    //             default:
-    //                 ERROR_LOG("Unsupported component type, {}", comp.name);
-    //         }
-    //         if (comp.end_call_back != nullptr) { comp.end_call_back(); }
-    //     }
-    // }
-    //
-    // if (_is_editor_mode) { ImGui::End(); }
 
     ImGui::Render();
     imguiGraphicsUpdate();

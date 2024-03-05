@@ -30,13 +30,13 @@ private:
 
 private:
     // components
-    MenuComponent         menu_component{&_view_model};
-    RenderComponent       render_component{&_view_model};
-    GoHierarchyComponent  world_object_component{&_view_model};
-    DetailComponent       detail_component{&_view_model};
-    FileComponent         file_component{&_view_model};
-    UsefulObjectComponent useful_obj_component{&_view_model};
-    StatusBarComponent    status_bar_component{&_view_model};
+    MenuComponent         _menu_component{&_view_model};
+    RenderComponent       _render_component{&_view_model};
+    GoHierarchyComponent  _world_object_component{&_view_model};
+    DetailComponent       _detail_component{&_view_model};
+    FileComponent         _file_component{&_view_model};
+    UsefulObjectComponent _useful_obj_component{&_view_model};
+    StatusBarComponent    _status_bar_component{&_view_model};
 
 private:
     ViewModel _view_model{};

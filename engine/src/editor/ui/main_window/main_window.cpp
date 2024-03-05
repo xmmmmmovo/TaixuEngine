@@ -14,23 +14,23 @@
 namespace taixu::editor {
 
 void MainWindow::buildUpPathHierarchy() {
-    _view_model.selected_path = "";
-    _view_model.selected_node = nullptr;
-
-    _view_model.path_hierarchy.clear();
-    for (auto& directory_entry :
-         std::filesystem::directory_iterator(_view_model.project_path)) {
-        const auto& path = directory_entry.path();
-        if (path.filename() == ".git" || path.filename() == ".gitignore") {
-            continue;
-        }
-        if (directory_entry.is_directory()) {
-            _view_model.path_hierarchy.push_back(
-                    {.name = path.filename().generic_string(),
-                     .data = getRelativePath(_view_model.project_path, path),
-                     .children = {}});
-        }
-    }
+    // _view_model.selected_path = "";
+    // _view_model.selected_node = nullptr;
+    //
+    // _view_model.path_hierarchy.clear();
+    // for (auto& directory_entry :
+    //      std::filesystem::directory_iterator(_view_model.project_path)) {
+    //     const auto& path = directory_entry.path();
+    //     if (path.filename() == ".git" || path.filename() == ".gitignore") {
+    //         continue;
+    //     }
+    //     if (directory_entry.is_directory()) {
+    //         _view_model.path_hierarchy.push_back(
+    //                 {.name     = path.filename().generic_string(),
+    //                  .children = {},
+    //                  .data = getRelativePath(_view_model.project_path, path)});
+    //     }
+    // }
 }
 
 void MainWindow::init() {
@@ -90,7 +90,8 @@ void MainWindow::imguiUpdate() {
         displayAndProcessFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(),
                                     EnumCallbacks::MENU_FILE_OPEN_PROJECT);
     } else {
-        menu_component.update();
+        MenuComponent::update();
+        UsefulObjectComponent::update();
     }
 
     ImGui::End();

@@ -24,11 +24,18 @@ private:
     CpuClock _clock{};
 
     /**
-     * @brief editor state
+     * @brief Engine状态
      */
     EnumEngineState _state{EnumEngineState::IDLEMODE};
-    EngineArgs      _engine_args{};
 
+    /**
+     * 保存engine的参数
+     */
+    EngineArgs _engine_args{};
+
+    /**
+     * 已经打开的项目，如果没有就是null
+     */
     std::shared_ptr<Project> _opened_project{nullptr};
 
     /**

@@ -8,30 +8,55 @@
 #include <filesystem>
 #include <string>
 
-#include "imgui/imzmo/ImGuizmo.h"
+#include <imgui.h>
 
-#include "engine/engine.hpp"
+#include "imgui/imzmo/ImGuizmo.h"
 
 namespace taixu::editor {
 
-template<typename Data>
 struct HierarchyNode {
-    std::string                      name{};
-    bool                             expanded{false};
-    Data                             data{};
-    std::vector<HierarchyNode<Data>> children{};
+    std::string name{};
+};
+
+template<typename DataT>
+struct HierarchyDataNode : public HierarchyNode {
+    DataT data{};
+};
+
+template<typename ChildT>
+struct ChildrensHierarchyNode : public HierarchyNode {
+    std::vector<ChildT> childerns{};
+    bool                expanded{false};
+};
+
+template<typename ChildT, typename DataT>
+struct ChildrensHierarchyDataNode : public HierarchyDataNode<DataT> {
+    std::vector<ChildT> childerns{};
+    bool                expanded{false};
+};
+
+template<typename ChildT, size_t ArrSize>
+struct ChildrensArrayHierarchyNode : public HierarchyNode {
+    std::array<ChildT, ArrSize> childerns{};
+    bool                        expanded{false};
+};
+
+template<typename ChildT, size_t ArrSize, typename DataT>
+struct ChildrensArrayHierarchyDataNode : public HierarchyDataNode<DataT> {
+    std::array<ChildT, ArrSize> childerns{};
+    bool                        expanded{false};
 };
 
 struct ViewModel {
-    std::filesystem::path                             project_path{};
-    std::filesystem::path                             selected_path{};
-    HierarchyNode<std::filesystem::path>*             selected_node{nullptr};
-    std::vector<HierarchyNode<std::filesystem::path>> path_hierarchy{};
+    std::filesystem::path project_path{};
+    std::filesystem::path selected_path{};
+    // HierarchyNode<std::filesystem::path>*             selected_node{nullptr};
+    // std::vector<HierarchyNode<std::filesystem::path>> path_hierarchy{};
 
     ImGuizmo::MODE      guizmo_mode{ImGuizmo::MODE::LOCAL};
     ImGuizmo::OPERATION guizmo_operation{ImGuizmo::OPERATION::TRANSLATE};
 
-    bool                                    is_entity_selected{false};
+    bool is_entity_selected{false};
 };
 
 }// namespace taixu::editor
