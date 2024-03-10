@@ -29,18 +29,18 @@ private:
             "startup_open_project_file_dlg";
 
 private:
-    // components
-    MenuComponent         _menu_component{&_view_model};
-    RenderComponent       _render_component{&_view_model};
-    GoHierarchyComponent  _world_object_component{&_view_model};
-    DetailComponent       _detail_component{&_view_model};
-    FileComponent         _file_component{&_view_model};
-    UsefulObjectComponent _useful_obj_component{&_view_model};
-    StatusBarComponent    _status_bar_component{&_view_model};
-
-private:
     ViewModel _view_model{};
 
+    // components
+    MenuComponent         _menu_component{_view_model};
+    RenderComponent       _render_component{_view_model};
+    GoHierarchyComponent  _world_object_component{_view_model};
+    DetailComponent       _detail_component{_view_model};
+    FileComponent         _file_component{_view_model};
+    UsefulObjectComponent _useful_obj_component{_view_model};
+    StatusBarComponent    _status_bar_component{_view_model};
+
+private:
     std::unique_ptr<Window> _window_ptr{nullptr};
 
 private:

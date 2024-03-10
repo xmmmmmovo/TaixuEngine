@@ -6,12 +6,13 @@
 
 #include "common/log/logger.hpp"
 #include "resource/json/json_parser.hpp"
-#include "resource/res_type/json_data/project.hpp"
+#include "resource/json_data/manifest_json.hpp"
+#include "resource/json_data/project_json.hpp"
 
 namespace taixu {
 
-std::shared_ptr<Project> openProject(std::filesystem::path const& path) {
-    std::shared_ptr<Project> project = std::make_shared<Project>();
+std::unique_ptr<Project> openProject(std::filesystem::path const& path) {
+    std::unique_ptr<Project> project = std::make_unique<Project>();
 
     static constexpr std::string_view MANIFEST_NAME = "manifest.json";
 
@@ -28,7 +29,7 @@ std::shared_ptr<Project> openProject(std::filesystem::path const& path) {
     return project;
 }
 
-std::shared_ptr<Project> createProject(std::filesystem::path const& path,
+std::unique_ptr<Project> createProject(std::filesystem::path const& path,
                                        std::string const&           name,
                                        std::string const&           author,
                                        std::string const& description) {

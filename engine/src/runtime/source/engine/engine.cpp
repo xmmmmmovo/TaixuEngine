@@ -7,7 +7,6 @@
 #include "management/scene/scene.hpp"
 #include "resource/helper/project_helper.hpp"
 #include "resource/manager/asset_manager.hpp"
-#include "resource/res_type/json_data/project.hpp"
 
 namespace taixu {
 
@@ -17,10 +16,6 @@ void Engine::initRuntime(std::vector<std::string> const& args) {
     Logger::init();
     INFO_LOG("Logger inited, start init engine");
     _engine_args.initWithArgs(args);
-
-    if (!_engine_args.project_path().empty()) {
-        loadProject(_engine_args.project_path());
-    }
 }
 
 void Engine::initWithWindow(Window* window) {
@@ -59,8 +54,8 @@ bool Engine::loadProject(std::filesystem::path const& path) {
     return true;
 }
 
-std::shared_ptr<const Project> const& Engine::getOpenedProject() {
-    return _opened_project;
+Project const* Engine::getOpenedProject() const {
+    return _opened_project.get();
 }
 
 }// namespace taixu

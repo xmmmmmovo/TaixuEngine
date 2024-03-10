@@ -2,8 +2,7 @@
 // Created by xmmmmmovo on 2023/2/26.
 //
 
-#ifndef TAIXUENGINE_SRC_RUNTIME_RESOURCE_SERIALIZABLE_HPP
-#define TAIXUENGINE_SRC_RUNTIME_RESOURCE_SERIALIZABLE_HPP
+#pragma once
 
 #include <refl.hpp>
 
@@ -17,5 +16,3 @@ class ISerializableObject : refl::attr::usage::field {};
 class ISerializableList : refl::attr::usage::field {};
 
 }// namespace taixu
-
-#endif// TAIXUENGINE_SRC_RUNTIME_RESOURCE_SERIALIZABLE_HPP

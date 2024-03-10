@@ -15,7 +15,7 @@ namespace taixu::editor {
 class MenuComponent final : public AbstractUIComponent {
 
 public:
-    explicit MenuComponent(ViewModel* view_model);
+    explicit MenuComponent(ViewModel& view_model);
 
 private:
     static void buildFileMenu();
@@ -23,10 +23,10 @@ private:
     static void buildWindowMenu();
     static void buildHelpMenu();
 
-    static void endUpdate();
+    void endUpdate() const;
 
 public:
-    static void update();
+    void update() const;
 };
 
 }// namespace taixu::editor

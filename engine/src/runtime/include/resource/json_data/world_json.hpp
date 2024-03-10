@@ -9,7 +9,7 @@
 
 #include <vector>
 
-#include "resource/json/serializable.hpp"
+#include "resource/json/json_serializable.hpp"
 
 namespace taixu {
 

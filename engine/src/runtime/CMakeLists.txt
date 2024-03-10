@@ -39,10 +39,11 @@ endif ()
 # public link
 target_link_libraries(${TARGET_NAME} PRIVATE stb)
 target_link_libraries(${TARGET_NAME} PRIVATE simdjson Threads::Threads freetype glfw)
-target_link_libraries(${TARGET_NAME} PRIVATE refl-cpp::refl-cpp assimp)
+target_link_libraries(${TARGET_NAME} PRIVATE assimp)
 target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
 
-target_link_libraries(${TARGET_NAME} PUBLIC imgui spdlog::spdlog fmt::fmt magic_enum::magic_enum glm)
+target_link_libraries(${TARGET_NAME} PUBLIC refl-cpp::refl-cpp imgui
+        spdlog::spdlog fmt::fmt magic_enum::magic_enum glm)
 
 if (USE_VULKAN)
     add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)

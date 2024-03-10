@@ -6,11 +6,11 @@
 /**
  * @brief Main window width
  */
-static constexpr int32_t          MAIN_WINDOW_WIDTH  = 1920;
+static constexpr int32_t          MAIN_WINDOW_WIDTH  = 2560;
 /**
  * @brief Main window height
  */
-static constexpr int32_t          MAIN_WINDOW_HEIGHT = 1080;
+static constexpr int32_t          MAIN_WINDOW_HEIGHT = 1440;
 /**
  * @brief Main window title
  */

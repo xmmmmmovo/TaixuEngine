@@ -14,6 +14,7 @@ void openFileDialog(std::string_view const&       key,
 }
 
 void displayAndProcessFileDialog(std::string_view const& key,
+                                 ViewModel&              view_model,
                                  const EnumCallbacks     callback_key) {
     if (ImGuiFileDialog::Instance()->Display(key.data())) {
         // action if OK
@@ -22,7 +23,7 @@ void displayAndProcessFileDialog(std::string_view const& key,
                     ImGuiFileDialog::Instance()->GetCurrentPath();
             // action
             DEBUG_LOG("Select path: {}", file_path);
-            invokeCallback(callback_key, file_path);
+            invokeCallback(callback_key, file_path, view_model);
         }
 
         // close

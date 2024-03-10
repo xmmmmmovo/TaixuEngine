@@ -7,6 +7,7 @@
 #include "editor_context.hpp"
 #include "imgui/file_dialog/ImGuiFileDialog.h"
 #include "platform/os/path.hpp"
+#include "view_model.hpp"
 
 namespace taixu::editor {
 
@@ -20,6 +21,7 @@ void openFileDialog(std::string_view const&       key,
                     IGFD::FileDialogConfig const& config);
 
 void displayAndProcessFileDialog(std::string_view const& key,
+                                 ViewModel&              view_model,
                                  EnumCallbacks           callback_key);
 
 }// namespace taixu::editor

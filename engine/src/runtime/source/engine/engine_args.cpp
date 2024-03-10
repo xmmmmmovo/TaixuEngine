@@ -23,7 +23,7 @@ void EngineArgs::registerWithArgs() { registerRendererFactory(); }
 
 void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
     INFO_LOG("Loading engine arguments...");
-    argparse::ArgumentParser program("TaixuEngineEditor");
+    argparse::ArgumentParser program("TaixuEngineRuntime");
 
     program.add_argument(IMMEDIATE_RENDER_ARG)
             .help("Is use immediate rendering mode")

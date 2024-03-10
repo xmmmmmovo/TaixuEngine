@@ -48,6 +48,9 @@ concept IsClass = std::is_class_v<T>;
 template<typename T>
 concept IsUnion = std::is_union_v<T>;
 
+template<typename T>
+using SameT = T;
+
 }// namespace taixu
 
 #endif// TYPE_UTILS_HPP_F632F579D1484A6BB335C3B82355AAB3

@@ -12,7 +12,7 @@ namespace taixu::editor {
 
 class UsefulObjectComponent final : public AbstractUIComponent {
 public:
-    explicit UsefulObjectComponent(ViewModel* view_model)
+    explicit UsefulObjectComponent(ViewModel& view_model)
         : AbstractUIComponent(view_model) {}
 
     static void update();

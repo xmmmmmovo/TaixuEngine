@@ -28,7 +28,8 @@ void MainWindow::buildUpPathHierarchy() {
     //         _view_model.path_hierarchy.push_back(
     //                 {.name     = path.filename().generic_string(),
     //                  .children = {},
-    //                  .data = getRelativePath(_view_model.project_path, path)});
+    //                  .data = getRelativePath(_view_model.project_path,
+    //                  path)});
     //     }
     // }
 }
@@ -41,6 +42,21 @@ void MainWindow::init() {
     g_engine.initWithWindow(_window_ptr.get());
 
     g_engine.renderer->enableImgui([this] { this->imguiUpdate(); });
+
+    registerCallback(
+            EnumCallbacks::FILE_OPEN_PROJECT,
+            Handler{+[](std::string const& file_path, ViewModel& view_model) {
+                g_engine.loadProject(file_path);
+                auto& node         = view_model.file_component_hierarchy;
+                node.data.filepath = "";
+                node.data.filename = g_engine.getOpenedProject()
+                                             ->project_path.filename()
+                                             .generic_string();
+                node.data.filetype       = EnumFileEntryType::DIRECTORY;
+                view_model.selected_node = &node;
+                recursiveLoadFileTree(node);
+            }});
+
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
     //                if (button == GLFW_MOUSE_BUTTON_RIGHT && action ==
@@ -86,12 +102,20 @@ void MainWindow::imguiUpdate() {
     ImGui::DockSpace(_dock_space_id, ImVec2{0.0f, 0.0f}, IMGUI_DOCKSPACE_FLAGS);
 
     if (g_engine.getOpenedProject() == nullptr) {
-        openFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(), DIRECTORY_CONFIG);
-        displayAndProcessFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(),
-                                    EnumCallbacks::MENU_FILE_OPEN_PROJECT);
+        if (g_engine.getArgs().project_path().empty()) {
+            openFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(),
+                           DIRECTORY_CONFIG);
+            displayAndProcessFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(),
+                                        _view_model,
+                                        EnumCallbacks::FILE_OPEN_PROJECT);
+        } else {
+            invokeCallback(EnumCallbacks::FILE_OPEN_PROJECT,
+                           g_engine.getArgs().project_path(), _view_model);
+        }
     } else {
-        MenuComponent::update();
+        _menu_component.update();
         UsefulObjectComponent::update();
+        _file_component.update();
     }
 
     ImGui::End();

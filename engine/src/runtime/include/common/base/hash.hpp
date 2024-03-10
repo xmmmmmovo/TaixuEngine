@@ -16,7 +16,7 @@ namespace taixu {
  * @param v
  */
 template<typename T>
-TX_INLINE void hash_combine(std::size_t& seed, const T& v) {
+void hashCombine(std::size_t& seed, const T& v) {
     static constexpr auto OFFSET = 0x9e3779b9;
     seed ^= std::hash<T>{}(v) + OFFSET + (seed << 6) + (seed >> 2);
 }
@@ -29,23 +29,35 @@ TX_INLINE void hash_combine(std::size_t& seed, const T& v) {
  * @param rest
  */
 template<typename T, typename... Ts>
-TX_INLINE void hash_combine(std::size_t& seed, const T& v, Ts... rest) {
-    hash_combine(seed, v);
-    if constexpr (sizeof...(Ts) > 1) { hash_combine(seed, rest...); }
+void hashCombine(std::size_t& seed, const T& v, Ts... rest) {
+    hashCombine(seed, v);
+    if constexpr (sizeof...(Ts) > 1) { hashCombine(seed, rest...); }
 }
 
 using hash32_t = std::uint32_t;
 using hash64_t = std::uint64_t;
 
-// From: https://gist.github.com/Lee-R/3839813
-TX_INLINE constexpr hash32_t fnv1a_32(char const* s, const std::size_t count) {
+/**
+ * 字符串32位hash函数
+ * @param s 需要hash的字符串
+ * @param count 长度
+ * @return hash
+ * @see https://gist.github.com/Lee-R/3839813
+ */
+constexpr hash32_t fnv1a_32(char const* s, const std::size_t count) {
     return ((count ? fnv1a_32(s, count - 1)
                    : 2166136261u)// NOLINT (hicpp-signed-bitwise)
             ^ s[count]) *
-           16777619u;            // NOLINT (hicpp-signed-bitwise)
+           16777619u;// NOLINT (hicpp-signed-bitwise)
 }
 
-TX_INLINE constexpr hash64_t fnv1a_64(char const* s, const std::size_t count) {
+/**
+ * 字符串64位hash函数
+ * @param s 需要hash的字符串
+ * @param count 长度
+ * @return hash
+ */
+constexpr hash64_t fnv1a_64(char const* s, const std::size_t count) {
     return ((count ? fnv1a_64(s, count - 1)
                    : 14695981039346656037ULL)// NOLINT (hicpp-signed-bitwise)
             ^ s[count]) *

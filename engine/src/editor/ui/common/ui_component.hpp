@@ -17,10 +17,10 @@ namespace taixu::editor {
  */
 class AbstractUIComponent : Noncopyable {
 protected:
-    ViewModel* _view_model{nullptr};
+    ViewModel& _view_model;
 
 public:
-    explicit AbstractUIComponent(ViewModel* view_model)
+    explicit AbstractUIComponent(ViewModel& view_model)
         : _view_model(view_model) {}
 };
 

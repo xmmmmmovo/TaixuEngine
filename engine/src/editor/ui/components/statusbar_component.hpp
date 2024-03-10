@@ -14,7 +14,7 @@ private:
     static std::string_view constexpr STATUS_COMPONENT_NAME{"EnumStatus"};
 
 public:
-    explicit StatusBarComponent(ViewModel* view_model)
+    explicit StatusBarComponent(ViewModel& view_model)
         : AbstractUIComponent(view_model) {}
 
     void update() {

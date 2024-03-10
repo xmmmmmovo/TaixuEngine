@@ -9,7 +9,7 @@
 
 #include <common/utils/pointer_utils.hpp>
 
-#include "resource/res_type/converted_data/image.hpp"
+#include "resource/converted_data/image.hpp"
 
 namespace taixu {
 

@@ -20,23 +20,23 @@ private:
     static std::string_view constexpr WORLD_OBJ_COMPONENT_NAME{"World Objects"};
 
 public:
-    explicit GoHierarchyComponent(ViewModel* view_model)
+    explicit GoHierarchyComponent(ViewModel& view_model)
         : AbstractUIComponent(view_model) {}
 
     void update() {
-        //        if (_view_model->engine_runtime_ptr->getScene() == nullptr) {
+        //        if (_view_model.engine_runtime_ptr->getScene() == nullptr) {
         //            ImGui::Text("No Open Scene");
         //            return;
         //        }
         //
         //        auto &gos =
-        //        _view_model->engine_runtime_ptr->getScene()->game_objs();
+        //        _view_model.engine_runtime_ptr->getScene()->game_objs();
         //
         //        for (auto &go : gos) {
         //            // TODO: 增加一层scene层级
         //            ImGuiTreeNodeFlags flags_select = ImGuiTreeNodeFlags_Leaf;
-        //            if (_view_model->is_entity_selected &&
-        //                go.entity() == _view_model->selected_entity) {
+        //            if (_view_model.is_entity_selected &&
+        //                go.entity() == _view_model.selected_entity) {
         //                flags_select |= ImGuiTreeNodeFlags_Selected;
         //            }
         //
@@ -44,8 +44,8 @@ public:
         //            flags_select);
         //
         //            if (ImGui::IsItemClicked()) {
-        //                _view_model->selected_entity    = go.entity();
-        //                _view_model->is_entity_selected = true;
+        //                _view_model.selected_entity    = go.entity();
+        //                _view_model.is_entity_selected = true;
         //            }
         //
         //            // right click menu
