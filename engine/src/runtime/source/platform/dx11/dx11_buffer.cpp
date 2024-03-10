@@ -66,7 +66,7 @@ std::shared_ptr<DX11Buffer> DX11Buffer::create(DX11Context* context,
     ZeroMemory(&buffer_desc, sizeof D3D11_BUFFER_DESC);
 
     buffer_desc.Usage          = memoryUsage2D3D11Usage(info.memory_usage);
-    buffer_desc.ByteWidth      = info.size;
+    buffer_desc.ByteWidth      = static_cast<UINT>(info.size);
     buffer_desc.BindFlags      = bufferUsage2BindFlags(info.usage);
     buffer_desc.CPUAccessFlags = memoryUsage2CPUAccessFlags(info.memory_usage);
 

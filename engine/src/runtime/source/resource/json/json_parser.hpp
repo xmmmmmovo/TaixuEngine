@@ -8,10 +8,9 @@
 #include <filesystem>
 #include <string>
 
-#include <refl.hpp>
 #include <simdjson.h>
 
-#include "serializable.hpp"
+#include "resource/json/json_serializable.hpp"
 #include <common/base/macro.hpp>
 
 namespace taixu {

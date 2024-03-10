@@ -31,19 +31,15 @@ public:
     float _aspect_ratio{0.0f};
 
 public:
-    explicit RenderComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model,
-                              {.name           = RENDER_COMPONENT_NAME,
-                               .component_type = EnumImguiComponentType::WIDGET,
-                               .update_func    = [this]() { this->update(); },
-                               .end_call_back  = nullptr}){};
+    explicit RenderComponent(ViewModel& view_model)
+        : AbstractUIComponent(view_model){}
 
     void update() {
         if (ImGui::BeginMenuBar()) {
             ImGui::SetCursorPosX(ImGui::GetWindowContentRegionMax().x * 0.6f -
                                  ImGui::GetWindowHeight());
 
-            //            if (_view_model->engine_runtime_ptr->getState() ==
+            //            if (_view_model.engine_runtime_ptr->getState() ==
             //                EngineState::EDITORMODE) {
             if (ImGui::Button(ICON_ENTRY(ICON_LC_PLAY, "Play"))) {}
             //            } else {
@@ -68,7 +64,7 @@ public:
             INFO_LOG("Resize the framebuffer: _width {}, _height {}",
                      _render_size.x, _render_size.y);
             _previous_size = _render_size;
-            //            _view_model->framebuffer->resize(static_cast<int>(_render_size.x),
+            //            _view_model.framebuffer->resize(static_cast<int>(_render_size.x),
             //                                             static_cast<int>(_render_size.y));
             _aspect_ratio  = _render_size.x / _render_size.y;
         }
@@ -76,7 +72,7 @@ public:
         //        ImGui::Image(reinterpret_cast<ImTextureID>(0), _render_size,
         //                     ImVec2(0, 1), ImVec2(1, 0));
 
-        if (_view_model->is_entity_selected) {
+        if (_view_model.is_entity_selected) {
             //            ImGuizmo::SetOrthographic(false);
             //            ImGuizmo::SetDrawlist();
             //
@@ -86,7 +82,7 @@ public:
             //
             //            // Camera
             //            auto* camera =
-            //                    _view_model->engine_runtime_ptr->getScene()->_camera.get();
+            //                    _view_model.engine_runtime_ptr->getScene()->_camera.get();
             //
             //            if (camera->aspect_ratio() != _aspect_ratio) {
             //                camera->set_aspect_ratio(_aspect_ratio);
@@ -98,9 +94,9 @@ public:
             //
             //            // Entity transform
             //            auto& tc =
-            //                    _view_model->engine_runtime_ptr->getScene()
+            //                    _view_model.engine_runtime_ptr->getScene()
             //                            ->_ecs_coordinator.getComponent<TransformComponent>(
-            //                                    _view_model->selected_entity);
+            //                                    _view_model.selected_entity);
             //            glm::mat4& transform = tc.transform();
             //
             //            // 绘制的时候, 需要传入camera的v和p矩阵,
@@ -108,8 +104,8 @@ public:
             //            其localGizmos
             //            ImGuizmo::Manipulate(glm::value_ptr(camera_view),
             //                                 glm::value_ptr(camera_projection),
-            //                                 _view_model->guizmo_operation,
-            //                                 _view_model->guizmo_mode,
+            //                                 _view_model.guizmo_operation,
+            //                                 _view_model.guizmo_mode,
             //                                 glm::value_ptr(transform));
             //
             //            if (ImGuizmo::IsUsing()) {

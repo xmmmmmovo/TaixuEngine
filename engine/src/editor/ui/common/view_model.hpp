@@ -6,33 +6,25 @@
 #define TAIXUENGINE_VIEW_MODEL_HPP
 
 #include <filesystem>
-#include <string>
+
+#include <imgui.h>
 
 #include "imgui/imzmo/ImGuizmo.h"
 
-#include "engine/engine.hpp"
+#include "common/base/hash.hpp"
+#include "file_watcher.hpp"
+#include "hierarchy_struct.hpp"
 
 namespace taixu::editor {
 
-template<typename Data>
-struct HierarchyNode {
-    std::string                      name{};
-    bool                             expanded{false};
-    Data                             data{};
-    std::vector<HierarchyNode<Data>> children{};
-};
-
 struct ViewModel {
-    std::filesystem::path                             project_path{};
-    std::filesystem::path                             selected_path{};
-    HierarchyNode<std::filesystem::path>*             selected_node{nullptr};
-    std::vector<HierarchyNode<std::filesystem::path>> path_hierarchy{};
+    FileTreeNodeT  file_component_hierarchy{};
+    FileTreeNodeT* selected_node{nullptr};
 
     ImGuizmo::MODE      guizmo_mode{ImGuizmo::MODE::LOCAL};
     ImGuizmo::OPERATION guizmo_operation{ImGuizmo::OPERATION::TRANSLATE};
 
-    bool                                    is_entity_selected{false};
-    std::vector<HierarchyNode<std::string>> useful_objs_hierarchy{};
+    bool is_entity_selected{false};
 };
 
 }// namespace taixu::editor

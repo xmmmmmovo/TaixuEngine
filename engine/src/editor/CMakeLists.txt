@@ -18,7 +18,7 @@ set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "EngineEditor")
 target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/WX->")
 
 # link libraries
-target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime)
+target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime argparse)
 
 if (USE_PCH)
     target_precompile_headers(${TARGET_NAME} PRIVATE ${PCH_DIR}/pch_std.hpp)

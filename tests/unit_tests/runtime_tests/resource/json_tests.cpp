@@ -4,8 +4,8 @@
 #include "catch2/catch_test_macros.hpp"
 
 #include "resource/json/json_parser.hpp"
-#include "resource/json/manifest_json.hpp"
-#include "resource/json/serializable.hpp"
+#include "resource/json/json_serializable.hpp"
+#include "resource/res_type/json_data/manifest.hpp"
 
 TEST_CASE("load and dump json test simplest", "[json tests]") {
     INFO("load and dump json test simplest");

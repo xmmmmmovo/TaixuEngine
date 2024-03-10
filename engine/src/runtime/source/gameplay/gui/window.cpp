@@ -54,6 +54,11 @@ void Window::showWindow() {
     glfwSetWindowContentScaleCallback(_window, windowDPIChangedCallback);
 
     glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+
+    float x_scale = 0, y_scale = 0;
+    glfwGetWindowContentScale(_window, &x_scale, &y_scale);
+    _dpi_scale.x_scale = x_scale;
+    _dpi_scale.y_scale = y_scale;
 }
 
 void Window::update() { handleEvents(); }

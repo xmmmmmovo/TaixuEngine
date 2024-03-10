@@ -6,11 +6,11 @@
 /**
  * @brief Main window width
  */
-static constexpr int32_t          MAIN_WINDOW_WIDTH  = 1920;
+static constexpr int32_t          MAIN_WINDOW_WIDTH  = 2560;
 /**
  * @brief Main window height
  */
-static constexpr int32_t          MAIN_WINDOW_HEIGHT = 1080;
+static constexpr int32_t          MAIN_WINDOW_HEIGHT = 1440;
 /**
  * @brief Main window title
  */
@@ -22,13 +22,9 @@ int main(const int argc, char* argv[]) try {
     using namespace taixu::editor;
 
     // avoid c-style array
-    std::vector<std::string> args(argv, argv + argc);
+    std::vector<std::string> const args(argv, argv + argc);
 
-    static constexpr auto EDITOR_ARG = "--editor"sv;
-    args.emplace_back(EDITOR_ARG);
-
-    g_editor_context.engine_ptr = &taixu::g_engine;
-    g_editor_context.engine_ptr->initRuntime(args);
+    taixu::g_engine.initRuntime(args);
 
     MainWindow main_window{
             {MAIN_WINDOW_TITLE.data(), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT}};

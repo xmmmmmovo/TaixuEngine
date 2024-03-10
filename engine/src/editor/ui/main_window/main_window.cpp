@@ -6,59 +6,32 @@
 #include "imgui.h"
 
 #include "management/scene/tx_scene_renderer.hpp"
+#include "ui/common/dialog_helper.hpp"
 #include "ui/common/editor_context.hpp"
 
 #include <utility>
 
 namespace taixu::editor {
 
-void MainWindow::buildUpUsefulObjHierarchy() {
-    _view_model.useful_objs_hierarchy = {
-            {
-                    .name = "Objects",
-                    .data = "",
-                    .children =
-                            {
-                                    {
-                                            .name     = "Cube",
-                                            .children = {},
-                                    },
-                                    {
-                                            .name     = "Sphere",
-                                            .children = {},
-                                    },
-                            },
-            },
-            {.name     = "Lights",
-             .data     = "",
-             .children = {{
-                                  .name     = "PointLight",
-                                  .children = {},
-                          },
-                          {
-                                  .name     = "DirectionalLight",
-                                  .children = {},
-                          }}}};
-}
-
 void MainWindow::buildUpPathHierarchy() {
-    _view_model.selected_path = "";
-    _view_model.selected_node = nullptr;
-
-    _view_model.path_hierarchy.clear();
-    for (auto& directory_entry :
-         std::filesystem::directory_iterator(_view_model.project_path)) {
-        const auto& path = directory_entry.path();
-        if (path.filename() == ".git" || path.filename() == ".gitignore") {
-            continue;
-        }
-        if (directory_entry.is_directory()) {
-            _view_model.path_hierarchy.push_back(
-                    {.name = path.filename().generic_string(),
-                     .data = getRelativePath(_view_model.project_path, path),
-                     .children = {}});
-        }
-    }
+    // _view_model.selected_path = "";
+    // _view_model.selected_node = nullptr;
+    //
+    // _view_model.path_hierarchy.clear();
+    // for (auto& directory_entry :
+    //      std::filesystem::directory_iterator(_view_model.project_path)) {
+    //     const auto& path = directory_entry.path();
+    //     if (path.filename() == ".git" || path.filename() == ".gitignore") {
+    //         continue;
+    //     }
+    //     if (directory_entry.is_directory()) {
+    //         _view_model.path_hierarchy.push_back(
+    //                 {.name     = path.filename().generic_string(),
+    //                  .children = {},
+    //                  .data = getRelativePath(_view_model.project_path,
+    //                  path)});
+    //     }
+    // }
 }
 
 void MainWindow::init() {
@@ -66,7 +39,23 @@ void MainWindow::init() {
     _window_ptr->init();
     _window_ptr->showWindow();
 
-    g_editor_context.engine_ptr->initWithWindow(_window_ptr.get());
+    g_engine.initWithWindow(_window_ptr.get());
+
+    g_engine.renderer->enableImgui([this] { this->imguiUpdate(); });
+
+    registerCallback(
+            EnumCallbacks::FILE_OPEN_PROJECT,
+            Handler{+[](std::string const& file_path, ViewModel& view_model) {
+                g_engine.loadProject(file_path);
+                auto& node         = view_model.file_component_hierarchy;
+                node.data.filepath = "";
+                node.data.filename = g_engine.getOpenedProject()
+                                             ->project_path.filename()
+                                             .generic_string();
+                node.data.filetype       = EnumFileEntryType::DIRECTORY;
+                view_model.selected_node = &node;
+                recursiveLoadFileTree(node);
+            }});
 
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
@@ -88,9 +77,6 @@ void MainWindow::init() {
     //                }
     //            });
 
-    g_editor_context.engine_ptr->renderer->addComponent(
-            menu_component.getComponentInfo());
-
     INFO_LOG("Main _window init finished!");
 }
 
@@ -110,10 +96,35 @@ bool MainWindow::isCursorInRenderComponent() const {
 
 void MainWindow::update() {}
 
+void MainWindow::imguiUpdate() {
+    ImGui::Begin(VIEW_HOLDER_NAME.data(), nullptr, IMGUI_WINDOW_FLAG);
+    _dock_space_id = ImGui::GetID(DOCK_SPACE_NAME.data());
+    ImGui::DockSpace(_dock_space_id, ImVec2{0.0f, 0.0f}, IMGUI_DOCKSPACE_FLAGS);
+
+    if (g_engine.getOpenedProject() == nullptr) {
+        if (g_engine.getArgs().project_path().empty()) {
+            openFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(),
+                           DIRECTORY_CONFIG);
+            displayAndProcessFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(),
+                                        _view_model,
+                                        EnumCallbacks::FILE_OPEN_PROJECT);
+        } else {
+            invokeCallback(EnumCallbacks::FILE_OPEN_PROJECT,
+                           g_engine.getArgs().project_path(), _view_model);
+        }
+    } else {
+        _menu_component.update();
+        UsefulObjectComponent::update();
+        _file_component.update();
+    }
+
+    ImGui::End();
+}
+
 void MainWindow::start() const {
-    g_editor_context.engine_ptr->beforeStart();
+    g_engine.beforeStart();
     while (!_window_ptr->shouldClose()) {
-        g_editor_context.engine_ptr->update();
+        g_engine.update();
         _window_ptr->handleEvents();
     }
 }

@@ -5,6 +5,7 @@
 #include "common/designs/noncopyable.hpp"
 #include "engine/engine_args.hpp"
 #include "management/scene/tx_scene_renderer.hpp"
+#include "resource/json_data/project_json.hpp"
 
 #include <string>
 
@@ -14,7 +15,6 @@ class AssetManager;
 class Scene;
 class EngineArgs;
 class Window;
-struct Project;
 
 class Engine final : private Noncopyable {
 private:
@@ -24,17 +24,19 @@ private:
     CpuClock _clock{};
 
     /**
-     * @brief editor state
+     * @brief Engine状态
      */
     EnumEngineState _state{EnumEngineState::IDLEMODE};
-    EngineArgs      _engine_args{};
 
-public:
-    std::shared_ptr<AbstractSceneRenderer> renderer{nullptr};
-    std::shared_ptr<AssetManager>          asset_manager{nullptr};
-    std::shared_ptr<Scene>                 scene{nullptr};
+    /**
+     * 保存engine的参数
+     */
+    EngineArgs _engine_args{};
 
-    std::shared_ptr<Project> opened_project{nullptr};
+    /**
+     * 已经打开的项目，如果没有就是null
+     */
+    std::unique_ptr<Project> _opened_project{nullptr};
 
     /**
      * @brief hold window from init function
@@ -42,7 +44,29 @@ public:
     Window* _window{nullptr};
 
 public:
+    /**
+     * 渲染器
+     */
+    std::shared_ptr<AbstractSceneRenderer> renderer{nullptr};
+    /**
+     * 资源管理器
+     */
+    std::shared_ptr<AssetManager>          asset_manager{nullptr};
+    /**
+     * 打开场景
+     */
+    std::shared_ptr<Scene>                 scene{nullptr};
+
+public:
+    /**
+     * 在最开始传递参数化表的初始化，用于初始化比如Logger之类的
+     * @param args 初始化参数表
+     */
     void initRuntime(std::vector<std::string> const& args);
+    /**
+     * 用于初始化渲染器和资源管理器等
+     * @param window
+     */
     void initWithWindow(Window* window);
 
     /**
@@ -56,7 +80,8 @@ public:
 
     void changeEngineState(EnumEngineState state);
 
-    bool loadProject(std::filesystem::path const& path);
+    bool                         loadProject(std::filesystem::path const& path);
+    [[nodiscard]] Project const* getOpenedProject() const;
 };
 
 extern Engine g_engine;

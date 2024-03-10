@@ -8,8 +8,9 @@
 #include "ui/common/ui_component.hpp"
 #include "ui/components/render_component.hpp"
 
-#include "imgui/imzmo/ImGuizmo.h"
 #include "imgui_internal.h"
+#include "imgui/imzmo/ImGuizmo.h"
+
 #include "ui/widgets/slider.hpp"
 
 
@@ -20,31 +21,27 @@ private:
             "Components Details"};
 
 public:
-    explicit DetailComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model,
-                              {.name           = DETAILS_COMPONENT_NAME,
-                               .component_type = EnumImguiComponentType::WIDGET,
-                               .update_func    = [this]() { this->update(); },
-                               .end_call_back  = nullptr}) {}
+    explicit DetailComponent(ViewModel& view_model)
+        : AbstractUIComponent(view_model) {}
 
 
     void update() {
-        if (!_view_model->is_entity_selected) { return; }
+        if (!_view_model.is_entity_selected) { return; }
 
         //        auto ecs =
-        //        _view_model->engine_runtime_ptr->getECSCoordinator();
+        //        _view_model.engine_runtime_ptr->getECSCoordinator();
         //
         //        if (ecs == nullptr || ecs->getEntityCount() == 0) { return; }
         //
-        //        if (ecs->getEntityCount() < _view_model->selected_entity) {
-        //            _view_model->is_entity_selected = false;
+        //        if (ecs->getEntityCount() < _view_model.selected_entity) {
+        //            _view_model.is_entity_selected = false;
         //        }
         //
         //        if
-        //        (ecs->anyOf<TransformComponent>(_view_model->selected_entity))
+        //        (ecs->anyOf<TransformComponent>(_view_model.selected_entity))
         //        {
         //            auto& trans = ecs->getComponent<TransformComponent>(
-        //                    _view_model->selected_entity);
+        //                    _view_model.selected_entity);
         //
         //            if (ImGui::CollapsingHeader("Transform",
         //                                        ImGuiTreeNodeFlags_DefaultOpen))
@@ -54,38 +51,38 @@ public:
         //                // imguizmo Mode Selection
         //                ImGui::RadioButton(
         //                        "Local",
-        //                        reinterpret_cast<int*>(&_view_model->guizmo_mode),
+        //                        reinterpret_cast<int*>(&_view_model.guizmo_mode),
         //                        ImGuizmo::MODE::LOCAL);
         //                ImGui::SameLine();
         //                ImGui::RadioButton(
         //                        "World",
-        //                        reinterpret_cast<int*>(&_view_model->guizmo_mode),
+        //                        reinterpret_cast<int*>(&_view_model.guizmo_mode),
         //                        ImGuizmo::MODE::WORLD);
         //                ImGui::Separator();
         //
         //                // imguizmo Operation Selection
         //                ImGui::RadioButton(
         //                        "Translate",
-        //                        reinterpret_cast<int*>(&_view_model->guizmo_operation),
+        //                        reinterpret_cast<int*>(&_view_model.guizmo_operation),
         //                        ImGuizmo::OPERATION::TRANSLATE);
         //                ImGui::SameLine();
         //                ImGui::RadioButton(
         //                        "Rotate",
-        //                        reinterpret_cast<int*>(&_view_model->guizmo_operation),
+        //                        reinterpret_cast<int*>(&_view_model.guizmo_operation),
         //                        ImGuizmo::OPERATION::ROTATE);
         //                ImGui::SameLine();
         //                ImGui::RadioButton(
         //                        "Scale",
-        //                        reinterpret_cast<int*>(&_view_model->guizmo_operation),
+        //                        reinterpret_cast<int*>(&_view_model.guizmo_operation),
         //                        ImGuizmo::OPERATION::SCALE);
         //                ImGui::RadioButton(
         //                        "ScaleUniversal",
-        //                        reinterpret_cast<int*>(&_view_model->guizmo_operation),
+        //                        reinterpret_cast<int*>(&_view_model.guizmo_operation),
         //                        ImGuizmo::OPERATION::SCALEU);
         //                ImGui::SameLine();
         //                ImGui::RadioButton(
         //                        "Universal",
-        //                        reinterpret_cast<int*>(&_view_model->guizmo_operation),
+        //                        reinterpret_cast<int*>(&_view_model.guizmo_operation),
         //                        ImGuizmo::OPERATION::UNIVERSAL);
         //                ImGui::Separator();
         //
@@ -142,7 +139,7 @@ public:
         //        }
         //
         //        if
-        //        (ecs->anyOf<RenderableComponent>(_view_model->selected_entity))
+        //        (ecs->anyOf<RenderableComponent>(_view_model.selected_entity))
         //        {}
     }
 };

@@ -13,13 +13,12 @@ namespace taixu::editor {
 
 enum class EnumCallbacks : uint16_t {
     MENU_FILE_NEW_PROJECT, // file菜单下新建项目
-    MENU_FILE_OPEN_PROJECT,// file菜单下打开项目
+    FILE_OPEN_PROJECT,     // 打开项目
     MENU_FILE_SAVE_PROJECT,// file菜单下保存项目
     MENU_FILE_EXIT,        // file菜单下退出
 };
 
 struct EditorContext final {
-    Engine*                                    engine_ptr{nullptr};
     std::unordered_map<EnumCallbacks, Handler> callback_func_map{};
 };
 

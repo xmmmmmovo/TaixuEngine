@@ -5,6 +5,7 @@
 #include "management/scene/tx_scene_renderer.hpp"
 
 #include "management/scene/scene.hpp"
+#include "resource/helper/project_helper.hpp"
 #include "resource/manager/asset_manager.hpp"
 
 namespace taixu {
@@ -44,6 +45,17 @@ EngineArgs const& Engine::getArgs() { return _engine_args; }
 
 void Engine::changeEngineState(const EnumEngineState state) { _state = state; }
 
-bool Engine::loadProject(std::filesystem::path const& path) { return false; }
+bool Engine::loadProject(std::filesystem::path const& path) {
+    _opened_project = openProject(path);
+    if (_opened_project == nullptr) {
+        INFO_LOG("Cannot load project from path: {}", path.generic_string());
+        return false;
+    }
+    return true;
+}
+
+Project const* Engine::getOpenedProject() const {
+    return _opened_project.get();
+}
 
 }// namespace taixu

@@ -8,9 +8,9 @@ namespace taixu {
 
 struct Project;
 
-std::shared_ptr<Project> openProject(std::filesystem::path const& path);
+std::unique_ptr<Project> openProject(std::filesystem::path const& path);
 
-std::shared_ptr<Project> createProject(std::filesystem::path const& path,
+std::unique_ptr<Project> createProject(std::filesystem::path const& path,
                                        std::string const&           name,
                                        std::string const&           author,
                                        std::string const& description);

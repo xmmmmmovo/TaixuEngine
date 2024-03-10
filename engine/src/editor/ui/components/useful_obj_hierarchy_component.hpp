@@ -5,47 +5,19 @@
 #ifndef TAIXUENGINE_HIERARCHY_COMPONENT_HPP
 #define TAIXUENGINE_HIERARCHY_COMPONENT_HPP
 
-#include <string>
 
 #include "ui/common/ui_component.hpp"
 
-
 namespace taixu::editor {
 
-
-class UsefulObjectComponent : public AbstractUIComponent {
-private:
-    ImGuiTreeNodeFlags const parent_flags = ImGuiTreeNodeFlags_SpanAvailWidth;
-    ImGuiTreeNodeFlags const leaf_flags   = ImGuiTreeNodeFlags_SpanAvailWidth |
-                                          ImGuiTreeNodeFlags_Leaf |
-                                          ImGuiTreeNodeFlags_NoTreePushOnOpen;
-
-    static std::string_view constexpr USEFUL_OBJ_COMPONENT_NAME{
-            "Useful Objects"};
-
+class UsefulObjectComponent final : public AbstractUIComponent {
 public:
-    explicit UsefulObjectComponent(ViewModel* view_model)
-        : AbstractUIComponent(view_model,
-                              {.name           = USEFUL_OBJ_COMPONENT_NAME,
-                               .component_type = EnumImguiComponentType::WIDGET,
-                               .update_func    = [this]() { this->update(); },
-                               .end_call_back  = nullptr}) {}
+    explicit UsefulObjectComponent(ViewModel& view_model)
+        : AbstractUIComponent(view_model) {}
 
-    void update() {
-        for (auto& obj : _view_model->useful_objs_hierarchy) {
-            if (ImGui::TreeNodeEx(obj.name.c_str(), parent_flags)) {
-                for (auto& child : obj.children) {
-                    ImGui::TreeNodeEx(child.name.c_str(), leaf_flags);
-                    if (ImGui::IsMouseDoubleClicked(0) &&
-                        ImGui::IsItemHovered(ImGuiHoveredFlags_None)) {
-                        INFO_LOG("Double Clicked on: {}", child.name);
-                    }
-                }
-                ImGui::TreePop();
-            }
-        }
-    }
+    static void update();
 };
+
 }// namespace taixu::editor
 
 #endif// TAIXUENGINE_HIERARCHY_COMPONENT_HPP
