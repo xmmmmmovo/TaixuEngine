@@ -12,7 +12,7 @@
 
 namespace taixu::editor {
 
-class GoHierarchyComponent : public AbstractUIComponent {
+class SceneGraphComponent : public AbstractUIComponent {
 private:
     static constexpr std::array<std::string_view, 3>
             ENTITY_MENU_COMBO_ITEM_NAME = {"Add Empty Entity", "Delete Entity",
@@ -20,10 +20,14 @@ private:
     static std::string_view constexpr WORLD_OBJ_COMPONENT_NAME{"World Objects"};
 
 public:
-    explicit GoHierarchyComponent(ViewModel& view_model)
+    explicit SceneGraphComponent(ViewModel& view_model)
         : AbstractUIComponent(view_model) {}
 
     void update() {
+        if (ImGui::Begin(WORLD_OBJ_COMPONENT_NAME.data(), nullptr,
+                         ImGuiWindowFlags_None)) {
+            ImGui::End();
+        }
         //        if (_view_model.engine_runtime_ptr->getScene() == nullptr) {
         //            ImGui::Text("No Open Scene");
         //            return;

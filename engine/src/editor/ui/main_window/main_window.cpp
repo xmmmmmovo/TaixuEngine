@@ -116,6 +116,9 @@ void MainWindow::imguiUpdate() {
         _menu_component.update();
         UsefulObjectComponent::update();
         _file_component.update();
+        _scene_graph_component.update();
+        _render_component.update();
+        _detail_component.update();
     }
 
     ImGui::End();

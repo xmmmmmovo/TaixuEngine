@@ -32,20 +32,25 @@ public:
 
 public:
     explicit RenderComponent(ViewModel& view_model)
-        : AbstractUIComponent(view_model){}
+        : AbstractUIComponent(view_model) {}
 
     void update() {
-        if (ImGui::BeginMenuBar()) {
-            ImGui::SetCursorPosX(ImGui::GetWindowContentRegionMax().x * 0.6f -
-                                 ImGui::GetWindowHeight());
+        if (ImGui::Begin(RENDER_COMPONENT_NAME.data(), nullptr,
+                         ImGuiWindowFlags_None)) {
+            ImGui::End();
+            if (ImGui::BeginMenuBar()) {
+                ImGui::SetCursorPosX(ImGui::GetWindowContentRegionMax().x *
+                                             0.6f -
+                                     ImGui::GetWindowHeight());
 
-            //            if (_view_model.engine_runtime_ptr->getState() ==
-            //                EngineState::EDITORMODE) {
-            if (ImGui::Button(ICON_ENTRY(ICON_LC_PLAY, "Play"))) {}
-            //            } else {
-            //                if (ImGui::Button(ICON_FA_STOP "Stop")) {}
-            //            }
-            ImGui::EndMenuBar();
+                //            if (_view_model.engine_runtime_ptr->getState() ==
+                //                EngineState::EDITORMODE) {
+                if (ImGui::Button(ICON_ENTRY(ICON_LC_PLAY, "Play"))) {}
+                //            } else {
+                //                if (ImGui::Button(ICON_FA_STOP "Stop")) {}
+                //            }
+                ImGui::EndMenuBar();
+            }
         }
 
         _menu_bar_rect = ImGui::GetCurrentWindow()->MenuBarRect();
