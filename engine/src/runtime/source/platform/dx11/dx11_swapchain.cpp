@@ -6,7 +6,6 @@
 
 
 #include "common/math/color.hpp"
-#include "dx11_utils.hpp"
 #include "platform/dx11/dx11_trace.hpp"
 
 namespace taixu {

@@ -5,9 +5,18 @@
 #pragma once
 
 #include "common/designs/noncopyable.hpp"
-#include "tx_command_buffer.hpp"
 
 namespace taixu {
+
+/**
+ * @brief 对CommandBuffer进行的封装
+ * 其中主要封装有
+ * - RenderPass
+ * - descriptor(包括uniform等)
+ * - pipeline
+ */
+class TXCommandBuffer {};
+
 
 /**
  * @brief CommandBuffer封装

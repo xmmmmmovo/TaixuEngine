@@ -5,13 +5,9 @@
 #ifndef TAIXUENGINE_RENDER_COMPONENT_HPP
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
-#include "glm/glm.hpp"
-#include "glm/gtx/matrix_decompose.hpp"
-
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
 
-#include "common/log/logger.hpp"
 #include "ui/common/ui_component.hpp"
 #include "ui/common/view_model.hpp"
 

@@ -4,7 +4,6 @@
 
 #include "dx11_context.hpp"
 #include "dx11_trace.hpp"
-#include "platform/dx11/dx11_utils.hpp"
 
 #include <d3d11_1.h>
 

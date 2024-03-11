@@ -6,9 +6,10 @@
 
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui.h"
+#include "imgui/icons/IconsLucide.h"
 #include "imgui_internal.h"
 
-#include <imgui/icons/IconsLucide.h>
+#include "common/log/logger.hpp"
 
 namespace taixu::editor {
 

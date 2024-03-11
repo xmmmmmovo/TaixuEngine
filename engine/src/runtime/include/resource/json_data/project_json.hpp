@@ -5,7 +5,6 @@
 #pragma once
 
 #include "manifest_json.hpp"
-#include "world_json.hpp"
 
 #include <filesystem>
 #include <vector>
@@ -15,7 +14,6 @@ namespace taixu {
 struct Project {
     std::filesystem::path project_path;
     Manifest              manifest{};
-    std::vector<World>    worlds{};
 };
 
 }// namespace taixu

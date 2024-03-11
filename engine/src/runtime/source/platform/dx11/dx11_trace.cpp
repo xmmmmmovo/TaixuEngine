@@ -22,15 +22,38 @@ HRESULT dx11TraceW(source_loc_t loc, HRESULT hr) {
                    static_cast<DWORD>(str_buffer_error.size()), nullptr);
 
 #ifdef _DEBUG
-    ERROR_LOG_LOC(loc, "出现错误: {}({:#x})",
-                  utf8Encode(str_buffer_error.data()), hr);
+    ERROR_LOG_LOC(loc, "出现错误: {}({:#x})", utf8Encode(str_buffer_error.data()),
+                  hr);
     DebugBreak();
 #else
-    FATAL_LOG_LOC(loc, "出现错误: {}({:#x})",
-                  utf8Encode(str_buffer_error.data()), hr);
+    FATAL_LOG_LOC(loc, "出现错误: {}({:#x})", utf8Encode(str_buffer_error.data()),
+                  hr);
 #endif
     return hr;
 }
 
+void dx11SetDebugObjectName(ID3D11DeviceChild*      resource,
+                            const std::string_view& name) {
+#if (defined(_DEBUG)) && (GRAPHICS_DEBUGGER_OBJECT_NAME)
+    HRESULT const ret = resource->SetPrivateData(WKPDID_D3DDebugObjectName,
+                                                 static_cast<UINT>(name.size()),
+                                                 name.data());
+#else
+    UNREFERENCED_PARAMETER(resource);
+    UNREFERENCED_PARAMETER(name);
+#endif
+}
+
+
+void dxgiSetDebugObjectName(IDXGIObject* object, const std::string_view& name) {
+#if (defined(_DEBUG)) && (GRAPHICS_DEBUGGER_OBJECT_NAME)
+    HRESULT const ret =
+            object->SetPrivateData(WKPDID_D3DDebugObjectName,
+                                   static_cast<UINT>(name.size()), name.data());
+#else
+    UNREFERENCED_PARAMETER(resource);
+    UNREFERENCED_PARAMETER(name);
+#endif
+}
 
 }// namespace taixu
