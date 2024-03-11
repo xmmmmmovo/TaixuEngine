@@ -39,7 +39,7 @@ DX11Context::~DX11Context() {
     if (_device_context != nullptr) { _device_context->ClearState(); }
 }
 
-void DX11Context::init(const Window* window) {
+void DX11Context::init() {
     HRESULT ret = S_OK;
 
     // 创建D3D设备 和 D3D设备上下文

@@ -17,14 +17,13 @@ namespace taixu {
  */
 class TXCommandBuffer {};
 
-
 /**
  * @brief CommandBuffer封装
  */
 class TXCommandPool : Noncopyable {
 public:
-    virtual TXCommandBuffer allocCommandBuffer()                     = 0;
-    virtual void submitCommandBuffer(TXCommandBuffer& commandBuffer) = 0;
+    virtual std::unique_ptr<TXCommandBuffer> allocCommandBuffer()    = 0;
+    virtual void submitCommandBuffer(TXCommandBuffer* commandBuffer) = 0;
 };
 
 }// namespace taixu

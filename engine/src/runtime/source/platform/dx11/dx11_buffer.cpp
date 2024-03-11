@@ -56,11 +56,10 @@ D3D11_BIND_FLAG bufferUsage2BindFlags(EnumTXBufferUsage const usage) {
 }
 
 
-DX11Buffer::DX11Buffer(ComPtrT<ID3D11Buffer>&& buffer, size_t stride)
+DX11Buffer::DX11Buffer(ComPtrT<ID3D11Buffer>&& buffer, const size_t stride)
     : _stride(stride), _buffer(buffer) {}
 
-std::shared_ptr<DX11Buffer> DX11Buffer::create(DX11Context* context,
-                                               TXBufferCreateInfo const& info) {
+std::shared_ptr<DX11Buffer> DX11Buffer::create(TXBufferCreateInfo const& info) {
 
     D3D11_BUFFER_DESC buffer_desc{};
     ZeroMemory(&buffer_desc, sizeof D3D11_BUFFER_DESC);
@@ -75,8 +74,8 @@ std::shared_ptr<DX11Buffer> DX11Buffer::create(DX11Context* context,
     data.pSysMem = info.data_ptr;
 
     ComPtrT<ID3D11Buffer> buffer{nullptr};
-    const HRESULT hr = context->device()->CreateBuffer(&buffer_desc, &data,
-                                                       buffer.GetAddressOf());
+    const HRESULT         hr = g_dx11_context.device()->CreateBuffer(
+            &buffer_desc, &data, buffer.GetAddressOf());
     HR_FAILED_GOTO(hr, "Create buffer failed.");
 
     return std::shared_ptr<DX11Buffer>(

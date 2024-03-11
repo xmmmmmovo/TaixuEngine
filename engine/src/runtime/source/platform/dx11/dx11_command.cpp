@@ -4,6 +4,4 @@
 
 #include "dx11_command.hpp"
 
-namespace taixu {
-
-}
+namespace taixu {}// namespace taixu

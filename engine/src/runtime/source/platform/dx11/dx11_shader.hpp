@@ -18,11 +18,8 @@ attributeUsage2DX11InputClassify(EnumAttributeUsage usage);
 uint32_t attributeFormatSize(EnumAttributeFormat format);
 
 class DX11ShaderModuleAdapter final : public TXShaderModuleAdapter {
-private:
-    DX11Context* _context{nullptr};
-
 public:
-    explicit DX11ShaderModuleAdapter(DX11Context* context);
+    explicit DX11ShaderModuleAdapter();
     ~DX11ShaderModuleAdapter() override = default;
 
     std::shared_ptr<TXShaderModule>

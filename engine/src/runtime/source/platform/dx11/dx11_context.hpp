@@ -5,7 +5,7 @@
 #ifndef DX11_CONTEXT_HPP_173F3494090748C38D78EEE1B934EC09
 #define DX11_CONTEXT_HPP_173F3494090748C38D78EEE1B934EC09
 
-#include "dx11_core.hpp"
+#include "dx11_trace.hpp"
 #include "gameplay/gui/window.hpp"
 #include "management/rhi/tx_context.hpp"
 
@@ -27,7 +27,7 @@ protected:
 public:
     ~DX11Context() override;
 
-    void init(const Window* window);
+    void init();
 
     void getBestSupportedMSAASettings(uint32_t msaa_count, uint32_t& count,
                                       uint32_t& quality) const;

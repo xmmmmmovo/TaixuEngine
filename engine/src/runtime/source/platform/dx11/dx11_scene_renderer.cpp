@@ -16,8 +16,8 @@ DX11SceneRenderer::~DX11SceneRenderer() = default;
 void DX11SceneRenderer::updateScene(float delta_time, Scene* scene) {}
 
 void DX11SceneRenderer::imguiForGraphicsAPIInit() {
-    ImGui_ImplDX11_Init(_context.device().Get(),
-                        _context.device_context().Get());
+    ImGui_ImplDX11_Init(g_dx11_context.device().Get(),
+                        g_dx11_context.device_context().Get());
 }
 
 void DX11SceneRenderer::imguiGraphicsPreUpdate() { ImGui_ImplDX11_NewFrame(); }
@@ -28,15 +28,17 @@ void DX11SceneRenderer::imguiGraphicsUpdate() {
 
 void DX11SceneRenderer::imguiGraphicsDestroy() { ImGui_ImplDX11_Shutdown(); }
 
-void DX11SceneRenderer::clearWindow() { _swap_chain.clearWindow(); }
-void DX11SceneRenderer::presentToWindow() { _swap_chain.presentToWindow(); }
+void DX11SceneRenderer::clearWindow() { g_dx11_swap_chain.clearWindow(); }
+void DX11SceneRenderer::presentToWindow() {
+    g_dx11_swap_chain.presentToWindow();
+}
 
 void DX11SceneRenderer::initForGraphicsAPI(Window* window) {
-    _context.init(window);
-    _swap_chain.init(&_context, window);
+    g_dx11_context.init();
+    g_dx11_swap_chain.init(window);
 
     std::unique_ptr<DX11ShaderModuleAdapter> adapter =
-            std::make_unique<DX11ShaderModuleAdapter>(&_context);
+            std::make_unique<DX11ShaderModuleAdapter>();
     _shader_module_manager.init(std::move(adapter));
 
     vert = std::dynamic_pointer_cast<DX11ShaderModule<ID3D11VertexShader>>(

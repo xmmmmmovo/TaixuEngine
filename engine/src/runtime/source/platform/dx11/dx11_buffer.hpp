@@ -26,8 +26,7 @@ private:
     explicit DX11Buffer(ComPtrT<ID3D11Buffer>&& buffer, size_t stride);
 
 public:
-    static std::shared_ptr<DX11Buffer> create(DX11Context*              context,
-                                              TXBufferCreateInfo const& info);
+    static std::shared_ptr<DX11Buffer> create(TXBufferCreateInfo const& info);
 
     ID3D11Buffer* const* getBufferAddressOf();
     void                 map();

@@ -9,6 +9,7 @@
 #include "common/log/logger.hpp"
 #include "dx11_trace.hpp"
 #include "management/gpu/shaders/intern/shader_inc_list.hpp"
+#include "dx11_core.hpp"
 
 namespace taixu {
 
@@ -54,8 +55,7 @@ uint32_t attributeFormatSize(EnumAttributeFormat format) {
     return 0;
 }
 
-DX11ShaderModuleAdapter::DX11ShaderModuleAdapter(DX11Context* context)
-    : _context(context) {}
+DX11ShaderModuleAdapter::DX11ShaderModuleAdapter() {}
 
 std::shared_ptr<TXShaderModule>
 DX11ShaderModuleAdapter::create(const TXShaderModuleCreateInfo& info) {
@@ -67,7 +67,7 @@ DX11ShaderModuleAdapter::create(const TXShaderModuleCreateInfo& info) {
         /// create scope macro
 #define SHADER_CREATE_SCOPE(ShaderType)                                         \
     ComPtrT<ID3D11##ShaderType##Shader> shader;                                 \
-    hr = _context->device()->Create##ShaderType##Shader(                        \
+    hr = g_dx11_context.device()->Create##ShaderType##Shader(                        \
             info.binaries, info.binaries_size, nullptr,                         \
             shader.GetAddressOf());                                             \
     HR_FAILED_GOTO(hr, "Failed to create vertex shader: {}", info.name);        \
@@ -95,7 +95,7 @@ DX11ShaderModuleAdapter::create(const TXShaderModuleCreateInfo& info) {
                                                                                 \
         ComPtrT<ID3D11InputLayout> input_layout_ptr{nullptr};                   \
                                                                                 \
-        hr = _context->device()->CreateInputLayout(                             \
+        hr = g_dx11_context.device()->CreateInputLayout(                             \
                 in_attr_desc.data(), static_cast<UINT>(in_attr_desc.size()),    \
                 info.binaries, info.binaries_size,                              \
                 input_layout_ptr.GetAddressOf());                               \

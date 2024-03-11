@@ -8,9 +8,14 @@
 #include "common/base/macro.hpp"
 #include "common/log/logger.hpp"
 
+#include <wrl/client.h>
+
 #include <d3d11_1.h>
 
 namespace taixu {
+
+template<typename T>
+using ComPtrT = Microsoft::WRL::ComPtr<T>;
 
 /**
  * @brief this function use to trace strack and logging in debug mode
