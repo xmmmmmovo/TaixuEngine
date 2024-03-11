@@ -45,7 +45,7 @@ protected:
     TXShaderModuleManager _shader_module_manager;
 
     ///
-    /// ImGui使用
+    /// ImGui使用的变量
     ///
 
     /**
