@@ -29,9 +29,11 @@ public:
     static std::shared_ptr<DX11Buffer> create(TXBufferCreateInfo const& info);
 
     ID3D11Buffer* const* getBufferAddressOf();
-    void                 map();
-    void                 updateResource();
-    void                 unmap();
+    void*                mapDiscard();
+    void                 unmap() const;
+
+    template<typename T>
+    void updateResource(T* data, size_t size);
 };
 
 }// namespace taixu

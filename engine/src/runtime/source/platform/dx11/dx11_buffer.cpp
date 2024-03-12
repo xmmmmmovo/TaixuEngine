@@ -88,10 +88,26 @@ ID3D11Buffer* const* DX11Buffer::getBufferAddressOf() {
     return _buffer.GetAddressOf();
 }
 
-void DX11Buffer::map() {}
+void* DX11Buffer::mapDiscard() {
+    D3D11_MAPPED_SUBRESOURCE mappedResource;
+    if (FAILED(g_dx11_context.device_context()->Map(_buffer.Get(), 0,
+                                                    D3D11_MAP_WRITE_DISCARD, 0,
+                                                    &mappedResource))) {
+        ERROR_LOG("Cannot map discard buffer: {}", typeid(this).name());
+        return nullptr;
+    }
+    return mappedResource.pData;
+}
 
-void DX11Buffer::updateResource() {}
+void DX11Buffer::unmap() const {
+    g_dx11_context.device_context()->Unmap(_buffer.Get(), 0);
+}
 
-void DX11Buffer::unmap() {}
+template<typename T>
+void DX11Buffer::updateResource(T* data, const size_t size) {
+    void* raw = mapDiscard();
+    memcpy_s(raw, _stride, data, size);
+}
+
 
 }// namespace taixu

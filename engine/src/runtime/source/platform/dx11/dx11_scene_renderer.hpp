@@ -9,6 +9,7 @@
 #include "dx11_shader.hpp"
 #include "dx11_swapchain.hpp"
 #include "management/scene/tx_scene_renderer.hpp"
+#include "dx11_texture.hpp"
 
 namespace taixu {
 

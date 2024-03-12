@@ -16,7 +16,7 @@ namespace taixu {
 template<typename T>
 class PublicSingleton {
 protected:
-    PublicSingleton()           = default;
+     PublicSingleton()          = default;
     ~PublicSingleton() noexcept = default;
 
 public:
@@ -24,14 +24,13 @@ public:
      * @brief get instance, thread safe.
      * @return static instance ref.
      */
-    static inline T&
-    getInstance() noexcept(std::is_nothrow_constructible<T>::value) {
+    static T& getInstance() noexcept(std::is_nothrow_constructible_v<T>) {
         static T instance;
         return instance;
     }
 
-    PublicSingleton(const PublicSingleton&)            = delete;
-    PublicSingleton& operator=(const PublicSingleton&) = delete;
+                     PublicSingleton(const PublicSingleton&) = delete;
+    PublicSingleton& operator=(const PublicSingleton&)       = delete;
 };
 
 }// namespace taixu

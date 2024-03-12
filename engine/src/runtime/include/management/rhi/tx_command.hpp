@@ -15,7 +15,7 @@ namespace taixu {
  * - descriptor(包括uniform等)
  * - pipeline
  */
-class TXCommandBuffer {};
+class TXCommandBuffer : Noncopyable {};
 
 /**
  * @brief CommandBuffer封装
