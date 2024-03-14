@@ -24,8 +24,7 @@ public:
      * @brief get instance, thread safe.
      * @return static instance ref.
      */
-    static inline T&
-    getInstance() noexcept(std::is_nothrow_constructible<T>::value) {
+    static T& getInstance() noexcept(std::is_nothrow_constructible_v<T>) {
         static T instance;
         return instance;
     }

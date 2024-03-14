@@ -23,8 +23,12 @@ struct FileChildrensHierarchyDataNode : public HierarchyDataNode<DataT> {
     std::vector<FileChildrensHierarchyDataNode> directory_childrens{};
 };
 
+enum class EnumOpenFileType { SCENE };
+
 using FileTreeNodeT = FileChildrensHierarchyDataNode<FileEntryModel>;
 
 void recursiveLoadFileTree(FileTreeNodeT& entry);
+
+EnumOpenFileType openFileTypeChecker(std::filesystem::path const& path);
 
 }// namespace taixu::editor

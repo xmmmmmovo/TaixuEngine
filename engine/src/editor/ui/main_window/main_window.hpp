@@ -15,10 +15,9 @@
 #include "ui/common/view_model.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
-#include "ui/components/go_hierarchy_component.hpp"
 #include "ui/components/menu_component.hpp"
 #include "ui/components/render_component.hpp"
-#include "ui/components/statusbar_component.hpp"
+#include "ui/components/scene_graph_component.hpp"
 #include "ui/components/useful_obj_hierarchy_component.hpp"
 
 namespace taixu::editor {
@@ -34,11 +33,10 @@ private:
     // components
     MenuComponent         _menu_component{_view_model};
     RenderComponent       _render_component{_view_model};
-    GoHierarchyComponent  _world_object_component{_view_model};
+    SceneGraphComponent   _scene_graph_component{_view_model};
     DetailComponent       _detail_component{_view_model};
     FileComponent         _file_component{_view_model};
     UsefulObjectComponent _useful_obj_component{_view_model};
-    StatusBarComponent    _status_bar_component{_view_model};
 
 private:
     std::unique_ptr<Window> _window_ptr{nullptr};

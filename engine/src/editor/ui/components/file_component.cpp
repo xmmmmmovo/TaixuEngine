@@ -23,7 +23,7 @@ static constexpr ImGuiTreeNodeFlags LEAF_FLAGS =
 static std::string_view constexpr FILE_COMPONENT_NAME{"Files"};
 
 static constexpr float PADDING        = 16.0f;
-static constexpr float THUMBNAIL_SIZE = 112.0f;
+static constexpr float THUMBNAIL_SIZE = 128.0f;
 static constexpr float CELL_SIZE      = THUMBNAIL_SIZE + PADDING;
 
 void FileComponent::recursiveBuildFileTree(FileTreeNodeT& node) {
@@ -51,8 +51,7 @@ void FileComponent::buildFileTree() {
     recursiveBuildFileTree(_view_model.file_component_hierarchy);
 }
 
-void FileComponent::buildShowItems(
-        std::vector<FileTreeNodeT> const& nodes) const {
+void FileComponent::buildShowItems(std::vector<FileTreeNodeT>& nodes) const {
     for (auto& entry : nodes) {
         ImGui::PushID(entry.data.filename.data());
         ImGui::Button(entry.data.filename.data(),
@@ -61,6 +60,7 @@ void FileComponent::buildShowItems(
         if (ImGui::IsItemHovered() &&
             ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
             if (entry.data.filetype == EnumFileEntryType::DIRECTORY) {
+                _view_model.selected_node = &entry;
             } else {
             }
         }

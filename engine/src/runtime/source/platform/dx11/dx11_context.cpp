@@ -4,7 +4,6 @@
 
 #include "dx11_context.hpp"
 #include "dx11_trace.hpp"
-#include "platform/dx11/dx11_utils.hpp"
 
 #include <d3d11_1.h>
 
@@ -40,7 +39,7 @@ DX11Context::~DX11Context() {
     if (_device_context != nullptr) { _device_context->ClearState(); }
 }
 
-void DX11Context::init(const Window* window) {
+void DX11Context::init() {
     HRESULT ret = S_OK;
 
     // 创建D3D设备 和 D3D设备上下文

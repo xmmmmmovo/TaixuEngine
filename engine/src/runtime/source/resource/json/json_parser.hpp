@@ -8,10 +8,12 @@
 #include <filesystem>
 #include <string>
 
+#include <magic_enum.hpp>
 #include <simdjson.h>
 
+#include "common/base/macro.hpp"
+#include "common/log/logger.hpp"
 #include "resource/json/json_serializable.hpp"
-#include <common/base/macro.hpp>
 
 namespace taixu {
 

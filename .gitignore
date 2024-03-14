@@ -3,7 +3,6 @@
 3rdparty/vcpkg
 3rdparty/vcpkg_installed
 build
-generated
 .idea
 .cpm_cache
 

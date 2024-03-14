@@ -5,8 +5,10 @@
 #ifndef DX11_SWAPCHAIN_HPP_0F750F7CBBA44E3DA7757F24FF347D30
 #define DX11_SWAPCHAIN_HPP_0F750F7CBBA44E3DA7757F24FF347D30
 
-#include "dx11_context.hpp"
-#include "dx11_core.hpp"
+
+#include "common/base/macro.hpp"
+#include "dx11_trace.hpp"
+#include "gameplay/gui/window.hpp"
 
 #include <d3d11_1.h>
 
@@ -22,10 +24,8 @@ class DX11SwapChain final {
 protected:
     ComPtrT<ID3D11RenderTargetView> _render_target_view{};
 
-    DX11Context* _context{nullptr};
-
 public:
-    void init(DX11Context* context, Window* window);
+    void init(Window* window);
 
     void clearWindow() const;
 

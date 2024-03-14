@@ -3,3 +3,25 @@
 //
 
 #pragma once
+
+#include "common/designs/noncopyable.hpp"
+#include <memory>
+
+namespace taixu {
+
+enum class EnumTextureFormat : uint8_t {
+    R8G8B8A8_UNORM,
+    R8G8B8A8_SRGB,
+};
+
+struct TXTexture2DCreateInfo {
+    uint32_t          width{0};
+    uint32_t          height{0};
+    EnumTextureFormat format{};
+    uint32_t          mip_levels{1};
+    uint32_t          sampler{1};
+};
+
+class TXTexture2D : std::enable_shared_from_this<TXTexture2D>, Noncopyable {};
+
+}// namespace taixu

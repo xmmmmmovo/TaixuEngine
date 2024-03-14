@@ -61,6 +61,8 @@
 #define TX_ASSERT(x) assert((x))
 #define TX_ASSERT_MSG(x, msg) assert((x) && (msg))
 
+#define NOT_IMPL_ASSERT() assert(false && "Not implemented!");
+
 #define TX_UNREACHABLE() assert(false)
 #define TX_STATIC_UNREACHABLE static_assert(false)
 

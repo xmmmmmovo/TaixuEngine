@@ -8,8 +8,8 @@
 #include "ui/common/ui_component.hpp"
 #include "ui/components/render_component.hpp"
 
-#include "imgui_internal.h"
 #include "imgui/imzmo/ImGuizmo.h"
+#include "imgui_internal.h"
 
 #include "ui/widgets/slider.hpp"
 
@@ -26,7 +26,15 @@ public:
 
 
     void update() {
-        if (!_view_model.is_entity_selected) { return; }
+        if (ImGui::Begin(DETAILS_COMPONENT_NAME.data(), nullptr,
+                         ImGuiWindowFlags_None)) {
+            if (!_view_model.is_entity_selected) {
+                ImGui::End();
+                return;
+            }
+
+            ImGui::End();
+        }
 
         //        auto ecs =
         //        _view_model.engine_runtime_ptr->getECSCoordinator();

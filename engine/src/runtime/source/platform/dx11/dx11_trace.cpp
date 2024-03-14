@@ -32,5 +32,28 @@ HRESULT dx11TraceW(source_loc_t loc, HRESULT hr) {
     return hr;
 }
 
+void dx11SetDebugObjectName(ID3D11DeviceChild*      resource,
+                            const std::string_view& name) {
+#if (defined(_DEBUG)) && (GRAPHICS_DEBUGGER_OBJECT_NAME)
+    HRESULT const ret = resource->SetPrivateData(WKPDID_D3DDebugObjectName,
+                                                 static_cast<UINT>(name.size()),
+                                                 name.data());
+#else
+    UNREFERENCED_PARAMETER(resource);
+    UNREFERENCED_PARAMETER(name);
+#endif
+}
+
+
+void dxgiSetDebugObjectName(IDXGIObject* object, const std::string_view& name) {
+#if (defined(_DEBUG)) && (GRAPHICS_DEBUGGER_OBJECT_NAME)
+    HRESULT const ret =
+            object->SetPrivateData(WKPDID_D3DDebugObjectName,
+                                   static_cast<UINT>(name.size()), name.data());
+#else
+    UNREFERENCED_PARAMETER(resource);
+    UNREFERENCED_PARAMETER(name);
+#endif
+}
 
 }// namespace taixu

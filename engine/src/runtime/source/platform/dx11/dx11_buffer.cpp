@@ -56,11 +56,10 @@ D3D11_BIND_FLAG bufferUsage2BindFlags(EnumTXBufferUsage const usage) {
 }
 
 
-DX11Buffer::DX11Buffer(ComPtrT<ID3D11Buffer>&& buffer, size_t stride)
+DX11Buffer::DX11Buffer(ComPtrT<ID3D11Buffer>&& buffer, const size_t stride)
     : _stride(stride), _buffer(buffer) {}
 
-std::shared_ptr<DX11Buffer> DX11Buffer::create(DX11Context* context,
-                                               TXBufferCreateInfo const& info) {
+std::shared_ptr<DX11Buffer> DX11Buffer::create(TXBufferCreateInfo const& info) {
 
     D3D11_BUFFER_DESC buffer_desc{};
     ZeroMemory(&buffer_desc, sizeof D3D11_BUFFER_DESC);
@@ -75,8 +74,8 @@ std::shared_ptr<DX11Buffer> DX11Buffer::create(DX11Context* context,
     data.pSysMem = info.data_ptr;
 
     ComPtrT<ID3D11Buffer> buffer{nullptr};
-    const HRESULT hr = context->device()->CreateBuffer(&buffer_desc, &data,
-                                                       buffer.GetAddressOf());
+    const HRESULT         hr = g_dx11_context.device()->CreateBuffer(
+            &buffer_desc, &data, buffer.GetAddressOf());
     HR_FAILED_GOTO(hr, "Create buffer failed.");
 
     return std::shared_ptr<DX11Buffer>(
@@ -89,10 +88,26 @@ ID3D11Buffer* const* DX11Buffer::getBufferAddressOf() {
     return _buffer.GetAddressOf();
 }
 
-void DX11Buffer::map() {}
+void* DX11Buffer::mapDiscard() {
+    D3D11_MAPPED_SUBRESOURCE mappedResource;
+    if (FAILED(g_dx11_context.device_context()->Map(_buffer.Get(), 0,
+                                                    D3D11_MAP_WRITE_DISCARD, 0,
+                                                    &mappedResource))) {
+        ERROR_LOG("Cannot map discard buffer: {}", typeid(this).name());
+        return nullptr;
+    }
+    return mappedResource.pData;
+}
 
-void DX11Buffer::updateResource() {}
+void DX11Buffer::unmap() const {
+    g_dx11_context.device_context()->Unmap(_buffer.Get(), 0);
+}
 
-void DX11Buffer::unmap() {}
+template<typename T>
+void DX11Buffer::updateResource(T* data, const size_t size) {
+    void* raw = mapDiscard();
+    memcpy_s(raw, _stride, data, size);
+}
+
 
 }// namespace taixu

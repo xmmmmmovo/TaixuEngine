@@ -14,7 +14,7 @@ class FileComponent final : public AbstractUIComponent {
 private:
     void recursiveBuildFileTree(FileTreeNodeT& node);
     void buildFileTree();
-    void buildShowItems(std::vector<FileTreeNodeT> const& nodes) const;
+    void buildShowItems(std::vector<FileTreeNodeT>& nodes) const;
     void buildDirShowcase() const;
 
 public:

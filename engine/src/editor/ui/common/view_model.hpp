@@ -17,9 +17,13 @@
 
 namespace taixu::editor {
 
+enum class EnumMovingState { SELECT, MOVING };
+
 struct ViewModel {
     FileTreeNodeT  file_component_hierarchy{};
     FileTreeNodeT* selected_node{nullptr};
+
+    EnumMovingState moving_state{EnumMovingState::MOVING};
 
     ImGuizmo::MODE      guizmo_mode{ImGuizmo::MODE::LOCAL};
     ImGuizmo::OPERATION guizmo_operation{ImGuizmo::OPERATION::TRANSLATE};
