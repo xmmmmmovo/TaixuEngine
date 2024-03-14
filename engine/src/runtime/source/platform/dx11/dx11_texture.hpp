@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <utility>
+
 #include "dx11_trace.hpp"
 #include "management/rhi/tx_texture.hpp"
 
@@ -21,11 +23,20 @@ protected:
                                       DXGI_FORMAT_UNKNOWN);
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(protected, std::string, name, "");
 
-    bool create(ID3D11Device* device, std::string&& name,
-                const CD3D11_TEXTURE2D_DESC&            texDesc,
-                const CD3D11_SHADER_RESOURCE_VIEW_DESC& srvDesc);
+    DX11Texture2DBase(const ComPtrT<ID3D11Texture2D>&          texture,
+                      const ComPtrT<ID3D11ShaderResourceView>& tex_srv,
+                      const uint32_t width, const uint32_t height,
+                      const DXGI_FORMAT format, std::string name)
+        : _texture(texture), _tex_srv(tex_srv), _width(width), _height(height),
+          _format(format), _name(std::move(name)) {}
 
 public:
+    static std::unique_ptr<DX11Texture2DBase>
+    create(ID3D11Device* device, std::string const& name,
+           const CD3D11_TEXTURE2D_DESC&            texDesc,
+           const CD3D11_SHADER_RESOURCE_VIEW_DESC& srvDesc);
+
+
     [[nodiscard]] ID3D11Texture2D* getTexture2D() const {
         return _texture.Get();
     }
@@ -43,17 +54,18 @@ class DX11Texture2D : public TXTexture2D {
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(protected, uint32_t, mip_levels, 1);
     ComPtrT<ID3D11RenderTargetView>    _tex_rtv;
     ComPtrT<ID3D11UnorderedAccessView> _tex_uav;
-    DX11Texture2DBase                  _texture;
 
 private:
     explicit DX11Texture2D(ComPtrT<ID3D11RenderTargetView> const&    tex_rtv,
                            ComPtrT<ID3D11UnorderedAccessView> const& tex_uav,
-                           DX11Texture2DBase texture, uint32_t mip_levels)
-        : _mip_levels(mip_levels), _tex_rtv(tex_rtv), _tex_uav(tex_uav) {
-        _texture = std::move(texture);
-    }
+                           std::unique_ptr<DX11Texture2DBase>        texture,
+                           uint32_t                                  mip_levels)
+        : _mip_levels(mip_levels), _tex_rtv(tex_rtv), _tex_uav(tex_uav),
+          texture(std::move(texture)) {}
 
 public:
+    std::unique_ptr<DX11Texture2DBase> const texture;
+
     ID3D11RenderTargetView* getRenderTarget() const { return _tex_rtv.Get(); }
     ID3D11UnorderedAccessView* getUnorderedAccess() const {
         return _tex_uav.Get();
@@ -64,5 +76,7 @@ public:
 };
 
 class DX11Texture2DMS : public DX11Texture2DBase {};
+
+class DX11TextureCube : public DX11Texture2DBase {};
 
 }// namespace taixu
