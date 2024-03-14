@@ -8,8 +8,8 @@
 #include "dx11_buffer.hpp"
 #include "dx11_shader.hpp"
 #include "dx11_swapchain.hpp"
-#include "management/scene/tx_scene_renderer.hpp"
 #include "dx11_texture.hpp"
+#include "management/scene/tx_scene_renderer.hpp"
 
 namespace taixu {
 
@@ -21,7 +21,7 @@ private:
     std::shared_ptr<DX11Buffer>                           buffer;
 
 public:
-    ~    DX11SceneRenderer() override;
+    ~DX11SceneRenderer() override;
     void updateScene(float delta_time, Scene* scene) override;
 
 protected:

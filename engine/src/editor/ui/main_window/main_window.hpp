@@ -31,12 +31,12 @@ private:
     ViewModel _view_model{};
 
     // components
-    MenuComponent           _menu_component{_view_model};
-    RenderComponent         _render_component{_view_model};
-    SceneGraphComponent _scene_graph_component{_view_model};
-    DetailComponent         _detail_component{_view_model};
-    FileComponent           _file_component{_view_model};
-    UsefulObjectComponent   _useful_obj_component{_view_model};
+    MenuComponent         _menu_component{_view_model};
+    RenderComponent       _render_component{_view_model};
+    SceneGraphComponent   _scene_graph_component{_view_model};
+    DetailComponent       _detail_component{_view_model};
+    FileComponent         _file_component{_view_model};
+    UsefulObjectComponent _useful_obj_component{_view_model};
 
 private:
     std::unique_ptr<Window> _window_ptr{nullptr};

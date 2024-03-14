@@ -16,7 +16,7 @@ namespace taixu {
 template<typename T>
 class PublicSingleton {
 protected:
-     PublicSingleton()          = default;
+    PublicSingleton()           = default;
     ~PublicSingleton() noexcept = default;
 
 public:
@@ -29,8 +29,8 @@ public:
         return instance;
     }
 
-                     PublicSingleton(const PublicSingleton&) = delete;
-    PublicSingleton& operator=(const PublicSingleton&)       = delete;
+    PublicSingleton(const PublicSingleton&)            = delete;
+    PublicSingleton& operator=(const PublicSingleton&) = delete;
 };
 
 }// namespace taixu

@@ -48,7 +48,7 @@ constexpr hash32_t fnv1a_32(char const* s, const std::size_t count) {
     return ((count ? fnv1a_32(s, count - 1)
                    : 2166136261u)// NOLINT (hicpp-signed-bitwise)
             ^ s[count]) *
-           16777619u;// NOLINT (hicpp-signed-bitwise)
+           16777619u;            // NOLINT (hicpp-signed-bitwise)
 }
 
 /**

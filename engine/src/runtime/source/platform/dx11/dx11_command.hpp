@@ -7,9 +7,7 @@
 
 namespace taixu {
 
-class DX11CommandBuffer : public TXCommandBuffer {
-
-};
+class DX11CommandBuffer : public TXCommandBuffer {};
 
 class DX11CommandPool : public TXCommandPool {
 public:

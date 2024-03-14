@@ -58,11 +58,11 @@ HRESULT dx11TraceW(source_loc_t loc, HRESULT hr);
  * 如果不需要该项功能，可通过全局文本替换将其值设置为0
  */
 #ifndef GRAPHICS_DEBUGGER_OBJECT_NAME
-#ifdef _DEBUG
-#define GRAPHICS_DEBUGGER_OBJECT_NAME (1)
-#else
-#define GRAPHICS_DEBUGGER_OBJECT_NAME (0)
-#endif
+    #ifdef _DEBUG
+        #define GRAPHICS_DEBUGGER_OBJECT_NAME (1)
+    #else
+        #define GRAPHICS_DEBUGGER_OBJECT_NAME (0)
+    #endif
 #endif
 
 // 安全COM组件释放宏
@@ -98,7 +98,6 @@ void dx11SetDebugObjectName(ID3D11DeviceChild*      resource,
  * @note 该函数仅在Windows平台下有效
  */
 void dxgiSetDebugObjectName(IDXGIObject* object, const std::string_view& name);
-
 
 
 }// namespace taixu

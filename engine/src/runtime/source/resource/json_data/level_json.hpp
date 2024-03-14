@@ -4,6 +4,4 @@
 
 #pragma once
 
-namespace taixu {
-
-}
+namespace taixu {}
