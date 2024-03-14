@@ -1,12 +1,14 @@
-name: Lint Cpp
+name: Format and Lint Cpp
 
 on:
   pull_request:
+    branches-ignore:
+      - main
     paths:
       - "engine/**"
 
 jobs:
-  foramt:
+  format:
     name: Clang Format
     runs-on: ubuntu-latest
     steps:
@@ -17,7 +19,7 @@ jobs:
       - uses: DoozyX/clang-format-lint-action@v0.16.1
         with:
           source: './engine'
-          exclude: './engine/assets ./engine/shaders'
+          exclude: './engine/assets ./engine/shaders *font'
           extensions: 'hpp,cpp,inl'
           clangFormatVersion: 16
           inplace: True
@@ -28,10 +30,3 @@ jobs:
           message: 'Committing clang-format changes'
         env:
           GITHUB_TOKEN: ${{ secrets.TAIXU_GITHUB_TOKEN }}
-
-  lint:
-    name: Clang Tidy
-    needs: foramt
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3

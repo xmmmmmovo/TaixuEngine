@@ -1,8 +1,0 @@
-//
-// Created by xmmmmmovo on 2023/3/30.
-//
-
-#ifndef TAIXUENGINE_VK_PIPELINE_HPP
-#define TAIXUENGINE_VK_PIPELINE_HPP
-
-#endif//TAIXUENGINE_VK_PIPELINE_HPP
