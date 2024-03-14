@@ -6,6 +6,16 @@
 
 namespace taixu {
 
+DXGI_FORMAT textureFormat2DxgiFormat(EnumTextureFormat format) {
+    switch (format) {
+        case EnumTextureFormat::R8G8B8A8_UNORM:
+            return DXGI_FORMAT_R8G8B8A8_UNORM;
+        case EnumTextureFormat::R8G8B8A8_SRGB:
+            return DXGI_FORMAT_R8G8B8A8_UNORM_SRGB;
+    }
+    return DXGI_FORMAT_R8G8B8A8_UNORM;
+}
+
 bool DX11Texture2DBase::create(
         ID3D11Device* device, std::string&& name,
         const CD3D11_TEXTURE2D_DESC&            texDesc,
@@ -35,6 +45,11 @@ bool DX11Texture2DBase::create(
 
 failed:
     return false;
+}
+
+std::shared_ptr<DX11Texture2D>
+DX11Texture2D::create(TXTexture2DCreateInfo const& create_info) {
+    return nullptr;
 }
 
 }// namespace taixu

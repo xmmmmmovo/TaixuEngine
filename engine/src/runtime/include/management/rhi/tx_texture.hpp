@@ -9,7 +9,10 @@
 
 namespace taixu {
 
-enum class EnumTextureFormat {};
+enum class EnumTextureFormat : uint8_t {
+    R8G8B8A8_UNORM,
+    R8G8B8A8_SRGB,
+};
 
 struct TXTexture2DCreateInfo {
     uint32_t          width{0};

@@ -9,7 +9,9 @@
 
 namespace taixu {
 
-class DX11Texture2DBase : public TXTexture2D {
+DXGI_FORMAT textureFormat2DxgiFormat(EnumTextureFormat format);
+
+class DX11Texture2DBase : Noncopyable {
 protected:
     ComPtrT<ID3D11Texture2D>          _texture;
     ComPtrT<ID3D11ShaderResourceView> _tex_srv;
@@ -19,26 +21,37 @@ protected:
                                       DXGI_FORMAT_UNKNOWN);
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(protected, std::string, name, "");
 
-    DX11Texture2DBase() = default;
-
     bool create(ID3D11Device* device, std::string&& name,
                 const CD3D11_TEXTURE2D_DESC&            texDesc,
                 const CD3D11_SHADER_RESOURCE_VIEW_DESC& srvDesc);
 
 public:
-    ID3D11Texture2D* getTexture2D() const { return _texture.Get(); }
+    [[nodiscard]] ID3D11Texture2D* getTexture2D() const {
+        return _texture.Get();
+    }
 
     /**
      * @brief Get Texture 2D Shader Resource View
      * @return
      */
-    ID3D11ShaderResourceView* getTextureSRV() const { return _tex_srv.Get(); }
+    [[nodiscard]] ID3D11ShaderResourceView* getTextureSRV() const {
+        return _tex_srv.Get();
+    }
 };
 
-class DX11Texture2D : public DX11Texture2DBase {
+class DX11Texture2D : public TXTexture2D {
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(protected, uint32_t, mip_levels, 1);
     ComPtrT<ID3D11RenderTargetView>    _tex_rtv;
     ComPtrT<ID3D11UnorderedAccessView> _tex_uav;
+    DX11Texture2DBase                  _texture;
+
+private:
+    explicit DX11Texture2D(ComPtrT<ID3D11RenderTargetView> const&    tex_rtv,
+                           ComPtrT<ID3D11UnorderedAccessView> const& tex_uav,
+                           DX11Texture2DBase texture, uint32_t mip_levels)
+        : _mip_levels(mip_levels), _tex_rtv(tex_rtv), _tex_uav(tex_uav) {
+        _texture = std::move(texture);
+    }
 
 public:
     ID3D11RenderTargetView* getRenderTarget() const { return _tex_rtv.Get(); }
@@ -47,11 +60,9 @@ public:
     }
 
     static std::shared_ptr<DX11Texture2D>
-    create(TXTexture2DCreateInfo const& create_info) {
-
-        return nullptr;
-    }
+    create(TXTexture2DCreateInfo const& create_info);
 };
 
+class DX11Texture2DMS : public DX11Texture2DBase {};
 
 }// namespace taixu
