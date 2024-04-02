@@ -20,7 +20,9 @@ class DX11Buffer final : public TXBuffer {
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, size_t, stride, 0);
 
 private:
-    ComPtrT<ID3D11Buffer> _buffer{nullptr};
+    ComPtrT<ID3D11Buffer>              _buffer{nullptr};
+    ComPtrT<ID3D11ShaderResourceView>  _buffer_srv{nullptr};
+    ComPtrT<ID3D11UnorderedAccessView> _buffer_uav{nullptr};
 
 private:
     explicit DX11Buffer(ComPtrT<ID3D11Buffer>&& buffer, size_t stride);

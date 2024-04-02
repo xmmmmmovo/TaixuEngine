@@ -2,10 +2,6 @@ set(TARGET_NAME TaixuRuntime)
 
 include(SourceUtils)
 
-set(COMMON_TARGET "TaixuCommonLib")
-set(ENGINE_TARGET "TaixuEngineRuntimeLib")
-set(GAMEPLAY_TARGET "TaixuGameplayRuntimeLib")
-
 FIND_GLOB_RECURSE(SOURCE_FILES
         "source/common/*.cpp"
         "source/common/*.hpp"
