@@ -13,8 +13,8 @@
 #include "input_state.hpp"
 #include "key_code.hpp"
 
-#include <common/base/macro.hpp>
-#include <common/designs/public_singleton.hpp>
+#include "common/base/macro.hpp"
+#include "common/designs/public_singleton.hpp"
 
 namespace taixu {
 

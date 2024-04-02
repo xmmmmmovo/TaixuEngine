@@ -13,6 +13,8 @@ namespace taixu {
 
 DXGI_FORMAT textureFormat2DxgiFormat(EnumTextureFormat format);
 
+UINT textureBindFlags2D3D11BindFlags(EnumTextureBindingFlags flags);
+
 class DX11Texture2DBase : Noncopyable {
 protected:
     ComPtrT<ID3D11Texture2D>          _texture;
@@ -32,8 +34,7 @@ protected:
 
 public:
     static std::unique_ptr<DX11Texture2DBase>
-    create(ID3D11Device* device, std::string const& name,
-           const CD3D11_TEXTURE2D_DESC&            texDesc,
+    create(std::string const& name, const CD3D11_TEXTURE2D_DESC& texDesc,
            const CD3D11_SHADER_RESOURCE_VIEW_DESC& srvDesc);
 
 
@@ -67,6 +68,7 @@ public:
     std::unique_ptr<DX11Texture2DBase> const texture;
 
     ID3D11RenderTargetView* getRenderTarget() const { return _tex_rtv.Get(); }
+
     ID3D11UnorderedAccessView* getUnorderedAccess() const {
         return _tex_uav.Get();
     }
@@ -75,7 +77,10 @@ public:
     create(TXTexture2DCreateInfo const& create_info);
 };
 
-class DX11Texture2DMS : public DX11Texture2DBase {};
+class DX11Texture2DMS : public DX11Texture2DBase {
+    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(protected, uint32_t, samples, 1);
+    ComPtrT<ID3D11RenderTargetView> _tex_rtv;
+};
 
 class DX11TextureCube : public DX11Texture2DBase {};
 
