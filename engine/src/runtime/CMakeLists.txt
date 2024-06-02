@@ -15,7 +15,51 @@ FIND_GLOB_RECURSE(SOURCE_FILES
         "source/resource/*.hpp"
 )
 
-FIND_GLOB_RECURSE(PLATFORM_FILES "source/platform/*.cpp")
+
+# Adapt different platforms
+FIND_GLOB_RECURSE(PLATFORM_FILES
+        "source/platform/os/*.cpp"
+        "source/platform/os/*.hpp"
+)
+
+# adapt vulkan
+if (USE_VULKAN)
+    FIND_GLOB_RECURSE(PLATFORM_VK_FILES
+            "source/platform/vulkan/*.cpp"
+            "source/platform/vulkan/*.hpp"
+    )
+    list(APPEND PLATFORM_FILES ${PLATFORM_VK_FILES})
+endif ()
+
+# adapt dx11
+if (USE_DX11)
+    FIND_GLOB_RECURSE(PLATFORM_DX11_FILES
+            "source/platform/dx11/*.cpp"
+            "source/platform/dx11/*.hpp"
+    )
+    list(APPEND PLATFORM_FILES ${PLATFORM_DX11_FILES})
+endif ()
+
+# adapt os
+if (MSVC)
+    FIND_GLOB_RECURSE(PLATFORM_WIN_FILES
+            "source/platform/windows/*.cpp"
+            "source/platform/windows/*.hpp"
+    )
+    list(APPEND PLATFORM_FILES ${PLATFORM_WIN_FILES})
+elseif (APPLE)
+    FIND_GLOB_RECURSE(PLATFORM_APPLE_FILES
+            "source/platform/apple/*.cpp"
+            "source/platform/apple/*.hpp"
+    )
+    list(APPEND PLATFORM_FILES ${PLATFORM_APPLE_FILES})
+else ()
+    FIND_GLOB_RECURSE(PLATFORM_LINUX_FILES
+            "source/platform/linux/*.cpp"
+            "source/platform/linux/*.hpp"
+    )
+    list(APPEND PLATFORM_FILES ${PLATFORM_LINUX_FILES})
+endif ()
 
 FIND_GLOB_RECURSE(HEADER_FILES "include/*.hpp")
 

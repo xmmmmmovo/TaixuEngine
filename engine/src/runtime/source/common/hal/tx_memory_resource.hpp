@@ -2,7 +2,20 @@
 // Created by xmmmmmovo on 23/09/2023.
 //
 
-#ifndef ENGINE_SRC_COMMON_MEMORY_TX_MEMORY_RESOURCE_HPP
-#define ENGINE_SRC_COMMON_MEMORY_TX_MEMORY_RESOURCE_HPP
+#pragma once
 
-#endif// ENGINE_SRC_COMMON_MEMORY_TX_MEMORY_RESOURCE_HPP
+namespace taixu {
+
+
+template<typename T>
+class TXMemoryResource {
+public:
+             TXMemoryResource() = default;
+    virtual ~TXMemoryResource() = default;
+
+    virtual void* allocate(size_t size) = 0;
+    virtual void  deallocate(void* ptr) = 0;
+};
+
+
+}// namespace taixu

@@ -13,6 +13,9 @@ namespace taixu {
 class TXRenderPassNode : public std::enable_shared_from_this<TXRenderPassNode>,
                          private Noncopyable {};
 
+class TXFrameBuffer : public std::enable_shared_from_this<TXRenderPassNode>,
+                      private Noncopyable {};
+
 }// namespace taixu
 
 #endif// TX_RENDERPASS_HPP_47FA985BC7AF4FCE8F53970861177E7D

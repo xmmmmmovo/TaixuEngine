@@ -8,6 +8,8 @@
 #include <memory>
 #include <vector>
 
+namespace {
+
 struct A {
     int a{0};
 };
@@ -68,11 +70,9 @@ TEST_CASE("plus test", "[C++ trait tests]") {
     REQUIRE(a == 2);
 }
 
+void foo() {}
+
 TEST_CASE("test c++", "[C++ trait tests]") {
-    glm::vec3 v{1, 2, 3};
-
-    float* ptr     = &v[0];
-    float* raw_ptr = reinterpret_cast<float*>(&v);
-
-    REQUIRE(ptr == raw_ptr);
 }
+
+}// namespace

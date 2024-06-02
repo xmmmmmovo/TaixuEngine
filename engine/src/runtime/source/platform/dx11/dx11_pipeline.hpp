@@ -8,6 +8,8 @@
 
 namespace taixu {
 
-class DX11Pipeline final : public TXPipeline {};
+class DX11Pipeline final : public TXPipeline {
+public:
+};
 
 }// namespace taixu

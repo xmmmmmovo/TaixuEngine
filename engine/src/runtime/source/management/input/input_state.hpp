@@ -6,6 +6,7 @@
 #define ENGINE_RUNTIME_MANAGEMENT_INPUT_INPUT_STATE_HPP
 
 #include <array>
+#include <limits>
 
 namespace taixu {
 struct InputState {

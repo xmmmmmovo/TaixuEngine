@@ -8,7 +8,7 @@
 #include <cstdint>
 namespace taixu {
 
-enum class EnumKeyCode : std::int16_t {
+enum class EnumKeyCode : std::int8_t {
     UNKNOWN = -1,
 };
 

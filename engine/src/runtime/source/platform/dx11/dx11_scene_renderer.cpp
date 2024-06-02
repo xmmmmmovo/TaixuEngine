@@ -47,6 +47,7 @@ void DX11SceneRenderer::initForGraphicsAPI(Window* window) {
     frag = std::dynamic_pointer_cast<DX11ShaderModule<ID3D11PixelShader>>(
             _shader_module_manager.getBuiltinShaderModule(
                     EnumTXBuiltinShader::FORWARD_FRAG));
+
     //
     // // 设置三角形顶点
     // V vertices[] = {{Vec3(0.0f, 0.5f, 0.5f), Vec4(0.0f, 1.0f, 0.0f, 1.0f)},
