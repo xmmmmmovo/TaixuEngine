@@ -40,7 +40,7 @@ struct ImguiStyleGroup {
     Color modal_dim{0.0f, 0.0f, 0.0f, 0.0f};
 };
 
-class AbstractSceneRenderer : private Noncopyable {
+class TXSceneRenderer : private Noncopyable {
 protected:
     TXShaderModuleManager _shader_module_manager;
 

@@ -25,7 +25,7 @@ namespace taixu {
  * https://stackoverflow.com/questions/18889028/a-positive-lambda-what-sorcery-is-this
  */
 struct Handler {
-    void (*f)();
+    void                  (*f)();
     const std::type_info& info;
 
     template<typename T>
@@ -41,5 +41,17 @@ struct Handler {
     }
 };
 
+enum class CallbackResult : uint8_t {
+    CONTINUE,
+    BREAK,
+    STOP
+};
+
+template<typename... Args>
+class Signal final {
+private:
+    std::vector<Handler> _handlers;
+
+};
 
 }// namespace taixu

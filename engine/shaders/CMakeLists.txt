@@ -79,7 +79,7 @@ if (USE_VULKAN)
     endif ()
 endif ()
 
-if (USE_DX11)
+if(USE_HLSL)
     find_program(FXC_EXECUTABLE fxc
             PATHS "${TAIXUENGINE_ROOT_DIR}/3rdparty/bin/fxc"
             DOC "The DirectX shader compiler"
@@ -112,7 +112,7 @@ if (USE_VULKAN)
     FIND_GLSL(vulkan vk "-V100")
 endif ()
 
-if (USE_DX11)
+if(USE_HLSL)
     if (CMAKE_BUILD_TYPE STREQUAL "Debug")
         FIND_HLSL(dx11 dx11 TRUE /Zi /Od /nologo)
     else ()

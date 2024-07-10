@@ -17,7 +17,7 @@ std::shared_ptr<TXShaderModule> TXShaderModuleManager::createShaderModuleInner(
 }
 
 std::shared_ptr<TXShaderModule> TXShaderModuleManager::createCustomShaderModule(
-        const TXShaderModuleCreateInfo& info) {
+        const TXShaderModuleCreateInfo& info) const {
     // TODO: check name
     return createShaderModuleInner(info);
 }

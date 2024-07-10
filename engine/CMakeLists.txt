@@ -32,11 +32,6 @@ if (USE_VULKAN)
     include(FindVulkanLib)
 endif ()
 
-if (USE_DX11)
-    # add DX11
-    include(FindDirectX11)
-endif ()
-
 # add HarfBuzz
 include(FindHarfBuzz)
 # add freetype

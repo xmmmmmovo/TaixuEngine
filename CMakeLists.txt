@@ -12,13 +12,7 @@ option(USE_PCH "pre compile" ON)
 option(WARNINGS "warnings" OFF)
 
 option(USE_VULKAN "use vulkan" ON)
-option(USE_DX11 "use dx11" ON)
-option(USE_DX12 "use dx12" OFF)
-
-if (APPLE)
-    set(USE_DX11 OFF)
-    set(USE_DX12 OFF)
-endif ()
+option(USE_HLSL "use hlsl" ON)
 
 # for project properties
 set(ENGINE_VERSION 0.1.1)
@@ -27,25 +21,24 @@ set(ENGINE_VERSION 0.1.1)
 list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty)
 
-if (USE_VCPKG)
+if(USE_VCPKG)
     # set vcpkg for cmake
-    if (NOT DEFINED ENV{VCPKG_ROOT})
+    if(NOT DEFINED ENV{VCPKG_ROOT})
         set(ENV{VCPKG_ROOT} "./3rdparty/vcpkg")
-    endif ()
+    endif()
 
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
-endif ()
+endif()
 
-if (WARNINGS)
-    add_definitions(-Wall)
-endif ()
+set(TAIXU_WARNINGS_DEF "-Wall -Wextra -Weffc++ -Werror=uninitialized -Werror=return-type -Wconversion -Wsign-compare -Werror=unused-result 
+                        -Werror=suggest-override -Wzero-as-null-pointer-constant -Wmissing-declarations -Wold-style-cast -Wnon-virtual-dtor")
 
 project(
-        TaixuEngine
-        VERSION ${ENGINE_VERSION}
-        DESCRIPTION "A Game Engine."
-        HOMEPAGE_URL "https://github.com/TaixuEngineGroup/TaixuEngine"
-        LANGUAGES CXX C
+    TaixuEngine
+    VERSION ${ENGINE_VERSION}
+    DESCRIPTION "A Game Engine."
+    HOMEPAGE_URL "https://github.com/TaixuEngineGroup/TaixuEngine"
+    LANGUAGES CXX C
 )
 
 set(TAIXUENGINE_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
@@ -53,11 +46,12 @@ set(CMAKE_INSTALL_PREFIX "${TAIXUENGINE_ROOT_DIR}/bin")
 set(BINARY_ROOT_DIR "${CMAKE_INSTALL_PREFIX}/")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-if ("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
+
+if("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
     set(OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR})
-else ()
+else()
     set(OUTPUT_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-endif ()
+endif()
 
 # add cmake package manager
 set(CPM_SOURCE_CACHE "${TAIXUENGINE_ROOT_DIR}/.cpm_cache")

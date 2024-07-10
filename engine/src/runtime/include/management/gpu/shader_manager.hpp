@@ -73,7 +73,7 @@ public:
     void init(AdapterPtrT&& adapter);
 
     std::shared_ptr<TXShaderModule>
-    createCustomShaderModule(const TXShaderModuleCreateInfo& info);
+    createCustomShaderModule(const TXShaderModuleCreateInfo& info) const;
 
     [[nodiscard]] std::shared_ptr<TXShaderModule>
     getBuiltinShaderModule(EnumTXBuiltinShader builtin_shader) const;

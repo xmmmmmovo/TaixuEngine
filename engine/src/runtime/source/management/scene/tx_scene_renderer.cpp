@@ -30,31 +30,31 @@ static constexpr ImguiStyleGroup DEFAULT_STYLE_GROUP{
         Color{105_uc, 50_uc, 68_uc, 255_uc},
         Color{0_uc, 0_uc, 0_uc, 255_uc}};
 
-void AbstractSceneRenderer::init(Window* window) {
+void TXSceneRenderer::init(Window* window) {
     initForGraphicsAPI(window);
     initImgui(window);
 }
 
-void AbstractSceneRenderer::update(const float delta_time, Scene* scene) {
+void TXSceneRenderer::update(const float delta_time, Scene* scene) {
     clearWindow();
     if (scene != nullptr) { updateScene(delta_time, scene); }
     if (_enable_imgui) { imguiUpdate(); }
     presentToWindow();
 }
 
-void AbstractSceneRenderer::destroy() {
+void TXSceneRenderer::destroy() {
     destroyGraphicsAPI();
     imguiDestroy();
 }
 
-void AbstractSceneRenderer::enableImgui(
+void TXSceneRenderer::enableImgui(
         const std::function<void()>& update_func) {
     _enable_imgui = true;
-    _imgui_update = std::move(update_func);
+    _imgui_update = update_func;
 }
-void AbstractSceneRenderer::disableImgui() { _enable_imgui = false; }
+void TXSceneRenderer::disableImgui() { _enable_imgui = false; }
 
-void AbstractSceneRenderer::loadFont(DPIScale const& dpi_scale) const {
+void TXSceneRenderer::loadFont(DPIScale const& dpi_scale) const {
     _io->Fonts->AddFontDefault();
 
     static constexpr float FONT_SIZE{24.0f};
@@ -81,7 +81,7 @@ void AbstractSceneRenderer::loadFont(DPIScale const& dpi_scale) const {
     _io->FontGlobalScale = dpi_scale.x_scale;
 }
 
-void AbstractSceneRenderer::loadStyle(DPIScale const& dpi_scale) {
+void TXSceneRenderer::loadStyle(DPIScale const& dpi_scale) {
     ImGui::StyleColorsDark();
 
     _style = &ImGui::GetStyle();
@@ -155,11 +155,11 @@ void AbstractSceneRenderer::loadStyle(DPIScale const& dpi_scale) {
     _style->ScaleAllSizes(dpi_scale.x_scale);
 }
 
-void AbstractSceneRenderer::initImguiForWindow(const Window* window) {
+void TXSceneRenderer::initImguiForWindow(const Window* window) {
     ImGui_ImplGlfw_InitForOther(window->getRawWindow(), true);
 }
 
-void AbstractSceneRenderer::initImgui(const Window* window) {
+void TXSceneRenderer::initImgui(const Window* window) {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     _io = &ImGui::GetIO();
@@ -178,7 +178,7 @@ void AbstractSceneRenderer::initImgui(const Window* window) {
     imguiForGraphicsAPIInit();
 }
 
-void AbstractSceneRenderer::imguiUpdate() {
+void TXSceneRenderer::imguiUpdate() {
     imguiGraphicsPreUpdate();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
@@ -198,7 +198,7 @@ void AbstractSceneRenderer::imguiUpdate() {
     }
 }
 
-void AbstractSceneRenderer::imguiDestroy() {
+void TXSceneRenderer::imguiDestroy() {
     imguiGraphicsDestroy();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();

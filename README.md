@@ -24,8 +24,9 @@ make
 |  API   |                Progress                |
 |:------:|:--------------------------------------:|
 | OpenGL | Deprecated(old version in main branch) |
-|  DX11  |                  WIP                   |
 | Vulkan |                  WIP                   |
+
+Note: New RHI design, will be implemented by `Mesa` project.
 
 ## Architecture
 

@@ -47,7 +47,7 @@ public:
     /**
      * 渲染器
      */
-    std::shared_ptr<AbstractSceneRenderer> renderer{nullptr};
+    std::shared_ptr<TXSceneRenderer> renderer{nullptr};
     /**
      * 资源管理器
      */

@@ -7,14 +7,11 @@
 #include <argparse/argparse.hpp>
 
 #include "management/scene/tx_renderer_factory.hpp"
-#include "platform/dx11/dx11_scene_renderer.hpp"
 
 namespace taixu {
-
-
 void EngineArgs::registerRendererFactory() {
-    SceneRendererFactory::registerCreationFunc(EnumRenderAPI::DX11, [] {
-        return std::make_unique<DX11SceneRenderer>();
+    SceneRendererFactory::registerCreationFunc(EnumRenderAPI::VULKAN, [] {
+        return std::make_unique<TXSceneRenderer>();
     });
 }
 

@@ -13,10 +13,6 @@
     #include <backends/imgui_impl_vulkan.h>
 #endif
 
-#ifdef USE_DX11
-    #include <backends/imgui_impl_dx11.h>
-#endif
-
 namespace taixu {
 
 Window::Window(WindowInfo const& window_info) : _window_info(window_info) {}
