@@ -16,7 +16,7 @@ class Scene;
 class EngineArgs;
 class Window;
 
-class Engine final : private Noncopyable {
+class Engine final : public Noncopyable {
 private:
     /**
      * @brief engine clock

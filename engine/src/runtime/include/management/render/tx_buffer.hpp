@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "common/designs/noncopyable.hpp"
+
 namespace taixu {
 
 enum class EnumTXBufferUsage : uint8_t {
@@ -38,7 +40,7 @@ struct TXBufferCreateInfo {
 };
 
 class TXBuffer : public std::enable_shared_from_this<TXBuffer>,
-                 private Noncopyable {
+                 public Noncopyable {
 public:
     ~TXBuffer() override = default;
 };

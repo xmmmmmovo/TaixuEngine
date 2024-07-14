@@ -43,7 +43,7 @@ struct WindowState {
 
 namespace taixu {
 
-class Window final : private Noncopyable {
+class Window final : public Noncopyable {
 protected:
     using on_reset_fn              = std::function<void()>;
     using on_key_fn                = std::function<void(int, int, int, int)>;

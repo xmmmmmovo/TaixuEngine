@@ -5,7 +5,6 @@
 #ifndef ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_SCENE_RENDERER_0906B2209CBE4868A97BEE1FF83AFD22
 #define ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_SCENE_RENDERER_0906B2209CBE4868A97BEE1FF83AFD22
 
-#include "common/base/macro.hpp"
 #include "common/designs/noncopyable.hpp"
 #include "common/math/color.hpp"
 #include "gameplay/gui/window.hpp"
@@ -40,7 +39,7 @@ struct ImguiStyleGroup {
     Color modal_dim{0.0f, 0.0f, 0.0f, 0.0f};
 };
 
-class TXSceneRenderer final : private Noncopyable {
+class TXSceneRenderer final : public Noncopyable {
 protected:
     TXShaderModuleManager _shader_module_manager;
 

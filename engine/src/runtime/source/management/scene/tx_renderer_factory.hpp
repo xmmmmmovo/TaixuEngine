@@ -13,7 +13,7 @@
 namespace taixu {
 
 class SceneRendererFactory
-    : private Noncopyable,
+    : public Noncopyable,
       public AbstractFactory<EnumRenderAPI, TXSceneRenderer> {};
 
 }// namespace taixu

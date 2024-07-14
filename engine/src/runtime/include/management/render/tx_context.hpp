@@ -6,12 +6,12 @@
 
 #include "common/designs/noncopyable.hpp"
 
-#include <vulkan/vulkan_handles.hpp>
+#include <vulkan/vulkan_raii.hpp>
 
 namespace taixu {
 
 class TXContext final : Noncopyable {
-    vk::Instance _instance{VK_NULL_HANDLE};
+    vk::raii::Instance _instance{VK_NULL_HANDLE};
 };
 
 }// namespace taixu
