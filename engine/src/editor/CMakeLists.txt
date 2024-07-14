@@ -17,6 +17,10 @@ set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "EngineEditor")
 # 使用MSVC标准
 target_compile_options(${TARGET_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/WX->")
 
+if(WARNINGS)
+    target_compile_definitions(${TARGET_NAME} PRIVATE TAIXU_WARNINGS_DEF)
+endif()
+
 # link libraries
 target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime argparse)
 

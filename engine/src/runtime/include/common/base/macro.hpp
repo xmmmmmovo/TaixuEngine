@@ -23,7 +23,7 @@
 #endif
 
 #if !defined(_DEBUG) && defined(DEBUG)
-    #define _DEBUG
+    #define TX_DEBUG
 #endif
 
 #if defined(TX_FORCE_INLINE)

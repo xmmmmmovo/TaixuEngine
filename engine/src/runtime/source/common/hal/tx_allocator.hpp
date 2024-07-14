@@ -1,21 +1,22 @@
-//
-// Created by xmmmmmovo on 2023/4/25.
-//
+/**
+ * @file tx_allocator.hpp
+ * @author xmmmmmovo (ma_fivezha@163.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-07-13
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 
-#ifndef TAIXUENGINE_ALLOCATOR_HPP
-#define TAIXUENGINE_ALLOCATOR_HPP
+#pragma once
 
-#include <memory>
-
-#include "tx_memory_resource.hpp"
+#include <mimalloc-new-delete.h>
+#include <mimalloc-override.h>
 
 namespace taixu {
 
-template<typename T, typename MemRes>
-class TXAllocator : public std::allocator<T> {
-    using value_type = T;
-};
+template<typename T>
+using txAllocatorT = mi_stl_allocator<T>;
 
 }// namespace taixu
-
-#endif// TAIXUENGINE_ALLOCATOR_HPP

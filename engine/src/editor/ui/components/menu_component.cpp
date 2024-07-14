@@ -24,9 +24,7 @@ MenuComponent::MenuComponent(ViewModel& view_model)
     registerCallback(EnumCallbacks::MENU_FILE_NEW_PROJECT,
                      Handler{+[](std::string const& file_path) {}});
     registerCallback(EnumCallbacks::MENU_FILE_SAVE_PROJECT, Handler{+[] {}});
-    registerCallback(EnumCallbacks::MENU_FILE_EXIT, Handler{+[] {
-
-                     }});
+    registerCallback(EnumCallbacks::MENU_FILE_EXIT, Handler{+[] {}});
 }
 
 void MenuComponent::buildFileMenu() {

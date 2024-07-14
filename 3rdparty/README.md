@@ -1,3 +1,18 @@
-# Copyrights
+# copyrights
 
-- [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog/tree/Lib_Only)
+- [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog)
+- [Argparse](https://github.com/morrisfranken/argparse)
+- [Assimp](https://github.com/assimp/assimp)
+- [Catch2](https://github.com/catchorg/Catch2)
+- [glfw3](https://github.com/glfw/glfw)
+- [glm](https://github.com/g-truc/glm)
+- [imgui](https://github.com/ocornut/imgui)
+- [Freetype](https://github.com/freetype/freetype)
+- [stb](https://github.com/nothings/stb)
+- [HarfBuzz](https://github.com/harfbuzz/harfbuzz)
+- [imgui](https://github.com/ocornut/imgui)
+- [JoltPhysics](https://github.com/jrouwe/JoltPhysics)
+- [MagicEnum](https://github.com/Neargye/magic_enum)
+- [refl-cpp](https://github.com/TartanLlama/refl-cpp)
+- [simdjson](https://github.com/simdjson/simdjson)
+- [spdlog](https://github.com/gabime/spdlog)

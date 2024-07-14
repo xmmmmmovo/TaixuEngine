@@ -37,7 +37,12 @@ struct TXPipelineDepthStencilStateCreateInfo {};
 
 struct TXPipelineColorBlendStateCreateInfo {};
 
-struct TXPipelineRaterizationStateCreateInfo {};
+struct TXPipelineRaterizationStateCreateInfo {
+    bool depth_clamp_enable{false};
+    bool rasterizer_discard_enable{false};
+    bool depth_bias_enable{false};
+    bool depth_bias_clamp_enable{false};
+};
 
 struct TXPipelineCreateInfo {
     std::vector<std::shared_ptr<TXShaderModule>> modules{};

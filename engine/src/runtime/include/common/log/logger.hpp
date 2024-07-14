@@ -85,7 +85,7 @@ public:
     }
 
 private:
-     Logger() = default;
+    Logger()  = default;
     ~Logger() = default;
 
     TX_INLINE static std::shared_ptr<spdlog::logger> _logger;

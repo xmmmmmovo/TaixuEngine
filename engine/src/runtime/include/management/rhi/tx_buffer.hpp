@@ -6,7 +6,7 @@
 
 namespace taixu {
 
-enum class EnumTXBufferUsage : uint16_t {
+enum class EnumTXBufferUsage : uint8_t {
     UNIFORM_TEXTEL  = 1 << 0,
     VERTEX_BUFFER   = 1 << 1,
     INDICIES_BUFFER = 1 << 2,

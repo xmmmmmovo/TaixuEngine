@@ -5,16 +5,12 @@
 #ifndef TAIXUENGINE_INPUT_SYSTEM_HPP
 #define TAIXUENGINE_INPUT_SYSTEM_HPP
 
-#include <cstddef>
-#include <cstdint>
-#include <limits>
-#include <memory>
-
 #include "input_state.hpp"
 #include "key_code.hpp"
 
 #include "common/base/macro.hpp"
 #include "common/designs/public_singleton.hpp"
+#include "gameplay/gui/window.hpp"
 
 namespace taixu {
 
