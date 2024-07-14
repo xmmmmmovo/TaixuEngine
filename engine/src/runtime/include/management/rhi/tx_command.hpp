@@ -24,15 +24,15 @@ public:
     virtual bool end()   = 0;
 
     // virtual bool beginRenderPass(TXRenderPass*  renderPass,
-                                 // TXFrameBuffer* frameBuffer) = 0;
-    virtual bool endRenderPass()                             = 0;
+    // TXFrameBuffer* frameBuffer) = 0;
+    virtual bool endRenderPass() = 0;
 
-    virtual bool bindPipeline(TXPipeline* pipeline)       = 0;
+    virtual bool bindPipeline(TXPipeline* pipeline) = 0;
     // virtual bool bindDescriptor(TXDescriptor* descriptor) = 0;
-    virtual bool bindVertexBuffer(TXBuffer* buffer)       = 0;
-    virtual bool bindIndexBuffer(TXBuffer* buffer)        = 0;
+    virtual bool bindVertexBuffer(TXBuffer* buffer) = 0;
+    virtual bool bindIndexBuffer(TXBuffer* buffer)  = 0;
     virtual bool bindUniformBuffer(TXBuffer* buffer, uint32_t offset,
-                                   uint32_t size)         = 0;
+                                   uint32_t size)   = 0;
 
     virtual bool draw(uint32_t vertexCount, uint32_t instanceCount,
                       uint32_t firstVertex, uint32_t firstInstance) = 0;

@@ -167,7 +167,7 @@ void TXSceneRenderer::initImgui(const Window* window) {
             ImGuiConfigFlags_NavEnableKeyboard;// Enable Keyboard Controls
     _io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
     _io->ConfigFlags |=
-            ImGuiConfigFlags_ViewportsEnable;// Enable Multi-Viewport
+            ImGuiConfigFlags_ViewportsEnable;          // Enable Multi-Viewport
     // Platform Windows
 
     loadFont(window->dpi_scale());

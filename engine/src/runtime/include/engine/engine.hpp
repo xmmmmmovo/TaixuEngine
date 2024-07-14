@@ -51,11 +51,11 @@ public:
     /**
      * 资源管理器
      */
-    std::shared_ptr<AssetManager>          asset_manager{nullptr};
+    std::shared_ptr<AssetManager>    asset_manager{nullptr};
     /**
      * 打开场景
      */
-    std::shared_ptr<Scene>                 scene{nullptr};
+    std::shared_ptr<Scene>           scene{nullptr};
 
 public:
     /**

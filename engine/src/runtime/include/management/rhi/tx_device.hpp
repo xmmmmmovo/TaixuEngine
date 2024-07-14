@@ -18,8 +18,6 @@ class TXDevice final : private Noncopyable {
     vk::Device         _device{VK_NULL_HANDLE};
     vk::PhysicalDevice _physical_device{VK_NULL_HANDLE};
     vk::Queue          _graphics_queue{VK_NULL_HANDLE};
-
-    
 };
 
 }// namespace taixu
