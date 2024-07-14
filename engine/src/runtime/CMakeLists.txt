@@ -75,6 +75,7 @@ target_link_libraries(${TARGET_NAME} PRIVATE stb)
 target_link_libraries(${TARGET_NAME} PRIVATE simdjson Threads::Threads freetype glfw)
 target_link_libraries(${TARGET_NAME} PRIVATE assimp)
 target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
+target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static)
 
 target_link_libraries(${TARGET_NAME} PUBLIC refl-cpp::refl-cpp imgui
         spdlog::spdlog fmt::fmt magic_enum::magic_enum glm)
@@ -83,7 +84,7 @@ if(USE_VULKAN)
         add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)
 
         list(APPEND PCH_FILES "${PCH_DIR}/pch_vulkan.hpp")
-        target_link_libraries(${TARGET_NAME} PRIVATE Vulkan::Vulkan volk VulkanMemoryAllocator)
+        target_link_libraries(${TARGET_NAME} PUBLIC Vulkan::Vulkan volk VulkanMemoryAllocator)
         target_include_directories(${TARGET_NAME} PRIVATE ${Vulkan_INCLUDE_DIRS})
 endif()
 

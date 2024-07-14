@@ -47,8 +47,7 @@ void TXSceneRenderer::destroy() {
     imguiDestroy();
 }
 
-void TXSceneRenderer::enableImgui(
-        const std::function<void()>& update_func) {
+void TXSceneRenderer::enableImgui(const std::function<void()>& update_func) {
     _enable_imgui = true;
     _imgui_update = update_func;
 }
@@ -156,7 +155,7 @@ void TXSceneRenderer::loadStyle(DPIScale const& dpi_scale) {
 }
 
 void TXSceneRenderer::initImguiForWindow(const Window* window) {
-    ImGui_ImplGlfw_InitForOther(window->getRawWindow(), true);
+    ImGui_ImplGlfw_InitForVulkan(window->getRawWindow(), true);
 }
 
 void TXSceneRenderer::initImgui(const Window* window) {
@@ -168,7 +167,7 @@ void TXSceneRenderer::initImgui(const Window* window) {
             ImGuiConfigFlags_NavEnableKeyboard;// Enable Keyboard Controls
     _io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
     _io->ConfigFlags |=
-            ImGuiConfigFlags_ViewportsEnable;          // Enable Multi-Viewport
+            ImGuiConfigFlags_ViewportsEnable;// Enable Multi-Viewport
     // Platform Windows
 
     loadFont(window->dpi_scale());
@@ -203,5 +202,23 @@ void TXSceneRenderer::imguiDestroy() {
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
 }
+
+void TXSceneRenderer::updateScene(float delta_time, Scene* scene) {}
+
+void TXSceneRenderer::imguiForGraphicsAPIInit() {}
+
+void TXSceneRenderer::initForGraphicsAPI(Window* window) {}
+
+void TXSceneRenderer::imguiGraphicsPreUpdate() {}
+
+void TXSceneRenderer::imguiGraphicsUpdate() {}
+
+void TXSceneRenderer::imguiGraphicsDestroy() {}
+
+void TXSceneRenderer::clearWindow() {}
+
+void TXSceneRenderer::presentToWindow() {}
+
+void TXSceneRenderer::destroyGraphicsAPI() {}
 
 }// namespace taixu

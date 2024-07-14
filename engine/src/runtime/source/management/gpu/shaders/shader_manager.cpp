@@ -6,14 +6,11 @@
 
 namespace taixu {
 
-void TXShaderModuleManager::init(TXShaderModuleManager::AdapterPtrT&& adapter) {
-    _adapter = std::forward<AdapterPtrT>(adapter);
-    _adapter->initForBuiltinShaderCreateInfo(_builtin_shader_create_infos);
-}
+void TXShaderModuleManager::init() {}
 
 std::shared_ptr<TXShaderModule> TXShaderModuleManager::createShaderModuleInner(
         const TXShaderModuleCreateInfo& info) const {
-    return _adapter->create(info);
+    return nullptr;
 }
 
 std::shared_ptr<TXShaderModule> TXShaderModuleManager::createCustomShaderModule(

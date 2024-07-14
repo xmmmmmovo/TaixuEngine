@@ -37,24 +37,6 @@ using TXBuiltinShaderModulePtrArrT =
         info.stage         = (stage_);                                         \
     }
 
-#define INIT_BUILTIN_SHADER_MODULE_CREATE_INFO_ATTR_DESC(name_, attr)          \
-    {                                                                          \
-        auto& info        = (infos)[static_cast<size_t>(name_)];               \
-        info.in_attr_desc = (attr);                                            \
-    }
-
-
-class TXShaderModuleAdapter {
-public:
-    virtual std::shared_ptr<TXShaderModule>
-    create(TXShaderModuleCreateInfo const& info) = 0;
-    virtual void
-    initForBuiltinShaderCreateInfo(TXBuiltinShaderCreateInfoArrT& infos) = 0;
-
-    explicit TXShaderModuleAdapter() = default;
-    virtual ~TXShaderModuleAdapter() = default;
-};
-
 class TXShaderModuleManager final {
 private:
     TX_INLINE static TXBuiltinShaderCreateInfoArrT _builtin_shader_create_infos;
@@ -63,16 +45,13 @@ private:
     std::unordered_map<hash32_t, std::shared_ptr<TXShaderModule>>
             _custom_modules;
 
-    using AdapterPtrT = std::unique_ptr<TXShaderModuleAdapter>;
-    AdapterPtrT _adapter{};
-
     [[nodiscard]] std::shared_ptr<TXShaderModule>
     createShaderModuleInner(TXShaderModuleCreateInfo const& info) const;
 
 public:
-    void init(AdapterPtrT&& adapter);
+    void init();
 
-    std::shared_ptr<TXShaderModule>
+    [[nodiscard]] std::shared_ptr<TXShaderModule>
     createCustomShaderModule(const TXShaderModuleCreateInfo& info) const;
 
     [[nodiscard]] std::shared_ptr<TXShaderModule>

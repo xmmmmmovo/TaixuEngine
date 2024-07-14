@@ -60,6 +60,9 @@ include(FindMagicEnum)
 include(FindArgparse)
 # add joltpyhsics
 include(FindJoltPhysics)
+# add mimalloc
+include(FindMimalloc)
+
 # add threads
 find_package(Threads REQUIRED)
 

@@ -40,7 +40,7 @@ struct ImguiStyleGroup {
     Color modal_dim{0.0f, 0.0f, 0.0f, 0.0f};
 };
 
-class TXSceneRenderer : private Noncopyable {
+class TXSceneRenderer final : private Noncopyable {
 protected:
     TXShaderModuleManager _shader_module_manager;
 
@@ -77,21 +77,29 @@ private:
     void        imguiDestroy();
 
 protected:
-    virtual void updateScene(float delta_time, Scene* scene) = 0;
+    void updateScene(float delta_time, Scene* scene);
+
     /**
-     * @brief 这里因为要适配不同的API所以是虚函数
+     * @brief 初始化imgui API
+     *
      */
-    virtual void imguiForGraphicsAPIInit()                   = 0;
-    virtual void initForGraphicsAPI(Window* window)          = 0;
+    void imguiForGraphicsAPIInit();
 
-    virtual void imguiGraphicsPreUpdate() = 0;
-    virtual void imguiGraphicsUpdate()    = 0;
-    virtual void imguiGraphicsDestroy()   = 0;
+    /**
+     * @brief 初始化图形API
+     *
+     * @param window GLFW窗口
+     */
+    void initForGraphicsAPI(Window* window);
 
-    virtual void clearWindow()     = 0;
-    virtual void presentToWindow() = 0;
+    void imguiGraphicsPreUpdate();
+    void imguiGraphicsUpdate();
+    void imguiGraphicsDestroy();
 
-    virtual void destroyGraphicsAPI() = 0;
+    void clearWindow();
+    void presentToWindow();
+
+    void destroyGraphicsAPI();
 };
 
 }// namespace taixu
