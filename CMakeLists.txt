@@ -12,7 +12,7 @@ option(USE_PCH "pre compile" ON)
 option(WARNINGS "warnings" OFF)
 
 option(USE_VULKAN "use vulkan" ON)
-option(USE_HLSL "use hlsl" ON)
+option(USE_HLSL "use hlsl" OFF)
 
 # for project properties
 set(ENGINE_VERSION 0.1.1)
