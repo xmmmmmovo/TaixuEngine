@@ -1,0 +1,9 @@
+<map id="taixu::TXPipelineCreateInfo" name="taixu::TXPipelineCreateInfo">
+<area shape="rect" id="node1" title=" " alt="" coords="541,219,741,296"/>
+<area shape="rect" id="node2" href="$structtaixu_1_1TXPipelineDepthStencilStateCreateInfo.html" title=" " alt="" coords="5,35,220,127"/>
+<area shape="rect" id="node3" href="$structtaixu_1_1TXPipelineColorBlendStateCreateInfo.html" title=" " alt="" coords="245,35,447,127"/>
+<area shape="rect" id="node4" href="$structtaixu_1_1TXViewport.html" title=" " alt="" coords="471,5,610,156"/>
+<area shape="rect" id="node5" href="$structtaixu_1_1TXPipelineMultisampleStateCreateInfo.html" title=" " alt="" coords="634,35,847,127"/>
+<area shape="rect" id="node6" href="$structtaixu_1_1TXPipelineRaterizationStateCreateInfo.html" title=" " alt="" coords="871,5,1082,156"/>
+<area shape="rect" id="node7" href="$structtaixu_1_1TXScissor.html" title=" " alt="" coords="1107,35,1233,127"/>
+</map>

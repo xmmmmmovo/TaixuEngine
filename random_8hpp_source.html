@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/core/math/random.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/include/common/math/random.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,24 +92,24 @@ $(document).ready(function(){initNavTree('random_8hpp_source.html',''); initResi
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef ENGINE_RUNTIME_CORE_MATH_RANDOM_HPP</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define ENGINE_RUNTIME_CORE_MATH_RANDOM_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8hpp.html">core/base/noncopyable.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8hpp.html">common/designs/noncopyable.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomEngine = std::default_random_engine&gt;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1RandomNumberGenerator.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1RandomNumberGenerator.html">RandomNumberGenerator</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1noncopyable.html">noncopyable</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1RandomNumberGenerator.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1RandomNumberGenerator.html">RandomNumberGenerator</a> final : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1Noncopyable.html">Noncopyable</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classtaixu_1_1RandomNumberGenerator.html#a567a989ab864d265d7ac432c274c044d">   16</a></span>&#160;    RandomEngine <a class="code" href="classtaixu_1_1RandomNumberGenerator.html#a567a989ab864d265d7ac432c274c044d">_random_engine</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Params&gt;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1RandomNumberGenerator.html#a3752c22750093b7cf4cb671705e4da20">   20</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classtaixu_1_1RandomNumberGenerator.html#a3752c22750093b7cf4cb671705e4da20">RandomNumberGenerator</a>(Params &amp;&amp;...params)</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1RandomNumberGenerator.html#a7fb22d61af0a53984c4e25fc6a61a1b0">   20</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classtaixu_1_1RandomNumberGenerator.html#a7fb22d61af0a53984c4e25fc6a61a1b0">RandomNumberGenerator</a>(Params&amp;&amp;... params)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        : <a class="code" href="classtaixu_1_1RandomNumberGenerator.html#a567a989ab864d265d7ac432c274c044d">_random_engine</a>(std::forward&lt;Params&gt;(params)...){};</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classtaixu_1_1RandomNumberGenerator.html#aff913cccf08828e63734782808f24bc5">   22</a></span>&#160;    <a class="code" href="classtaixu_1_1RandomNumberGenerator.html#aff913cccf08828e63734782808f24bc5">~RandomNumberGenerator</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classtaixu_1_1RandomNumberGenerator.html#adb0f419664bdc475b1ae4872503a8e9a">   22</a></span>&#160;    <a class="code" href="classtaixu_1_1RandomNumberGenerator.html#adb0f419664bdc475b1ae4872503a8e9a">~RandomNumberGenerator</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Params&gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classtaixu_1_1RandomNumberGenerator.html#afb46ade10d6e50270a50d1f6e0bd63d8">   25</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1RandomNumberGenerator.html#afb46ade10d6e50270a50d1f6e0bd63d8">seed</a>(Params &amp;&amp;...params) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classtaixu_1_1RandomNumberGenerator.html#a530ee9f635491deff62fe7ffa32a3385">   25</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1RandomNumberGenerator.html#a530ee9f635491deff62fe7ffa32a3385">seed</a>(Params&amp;&amp;... params) {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="classtaixu_1_1RandomNumberGenerator.html#a567a989ab864d265d7ac432c274c044d">_random_engine</a>.seed(std::forward&lt;Params&gt;(params)...);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
@@ -123,22 +123,22 @@ $(document).ready(function(){initNavTree('random_8hpp_source.html',''); initResi
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}<span class="comment">// namespace taixu</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//ENGINE_RUNTIME_CORE_MATH_RANDOM_HPP</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// ENGINE_RUNTIME_CORE_MATH_RANDOM_HPP</span></div>
+<div class="ttc" id="aclasstaixu_1_1Noncopyable_html"><div class="ttname"><a href="classtaixu_1_1Noncopyable.html">taixu::Noncopyable</a></div><div class="ttdoc">inherit this class in private method</div><div class="ttdef"><b>Definition:</b> noncopyable.hpp:14</div></div>
 <div class="ttc" id="aclasstaixu_1_1RandomNumberGenerator_html"><div class="ttname"><a href="classtaixu_1_1RandomNumberGenerator.html">taixu::RandomNumberGenerator</a></div><div class="ttdef"><b>Definition:</b> random.hpp:14</div></div>
-<div class="ttc" id="aclasstaixu_1_1RandomNumberGenerator_html_a3752c22750093b7cf4cb671705e4da20"><div class="ttname"><a href="classtaixu_1_1RandomNumberGenerator.html#a3752c22750093b7cf4cb671705e4da20">taixu::RandomNumberGenerator::RandomNumberGenerator</a></div><div class="ttdeci">RandomNumberGenerator(Params &amp;&amp;...params)</div><div class="ttdef"><b>Definition:</b> random.hpp:20</div></div>
+<div class="ttc" id="aclasstaixu_1_1RandomNumberGenerator_html_a530ee9f635491deff62fe7ffa32a3385"><div class="ttname"><a href="classtaixu_1_1RandomNumberGenerator.html#a530ee9f635491deff62fe7ffa32a3385">taixu::RandomNumberGenerator::seed</a></div><div class="ttdeci">void seed(Params &amp;&amp;... params)</div><div class="ttdef"><b>Definition:</b> random.hpp:25</div></div>
 <div class="ttc" id="aclasstaixu_1_1RandomNumberGenerator_html_a567a989ab864d265d7ac432c274c044d"><div class="ttname"><a href="classtaixu_1_1RandomNumberGenerator.html#a567a989ab864d265d7ac432c274c044d">taixu::RandomNumberGenerator::_random_engine</a></div><div class="ttdeci">RandomEngine _random_engine</div><div class="ttdef"><b>Definition:</b> random.hpp:16</div></div>
 <div class="ttc" id="aclasstaixu_1_1RandomNumberGenerator_html_a74cd7a53ce51483ca77720e12dc1507c"><div class="ttname"><a href="classtaixu_1_1RandomNumberGenerator.html#a74cd7a53ce51483ca77720e12dc1507c">taixu::RandomNumberGenerator::get</a></div><div class="ttdeci">T get(T min, T max)</div><div class="ttdef"><b>Definition:</b> random.hpp:30</div></div>
-<div class="ttc" id="aclasstaixu_1_1RandomNumberGenerator_html_afb46ade10d6e50270a50d1f6e0bd63d8"><div class="ttname"><a href="classtaixu_1_1RandomNumberGenerator.html#afb46ade10d6e50270a50d1f6e0bd63d8">taixu::RandomNumberGenerator::seed</a></div><div class="ttdeci">void seed(Params &amp;&amp;...params)</div><div class="ttdef"><b>Definition:</b> random.hpp:25</div></div>
-<div class="ttc" id="aclasstaixu_1_1RandomNumberGenerator_html_aff913cccf08828e63734782808f24bc5"><div class="ttname"><a href="classtaixu_1_1RandomNumberGenerator.html#aff913cccf08828e63734782808f24bc5">taixu::RandomNumberGenerator::~RandomNumberGenerator</a></div><div class="ttdeci">~RandomNumberGenerator()=default</div></div>
-<div class="ttc" id="aclasstaixu_1_1noncopyable_html"><div class="ttname"><a href="classtaixu_1_1noncopyable.html">taixu::noncopyable</a></div><div class="ttdoc">inherit this class in private method</div><div class="ttdef"><b>Definition:</b> noncopyable.hpp:15</div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
+<div class="ttc" id="aclasstaixu_1_1RandomNumberGenerator_html_a7fb22d61af0a53984c4e25fc6a61a1b0"><div class="ttname"><a href="classtaixu_1_1RandomNumberGenerator.html#a7fb22d61af0a53984c4e25fc6a61a1b0">taixu::RandomNumberGenerator::RandomNumberGenerator</a></div><div class="ttdeci">RandomNumberGenerator(Params &amp;&amp;... params)</div><div class="ttdef"><b>Definition:</b> random.hpp:20</div></div>
+<div class="ttc" id="aclasstaixu_1_1RandomNumberGenerator_html_adb0f419664bdc475b1ae4872503a8e9a"><div class="ttname"><a href="classtaixu_1_1RandomNumberGenerator.html#adb0f419664bdc475b1ae4872503a8e9a">taixu::RandomNumberGenerator::~RandomNumberGenerator</a></div><div class="ttdeci">~RandomNumberGenerator() override=default</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
 <div class="ttc" id="anoncopyable_8hpp_html"><div class="ttname"><a href="noncopyable_8hpp.html">noncopyable.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_0f5c9aa018504ec80b3590dee96e9bd5.html">core</a></li><li class="navelem"><a class="el" href="dir_05503e7d0c15df2abeb67cdc69c5e5db.html">math</a></li><li class="navelem"><a class="el" href="random_8hpp.html">random.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_0d6f2005140f963448af64cb7b74383c.html">common</a></li><li class="navelem"><a class="el" href="dir_9166e2b634610933b8ae57654f47cca7.html">math</a></li><li class="navelem"><a class="el" href="random_8hpp.html">random.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

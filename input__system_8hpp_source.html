@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/management/input/input_system.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/source/management/input/input_system.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,50 +92,50 @@ $(document).ready(function(){initNavTree('input__system_8hpp_source.html',''); i
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_INPUT_SYSTEM_HPP</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_INPUT_SYSTEM_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="macro_8hpp.html">core/base/macro.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="public__singleton_8hpp.html">core/base/public_singleton.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="window__context_8hpp.html">gameplay/gui/window_context.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="input__state_8hpp.html">input_state.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1InputSystem.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1InputSystem.html">InputSystem</a> final : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1PublicSingleton.html">PublicSingleton</a>&lt;InputSystem&gt; {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classtaixu_1_1PublicSingleton.html">PublicSingleton</a>&lt;<a class="code" href="classtaixu_1_1InputSystem.html">InputSystem</a>&gt;;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="macro_8hpp.html#a586d84e8a0c350d9464cc0d930b7916a">PROTOTYPE_ONLY_GETTER_CONST</a>(<span class="keyword">private</span>, <a class="code" href="structtaixu_1_1InputState.html">InputState</a>, state)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classtaixu_1_1InputSystem.html#a429bc18d9557eeb3a1ad18ae8767caa4">   27</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1InputSystem.html#a429bc18d9557eeb3a1ad18ae8767caa4">initCallbacks</a>(<a class="code" href="classtaixu_1_1WindowContext.html">WindowContext</a> *context) {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        context-&gt;<a class="code" href="classtaixu_1_1WindowContext.html#aac1f1f5c4b784584430f0903a05c55a6">registerOnKeyFn</a>(</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                [<span class="keyword">this</span>](<span class="keywordtype">int</span> key, <span class="keywordtype">int</span> scancode, <span class="keywordtype">int</span> action, <span class="keywordtype">int</span> mods) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    <span class="keywordflow">if</span> (action == GLFW_PRESS) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                        _state.keys[key] = 1;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (action == GLFW_RELEASE) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                        _state.keys[key] = 0;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                });</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        context-&gt;<a class="code" href="classtaixu_1_1WindowContext.html#acb99c40b1f07cf4e77860acfc5c984bd">registerOnMouseButtonFn</a>(</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                [<span class="keyword">this</span>](<span class="keywordtype">int</span> button, <span class="keywordtype">int</span> action, <span class="keywordtype">int</span> mods) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                    <span class="keywordflow">if</span> (action == GLFW_PRESS) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        _state.keys[button] = 1;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (action == GLFW_RELEASE) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        _state.keys[button] = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    }</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="input__state_8hpp.html">input_state.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="key__code_8hpp.html">key_code.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="macro_8hpp.html">common/base/macro.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="public__singleton_8hpp.html">common/designs/public_singleton.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="window_8hpp.html">gameplay/gui/window.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1Window.html">Window</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classtaixu_1_1InputSystem.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1InputSystem.html">InputSystem</a> final : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1PublicSingleton.html">PublicSingleton</a>&lt;InputSystem&gt; {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classtaixu_1_1PublicSingleton.html">PublicSingleton</a>&lt;<a class="code" href="classtaixu_1_1InputSystem.html">InputSystem</a>&gt;;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtaixu_1_1InputSystem.html#ae3fe96ef9bcb9609f0e9a1740fa0c030">   23</a></span>&#160;    <a class="code" href="classtaixu_1_1InputSystem.html#ae3fe96ef9bcb9609f0e9a1740fa0c030">PROTOTYPE_ONLY_GETTER_CONST</a>(<span class="keyword">private</span>, <a class="code" href="structtaixu_1_1InputState.html">InputState</a>, state);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classtaixu_1_1InputSystem.html#a162be1c1de72d63ff27e43e09bcedec6">   26</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1InputSystem.html#a162be1c1de72d63ff27e43e09bcedec6">initWindow</a>(<a class="code" href="classtaixu_1_1Window.html">Window</a>* window) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">auto</span> key_func = [<span class="keyword">this</span>](<span class="keywordtype">int</span> key, <span class="keywordtype">int</span> action) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">static_cast&lt;</span><a class="code" href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1b">EnumKeyState</a><span class="keyword">&gt;</span>(action) == <a class="code" href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1ba93146f537356b7396d2f0413cf0bfc9e">EnumKeyState::PRESS</a>) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                _state.keys[key] = 1;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">static_cast&lt;</span><a class="code" href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1b">EnumKeyState</a><span class="keyword">&gt;</span>(action) ==</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                       <a class="code" href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1ba7d649ef069df9885e382417c79f3d5cd">EnumKeyState::RELEASE</a>) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                _state.keys[key] = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        };</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        window-&gt;<a class="code" href="classtaixu_1_1Window.html#aadae40a561efd0afdf1fbabe92d8db8f">registerOnKeyFn</a>(</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                [<span class="keyword">this</span>, &amp;key_func](<span class="keywordtype">int</span> key, <span class="keywordtype">int</span> scancode, <span class="keywordtype">int</span> action, <span class="keywordtype">int</span> mods) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                    key_func(key, action);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                });</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        window-&gt;<a class="code" href="classtaixu_1_1Window.html#aa4eabab6c95f333455939489bd2ce3a6">registerOnMouseButtonFn</a>(</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                [<span class="keyword">this</span>, &amp;key_func](<span class="keywordtype">int</span> button, <span class="keywordtype">int</span> action, <span class="keywordtype">int</span> mods) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    key_func(button, action);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                });</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        context-&gt;<a class="code" href="classtaixu_1_1WindowContext.html#a7ef75210733fec227abb1f7cd39a2138">registerOnCursorPosFn</a>([<span class="keyword">this</span>](<span class="keywordtype">double</span> xpos, <span class="keywordtype">double</span> ypos) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            _state.mouse_x          = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(xpos);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            _state.mouse_y          = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(ypos);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        window-&gt;<a class="code" href="classtaixu_1_1Window.html#af040defb700f8fdca80ea6fb5b320603">registerOnCursorPosFn</a>([<span class="keyword">this</span>](<span class="keywordtype">double</span> xpos, <span class="keywordtype">double</span> ypos) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            _state.mouse_x = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(xpos);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            _state.mouse_y = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(ypos);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        });</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        context-&gt;<a class="code" href="classtaixu_1_1WindowContext.html#a492a5cd01f8c4a7655dd22a218dff0ff">registerOnScrollFn</a>([<span class="keyword">this</span>](<span class="keywordtype">double</span> xoffset, <span class="keywordtype">double</span> yoffset) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        window-&gt;<a class="code" href="classtaixu_1_1Window.html#a118b24f83c08b97244adb55074eccad3">registerOnScrollFn</a>([<span class="keyword">this</span>](<span class="keywordtype">double</span> xoffset, <span class="keywordtype">double</span> yoffset) {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(xoffset) == _state.mouse_scroll_offset_x &amp;&amp;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(yoffset) == _state.mouse_scroll_offset_y) {</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                _state.was_mouse_scrolling = <span class="keyword">false</span>;</div>
@@ -148,41 +148,42 @@ $(document).ready(function(){initNavTree('input__system_8hpp_source.html',''); i
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            _state.mouse_scroll_offset_x = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(xoffset);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            _state.mouse_scroll_offset_y = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(yoffset);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        });</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        context-&gt;<a class="code" href="classtaixu_1_1WindowContext.html#a6f74ce86d4c28896b894774a1f5fc52d">_input_state</a> = &amp;_state;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classtaixu_1_1InputSystem.html#ab7c22c5688ce6a3bb595f9b1f3bb1893">   68</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classtaixu_1_1InputSystem.html#ab7c22c5688ce6a3bb595f9b1f3bb1893">getInputState</a>(<span class="keywordtype">int</span> key)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> _state.keys[key] == 1;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classtaixu_1_1InputSystem.html#ab7c22c5688ce6a3bb595f9b1f3bb1893">   66</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classtaixu_1_1InputSystem.html#ab7c22c5688ce6a3bb595f9b1f3bb1893">getInputState</a>(<span class="keywordtype">int</span> key)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">return</span> _state.keys[key] == 1;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}<span class="comment">// namespace taixu</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_INPUT_SYSTEM_HPP</span></div>
-<div class="ttc" id="aclasstaixu_1_1InputSystem_html"><div class="ttname"><a href="classtaixu_1_1InputSystem.html">taixu::InputSystem</a></div><div class="ttdef"><b>Definition:</b> input_system.hpp:20</div></div>
-<div class="ttc" id="aclasstaixu_1_1InputSystem_html_a429bc18d9557eeb3a1ad18ae8767caa4"><div class="ttname"><a href="classtaixu_1_1InputSystem.html#a429bc18d9557eeb3a1ad18ae8767caa4">taixu::InputSystem::initCallbacks</a></div><div class="ttdeci">void initCallbacks(WindowContext *context)</div><div class="ttdef"><b>Definition:</b> input_system.hpp:27</div></div>
-<div class="ttc" id="aclasstaixu_1_1InputSystem_html_ab7c22c5688ce6a3bb595f9b1f3bb1893"><div class="ttname"><a href="classtaixu_1_1InputSystem.html#ab7c22c5688ce6a3bb595f9b1f3bb1893">taixu::InputSystem::getInputState</a></div><div class="ttdeci">bool getInputState(int key) const</div><div class="ttdef"><b>Definition:</b> input_system.hpp:68</div></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// TAIXUENGINE_INPUT_SYSTEM_HPP</span></div>
+<div class="ttc" id="aclasstaixu_1_1InputSystem_html"><div class="ttname"><a href="classtaixu_1_1InputSystem.html">taixu::InputSystem</a></div><div class="ttdef"><b>Definition:</b> input_system.hpp:19</div></div>
+<div class="ttc" id="aclasstaixu_1_1InputSystem_html_a162be1c1de72d63ff27e43e09bcedec6"><div class="ttname"><a href="classtaixu_1_1InputSystem.html#a162be1c1de72d63ff27e43e09bcedec6">taixu::InputSystem::initWindow</a></div><div class="ttdeci">void initWindow(Window *window)</div><div class="ttdef"><b>Definition:</b> input_system.hpp:26</div></div>
+<div class="ttc" id="aclasstaixu_1_1InputSystem_html_ab7c22c5688ce6a3bb595f9b1f3bb1893"><div class="ttname"><a href="classtaixu_1_1InputSystem.html#ab7c22c5688ce6a3bb595f9b1f3bb1893">taixu::InputSystem::getInputState</a></div><div class="ttdeci">bool getInputState(int key) const</div><div class="ttdef"><b>Definition:</b> input_system.hpp:66</div></div>
+<div class="ttc" id="aclasstaixu_1_1InputSystem_html_ae3fe96ef9bcb9609f0e9a1740fa0c030"><div class="ttname"><a href="classtaixu_1_1InputSystem.html#ae3fe96ef9bcb9609f0e9a1740fa0c030">taixu::InputSystem::PROTOTYPE_ONLY_GETTER_CONST</a></div><div class="ttdeci">PROTOTYPE_ONLY_GETTER_CONST(private, InputState, state)</div></div>
 <div class="ttc" id="aclasstaixu_1_1PublicSingleton_html"><div class="ttname"><a href="classtaixu_1_1PublicSingleton.html">taixu::PublicSingleton</a></div><div class="ttdoc">public extend singleton class</div><div class="ttdef"><b>Definition:</b> public_singleton.hpp:17</div></div>
-<div class="ttc" id="aclasstaixu_1_1WindowContext_html"><div class="ttname"><a href="classtaixu_1_1WindowContext.html">taixu::WindowContext</a></div><div class="ttdoc">仅在父类使用为Prop 在所有类中使用为Context</div><div class="ttdef"><b>Definition:</b> window_context.hpp:26</div></div>
-<div class="ttc" id="aclasstaixu_1_1WindowContext_html_a492a5cd01f8c4a7655dd22a218dff0ff"><div class="ttname"><a href="classtaixu_1_1WindowContext.html#a492a5cd01f8c4a7655dd22a218dff0ff">taixu::WindowContext::registerOnScrollFn</a></div><div class="ttdeci">void registerOnScrollFn(on_scroll_fn const &amp;func)</div><div class="ttdef"><b>Definition:</b> window_context.hpp:201</div></div>
-<div class="ttc" id="aclasstaixu_1_1WindowContext_html_a6f74ce86d4c28896b894774a1f5fc52d"><div class="ttname"><a href="classtaixu_1_1WindowContext.html#a6f74ce86d4c28896b894774a1f5fc52d">taixu::WindowContext::_input_state</a></div><div class="ttdeci">InputState const  * _input_state</div><div class="ttdef"><b>Definition:</b> window_context.hpp:300</div></div>
-<div class="ttc" id="aclasstaixu_1_1WindowContext_html_a7ef75210733fec227abb1f7cd39a2138"><div class="ttname"><a href="classtaixu_1_1WindowContext.html#a7ef75210733fec227abb1f7cd39a2138">taixu::WindowContext::registerOnCursorPosFn</a></div><div class="ttdeci">void registerOnCursorPosFn(on_cursor_pos_fn const &amp;func)</div><div class="ttdef"><b>Definition:</b> window_context.hpp:193</div></div>
-<div class="ttc" id="aclasstaixu_1_1WindowContext_html_aac1f1f5c4b784584430f0903a05c55a6"><div class="ttname"><a href="classtaixu_1_1WindowContext.html#aac1f1f5c4b784584430f0903a05c55a6">taixu::WindowContext::registerOnKeyFn</a></div><div class="ttdeci">void registerOnKeyFn(on_key_fn const &amp;func)</div><div class="ttdef"><b>Definition:</b> window_context.hpp:179</div></div>
-<div class="ttc" id="aclasstaixu_1_1WindowContext_html_acb99c40b1f07cf4e77860acfc5c984bd"><div class="ttname"><a href="classtaixu_1_1WindowContext.html#acb99c40b1f07cf4e77860acfc5c984bd">taixu::WindowContext::registerOnMouseButtonFn</a></div><div class="ttdeci">void registerOnMouseButtonFn(on_mouse_button_fn const &amp;func)</div><div class="ttdef"><b>Definition:</b> window_context.hpp:189</div></div>
+<div class="ttc" id="aclasstaixu_1_1Window_html"><div class="ttname"><a href="classtaixu_1_1Window.html">taixu::Window</a></div><div class="ttdef"><b>Definition:</b> window.hpp:46</div></div>
+<div class="ttc" id="aclasstaixu_1_1Window_html_a118b24f83c08b97244adb55074eccad3"><div class="ttname"><a href="classtaixu_1_1Window.html#a118b24f83c08b97244adb55074eccad3">taixu::Window::registerOnScrollFn</a></div><div class="ttdeci">void registerOnScrollFn(on_scroll_fn const &amp;func)</div><div class="ttdef"><b>Definition:</b> window.hpp:209</div></div>
+<div class="ttc" id="aclasstaixu_1_1Window_html_aa4eabab6c95f333455939489bd2ce3a6"><div class="ttname"><a href="classtaixu_1_1Window.html#aa4eabab6c95f333455939489bd2ce3a6">taixu::Window::registerOnMouseButtonFn</a></div><div class="ttdeci">void registerOnMouseButtonFn(on_mouse_button_fn const &amp;func)</div><div class="ttdef"><b>Definition:</b> window.hpp:197</div></div>
+<div class="ttc" id="aclasstaixu_1_1Window_html_aadae40a561efd0afdf1fbabe92d8db8f"><div class="ttname"><a href="classtaixu_1_1Window.html#aadae40a561efd0afdf1fbabe92d8db8f">taixu::Window::registerOnKeyFn</a></div><div class="ttdeci">void registerOnKeyFn(on_key_fn const &amp;func)</div><div class="ttdef"><b>Definition:</b> window.hpp:187</div></div>
+<div class="ttc" id="aclasstaixu_1_1Window_html_af040defb700f8fdca80ea6fb5b320603"><div class="ttname"><a href="classtaixu_1_1Window.html#af040defb700f8fdca80ea6fb5b320603">taixu::Window::registerOnCursorPosFn</a></div><div class="ttdeci">void registerOnCursorPosFn(on_cursor_pos_fn const &amp;func)</div><div class="ttdef"><b>Definition:</b> window.hpp:201</div></div>
 <div class="ttc" id="ainput__state_8hpp_html"><div class="ttname"><a href="input__state_8hpp.html">input_state.hpp</a></div></div>
+<div class="ttc" id="akey__code_8hpp_html"><div class="ttname"><a href="key__code_8hpp.html">key_code.hpp</a></div></div>
 <div class="ttc" id="amacro_8hpp_html"><div class="ttname"><a href="macro_8hpp.html">macro.hpp</a></div></div>
-<div class="ttc" id="amacro_8hpp_html_a586d84e8a0c350d9464cc0d930b7916a"><div class="ttname"><a href="macro_8hpp.html#a586d84e8a0c350d9464cc0d930b7916a">PROTOTYPE_ONLY_GETTER_CONST</a></div><div class="ttdeci">#define PROTOTYPE_ONLY_GETTER_CONST(access, type, name)</div><div class="ttdoc">简化getter</div><div class="ttdef"><b>Definition:</b> macro.hpp:38</div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
+<div class="ttc" id="anamespacetaixu_html_a92f17e39b943ade7efa1eb4e1908bf1b"><div class="ttname"><a href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1b">taixu::EnumKeyState</a></div><div class="ttdeci">EnumKeyState</div><div class="ttdef"><b>Definition:</b> key_code.hpp:15</div></div>
+<div class="ttc" id="anamespacetaixu_html_a92f17e39b943ade7efa1eb4e1908bf1ba7d649ef069df9885e382417c79f3d5cd"><div class="ttname"><a href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1ba7d649ef069df9885e382417c79f3d5cd">taixu::EnumKeyState::RELEASE</a></div><div class="ttdeci">@ RELEASE</div></div>
+<div class="ttc" id="anamespacetaixu_html_a92f17e39b943ade7efa1eb4e1908bf1ba93146f537356b7396d2f0413cf0bfc9e"><div class="ttname"><a href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1ba93146f537356b7396d2f0413cf0bfc9e">taixu::EnumKeyState::PRESS</a></div><div class="ttdeci">@ PRESS</div></div>
 <div class="ttc" id="apublic__singleton_8hpp_html"><div class="ttname"><a href="public__singleton_8hpp.html">public_singleton.hpp</a></div></div>
-<div class="ttc" id="astructtaixu_1_1InputState_html"><div class="ttname"><a href="structtaixu_1_1InputState.html">taixu::InputState</a></div><div class="ttdef"><b>Definition:</b> input_state.hpp:11</div></div>
-<div class="ttc" id="awindow__context_8hpp_html"><div class="ttname"><a href="window__context_8hpp.html">window_context.hpp</a></div></div>
+<div class="ttc" id="astructtaixu_1_1InputState_html"><div class="ttname"><a href="structtaixu_1_1InputState.html">taixu::InputState</a></div><div class="ttdef"><b>Definition:</b> input_state.hpp:12</div></div>
+<div class="ttc" id="awindow_8hpp_html"><div class="ttname"><a href="window_8hpp.html">window.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_2e743e866fb37056f41fd9fa9b68e330.html">management</a></li><li class="navelem"><a class="el" href="dir_683838a3c094745ade8681c9d1d87dcf.html">input</a></li><li class="navelem"><a class="el" href="input__system_8hpp.html">input_system.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_c43fa6ee8b9194a57dc2220ae96e12ce.html">management</a></li><li class="navelem"><a class="el" href="dir_64c575274689cdec5a1c3bafa9f69a48.html">input</a></li><li class="navelem"><a class="el" href="input__system_8hpp.html">input_system.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

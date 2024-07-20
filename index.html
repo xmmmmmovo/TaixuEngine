@@ -85,8 +85,44 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title">TaixuEngine </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
-</div></div><!-- PageDoc -->
+<div class="textblock"><p><a class="anchor" id="md_README"></a> A simple 3D game engine.</p>
+<p><img src=".github/images/cover.png" alt="Cover" class="inline"/></p>
+<p>Note: This is in OpenGL version in <a href="https://github.com/xmmmmmovo/TaixuEngine/tree/main">main branch</a></p>
+<p>Note2: Now dev branch is <a href="https://github.com/xmmmmmovo/TaixuEngine/tree/refactor">refactor branch</a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+How to build</h1>
+<div class="fragment"><div class="line">mkdir build</div>
+<div class="line">cd build</div>
+<div class="line">cmake ..</div>
+<div class="line">make</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
+Features</h1>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Supporting API</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">API   </th><th class="markdownTableHeadCenter">Progress    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">OpenGL   </td><td class="markdownTableBodyCenter">Deprecated(old version in main branch)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Vulkan   </td><td class="markdownTableBodyCenter">WIP   </td></tr>
+</table>
+<p>Note: New RHI design, will be implemented by <code>Mesa</code> project.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Architecture</h1>
+<div class="fragment"><div class="line">flowchart TD</div>
+<div class="line">    editor --&gt; runtime/include;</div>
+<div class="line">    runtime/include --&gt; engine;</div>
+<div class="line">    engine --&gt; common;</div>
+<div class="line">    engine --&gt; management;</div>
+<div class="line">    management --&gt; gameplay;</div>
+<div class="line">    management --&gt; resource;</div>
+<div class="line">    management --&gt; platform;</div>
+<div class="line">    gameplay --&gt; common;</div>
+<div class="line">    management --&gt; common;</div>
+<div class="line">    platform --&gt; common;</div>
+<div class="line">    resource --&gt; common;</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

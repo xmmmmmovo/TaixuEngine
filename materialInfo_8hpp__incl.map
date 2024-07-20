@@ -1,4 +1,4 @@
-<map id="engine/runtime/management/graphics/frontend/materialInfo.hpp" name="engine/runtime/management/graphics/frontend/materialInfo.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,257,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="79,95,183,121"/>
+<map id="engine/src/runtime/source/management/gpu/buffers/materialInfo.hpp" name="engine/src/runtime/source/management/gpu/buffers/materialInfo.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,193,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="47,109,151,136"/>
 </map>

@@ -1,6 +1,7 @@
-<map id="engine/runtime/core/dispatch/thread_pool.hpp" name="engine/runtime/core/dispatch/thread_pool.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="37,5,228,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,76,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="101,95,165,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="189,95,252,121"/>
+<map id="engine/src/runtime/include/common/dispatch/thread_pool.hpp" name="engine/src/runtime/include/common/dispatch/thread_pool.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="77,5,271,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,109,76,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="101,109,162,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="186,109,250,136"/>
+<area shape="rect" id="node5" title=" " alt="" coords="275,109,337,136"/>
 </map>

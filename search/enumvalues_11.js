@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['unknown_2131',['UNKNOWN',['../namespacetaixu.html#a77cf7817be9141fcdfe50bbe3f1a1750a696b031073e74bf2cb98e5ef201d4aa3',1,'taixu']]],
-  ['up_2132',['UP',['../namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8afbaedde498cdead4f2780217646e9ba1',1,'taixu']]]
+  ['texture_2144',['TEXTURE',['../namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfa3f92f542bd9ec48f912b9350e22736ac',1,'taixu']]],
+  ['triangle_2145',['TRIANGLE',['../namespacetaixu.html#a0d028e602f658a11a53490e6adeaca91a9bcd89070cae224dce305f5011659ef4',1,'taixu']]]
 ];

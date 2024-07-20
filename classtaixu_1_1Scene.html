@@ -100,8 +100,8 @@ Collaboration diagram for taixu::Scene:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1Scene__coll__graph.png" border="0" usemap="#ataixu_1_1Scene_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1Scene_coll__map" id="ataixu_1_1Scene_coll__map">
-<area shape="rect" title="场景类" alt="" coords="27,439,171,531"/>
-<area shape="rect" href="classtaixu_1_1ECSCoordinator.html" title="ECS协调器,用于协调各个系统,以及管理组件." alt="" coords="5,5,192,376"/>
+<area shape="rect" title="场景类" alt="" coords="47,453,150,531"/>
+<area shape="rect" href="classtaixu_1_1ECSCoordinator.html" title="ECS协调器,用于协调各个系统,以及管理组件." alt="" coords="5,5,192,391"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -114,10 +114,6 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a4b1fb7d0b55ae7a00a9ffcbe97bb5899"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtaixu_1_1ECSCoordinator.html">ECSCoordinator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Scene.html#a4b1fb7d0b55ae7a00a9ffcbe97bb5899">_ecs_coordinator</a> {}</td></tr>
 <tr class="separator:a4b1fb7d0b55ae7a00a9ffcbe97bb5899"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e3b193f35de1bb00f9a1f0148a26977"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1ITextureCube.html">ITextureCube</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Scene.html#a4e3b193f35de1bb00f9a1f0148a26977">_skybox_texture</a> {nullptr}</td></tr>
-<tr class="separator:a4e3b193f35de1bb00f9a1f0148a26977"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a388ae052c96f057652bacf6761b19447"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classtaixu_1_1EulerCamera.html">EulerCamera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Scene.html#a388ae052c96f057652bacf6761b19447">_camera</a></td></tr>
-<tr class="separator:a388ae052c96f057652bacf6761b19447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
 Private Types</h2></td></tr>
@@ -177,22 +173,6 @@ Private Types</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a388ae052c96f057652bacf6761b19447"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a388ae052c96f057652bacf6761b19447">&#9670;&nbsp;</a></span>_camera</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1EulerCamera.html">EulerCamera</a>&gt; taixu::Scene::_camera</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">            std::make_unique&lt;EulerCamera&gt;(glm::vec3(0.0f, 2.0f, 10.5f))}</div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="a4b1fb7d0b55ae7a00a9ffcbe97bb5899"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b1fb7d0b55ae7a00a9ffcbe97bb5899">&#9670;&nbsp;</a></span>_ecs_coordinator</h2>
 
@@ -207,22 +187,8 @@ Private Types</h2></td></tr>
 
 </div>
 </div>
-<a id="a4e3b193f35de1bb00f9a1f0148a26977"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e3b193f35de1bb00f9a1f0148a26977">&#9670;&nbsp;</a></span>_skybox_texture</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="classtaixu_1_1ITextureCube.html">ITextureCube</a>&gt; taixu::Scene::_skybox_texture {nullptr}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>engine/runtime/management/scene/<a class="el" href="scene_8hpp_source.html">scene.hpp</a></li>
+<li>engine/src/runtime/source/management/scene/<a class="el" href="scene_8hpp_source.html">scene.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

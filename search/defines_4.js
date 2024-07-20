@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['max_5fbone_5finfluence_2143',['MAX_BONE_INFLUENCE',['../bone_8hpp.html#a727516f3c023a19677eba7926d3bd7ce',1,'bone.hpp']]],
-  ['med_2144',['MED',['../imgui__surface_8cpp.html#a779b5e05b8fcd8a7febf23733b4cb767',1,'imgui_surface.cpp']]]
+  ['glfw_5finclude_5fnone_2169',['GLFW_INCLUDE_NONE',['../window_8hpp.html#a088324ad8995e3eb76024e3e79083d48',1,'window.hpp']]]
 ];

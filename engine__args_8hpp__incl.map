@@ -1,10 +1,6 @@
-<map id="engine/runtime/engine_args.hpp" name="engine/runtime/engine_args.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="225,5,394,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,102,173,129"/>
-<area shape="rect" id="node3" href="$public__singleton_8hpp.html" title=" " alt="" coords="198,102,421,129"/>
-<area shape="rect" id="node5" href="$render__api_8hpp.html" title=" " alt="" coords="477,95,646,136"/>
-<area shape="rect" id="node4" title=" " alt="" coords="247,184,339,211"/>
-<area shape="rect" id="node6" title=" " alt="" coords="363,184,474,211"/>
-<area shape="rect" id="node7" href="$macro_8hpp.html" title=" " alt="" coords="498,184,657,211"/>
-<area shape="rect" id="node8" href="$noncopyable_8hpp.html" title=" " alt="" coords="681,184,881,211"/>
+<map id="engine/src/runtime/include/engine/engine_args.hpp" name="engine/src/runtime/include/engine/engine_args.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="213,5,383,61"/>
+<area shape="rect" id="node2" href="$core_8hpp.html" title=" " alt="" coords="5,109,180,136"/>
+<area shape="rect" id="node3" href="$macro_8hpp.html" title=" " alt="" coords="205,109,391,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="416,109,513,136"/>
 </map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/core/container/map_array.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/source/common/container/map_array.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,11 +93,11 @@ $(document).ready(function(){initNavTree('map__array_8hpp_source.html',''); init
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define ENGINE_RUNTIME_CORE_CONTAINER_MAP_ARRAY_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="macro_8hpp.html">core/base/macro.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="macro_8hpp.html">common/base/macro.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('map__array_8hpp_source.html',''); init
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#a143f01dbc3eab64e472901ea3739b15b">   32</a></span>&#160;    std::size_t                          <a class="code" href="classtaixu_1_1MapArray.html#a143f01dbc3eab64e472901ea3739b15b">_size</a>{0};</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#a2f099c9380f29571417a2539f11ddd8c">   35</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1MapArray.html#a2f099c9380f29571417a2539f11ddd8c">insertData</a>(<span class="keyword">const</span> Key &amp;key, <span class="keyword">const</span> Value &amp;value) noexcept {</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#a2f099c9380f29571417a2539f11ddd8c">   35</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1MapArray.html#a2f099c9380f29571417a2539f11ddd8c">insertData</a>(<span class="keyword">const</span> Key&amp; key, <span class="keyword">const</span> Value&amp; value) noexcept {</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">contains</a>(key)) {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            _values[<a class="code" href="classtaixu_1_1MapArray.html#af45733fbbc1a48fe6f32fe47e916180e">_key_to_index_map</a>[key]] = value;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">return</span>;</div>
@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('map__array_8hpp_source.html',''); init
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classtaixu_1_1MapArray.html#a143f01dbc3eab64e472901ea3739b15b">_size</a>++;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#ad25eb009ecf3659463e345292b67ccf5">   47</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1MapArray.html#ad25eb009ecf3659463e345292b67ccf5">insertData</a>(<span class="keyword">const</span> Key &amp;key, Value &amp;&amp;value) noexcept {</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#ad25eb009ecf3659463e345292b67ccf5">   47</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1MapArray.html#ad25eb009ecf3659463e345292b67ccf5">insertData</a>(<span class="keyword">const</span> Key&amp; key, Value&amp;&amp; value) noexcept {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">contains</a>(key)) {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            _values[<a class="code" href="classtaixu_1_1MapArray.html#af45733fbbc1a48fe6f32fe47e916180e">_key_to_index_map</a>[key]] = std::move(value);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">return</span>;</div>
@@ -143,8 +143,8 @@ $(document).ready(function(){initNavTree('map__array_8hpp_source.html',''); init
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classtaixu_1_1MapArray.html#a143f01dbc3eab64e472901ea3739b15b">_size</a>++;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#add4da1538eb97a8ef0877bfa26b055ab">   59</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1MapArray.html#add4da1538eb97a8ef0877bfa26b055ab">removeData</a>(<span class="keyword">const</span> Key &amp;key) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        assert(<a class="code" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">contains</a>(key) &amp;&amp; <span class="stringliteral">&quot;Key does not exist.&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#add4da1538eb97a8ef0877bfa26b055ab">   59</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1MapArray.html#add4da1538eb97a8ef0877bfa26b055ab">removeData</a>(<span class="keyword">const</span> Key&amp; key) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="macro_8hpp.html#af06506f3d1e097f0f11a1986ff343332">TX_ASSERT_MSG</a>(<a class="code" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">contains</a>(key), <span class="stringliteral">&quot;Key does not exist.&quot;</span>);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        std::size_t idx_of_removed_element = <a class="code" href="classtaixu_1_1MapArray.html#af45733fbbc1a48fe6f32fe47e916180e">_key_to_index_map</a>[key];</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        std::size_t idx_of_last_element    = <a class="code" href="classtaixu_1_1MapArray.html#a143f01dbc3eab64e472901ea3739b15b">_size</a> - 1;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
@@ -165,19 +165,19 @@ $(document).ready(function(){initNavTree('map__array_8hpp_source.html',''); init
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        --<a class="code" href="classtaixu_1_1MapArray.html#a143f01dbc3eab64e472901ea3739b15b">_size</a>;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#a3b631d4e81f7f5f0a2365c304eb6c3f6">   81</a></span>&#160;    Value &amp;<a class="code" href="classtaixu_1_1MapArray.html#a3b631d4e81f7f5f0a2365c304eb6c3f6">getData</a>(<span class="keyword">const</span> Key &amp;key) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        assert(<a class="code" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">contains</a>(key) &amp;&amp; <span class="stringliteral">&quot;Key does not exist.&quot;</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#a3b631d4e81f7f5f0a2365c304eb6c3f6">   81</a></span>&#160;    Value&amp; <a class="code" href="classtaixu_1_1MapArray.html#a3b631d4e81f7f5f0a2365c304eb6c3f6">getData</a>(<span class="keyword">const</span> Key&amp; key) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="macro_8hpp.html#af06506f3d1e097f0f11a1986ff343332">TX_ASSERT_MSG</a>(<a class="code" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">contains</a>(key), <span class="stringliteral">&quot;Key does not exist.&quot;</span>);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">return</span> _values[<a class="code" href="classtaixu_1_1MapArray.html#af45733fbbc1a48fe6f32fe47e916180e">_key_to_index_map</a>[key]];</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#ad853da5d7ffa2e16d4d359ec826494ab">   86</a></span>&#160;    Value <span class="keyword">const</span> &amp;<a class="code" href="classtaixu_1_1MapArray.html#ad853da5d7ffa2e16d4d359ec826494ab">getData</a>(<span class="keyword">const</span> Key &amp;key)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        assert(<a class="code" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">contains</a>(key) &amp;&amp; <span class="stringliteral">&quot;Key does not exist.&quot;</span>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#ad853da5d7ffa2e16d4d359ec826494ab">   86</a></span>&#160;    Value <span class="keyword">const</span>&amp; <a class="code" href="classtaixu_1_1MapArray.html#ad853da5d7ffa2e16d4d359ec826494ab">getData</a>(<span class="keyword">const</span> Key&amp; key)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="macro_8hpp.html#af06506f3d1e097f0f11a1986ff343332">TX_ASSERT_MSG</a>(<a class="code" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">contains</a>(key), <span class="stringliteral">&quot;Key does not exist.&quot;</span>);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> _values[<a class="code" href="classtaixu_1_1MapArray.html#af45733fbbc1a48fe6f32fe47e916180e">_key_to_index_map</a>[key]];</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 <div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#a6d685a18f4fc91e0beff8ccb0741255a">   91</a></span>&#160;    [[nodiscard]] std::size_t <a class="code" href="classtaixu_1_1MapArray.html#a6d685a18f4fc91e0beff8ccb0741255a">size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classtaixu_1_1MapArray.html#a143f01dbc3eab64e472901ea3739b15b">_size</a>; }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">   93</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">contains</a>(<span class="keyword">const</span> Key &amp;key)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">   93</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">contains</a>(<span class="keyword">const</span> Key&amp; key)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classtaixu_1_1MapArray.html#af45733fbbc1a48fe6f32fe47e916180e">_key_to_index_map</a>.find(key) != <a class="code" href="classtaixu_1_1MapArray.html#af45733fbbc1a48fe6f32fe47e916180e">_key_to_index_map</a>.end();</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
@@ -191,7 +191,7 @@ $(document).ready(function(){initNavTree('map__array_8hpp_source.html',''); init
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}<span class="comment">// namespace taixu</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//ENGINE_RUNTIME_CORE_CONTAINER_MAP_ARRAY_HPP</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// ENGINE_RUNTIME_CORE_CONTAINER_MAP_ARRAY_HPP</span></div>
 <div class="ttc" id="aclasstaixu_1_1MapArray_html"><div class="ttname"><a href="classtaixu_1_1MapArray.html">taixu::MapArray</a></div><div class="ttdef"><b>Definition:</b> map_array.hpp:18</div></div>
 <div class="ttc" id="aclasstaixu_1_1MapArray_html_a143f01dbc3eab64e472901ea3739b15b"><div class="ttname"><a href="classtaixu_1_1MapArray.html#a143f01dbc3eab64e472901ea3739b15b">taixu::MapArray::_size</a></div><div class="ttdeci">std::size_t _size</div><div class="ttdef"><b>Definition:</b> map_array.hpp:32</div></div>
 <div class="ttc" id="aclasstaixu_1_1MapArray_html_a2bd31bb399651b4cb17b353f8ec02831"><div class="ttname"><a href="classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831">taixu::MapArray::contains</a></div><div class="ttdeci">bool contains(const Key &amp;key) const</div><div class="ttdef"><b>Definition:</b> map_array.hpp:93</div></div>
@@ -206,14 +206,15 @@ $(document).ready(function(){initNavTree('map__array_8hpp_source.html',''); init
 <div class="ttc" id="aclasstaixu_1_1MapArray_html_add4da1538eb97a8ef0877bfa26b055ab"><div class="ttname"><a href="classtaixu_1_1MapArray.html#add4da1538eb97a8ef0877bfa26b055ab">taixu::MapArray::removeData</a></div><div class="ttdeci">void removeData(const Key &amp;key)</div><div class="ttdef"><b>Definition:</b> map_array.hpp:59</div></div>
 <div class="ttc" id="aclasstaixu_1_1MapArray_html_af45733fbbc1a48fe6f32fe47e916180e"><div class="ttname"><a href="classtaixu_1_1MapArray.html#af45733fbbc1a48fe6f32fe47e916180e">taixu::MapArray::_key_to_index_map</a></div><div class="ttdeci">std::unordered_map&lt; Key, std::size_t &gt; _key_to_index_map</div><div class="ttdef"><b>Definition:</b> map_array.hpp:28</div></div>
 <div class="ttc" id="amacro_8hpp_html"><div class="ttname"><a href="macro_8hpp.html">macro.hpp</a></div></div>
-<div class="ttc" id="amacro_8hpp_html_aee709daea4c5df824018c1d3feb0cf25"><div class="ttname"><a href="macro_8hpp.html#aee709daea4c5df824018c1d3feb0cf25">PROTOTYPE_ONLY_GETTER</a></div><div class="ttdeci">#define PROTOTYPE_ONLY_GETTER(access, type, name)</div><div class="ttdoc">简化getter</div><div class="ttdef"><b>Definition:</b> macro.hpp:44</div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
+<div class="ttc" id="amacro_8hpp_html_aee709daea4c5df824018c1d3feb0cf25"><div class="ttname"><a href="macro_8hpp.html#aee709daea4c5df824018c1d3feb0cf25">PROTOTYPE_ONLY_GETTER</a></div><div class="ttdeci">#define PROTOTYPE_ONLY_GETTER(access, type, name)</div><div class="ttdoc">简化getter</div><div class="ttdef"><b>Definition:</b> macro.hpp:132</div></div>
+<div class="ttc" id="amacro_8hpp_html_af06506f3d1e097f0f11a1986ff343332"><div class="ttname"><a href="macro_8hpp.html#af06506f3d1e097f0f11a1986ff343332">TX_ASSERT_MSG</a></div><div class="ttdeci">#define TX_ASSERT_MSG(x, msg)</div><div class="ttdef"><b>Definition:</b> macro.hpp:62</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_0f5c9aa018504ec80b3590dee96e9bd5.html">core</a></li><li class="navelem"><a class="el" href="dir_624381880d86d2b08cf67ec34f38d4e2.html">container</a></li><li class="navelem"><a class="el" href="map__array_8hpp.html">map_array.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_9795ed0ff49e6338b9c901bfa7b8d431.html">common</a></li><li class="navelem"><a class="el" href="dir_96f4f351074bd98a9d0f33e90d535ca8.html">container</a></li><li class="navelem"><a class="el" href="map__array_8hpp.html">map_array.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

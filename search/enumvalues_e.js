@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['red_5finteger_2116',['RED_INTEGER',['../namespacetaixu.html#a2c20540527d99b113a293b71af17a97ca2849effb989cbdcfb4b9eb143fd826aa',1,'taixu']]],
-  ['rgba_2117',['RGBA',['../namespacetaixu.html#a2c20540527d99b113a293b71af17a97caea3495a278957dc58165e48a8945469f',1,'taixu']]],
-  ['rgba8_2118',['RGBA8',['../namespacetaixu.html#a2c20540527d99b113a293b71af17a97cab4b279046a02077466fa26cabb00c642',1,'taixu']]],
-  ['right_2119',['RIGHT',['../namespacetaixu.html#ad571bf0061d26dc5f96481fd262bedf8a21507b40c80068eda19865706fdc2403',1,'taixu']]],
-  ['roughness_2120',['ROUGHNESS',['../namespacetaixu.html#a6feb909cad7d7b4691e1271e4487a71babf5c531ee75e16c07e4a1182fce1a47a',1,'taixu']]]
+  ['quad_2122',['QUAD',['../namespacetaixu.html#a0d028e602f658a11a53490e6adeaca91ac88da92039291f825814816096db2ea2',1,'taixu']]]
 ];

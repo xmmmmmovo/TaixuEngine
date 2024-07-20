@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/resource/helper/image_helper.cpp File Reference</title>
+<title>TaixuEngine: engine/src/runtime/source/resource/helper/image_helper.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,20 +83,34 @@ $(document).ready(function(){initNavTree('image__helper_8cpp.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">image_helper.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="image__helper_8hpp_source.html">image_helper.hpp</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="binary__utils_8hpp_source.html">common/utils/binary_utils.hpp</a>&gt;</code><br />
+<code>#include &lt;stb_dxt.h&gt;</code><br />
+<code>#include &lt;stb_image.h&gt;</code><br />
+<code>#include &lt;stb_image_resize2.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for image_helper.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="image__helper_8cpp__incl.png" border="0" usemap="#aengine_2runtime_2resource_2helper_2image__helper_8cpp" alt=""/></div>
-<map name="aengine_2runtime_2resource_2helper_2image__helper_8cpp" id="aengine_2runtime_2resource_2helper_2image__helper_8cpp">
-<area shape="rect" title=" " alt="" coords="5,5,192,47"/>
-<area shape="rect" href="image__helper_8hpp.html" title=" " alt="" coords="29,95,168,121"/>
-<area shape="rect" title=" " alt="" coords="47,169,150,196"/>
+<div class="center"><img src="image__helper_8cpp__incl.png" border="0" usemap="#aengine_2src_2runtime_2source_2resource_2helper_2image__helper_8cpp" alt=""/></div>
+<map name="aengine_2src_2runtime_2source_2resource_2helper_2image__helper_8cpp" id="aengine_2src_2runtime_2source_2resource_2helper_2image__helper_8cpp">
+<area shape="rect" title=" " alt="" coords="359,5,533,61"/>
+<area shape="rect" href="image__helper_8hpp.html" title=" " alt="" coords="61,117,199,143"/>
+<area shape="rect" href="binary__utils_8hpp.html" title=" " alt="" coords="224,109,380,151"/>
+<area shape="rect" title=" " alt="" coords="405,117,487,143"/>
+<area shape="rect" title=" " alt="" coords="512,117,615,143"/>
+<area shape="rect" title=" " alt="" coords="639,117,795,143"/>
+<area shape="rect" title=" " alt="" coords="14,206,105,233"/>
+<area shape="rect" href="image_8hpp.html" title=" " alt="" coords="129,199,275,240"/>
+<area shape="rect" title=" " alt="" coords="5,288,145,315"/>
+<area shape="rect" title=" " alt="" coords="169,288,235,315"/>
+<area shape="rect" href="macro_8hpp.html" title=" " alt="" coords="259,288,446,315"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -105,18 +119,98 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacetaixu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html">taixu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:afcbcd60f2e015bdd8c18cbe579603534"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="image__helper_8cpp.html#afcbcd60f2e015bdd8c18cbe579603534">STB_DXT_IMPLEMENTATION</a></td></tr>
+<tr class="separator:afcbcd60f2e015bdd8c18cbe579603534"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18372412ad2fc3ce1e3240b3cf0efe78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="image__helper_8cpp.html#a18372412ad2fc3ce1e3240b3cf0efe78">STB_IMAGE_IMPLEMENTATION</a></td></tr>
+<tr class="separator:a18372412ad2fc3ce1e3240b3cf0efe78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6a7b41350a14f718b619164bc2b8fdf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="image__helper_8cpp.html#aa6a7b41350a14f718b619164bc2b8fdf">STB_IMAGE_RESIZE_IMPLEMENTATION</a></td></tr>
+<tr class="separator:aa6a7b41350a14f718b619164bc2b8fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa9e65782e6a897a65c2647ce1095537c"><td class="memItemLeft" align="right" valign="top">stbi_uc *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa9e65782e6a897a65c2647ce1095537c">taixu::loadImage</a> (std::filesystem::path const &amp;path, int *width, int *height, int *channels, int desired_channels=0, bool flip_vertically=true)</td></tr>
-<tr class="memdesc:aa9e65782e6a897a65c2647ce1095537c"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载图片  <a href="namespacetaixu.html#aa9e65782e6a897a65c2647ce1095537c">More...</a><br /></td></tr>
-<tr class="separator:aa9e65782e6a897a65c2647ce1095537c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a184ae829bd6a2dc7b401352155b37aa5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Image &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a184ae829bd6a2dc7b401352155b37aa5">taixu::loadImage</a> (std::filesystem::path const  &amp;path, int desired_channels=4, bool is_srgb=false, bool flip_vertically=true)</td></tr>
+<tr class="memdesc:a184ae829bd6a2dc7b401352155b37aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载图片  <a href="namespacetaixu.html#a184ae829bd6a2dc7b401352155b37aa5">More...</a><br /></td></tr>
+<tr class="separator:a184ae829bd6a2dc7b401352155b37aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a5747e4fde4518b7ea9cb8e81b35cc55d"><td class="memItemLeft" align="right" valign="top">constexpr std::int32_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="image__helper_8cpp.html#a5747e4fde4518b7ea9cb8e81b35cc55d">ZERO_VALUE_FLAG</a> = -1</td></tr>
+<tr class="separator:a5747e4fde4518b7ea9cb8e81b35cc55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="afcbcd60f2e015bdd8c18cbe579603534"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcbcd60f2e015bdd8c18cbe579603534">&#9670;&nbsp;</a></span>STB_DXT_IMPLEMENTATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STB_DXT_IMPLEMENTATION</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18372412ad2fc3ce1e3240b3cf0efe78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18372412ad2fc3ce1e3240b3cf0efe78">&#9670;&nbsp;</a></span>STB_IMAGE_IMPLEMENTATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STB_IMAGE_IMPLEMENTATION</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa6a7b41350a14f718b619164bc2b8fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6a7b41350a14f718b619164bc2b8fdf">&#9670;&nbsp;</a></span>STB_IMAGE_RESIZE_IMPLEMENTATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STB_IMAGE_RESIZE_IMPLEMENTATION</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a5747e4fde4518b7ea9cb8e81b35cc55d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5747e4fde4518b7ea9cb8e81b35cc55d">&#9670;&nbsp;</a></span>ZERO_VALUE_FLAG</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::int32_t const ZERO_VALUE_FLAG = -1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_62623fadb18e76a276166b2f13d7c4c1.html">resource</a></li><li class="navelem"><a class="el" href="dir_289c81ed7f3f1094153e57ada02f849e.html">helper</a></li><li class="navelem"><a class="el" href="image__helper_8cpp.html">image_helper.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_5542428e064c8beb11d28c706b36cf0d.html">resource</a></li><li class="navelem"><a class="el" href="dir_72675868947cb0241e4610fa7b40d0bc.html">helper</a></li><li class="navelem"><a class="el" href="image__helper_8cpp.html">image_helper.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

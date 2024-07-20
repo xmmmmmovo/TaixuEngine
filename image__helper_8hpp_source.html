@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/resource/helper/image_helper.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/source/resource/helper/image_helper.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,26 +92,34 @@ $(document).ready(function(){initNavTree('image__helper_8hpp_source.html',''); i
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef ENGINE_RUNTIME_RESOURCE_HELPER_IMAGE_HELPER_HPP</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define ENGINE_RUNTIME_RESOURCE_HELPER_IMAGE_HELPER_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;stb_image.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="image_8hpp.html">resource/converted_data/image.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;stbi_uc *<a class="code" href="namespacetaixu.html#aa9e65782e6a897a65c2647ce1095537c">loadImage</a>(std::filesystem::path <span class="keyword">const</span> &amp;path, <span class="keywordtype">int</span> *width, <span class="keywordtype">int</span> *height,</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                   <span class="keywordtype">int</span> *channels, <span class="keywordtype">int</span> desired_channels = 0,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                   <span class="keywordtype">bool</span> flip_vertically = <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//ENGINE_RUNTIME_RESOURCE_HELPER_IMAGE_HELPER_HPP</span></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
-<div class="ttc" id="anamespacetaixu_html_aa9e65782e6a897a65c2647ce1095537c"><div class="ttname"><a href="namespacetaixu.html#aa9e65782e6a897a65c2647ce1095537c">taixu::loadImage</a></div><div class="ttdeci">stbi_uc * loadImage(std::filesystem::path const &amp;path, int *width, int *height, int *channels, int desired_channels, bool flip_vertically)</div><div class="ttdoc">加载图片</div><div class="ttdef"><b>Definition:</b> image_helper.cpp:9</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;std::shared_ptr&lt;Image&gt; <a class="code" href="namespacetaixu.html#a184ae829bd6a2dc7b401352155b37aa5">loadImage</a>(std::filesystem::path <span class="keyword">const</span>&amp; path, <span class="keywordtype">int</span> desired_channels = 4,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                 <span class="keywordtype">bool</span> is_srgb = <span class="keyword">false</span>, <span class="keywordtype">bool</span> flip_vertically = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a416a7aa6600945541c583f150e470274">   35</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetaixu.html#a416a7aa6600945541c583f150e470274">compressImage</a>(std::shared_ptr&lt;Image&gt; <span class="keyword">const</span>&amp; image, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">int</span> channels);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a82956c0b446b95d14d3318803980ed36">   47</a></span>&#160;std::unique_ptr&lt;uint8_t&gt; <a class="code" href="namespacetaixu.html#a82956c0b446b95d14d3318803980ed36">combineImages</a>(uint8_t* red, uint8_t* green, uint8_t* blue, uint8_t* alpha,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                       <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// ENGINE_RUNTIME_RESOURCE_HELPER_IMAGE_HELPER_HPP</span></div>
+<div class="ttc" id="aimage_8hpp_html"><div class="ttname"><a href="image_8hpp.html">image.hpp</a></div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
+<div class="ttc" id="anamespacetaixu_html_a184ae829bd6a2dc7b401352155b37aa5"><div class="ttname"><a href="namespacetaixu.html#a184ae829bd6a2dc7b401352155b37aa5">taixu::loadImage</a></div><div class="ttdeci">std::shared_ptr&lt; Image &gt; loadImage(std::filesystem::path const &amp;path, const int desired_channels, const bool is_srgb, const bool flip_vertically)</div><div class="ttdoc">加载图片</div><div class="ttdef"><b>Definition:</b> image_helper.cpp:21</div></div>
+<div class="ttc" id="anamespacetaixu_html_a416a7aa6600945541c583f150e470274"><div class="ttname"><a href="namespacetaixu.html#a416a7aa6600945541c583f150e470274">taixu::compressImage</a></div><div class="ttdeci">bool compressImage(std::shared_ptr&lt; Image &gt; const &amp;image, int width, int height, int channels)</div><div class="ttdoc">压缩图片</div></div>
+<div class="ttc" id="anamespacetaixu_html_a82956c0b446b95d14d3318803980ed36"><div class="ttname"><a href="namespacetaixu.html#a82956c0b446b95d14d3318803980ed36">taixu::combineImages</a></div><div class="ttdeci">std::unique_ptr&lt; uint8_t &gt; combineImages(uint8_t *red, uint8_t *green, uint8_t *blue, uint8_t *alpha, int width, int height)</div><div class="ttdoc">合并多个单通道图片</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_62623fadb18e76a276166b2f13d7c4c1.html">resource</a></li><li class="navelem"><a class="el" href="dir_289c81ed7f3f1094153e57ada02f849e.html">helper</a></li><li class="navelem"><a class="el" href="image__helper_8hpp.html">image_helper.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_5542428e064c8beb11d28c706b36cf0d.html">resource</a></li><li class="navelem"><a class="el" href="dir_72675868947cb0241e4610fa7b40d0bc.html">helper</a></li><li class="navelem"><a class="el" href="image__helper_8hpp.html">image_helper.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

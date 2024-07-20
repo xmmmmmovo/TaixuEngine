@@ -1,0 +1,4 @@
+<map id="taixu::TXObject&lt; ParentT, HandleT, DestroyFnT &gt;" name="taixu::TXObject&lt; ParentT, HandleT, DestroyFnT &gt;">
+<area shape="rect" id="node1" title="RAII vulkan object, using for RAII object.(eg. VkRenderPass, VkDevice...)" alt="" coords="5,175,195,325"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1Noncopyable.html" title="inherit this class in private method" alt="" coords="26,5,174,127"/>
+</map>

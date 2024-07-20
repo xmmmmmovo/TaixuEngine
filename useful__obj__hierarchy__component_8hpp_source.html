@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/editor/ui/components/useful_obj_hierarchy_component.hpp Source File</title>
+<title>TaixuEngine: engine/src/editor/ui/components/useful_obj_hierarchy_component.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,61 +92,35 @@ $(document).ready(function(){initNavTree('useful__obj__hierarchy__component_8hpp
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TAIXUENGINE_HIERARCHY_COMPONENT_HPP</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TAIXUENGINE_HIERARCHY_COMPONENT_HPP</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ui__component_8hpp.html">ui/common/ui_component.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ui__component_8hpp.html">ui/ui_component.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu_1_1editor.html">taixu::editor</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu_1_1editor.html">taixu::editor</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html">UsefulObjectComponent</a> : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1editor_1_1AbstractUIComponent.html">AbstractUIComponent</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a50d6761817cc8194bb6848d91223f647">   19</a></span>&#160;    ImGuiTreeNodeFlags <span class="keyword">const</span> <a class="code" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a50d6761817cc8194bb6848d91223f647">parent_flags</a> = ImGuiTreeNodeFlags_SpanAvailWidth;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a76ff94d95ec1cce9a1c7697af8f30329">   20</a></span>&#160;    ImGuiTreeNodeFlags <span class="keyword">const</span> <a class="code" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a76ff94d95ec1cce9a1c7697af8f30329">leaf_flags</a>   = ImGuiTreeNodeFlags_SpanAvailWidth |</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                          ImGuiTreeNodeFlags_Leaf |</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                                          ImGuiTreeNodeFlags_NoTreePushOnOpen;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#acdb5a1a661ad7e9229c07d6b8efa8a75">   25</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#acdb5a1a661ad7e9229c07d6b8efa8a75">UsefulObjectComponent</a>(<a class="code" href="structtaixu_1_1editor_1_1ViewModel.html">ViewModel</a> *view_model)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        : <a class="code" href="classtaixu_1_1editor_1_1AbstractUIComponent.html">AbstractUIComponent</a>(view_model) {}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a211695da9de6287b4fadd8d8a3118e38">   28</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a211695da9de6287b4fadd8d8a3118e38">update</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;obj : <a class="code" href="classtaixu_1_1editor_1_1AbstractUIComponent.html#a94ae08b274bece60da2cd99f89819d86">_view_model</a>-&gt;<a class="code" href="structtaixu_1_1editor_1_1ViewModel.html#aadcc81de205b04d199e7aed30303d81b">useful_objs_hierarchy</a>) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">if</span> (ImGui::TreeNodeEx(obj.name.c_str(), <a class="code" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a50d6761817cc8194bb6848d91223f647">parent_flags</a>)) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;child : obj.children) {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                    ImGui::TreeNodeEx(child.name.c_str(), <a class="code" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a76ff94d95ec1cce9a1c7697af8f30329">leaf_flags</a>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                    <span class="keywordflow">if</span> (ImGui::IsMouseDoubleClicked(0) &amp;&amp;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                        ImGui::IsItemHovered(ImGuiHoveredFlags_None)) {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                        spdlog::info(<span class="stringliteral">&quot;Double Clicked on: {}&quot;</span>, child.name);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                ImGui::TreePop();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//TAIXUENGINE_HIERARCHY_COMPONENT_HPP</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html">UsefulObjectComponent</a> final : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1editor_1_1AbstractUIComponent.html">AbstractUIComponent</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#aff1ed1b6097783461df9c47b3963b061">   15</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#aff1ed1b6097783461df9c47b3963b061">UsefulObjectComponent</a>(<a class="code" href="structtaixu_1_1editor_1_1ViewModel.html">ViewModel</a>&amp; view_model)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        : <a class="code" href="classtaixu_1_1editor_1_1AbstractUIComponent.html">AbstractUIComponent</a>(view_model) {}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a8f08db3247b640ea55d91266491597c1">update</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// TAIXUENGINE_HIERARCHY_COMPONENT_HPP</span></div>
 <div class="ttc" id="aclasstaixu_1_1editor_1_1AbstractUIComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1AbstractUIComponent.html">taixu::editor::AbstractUIComponent</a></div><div class="ttdoc">UI component interface.</div><div class="ttdef"><b>Definition:</b> ui_component.hpp:18</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1AbstractUIComponent_html_a94ae08b274bece60da2cd99f89819d86"><div class="ttname"><a href="classtaixu_1_1editor_1_1AbstractUIComponent.html#a94ae08b274bece60da2cd99f89819d86">taixu::editor::AbstractUIComponent::_view_model</a></div><div class="ttdeci">ViewModel * _view_model</div><div class="ttdef"><b>Definition:</b> ui_component.hpp:20</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1UsefulObjectComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1UsefulObjectComponent.html">taixu::editor::UsefulObjectComponent</a></div><div class="ttdef"><b>Definition:</b> useful_obj_hierarchy_component.hpp:17</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1UsefulObjectComponent_html_a211695da9de6287b4fadd8d8a3118e38"><div class="ttname"><a href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a211695da9de6287b4fadd8d8a3118e38">taixu::editor::UsefulObjectComponent::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">render updateWindow</div><div class="ttdef"><b>Definition:</b> useful_obj_hierarchy_component.hpp:28</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1UsefulObjectComponent_html_a50d6761817cc8194bb6848d91223f647"><div class="ttname"><a href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a50d6761817cc8194bb6848d91223f647">taixu::editor::UsefulObjectComponent::parent_flags</a></div><div class="ttdeci">ImGuiTreeNodeFlags const parent_flags</div><div class="ttdef"><b>Definition:</b> useful_obj_hierarchy_component.hpp:19</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1UsefulObjectComponent_html_a76ff94d95ec1cce9a1c7697af8f30329"><div class="ttname"><a href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a76ff94d95ec1cce9a1c7697af8f30329">taixu::editor::UsefulObjectComponent::leaf_flags</a></div><div class="ttdeci">ImGuiTreeNodeFlags const leaf_flags</div><div class="ttdef"><b>Definition:</b> useful_obj_hierarchy_component.hpp:20</div></div>
-<div class="ttc" id="aclasstaixu_1_1editor_1_1UsefulObjectComponent_html_acdb5a1a661ad7e9229c07d6b8efa8a75"><div class="ttname"><a href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#acdb5a1a661ad7e9229c07d6b8efa8a75">taixu::editor::UsefulObjectComponent::UsefulObjectComponent</a></div><div class="ttdeci">UsefulObjectComponent(ViewModel *view_model)</div><div class="ttdef"><b>Definition:</b> useful_obj_hierarchy_component.hpp:25</div></div>
-<div class="ttc" id="anamespacetaixu_1_1editor_html"><div class="ttname"><a href="namespacetaixu_1_1editor.html">taixu::editor</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
-<div class="ttc" id="astructtaixu_1_1editor_1_1ViewModel_html"><div class="ttname"><a href="structtaixu_1_1editor_1_1ViewModel.html">taixu::editor::ViewModel</a></div><div class="ttdef"><b>Definition:</b> view_model.hpp:27</div></div>
-<div class="ttc" id="astructtaixu_1_1editor_1_1ViewModel_html_aadcc81de205b04d199e7aed30303d81b"><div class="ttname"><a href="structtaixu_1_1editor_1_1ViewModel.html#aadcc81de205b04d199e7aed30303d81b">taixu::editor::ViewModel::useful_objs_hierarchy</a></div><div class="ttdeci">std::vector&lt; HierarchyNode&lt; std::string &gt; &gt; useful_objs_hierarchy</div><div class="ttdef"><b>Definition:</b> view_model.hpp:39</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1UsefulObjectComponent_html"><div class="ttname"><a href="classtaixu_1_1editor_1_1UsefulObjectComponent.html">taixu::editor::UsefulObjectComponent</a></div><div class="ttdef"><b>Definition:</b> useful_obj_hierarchy_component.hpp:13</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1UsefulObjectComponent_html_a8f08db3247b640ea55d91266491597c1"><div class="ttname"><a href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#a8f08db3247b640ea55d91266491597c1">taixu::editor::UsefulObjectComponent::update</a></div><div class="ttdeci">static void update()</div><div class="ttdef"><b>Definition:</b> useful_obj_hierarchy_component.cpp:62</div></div>
+<div class="ttc" id="aclasstaixu_1_1editor_1_1UsefulObjectComponent_html_aff1ed1b6097783461df9c47b3963b061"><div class="ttname"><a href="classtaixu_1_1editor_1_1UsefulObjectComponent.html#aff1ed1b6097783461df9c47b3963b061">taixu::editor::UsefulObjectComponent::UsefulObjectComponent</a></div><div class="ttdeci">UsefulObjectComponent(ViewModel &amp;view_model)</div><div class="ttdef"><b>Definition:</b> useful_obj_hierarchy_component.hpp:15</div></div>
+<div class="ttc" id="anamespacetaixu_1_1editor_html"><div class="ttname"><a href="namespacetaixu_1_1editor.html">taixu::editor</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
+<div class="ttc" id="astructtaixu_1_1editor_1_1ViewModel_html"><div class="ttname"><a href="structtaixu_1_1editor_1_1ViewModel.html">taixu::editor::ViewModel</a></div><div class="ttdef"><b>Definition:</b> view_model.hpp:22</div></div>
 <div class="ttc" id="aui__component_8hpp_html"><div class="ttname"><a href="ui__component_8hpp.html">ui_component.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_d1aad10e1c648a0ada8a94a1ff7611ce.html">editor</a></li><li class="navelem"><a class="el" href="dir_0d5edcbdfb88f6fb7e6433da08e1ca69.html">ui</a></li><li class="navelem"><a class="el" href="dir_56e768b79572d2e98efb680403656294.html">components</a></li><li class="navelem"><a class="el" href="useful__obj__hierarchy__component_8hpp.html">useful_obj_hierarchy_component.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_f54b5d584e597ccc8e3b4d1ee90c3711.html">editor</a></li><li class="navelem"><a class="el" href="dir_1c2d7cbfecfb3a0f4242076c4ab58384.html">ui</a></li><li class="navelem"><a class="el" href="dir_857aa199ef68f6adeae35d07e3541d2b.html">components</a></li><li class="navelem"><a class="el" href="useful__obj__hierarchy__component_8hpp.html">useful_obj_hierarchy_component.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

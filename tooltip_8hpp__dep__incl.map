@@ -1,8 +1,8 @@
-<map id="engine/editor/ui/widgets/tooltip.hpp" name="engine/editor/ui/widgets/tooltip.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="106,5,285,47"/>
-<area shape="rect" id="node2" href="$slider_8hpp.html" title=" " alt="" coords="106,95,285,136"/>
-<area shape="rect" id="node3" href="$detail__component_8hpp.html" title=" " alt="" coords="91,184,299,225"/>
-<area shape="rect" id="node4" href="$main__window_8hpp.html" title=" " alt="" coords="95,273,295,315"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="5,370,177,397"/>
-<area shape="rect" id="node6" href="$main__window_8cpp.html" title=" " alt="" coords="201,363,400,404"/>
+<map id="engine/src/editor/ui/widgets/tooltip.hpp" name="engine/src/editor/ui/widgets/tooltip.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="156,5,307,47"/>
+<area shape="rect" id="node2" href="$slider_8hpp.html" title=" " alt="" coords="158,95,305,136"/>
+<area shape="rect" id="node3" href="$detail__component_8hpp.html" title=" " alt="" coords="104,184,359,225"/>
+<area shape="rect" id="node4" href="$main__window_8hpp.html" title=" " alt="" coords="113,273,350,315"/>
+<area shape="rect" id="node5" href="$src_2editor_2application_2main_8cpp.html" title=" " alt="" coords="5,363,212,404"/>
+<area shape="rect" id="node6" href="$main__window_8cpp.html" title=" " alt="" coords="236,363,472,404"/>
 </map>

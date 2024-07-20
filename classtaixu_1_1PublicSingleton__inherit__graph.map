@@ -1,11 +1,7 @@
 <map id="taixu::PublicSingleton&lt; T &gt;" name="taixu::PublicSingleton&lt; T &gt;">
-<area shape="rect" id="node1" title="public extend singleton class" alt="" coords="271,5,473,141"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="21,204,184,355"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="208,204,371,355"/>
-<area shape="rect" id="node6" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="395,204,557,355"/>
-<area shape="rect" id="node8" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="581,204,744,355"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1CubeRenderable.html" title=" " alt="" coords="5,514,195,694"/>
-<area shape="rect" id="node5" href="$classtaixu_1_1InputSystem.html" title=" " alt="" coords="219,558,365,650"/>
-<area shape="rect" id="node7" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="391,404,561,804"/>
-<area shape="rect" id="node9" href="$classtaixu_1_1EngineArgs.html" title=" " alt="" coords="595,565,731,643"/>
+<area shape="rect" id="node1" title="public extend singleton class" alt="" coords="101,5,302,141"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="28,204,191,355"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="232,204,395,355"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1CubeRenderable.html" title=" " alt="" coords="5,404,195,525"/>
+<area shape="rect" id="node5" href="$classtaixu_1_1InputSystem.html" title=" " alt="" coords="219,404,426,525"/>
 </map>

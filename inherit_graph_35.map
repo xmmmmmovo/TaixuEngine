@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtaixu_1_1JsonLight.html" title=" " alt="" coords="5,5,128,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,125,135,166"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1ISerializableBool.html" title=" " alt="" coords="194,5,366,32"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1ISerializableList.html" title=" " alt="" coords="197,56,363,83"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1ISerializableNULL.html" title=" " alt="" coords="191,107,369,133"/>
+<area shape="rect" id="node5" href="$classtaixu_1_1ISerializableNumber.html" title=" " alt="" coords="183,157,377,184"/>
+<area shape="rect" id="node6" href="$classtaixu_1_1ISerializableObject.html" title=" " alt="" coords="187,208,373,235"/>
+<area shape="rect" id="node7" href="$classtaixu_1_1ISerializableStr.html" title=" " alt="" coords="199,259,361,285"/>
 </map>

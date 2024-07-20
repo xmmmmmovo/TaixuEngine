@@ -25,9 +25,15 @@
 var NAVTREE =
 [
   [ "TaixuEngine", "index.html", [
+    [ "How to build", "index.html#autotoc_md1", null ],
+    [ "Features", "index.html#autotoc_md2", [
+      [ "Supporting API", "index.html#autotoc_md3", null ]
+    ] ],
+    [ "Architecture", "index.html#autotoc_md4", null ],
     [ "About", "about.html", [
       [ "TaixuEngine Documentation", "about.html#doc", null ]
     ] ],
+    [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -35,8 +41,7 @@ var NAVTREE =
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ],
-        [ "Enumerator", "namespacemembers_eval.html", null ]
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -48,6 +53,7 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -56,6 +62,8 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -64,14 +72,14 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"Jolt__utilities_8cpp.html",
-"classtaixu_1_1EulerCamera.html#a1853967c1b7e710dcf104f01c89d7679",
-"classtaixu_1_1OGLFrameBuffer.html#ae653c4c30382343f6fae3ac197cd0356",
-"classtaixu_1_1WindowContext.html#a6af80752d3795258259471d0943191fd",
-"framebuffer_8hpp.html#a2c20540527d99b113a293b71af17a97c",
-"namespacetaixu.html#a39bd7c139707b4bef7ec9bf5eabf4bbb",
-"slider_8hpp_source.html",
-"vk__pipeline_8cpp.html"
+"about.html",
+"classtaixu_1_1MapArray.html",
+"classtaixu_1_1editor_1_1RenderComponent.html#a70bf2c18bec99458ff70305d92e04f62",
+"functions.html",
+"matrices_8hpp_source.html",
+"namespacetaixu_1_1editor.html#a495fa1d2a391ebd305c7d607d8f38f61",
+"structtaixu_1_1MaterialInfo.html#a993b0d02eae613837ca141edf43bfa63",
+"tx__vk__sync_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

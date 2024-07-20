@@ -121,8 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a511f6bb427d7530fc6c00984d44565d0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a511f6bb427d7530fc6c00984d44565d0"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ComponentManager.html#a511f6bb427d7530fc6c00984d44565d0">contains</a> (<a class="el" href="namespacetaixu.html#a51f0133141b9579ac49ed4791aa23b90">Entity</a> entity)</td></tr>
 <tr class="separator:a511f6bb427d7530fc6c00984d44565d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a511789fd0e1383d7ff919e30d6d8e9dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ComponentManager.html#a511789fd0e1383d7ff919e30d6d8e9dc">entityDestroyed</a> (<a class="el" href="namespacetaixu.html#a51f0133141b9579ac49ed4791aa23b90">Entity</a> entity)</td></tr>
-<tr class="separator:a511789fd0e1383d7ff919e30d6d8e9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031657fdb035d74a16898e858f5b4b97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ComponentManager.html#a031657fdb035d74a16898e858f5b4b97">entityDestroyed</a> (const <a class="el" href="namespacetaixu.html#a51f0133141b9579ac49ed4791aa23b90">Entity</a> entity) const</td></tr>
+<tr class="separator:a031657fdb035d74a16898e858f5b4b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -132,10 +132,10 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a6e9c14986610d162bb5d11e87bdbba95"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; const char *, <a class="el" href="namespacetaixu.html#a9153044f322c6c7a4fb6f269910b3901">ComponentType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ComponentManager.html#a6e9c14986610d162bb5d11e87bdbba95">_component_types</a> {}</td></tr>
-<tr class="separator:a6e9c14986610d162bb5d11e87bdbba95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1749ed31c93b99ca7e8c2940c0c1a901"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; const char *, std::unique_ptr&lt; <a class="el" href="classtaixu_1_1IComponentArray.html">IComponentArray</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ComponentManager.html#a1749ed31c93b99ca7e8c2940c0c1a901">_component_arrays</a> {}</td></tr>
-<tr class="separator:a1749ed31c93b99ca7e8c2940c0c1a901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabc4ebbb4271ec0b8537e54400151d24"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; const char *, <a class="el" href="namespacetaixu.html#a9153044f322c6c7a4fb6f269910b3901">ComponentType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ComponentManager.html#aabc4ebbb4271ec0b8537e54400151d24">_component_types</a> {}</td></tr>
+<tr class="separator:aabc4ebbb4271ec0b8537e54400151d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a539a5da24304cbb172fd155716d9a30a"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; const char *, std::unique_ptr&lt; <a class="el" href="classtaixu_1_1IComponentArray.html">IComponentArray</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ComponentManager.html#a539a5da24304cbb172fd155716d9a30a">_component_arrays</a> {}</td></tr>
+<tr class="separator:a539a5da24304cbb172fd155716d9a30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a383d6fafa22e95ff6dbccb7181beddf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetaixu.html#a9153044f322c6c7a4fb6f269910b3901">ComponentType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1ComponentManager.html#a383d6fafa22e95ff6dbccb7181beddf0">_next_component_type</a> {0}</td></tr>
 <tr class="separator:a383d6fafa22e95ff6dbccb7181beddf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -206,8 +206,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a511789fd0e1383d7ff919e30d6d8e9dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a511789fd0e1383d7ff919e30d6d8e9dc">&#9670;&nbsp;</a></span>entityDestroyed()</h2>
+<a id="a031657fdb035d74a16898e858f5b4b97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a031657fdb035d74a16898e858f5b4b97">&#9670;&nbsp;</a></span>entityDestroyed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,9 +218,9 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void taixu::ComponentManager::entityDestroyed </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetaixu.html#a51f0133141b9579ac49ed4791aa23b90">Entity</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacetaixu.html#a51f0133141b9579ac49ed4791aa23b90">Entity</a>&#160;</td>
           <td class="paramname"><em>entity</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -370,8 +370,8 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1749ed31c93b99ca7e8c2940c0c1a901"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1749ed31c93b99ca7e8c2940c0c1a901">&#9670;&nbsp;</a></span>_component_arrays</h2>
+<a id="a539a5da24304cbb172fd155716d9a30a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a539a5da24304cbb172fd155716d9a30a">&#9670;&nbsp;</a></span>_component_arrays</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -380,7 +380,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;const char *, std::unique_ptr&lt;<a class="el" href="classtaixu_1_1IComponentArray.html">IComponentArray</a>&gt; &gt; taixu::ComponentManager::_component_arrays {}</td>
+          <td class="memname">std::unordered_map&lt;const char*, std::unique_ptr&lt;<a class="el" href="classtaixu_1_1IComponentArray.html">IComponentArray</a>&gt; &gt; taixu::ComponentManager::_component_arrays {}</td>
         </tr>
       </table>
   </td>
@@ -392,8 +392,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a6e9c14986610d162bb5d11e87bdbba95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e9c14986610d162bb5d11e87bdbba95">&#9670;&nbsp;</a></span>_component_types</h2>
+<a id="aabc4ebbb4271ec0b8537e54400151d24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabc4ebbb4271ec0b8537e54400151d24">&#9670;&nbsp;</a></span>_component_types</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -402,7 +402,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;const char *, <a class="el" href="namespacetaixu.html#a9153044f322c6c7a4fb6f269910b3901">ComponentType</a>&gt; taixu::ComponentManager::_component_types {}</td>
+          <td class="memname">std::unordered_map&lt;const char*, <a class="el" href="namespacetaixu.html#a9153044f322c6c7a4fb6f269910b3901">ComponentType</a>&gt; taixu::ComponentManager::_component_types {}</td>
         </tr>
       </table>
   </td>
@@ -437,7 +437,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>engine/runtime/management/ecs/core/<a class="el" href="component__manager_8hpp_source.html">component_manager.hpp</a></li>
+<li>engine/src/runtime/source/management/ecs/core/<a class="el" href="component__manager_8hpp_source.html">component_manager.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

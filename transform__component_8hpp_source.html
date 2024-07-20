@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/management/ecs/components/transform/transform_component.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/source/management/components/transform/transform_component.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,11 +90,11 @@ $(document).ready(function(){initNavTree('transform__component_8hpp_source.html'
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;glm/glm.hpp&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;glm/gtc/matrix_transform.hpp&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;glm/gtx/quaternion.hpp&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;glm/glm.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;glm/gtc/matrix_transform.hpp&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;glm/gtx/quaternion.hpp&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="macro_8hpp.html">core/base/macro.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="macro_8hpp.html">common/base/macro.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('transform__component_8hpp_source.html'
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classtaixu_1_1TransformComponent.html#ae8fc15f9199e3605f7c6c8fd90407dca">   25</a></span>&#160;    <a class="code" href="classtaixu_1_1TransformComponent.html#ae8fc15f9199e3605f7c6c8fd90407dca">TransformComponent</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> RT&gt;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classtaixu_1_1TransformComponent.html#a82c4718cb2e353eb8bd601febb19c04e">   28</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classtaixu_1_1TransformComponent.html#a82c4718cb2e353eb8bd601febb19c04e">TransformComponent</a>(T &amp;&amp;pos, T &amp;&amp;scale, RT &amp;&amp;rotate)</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classtaixu_1_1TransformComponent.html#a82c4718cb2e353eb8bd601febb19c04e">   28</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classtaixu_1_1TransformComponent.html#a82c4718cb2e353eb8bd601febb19c04e">TransformComponent</a>(T&amp;&amp; pos, T&amp;&amp; scale, RT&amp;&amp; rotate)</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        : _translate(std::forward&lt;T&gt;(pos)), _scale(std::forward&lt;T&gt;(scale)),</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;          _rotation(std::forward&lt;RT&gt;(rotate)) {}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
@@ -137,13 +137,13 @@ $(document).ready(function(){initNavTree('transform__component_8hpp_source.html'
 <div class="ttc" id="aclasstaixu_1_1TransformComponent_html_adf10c1e54202e64039d8284e9545254b"><div class="ttname"><a href="classtaixu_1_1TransformComponent.html#adf10c1e54202e64039d8284e9545254b">taixu::TransformComponent::makeTransformMatrix</a></div><div class="ttdeci">void makeTransformMatrix()</div><div class="ttdef"><b>Definition:</b> transform_component.hpp:32</div></div>
 <div class="ttc" id="aclasstaixu_1_1TransformComponent_html_ae8fc15f9199e3605f7c6c8fd90407dca"><div class="ttname"><a href="classtaixu_1_1TransformComponent.html#ae8fc15f9199e3605f7c6c8fd90407dca">taixu::TransformComponent::TransformComponent</a></div><div class="ttdeci">TransformComponent()=default</div></div>
 <div class="ttc" id="amacro_8hpp_html"><div class="ttname"><a href="macro_8hpp.html">macro.hpp</a></div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_2e743e866fb37056f41fd9fa9b68e330.html">management</a></li><li class="navelem"><a class="el" href="dir_1ee1a190a4098a38c779ee0b5bb961e2.html">ecs</a></li><li class="navelem"><a class="el" href="dir_c0d5d94e10085e6fa7a8e1fca3c74b1d.html">components</a></li><li class="navelem"><a class="el" href="dir_54110f930c49d6b1d8cdc3932461c7d3.html">transform</a></li><li class="navelem"><a class="el" href="transform__component_8hpp.html">transform_component.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_c43fa6ee8b9194a57dc2220ae96e12ce.html">management</a></li><li class="navelem"><a class="el" href="dir_04bd1c00f52aa84bc1a6189588fb88d0.html">components</a></li><li class="navelem"><a class="el" href="dir_af5a5245ea34ca686f19ca036f0956d2.html">transform</a></li><li class="navelem"><a class="el" href="transform__component_8hpp.html">transform_component.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

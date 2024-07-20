@@ -1,8 +1,11 @@
-<map id="engine/runtime/management/ecs/object/guid_generator.cpp" name="engine/runtime/management/ecs/object/guid_generator.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="39,5,259,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,129,121"/>
-<area shape="rect" id="node3" href="$guid__genenrator_8hpp.html" title=" " alt="" coords="154,95,309,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="107,169,174,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="198,169,265,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="289,169,347,196"/>
+<map id="engine/src/runtime/source/management/ecs/object/guid_generator.cpp" name="engine/src/runtime/source/management/ecs/object/guid_generator.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="365,5,560,61"/>
+<area shape="rect" id="node2" href="$logger_8hpp.html" title=" " alt="" coords="275,117,450,143"/>
+<area shape="rect" id="node6" href="$guid__genenrator_8hpp.html" title=" " alt="" coords="509,109,688,151"/>
+<area shape="rect" id="node3" href="$macro_8hpp.html" title=" " alt="" coords="5,199,192,225"/>
+<area shape="rect" id="node4" title=" " alt="" coords="216,199,347,225"/>
+<area shape="rect" id="node5" title=" " alt="" coords="371,199,495,225"/>
+<area shape="rect" id="node7" title=" " alt="" coords="520,199,587,225"/>
+<area shape="rect" id="node8" title=" " alt="" coords="611,199,677,225"/>
+<area shape="rect" id="node9" title=" " alt="" coords="701,199,760,225"/>
 </map>

@@ -1,6 +1,9 @@
 var classtaixu_1_1EngineArgs =
 [
-    [ "loadParams", "classtaixu_1_1EngineArgs.html#a3379872e8a906db5b46fd45719d90caf", null ],
-    [ "PublicSingleton< EngineArgs >", "classtaixu_1_1EngineArgs.html#a01fd11e25ac0de8261755f32da378c36", null ],
-    [ "api", "classtaixu_1_1EngineArgs.html#a540ca3fc6defea2e22ddfbb9f5b7c72b", null ]
+    [ "initWithArgs", "classtaixu_1_1EngineArgs.html#a2461611076bab811184667b837451f30", null ],
+    [ "PROTOTYPE_DFT_ONLY_GETTER_CONST", "classtaixu_1_1EngineArgs.html#a68e71ac7f2a979846e6de713d48255d9", null ],
+    [ "PROTOTYPE_DFT_ONLY_GETTER_CONST", "classtaixu_1_1EngineArgs.html#a8dc5649928bd1ec6060c86aca627275e", null ],
+    [ "PROTOTYPE_DFT_ONLY_GETTER_VALPASS", "classtaixu_1_1EngineArgs.html#a2e21ab3ee61f3adfbf11c286052e6695", null ],
+    [ "PROTOTYPE_DFT_ONLY_GETTER_VALPASS", "classtaixu_1_1EngineArgs.html#a66348ec7a69ae1f7eed29c8f21ec3c70", null ],
+    [ "PROTOTYPE_DFT_ONLY_GETTER_VALPASS", "classtaixu_1_1EngineArgs.html#a20f6846d4ec07cc6766a81d12398824c", null ]
 ];

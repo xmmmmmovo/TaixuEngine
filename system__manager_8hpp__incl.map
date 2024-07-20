@@ -1,13 +1,12 @@
-<map id="engine/runtime/management/ecs/system/system_manager.hpp" name="engine/runtime/management/ecs/system/system_manager.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="101,5,345,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,259,72,285"/>
-<area shape="rect" id="node3" title=" " alt="" coords="59,95,136,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="161,95,285,121"/>
-<area shape="rect" id="node5" href="$ecs__types_8hpp.html" title=" " alt="" coords="59,169,226,211"/>
-<area shape="rect" id="node7" href="$system_8hpp.html" title=" " alt="" coords="393,95,492,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="113,259,172,285"/>
-<area shape="rect" id="node8" href="$macro_8hpp.html" title=" " alt="" coords="250,177,409,203"/>
-<area shape="rect" id="node9" title=" " alt="" coords="433,177,519,203"/>
-<area shape="rect" id="node10" title=" " alt="" coords="543,177,657,203"/>
-<area shape="rect" id="node11" title=" " alt="" coords="682,177,745,203"/>
+<map id="engine/src/runtime/source/management/ecs/system/system_manager.hpp" name="engine/src/runtime/source/management/ecs/system/system_manager.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="109,5,328,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,109,83,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="107,109,231,136"/>
+<area shape="rect" id="node4" href="$system_8hpp.html" title=" " alt="" coords="364,109,463,136"/>
+<area shape="rect" id="node6" href="$ecs__types_8hpp.html" title=" " alt="" coords="129,184,295,225"/>
+<area shape="rect" id="node5" href="$macro_8hpp.html" title=" " alt="" coords="320,191,507,218"/>
+<area shape="rect" id="node9" title=" " alt="" coords="531,191,645,218"/>
+<area shape="rect" id="node10" title=" " alt="" coords="670,191,733,218"/>
+<area shape="rect" id="node7" title=" " alt="" coords="140,273,199,300"/>
+<area shape="rect" id="node8" title=" " alt="" coords="223,273,289,300"/>
 </map>

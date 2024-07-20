@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/management/input/key_code.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/source/management/input/key_code.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,22 +95,38 @@ $(document).ready(function(){initNavTree('key__code_8hpp_source.html',''); initR
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a77cf7817be9141fcdfe50bbe3f1a1750">   11</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacetaixu.html#a77cf7817be9141fcdfe50bbe3f1a1750">KeyCode</a> : std::int16_t {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="namespacetaixu.html#a77cf7817be9141fcdfe50bbe3f1a1750a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a> = -1,</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a61fd31e31523d14d6cc9d6c85a0b2d8d">   11</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacetaixu.html#a61fd31e31523d14d6cc9d6c85a0b2d8d">EnumKeyCode</a> : std::int8_t {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="namespacetaixu.html#a61fd31e31523d14d6cc9d6c85a0b2d8da696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a> = -1,</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//ENGINE_RUNTIME_MANAGEMENT_INPUT_KEY_CODE_HPP</span></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
-<div class="ttc" id="anamespacetaixu_html_a77cf7817be9141fcdfe50bbe3f1a1750"><div class="ttname"><a href="namespacetaixu.html#a77cf7817be9141fcdfe50bbe3f1a1750">taixu::KeyCode</a></div><div class="ttdeci">KeyCode</div><div class="ttdef"><b>Definition:</b> key_code.hpp:11</div></div>
-<div class="ttc" id="anamespacetaixu_html_a77cf7817be9141fcdfe50bbe3f1a1750a696b031073e74bf2cb98e5ef201d4aa3"><div class="ttname"><a href="namespacetaixu.html#a77cf7817be9141fcdfe50bbe3f1a1750a696b031073e74bf2cb98e5ef201d4aa3">taixu::KeyCode::UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1b">   15</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1b">EnumKeyState</a> : std::uint8_t {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1ba93146f537356b7396d2f0413cf0bfc9e">PRESS</a>   = 0,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1ba7d649ef069df9885e382417c79f3d5cd">RELEASE</a> = 1,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structtaixu_1_1KeyEvent.html">   20</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtaixu_1_1KeyEvent.html">KeyEvent</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structtaixu_1_1KeyEvent.html#a15ad09c9fd7927b48e7a3fda10e9480f">   21</a></span>&#160;    <a class="code" href="namespacetaixu.html#a61fd31e31523d14d6cc9d6c85a0b2d8d">EnumKeyCode</a>  <a class="code" href="structtaixu_1_1KeyEvent.html#a15ad09c9fd7927b48e7a3fda10e9480f">code</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structtaixu_1_1KeyEvent.html#a4c72936cd6f2935973c8be942f9f874a">   22</a></span>&#160;    <a class="code" href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1b">EnumKeyState</a> <a class="code" href="structtaixu_1_1KeyEvent.html#a4c72936cd6f2935973c8be942f9f874a">state</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// ENGINE_RUNTIME_MANAGEMENT_INPUT_KEY_CODE_HPP</span></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
+<div class="ttc" id="anamespacetaixu_html_a61fd31e31523d14d6cc9d6c85a0b2d8d"><div class="ttname"><a href="namespacetaixu.html#a61fd31e31523d14d6cc9d6c85a0b2d8d">taixu::EnumKeyCode</a></div><div class="ttdeci">EnumKeyCode</div><div class="ttdef"><b>Definition:</b> key_code.hpp:11</div></div>
+<div class="ttc" id="anamespacetaixu_html_a61fd31e31523d14d6cc9d6c85a0b2d8da696b031073e74bf2cb98e5ef201d4aa3"><div class="ttname"><a href="namespacetaixu.html#a61fd31e31523d14d6cc9d6c85a0b2d8da696b031073e74bf2cb98e5ef201d4aa3">taixu::EnumKeyCode::UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div></div>
+<div class="ttc" id="anamespacetaixu_html_a92f17e39b943ade7efa1eb4e1908bf1b"><div class="ttname"><a href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1b">taixu::EnumKeyState</a></div><div class="ttdeci">EnumKeyState</div><div class="ttdef"><b>Definition:</b> key_code.hpp:15</div></div>
+<div class="ttc" id="anamespacetaixu_html_a92f17e39b943ade7efa1eb4e1908bf1ba7d649ef069df9885e382417c79f3d5cd"><div class="ttname"><a href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1ba7d649ef069df9885e382417c79f3d5cd">taixu::EnumKeyState::RELEASE</a></div><div class="ttdeci">@ RELEASE</div></div>
+<div class="ttc" id="anamespacetaixu_html_a92f17e39b943ade7efa1eb4e1908bf1ba93146f537356b7396d2f0413cf0bfc9e"><div class="ttname"><a href="namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1ba93146f537356b7396d2f0413cf0bfc9e">taixu::EnumKeyState::PRESS</a></div><div class="ttdeci">@ PRESS</div></div>
+<div class="ttc" id="astructtaixu_1_1KeyEvent_html"><div class="ttname"><a href="structtaixu_1_1KeyEvent.html">taixu::KeyEvent</a></div><div class="ttdef"><b>Definition:</b> key_code.hpp:20</div></div>
+<div class="ttc" id="astructtaixu_1_1KeyEvent_html_a15ad09c9fd7927b48e7a3fda10e9480f"><div class="ttname"><a href="structtaixu_1_1KeyEvent.html#a15ad09c9fd7927b48e7a3fda10e9480f">taixu::KeyEvent::code</a></div><div class="ttdeci">EnumKeyCode code</div><div class="ttdef"><b>Definition:</b> key_code.hpp:21</div></div>
+<div class="ttc" id="astructtaixu_1_1KeyEvent_html_a4c72936cd6f2935973c8be942f9f874a"><div class="ttname"><a href="structtaixu_1_1KeyEvent.html#a4c72936cd6f2935973c8be942f9f874a">taixu::KeyEvent::state</a></div><div class="ttdeci">EnumKeyState state</div><div class="ttdef"><b>Definition:</b> key_code.hpp:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_2e743e866fb37056f41fd9fa9b68e330.html">management</a></li><li class="navelem"><a class="el" href="dir_683838a3c094745ade8681c9d1d87dcf.html">input</a></li><li class="navelem"><a class="el" href="key__code_8hpp.html">key_code.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_c43fa6ee8b9194a57dc2220ae96e12ce.html">management</a></li><li class="navelem"><a class="el" href="dir_64c575274689cdec5a1c3bafa9f69a48.html">input</a></li><li class="navelem"><a class="el" href="key__code_8hpp.html">key_code.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

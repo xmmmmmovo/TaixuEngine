@@ -1,6 +1,7 @@
-<map id="engine/editor/ui/components/menu_component.hpp" name="engine/editor/ui/components/menu_component.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="91,5,299,47"/>
-<area shape="rect" id="node2" href="$main__window_8hpp.html" title=" " alt="" coords="95,95,295,136"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="5,191,177,218"/>
-<area shape="rect" id="node4" href="$main__window_8cpp.html" title=" " alt="" coords="201,184,400,225"/>
+<map id="engine/src/editor/ui/components/menu_component.hpp" name="engine/src/editor/ui/components/menu_component.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="140,5,395,47"/>
+<area shape="rect" id="node2" href="$menu__component_8cpp.html" title=" " alt="" coords="5,95,260,136"/>
+<area shape="rect" id="node3" href="$main__window_8hpp.html" title=" " alt="" coords="285,95,522,136"/>
+<area shape="rect" id="node4" href="$src_2editor_2application_2main_8cpp.html" title=" " alt="" coords="177,184,384,225"/>
+<area shape="rect" id="node5" href="$main__window_8cpp.html" title=" " alt="" coords="408,184,644,225"/>
 </map>

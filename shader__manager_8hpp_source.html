@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/management/graphics/shader_manager.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/include/management/gpu/shader_manager.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,33 +86,91 @@ $(document).ready(function(){initNavTree('shader__manager_8hpp_source.html','');
 </div><!--header-->
 <div class="contents">
 <a href="shader__manager_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by xmmmmmovo on 2023/5/14.</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by xmmmmmovo on 1/28/2024.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_SHADER_MANAGER_HPP</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_SHADER_MANAGER_HPP</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shader_8hpp.html">render/shader.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;magic_enum.hpp&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hash_8hpp.html">common/base/hash.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tx__shader_8hpp.html">management/render/tx_shader.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classtaixu_1_1ShaderManager.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1ShaderManager.html">ShaderManager</a> final {};</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//ENGINE_RUNTIME_MANAGEMENT_GRAPHICS_SHADER_MANAGER_HPP</span></div>
-<div class="ttc" id="aclasstaixu_1_1ShaderManager_html"><div class="ttname"><a href="classtaixu_1_1ShaderManager.html">taixu::ShaderManager</a></div><div class="ttdef"><b>Definition:</b> shader_manager.hpp:15</div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
-<div class="ttc" id="ashader_8hpp_html"><div class="ttname"><a href="shader_8hpp.html">shader.hpp</a></div></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861e">   15</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861e">EnumTXBuiltinShader</a> : uint8_t {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861ea05b4d99c8bf0d6151d5091e7a85ad02f">FORWARD_VERT</a> = 0,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861ea26f267ef439fd50d8851495f0171be78">FORWARD_FRAG</a> = 1,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">static</span> constexpr std::size_t TX_BUILTIN_SHADER_SIZE =</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        magic_enum::enum_count&lt;EnumTXBuiltinShader&gt;();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespacetaixu.html#abeae149b7f163f68414b725315b382cd">   23</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacetaixu.html#abeae149b7f163f68414b725315b382cd">TXBuiltinShaderCreateInfoArrT</a> =</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::array&lt;TXShaderModuleCreateInfo, TX_BUILTIN_SHADER_SIZE&gt;;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespacetaixu.html#addf6fb95b9be615457c63ef66a0874b4">   25</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacetaixu.html#addf6fb95b9be615457c63ef66a0874b4">TXBuiltinShaderModulePtrArrT</a> =</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::array&lt;std::shared_ptr&lt;TXShaderModule&gt;, TX_BUILTIN_SHADER_SIZE&gt;;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="shader__manager_8hpp.html#a86022d3d890f76096a71dcc9779e7716">   29</a></span>&#160;<span class="preprocessor">#define INIT_BUILTIN_SHADER_MODULE_CREATE_INFO(name_, binaries_, size, type,   \</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">                                               stage_, infos)                  \</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">    {                                                                          \</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">        auto&amp; info         = (infos)[static_cast&lt;size_t&gt;(name_)];              \</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">        info.name          = magic_enum::enum_name(name_);                     \</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">        info.binaries      = binaries_;                                        \</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">        info.binaries_size = size;                                             \</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">        info.source_type   = type;                                             \</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">        info.stage         = (stage_);                                         \</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">    }</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXShaderModuleManager.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1TXShaderModuleManager.html">TXShaderModuleManager</a> final {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXShaderModuleManager.html#ab3b029a279174c48b07b838768e4c356">   42</a></span>&#160;    <a class="code" href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a> <span class="keyword">static</span> <a class="code" href="namespacetaixu.html#abeae149b7f163f68414b725315b382cd">TXBuiltinShaderCreateInfoArrT</a> <a class="code" href="classtaixu_1_1TXShaderModuleManager.html#ab3b029a279174c48b07b838768e4c356">builtin_shader_create_infos</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXShaderModuleManager.html#ad120eb28ece3c5eb59640314432f20cc">   43</a></span>&#160;    <a class="code" href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a> <span class="keyword">static</span> <a class="code" href="namespacetaixu.html#addf6fb95b9be615457c63ef66a0874b4">TXBuiltinShaderModulePtrArrT</a>  <a class="code" href="classtaixu_1_1TXShaderModuleManager.html#ad120eb28ece3c5eb59640314432f20cc">builtin_modules</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::unordered_map&lt;hash32_t, std::shared_ptr&lt;TXShaderModule&gt;&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXShaderModuleManager.html#a936c6df56b10150bcabd824479c31616">   46</a></span>&#160;            <a class="code" href="classtaixu_1_1TXShaderModuleManager.html#a936c6df56b10150bcabd824479c31616">_custom_modules</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    [[nodiscard]] std::shared_ptr&lt;TXShaderModule&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classtaixu_1_1TXShaderModuleManager.html#aa7f8561a3c0d3b3aa34640bbebeea3fb">createShaderModuleInner</a>(<a class="code" href="structtaixu_1_1TXShaderModuleCreateInfo.html">TXShaderModuleCreateInfo</a> <span class="keyword">const</span>&amp; info) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtaixu_1_1TXShaderModuleManager.html#a97dcf4226af92728d66e902a5cd999e5">init</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    [[nodiscard]] std::shared_ptr&lt;TXShaderModule&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classtaixu_1_1TXShaderModuleManager.html#ab217eb256485d4a2babd7b92519c821a">createCustomShaderModule</a>(<span class="keyword">const</span> <a class="code" href="structtaixu_1_1TXShaderModuleCreateInfo.html">TXShaderModuleCreateInfo</a>&amp; info) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    [[nodiscard]] std::shared_ptr&lt;TXShaderModule&gt;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classtaixu_1_1TXShaderModuleManager.html#acbfe47f49b7868c16bec045ec8017f7a">getBuiltinShaderModule</a>(<a class="code" href="namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861e">EnumTXBuiltinShader</a> builtin_shader) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="ttc" id="aclasstaixu_1_1TXShaderModuleManager_html"><div class="ttname"><a href="classtaixu_1_1TXShaderModuleManager.html">taixu::TXShaderModuleManager</a></div><div class="ttdef"><b>Definition:</b> shader_manager.hpp:40</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXShaderModuleManager_html_a936c6df56b10150bcabd824479c31616"><div class="ttname"><a href="classtaixu_1_1TXShaderModuleManager.html#a936c6df56b10150bcabd824479c31616">taixu::TXShaderModuleManager::_custom_modules</a></div><div class="ttdeci">std::unordered_map&lt; hash32_t, std::shared_ptr&lt; TXShaderModule &gt; &gt; _custom_modules</div><div class="ttdef"><b>Definition:</b> shader_manager.hpp:46</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXShaderModuleManager_html_a97dcf4226af92728d66e902a5cd999e5"><div class="ttname"><a href="classtaixu_1_1TXShaderModuleManager.html#a97dcf4226af92728d66e902a5cd999e5">taixu::TXShaderModuleManager::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> shader_manager.cpp:9</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXShaderModuleManager_html_aa7f8561a3c0d3b3aa34640bbebeea3fb"><div class="ttname"><a href="classtaixu_1_1TXShaderModuleManager.html#aa7f8561a3c0d3b3aa34640bbebeea3fb">taixu::TXShaderModuleManager::createShaderModuleInner</a></div><div class="ttdeci">std::shared_ptr&lt; TXShaderModule &gt; createShaderModuleInner(TXShaderModuleCreateInfo const &amp;info) const</div><div class="ttdef"><b>Definition:</b> shader_manager.cpp:11</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXShaderModuleManager_html_ab217eb256485d4a2babd7b92519c821a"><div class="ttname"><a href="classtaixu_1_1TXShaderModuleManager.html#ab217eb256485d4a2babd7b92519c821a">taixu::TXShaderModuleManager::createCustomShaderModule</a></div><div class="ttdeci">std::shared_ptr&lt; TXShaderModule &gt; createCustomShaderModule(const TXShaderModuleCreateInfo &amp;info) const</div><div class="ttdef"><b>Definition:</b> shader_manager.cpp:16</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXShaderModuleManager_html_ab3b029a279174c48b07b838768e4c356"><div class="ttname"><a href="classtaixu_1_1TXShaderModuleManager.html#ab3b029a279174c48b07b838768e4c356">taixu::TXShaderModuleManager::builtin_shader_create_infos</a></div><div class="ttdeci">static TX_INLINE TXBuiltinShaderCreateInfoArrT builtin_shader_create_infos</div><div class="ttdef"><b>Definition:</b> shader_manager.hpp:42</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXShaderModuleManager_html_acbfe47f49b7868c16bec045ec8017f7a"><div class="ttname"><a href="classtaixu_1_1TXShaderModuleManager.html#acbfe47f49b7868c16bec045ec8017f7a">taixu::TXShaderModuleManager::getBuiltinShaderModule</a></div><div class="ttdeci">std::shared_ptr&lt; TXShaderModule &gt; getBuiltinShaderModule(EnumTXBuiltinShader builtin_shader) const</div><div class="ttdef"><b>Definition:</b> shader_manager.cpp:22</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXShaderModuleManager_html_ad120eb28ece3c5eb59640314432f20cc"><div class="ttname"><a href="classtaixu_1_1TXShaderModuleManager.html#ad120eb28ece3c5eb59640314432f20cc">taixu::TXShaderModuleManager::builtin_modules</a></div><div class="ttdeci">static TX_INLINE TXBuiltinShaderModulePtrArrT builtin_modules</div><div class="ttdef"><b>Definition:</b> shader_manager.hpp:43</div></div>
+<div class="ttc" id="ahash_8hpp_html"><div class="ttname"><a href="hash_8hpp.html">hash.hpp</a></div></div>
+<div class="ttc" id="amacro_8hpp_html_abbaf58075a603033083f752778286e4a"><div class="ttname"><a href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a></div><div class="ttdeci">#define TX_INLINE</div><div class="ttdef"><b>Definition:</b> macro.hpp:49</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
+<div class="ttc" id="anamespacetaixu_html_a03eeb3adbfb6b993fd27942e66d7861e"><div class="ttname"><a href="namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861e">taixu::EnumTXBuiltinShader</a></div><div class="ttdeci">EnumTXBuiltinShader</div><div class="ttdef"><b>Definition:</b> shader_manager.hpp:15</div></div>
+<div class="ttc" id="anamespacetaixu_html_a03eeb3adbfb6b993fd27942e66d7861ea05b4d99c8bf0d6151d5091e7a85ad02f"><div class="ttname"><a href="namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861ea05b4d99c8bf0d6151d5091e7a85ad02f">taixu::EnumTXBuiltinShader::FORWARD_VERT</a></div><div class="ttdeci">@ FORWARD_VERT</div></div>
+<div class="ttc" id="anamespacetaixu_html_a03eeb3adbfb6b993fd27942e66d7861ea26f267ef439fd50d8851495f0171be78"><div class="ttname"><a href="namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861ea26f267ef439fd50d8851495f0171be78">taixu::EnumTXBuiltinShader::FORWARD_FRAG</a></div><div class="ttdeci">@ FORWARD_FRAG</div></div>
+<div class="ttc" id="anamespacetaixu_html_abeae149b7f163f68414b725315b382cd"><div class="ttname"><a href="namespacetaixu.html#abeae149b7f163f68414b725315b382cd">taixu::TXBuiltinShaderCreateInfoArrT</a></div><div class="ttdeci">std::array&lt; TXShaderModuleCreateInfo, TX_BUILTIN_SHADER_SIZE &gt; TXBuiltinShaderCreateInfoArrT</div><div class="ttdef"><b>Definition:</b> shader_manager.hpp:24</div></div>
+<div class="ttc" id="anamespacetaixu_html_addf6fb95b9be615457c63ef66a0874b4"><div class="ttname"><a href="namespacetaixu.html#addf6fb95b9be615457c63ef66a0874b4">taixu::TXBuiltinShaderModulePtrArrT</a></div><div class="ttdeci">std::array&lt; std::shared_ptr&lt; TXShaderModule &gt;, TX_BUILTIN_SHADER_SIZE &gt; TXBuiltinShaderModulePtrArrT</div><div class="ttdef"><b>Definition:</b> shader_manager.hpp:26</div></div>
+<div class="ttc" id="astructtaixu_1_1TXShaderModuleCreateInfo_html"><div class="ttname"><a href="structtaixu_1_1TXShaderModuleCreateInfo.html">taixu::TXShaderModuleCreateInfo</a></div><div class="ttdef"><b>Definition:</b> tx_shader.hpp:34</div></div>
+<div class="ttc" id="atx__shader_8hpp_html"><div class="ttname"><a href="tx__shader_8hpp.html">tx_shader.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_2e743e866fb37056f41fd9fa9b68e330.html">management</a></li><li class="navelem"><a class="el" href="dir_038307a3f8cc5577cb6aaddc44320b2b.html">graphics</a></li><li class="navelem"><a class="el" href="shader__manager_8hpp.html">shader_manager.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_327714c5b147a50948c4cc2b9248097b.html">management</a></li><li class="navelem"><a class="el" href="dir_b1cfe611b3f8e5a18768e225d957fca6.html">gpu</a></li><li class="navelem"><a class="el" href="shader__manager_8hpp.html">shader_manager.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

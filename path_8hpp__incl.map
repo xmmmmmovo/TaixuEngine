@@ -1,6 +1,6 @@
-<map id="engine/runtime/platform/os/path.hpp" name="engine/runtime/platform/os/path.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="59,5,240,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,96,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="120,95,179,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="203,95,266,121"/>
+<map id="engine/src/runtime/include/platform/os/path.hpp" name="engine/src/runtime/include/platform/os/path.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="73,5,225,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,109,96,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="120,109,179,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="203,109,266,136"/>
 </map>

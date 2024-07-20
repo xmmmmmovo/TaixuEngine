@@ -1,0 +1,28 @@
+var windows__min_8hpp =
+[
+    [ "NOATOM", "windows__min_8hpp.html#aa59dc3d2c7dc2ec85638761aeb2d50f7", null ],
+    [ "NOCLIPBOARD", "windows__min_8hpp.html#a2e4c78354db40d44bea894e472550c11", null ],
+    [ "NOCOLOR", "windows__min_8hpp.html#ad99d89815bdc61acfe8744c41c96e637", null ],
+    [ "NOCTLMGR", "windows__min_8hpp.html#a679a4dcdfeb97910576cff8452efb28e", null ],
+    [ "NODRAWTEXT", "windows__min_8hpp.html#a5ceb8b3e84824f87cae315091546e67f", null ],
+    [ "NOGDI", "windows__min_8hpp.html#a2bedaca1c6ca66de2397772910fbe140", null ],
+    [ "NOGDICAPMASKS", "windows__min_8hpp.html#a8effd0655f96cc25e57c0b348669df7b", null ],
+    [ "NOICONS", "windows__min_8hpp.html#a8b8c544b2e9e3359de25f7d89f4f5de9", null ],
+    [ "NOKERNEL", "windows__min_8hpp.html#a1381fe81f9874aa4a669b6bd556f87fa", null ],
+    [ "NOKEYSTATES", "windows__min_8hpp.html#a6f4a8b3fe02f55fd022b91b3a965e15c", null ],
+    [ "NOMB", "windows__min_8hpp.html#a8bd3112472ae1e33be8faf5294230948", null ],
+    [ "NOMEMMGR", "windows__min_8hpp.html#a8b2f514658ba28ae0ea3b8b96edf520e", null ],
+    [ "NOMENUS", "windows__min_8hpp.html#a15dd7444df67d292b83dc869d6e4b417", null ],
+    [ "NOMETAFILE", "windows__min_8hpp.html#a37618c72c08b2464576612b2ac595b30", null ],
+    [ "NOMINMAX", "windows__min_8hpp.html#a9f918755b601cf4bffca775992e6fb90", null ],
+    [ "NOOPENFILE", "windows__min_8hpp.html#a2d7186e4a6dfcc0011461ce1e8b70a05", null ],
+    [ "NORASTEROPS", "windows__min_8hpp.html#a0293d1b2742d9c9ef401d75a55b81859", null ],
+    [ "NOSCROLL", "windows__min_8hpp.html#a06f62f70cab65b4c19972202f784e12d", null ],
+    [ "NOSERVICE", "windows__min_8hpp.html#a14ac98af6281e748377693d824e41ca9", null ],
+    [ "NOSHOWWINDOW", "windows__min_8hpp.html#ab2dcc39e73a373330467f5f503c779d3", null ],
+    [ "NOSYSCOMMANDS", "windows__min_8hpp.html#a271ce221dc9c5c8887d443008b3d718c", null ],
+    [ "NOSYSMETRICS", "windows__min_8hpp.html#aea709a8ba0a7d510cefcf625fdb3b4b1", null ],
+    [ "NOVIRTUALKEYCODES", "windows__min_8hpp.html#ac5ff788cb8638ce5daf99e586083eef2", null ],
+    [ "NOWINSTYLES", "windows__min_8hpp.html#a22c56a31990574a86b40f60b6073cdba", null ],
+    [ "OEMRESOURCE", "windows__min_8hpp.html#a3a75770af38d05856eb2e9d1867b471c", null ]
+];

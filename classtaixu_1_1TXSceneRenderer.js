@@ -1,0 +1,27 @@
+var classtaixu_1_1TXSceneRenderer =
+[
+    [ "clearWindow", "classtaixu_1_1TXSceneRenderer.html#ae2049853a6e6d11e1cff101c7c07024e", null ],
+    [ "destroy", "classtaixu_1_1TXSceneRenderer.html#a3a7d76f6e359d58a8fbeee93222aee7c", null ],
+    [ "destroyGraphicsAPI", "classtaixu_1_1TXSceneRenderer.html#aacfef72a5e56ee05d48cf7e5ffacf715", null ],
+    [ "disableImgui", "classtaixu_1_1TXSceneRenderer.html#af2647ea818deca1c03cd4ec1567a0e7e", null ],
+    [ "enableImgui", "classtaixu_1_1TXSceneRenderer.html#af41420c4b5b4cb8c1241198db6fe78e4", null ],
+    [ "imguiDestroy", "classtaixu_1_1TXSceneRenderer.html#ad3af3e310e5c8530c983cd6d9986f51c", null ],
+    [ "imguiForGraphicsAPIInit", "classtaixu_1_1TXSceneRenderer.html#a16c62e2277d33f505b455e8df602019a", null ],
+    [ "imguiGraphicsDestroy", "classtaixu_1_1TXSceneRenderer.html#ae034df486a7bf0216c23e957c764695c", null ],
+    [ "imguiGraphicsPreUpdate", "classtaixu_1_1TXSceneRenderer.html#a48bdb8dfd1413beae40a9c97bae65d56", null ],
+    [ "imguiGraphicsUpdate", "classtaixu_1_1TXSceneRenderer.html#afdab7ba82b4e5bed4a0d37ca8816d33d", null ],
+    [ "imguiUpdate", "classtaixu_1_1TXSceneRenderer.html#a1f96432f62013801ae88c7585e6f7dc1", null ],
+    [ "init", "classtaixu_1_1TXSceneRenderer.html#a6e2b66096b5c7df39323045da35cbc57", null ],
+    [ "initForGraphicsAPI", "classtaixu_1_1TXSceneRenderer.html#a70440821d3901ca2cd9a8199b444d380", null ],
+    [ "initImgui", "classtaixu_1_1TXSceneRenderer.html#a7b52dbba14cf0dac6b3a33ef160554c0", null ],
+    [ "loadFont", "classtaixu_1_1TXSceneRenderer.html#a7fbdfaaf4d07a3b41386ac1c9cf99449", null ],
+    [ "loadStyle", "classtaixu_1_1TXSceneRenderer.html#ae0a4f74d69abb2aa12a473f14025f3f5", null ],
+    [ "presentToWindow", "classtaixu_1_1TXSceneRenderer.html#a93446bc9d06f55c2679bec0fc5e47f2a", null ],
+    [ "update", "classtaixu_1_1TXSceneRenderer.html#a60c7742ae30bca30018632b51c8d02dc", null ],
+    [ "updateScene", "classtaixu_1_1TXSceneRenderer.html#a4499caac948b065413cea32f8c22ebc3", null ],
+    [ "_enable_imgui", "classtaixu_1_1TXSceneRenderer.html#a17c76813ea86118b1d6a46d99ea58ba1", null ],
+    [ "_imgui_update", "classtaixu_1_1TXSceneRenderer.html#a5c66c8eeafbaef10c838a1feaec71243", null ],
+    [ "_io", "classtaixu_1_1TXSceneRenderer.html#a7a335658b4f3e92c5aae86b91ada21bc", null ],
+    [ "_shader_module_manager", "classtaixu_1_1TXSceneRenderer.html#a451c54a4911306ac968876ee8515eafc", null ],
+    [ "_style", "classtaixu_1_1TXSceneRenderer.html#afc2c13ea5358b0999a96be83b40ba66c", null ]
+];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['z_5ffar_1037',['Z_FAR',['../classtaixu_1_1EulerCamera.html#aff01fa9baf74af304ab7e470b740b34c',1,'taixu::EulerCamera']]],
-  ['z_5fnear_1038',['Z_NEAR',['../classtaixu_1_1EulerCamera.html#ab0cfba1691d0d99a1c3f152b6a215c89',1,'taixu::EulerCamera']]],
-  ['zoom_1039',['Zoom',['../classtaixu_1_1EulerCamera.html#a60030a79eadbee8ead8a80b639eaeb60',1,'taixu::EulerCamera']]]
+  ['y_1092',['y',['../structtaixu_1_1TXViewport.html#a4788175a15f6f93f88a9128fa5ab6975',1,'taixu::TXViewport']]],
+  ['y_5fscale_1093',['y_scale',['../structDPIScale.html#ab1acf2d7027e3ec32d5a2b6a432066c4',1,'DPIScale']]],
+  ['yaw_1094',['Yaw',['../classtaixu_1_1EulerCamera.html#a9c45820f2afc7a09ddfb6221d434841a',1,'taixu::EulerCamera']]]
 ];

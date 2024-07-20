@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['tx_5faligned_2229',['TX_ALIGNED',['../macro_8hpp.html#ae9072ebb858a94a7fc39e182c6b756e6',1,'macro.hpp']]],
+  ['tx_5fassert_2230',['TX_ASSERT',['../macro_8hpp.html#a0ab7e0a6759e1f41256c5e9c17e83582',1,'macro.hpp']]],
+  ['tx_5fassert_5fmsg_2231',['TX_ASSERT_MSG',['../macro_8hpp.html#af06506f3d1e097f0f11a1986ff343332',1,'macro.hpp']]],
+  ['tx_5finline_2232',['TX_INLINE',['../macro_8hpp.html#abbaf58075a603033083f752778286e4a',1,'macro.hpp']]],
+  ['tx_5flikely_2233',['TX_LIKELY',['../macro_8hpp.html#a9313e38a304e9c7a9e87985086b30a0f',1,'macro.hpp']]],
+  ['tx_5fnever_5finline_2234',['TX_NEVER_INLINE',['../macro_8hpp.html#aa6468c27a27611f07011f5e70ebba8b5',1,'macro.hpp']]],
+  ['tx_5fno_5fescape_2235',['TX_NO_ESCAPE',['../macro_8hpp.html#a24866a20c061b325cc3266c4ff5a7f37',1,'macro.hpp']]],
+  ['tx_5fno_5finline_2236',['TX_NO_INLINE',['../macro_8hpp.html#ac0259639fa80b047e402f40fd3678039',1,'macro.hpp']]],
+  ['tx_5fno_5freturn_2237',['TX_NO_RETURN',['../macro_8hpp.html#a8926135f5ba28bd9a3dd26d917bea38f',1,'macro.hpp']]],
+  ['tx_5fsleep_5ffor_2238',['TX_SLEEP_FOR',['../macro_8hpp.html#a78fd0dadc3fb9ac855137ba6601d8e4e',1,'macro.hpp']]],
+  ['tx_5fsleep_5funtil_2239',['TX_SLEEP_UNTIL',['../macro_8hpp.html#a49da24f899604e5536289f93da4355fb',1,'macro.hpp']]],
+  ['tx_5fstatic_5funreachable_2240',['TX_STATIC_UNREACHABLE',['../macro_8hpp.html#a62ed97bff431cf7e210f92406a8738ac',1,'macro.hpp']]],
+  ['tx_5fstatic_5funreachable_5fmsg_2241',['TX_STATIC_UNREACHABLE_MSG',['../macro_8hpp.html#acb9956f3945f5a796d230aa452a01ae4',1,'macro.hpp']]],
+  ['tx_5fthread_5fname_2242',['TX_THREAD_NAME',['../macro_8hpp.html#a00a3ede55863c073d9096fad9f57e9c5',1,'macro.hpp']]],
+  ['tx_5fthread_5fname_5fdefault_2243',['TX_THREAD_NAME_DEFAULT',['../macro_8hpp.html#a545c70fc2740f808fa8bcddb36f174a4',1,'macro.hpp']]],
+  ['tx_5fthread_5fname_5fdefault_5fwith_5fid_2244',['TX_THREAD_NAME_DEFAULT_WITH_ID',['../macro_8hpp.html#a3ff58da301e309be9ad8fb6ea59b8d5a',1,'macro.hpp']]],
+  ['tx_5funlikely_2245',['TX_UNLIKELY',['../macro_8hpp.html#a2f2aa679895c2fc973e9d62718dff10a',1,'macro.hpp']]],
+  ['tx_5funreachable_2246',['TX_UNREACHABLE',['../macro_8hpp.html#a32e7f907c8b308f61259b8e43cf8f182',1,'macro.hpp']]],
+  ['tx_5funreachable_5fif_2247',['TX_UNREACHABLE_IF',['../macro_8hpp.html#a3eaa7d16137f6f5bca7d82b6a6385046',1,'macro.hpp']]],
+  ['tx_5funreachable_5fif_5fmsg_2248',['TX_UNREACHABLE_IF_MSG',['../macro_8hpp.html#aeba5fcead5a66f4f301fddc0d96dd849',1,'macro.hpp']]],
+  ['tx_5funreachable_5fmsg_2249',['TX_UNREACHABLE_MSG',['../macro_8hpp.html#a20e3ce8f4bd2dadb91a156d12ea4b2e2',1,'macro.hpp']]],
+  ['tx_5funused_2250',['TX_UNUSED',['../macro_8hpp.html#a2c4ca54c0455c38daee245fd6db57e43',1,'macro.hpp']]],
+  ['tx_5funused_5fmsg_2251',['TX_UNUSED_MSG',['../macro_8hpp.html#a3d05695f8e946d404b215fa6147bed2f',1,'macro.hpp']]]
+];

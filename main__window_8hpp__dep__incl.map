@@ -1,5 +1,5 @@
-<map id="engine/editor/ui/main_window/main_window.hpp" name="engine/editor/ui/main_window/main_window.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="95,5,295,47"/>
-<area shape="rect" id="node2" href="$main_8cpp.html" title=" " alt="" coords="5,102,177,129"/>
-<area shape="rect" id="node3" href="$main__window_8cpp.html" title=" " alt="" coords="201,95,400,136"/>
+<map id="engine/src/editor/ui/main_window/main_window.hpp" name="engine/src/editor/ui/main_window/main_window.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="113,5,350,47"/>
+<area shape="rect" id="node2" href="$src_2editor_2application_2main_8cpp.html" title=" " alt="" coords="5,95,212,136"/>
+<area shape="rect" id="node3" href="$main__window_8cpp.html" title=" " alt="" coords="236,95,472,136"/>
 </map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/core/base/hash.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/include/common/base/hash.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,65 +88,68 @@ $(document).ready(function(){initNavTree('hash_8hpp_source.html',''); initResiza
 <a href="hash_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ENGINE_RUNTIME_CORE_BASE_HASH</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ENGINE_RUNTIME_CORE_BASE_HASH</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="macro_8hpp.html">common/base/macro.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a79e52b8516b7cf547f949ef72d6c3ad3">   17</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetaixu.html#a79e52b8516b7cf547f949ef72d6c3ad3">hash_combine</a>(std::size_t &amp;seed, <span class="keyword">const</span> T &amp;v) {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    seed ^= std::hash&lt;T&gt;{}(v) + 0x9e3779b9 + (seed &lt;&lt; 6) + (seed &gt;&gt; 2);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a285c0ff61bfb0bcdf4d2cc4453376d95">   28</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetaixu.html#a79e52b8516b7cf547f949ef72d6c3ad3">hash_combine</a>(std::size_t &amp;seed, <span class="keyword">const</span> T &amp;v, Ts... rest) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="namespacetaixu.html#a79e52b8516b7cf547f949ef72d6c3ad3">hash_combine</a>(seed, v);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> constexpr (<span class="keyword">sizeof</span>...(Ts) &gt; 1) { <a class="code" href="namespacetaixu.html#a79e52b8516b7cf547f949ef72d6c3ad3">hash_combine</a>(seed, rest...); }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespacetaixu.html#ae4d27392644e1176de5b669d389e3c8d">   33</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacetaixu.html#ae4d27392644e1176de5b669d389e3c8d">hash32_t</a> = std::uint32_t;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">   34</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">hash64_t</a> = std::uint64_t;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// From: https://gist.github.com/Lee-R/3839813</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a8a30cd1ff0ae8d1e7ef3243881ff11fc">   37</a></span>&#160;<span class="keyword">inline</span> constexpr <a class="code" href="namespacetaixu.html#ae4d27392644e1176de5b669d389e3c8d">hash32_t</a> <a class="code" href="namespacetaixu.html#a8a30cd1ff0ae8d1e7ef3243881ff11fc">fnv1a_32</a>(<span class="keywordtype">char</span> <span class="keyword">const</span> *s, std::size_t count) {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> ((count ? <a class="code" href="namespacetaixu.html#a8a30cd1ff0ae8d1e7ef3243881ff11fc">fnv1a_32</a>(s, count - 1)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                   : 2166136261u)<span class="comment">// NOLINT (hicpp-signed-bitwise)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            ^ s[count]) *</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;           16777619u;            <span class="comment">// NOLINT (hicpp-signed-bitwise)</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespacetaixu.html#ad61441712a337b205c862bf5901b0e6b">   44</a></span>&#160;<span class="keyword">inline</span> constexpr <a class="code" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">hash64_t</a> <a class="code" href="namespacetaixu.html#ad61441712a337b205c862bf5901b0e6b">fnv1a_64</a>(<span class="keywordtype">char</span> <span class="keyword">const</span> *s, std::size_t count) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> ((count ? <a class="code" href="namespacetaixu.html#ad61441712a337b205c862bf5901b0e6b">fnv1a_64</a>(s, count - 1)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                   : 14695981039346656037ULL)<span class="comment">// NOLINT (hicpp-signed-bitwise)</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            ^ s[count]) *</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;           <span class="comment">// 64 bit FNV_prime = 240 + 28 + 0xb3 = 1099511628211</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;           1099511628211ULL;<span class="comment">// NOLINT (hicpp-signed-bitwise)</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a2cd47bd4fe55a0068a8893a61d056419">   52</a></span>&#160;constexpr <a class="code" href="namespacetaixu.html#ae4d27392644e1176de5b669d389e3c8d">hash32_t</a> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _hash32(<span class="keywordtype">char</span> <span class="keyword">const</span> *s, std::size_t count) {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetaixu.html#a8a30cd1ff0ae8d1e7ef3243881ff11fc">fnv1a_32</a>(s, count);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacetaixu.html#af56d8ce3cc15bd9f5f24e2c27770ae97">   56</a></span>&#160;constexpr <a class="code" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">hash64_t</a> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _hash64(<span class="keywordtype">char</span> <span class="keyword">const</span> *s, std::size_t count) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetaixu.html#ad61441712a337b205c862bf5901b0e6b">fnv1a_64</a>(s, count);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ENGINE_RUNTIME_CORE_BASE_HASH */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
-<div class="ttc" id="anamespacetaixu_html_a158bbb2b977278cd5123cc8e353a86e7"><div class="ttname"><a href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">taixu::hash64_t</a></div><div class="ttdeci">std::uint64_t hash64_t</div><div class="ttdef"><b>Definition:</b> hash.hpp:34</div></div>
-<div class="ttc" id="anamespacetaixu_html_a79e52b8516b7cf547f949ef72d6c3ad3"><div class="ttname"><a href="namespacetaixu.html#a79e52b8516b7cf547f949ef72d6c3ad3">taixu::hash_combine</a></div><div class="ttdeci">void hash_combine(std::size_t &amp;seed, const T &amp;v)</div><div class="ttdoc">hash_combine 通用Hash函数</div><div class="ttdef"><b>Definition:</b> hash.hpp:17</div></div>
-<div class="ttc" id="anamespacetaixu_html_a8a30cd1ff0ae8d1e7ef3243881ff11fc"><div class="ttname"><a href="namespacetaixu.html#a8a30cd1ff0ae8d1e7ef3243881ff11fc">taixu::fnv1a_32</a></div><div class="ttdeci">constexpr hash32_t fnv1a_32(char const *s, std::size_t count)</div><div class="ttdef"><b>Definition:</b> hash.hpp:37</div></div>
-<div class="ttc" id="anamespacetaixu_html_ad61441712a337b205c862bf5901b0e6b"><div class="ttname"><a href="namespacetaixu.html#ad61441712a337b205c862bf5901b0e6b">taixu::fnv1a_64</a></div><div class="ttdeci">constexpr hash64_t fnv1a_64(char const *s, std::size_t count)</div><div class="ttdef"><b>Definition:</b> hash.hpp:44</div></div>
-<div class="ttc" id="anamespacetaixu_html_ae4d27392644e1176de5b669d389e3c8d"><div class="ttname"><a href="namespacetaixu.html#ae4d27392644e1176de5b669d389e3c8d">taixu::hash32_t</a></div><div class="ttdeci">std::uint32_t hash32_t</div><div class="ttdef"><b>Definition:</b> hash.hpp:33</div></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a44b7ee7555fd053069af28904950ed8b">   19</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetaixu.html#a44b7ee7555fd053069af28904950ed8b">hashCombine</a>(std::size_t&amp; seed, <span class="keyword">const</span> T&amp; v) {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> OFFSET = 0x9e3779b9;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    seed ^= std::hash&lt;T&gt;{}(v) + OFFSET + (seed &lt;&lt; 6) + (seed &gt;&gt; 2);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespacetaixu.html#afd2eb2948745e289b56df3656d4f1519">   32</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetaixu.html#a44b7ee7555fd053069af28904950ed8b">hashCombine</a>(std::size_t&amp; seed, <span class="keyword">const</span> T&amp; v, Ts... rest) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="namespacetaixu.html#a44b7ee7555fd053069af28904950ed8b">hashCombine</a>(seed, v);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> constexpr (<span class="keyword">sizeof</span>...(Ts) &gt; 1) { <a class="code" href="namespacetaixu.html#a44b7ee7555fd053069af28904950ed8b">hashCombine</a>(seed, rest...); }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacetaixu.html#ae4d27392644e1176de5b669d389e3c8d">   37</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacetaixu.html#ae4d27392644e1176de5b669d389e3c8d">hash32_t</a> = std::uint32_t;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">   38</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">hash64_t</a> = std::uint64_t;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a739a442f82662f6e47f9c84f7db2756f">   47</a></span>&#160;constexpr <a class="code" href="namespacetaixu.html#ae4d27392644e1176de5b669d389e3c8d">hash32_t</a> <a class="code" href="namespacetaixu.html#a739a442f82662f6e47f9c84f7db2756f">fnv1a_32</a>(<span class="keywordtype">char</span> <span class="keyword">const</span>* s, <span class="keyword">const</span> std::size_t count) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> ((count ? <a class="code" href="namespacetaixu.html#a739a442f82662f6e47f9c84f7db2756f">fnv1a_32</a>(s, count - 1)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                   : 2166136261u)<span class="comment">// NOLINT (hicpp-signed-bitwise)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            ^ s[count]) *</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;           16777619u;            <span class="comment">// NOLINT (hicpp-signed-bitwise)</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespacetaixu.html#aafd39da87585e5640359329e8a665687">   60</a></span>&#160;constexpr <a class="code" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">hash64_t</a> <a class="code" href="namespacetaixu.html#aafd39da87585e5640359329e8a665687">fnv1a_64</a>(<span class="keywordtype">char</span> <span class="keyword">const</span>* s, <span class="keyword">const</span> std::size_t count) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> ((count ? <a class="code" href="namespacetaixu.html#aafd39da87585e5640359329e8a665687">fnv1a_64</a>(s, count - 1)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                   : 14695981039346656037ULL)<span class="comment">// NOLINT (hicpp-signed-bitwise)</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            ^ s[count]) *</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;           <span class="comment">// 64 bit FNV_prime = 240 + 28 + 0xb3 = 1099511628211</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;           1099511628211ULL;<span class="comment">// NOLINT (hicpp-signed-bitwise)</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="namespacetaixu.html#abdfe3d75b1088c3f365c0da3535efd86">   68</a></span>&#160;constexpr <a class="code" href="namespacetaixu.html#ae4d27392644e1176de5b669d389e3c8d">hash32_t</a> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _hash32(<span class="keywordtype">char</span> <span class="keyword">const</span>* s, <span class="keyword">const</span> std::size_t count) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetaixu.html#a739a442f82662f6e47f9c84f7db2756f">fnv1a_32</a>(s, count);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a1f67abe83f4a2adb416a8b00aec3c185">   72</a></span>&#160;constexpr <a class="code" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">hash64_t</a> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _hash64(<span class="keywordtype">char</span> <span class="keyword">const</span>* s, <span class="keyword">const</span> std::size_t count) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetaixu.html#aafd39da87585e5640359329e8a665687">fnv1a_64</a>(s, count);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ENGINE_RUNTIME_CORE_BASE_HASH */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="amacro_8hpp_html"><div class="ttname"><a href="macro_8hpp.html">macro.hpp</a></div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
+<div class="ttc" id="anamespacetaixu_html_a158bbb2b977278cd5123cc8e353a86e7"><div class="ttname"><a href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">taixu::hash64_t</a></div><div class="ttdeci">std::uint64_t hash64_t</div><div class="ttdef"><b>Definition:</b> hash.hpp:38</div></div>
+<div class="ttc" id="anamespacetaixu_html_a44b7ee7555fd053069af28904950ed8b"><div class="ttname"><a href="namespacetaixu.html#a44b7ee7555fd053069af28904950ed8b">taixu::hashCombine</a></div><div class="ttdeci">void hashCombine(std::size_t &amp;seed, const T &amp;v)</div><div class="ttdoc">hash_combine 通用Hash函数</div><div class="ttdef"><b>Definition:</b> hash.hpp:19</div></div>
+<div class="ttc" id="anamespacetaixu_html_a739a442f82662f6e47f9c84f7db2756f"><div class="ttname"><a href="namespacetaixu.html#a739a442f82662f6e47f9c84f7db2756f">taixu::fnv1a_32</a></div><div class="ttdeci">constexpr hash32_t fnv1a_32(char const *s, const std::size_t count)</div><div class="ttdef"><b>Definition:</b> hash.hpp:47</div></div>
+<div class="ttc" id="anamespacetaixu_html_aafd39da87585e5640359329e8a665687"><div class="ttname"><a href="namespacetaixu.html#aafd39da87585e5640359329e8a665687">taixu::fnv1a_64</a></div><div class="ttdeci">constexpr hash64_t fnv1a_64(char const *s, const std::size_t count)</div><div class="ttdef"><b>Definition:</b> hash.hpp:60</div></div>
+<div class="ttc" id="anamespacetaixu_html_ae4d27392644e1176de5b669d389e3c8d"><div class="ttname"><a href="namespacetaixu.html#ae4d27392644e1176de5b669d389e3c8d">taixu::hash32_t</a></div><div class="ttdeci">std::uint32_t hash32_t</div><div class="ttdef"><b>Definition:</b> hash.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_0f5c9aa018504ec80b3590dee96e9bd5.html">core</a></li><li class="navelem"><a class="el" href="dir_0232539337222d9adeefeaea4f47b266.html">base</a></li><li class="navelem"><a class="el" href="hash_8hpp.html">hash.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_0d6f2005140f963448af64cb7b74383c.html">common</a></li><li class="navelem"><a class="el" href="dir_0e6ee00267db583e1bf985fdbf224241.html">base</a></li><li class="navelem"><a class="el" href="hash_8hpp.html">hash.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

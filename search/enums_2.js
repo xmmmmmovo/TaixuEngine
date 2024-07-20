@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['enginestate_2064',['EngineState',['../namespacetaixu.html#a0019e688317bd524b76edd73df8a4507',1,'taixu']]]
+  ['loglevel_2050',['LogLevel',['../classtaixu_1_1Logger.html#a9f1dd80055cbd596cbd19ab029a74c4b',1,'taixu::Logger']]]
 ];

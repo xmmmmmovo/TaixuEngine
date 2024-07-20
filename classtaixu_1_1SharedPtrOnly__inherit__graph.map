@@ -1,0 +1,4 @@
+<map id="taixu::SharedPtrOnly&lt; T &gt;" name="taixu::SharedPtrOnly&lt; T &gt;">
+<area shape="rect" id="node1" title="only can use in shared_ptr, only can construct by shared_ptr." alt="" coords="5,145,200,237"/>
+<area shape="rect" id="node2" title=" " alt="" coords="30,5,175,97"/>
+</map>

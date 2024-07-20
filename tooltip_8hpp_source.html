@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/editor/ui/widgets/tooltip.hpp Source File</title>
+<title>TaixuEngine: engine/src/editor/ui/widgets/tooltip.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -101,8 +101,8 @@ $(document).ready(function(){initNavTree('tooltip_8hpp_source.html',''); initRes
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1editor.html#aa412c1c3f621b74c151908f409d1aa6c">   15</a></span>&#160;constexpr <span class="keywordtype">float</span> <a class="code" href="namespacetaixu_1_1editor.html#aa412c1c3f621b74c151908f409d1aa6c">TOOLTIP_TRESH_HOLD</a> = 0.5f;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1editor.html#a9c95676d43925b177d0045c4c6c7a018">   17</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetaixu_1_1editor.html#a9c95676d43925b177d0045c4c6c7a018">buildTooltip</a>(<span class="keyword">const</span> std::string &amp;tooltip,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                         <span class="keywordtype">float</span>              tresh_hold = <a class="code" href="namespacetaixu_1_1editor.html#aa412c1c3f621b74c151908f409d1aa6c">TOOLTIP_TRESH_HOLD</a>) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1editor.html#aaad9d8fcc946edc6d28afd1c26316ad5">   17</a></span>&#160;<a class="code" href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a> <span class="keywordtype">void</span> <a class="code" href="namespacetaixu_1_1editor.html#aaad9d8fcc946edc6d28afd1c26316ad5">buildTooltip</a>(<span class="keyword">const</span> std::string&amp; tooltip,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                            <span class="keywordtype">float</span> tresh_hold = <a class="code" href="namespacetaixu_1_1editor.html#aa412c1c3f621b74c151908f409d1aa6c">TOOLTIP_TRESH_HOLD</a>) {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">if</span> (ImGui::IsItemHovered() &amp;&amp; GImGui-&gt;HoveredIdTimer &gt; tresh_hold) {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        ImGui::BeginTooltip();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);</div>
@@ -114,16 +114,17 @@ $(document).ready(function(){initNavTree('tooltip_8hpp_source.html',''); initRes
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//ENGINE_EDITOR_UI_WIDGETS_TOOLTIP_HPP</span></div>
-<div class="ttc" id="anamespacetaixu_1_1editor_html"><div class="ttname"><a href="namespacetaixu_1_1editor.html">taixu::editor</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
-<div class="ttc" id="anamespacetaixu_1_1editor_html_a9c95676d43925b177d0045c4c6c7a018"><div class="ttname"><a href="namespacetaixu_1_1editor.html#a9c95676d43925b177d0045c4c6c7a018">taixu::editor::buildTooltip</a></div><div class="ttdeci">void buildTooltip(const std::string &amp;tooltip, float tresh_hold=TOOLTIP_TRESH_HOLD)</div><div class="ttdef"><b>Definition:</b> tooltip.hpp:17</div></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// ENGINE_EDITOR_UI_WIDGETS_TOOLTIP_HPP</span></div>
+<div class="ttc" id="amacro_8hpp_html_abbaf58075a603033083f752778286e4a"><div class="ttname"><a href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a></div><div class="ttdeci">#define TX_INLINE</div><div class="ttdef"><b>Definition:</b> macro.hpp:49</div></div>
+<div class="ttc" id="anamespacetaixu_1_1editor_html"><div class="ttname"><a href="namespacetaixu_1_1editor.html">taixu::editor</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
 <div class="ttc" id="anamespacetaixu_1_1editor_html_aa412c1c3f621b74c151908f409d1aa6c"><div class="ttname"><a href="namespacetaixu_1_1editor.html#aa412c1c3f621b74c151908f409d1aa6c">taixu::editor::TOOLTIP_TRESH_HOLD</a></div><div class="ttdeci">constexpr float TOOLTIP_TRESH_HOLD</div><div class="ttdef"><b>Definition:</b> tooltip.hpp:15</div></div>
+<div class="ttc" id="anamespacetaixu_1_1editor_html_aaad9d8fcc946edc6d28afd1c26316ad5"><div class="ttname"><a href="namespacetaixu_1_1editor.html#aaad9d8fcc946edc6d28afd1c26316ad5">taixu::editor::buildTooltip</a></div><div class="ttdeci">TX_INLINE void buildTooltip(const std::string &amp;tooltip, float tresh_hold=TOOLTIP_TRESH_HOLD)</div><div class="ttdef"><b>Definition:</b> tooltip.hpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_d1aad10e1c648a0ada8a94a1ff7611ce.html">editor</a></li><li class="navelem"><a class="el" href="dir_0d5edcbdfb88f6fb7e6433da08e1ca69.html">ui</a></li><li class="navelem"><a class="el" href="dir_05487eee7a5eed69953a2628011dd16d.html">widgets</a></li><li class="navelem"><a class="el" href="tooltip_8hpp.html">tooltip.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_f54b5d584e597ccc8e3b4d1ee90c3711.html">editor</a></li><li class="navelem"><a class="el" href="dir_1c2d7cbfecfb3a0f4242076c4ab58384.html">ui</a></li><li class="navelem"><a class="el" href="dir_ecad862fa1344032a7fd01309ddcd336.html">widgets</a></li><li class="navelem"><a class="el" href="tooltip_8hpp.html">tooltip.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

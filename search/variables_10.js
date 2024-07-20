@@ -1,19 +1,4 @@
 var searchData=
 [
-  ['parent_5fflags_1946',['parent_flags',['../classtaixu_1_1editor_1_1UsefulObjectComponent.html#a50d6761817cc8194bb6848d91223f647',1,'taixu::editor::UsefulObjectComponent::parent_flags()'],['../classtaixu_1_1editor_1_1FileComponent.html#ac1729531b3270247bcc4b7bf60f6bbcd',1,'taixu::editor::FileComponent::parent_flags()']]],
-  ['path_5fhierarchy_1947',['path_hierarchy',['../structtaixu_1_1editor_1_1ViewModel.html#a15ce059882bf25016cb76c6f0afb8894',1,'taixu::editor::ViewModel']]],
-  ['physics_5fsystem_1948',['physics_system',['../structtaixu_1_1JoltPhysics.html#adf540ced2f1d91678ba8d238cac81ab0',1,'taixu::JoltPhysics']]],
-  ['physics_5fsystem_5fid_1949',['PHYSICS_SYSTEM_ID',['../classtaixu_1_1PhysicsManager.html#a608a26589fabc6d44df6d9d049ec3b79',1,'taixu::PhysicsManager']]],
-  ['pitch_1950',['Pitch',['../classtaixu_1_1EulerCamera.html#ac2d189ebd54aa1e814caeb3edda9b67c',1,'taixu::EulerCamera']]],
-  ['pointlightcount_1951',['pointLightCount',['../structtaixu_1_1LightsInfo.html#ade626018e53027e9d031c38e271f52b0',1,'taixu::LightsInfo']]],
-  ['pointlights_1952',['pointLights',['../structtaixu_1_1LightsInfo.html#a19ef73e2d669226dc7d6dd7248063719',1,'taixu::LightsInfo']]],
-  ['position_1953',['position',['../classtaixu_1_1JsonTransform.html#a173a87a0e25971423af94806ed03dc17',1,'taixu::JsonTransform']]],
-  ['position_1954',['Position',['../classtaixu_1_1EulerCamera.html#a50d4d4997cc634146b93ee069217c0cc',1,'taixu::EulerCamera']]],
-  ['position_1955',['position',['../structtaixu_1_1KeyPosition.html#a971ecb5ff2737c8332f711b9452c092e',1,'taixu::KeyPosition::position()'],['../structtaixu_1_1SpotLight.html#a717b8b42b89c53a851fb084732b87ad3',1,'taixu::SpotLight::position()'],['../structtaixu_1_1PointLight.html#a1e5c234899cbbb27891837a35df7a9f7',1,'taixu::PointLight::position()'],['../structtaixu_1_1RigidbodyInfo.html#a1bc6d2e8a4eda48fb8b37f1d9e9cbfe0',1,'taixu::RigidbodyInfo::position()']]],
-  ['posx_1956',['posx',['../classtaixu_1_1RenderGlobalJson.html#aa3651f2cfd4ca3f54b1f3265c33076a5',1,'taixu::RenderGlobalJson']]],
-  ['posy_1957',['posy',['../classtaixu_1_1RenderGlobalJson.html#a3d852a2b62b408e0b663cd7564a78a33',1,'taixu::RenderGlobalJson']]],
-  ['posz_1958',['posz',['../classtaixu_1_1RenderGlobalJson.html#a27fcc01325b01cfd646acdc3caa8e484',1,'taixu::RenderGlobalJson']]],
-  ['project_5ffile_5fpath_1959',['project_file_path',['../classtaixu_1_1JsonGO.html#a027e203334cbd5e314f57727b9774325',1,'taixu::JsonGO::project_file_path()'],['../classtaixu_1_1GlobalJson.html#a6b13df9cf42bab32a8df04aa4971ffee',1,'taixu::GlobalJson::project_file_path()'],['../classtaixu_1_1JsonLevel.html#a768e0d2ab4e8efa0946243ec62d66298',1,'taixu::JsonLevel::project_file_path()'],['../classtaixu_1_1JsonWorld.html#a4e4dc1412308cdf089fa58f4f2d68374',1,'taixu::JsonWorld::project_file_path()']]],
-  ['project_5fpath_1960',['project_path',['../structtaixu_1_1editor_1_1ViewModel.html#aa0cefced5d378490564107129c9be22c',1,'taixu::editor::ViewModel']]],
-  ['projection_1961',['projection',['../structtaixu_1_1Matrices.html#aeeb95f9967d0410ee28b99556c9db2ff',1,'taixu::Matrices']]]
+  ['quadratic_1909',['quadratic',['../structtaixu_1_1PointLight.html#adc12c90cc979ee993affc84773835aff',1,'taixu::PointLight::quadratic()'],['../structtaixu_1_1SpotLight.html#ae493624a5288767a9a2f39c076efe470',1,'taixu::SpotLight::quadratic()']]]
 ];

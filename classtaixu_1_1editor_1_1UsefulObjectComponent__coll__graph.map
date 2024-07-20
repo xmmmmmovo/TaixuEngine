@@ -1,16 +1,9 @@
 <map id="taixu::editor::UsefulObjectComponent" name="taixu::editor::UsefulObjectComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="28,1587,235,1708"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1AbstractUIComponent.html" title="UI component interface." alt="" coords="5,1445,257,1537"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="33,490,179,641"/>
-<area shape="rect" id="node14" href="$classtaixu_1_1AbstractRenderer.html" title=" " alt="" coords="161,865,355,1045"/>
-<area shape="rect" id="node4" href="$structtaixu_1_1editor_1_1ViewModel.html" title=" " alt="" coords="379,1203,561,1383"/>
-<area shape="rect" id="node5" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="385,769,555,1140"/>
-<area shape="rect" id="node6" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="203,490,366,641"/>
-<area shape="rect" id="node7" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="184,123,385,259"/>
-<area shape="rect" id="node8" href="$classtaixu_1_1Clock.html" title=" " alt="" coords="391,439,557,692"/>
-<area shape="rect" id="node9" href="$classtaixu_1_1Scene.html" title="场景类" alt="" coords="582,519,726,611"/>
-<area shape="rect" id="node10" href="$classtaixu_1_1ECSCoordinator.html" title="ECS协调器,用于协调各个系统,以及管理组件." alt="" coords="561,5,747,376"/>
-<area shape="rect" id="node11" href="$structtaixu_1_1editor_1_1HierarchyNode.html" title=" " alt="" coords="579,879,751,1030"/>
-<area shape="rect" id="node12" href="$structtaixu_1_1editor_1_1HierarchyNode.html" title=" " alt="" coords="751,497,923,633"/>
-<area shape="rect" id="node13" href="$classtaixu_1_1IFrameBuffer.html" title=" " alt="" coords="775,894,922,1015"/>
+<area shape="rect" id="node1" title=" " alt="" coords="28,796,235,903"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1editor_1_1AbstractUIComponent.html" title="UI component interface." alt="" coords="5,669,257,747"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1Noncopyable.html" title="inherit this class in private method" alt="" coords="36,485,184,607"/>
+<area shape="rect" id="node4" href="$structtaixu_1_1editor_1_1ViewModel.html" title=" " alt="" coords="209,485,390,607"/>
+<area shape="rect" id="node5" href="$structtaixu_1_1editor_1_1FileChildrensHierarchyDataNode.html" title=" " alt="" coords="62,316,339,423"/>
+<area shape="rect" id="node6" href="$structtaixu_1_1editor_1_1HierarchyDataNode.html" title=" " alt="" coords="131,5,303,97"/>
+<area shape="rect" id="node7" href="$structtaixu_1_1editor_1_1FileChildrensHierarchyDataNode.html" title=" " alt="" coords="238,147,457,253"/>
 </map>

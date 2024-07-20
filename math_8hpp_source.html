@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/core/math/math.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/include/common/math/math.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,29 +90,35 @@ $(document).ready(function(){initNavTree('math_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;cfloat&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> FLOAT_INFINITY = std::numeric_limits&lt;float&gt;::infinity();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> FLOAT_INFINITY_NEG =</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        std::numeric_limits&lt;float&gt;::infinity();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> EPSILON_FLOAT = std::numeric_limits&lt;float&gt;::epsilon();</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef M_PI</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="math_8hpp.html#ae71449b1cc6e6250b91f539153a7a0d3">   12</a></span>&#160;<span class="preprocessor">    #define M_PI 3.14159265358979323846</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> F_DEG_2RAD = M_PI / 180.0f;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> F_RAD_2DEG = 180.0f / M_PI;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> LOG2       = 1.4426950408889634f;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ENGINE_RUNTIME_CORE_MATH_MATH */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> FLOAT_INFINITY = std::numeric_limits&lt;float&gt;::infinity();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> FLOAT_INFINITY_NEG =</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        std::numeric_limits&lt;float&gt;::infinity();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> EPSILON_FLOAT = std::numeric_limits&lt;float&gt;::epsilon();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> F_DEG_2RAD = <a class="code" href="math_8hpp.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> / 180.0f;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> F_RAD_2DEG = 180.0f / <a class="code" href="math_8hpp.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">float</span> LOG2       = 1.4426950408889634f;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ENGINE_RUNTIME_CORE_MATH_MATH */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="amath_8hpp_html_ae71449b1cc6e6250b91f539153a7a0d3"><div class="ttname"><a href="math_8hpp.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a></div><div class="ttdeci">#define M_PI</div><div class="ttdef"><b>Definition:</b> math.hpp:12</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_0f5c9aa018504ec80b3590dee96e9bd5.html">core</a></li><li class="navelem"><a class="el" href="dir_05503e7d0c15df2abeb67cdc69c5e5db.html">math</a></li><li class="navelem"><a class="el" href="math_8hpp.html">math.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_0d6f2005140f963448af64cb7b74383c.html">common</a></li><li class="navelem"><a class="el" href="dir_9166e2b634610933b8ae57654f47cca7.html">math</a></li><li class="navelem"><a class="el" href="math_8hpp.html">math.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

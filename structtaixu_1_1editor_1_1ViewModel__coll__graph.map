@@ -1,14 +1,6 @@
 <map id="taixu::editor::ViewModel" name="taixu::editor::ViewModel">
-<area shape="rect" id="node1" title=" " alt="" coords="629,1203,810,1383"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="276,769,445,1140"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="25,490,187,641"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="5,123,207,259"/>
-<area shape="rect" id="node5" href="$classtaixu_1_1Clock.html" title=" " alt="" coords="212,439,379,692"/>
-<area shape="rect" id="node6" href="$classtaixu_1_1Scene.html" title="场景类" alt="" coords="403,519,547,611"/>
-<area shape="rect" id="node7" href="$classtaixu_1_1ECSCoordinator.html" title="ECS协调器,用于协调各个系统,以及管理组件." alt="" coords="382,5,569,376"/>
-<area shape="rect" id="node8" href="$structtaixu_1_1editor_1_1HierarchyNode.html" title=" " alt="" coords="520,879,692,1030"/>
-<area shape="rect" id="node9" href="$structtaixu_1_1editor_1_1HierarchyNode.html" title=" " alt="" coords="572,497,744,633"/>
-<area shape="rect" id="node10" href="$classtaixu_1_1IFrameBuffer.html" title=" " alt="" coords="717,894,863,1015"/>
-<area shape="rect" id="node11" href="$classtaixu_1_1AbstractRenderer.html" title=" " alt="" coords="888,865,1081,1045"/>
-<area shape="rect" id="node12" href="$classtaixu_1_1noncopyable.html" title="inherit this class in private method" alt="" coords="911,490,1058,641"/>
+<area shape="rect" id="node1" title=" " alt="" coords="152,485,333,607"/>
+<area shape="rect" id="node2" href="$structtaixu_1_1editor_1_1FileChildrensHierarchyDataNode.html" title=" " alt="" coords="5,316,283,423"/>
+<area shape="rect" id="node3" href="$structtaixu_1_1editor_1_1HierarchyDataNode.html" title=" " alt="" coords="74,5,246,97"/>
+<area shape="rect" id="node4" href="$structtaixu_1_1editor_1_1FileChildrensHierarchyDataNode.html" title=" " alt="" coords="181,147,400,253"/>
 </map>

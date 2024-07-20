@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/runtime/management/ecs/components/renderable/renderable_component.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/source/management/components/renderable/renderable_component.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,38 +89,25 @@ $(document).ready(function(){initNavTree('renderable__component_8hpp_source.html
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by xmmmmmovo on 2023/5/4.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vertex__array_8hpp.html">management/graphics/render/vertex_array.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="material_8hpp.html">resource/raw_data/material.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="model_8hpp.html">resource/raw_data/model.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classtaixu_1_1RenderableComponent.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1RenderableComponent.html">RenderableComponent</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classtaixu_1_1RenderableComponent.html#a89c3924ac9bf79e2cbb8e116c11aa41a">   11</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classtaixu_1_1RenderableComponent.html#a89c3924ac9bf79e2cbb8e116c11aa41a">visiable</a>{<span class="keyword">true</span>};</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1RenderableComponent.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1RenderableComponent.html">RenderableComponent</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classtaixu_1_1RenderableComponent.html#aaa7a2aae18b4d57e91eee91852fc5d2f">   16</a></span>&#160;    <a class="code" href="structtaixu_1_1Model.html">Model</a> *<a class="code" href="classtaixu_1_1RenderableComponent.html#aaa7a2aae18b4d57e91eee91852fc5d2f">model</a>{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classtaixu_1_1RenderableComponent.html#a89c3924ac9bf79e2cbb8e116c11aa41a">   17</a></span>&#160;    <span class="keywordtype">bool</span>   <a class="code" href="classtaixu_1_1RenderableComponent.html#a89c3924ac9bf79e2cbb8e116c11aa41a">visiable</a>{<span class="keyword">true</span>};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//ENGINE_RUNTIME_MANAGEMENT_ECS_ENTITY_COMPONENT_RENDERABLE_RENDERABLE_COMPONENT_HPP</span></div>
-<div class="ttc" id="aclasstaixu_1_1RenderableComponent_html"><div class="ttname"><a href="classtaixu_1_1RenderableComponent.html">taixu::RenderableComponent</a></div><div class="ttdef"><b>Definition:</b> renderable_component.hpp:14</div></div>
-<div class="ttc" id="aclasstaixu_1_1RenderableComponent_html_a89c3924ac9bf79e2cbb8e116c11aa41a"><div class="ttname"><a href="classtaixu_1_1RenderableComponent.html#a89c3924ac9bf79e2cbb8e116c11aa41a">taixu::RenderableComponent::visiable</a></div><div class="ttdeci">bool visiable</div><div class="ttdef"><b>Definition:</b> renderable_component.hpp:17</div></div>
-<div class="ttc" id="aclasstaixu_1_1RenderableComponent_html_aaa7a2aae18b4d57e91eee91852fc5d2f"><div class="ttname"><a href="classtaixu_1_1RenderableComponent.html#aaa7a2aae18b4d57e91eee91852fc5d2f">taixu::RenderableComponent::model</a></div><div class="ttdeci">Model * model</div><div class="ttdef"><b>Definition:</b> renderable_component.hpp:16</div></div>
-<div class="ttc" id="amaterial_8hpp_html"><div class="ttname"><a href="material_8hpp.html">material.hpp</a></div></div>
-<div class="ttc" id="amodel_8hpp_html"><div class="ttname"><a href="model_8hpp.html">model.hpp</a></div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> console_component.hpp:10</div></div>
-<div class="ttc" id="astructtaixu_1_1Model_html"><div class="ttname"><a href="structtaixu_1_1Model.html">taixu::Model</a></div><div class="ttdef"><b>Definition:</b> model.hpp:20</div></div>
-<div class="ttc" id="avertex__array_8hpp_html"><div class="ttname"><a href="vertex__array_8hpp.html">vertex_array.hpp</a></div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="ttc" id="aclasstaixu_1_1RenderableComponent_html"><div class="ttname"><a href="classtaixu_1_1RenderableComponent.html">taixu::RenderableComponent</a></div><div class="ttdef"><b>Definition:</b> renderable_component.hpp:9</div></div>
+<div class="ttc" id="aclasstaixu_1_1RenderableComponent_html_a89c3924ac9bf79e2cbb8e116c11aa41a"><div class="ttname"><a href="classtaixu_1_1RenderableComponent.html#a89c3924ac9bf79e2cbb8e116c11aa41a">taixu::RenderableComponent::visiable</a></div><div class="ttdeci">bool visiable</div><div class="ttdef"><b>Definition:</b> renderable_component.hpp:11</div></div>
+<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_ccefa4bb736f38ca0efc8c5e8641d48d.html">runtime</a></li><li class="navelem"><a class="el" href="dir_2e743e866fb37056f41fd9fa9b68e330.html">management</a></li><li class="navelem"><a class="el" href="dir_1ee1a190a4098a38c779ee0b5bb961e2.html">ecs</a></li><li class="navelem"><a class="el" href="dir_c0d5d94e10085e6fa7a8e1fca3c74b1d.html">components</a></li><li class="navelem"><a class="el" href="dir_7c80fff4208f57ef32b05793a67072fd.html">renderable</a></li><li class="navelem"><a class="el" href="renderable__component_8hpp.html">renderable_component.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_c43fa6ee8b9194a57dc2220ae96e12ce.html">management</a></li><li class="navelem"><a class="el" href="dir_04bd1c00f52aa84bc1a6189588fb88d0.html">components</a></li><li class="navelem"><a class="el" href="dir_44b86afa572268689bd63284d6b17328.html">renderable</a></li><li class="navelem"><a class="el" href="renderable__component_8hpp.html">renderable_component.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

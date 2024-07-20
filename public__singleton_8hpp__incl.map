@@ -1,4 +1,4 @@
-<map id="engine/runtime/core/base/public_singleton.hpp" name="engine/runtime/core/base/public_singleton.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,200,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="57,95,149,121"/>
+<map id="engine/src/runtime/source/common/designs/public_singleton.hpp" name="engine/src/runtime/source/common/designs/public_singleton.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,189,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="51,109,143,136"/>
 </map>

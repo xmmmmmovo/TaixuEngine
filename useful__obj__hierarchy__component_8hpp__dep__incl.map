@@ -1,7 +1,7 @@
-<map id="engine/editor/ui/components/useful_obj_hierarchy_component.hpp" name="engine/editor/ui/components/useful_obj_hierarchy_component.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="61,5,330,47"/>
-<area shape="rect" id="node2" href="$file__component_8hpp.html" title=" " alt="" coords="21,95,229,136"/>
-<area shape="rect" id="node3" href="$main__window_8hpp.html" title=" " alt="" coords="95,184,295,225"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title=" " alt="" coords="5,281,177,307"/>
-<area shape="rect" id="node5" href="$main__window_8cpp.html" title=" " alt="" coords="201,273,400,315"/>
+<map id="engine/src/editor/ui/components/useful_obj_hierarchy_component.hpp" name="engine/src/editor/ui/components/useful_obj_hierarchy_component.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="125,5,323,61"/>
+<area shape="rect" id="node2" href="$useful__obj__hierarchy__component_8cpp.html" title=" " alt="" coords="5,109,203,165"/>
+<area shape="rect" id="node3" href="$main__window_8hpp.html" title=" " alt="" coords="227,117,464,158"/>
+<area shape="rect" id="node4" href="$src_2editor_2application_2main_8cpp.html" title=" " alt="" coords="119,213,326,255"/>
+<area shape="rect" id="node5" href="$main__window_8cpp.html" title=" " alt="" coords="350,213,586,255"/>
 </map>

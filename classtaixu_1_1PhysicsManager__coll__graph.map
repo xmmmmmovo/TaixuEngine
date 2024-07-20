@@ -1,6 +1,0 @@
-<map id="taixu::PhysicsManager" name="taixu::PhysicsManager">
-<area shape="rect" id="node1" title=" " alt="" coords="65,608,237,744"/>
-<area shape="rect" id="node2" href="$structtaixu_1_1System.html" title=" " alt="" coords="5,439,140,545"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1Scene.html" title="场景类" alt="" coords="165,446,309,538"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1ECSCoordinator.html" title="ECS协调器,用于协调各个系统,以及管理组件." alt="" coords="143,5,330,376"/>
-</map>

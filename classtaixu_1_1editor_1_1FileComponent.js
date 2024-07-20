@@ -1,9 +1,9 @@
 var classtaixu_1_1editor_1_1FileComponent =
 [
-    [ "FileComponent", "classtaixu_1_1editor_1_1FileComponent.html#a571905096512963a5a9ba54feb4742ea", null ],
-    [ "buildUpTreeNode", "classtaixu_1_1editor_1_1FileComponent.html#a258428bdcd08c5025f0c4a0b648df9ad", null ],
-    [ "expandTreeNode", "classtaixu_1_1editor_1_1FileComponent.html#acb31ceeabf66ae17eda74e1c0690c5ce", null ],
-    [ "update", "classtaixu_1_1editor_1_1FileComponent.html#a815be96b2e1adffe63ed42ae944914a2", null ],
-    [ "leaf_flags", "classtaixu_1_1editor_1_1FileComponent.html#a0f6a2a657791ccca4ddb800b5f046dc0", null ],
-    [ "parent_flags", "classtaixu_1_1editor_1_1FileComponent.html#ac1729531b3270247bcc4b7bf60f6bbcd", null ]
+    [ "FileComponent", "classtaixu_1_1editor_1_1FileComponent.html#ac9b9df221b6905e3d2e0a6673ef29c71", null ],
+    [ "buildDirShowcase", "classtaixu_1_1editor_1_1FileComponent.html#ac3e135e3cc004b720031f3d83d26e2d8", null ],
+    [ "buildFileTree", "classtaixu_1_1editor_1_1FileComponent.html#adc8128c81b8a30a92150ea47acd89dc3", null ],
+    [ "buildShowItems", "classtaixu_1_1editor_1_1FileComponent.html#ac063733589e72029f1a55a695575a362", null ],
+    [ "recursiveBuildFileTree", "classtaixu_1_1editor_1_1FileComponent.html#a008b7a159f7d0f5a538612cffa41728d", null ],
+    [ "update", "classtaixu_1_1editor_1_1FileComponent.html#a7ceaa494a7b0de935ff626b572d4ef4b", null ]
 ];

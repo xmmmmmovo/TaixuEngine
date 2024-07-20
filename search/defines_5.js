@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['prototype_2145',['PROTOTYPE',['../macro_8hpp.html#a02ebf389c5cdf477bdf26b5b45291428',1,'macro.hpp']]],
-  ['prototype_5fconst_5fgetter_2146',['PROTOTYPE_CONST_GETTER',['../macro_8hpp.html#aa37abf87bc6ce5c6f8beafc4bd5437ab',1,'macro.hpp']]],
-  ['prototype_5fdft_2147',['PROTOTYPE_DFT',['../macro_8hpp.html#a5ad0e5338bd0a51229df2f3799e77f12',1,'macro.hpp']]],
-  ['prototype_5fdft_5fonly_5fgetter_2148',['PROTOTYPE_DFT_ONLY_GETTER',['../macro_8hpp.html#a983c4c116e3a43061bcea5c7e967ed20',1,'macro.hpp']]],
-  ['prototype_5fdft_5fonly_5fgetter_5fconst_2149',['PROTOTYPE_DFT_ONLY_GETTER_CONST',['../macro_8hpp.html#ac96435b4bf3af189f119c12bda0260f1',1,'macro.hpp']]],
-  ['prototype_5fgetter_2150',['PROTOTYPE_GETTER',['../macro_8hpp.html#afa965fab3c37455a534a26f954fe155c',1,'macro.hpp']]],
-  ['prototype_5fonly_5fgetter_2151',['PROTOTYPE_ONLY_GETTER',['../macro_8hpp.html#aee709daea4c5df824018c1d3feb0cf25',1,'macro.hpp']]],
-  ['prototype_5fonly_5fgetter_5fconst_2152',['PROTOTYPE_ONLY_GETTER_CONST',['../macro_8hpp.html#a586d84e8a0c350d9464cc0d930b7916a',1,'macro.hpp']]],
-  ['prototype_5fsetter_2153',['PROTOTYPE_SETTER',['../macro_8hpp.html#a433edf8cefffe45d2848ec00d80e8dd1',1,'macro.hpp']]]
+  ['icon_5fentry_2170',['ICON_ENTRY',['../ui__component_8hpp.html#aca9527fff15c4b02fb71480d67a58e43',1,'ui_component.hpp']]],
+  ['imgui_5fdefine_5fmath_5foperators_2171',['IMGUI_DEFINE_MATH_OPERATORS',['../pch__runtime_8hpp.html#adf4d73301961430d50d7edd96f92ce38',1,'IMGUI_DEFINE_MATH_OPERATORS():&#160;pch_runtime.hpp'],['../style_8hpp.html#adf4d73301961430d50d7edd96f92ce38',1,'IMGUI_DEFINE_MATH_OPERATORS():&#160;style.hpp'],['../render__component_8cpp.html#adf4d73301961430d50d7edd96f92ce38',1,'IMGUI_DEFINE_MATH_OPERATORS():&#160;render_component.cpp'],['../render__component_8hpp.html#adf4d73301961430d50d7edd96f92ce38',1,'IMGUI_DEFINE_MATH_OPERATORS():&#160;render_component.hpp']]],
+  ['imgui_5fdefine_5fplacement_5fnew_2172',['IMGUI_DEFINE_PLACEMENT_NEW',['../pch__runtime_8hpp.html#ae8c779e77ce2a0e3713d9854c6a8825b',1,'pch_runtime.hpp']]],
+  ['imgui_5fenable_5ffreetype_2173',['IMGUI_ENABLE_FREETYPE',['../pch__runtime_8hpp.html#ae997c514053d8a150ab606010fba0e85',1,'IMGUI_ENABLE_FREETYPE():&#160;pch_runtime.hpp'],['../style_8hpp.html#ae997c514053d8a150ab606010fba0e85',1,'IMGUI_ENABLE_FREETYPE():&#160;style.hpp']]],
+  ['info_5flog_2174',['INFO_LOG',['../logger_8hpp.html#a6e2e8f8b6eb32ff3b1f876b932e97c3a',1,'logger.hpp']]],
+  ['info_5flog_5floc_2175',['INFO_LOG_LOC',['../logger_8hpp.html#acc5d4348d6bc56ad68d8a285830efdce',1,'logger.hpp']]],
+  ['init_5fbuiltin_5fshader_5fmodule_5fcreate_5finfo_2176',['INIT_BUILTIN_SHADER_MODULE_CREATE_INFO',['../shader__manager_8hpp.html#a86022d3d890f76096a71dcc9779e7716',1,'shader_manager.hpp']]]
 ];

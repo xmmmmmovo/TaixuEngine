@@ -1,5 +1,4 @@
 <map id="taixu::Engine" name="taixu::Engine">
-<area shape="rect" id="node1" title=" " alt="" coords="21,404,191,804"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1PublicSingleton.html" title=" " alt="" coords="25,204,187,355"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1PublicSingleton.html" title="public extend singleton class" alt="" coords="5,5,207,141"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,175,177,472"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1Noncopyable.html" title="inherit this class in private method" alt="" coords="17,5,165,127"/>
 </map>
