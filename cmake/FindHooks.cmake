@@ -1,5 +1,5 @@
 # Pre-commit hooks
-IF(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/.git/hooks/pre-commit)
+IF(NOT EXISTS ${PROJECT_SOURCE_DIR}/.git/hooks/pre-commit)
     message(STATUS "Installing pre-commit hooks")
 
     # FIND_PACKAGE(Python3 COMPONENTS Interpreter Development)

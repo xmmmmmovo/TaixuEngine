@@ -24,4 +24,23 @@ std::unique_ptr<T> create_unique_ptr(Args&&... args) {
     return obj;
 }
 
+/**
+ * @brief only can use in shared_ptr, only can construct by shared_ptr.
+ *
+ * @tparam T child class type
+ */
+template<typename T>
+class SharedPtrOnly : std::enable_shared_from_this<T> {
+private:
+    SharedPtrOnly<T>() = default;
+
+public:
+    template<typename... ArgsT>
+    static std::shared_ptr<T> create(ArgsT&&... args) {
+        std::shared_ptr<T> ptr{txAllocatorT<T>::allocate(1)};
+        txAllocatorT<T>::construct(ptr.get(), std::forward<ArgsT>(args)...);
+        return ptr;
+    }
+};
+
 }// namespace taixu
