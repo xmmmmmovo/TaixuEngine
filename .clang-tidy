@@ -1,8 +1,9 @@
+---
 Checks:
   cppcoreguidelines-*,
   performance-*,
   portability-*,
-  
+
   misc-misplaced-const,
   misc-new-delete-overloads,
   misc-no-recursion,
@@ -46,7 +47,7 @@ Checks:
   modernize-use-override,
   modernize-use-transparent-functors,
   modernize-use-uncaught-exceptions,
-  
+
   readability-braces-around-statements,
   readability-magic-numbers,
   readability-named-parameter,
@@ -75,7 +76,7 @@ Checks:
   readability-uniqueptr-delete-release,
   readability-use-anyofallof,
   readability-identifier-naming,
-  
+
   cert-dcl21-cpp,
   cert-dcl58-cpp,
   cert-err34-c,
@@ -94,7 +95,7 @@ Checks:
 
   hicpp-exception-baseclass,
   hicpp-multiway-paths-covered,
-  
+
   google-build-explicit-make-pair,
   google-build-namespaces,
   google-default-arguments,
@@ -106,7 +107,7 @@ Checks:
   google-readability-braces-around-statements,
   google-readability-namespace-comments,
   google-runtime-references,
-  
+
   bugprone-undelegated-constructor,
   bugprone-argument-comment,
   bugprone-bad-signal-to-kill-thread,
@@ -150,7 +151,7 @@ Checks:
   bugprone-unused-return-value,
   bugprone-use-after-move,
   bugprone-virtual-near-miss,
-  
+
   clang-analyzer-core.CallAndMessage,
   clang-analyzer-core.DivideZero,
   clang-analyzer-core.NonNullParamChecker,

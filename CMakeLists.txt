@@ -30,7 +30,7 @@ if(USE_VCPKG)
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 endif()
 
-set(TAIXU_WARNINGS_DEF "-Wall -Wextra -Weffc++ -Werror=uninitialized -Werror=return-type -Wconversion -Wsign-compare -Werror=unused-result 
+set(TAIXU_WARNINGS_DEF "-Wall -Wextra -Weffc++ -Werror=uninitialized -Werror=return-type -Wconversion -Wsign-compare -Werror=unused-result
                         -Werror=suggest-override -Wzero-as-null-pointer-constant -Wmissing-declarations -Wold-style-cast -Wnon-virtual-dtor")
 
 project(
@@ -56,6 +56,7 @@ endif()
 # add cmake package manager
 set(CPM_SOURCE_CACHE "${TAIXUENGINE_ROOT_DIR}/.cpm_cache")
 include(CPM)
+include(FindHooks)
 
 add_subdirectory(engine)
 add_subdirectory(docs)

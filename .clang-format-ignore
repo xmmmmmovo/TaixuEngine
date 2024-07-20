@@ -1,0 +1,8 @@
+*/generated
+.github
+*/.vscode
+.idea
+.cpm_cache
+build
+docs
+3rdparty
