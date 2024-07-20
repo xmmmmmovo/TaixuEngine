@@ -9,8 +9,7 @@ namespace taixu {
 
 /**
  * @brief inherit this class in private method
- * @details 这个类适用于接口定义，仅能用私有继承(private inheritance)
- * 继承自此类便会自动取消构造函数和复制构造函数，用于定义接口
+ * @details This class adapt for interface and move only class.
  */
 class Noncopyable {
 protected:
@@ -20,11 +19,12 @@ protected:
 public:
     Noncopyable(const Noncopyable&)            = delete;
     Noncopyable& operator=(const Noncopyable&) = delete;
-
-    Noncopyable(Noncopyable&& other) noexcept            = delete;
-    Noncopyable& operator=(Noncopyable&& other) noexcept = default;
 };
 
+/**
+ * @brief Noncopyable for structure
+ *
+ */
 struct StructDataNoncopyable {
 protected:
     StructDataNoncopyable() = default;

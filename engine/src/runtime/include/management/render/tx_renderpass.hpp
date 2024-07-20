@@ -11,10 +11,10 @@
 namespace taixu {
 
 class TXRenderPassNode : public std::enable_shared_from_this<TXRenderPassNode>,
-                         private Noncopyable {};
+                         public Noncopyable {};
 
 class TXFrameBuffer : public std::enable_shared_from_this<TXRenderPassNode>,
-                      private Noncopyable {};
+                      public Noncopyable {};
 
 }// namespace taixu
 

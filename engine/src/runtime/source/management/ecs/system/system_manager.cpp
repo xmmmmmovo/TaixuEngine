@@ -5,8 +5,6 @@
 #include "system_manager.hpp"
 
 namespace taixu {
-
-
 System* SystemManager::registerSystem(SystemIdType const key) {
     TX_ASSERT_MSG(_systems.contains(key), "Registering system more than once.");
 

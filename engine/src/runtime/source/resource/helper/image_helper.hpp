@@ -7,8 +7,6 @@
 
 #include <filesystem>
 
-#include <common/utils/pointer_utils.hpp>
-
 #include "resource/converted_data/image.hpp"
 
 namespace taixu {
@@ -23,9 +21,8 @@ namespace taixu {
  * @param flip_vertically
  * @return
  */
-std::shared_ptr<Image> loadImage(std::filesystem::path const& path,
-                                 int desired_channels = 4, bool is_srgb = false,
-                                 bool flip_vertically = true);
+std::shared_ptr<Image> loadImage(std::filesystem::path const& path, int desired_channels = 4,
+                                 bool is_srgb = false, bool flip_vertically = true);
 
 /**
  * @brief 压缩图片
@@ -35,8 +32,7 @@ std::shared_ptr<Image> loadImage(std::filesystem::path const& path,
  * @param channels
  * @return
  */
-bool compressImage(std::shared_ptr<Image> const& image, int width, int height,
-                   int channels);
+bool compressImage(std::shared_ptr<Image> const& image, int width, int height, int channels);
 
 /**
  * @brief 合并多个单通道图片
@@ -48,9 +44,8 @@ bool compressImage(std::shared_ptr<Image> const& image, int width, int height,
  * @param height
  * @return
  */
-free_unique_ptr<uint8_t> combineImages(uint8_t* red, uint8_t* green,
-                                       uint8_t* blue, uint8_t* alpha, int width,
-                                       int height);
+std::unique_ptr<uint8_t> combineImages(uint8_t* red, uint8_t* green, uint8_t* blue, uint8_t* alpha,
+                                       int width, int height);
 
 }// namespace taixu
 

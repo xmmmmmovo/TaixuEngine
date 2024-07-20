@@ -81,7 +81,7 @@
 #include <valarray>
 #include <vector>
 
-#if _HAS_CXX17
+#if __cplusplus >= 201703L
     #include <any>
     #include <charconv>
     // #include <execution>
@@ -91,7 +91,7 @@
     #include <variant>
 #endif
 
-#if _HAS_CXX20
+#if __cplusplus >= 202002L
     #include <barrier>
     #include <bit>
     #include <compare>
@@ -104,11 +104,13 @@
     #include <source_location>
     #include <span>
     #include <stop_token>
-    #include <syncstream>
+    #if __has_include(<syncstream>)
+        #include <syncstream>
+    #endif
     #include <version>
 #endif
 
-#if _HAS_CXX23
+#if __cplusplus >= 202302L
     #include <expected>
     #include <spanstream>
     #if __has_include(<stacktrace>)

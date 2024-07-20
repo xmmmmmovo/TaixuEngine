@@ -8,7 +8,7 @@
 #include <magic_enum.hpp>
 
 #include "common/base/hash.hpp"
-#include "management/rhi/tx_shader.hpp"
+#include "management/render/tx_shader.hpp"
 
 namespace taixu {
 
@@ -39,8 +39,8 @@ using TXBuiltinShaderModulePtrArrT =
 
 class TXShaderModuleManager final {
 private:
-    TX_INLINE static TXBuiltinShaderCreateInfoArrT _builtin_shader_create_infos;
-    TX_INLINE static TXBuiltinShaderModulePtrArrT  _builtin_modules;
+    TX_INLINE static TXBuiltinShaderCreateInfoArrT builtin_shader_create_infos;
+    TX_INLINE static TXBuiltinShaderModulePtrArrT  builtin_modules;
 
     std::unordered_map<hash32_t, std::shared_ptr<TXShaderModule>>
             _custom_modules;

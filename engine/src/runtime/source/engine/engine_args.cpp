@@ -17,7 +17,6 @@ void EngineArgs::registerRendererFactory() {
 
 void EngineArgs::registerWithArgs() { registerRendererFactory(); }
 
-
 void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
     INFO_LOG("Loading engine arguments...");
     argparse::ArgumentParser program("TaixuEngineRuntime");

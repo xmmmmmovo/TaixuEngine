@@ -1,12 +1,12 @@
-# assimp
+# assimp 
 CPMAddPackage(
         NAME assimp
         GITHUB_REPOSITORY assimp/assimp
-        GIT_TAG 5d5496f1ad895297cede723b3c96b513263f82ed
+        GIT_TAG 35e4f1bf6492e11485336c1518485413c599e00e
         OPTIONS
-        "ASSIMP_WARNINGS_AS_ERRORS OFF"
+        "ASSIMP_WARNINGS_AS_ERRORS Off"
         "ASSIMP_BUILD_TESTS Off"
         "ASSIMP_BUILD_EXAMPLES Off"
         "ASSIMP_BUILD_DOCS Off"
-        "ASSIMP_INSTALL_PDB Off"
+        "ASSIMP_BUILD_ZLIB On"
 )
