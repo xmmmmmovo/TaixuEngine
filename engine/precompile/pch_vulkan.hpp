@@ -11,7 +11,6 @@
 
 #include <vk_mem_alloc.h>
 
-#include <vulkan/vulkan.hpp>
-#include <vulkan/vulkan_handles.hpp>
+#include <vulkan/vulkan_raii.hpp>
 
 #endif// ENGINE_PRECOMPILE_PCH_VULKAN_CD66C63DA4B64D3BBA17477BBEAABFC2

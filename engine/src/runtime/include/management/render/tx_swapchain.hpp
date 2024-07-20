@@ -16,7 +16,7 @@
 namespace taixu {
 
 class TXSwapchain final : public Noncopyable {
-public:
+    vk::raii::SwapchainKHR _swapchain{VK_NULL_HANDLE};
 };
 
 }// namespace taixu

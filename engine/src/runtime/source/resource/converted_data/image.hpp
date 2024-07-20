@@ -7,6 +7,8 @@
 #include <assimp/material.h>
 #include <cstdlib>
 
+#include "common/base/macro.hpp"
+
 namespace taixu {
 
 enum class EnumTextureType : std::uint8_t {
@@ -31,8 +33,7 @@ enum class EnumTextureType : std::uint8_t {
     COMMON
 };
 
-TX_INLINE EnumTextureType
-textureTypeFromAssimpType(const aiTextureType aitype) {
+TX_INLINE EnumTextureType textureTypeFromAssimpType(const aiTextureType aitype) {
     switch (aitype) {
         case aiTextureType_DIFFUSE:
             return EnumTextureType::DIFFUSE;
@@ -69,18 +70,17 @@ textureTypeFromAssimpType(const aiTextureType aitype) {
     }
 }
 
-struct Image final : std::enable_shared_from_this<Image> {
-    uint8_t* data{nullptr};
-    uint32_t size{0};
-    uint32_t w{0};
-    uint32_t h{0};
-    uint32_t channels{0};
-    uint32_t desired_channels{0};
-    bool     is_hdr{false};
-    bool     is_srgb{false};
-    bool     is_cube{false};
-
-    ~Image() { free(data); }
+struct Image final : public std::enable_shared_from_this<Image> {
+    // ignore
+    std::shared_ptr<uint8_t[]> data{nullptr};// NOLINT
+    uint32_t                   size{0};
+    uint32_t                   w{0};
+    uint32_t                   h{0};
+    uint32_t                   channels{0};
+    uint32_t                   desired_channels{0};
+    bool                       is_hdr{false};
+    bool                       is_srgb{false};
+    bool                       is_cube{false};
 };
 
 }// namespace taixu

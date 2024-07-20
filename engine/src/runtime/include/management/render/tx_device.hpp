@@ -17,7 +17,10 @@ namespace taixu {
 class TXDevice final : public Noncopyable {
     vk::Device         _device{VK_NULL_HANDLE};
     vk::PhysicalDevice _physical_device{VK_NULL_HANDLE};
-    vk::Queue          _graphics_queue{VK_NULL_HANDLE};
+    std::uint32_t      _graphicsFamilyIndex{0};
+
+
+    vk::Queue _graphics_queue{VK_NULL_HANDLE};
 };
 
 }// namespace taixu
