@@ -1,6 +1,6 @@
-#include "ui/common/editor_context.hpp"
-#include <cstdlib>
+#include <fmt/format.h>
 
+#include "engine/engine.hpp"
 #include "ui/main_window/main_window.hpp"
 
 /**
@@ -26,8 +26,7 @@ int main(const int argc, char* argv[]) try {
 
     taixu::g_engine.initRuntime(args);
 
-    MainWindow main_window{
-            {MAIN_WINDOW_TITLE.data(), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT}};
+    MainWindow main_window{{MAIN_WINDOW_TITLE.data(), MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT}};
 
     main_window.init();
     main_window.start();
@@ -35,7 +34,6 @@ int main(const int argc, char* argv[]) try {
 
     return EXIT_SUCCESS;
 } catch (std::exception const& e_err) {
-    std::fprintf(stderr, "\n");
-    std::fprintf(stderr, "Error: %s\n", e_err.what());
+    std::cerr << "\n" << fmt::format("Error: {}\n", e_err.what());
     return 1;
 }

@@ -12,20 +12,20 @@
 namespace taixu {
 
 /**
- * @brief 加载图片
+ * @brief load image
  * @param path
  * @param width
  * @param height
  * @param channels
  * @param desired_channels
  * @param flip_vertically
- * @return
+ * @return @ref Image struct in pointer
  */
 std::shared_ptr<Image> loadImage(std::filesystem::path const& path, int desired_channels = 4,
                                  bool is_srgb = false, bool flip_vertically = true);
 
 /**
- * @brief 压缩图片
+ * @brief compress image
  * @param image
  * @param width
  * @param height
@@ -35,7 +35,7 @@ std::shared_ptr<Image> loadImage(std::filesystem::path const& path, int desired_
 bool compressImage(std::shared_ptr<Image> const& image, int width, int height, int channels);
 
 /**
- * @brief 合并多个单通道图片
+ * @brief combine multi image channels into one image.
  * @param red
  * @param green
  * @param blue

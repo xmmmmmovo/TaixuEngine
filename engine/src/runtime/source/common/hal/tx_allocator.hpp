@@ -11,8 +11,7 @@
 
 #pragma once
 
-#include <mimalloc-new-delete.h>
-#include <mimalloc-override.h>
+#include <mimalloc.h>
 
 namespace taixu {
 

@@ -22,21 +22,21 @@ void Logger::init() {
 
     spdlog::init_thread_pool(SIZE, 1);
 
-    _logger = std::make_shared<spdlog::async_logger>(
-            "muggle_logger", sink_list.begin(), sink_list.end(),
-            spdlog::thread_pool(), spdlog::async_overflow_policy::block);
-    _logger->set_level(spdlog::level::trace);
+    logger = std::make_shared<spdlog::async_logger>("muggle_logger", sink_list.begin(),
+                                                    sink_list.end(), spdlog::thread_pool(),
+                                                    spdlog::async_overflow_policy::block);
+    logger->set_level(spdlog::level::trace);
 
-    spdlog::register_logger(_logger);
+    spdlog::register_logger(logger);
 }
 
 void Logger::destroy() {
-    _logger->flush();
+    logger->flush();
     spdlog::drop_all();
 }
 
 void Logger::setLevel(Logger::LogLevel level) {
-    _logger->set_level(static_cast<spdlog::level::level_enum>(level));
+    logger->set_level(static_cast<spdlog::level::level_enum>(level));
 }
 
 }// namespace taixu
