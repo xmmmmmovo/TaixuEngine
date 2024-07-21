@@ -6,9 +6,16 @@ A simple 3D game engine.
 
 Note: This is in OpenGL version in [main branch](https://github.com/xmmmmmovo/TaixuEngine/tree/main)
 
-Note2: Now dev branch is [refactor branch](https://github.com/xmmmmmovo/TaixuEngine/tree/refactor)
-
 ## How to build
+
+**Prerequisites:**
+
+- C++20 compliant compiler
+- [python](https://www.python.org/)
+- [cmake](https://cmake.org/)
+- [Vulkan SDK](https://vulkan.lunarg.com/sdk/home)
+
+**Build:**
 
 ```shell
 mkdir build
@@ -21,10 +28,10 @@ make
 
 ### Supporting API
 
-|  API   |                Progress                |
-|:------:|:--------------------------------------:|
+|  API  |                Progress                |
+| :----: | :------------------------------------: |
 | OpenGL | Deprecated(old version in main branch) |
-| Vulkan |                  WIP                   |
+| Vulkan |                  WIP                  |
 
 Note: New RHI design, will be implemented by `Mesa` project.
 

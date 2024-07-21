@@ -30,10 +30,33 @@ enum class EnumWindowAPI : std::uint8_t { GLFW, WINDOWSAPI, NONE };
 /**
  * @brief window type supported
  */
-enum class EnumWindowType : std::uint8_t {
-    WINDOWED,
-    FULLSCREEN,
-    FULLSCREEN_DESKTOP
+enum class EnumWindowType : std::uint8_t { WINDOWED, FULLSCREEN, FULLSCREEN_DESKTOP };
+
+/**
+ * @brief Whole return code / status code enum class.
+ */
+enum class EnumTXResult : std::uint32_t {
+    SUCCESS       = 0,// success
+    UNKNOWN_ERROR = 1,// unknow error
+
+    COMMON_ERROR = (1 << 10),
+
+    GAMEPLAY_ERROR = (1 << 10) * 2,
+
+    MANAGEMENT_ERROR = (1 << 10) * 3,
+
+    PLATFORM_ERROR = (1 << 10) * 4,
+
+    RESOURCE_ERROR = (1 << 10) * 5,
+};
+
+template<typename T>
+concept EnumTXResultConcept = std::is_enum_v<T> && std::is_same_v<T, EnumTXResult>;
+
+template<typename T, EnumTXResultConcept ResultCodeT>
+struct Result {
+    T           value;
+    ResultCodeT code{EnumTXResult::SUCCESS};
 };
 
 }// namespace taixu

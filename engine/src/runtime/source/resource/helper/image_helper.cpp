@@ -14,20 +14,28 @@
 #include <stb_image.h>
 #include <stb_image_resize2.h>
 
-constexpr std::int32_t const ZERO_VALUE_FLAG = -1;
+#include <mimalloc-override.h>
+
+#include "common/log/logger.hpp"
+
+static constexpr std::int32_t ZERO_VALUE_FLAG   = -1;
+static constexpr auto         STB_IMAGE_DELETER = [](void* img) { stbi_image_free(img); };
+
 
 namespace taixu {
 
-std::shared_ptr<Image> loadImage(std::filesystem::path const& path,
-                                 const int desired_channels, const bool is_srgb,
-                                 const bool flip_vertically) {
+std::shared_ptr<Image> loadImage(std::filesystem::path const& path, const int desired_channels,
+                                 const bool is_srgb, const bool flip_vertically) {
     stbi_set_flip_vertically_on_load(flip_vertically);
 
-    int32_t width, height, channels;
+    int32_t width{0}, height{0}, channels{0};
 
-    uint8_t* data = stbi_load(path.generic_string().c_str(), &width, &height,
-                              &channels, desired_channels);
-    if (nullptr == data || width < 0 || height < 0) { return nullptr; }
+    uint8_t* data =
+            stbi_load(path.generic_string().c_str(), &width, &height, &channels, desired_channels);
+    if (nullptr == data || width < 0 || height < 0) {
+        ERROR_LOG("Read Image data failed!");
+        return nullptr;
+    }
 
     std::shared_ptr<Image> image = std::make_shared<Image>();
     image->channels              = channels;
@@ -36,7 +44,7 @@ std::shared_ptr<Image> loadImage(std::filesystem::path const& path,
 
     if (width == height && isPowerOfTwo(static_cast<uint32_t>(width)) &&
         isPowerOfTwo(static_cast<uint32_t>(height))) {
-        image->data = data;
+        image->data = std::shared_ptr<uint8_t[]>(data, STB_IMAGE_DELETER);// NOLINT
         image->size = width * height;
         image->w    = width;
         image->h    = height;
@@ -59,10 +67,9 @@ std::shared_ptr<Image> loadImage(std::filesystem::path const& path,
 
     if (new_size != width || new_size != height) {
         // call stb resize
-        uint8_t*       out_data = malloc_bytes<uint8_t>(new_data_size);
-        const uint8_t* ret =
-                stbir_resize_uint8_linear(data, width, height, 0, out_data,
-                                          new_size, new_size, 0, STBIR_RGBA);
+        auto*          out_data = static_cast<uint8_t*>(malloc(new_data_size));
+        const uint8_t* ret = stbir_resize_uint8_linear(data, width, height, 0, out_data, new_size,
+                                                       new_size, 0, STBIR_RGBA);
         // free origin data
         free(data);
         if (nullptr == ret) {
@@ -72,7 +79,7 @@ std::shared_ptr<Image> loadImage(std::filesystem::path const& path,
         data = out_data;
     }
 
-    image->data = data;
+    image->data = std::shared_ptr<uint8_t[]>(data, STB_IMAGE_DELETER);// NOLINT
     image->size = new_data_size;
     image->w    = new_size;
     image->h    = new_size;

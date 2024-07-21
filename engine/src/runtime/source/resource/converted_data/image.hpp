@@ -5,7 +5,7 @@
 #pragma once
 
 #include <assimp/material.h>
-#include <cstdlib>
+#include <stb_image.h>
 
 #include "common/base/macro.hpp"
 
@@ -69,6 +69,7 @@ TX_INLINE EnumTextureType textureTypeFromAssimpType(const aiTextureType aitype) 
             return EnumTextureType::DIFFUSE;
     }
 }
+
 
 struct Image final : public std::enable_shared_from_this<Image> {
     // ignore
