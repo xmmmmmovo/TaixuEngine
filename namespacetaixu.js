@@ -16,6 +16,7 @@ var namespacetaixu =
       [ "operator\"\"_radf", "namespacetaixu_1_1literal.html#aa3025909a9d3a7280e43616155fb2d72", null ],
       [ "operator\"\"_uc", "namespacetaixu_1_1literal.html#a2b7a52cf385edcc36dced1d8d32166ad", null ]
     ] ],
+    [ "Result", "structtaixu_1_1Result.html", "structtaixu_1_1Result" ],
     [ "CpuClock", "classtaixu_1_1CpuClock.html", "classtaixu_1_1CpuClock" ],
     [ "Noncopyable", "classtaixu_1_1Noncopyable.html", "classtaixu_1_1Noncopyable" ],
     [ "StructDataNoncopyable", "structtaixu_1_1StructDataNoncopyable.html", "structtaixu_1_1StructDataNoncopyable" ],
@@ -263,6 +264,15 @@ var namespacetaixu =
       [ "FORWARD_VERT", "namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861ea05b4d99c8bf0d6151d5091e7a85ad02f", null ],
       [ "FORWARD_FRAG", "namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861ea26f267ef439fd50d8851495f0171be78", null ]
     ] ],
+    [ "EnumTXResult", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537", [
+      [ "SUCCESS", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "UNKNOWN_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537a9a10f345b0f755d461a8673a5e9ef6b4", null ],
+      [ "COMMON_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537a8fb22f0e67423fe6f1220b9dac13af7b", null ],
+      [ "GAMEPLAY_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537aaa3794fb61fa110f0567af9643124c34", null ],
+      [ "MANAGEMENT_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537aeb77be10dbf43d838892f782ec27e6dc", null ],
+      [ "PLATFORM_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537a155d48028d2f38dead5197570a098fed", null ],
+      [ "RESOURCE_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537ae8f19147b1155bd2cc91003c9180d459", null ]
+    ] ],
     [ "EnumWindowAPI", "namespacetaixu.html#a4261f8faabc8952f3c8b15ad0db9fa93", [
       [ "GLFW", "namespacetaixu.html#a4261f8faabc8952f3c8b15ad0db9fa93ab274032f1807b8cd2f7553d82555c73c", null ],
       [ "WINDOWSAPI", "namespacetaixu.html#a4261f8faabc8952f3c8b15ad0db9fa93a1597eb6592059c37a1e71d6ff3c9dae8", null ],
@@ -319,6 +329,7 @@ var namespacetaixu =
     [ "utf8Encode", "namespacetaixu.html#a4d664e16ff3d5a6b9d9c4dc9704b28d3", null ],
     [ "ASSET_MAGIC_NUMBER", "namespacetaixu.html#a22fbb93a560a7ebc349adfe203e8ac71", null ],
     [ "ASSET_VERSION", "namespacetaixu.html#abb5fe8de25cfd6941c6639aa38f1d33d", null ],
+    [ "EnumTXResultConcept", "namespacetaixu.html#affd99278d814c7b0b4e2f16f8b96429f", null ],
     [ "g_engine", "namespacetaixu.html#aa49e325c60c5edfb4acf73509b44003a", null ],
     [ "INVALID_GUID", "namespacetaixu.html#a07bf29860b2e3d8da53a4b7b06c29a15", null ],
     [ "IsClass", "namespacetaixu.html#a0b08ef4f103903c7b6f588e606ac2160", null ],

@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['value_1948',['value',['../classtaixu_1_1Color.html#af012561718428d63b93cb562b65d7e81',1,'taixu::Color']]],
-  ['version_1949',['version',['../structtaixu_1_1Manifest.html#aaef1af72511192d8e6b9abe3b1f43a33',1,'taixu::Manifest']]],
-  ['vertices_1950',['vertices',['../structtaixu_1_1Mesh.html#a918c34650fd153247aeb1d977a677ff5',1,'taixu::Mesh']]],
-  ['view_1951',['view',['../structtaixu_1_1Matrices.html#a8415bc58b532a8a44d8952db5e2ba567',1,'taixu::Matrices']]],
-  ['view_5fholder_5fname_1952',['VIEW_HOLDER_NAME',['../classtaixu_1_1editor_1_1MainWindow.html#a92b85883dee0cdca4f47e133ed6188ff',1,'taixu::editor::MainWindow']]],
-  ['viewport_1953',['viewport',['../structtaixu_1_1TXPipelineCreateInfo.html#adf1baa6abe9ef03796c422e65861d7fe',1,'taixu::TXPipelineCreateInfo']]],
-  ['visiable_1954',['visiable',['../classtaixu_1_1RenderableComponent.html#a89c3924ac9bf79e2cbb8e116c11aa41a',1,'taixu::RenderableComponent']]],
-  ['vp_1955',['vp',['../structtaixu_1_1Matrices.html#a775f280b8bc858e708198a147572a501',1,'taixu::Matrices']]]
+  ['value_1959',['value',['../structtaixu_1_1Result.html#a5d6b2475300fbaffcf438ed202170534',1,'taixu::Result::value()'],['../classtaixu_1_1Color.html#af012561718428d63b93cb562b65d7e81',1,'taixu::Color::value()']]],
+  ['version_1960',['version',['../structtaixu_1_1Manifest.html#aaef1af72511192d8e6b9abe3b1f43a33',1,'taixu::Manifest']]],
+  ['vertices_1961',['vertices',['../structtaixu_1_1Mesh.html#a918c34650fd153247aeb1d977a677ff5',1,'taixu::Mesh']]],
+  ['view_1962',['view',['../structtaixu_1_1Matrices.html#a8415bc58b532a8a44d8952db5e2ba567',1,'taixu::Matrices']]],
+  ['view_5fholder_5fname_1963',['VIEW_HOLDER_NAME',['../classtaixu_1_1editor_1_1MainWindow.html#a92b85883dee0cdca4f47e133ed6188ff',1,'taixu::editor::MainWindow']]],
+  ['viewport_1964',['viewport',['../structtaixu_1_1TXPipelineCreateInfo.html#adf1baa6abe9ef03796c422e65861d7fe',1,'taixu::TXPipelineCreateInfo']]],
+  ['visiable_1965',['visiable',['../classtaixu_1_1RenderableComponent.html#a89c3924ac9bf79e2cbb8e116c11aa41a',1,'taixu::RenderableComponent']]],
+  ['vp_1966',['vp',['../structtaixu_1_1Matrices.html#a775f280b8bc858e708198a147572a501',1,'taixu::Matrices']]]
 ];

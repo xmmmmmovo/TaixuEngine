@@ -22,6 +22,7 @@ var annotated_dup =
         [ "UsefulObjectComponent", "classtaixu_1_1editor_1_1UsefulObjectComponent.html", "classtaixu_1_1editor_1_1UsefulObjectComponent" ],
         [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html", "classtaixu_1_1editor_1_1MainWindow" ]
       ] ],
+      [ "Result", "structtaixu_1_1Result.html", "structtaixu_1_1Result" ],
       [ "CpuClock", "classtaixu_1_1CpuClock.html", "classtaixu_1_1CpuClock" ],
       [ "Noncopyable", "classtaixu_1_1Noncopyable.html", "classtaixu_1_1Noncopyable" ],
       [ "StructDataNoncopyable", "structtaixu_1_1StructDataNoncopyable.html", "structtaixu_1_1StructDataNoncopyable" ],

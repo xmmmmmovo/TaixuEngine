@@ -92,13 +92,16 @@ $(document).ready(function(){initNavTree('classtaixu_1_1Logger.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="classtaixu_1_1Logger.html" title="Logger class for logging runtime messages.">Logger</a> class for logging runtime messages.  
+ <a href="classtaixu_1_1Logger.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="logger_8hpp_source.html">logger.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for taixu::Logger:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtaixu_1_1Logger__coll__graph.png" border="0" usemap="#ataixu_1_1Logger_coll__map" alt="Collaboration graph"/></div>
 <map name="ataixu_1_1Logger_coll__map" id="ataixu_1_1Logger_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,113,185"/>
+<area shape="rect" title="Logger class for logging runtime messages." alt="" coords="5,5,113,171"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -113,6 +116,7 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="classtaixu_1_1Logger.html#a9f1dd80055cbd596cbd19ab029a74c4ba19da7170bea36556dde582519795f3fc">FATAL</a> = spdlog::level::critical
 <br />
  }</td></tr>
+<tr class="memdesc:a9f1dd80055cbd596cbd19ab029a74c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging Levels.  <a href="classtaixu_1_1Logger.html#a9f1dd80055cbd596cbd19ab029a74c4b">More...</a><br /></td></tr>
 <tr class="separator:a9f1dd80055cbd596cbd19ab029a74c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -122,6 +126,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a713b6260b12eda5a985d901dff1d0271"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Logger.html#a713b6260b12eda5a985d901dff1d0271">destroy</a> ()</td></tr>
 <tr class="separator:a713b6260b12eda5a985d901dff1d0271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a1358fe65d5c12dbff290eedf84c172"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Logger.html#a4a1358fe65d5c12dbff290eedf84c172">setLevel</a> (<a class="el" href="classtaixu_1_1Logger.html#a9f1dd80055cbd596cbd19ab029a74c4b">LogLevel</a> level)</td></tr>
+<tr class="memdesc:a4a1358fe65d5c12dbff290eedf84c172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Logging Level.  <a href="classtaixu_1_1Logger.html#a4a1358fe65d5c12dbff290eedf84c172">More...</a><br /></td></tr>
 <tr class="separator:a4a1358fe65d5c12dbff290eedf84c172"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83d54ac06a4693c7b041c6e633131697"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Logger.html#a83d54ac06a4693c7b041c6e633131697">log</a> (spdlog::source_loc const &amp;&amp;loc, <a class="el" href="classtaixu_1_1Logger.html#a9f1dd80055cbd596cbd19ab029a74c4b">LogLevel</a> level, std::string_view const &amp;msg)</td></tr>
 <tr class="separator:a83d54ac06a4693c7b041c6e633131697"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,21 +134,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a652c4597901f07c22957a22c2b0dc037"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Logger.html#a652c4597901f07c22957a22c2b0dc037">log</a> (spdlog::source_loc const &amp;&amp;loc, <a class="el" href="classtaixu_1_1Logger.html#a9f1dd80055cbd596cbd19ab029a74c4b">LogLevel</a> level, fmt::format_string&lt; TArgs... &gt; const &amp;fmt, TArgs &amp;&amp;... args)</td></tr>
 <tr class="separator:a652c4597901f07c22957a22c2b0dc037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a911ee6a1d0845db007a0dfba3a445497"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Logger.html#a911ee6a1d0845db007a0dfba3a445497">fatalError</a> (std::basic_string_view&lt; char &gt; const &amp;msg)</td></tr>
+<tr class="memdesc:a911ee6a1d0845db007a0dfba3a445497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throw fatal error.  <a href="classtaixu_1_1Logger.html#a911ee6a1d0845db007a0dfba3a445497">More...</a><br /></td></tr>
 <tr class="separator:a911ee6a1d0845db007a0dfba3a445497"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a7fd444b667cbfdc50600fc3f4e283e90"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Logger.html#a7fd444b667cbfdc50600fc3f4e283e90">Logger</a> ()=default</td></tr>
 <tr class="separator:a7fd444b667cbfdc50600fc3f4e283e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58a266fda99685ecd2d646c7b91da357"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Logger.html#a58a266fda99685ecd2d646c7b91da357">~Logger</a> ()=default</td></tr>
-<tr class="separator:a58a266fda99685ecd2d646c7b91da357"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:afdcf7b6c82337be645134d6420951949"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a> std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Logger.html#afdcf7b6c82337be645134d6420951949">_logger</a></td></tr>
-<tr class="separator:afdcf7b6c82337be645134d6420951949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2b3eb72080c5c0c468588db73de9a07"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a> std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Logger.html#ac2b3eb72080c5c0c468588db73de9a07">logger</a></td></tr>
+<tr class="separator:ac2b3eb72080c5c0c468588db73de9a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classtaixu_1_1Logger.html" title="Logger class for logging runtime messages.">Logger</a> class for logging runtime messages. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a9f1dd80055cbd596cbd19ab029a74c4b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f1dd80055cbd596cbd19ab029a74c4b">&#9670;&nbsp;</a></span>LogLevel</h2>
 
@@ -163,6 +169,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Logging Levels. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9f1dd80055cbd596cbd19ab029a74c4badc30ec20708ef7b0f641ef78b7880a15"></a>DEBUG&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9f1dd80055cbd596cbd19ab029a74c4ba551b723eafd6a31d444fcb2f5920fbd3"></a>INFO&#160;</td><td class="fielddoc"></td></tr>
@@ -185,31 +193,6 @@ Static Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">taixu::Logger::Logger </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a58a266fda99685ecd2d646c7b91da357"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58a266fda99685ecd2d646c7b91da357">&#9670;&nbsp;</a></span>~Logger()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">taixu::Logger::~Logger </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -273,6 +256,20 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Throw fatal error. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>unknow error throw when fatal error occurs. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Throw error message </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -348,6 +345,21 @@ template&lt;typename... TArgs&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TArgs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loc</td><td></td></tr>
+    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">fmt</td><td></td></tr>
+    <tr><td class="paramname">args</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -390,6 +402,14 @@ template&lt;typename... TArgs&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loc</td><td></td></tr>
+    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">msg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -417,11 +437,19 @@ template&lt;typename... TArgs&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Set the Logging Level. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td><a class="el" href="classtaixu_1_1Logger.html#a9f1dd80055cbd596cbd19ab029a74c4b">LogLevel</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="afdcf7b6c82337be645134d6420951949"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdcf7b6c82337be645134d6420951949">&#9670;&nbsp;</a></span>_logger</h2>
+<a id="ac2b3eb72080c5c0c468588db73de9a07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2b3eb72080c5c0c468588db73de9a07">&#9670;&nbsp;</a></span>logger</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -430,7 +458,7 @@ template&lt;typename... TArgs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a> std::shared_ptr&lt;spdlog::logger&gt; taixu::Logger::_logger</td>
+          <td class="memname"><a class="el" href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a> std::shared_ptr&lt;spdlog::logger&gt; taixu::Logger::logger</td>
         </tr>
       </table>
   </td>

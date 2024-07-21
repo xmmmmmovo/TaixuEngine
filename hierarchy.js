@@ -123,6 +123,7 @@ var hierarchy =
       [ "taixu::InputSystem", "classtaixu_1_1InputSystem.html", null ]
     ] ],
     [ "taixu::RenderableComponent", "classtaixu_1_1RenderableComponent.html", null ],
+    [ "taixu::Result< T, ResultCodeT >", "structtaixu_1_1Result.html", null ],
     [ "std::runtime_error", null, [
       [ "taixu::TXRuntimeError", "classtaixu_1_1TXRuntimeError.html", null ]
     ] ],

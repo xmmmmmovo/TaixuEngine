@@ -7,6 +7,5 @@ var classtaixu_1_1Logger =
       [ "ERR", "classtaixu_1_1Logger.html#a9f1dd80055cbd596cbd19ab029a74c4bacd22bad976363fdd1bfbf6759fede482", null ],
       [ "FATAL", "classtaixu_1_1Logger.html#a9f1dd80055cbd596cbd19ab029a74c4ba19da7170bea36556dde582519795f3fc", null ]
     ] ],
-    [ "Logger", "classtaixu_1_1Logger.html#a7fd444b667cbfdc50600fc3f4e283e90", null ],
-    [ "~Logger", "classtaixu_1_1Logger.html#a58a266fda99685ecd2d646c7b91da357", null ]
+    [ "Logger", "classtaixu_1_1Logger.html#a7fd444b667cbfdc50600fc3f4e283e90", null ]
 ];

@@ -84,8 +84,7 @@ $(document).ready(function(){initNavTree('image__helper_8cpp.html',''); initResi
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">image_helper.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -95,22 +94,27 @@ $(document).ready(function(){initNavTree('image__helper_8cpp.html',''); initResi
 <code>#include &lt;stb_dxt.h&gt;</code><br />
 <code>#include &lt;stb_image.h&gt;</code><br />
 <code>#include &lt;stb_image_resize2.h&gt;</code><br />
+<code>#include &lt;mimalloc-override.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="logger_8hpp_source.html">common/log/logger.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for image_helper.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="image__helper_8cpp__incl.png" border="0" usemap="#aengine_2src_2runtime_2source_2resource_2helper_2image__helper_8cpp" alt=""/></div>
 <map name="aengine_2src_2runtime_2source_2resource_2helper_2image__helper_8cpp" id="aengine_2src_2runtime_2source_2resource_2helper_2image__helper_8cpp">
-<area shape="rect" title=" " alt="" coords="359,5,533,61"/>
-<area shape="rect" href="image__helper_8hpp.html" title=" " alt="" coords="61,117,199,143"/>
-<area shape="rect" href="binary__utils_8hpp.html" title=" " alt="" coords="224,109,380,151"/>
-<area shape="rect" title=" " alt="" coords="405,117,487,143"/>
-<area shape="rect" title=" " alt="" coords="512,117,615,143"/>
-<area shape="rect" title=" " alt="" coords="639,117,795,143"/>
-<area shape="rect" title=" " alt="" coords="14,206,105,233"/>
-<area shape="rect" href="image_8hpp.html" title=" " alt="" coords="129,199,275,240"/>
+<area shape="rect" title=" " alt="" coords="559,5,733,61"/>
+<area shape="rect" href="image__helper_8hpp.html" title=" " alt="" coords="151,117,290,143"/>
+<area shape="rect" title=" " alt="" coords="169,288,272,315"/>
+<area shape="rect" href="binary__utils_8hpp.html" title=" " alt="" coords="568,109,724,151"/>
+<area shape="rect" title=" " alt="" coords="749,117,831,143"/>
+<area shape="rect" title=" " alt="" coords="856,117,1012,143"/>
+<area shape="rect" title=" " alt="" coords="1037,117,1191,143"/>
+<area shape="rect" href="logger_8hpp.html" title=" " alt="" coords="369,117,544,143"/>
+<area shape="rect" title=" " alt="" coords="33,206,123,233"/>
+<area shape="rect" href="image_8hpp.html" title=" " alt="" coords="147,199,294,240"/>
 <area shape="rect" title=" " alt="" coords="5,288,145,315"/>
-<area shape="rect" title=" " alt="" coords="169,288,235,315"/>
-<area shape="rect" href="macro_8hpp.html" title=" " alt="" coords="259,288,446,315"/>
+<area shape="rect" href="macro_8hpp.html" title=" " alt="" coords="297,288,483,315"/>
+<area shape="rect" title=" " alt="" coords="423,206,554,233"/>
+<area shape="rect" title=" " alt="" coords="579,206,703,233"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -131,13 +135,8 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a184ae829bd6a2dc7b401352155b37aa5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Image &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a184ae829bd6a2dc7b401352155b37aa5">taixu::loadImage</a> (std::filesystem::path const  &amp;path, int desired_channels=4, bool is_srgb=false, bool flip_vertically=true)</td></tr>
-<tr class="memdesc:a184ae829bd6a2dc7b401352155b37aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">加载图片  <a href="namespacetaixu.html#a184ae829bd6a2dc7b401352155b37aa5">More...</a><br /></td></tr>
+<tr class="memdesc:a184ae829bd6a2dc7b401352155b37aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">load image  <a href="namespacetaixu.html#a184ae829bd6a2dc7b401352155b37aa5">More...</a><br /></td></tr>
 <tr class="separator:a184ae829bd6a2dc7b401352155b37aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a5747e4fde4518b7ea9cb8e81b35cc55d"><td class="memItemLeft" align="right" valign="top">constexpr std::int32_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="image__helper_8cpp.html#a5747e4fde4518b7ea9cb8e81b35cc55d">ZERO_VALUE_FLAG</a> = -1</td></tr>
-<tr class="separator:a5747e4fde4518b7ea9cb8e81b35cc55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="afcbcd60f2e015bdd8c18cbe579603534"></a>
@@ -178,29 +177,6 @@ Variables</h2></td></tr>
           <td class="memname">#define STB_IMAGE_RESIZE_IMPLEMENTATION</td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a5747e4fde4518b7ea9cb8e81b35cc55d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5747e4fde4518b7ea9cb8e81b35cc55d">&#9670;&nbsp;</a></span>ZERO_VALUE_FLAG</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::int32_t const ZERO_VALUE_FLAG = -1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
