@@ -16,9 +16,9 @@
 
 namespace taixu {
 
-template<typename T, typename... Args, typename Deleter>
+template<typename T, typename... Args, typename Deleter = std::default_delete<T>>
 std::unique_ptr<T> create_unique_ptr(Args&&... args) {
-    std::unique_ptr<T> obj(txAllocatorT<T>::alloc(1));
+    std::unique_ptr<T, Deleter> obj(txAllocatorT<T>::alloc(1));
     txAllocatorT<T>::construct(obj.get(), std::forward<Args>(args)...);
     TX_ASSERT(obj != nullptr);
     return obj;
