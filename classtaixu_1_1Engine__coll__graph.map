@@ -1,7 +1,7 @@
 <map id="taixu::Engine" name="taixu::Engine">
-<area shape="rect" id="node1" title=" " alt="" coords="322,1196,494,1449"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1Noncopyable.html" title="inherit this class in private method" alt="" coords="28,5,176,127"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1Window.html" title=" " alt="" coords="124,176,357,1133"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1CpuClock.html" title=" " alt="" coords="381,543,548,767"/>
-<area shape="rect" id="node5" href="$classtaixu_1_1EngineArgs.html" title=" " alt="" coords="572,513,778,796"/>
+<area shape="rect" id="node1" title=" " alt="" coords="321,1196,493,1449"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1Noncopyable.html" title="inherit this class in private method" alt="" coords="27,5,175,127"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1Window.html" title=" " alt="" coords="123,176,355,1133"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1CpuClock.html" title=" " alt="" coords="379,543,546,767"/>
+<area shape="rect" id="node5" href="$classtaixu_1_1EngineArgs.html" title=" " alt="" coords="570,535,777,774"/>
 </map>

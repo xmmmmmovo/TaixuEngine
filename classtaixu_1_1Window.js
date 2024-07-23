@@ -15,7 +15,6 @@ var classtaixu_1_1Window =
     [ "on_window_size_fn", "classtaixu_1_1Window.html#a8df9f7adcde6e9c3ae83319103575f77", null ],
     [ "Window", "classtaixu_1_1Window.html#a6b2aa900d232ceaa5a35648256b54856", null ],
     [ "getRawWindow", "classtaixu_1_1Window.html#ae6c309e6fa9de2913cf5c8fb5687f857", null ],
-    [ "init", "classtaixu_1_1Window.html#a54a00198f75d554cc14b93657b15bc62", null ],
     [ "onChar", "classtaixu_1_1Window.html#a4daad78df9c7cd6c1396b00eaa730ef6", null ],
     [ "onCharMods", "classtaixu_1_1Window.html#ac6019e9e7699c75016c0a7aa6634631b", null ],
     [ "onCursorEnter", "classtaixu_1_1Window.html#a7fd017bf915e274d3ea8514ef14c2968", null ],

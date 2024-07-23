@@ -6,9 +6,7 @@ var dir_fac2414cc82e640d5c8eed219370bf89 =
       [ "TXCommandPool", "classtaixu_1_1TXCommandPool.html", "classtaixu_1_1TXCommandPool" ]
     ] ],
     [ "tx_command_queue.hpp", "tx__command__queue_8hpp.html", null ],
-    [ "tx_context.hpp", "tx__context_8hpp.html", [
-      [ "TXContext", "classtaixu_1_1TXContext.html", "classtaixu_1_1TXContext" ]
-    ] ],
+    [ "tx_context.hpp", "tx__context_8hpp.html", "tx__context_8hpp" ],
     [ "tx_device.hpp", "tx__device_8hpp.html", [
       [ "TXDevice", "classtaixu_1_1TXDevice.html", "classtaixu_1_1TXDevice" ]
     ] ],

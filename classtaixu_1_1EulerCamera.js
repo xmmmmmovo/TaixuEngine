@@ -6,7 +6,7 @@ var classtaixu_1_1EulerCamera =
     [ "decelerate", "classtaixu_1_1EulerCamera.html#a0ca481aca84b9992a89948f2128dce64", null ],
     [ "getProjectionMatrix", "classtaixu_1_1EulerCamera.html#ad9d10df60a774b20697cd0c03c6a0a57", null ],
     [ "getViewMatrix", "classtaixu_1_1EulerCamera.html#a0ee0cfd8946bb5fd79cf3322c0805161", null ],
-    [ "processKeyboard", "classtaixu_1_1EulerCamera.html#ae2796a0ac5d96301df6aca41fc971680", null ],
+    [ "processKeyboard", "classtaixu_1_1EulerCamera.html#a2f6ff00395baecd004fedc7390e88797", null ],
     [ "processMouseMovement", "classtaixu_1_1EulerCamera.html#a44af5d8e2891bd8a4033c604173a02c2", null ],
     [ "processMouseScroll", "classtaixu_1_1EulerCamera.html#ad01048eafb9ffa8669988dfce655a803", null ],
     [ "PROTOTYPE_DFT", "classtaixu_1_1EulerCamera.html#a8f0a3a3283b9225cdb38c0552aaf10ed", null ],

@@ -1,7 +1,7 @@
 var structtaixu_1_1ImGuiComponentInfo =
 [
     [ "ImGuiComponentCallbackT", "structtaixu_1_1ImGuiComponentInfo.html#a719491341c0d3c75059e2902a1630e95", null ],
-    [ "component_type", "structtaixu_1_1ImGuiComponentInfo.html#a9e26101e8a3f9eeaebbef6387e988cd6", null ],
+    [ "component_type", "structtaixu_1_1ImGuiComponentInfo.html#ab351f33f8db3bbed68ad8f6afafe2708", null ],
     [ "end_call_back", "structtaixu_1_1ImGuiComponentInfo.html#a6a0cadd9f9d2b72cbafe9d04334f36fe", null ],
     [ "flags", "structtaixu_1_1ImGuiComponentInfo.html#a838a0f2d8d3639335dd593149378661f", null ],
     [ "name", "structtaixu_1_1ImGuiComponentInfo.html#ac760c418625703d307008a0452c11452", null ],

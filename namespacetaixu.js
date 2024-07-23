@@ -16,11 +16,11 @@ var namespacetaixu =
       [ "operator\"\"_radf", "namespacetaixu_1_1literal.html#aa3025909a9d3a7280e43616155fb2d72", null ],
       [ "operator\"\"_uc", "namespacetaixu_1_1literal.html#a2b7a52cf385edcc36dced1d8d32166ad", null ]
     ] ],
-    [ "Result", "structtaixu_1_1Result.html", "structtaixu_1_1Result" ],
     [ "CpuClock", "classtaixu_1_1CpuClock.html", "classtaixu_1_1CpuClock" ],
     [ "Noncopyable", "classtaixu_1_1Noncopyable.html", "classtaixu_1_1Noncopyable" ],
     [ "StructDataNoncopyable", "structtaixu_1_1StructDataNoncopyable.html", "structtaixu_1_1StructDataNoncopyable" ],
     [ "SharedPtrOnly", "classtaixu_1_1SharedPtrOnly.html", "classtaixu_1_1SharedPtrOnly" ],
+    [ "Result", "structtaixu_1_1Result.html", "structtaixu_1_1Result" ],
     [ "Handler", "structtaixu_1_1Handler.html", "structtaixu_1_1Handler" ],
     [ "Signal", "classtaixu_1_1Signal.html", "classtaixu_1_1Signal" ],
     [ "ThreadPool", "classtaixu_1_1ThreadPool.html", "classtaixu_1_1ThreadPool" ],
@@ -102,7 +102,6 @@ var namespacetaixu =
     [ "InputSystem", "classtaixu_1_1InputSystem.html", "classtaixu_1_1InputSystem" ],
     [ "KeyEvent", "structtaixu_1_1KeyEvent.html", "structtaixu_1_1KeyEvent" ],
     [ "Scene", "classtaixu_1_1Scene.html", "classtaixu_1_1Scene" ],
-    [ "SceneRendererFactory", "classtaixu_1_1SceneRendererFactory.html", null ],
     [ "BaseRawData", "structtaixu_1_1BaseRawData.html", "structtaixu_1_1BaseRawData" ],
     [ "Image", "structtaixu_1_1Image.html", "structtaixu_1_1Image" ],
     [ "AssetHeader", "structtaixu_1_1AssetHeader.html", "structtaixu_1_1AssetHeader" ],
@@ -141,22 +140,36 @@ var namespacetaixu =
     [ "Vec3", "namespacetaixu.html#adf1e7fb3ff7f4d36a48952531b544d06", null ],
     [ "Vec4", "namespacetaixu.html#ace2d077be009fa53e62f6d36280b58d2", null ],
     [ "vkDestroyFn", "namespacetaixu.html#a2b20f99a5aa4d9961da6027135a85fce", null ],
+    [ "AssetType", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6", [
+      [ "TEXTURE", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6a3f92f542bd9ec48f912b9350e22736ac", null ],
+      [ "MATERIAL", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6ac740ce1ae95095daaa5eb2362f3151b3", null ],
+      [ "MESH", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6a5b65fe46c5dd90ebcec69c472c3be1d9", null ],
+      [ "SHADER", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6aa05d35337eb28027e70aef2ea40ff1df", null ],
+      [ "FONT", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6a4aaf23261cd3bd2064183cf1b53f1023", null ],
+      [ "SOUND", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6af54e4b43b21580e967d29a9b7e735953", null ],
+      [ "MUSIC", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6ad74c735013cdd2b883e25ccca502a2e9", null ],
+      [ "WORLD", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6a5289492cf082446ca4a6eec9f72f1ec3", null ],
+      [ "MANIFEST", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6a0bf22fc49ca50df354c7619caaaa96d2", null ],
+      [ "UNKNOWN", "namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6a696b031073e74bf2cb98e5ef201d4aa3", null ]
+    ] ],
     [ "CallbackResult", "namespacetaixu.html#abb92fef6445ea6e93fe05700634ee069", [
       [ "CONTINUE", "namespacetaixu.html#abb92fef6445ea6e93fe05700634ee069a2f453cfe638e57e27bb0c9512436111e", null ],
       [ "BREAK", "namespacetaixu.html#abb92fef6445ea6e93fe05700634ee069a14d6a3e0201f58bfe7c01e775973e80e", null ],
       [ "STOP", "namespacetaixu.html#abb92fef6445ea6e93fe05700634ee069a615a46af313786fc4e349f34118be111", null ]
     ] ],
-    [ "EnumAssetType", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cf", [
-      [ "TEXTURE", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfa3f92f542bd9ec48f912b9350e22736ac", null ],
-      [ "MATERIAL", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfac740ce1ae95095daaa5eb2362f3151b3", null ],
-      [ "MESH", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfa5b65fe46c5dd90ebcec69c472c3be1d9", null ],
-      [ "SHADER", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfaa05d35337eb28027e70aef2ea40ff1df", null ],
-      [ "FONT", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfa4aaf23261cd3bd2064183cf1b53f1023", null ],
-      [ "SOUND", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfaf54e4b43b21580e967d29a9b7e735953", null ],
-      [ "MUSIC", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfad74c735013cdd2b883e25ccca502a2e9", null ],
-      [ "WORLD", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfa5289492cf082446ca4a6eec9f72f1ec3", null ],
-      [ "MANIFEST", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfa0bf22fc49ca50df354c7619caaaa96d2", null ],
-      [ "UNKNOWN", "namespacetaixu.html#acbc379c226cbaacdb4e8dddf7aed94cfa696b031073e74bf2cb98e5ef201d4aa3", null ]
+    [ "CameraMovement", "namespacetaixu.html#ad9b377f157d0f0ca87aaf6f93ba42a1b", [
+      [ "FORWARD", "namespacetaixu.html#ad9b377f157d0f0ca87aaf6f93ba42a1babfec72bb37910c61f36b6c29a1f7ec31", null ],
+      [ "BACKWARD", "namespacetaixu.html#ad9b377f157d0f0ca87aaf6f93ba42a1ba6377b4908ae38f9a57fe9120cf179eb1", null ],
+      [ "LEFT", "namespacetaixu.html#ad9b377f157d0f0ca87aaf6f93ba42a1ba684d325a7303f52e64011467ff5c5758", null ],
+      [ "RIGHT", "namespacetaixu.html#ad9b377f157d0f0ca87aaf6f93ba42a1ba21507b40c80068eda19865706fdc2403", null ],
+      [ "UP", "namespacetaixu.html#ad9b377f157d0f0ca87aaf6f93ba42a1bafbaedde498cdead4f2780217646e9ba1", null ],
+      [ "DOWN", "namespacetaixu.html#ad9b377f157d0f0ca87aaf6f93ba42a1bac4e0e4e3118472beeb2ae75827450f1f", null ]
+    ] ],
+    [ "EngineState", "namespacetaixu.html#a9c95242d407de137501f77058dc1790b", [
+      [ "EDITORMODE", "namespacetaixu.html#a9c95242d407de137501f77058dc1790bad89986e656e17b6680919a8d185c164b", null ],
+      [ "PREVIEWMODE", "namespacetaixu.html#a9c95242d407de137501f77058dc1790bac62e3d94e99fe5f4fd32c92a61679539", null ],
+      [ "IDLEMODE", "namespacetaixu.html#a9c95242d407de137501f77058dc1790bae5cd59ce2a24c6954a3c67dfd4a6c2ed", null ],
+      [ "GAMEMODE", "namespacetaixu.html#a9c95242d407de137501f77058dc1790baa47c7e18b85dd065d02f75743d85947f", null ]
     ] ],
     [ "EnumAttributeFormat", "namespacetaixu.html#af9bb023d8437da060011a580038288e3", [
       [ "R8G8B8A8_FLOAT", "namespacetaixu.html#af9bb023d8437da060011a580038288e3ab172adcf8be5d4018ca78e12c8064073", null ],
@@ -165,45 +178,9 @@ var namespacetaixu =
       [ "R32G32_FLOAT", "namespacetaixu.html#af9bb023d8437da060011a580038288e3a034e2a26f1b92822236e0095a5ca1848", null ],
       [ "R32_FLOAT", "namespacetaixu.html#af9bb023d8437da060011a580038288e3a2598f201b222b270e09b7913987d7272", null ]
     ] ],
-    [ "EnumCameraMovement", "namespacetaixu.html#a5fadd6d3a690882d13d88191917c4187", [
-      [ "FORWARD", "namespacetaixu.html#a5fadd6d3a690882d13d88191917c4187abfec72bb37910c61f36b6c29a1f7ec31", null ],
-      [ "BACKWARD", "namespacetaixu.html#a5fadd6d3a690882d13d88191917c4187a6377b4908ae38f9a57fe9120cf179eb1", null ],
-      [ "LEFT", "namespacetaixu.html#a5fadd6d3a690882d13d88191917c4187a684d325a7303f52e64011467ff5c5758", null ],
-      [ "RIGHT", "namespacetaixu.html#a5fadd6d3a690882d13d88191917c4187a21507b40c80068eda19865706fdc2403", null ],
-      [ "UP", "namespacetaixu.html#a5fadd6d3a690882d13d88191917c4187afbaedde498cdead4f2780217646e9ba1", null ],
-      [ "DOWN", "namespacetaixu.html#a5fadd6d3a690882d13d88191917c4187ac4e0e4e3118472beeb2ae75827450f1f", null ]
-    ] ],
-    [ "EnumEngineState", "namespacetaixu.html#aaf87d24c3d567a41c4e350ac79cdfa1b", [
-      [ "EDITORMODE", "namespacetaixu.html#aaf87d24c3d567a41c4e350ac79cdfa1bad89986e656e17b6680919a8d185c164b", null ],
-      [ "PREVIEWMODE", "namespacetaixu.html#aaf87d24c3d567a41c4e350ac79cdfa1bac62e3d94e99fe5f4fd32c92a61679539", null ],
-      [ "IDLEMODE", "namespacetaixu.html#aaf87d24c3d567a41c4e350ac79cdfa1bae5cd59ce2a24c6954a3c67dfd4a6c2ed", null ],
-      [ "GAMEMODE", "namespacetaixu.html#aaf87d24c3d567a41c4e350ac79cdfa1baa47c7e18b85dd065d02f75743d85947f", null ]
-    ] ],
-    [ "EnumImguiComponentType", "namespacetaixu.html#afe823e60dd112813d9b201c09da0b86a", [
-      [ "WIDGET", "namespacetaixu.html#afe823e60dd112813d9b201c09da0b86aa14dc79e11f9bdd15c996c5755c7cef4b", null ],
-      [ "MENUBAR", "namespacetaixu.html#afe823e60dd112813d9b201c09da0b86aafe7d35317be02f794545bdc585a7fb60", null ]
-    ] ],
-    [ "EnumKeyCode", "namespacetaixu.html#a61fd31e31523d14d6cc9d6c85a0b2d8d", [
-      [ "UNKNOWN", "namespacetaixu.html#a61fd31e31523d14d6cc9d6c85a0b2d8da696b031073e74bf2cb98e5ef201d4aa3", null ]
-    ] ],
-    [ "EnumKeyState", "namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1b", [
-      [ "PRESS", "namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1ba93146f537356b7396d2f0413cf0bfc9e", null ],
-      [ "RELEASE", "namespacetaixu.html#a92f17e39b943ade7efa1eb4e1908bf1ba7d649ef069df9885e382417c79f3d5cd", null ]
-    ] ],
-    [ "EnumMeshType", "namespacetaixu.html#a0d028e602f658a11a53490e6adeaca91", [
-      [ "TRIANGLE", "namespacetaixu.html#a0d028e602f658a11a53490e6adeaca91a9bcd89070cae224dce305f5011659ef4", null ],
-      [ "QUAD", "namespacetaixu.html#a0d028e602f658a11a53490e6adeaca91ac88da92039291f825814816096db2ea2", null ],
-      [ "POINT", "namespacetaixu.html#a0d028e602f658a11a53490e6adeaca91aaebdbcb765394d25d6a604589a890f82", null ]
-    ] ],
     [ "EnumPipelineType", "namespacetaixu.html#ad46b916185814440e2d2c933e7da9cdc", [
       [ "GRAPHICS", "namespacetaixu.html#ad46b916185814440e2d2c933e7da9cdca6f49448c79d7d58c6e60cf7129b84d1c", null ],
       [ "ASYNC_COMPUTE", "namespacetaixu.html#ad46b916185814440e2d2c933e7da9cdcaa3edb1e5ae6cc778cb3f3cf45d34fef7", null ]
-    ] ],
-    [ "EnumRenderAPI", "namespacetaixu.html#a7f462efa6ced3389c706d2f06dca8901", [
-      [ "VULKAN", "namespacetaixu.html#a7f462efa6ced3389c706d2f06dca8901ac60cacb57b9e78f018a9d973bee2f801", null ],
-      [ "DX11", "namespacetaixu.html#a7f462efa6ced3389c706d2f06dca8901ad57057b1c58cba9d4c5bd4f3ab7ee78e", null ],
-      [ "DX12", "namespacetaixu.html#a7f462efa6ced3389c706d2f06dca8901a8bfc0c05d68d95476338b4d64a879c33", null ],
-      [ "NONE", "namespacetaixu.html#a7f462efa6ced3389c706d2f06dca8901ab50339a10e1de285ac99d4c3990b8693", null ]
     ] ],
     [ "EnumShaderSourceType", "namespacetaixu.html#ae4d5a116bca454360c11a705bad54aa1", [
       [ "NONE", "namespacetaixu.html#ae4d5a116bca454360c11a705bad54aa1ab50339a10e1de285ac99d4c3990b8693", null ],
@@ -226,62 +203,79 @@ var namespacetaixu =
       [ "R8G8B8A8_UNORM", "namespacetaixu.html#a39a8858129bd2567e374ab37c834b870af55c1c722034e92213df328d31e33c62", null ],
       [ "R8G8B8A8_SRGB", "namespacetaixu.html#a39a8858129bd2567e374ab37c834b870a5c835c7ea238d0796853827ce416a5e2", null ]
     ] ],
-    [ "EnumTextureType", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395bec", [
-      [ "DIFFUSE", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca84a9d8c4d046cae1f87af62f45f07e68", null ],
-      [ "SPECULAR", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca0df54c320628149300093da5e2ff693d", null ],
-      [ "NORMAL", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca1e23852820b9154316c7c06e2b7ba051", null ],
-      [ "HEIGHT", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395becad770ba3ce18fa409965dfdf5e7c348e6", null ],
-      [ "DISPLACEMENT", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca588d9cf9baadd390793d7bd46ae3d3a8", null ],
-      [ "AMBIENT", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395becae2efd91581bab719d6c67ea43d1afd9b", null ],
-      [ "EMISSIVE", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca91520e2b2b496ddf92e7ed320df5027b", null ],
-      [ "SHININESS", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca7f1ce29f7d6f782024936a67738a6165", null ],
-      [ "OPACITY", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca4d286e1216d180f5f91b4098ae1be251", null ],
-      [ "LIGHTMAP", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca3b901b2b59c6494596d1942f65eb81c8", null ],
-      [ "BASE_COLOR", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca61fa4cdee6a9e02176b474fdfeaa3aa7", null ],
-      [ "METALLIC", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395becae1de2f8ecef0686f39a10632b2c1508e", null ],
-      [ "ROUGHNESS", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395becabf5c531ee75e16c07e4a1182fce1a47a", null ],
-      [ "AO", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca2c64c5cf613d8b9f4f7f3980d29aca10", null ],
-      [ "EMISSIVE_FACTOR", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395beca86d5e7ab1fe26b07bc0ed958941ba86a", null ],
-      [ "COMMON", "namespacetaixu.html#a4853f962bfae13754c64b6fdf0395becadda4b7de10e14445366494f0a76e1435", null ]
+    [ "ImguiComponentType", "namespacetaixu.html#a74d6803166c7c3f32feabfbd17d9d54e", [
+      [ "WIDGET", "namespacetaixu.html#a74d6803166c7c3f32feabfbd17d9d54ea14dc79e11f9bdd15c996c5755c7cef4b", null ],
+      [ "MENUBAR", "namespacetaixu.html#a74d6803166c7c3f32feabfbd17d9d54eafe7d35317be02f794545bdc585a7fb60", null ]
     ] ],
-    [ "EnumTXBufferMemoryUsage", "namespacetaixu.html#a6a6e5f31e06b435ef7ed1a63d037bfce", [
-      [ "GPU_READ_WRITE", "namespacetaixu.html#a6a6e5f31e06b435ef7ed1a63d037bfcea012e57934639257f1115791b861cf947", null ],
-      [ "GPU_READ_ONLY", "namespacetaixu.html#a6a6e5f31e06b435ef7ed1a63d037bfcea545ca787ce17db982223038d3c179a83", null ],
-      [ "CPU_WRITE_GPU_READ", "namespacetaixu.html#a6a6e5f31e06b435ef7ed1a63d037bfcead56c55e0520be9f414e8ddfcd51e6e54", null ],
-      [ "CPU_GPU_READ_WRITE", "namespacetaixu.html#a6a6e5f31e06b435ef7ed1a63d037bfcea68917b381c4692b2ecbcaa557c671964", null ]
+    [ "KeyCode", "namespacetaixu.html#a5da3db179229ed5443a5e58eb1db721b", [
+      [ "UNKNOWN", "namespacetaixu.html#a5da3db179229ed5443a5e58eb1db721ba696b031073e74bf2cb98e5ef201d4aa3", null ]
     ] ],
-    [ "EnumTXBufferSharingMode", "namespacetaixu.html#ae15ed888f6a043200cfba36467bd26d6", [
-      [ "EXCLUSIVE", "namespacetaixu.html#ae15ed888f6a043200cfba36467bd26d6af45c3a0bb3687ed8e221253b3fd4a2ce", null ],
-      [ "CONCURRENT", "namespacetaixu.html#ae15ed888f6a043200cfba36467bd26d6a4e986bdbe67d653acb5f1d864f32ce21", null ]
+    [ "KeyState", "namespacetaixu.html#a5dd8527b68365779834d0625c3ee4ff8", [
+      [ "PRESS", "namespacetaixu.html#a5dd8527b68365779834d0625c3ee4ff8a93146f537356b7396d2f0413cf0bfc9e", null ],
+      [ "RELEASE", "namespacetaixu.html#a5dd8527b68365779834d0625c3ee4ff8a7d649ef069df9885e382417c79f3d5cd", null ]
     ] ],
-    [ "EnumTXBufferUsage", "namespacetaixu.html#aa632b9e369ff122f2d489325ac13ab47", [
-      [ "UNIFORM_TEXTEL", "namespacetaixu.html#aa632b9e369ff122f2d489325ac13ab47ac84db2d1149c0c3e97fee5d718016a53", null ],
-      [ "VERTEX_BUFFER", "namespacetaixu.html#aa632b9e369ff122f2d489325ac13ab47aa77fcc0c8db7e3e4c3ca370997298c34", null ],
-      [ "INDICIES_BUFFER", "namespacetaixu.html#aa632b9e369ff122f2d489325ac13ab47a560fd3111462a98765a8f7cce3552b1b", null ],
-      [ "CONSTANT_BUFFER", "namespacetaixu.html#aa632b9e369ff122f2d489325ac13ab47a4ca062f3b263f76e4246287f4fce16bd", null ]
+    [ "MeshType", "namespacetaixu.html#a18a007613b176a45706c4a3c08d7bd11", [
+      [ "TRIANGLE", "namespacetaixu.html#a18a007613b176a45706c4a3c08d7bd11a9bcd89070cae224dce305f5011659ef4", null ],
+      [ "QUAD", "namespacetaixu.html#a18a007613b176a45706c4a3c08d7bd11ac88da92039291f825814816096db2ea2", null ],
+      [ "POINT", "namespacetaixu.html#a18a007613b176a45706c4a3c08d7bd11aaebdbcb765394d25d6a604589a890f82", null ]
     ] ],
-    [ "EnumTXBuiltinShader", "namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861e", [
-      [ "FORWARD_VERT", "namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861ea05b4d99c8bf0d6151d5091e7a85ad02f", null ],
-      [ "FORWARD_FRAG", "namespacetaixu.html#a03eeb3adbfb6b993fd27942e66d7861ea26f267ef439fd50d8851495f0171be78", null ]
+    [ "ResultCode", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78de", [
+      [ "SUCCESS", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dead0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "UNKNOWN_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea9a10f345b0f755d461a8673a5e9ef6b4", null ],
+      [ "COMMON_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea8fb22f0e67423fe6f1220b9dac13af7b", null ],
+      [ "GAMEPLAY_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78deaaa3794fb61fa110f0567af9643124c34", null ],
+      [ "MANAGEMENT_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78deaeb77be10dbf43d838892f782ec27e6dc", null ],
+      [ "UNSUPPORT_VULKAN_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea3aebeb55d9c7103461461681be93f18d", null ],
+      [ "PLATFORM_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea155d48028d2f38dead5197570a098fed", null ],
+      [ "RESOURCE_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78deae8f19147b1155bd2cc91003c9180d459", null ]
     ] ],
-    [ "EnumTXResult", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537", [
-      [ "SUCCESS", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537ad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "UNKNOWN_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537a9a10f345b0f755d461a8673a5e9ef6b4", null ],
-      [ "COMMON_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537a8fb22f0e67423fe6f1220b9dac13af7b", null ],
-      [ "GAMEPLAY_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537aaa3794fb61fa110f0567af9643124c34", null ],
-      [ "MANAGEMENT_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537aeb77be10dbf43d838892f782ec27e6dc", null ],
-      [ "PLATFORM_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537a155d48028d2f38dead5197570a098fed", null ],
-      [ "RESOURCE_ERROR", "namespacetaixu.html#a303ae7f0f4ab53defb7f7db642ebb537ae8f19147b1155bd2cc91003c9180d459", null ]
+    [ "TextureType", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114c", [
+      [ "DIFFUSE", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca84a9d8c4d046cae1f87af62f45f07e68", null ],
+      [ "SPECULAR", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca0df54c320628149300093da5e2ff693d", null ],
+      [ "NORMAL", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca1e23852820b9154316c7c06e2b7ba051", null ],
+      [ "HEIGHT", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114cad770ba3ce18fa409965dfdf5e7c348e6", null ],
+      [ "DISPLACEMENT", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca588d9cf9baadd390793d7bd46ae3d3a8", null ],
+      [ "AMBIENT", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114cae2efd91581bab719d6c67ea43d1afd9b", null ],
+      [ "EMISSIVE", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca91520e2b2b496ddf92e7ed320df5027b", null ],
+      [ "SHININESS", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca7f1ce29f7d6f782024936a67738a6165", null ],
+      [ "OPACITY", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca4d286e1216d180f5f91b4098ae1be251", null ],
+      [ "LIGHTMAP", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca3b901b2b59c6494596d1942f65eb81c8", null ],
+      [ "BASE_COLOR", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca61fa4cdee6a9e02176b474fdfeaa3aa7", null ],
+      [ "METALLIC", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114cae1de2f8ecef0686f39a10632b2c1508e", null ],
+      [ "ROUGHNESS", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114cabf5c531ee75e16c07e4a1182fce1a47a", null ],
+      [ "AO", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca2c64c5cf613d8b9f4f7f3980d29aca10", null ],
+      [ "EMISSIVE_FACTOR", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca86d5e7ab1fe26b07bc0ed958941ba86a", null ],
+      [ "COMMON", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114cadda4b7de10e14445366494f0a76e1435", null ]
     ] ],
-    [ "EnumWindowAPI", "namespacetaixu.html#a4261f8faabc8952f3c8b15ad0db9fa93", [
-      [ "GLFW", "namespacetaixu.html#a4261f8faabc8952f3c8b15ad0db9fa93ab274032f1807b8cd2f7553d82555c73c", null ],
-      [ "WINDOWSAPI", "namespacetaixu.html#a4261f8faabc8952f3c8b15ad0db9fa93a1597eb6592059c37a1e71d6ff3c9dae8", null ],
-      [ "NONE", "namespacetaixu.html#a4261f8faabc8952f3c8b15ad0db9fa93ab50339a10e1de285ac99d4c3990b8693", null ]
+    [ "TXBufferMemoryUsage", "namespacetaixu.html#a47ecae4858f3b1200aa750fda1af0d9a", [
+      [ "GPU_READ_WRITE", "namespacetaixu.html#a47ecae4858f3b1200aa750fda1af0d9aa012e57934639257f1115791b861cf947", null ],
+      [ "GPU_READ_ONLY", "namespacetaixu.html#a47ecae4858f3b1200aa750fda1af0d9aa545ca787ce17db982223038d3c179a83", null ],
+      [ "CPU_WRITE_GPU_READ", "namespacetaixu.html#a47ecae4858f3b1200aa750fda1af0d9aad56c55e0520be9f414e8ddfcd51e6e54", null ],
+      [ "CPU_GPU_READ_WRITE", "namespacetaixu.html#a47ecae4858f3b1200aa750fda1af0d9aa68917b381c4692b2ecbcaa557c671964", null ]
     ] ],
-    [ "EnumWindowType", "namespacetaixu.html#a696e71408f50cc3cd2980ee54cc23b3d", [
-      [ "WINDOWED", "namespacetaixu.html#a696e71408f50cc3cd2980ee54cc23b3dadaa43822b2c6abbb5d4eaf867ff6e4a4", null ],
-      [ "FULLSCREEN", "namespacetaixu.html#a696e71408f50cc3cd2980ee54cc23b3dab89c3d897b196ffff1537331bc659a97", null ],
-      [ "FULLSCREEN_DESKTOP", "namespacetaixu.html#a696e71408f50cc3cd2980ee54cc23b3da00e9544e1dc7219fca1faff976335f48", null ]
+    [ "TXBufferSharingMode", "namespacetaixu.html#ac9f60769f343bba11f3542b3b5fbc658", [
+      [ "EXCLUSIVE", "namespacetaixu.html#ac9f60769f343bba11f3542b3b5fbc658af45c3a0bb3687ed8e221253b3fd4a2ce", null ],
+      [ "CONCURRENT", "namespacetaixu.html#ac9f60769f343bba11f3542b3b5fbc658a4e986bdbe67d653acb5f1d864f32ce21", null ]
+    ] ],
+    [ "TXBufferUsage", "namespacetaixu.html#ab6b8fece699a5991a2109a6b690c14d1", [
+      [ "UNIFORM_TEXTEL", "namespacetaixu.html#ab6b8fece699a5991a2109a6b690c14d1ac84db2d1149c0c3e97fee5d718016a53", null ],
+      [ "VERTEX_BUFFER", "namespacetaixu.html#ab6b8fece699a5991a2109a6b690c14d1aa77fcc0c8db7e3e4c3ca370997298c34", null ],
+      [ "INDICIES_BUFFER", "namespacetaixu.html#ab6b8fece699a5991a2109a6b690c14d1a560fd3111462a98765a8f7cce3552b1b", null ],
+      [ "CONSTANT_BUFFER", "namespacetaixu.html#ab6b8fece699a5991a2109a6b690c14d1a4ca062f3b263f76e4246287f4fce16bd", null ]
+    ] ],
+    [ "TXBuiltinShader", "namespacetaixu.html#a4cfabc21dbdb7087179f8a3560a40995", [
+      [ "FORWARD_VERT", "namespacetaixu.html#a4cfabc21dbdb7087179f8a3560a40995a05b4d99c8bf0d6151d5091e7a85ad02f", null ],
+      [ "FORWARD_FRAG", "namespacetaixu.html#a4cfabc21dbdb7087179f8a3560a40995a26f267ef439fd50d8851495f0171be78", null ]
+    ] ],
+    [ "WindowAPI", "namespacetaixu.html#a31825871b1ba9d578d6301fe43dacfb9", [
+      [ "GLFW", "namespacetaixu.html#a31825871b1ba9d578d6301fe43dacfb9ab274032f1807b8cd2f7553d82555c73c", null ],
+      [ "WINDOWSAPI", "namespacetaixu.html#a31825871b1ba9d578d6301fe43dacfb9a1597eb6592059c37a1e71d6ff3c9dae8", null ],
+      [ "NONE", "namespacetaixu.html#a31825871b1ba9d578d6301fe43dacfb9ab50339a10e1de285ac99d4c3990b8693", null ]
+    ] ],
+    [ "WindowType", "namespacetaixu.html#a730716e6b624149c8bb7c812523877d3", [
+      [ "WINDOWED", "namespacetaixu.html#a730716e6b624149c8bb7c812523877d3adaa43822b2c6abbb5d4eaf867ff6e4a4", null ],
+      [ "FULLSCREEN", "namespacetaixu.html#a730716e6b624149c8bb7c812523877d3ab89c3d897b196ffff1537331bc659a97", null ],
+      [ "FULLSCREEN_DESKTOP", "namespacetaixu.html#a730716e6b624149c8bb7c812523877d3a00e9544e1dc7219fca1faff976335f48", null ]
     ] ],
     [ "bitScanForward32", "namespacetaixu.html#aa8f5c69f74f62d8445762cbecf47713c", null ],
     [ "bitScanReverse32", "namespacetaixu.html#abc386916bbba6634bf67da8b56242066", null ],
@@ -290,6 +284,7 @@ var namespacetaixu =
     [ "copyDirectory", "namespacetaixu.html#aec1c71a1495fd4a250b305399ae1932b", null ],
     [ "copyFile", "namespacetaixu.html#a320a04c3186936940e4642993f2b0832", null ],
     [ "create_unique_ptr", "namespacetaixu.html#a221b5166e5718bbe95a021c9a6ff7b14", null ],
+    [ "createContext", "namespacetaixu.html#a20a515bd6597c60418c88bfbcd7ac69f", null ],
     [ "createDirectory", "namespacetaixu.html#ab9f92535b5f34eb0b1657f1f2f81184a", null ],
     [ "createFile", "namespacetaixu.html#aabb3f87aad2d9d69f17e00dfb5d4f3a2", null ],
     [ "createProject", "namespacetaixu.html#a7cad49dd01f74c5a78ba3318a0496b56", null ],
@@ -324,12 +319,11 @@ var namespacetaixu =
     [ "removeDirectory", "namespacetaixu.html#abba4a0a807dc37ab9ad001b232b318c7", null ],
     [ "removeFile", "namespacetaixu.html#a8a2c508e2eafff58badad6e1497c6834", null ],
     [ "saveProject", "namespacetaixu.html#a0e6cbef3dc51cb07e677993db8e22bf1", null ],
-    [ "textureTypeFromAssimpType", "namespacetaixu.html#adc645cff21b0be444de155f8a6d575eb", null ],
+    [ "textureTypeFromAssimpType", "namespacetaixu.html#a95a8853c69eeaee4e7bc024b35c7958b", null ],
     [ "utf8Decode", "namespacetaixu.html#a4418cf347ede76f1d892e0821394a5ba", null ],
     [ "utf8Encode", "namespacetaixu.html#a4d664e16ff3d5a6b9d9c4dc9704b28d3", null ],
     [ "ASSET_MAGIC_NUMBER", "namespacetaixu.html#a22fbb93a560a7ebc349adfe203e8ac71", null ],
     [ "ASSET_VERSION", "namespacetaixu.html#abb5fe8de25cfd6941c6639aa38f1d33d", null ],
-    [ "EnumTXResultConcept", "namespacetaixu.html#affd99278d814c7b0b4e2f16f8b96429f", null ],
     [ "g_engine", "namespacetaixu.html#aa49e325c60c5edfb4acf73509b44003a", null ],
     [ "INVALID_GUID", "namespacetaixu.html#a07bf29860b2e3d8da53a4b7b06c29a15", null ],
     [ "IsClass", "namespacetaixu.html#a0b08ef4f103903c7b6f588e606ac2160", null ],
@@ -344,6 +338,7 @@ var namespacetaixu =
     [ "MAX_COMPONENTS", "namespacetaixu.html#a54ad07a8bbe7358da12d832a8cff8480", null ],
     [ "MAX_ENTITIES", "namespacetaixu.html#a3e37c102dac5224c41148ce598da3e79", null ],
     [ "packUnorm4x8", "namespacetaixu.html#a1f0e30d9cab101099c9245cf9186bdb9", null ],
+    [ "ResultCodeConcept", "namespacetaixu.html#aa833235611b6aa64191bd2d2b6fd0144", null ],
     [ "toDegrees", "namespacetaixu.html#af55a151621da35599514b2ad56e09ab5", null ],
     [ "toRadians", "namespacetaixu.html#a7bc8d31d0ff0b5d33d40da13800f29f0", null ],
     [ "unpackUnorm4x8", "namespacetaixu.html#a865ec5a80b11b9c15083e94569a03e07", null ]

@@ -1,5 +1,10 @@
 <map id="engine/src/runtime/include/management/render/tx_context.hpp" name="engine/src/runtime/include/management/render/tx_context.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="161,5,330,61"/>
-<area shape="rect" id="node2" href="$noncopyable_8hpp.html" title=" " alt="" coords="5,109,253,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="277,109,445,136"/>
+<area shape="rect" id="node1" title=" " alt="" coords="467,5,636,61"/>
+<area shape="rect" id="node2" href="$noncopyable_8hpp.html" title=" " alt="" coords="463,184,711,211"/>
+<area shape="rect" id="node3" href="$window_8hpp.html" title=" " alt="" coords="287,109,479,136"/>
+<area shape="rect" id="node7" href="$tx__device_8hpp.html" title=" " alt="" coords="589,109,703,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,184,92,211"/>
+<area shape="rect" id="node5" href="$macro_8hpp.html" title=" " alt="" coords="117,184,303,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="328,184,439,211"/>
+<area shape="rect" id="node8" title=" " alt="" coords="735,184,903,211"/>
 </map>

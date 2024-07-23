@@ -85,55 +85,43 @@ $(document).ready(function(){initNavTree('scene_8hpp_source.html',''); initResiz
 <div class="title">scene.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="scene_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by xmmmmmovo on 2023/5/2.</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="camera__component_8hpp.html">management/components/camera/camera_component.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="renderable__component_8hpp.html">management/components/renderable/renderable_component.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transform__component_8hpp.html">management/components/transform/transform_component.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ecs__types_8hpp.html">management/ecs/core/ecs_types.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ecs__coordinator_8hpp.html">management/ecs/ecs_coordinator.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="game__object_8hpp.html">management/ecs/object/game_object.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classtaixu_1_1Scene.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1Scene.html">Scene</a> {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classtaixu_1_1Scene.html#a889025a2383a363368e68889348ccc11">   35</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classtaixu_1_1Scene.html#a889025a2383a363368e68889348ccc11">go_vec_t</a> = std::vector&lt;GameObject&gt;;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="macro_8hpp.html#aee709daea4c5df824018c1d3feb0cf25">PROTOTYPE_ONLY_GETTER</a>(<span class="keyword">private</span>, <a class="code" href="classtaixu_1_1Scene.html#a889025a2383a363368e68889348ccc11">go_vec_t</a>, game_objs)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classtaixu_1_1Scene.html#a4b1fb7d0b55ae7a00a9ffcbe97bb5899">   40</a></span>&#160;    <a class="code" href="classtaixu_1_1ECSCoordinator.html">ECSCoordinator</a> <a class="code" href="classtaixu_1_1Scene.html#a4b1fb7d0b55ae7a00a9ffcbe97bb5899">_ecs_coordinator</a>{};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classtaixu_1_1Scene.html#a4b7f022806e23364bd2b0e7c4526c208">   42</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classtaixu_1_1Scene.html#a4b7f022806e23364bd2b0e7c4526c208">Scene</a>() { <a class="code" href="classtaixu_1_1Scene.html#a4b1fb7d0b55ae7a00a9ffcbe97bb5899">_ecs_coordinator</a>.<a class="code" href="classtaixu_1_1ECSCoordinator.html#af11a822f5f2717cf611490ce902df127">init</a>(); }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP</span></div>
-<div class="ttc" id="acamera__component_8hpp_html"><div class="ttname"><a href="camera__component_8hpp.html">camera_component.hpp</a></div></div>
+<a href="scene_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ecs__types_8hpp.html">management/ecs/core/ecs_types.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ecs__coordinator_8hpp.html">management/ecs/ecs_coordinator.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="game__object_8hpp.html">management/ecs/object/game_object.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classtaixu_1_1Scene.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1Scene.html">Scene</a> {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classtaixu_1_1Scene.html#a889025a2383a363368e68889348ccc11">   36</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classtaixu_1_1Scene.html#a889025a2383a363368e68889348ccc11">go_vec_t</a> = std::vector&lt;GameObject&gt;;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="macro_8hpp.html#aee709daea4c5df824018c1d3feb0cf25">PROTOTYPE_ONLY_GETTER</a>(<span class="keyword">private</span>, <a class="code" href="classtaixu_1_1Scene.html#a889025a2383a363368e68889348ccc11">go_vec_t</a>, game_objs)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classtaixu_1_1Scene.html#a4b1fb7d0b55ae7a00a9ffcbe97bb5899">   41</a></span>&#160;    <a class="code" href="classtaixu_1_1ECSCoordinator.html">ECSCoordinator</a> <a class="code" href="classtaixu_1_1Scene.html#a4b1fb7d0b55ae7a00a9ffcbe97bb5899">_ecs_coordinator</a>{};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classtaixu_1_1Scene.html#a4b7f022806e23364bd2b0e7c4526c208">   43</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classtaixu_1_1Scene.html#a4b7f022806e23364bd2b0e7c4526c208">Scene</a>() { <a class="code" href="classtaixu_1_1Scene.html#a4b1fb7d0b55ae7a00a9ffcbe97bb5899">_ecs_coordinator</a>.<a class="code" href="classtaixu_1_1ECSCoordinator.html#af11a822f5f2717cf611490ce902df127">init</a>(); }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP</span></div>
 <div class="ttc" id="aclasstaixu_1_1ECSCoordinator_html"><div class="ttname"><a href="classtaixu_1_1ECSCoordinator.html">taixu::ECSCoordinator</a></div><div class="ttdoc">ECS协调器,用于协调各个系统,以及管理组件.</div><div class="ttdef"><b>Definition:</b> ecs_coordinator.hpp:28</div></div>
 <div class="ttc" id="aclasstaixu_1_1ECSCoordinator_html_af11a822f5f2717cf611490ce902df127"><div class="ttname"><a href="classtaixu_1_1ECSCoordinator.html#af11a822f5f2717cf611490ce902df127">taixu::ECSCoordinator::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> ecs_coordinator.cpp:11</div></div>
-<div class="ttc" id="aclasstaixu_1_1Scene_html"><div class="ttname"><a href="classtaixu_1_1Scene.html">taixu::Scene</a></div><div class="ttdoc">场景类</div><div class="ttdef"><b>Definition:</b> scene.hpp:32</div></div>
-<div class="ttc" id="aclasstaixu_1_1Scene_html_a4b1fb7d0b55ae7a00a9ffcbe97bb5899"><div class="ttname"><a href="classtaixu_1_1Scene.html#a4b1fb7d0b55ae7a00a9ffcbe97bb5899">taixu::Scene::_ecs_coordinator</a></div><div class="ttdeci">ECSCoordinator _ecs_coordinator</div><div class="ttdef"><b>Definition:</b> scene.hpp:40</div></div>
-<div class="ttc" id="aclasstaixu_1_1Scene_html_a4b7f022806e23364bd2b0e7c4526c208"><div class="ttname"><a href="classtaixu_1_1Scene.html#a4b7f022806e23364bd2b0e7c4526c208">taixu::Scene::Scene</a></div><div class="ttdeci">Scene()</div><div class="ttdef"><b>Definition:</b> scene.hpp:42</div></div>
-<div class="ttc" id="aclasstaixu_1_1Scene_html_a889025a2383a363368e68889348ccc11"><div class="ttname"><a href="classtaixu_1_1Scene.html#a889025a2383a363368e68889348ccc11">taixu::Scene::go_vec_t</a></div><div class="ttdeci">std::vector&lt; GameObject &gt; go_vec_t</div><div class="ttdef"><b>Definition:</b> scene.hpp:35</div></div>
+<div class="ttc" id="aclasstaixu_1_1Scene_html"><div class="ttname"><a href="classtaixu_1_1Scene.html">taixu::Scene</a></div><div class="ttdoc">场景类</div><div class="ttdef"><b>Definition:</b> scene.hpp:33</div></div>
+<div class="ttc" id="aclasstaixu_1_1Scene_html_a4b1fb7d0b55ae7a00a9ffcbe97bb5899"><div class="ttname"><a href="classtaixu_1_1Scene.html#a4b1fb7d0b55ae7a00a9ffcbe97bb5899">taixu::Scene::_ecs_coordinator</a></div><div class="ttdeci">ECSCoordinator _ecs_coordinator</div><div class="ttdef"><b>Definition:</b> scene.hpp:41</div></div>
+<div class="ttc" id="aclasstaixu_1_1Scene_html_a4b7f022806e23364bd2b0e7c4526c208"><div class="ttname"><a href="classtaixu_1_1Scene.html#a4b7f022806e23364bd2b0e7c4526c208">taixu::Scene::Scene</a></div><div class="ttdeci">Scene()</div><div class="ttdef"><b>Definition:</b> scene.hpp:43</div></div>
+<div class="ttc" id="aclasstaixu_1_1Scene_html_a889025a2383a363368e68889348ccc11"><div class="ttname"><a href="classtaixu_1_1Scene.html#a889025a2383a363368e68889348ccc11">taixu::Scene::go_vec_t</a></div><div class="ttdeci">std::vector&lt; GameObject &gt; go_vec_t</div><div class="ttdef"><b>Definition:</b> scene.hpp:36</div></div>
 <div class="ttc" id="aecs__coordinator_8hpp_html"><div class="ttname"><a href="ecs__coordinator_8hpp.html">ecs_coordinator.hpp</a></div></div>
 <div class="ttc" id="aecs__types_8hpp_html"><div class="ttname"><a href="ecs__types_8hpp.html">ecs_types.hpp</a></div></div>
 <div class="ttc" id="agame__object_8hpp_html"><div class="ttname"><a href="game__object_8hpp.html">game_object.hpp</a></div></div>
 <div class="ttc" id="amacro_8hpp_html_aee709daea4c5df824018c1d3feb0cf25"><div class="ttname"><a href="macro_8hpp.html#aee709daea4c5df824018c1d3feb0cf25">PROTOTYPE_ONLY_GETTER</a></div><div class="ttdeci">#define PROTOTYPE_ONLY_GETTER(access, type, name)</div><div class="ttdoc">简化getter</div><div class="ttdef"><b>Definition:</b> macro.hpp:132</div></div>
 <div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
-<div class="ttc" id="arenderable__component_8hpp_html"><div class="ttname"><a href="renderable__component_8hpp.html">renderable_component.hpp</a></div></div>
-<div class="ttc" id="atransform__component_8hpp_html"><div class="ttname"><a href="transform__component_8hpp.html">transform_component.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

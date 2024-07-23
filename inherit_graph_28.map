@@ -1,4 +1,29 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtaixu_1_1IComponentArray.html" title=" " alt="" coords="5,5,183,32"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1ComponentArray.html" title=" " alt="" coords="231,5,441,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="7,175,152,217"/>
+<area shape="rect" id="node2" href="$structtaixu_1_1Image.html" title=" " alt="" coords="275,56,379,83"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1SharedPtrOnly.html" title="only can use in shared_ptr, only can construct by shared_ptr." alt="" coords="230,5,425,32"/>
+<area shape="rect" id="node4" href="$classtaixu_1_1TXBuffer.html" title=" " alt="" coords="268,259,387,285"/>
+<area shape="rect" id="node5" href="$classtaixu_1_1TXFrameBuffer.html" title=" " alt="" coords="247,309,407,336"/>
+<area shape="rect" id="node6" href="$classtaixu_1_1TXPipeline.html" title=" " alt="" coords="261,360,393,387"/>
+<area shape="rect" id="node7" href="$classtaixu_1_1TXRenderPassNode.html" title=" " alt="" coords="233,107,422,133"/>
+<area shape="rect" id="node8" href="$classtaixu_1_1TXShaderModule.html" title=" " alt="" coords="241,157,414,184"/>
+<area shape="rect" id="node9" href="$classtaixu_1_1TXTexture2D.html" title=" " alt="" coords="254,208,401,235"/>
+<area shape="rect" id="node10" href="$classtaixu_1_1Noncopyable.html" title="inherit this class in private method" alt="" coords="5,512,153,539"/>
+<area shape="rect" id="node11" href="$classtaixu_1_1Engine.html" title=" " alt="" coords="274,512,381,539"/>
+<area shape="rect" id="node12" href="$classtaixu_1_1RandomNumberGenerator.html" title=" " alt="" coords="210,563,445,605"/>
+<area shape="rect" id="node13" href="$classtaixu_1_1TXCommandBuffer.html" title="对CommandBuffer进行的封装 其中主要封装有" alt="" coords="235,629,420,656"/>
+<area shape="rect" id="node14" href="$classtaixu_1_1TXCommandPool.html" title="Command Queue封装" alt="" coords="240,680,415,707"/>
+<area shape="rect" id="node15" href="$classtaixu_1_1TXContext.html" title=" " alt="" coords="262,731,393,757"/>
+<area shape="rect" id="node16" href="$classtaixu_1_1TXDevice.html" title=" " alt="" coords="265,781,390,808"/>
+<area shape="rect" id="node17" href="$classtaixu_1_1TXObject.html" title="RAII vulkan object, using for RAII object.(eg. VkRenderPass, VkDevice...)" alt="" coords="233,833,422,874"/>
+<area shape="rect" id="node18" href="$classtaixu_1_1TXSceneRenderer.html" title=" " alt="" coords="238,899,417,925"/>
+<area shape="rect" id="node19" href="$classtaixu_1_1TXSwapchain.html" title=" " alt="" coords="252,949,403,976"/>
+<area shape="rect" id="node20" href="$classtaixu_1_1Window.html" title=" " alt="" coords="270,411,385,437"/>
+<area shape="rect" id="node21" href="$classtaixu_1_1editor_1_1AbstractUIComponent.html" title="UI component interface." alt="" coords="201,461,453,488"/>
+<area shape="rect" id="node22" href="$classtaixu_1_1editor_1_1DetailComponent.html" title=" " alt="" coords="505,335,728,361"/>
+<area shape="rect" id="node23" href="$classtaixu_1_1editor_1_1FileComponent.html" title=" " alt="" coords="513,385,720,412"/>
+<area shape="rect" id="node24" href="$classtaixu_1_1editor_1_1MenuComponent.html" title="菜单栏组件" alt="" coords="507,436,727,463"/>
+<area shape="rect" id="node25" href="$classtaixu_1_1editor_1_1RenderComponent.html" title=" " alt="" coords="501,487,732,513"/>
+<area shape="rect" id="node26" href="$classtaixu_1_1editor_1_1SceneGraphComponent.html" title=" " alt="" coords="523,538,710,579"/>
+<area shape="rect" id="node27" href="$classtaixu_1_1editor_1_1UsefulObjectComponent.html" title=" " alt="" coords="520,603,713,645"/>
 </map>

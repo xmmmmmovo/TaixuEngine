@@ -85,28 +85,34 @@ $(document).ready(function(){initNavTree('tx__context_8hpp_source.html',''); ini
 <div class="title">tx_context.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="tx__context_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by xmmmmmovo on 1/19/2024.</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8hpp.html">common/designs/noncopyable.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vulkan/vulkan_raii.hpp&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXContext.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1TXContext.html">TXContext</a> final : <a class="code" href="classtaixu_1_1Noncopyable.html">Noncopyable</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXContext.html#aa803cc52d0f0a3ff93fe64282c923d70">   14</a></span>&#160;    vk::raii::Instance <a class="code" href="classtaixu_1_1TXContext.html#aa803cc52d0f0a3ff93fe64282c923d70">_instance</a>{VK_NULL_HANDLE};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}<span class="comment">// namespace taixu</span></div>
+<a href="tx__context_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8hpp.html">common/designs/noncopyable.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="window_8hpp.html">gameplay/gui/window.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tx__device_8hpp.html">tx_device.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXContext.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1TXContext.html">TXContext</a> final : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1Noncopyable.html">Noncopyable</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXContext.html#aa803cc52d0f0a3ff93fe64282c923d70">   21</a></span>&#160;    vk::raii::Instance <a class="code" href="classtaixu_1_1TXContext.html#aa803cc52d0f0a3ff93fe64282c923d70">_instance</a>{VK_NULL_HANDLE};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXContext.html#a318562ad2452511581987791d0c78f27">   23</a></span>&#160;    <a class="code" href="classtaixu_1_1TXDevice.html">TXDevice</a> <a class="code" href="classtaixu_1_1TXContext.html#a318562ad2452511581987791d0c78f27">_device</a>{};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;std::optional&lt;TXContext&gt; <a class="code" href="namespacetaixu.html#a20a515bd6597c60418c88bfbcd7ac69f">createContext</a>(Window* window);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}<span class="comment">// namespace taixu</span></div>
 <div class="ttc" id="aclasstaixu_1_1Noncopyable_html"><div class="ttname"><a href="classtaixu_1_1Noncopyable.html">taixu::Noncopyable</a></div><div class="ttdoc">inherit this class in private method</div><div class="ttdef"><b>Definition:</b> noncopyable.hpp:14</div></div>
-<div class="ttc" id="aclasstaixu_1_1TXContext_html"><div class="ttname"><a href="classtaixu_1_1TXContext.html">taixu::TXContext</a></div><div class="ttdef"><b>Definition:</b> tx_context.hpp:13</div></div>
-<div class="ttc" id="aclasstaixu_1_1TXContext_html_aa803cc52d0f0a3ff93fe64282c923d70"><div class="ttname"><a href="classtaixu_1_1TXContext.html#aa803cc52d0f0a3ff93fe64282c923d70">taixu::TXContext::_instance</a></div><div class="ttdeci">vk::raii::Instance _instance</div><div class="ttdef"><b>Definition:</b> tx_context.hpp:14</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXContext_html"><div class="ttname"><a href="classtaixu_1_1TXContext.html">taixu::TXContext</a></div><div class="ttdef"><b>Definition:</b> tx_context.hpp:20</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXContext_html_a318562ad2452511581987791d0c78f27"><div class="ttname"><a href="classtaixu_1_1TXContext.html#a318562ad2452511581987791d0c78f27">taixu::TXContext::_device</a></div><div class="ttdeci">TXDevice _device</div><div class="ttdef"><b>Definition:</b> tx_context.hpp:23</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXContext_html_aa803cc52d0f0a3ff93fe64282c923d70"><div class="ttname"><a href="classtaixu_1_1TXContext.html#aa803cc52d0f0a3ff93fe64282c923d70">taixu::TXContext::_instance</a></div><div class="ttdeci">vk::raii::Instance _instance</div><div class="ttdef"><b>Definition:</b> tx_context.hpp:21</div></div>
+<div class="ttc" id="aclasstaixu_1_1TXDevice_html"><div class="ttname"><a href="classtaixu_1_1TXDevice.html">taixu::TXDevice</a></div><div class="ttdef"><b>Definition:</b> tx_device.hpp:20</div></div>
 <div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
+<div class="ttc" id="anamespacetaixu_html_a20a515bd6597c60418c88bfbcd7ac69f"><div class="ttname"><a href="namespacetaixu.html#a20a515bd6597c60418c88bfbcd7ac69f">taixu::createContext</a></div><div class="ttdeci">std::optional&lt; TXContext &gt; createContext(Window *window)</div><div class="ttdef"><b>Definition:</b> tx_context.cpp:22</div></div>
 <div class="ttc" id="anoncopyable_8hpp_html"><div class="ttname"><a href="noncopyable_8hpp.html">noncopyable.hpp</a></div></div>
+<div class="ttc" id="atx__device_8hpp_html"><div class="ttname"><a href="tx__device_8hpp.html">tx_device.hpp</a></div></div>
+<div class="ttc" id="awindow_8hpp_html"><div class="ttname"><a href="window_8hpp.html">window.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

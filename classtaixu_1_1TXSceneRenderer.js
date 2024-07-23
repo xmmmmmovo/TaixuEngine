@@ -19,6 +19,7 @@ var classtaixu_1_1TXSceneRenderer =
     [ "presentToWindow", "classtaixu_1_1TXSceneRenderer.html#a93446bc9d06f55c2679bec0fc5e47f2a", null ],
     [ "update", "classtaixu_1_1TXSceneRenderer.html#a60c7742ae30bca30018632b51c8d02dc", null ],
     [ "updateScene", "classtaixu_1_1TXSceneRenderer.html#a4499caac948b065413cea32f8c22ebc3", null ],
+    [ "_context", "classtaixu_1_1TXSceneRenderer.html#a6e8fd3efe6077ae7bbecd7e367ca8e16", null ],
     [ "_enable_imgui", "classtaixu_1_1TXSceneRenderer.html#a17c76813ea86118b1d6a46d99ea58ba1", null ],
     [ "_imgui_update", "classtaixu_1_1TXSceneRenderer.html#a5c66c8eeafbaef10c838a1feaec71243", null ],
     [ "_io", "classtaixu_1_1TXSceneRenderer.html#a7a335658b4f3e92c5aae86b91ada21bc", null ],

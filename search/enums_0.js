@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['callbackresult_2034',['CallbackResult',['../namespacetaixu.html#abb92fef6445ea6e93fe05700634ee069',1,'taixu']]]
+  ['assettype_2029',['AssetType',['../namespacetaixu.html#a1ec72dd9aa1e59d8d7435b57c862efe6',1,'taixu']]]
 ];

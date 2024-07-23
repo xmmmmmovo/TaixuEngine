@@ -1,9 +1,6 @@
 var hierarchy =
 [
     [ "taixu::AbstractFactory< RegisterKeyT, ProductionT >", "classtaixu_1_1AbstractFactory.html", null ],
-    [ "taixu::AbstractFactory< EnumRenderAPI, TXSceneRenderer >", "classtaixu_1_1AbstractFactory.html", [
-      [ "taixu::SceneRendererFactory", "classtaixu_1_1SceneRendererFactory.html", null ]
-    ] ],
     [ "taixu::AssetHeader", "structtaixu_1_1AssetHeader.html", null ],
     [ "taixu::AssetManager", "classtaixu_1_1AssetManager.html", null ],
     [ "taixu::BaseRawData", "structtaixu_1_1BaseRawData.html", null ],
@@ -89,7 +86,6 @@ var hierarchy =
     [ "taixu::Noncopyable", "classtaixu_1_1Noncopyable.html", [
       [ "taixu::Engine", "classtaixu_1_1Engine.html", null ],
       [ "taixu::RandomNumberGenerator< RandomEngine >", "classtaixu_1_1RandomNumberGenerator.html", null ],
-      [ "taixu::SceneRendererFactory", "classtaixu_1_1SceneRendererFactory.html", null ],
       [ "taixu::TXBuffer", "classtaixu_1_1TXBuffer.html", null ],
       [ "taixu::TXCommandBuffer", "classtaixu_1_1TXCommandBuffer.html", null ],
       [ "taixu::TXCommandPool", "classtaixu_1_1TXCommandPool.html", null ],

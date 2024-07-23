@@ -107,32 +107,25 @@ $(document).ready(function(){initNavTree('engine__args_8hpp_source.html',''); in
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a68e71ac7f2a979846e6de713d48255d9">   20</a></span>&#160;    <a class="code" href="classtaixu_1_1EngineArgs.html#a68e71ac7f2a979846e6de713d48255d9">PROTOTYPE_DFT_ONLY_GETTER_CONST</a>(<span class="keyword">private</span>, std::string, locale, <span class="stringliteral">&quot;zh_CN&quot;</span>);</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a8dc5649928bd1ec6060c86aca627275e">   21</a></span>&#160;    <a class="code" href="classtaixu_1_1EngineArgs.html#a8dc5649928bd1ec6060c86aca627275e">PROTOTYPE_DFT_ONLY_GETTER_CONST</a>(<span class="keyword">private</span>, std::string, project_path, <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a20f6846d4ec07cc6766a81d12398824c">   23</a></span>&#160;    <a class="code" href="classtaixu_1_1EngineArgs.html#a20f6846d4ec07cc6766a81d12398824c">PROTOTYPE_DFT_ONLY_GETTER_VALPASS</a>(<span class="keyword">private</span>, <a class="code" href="namespacetaixu.html#a7f462efa6ced3389c706d2f06dca8901">EnumRenderAPI</a>, render_api,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                      <a class="code" href="namespacetaixu.html#a7f462efa6ced3389c706d2f06dca8901ad57057b1c58cba9d4c5bd4f3ab7ee78e">EnumRenderAPI::DX11</a>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a66348ec7a69ae1f7eed29c8f21ec3c70">   25</a></span>&#160;    <a class="code" href="classtaixu_1_1EngineArgs.html#a66348ec7a69ae1f7eed29c8f21ec3c70">PROTOTYPE_DFT_ONLY_GETTER_VALPASS</a>(<span class="keyword">private</span>, <span class="keywordtype">bool</span>, is_immediate_render_mode,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                      <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a95c97cfdfd6fb4dbc6799bdc796c7e52">   30</a></span>&#160;    <span class="keyword">static</span> constexpr std::string_view LOCALE_ARG       = <span class="stringliteral">&quot;--locale&quot;</span>sv;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a5cac61b4b17e0fb98d5ee08238c138c6">   31</a></span>&#160;    <span class="keyword">static</span> constexpr std::string_view PROJECT_PATH_ARG = <span class="stringliteral">&quot;--proj&quot;</span>sv;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a1855a67a5253c26008c945a03dca0e2e">   32</a></span>&#160;    <span class="keyword">static</span> constexpr std::string_view IMMEDIATE_RENDER_ARG =</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="stringliteral">&quot;--immediate-render&quot;</span>sv;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> registerRendererFactory();</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a66348ec7a69ae1f7eed29c8f21ec3c70">   23</a></span>&#160;    <a class="code" href="classtaixu_1_1EngineArgs.html#a66348ec7a69ae1f7eed29c8f21ec3c70">PROTOTYPE_DFT_ONLY_GETTER_VALPASS</a>(<span class="keyword">private</span>, <span class="keywordtype">bool</span>, is_immediate_render_mode, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a95c97cfdfd6fb4dbc6799bdc796c7e52">   27</a></span>&#160;    <span class="keyword">static</span> constexpr std::string_view LOCALE_ARG           = <span class="stringliteral">&quot;--locale&quot;</span>sv;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a5cac61b4b17e0fb98d5ee08238c138c6">   28</a></span>&#160;    <span class="keyword">static</span> constexpr std::string_view PROJECT_PATH_ARG     = <span class="stringliteral">&quot;--proj&quot;</span>sv;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classtaixu_1_1EngineArgs.html#a1855a67a5253c26008c945a03dca0e2e">   29</a></span>&#160;    <span class="keyword">static</span> constexpr std::string_view IMMEDIATE_RENDER_ARG = <span class="stringliteral">&quot;--immediate-render&quot;</span>sv;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> registerWithArgs();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> initWithArgs(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> registerWithArgs();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}<span class="comment">// namespace taixu</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> initWithArgs(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP</span></div>
 <div class="ttc" id="aclasstaixu_1_1EngineArgs_html"><div class="ttname"><a href="classtaixu_1_1EngineArgs.html">taixu::EngineArgs</a></div><div class="ttdef"><b>Definition:</b> engine_args.hpp:18</div></div>
-<div class="ttc" id="aclasstaixu_1_1EngineArgs_html_a20f6846d4ec07cc6766a81d12398824c"><div class="ttname"><a href="classtaixu_1_1EngineArgs.html#a20f6846d4ec07cc6766a81d12398824c">taixu::EngineArgs::PROTOTYPE_DFT_ONLY_GETTER_VALPASS</a></div><div class="ttdeci">PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, EnumRenderAPI, render_api, EnumRenderAPI::DX11)</div></div>
 <div class="ttc" id="aclasstaixu_1_1EngineArgs_html_a2e21ab3ee61f3adfbf11c286052e6695"><div class="ttname"><a href="classtaixu_1_1EngineArgs.html#a2e21ab3ee61f3adfbf11c286052e6695">taixu::EngineArgs::PROTOTYPE_DFT_ONLY_GETTER_VALPASS</a></div><div class="ttdeci">PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, bool, is_debug, true)</div></div>
 <div class="ttc" id="aclasstaixu_1_1EngineArgs_html_a66348ec7a69ae1f7eed29c8f21ec3c70"><div class="ttname"><a href="classtaixu_1_1EngineArgs.html#a66348ec7a69ae1f7eed29c8f21ec3c70">taixu::EngineArgs::PROTOTYPE_DFT_ONLY_GETTER_VALPASS</a></div><div class="ttdeci">PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, bool, is_immediate_render_mode, false)</div></div>
 <div class="ttc" id="aclasstaixu_1_1EngineArgs_html_a68e71ac7f2a979846e6de713d48255d9"><div class="ttname"><a href="classtaixu_1_1EngineArgs.html#a68e71ac7f2a979846e6de713d48255d9">taixu::EngineArgs::PROTOTYPE_DFT_ONLY_GETTER_CONST</a></div><div class="ttdeci">PROTOTYPE_DFT_ONLY_GETTER_CONST(private, std::string, locale, &quot;zh_CN&quot;)</div></div>
@@ -140,8 +133,6 @@ $(document).ready(function(){initNavTree('engine__args_8hpp_source.html',''); in
 <div class="ttc" id="acore_8hpp_html"><div class="ttname"><a href="core_8hpp.html">core.hpp</a></div></div>
 <div class="ttc" id="amacro_8hpp_html"><div class="ttname"><a href="macro_8hpp.html">macro.hpp</a></div></div>
 <div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
-<div class="ttc" id="anamespacetaixu_html_a7f462efa6ced3389c706d2f06dca8901"><div class="ttname"><a href="namespacetaixu.html#a7f462efa6ced3389c706d2f06dca8901">taixu::EnumRenderAPI</a></div><div class="ttdeci">EnumRenderAPI</div><div class="ttdoc">render API supported</div><div class="ttdef"><b>Definition:</b> core.hpp:23</div></div>
-<div class="ttc" id="anamespacetaixu_html_a7f462efa6ced3389c706d2f06dca8901ad57057b1c58cba9d4c5bd4f3ab7ee78e"><div class="ttname"><a href="namespacetaixu.html#a7f462efa6ced3389c706d2f06dca8901ad57057b1c58cba9d4c5bd4f3ab7ee78e">taixu::EnumRenderAPI::DX11</a></div><div class="ttdeci">@ DX11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
