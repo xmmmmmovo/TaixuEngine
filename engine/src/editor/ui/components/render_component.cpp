@@ -23,21 +23,19 @@ static constexpr std::string_view RENDER_COMPONENT_NAME{"Scene"};
 static constexpr std::string_view SIDE_TOOLBAR_NAME{"##ViewportSideToolbar"};
 
 void RenderComponent::buildSideToolBar() {
-    static constexpr ImVec2 SIDE_TOOLBAR_ITEM_SIZE{60, 60};
-    static constexpr ImVec2 SIDE_TOOLBAR_SELECTABLE_ALIGN{0.5, 0.5};
-    static constexpr int8_t SIDE_TOOLBAR_ITEMS{4};
+    static constexpr ImVec2               SIDE_TOOLBAR_ITEM_SIZE{60, 60};
+    static constexpr ImVec2               SIDE_TOOLBAR_SELECTABLE_ALIGN{0.5, 0.5};
+    static constexpr int8_t               SIDE_TOOLBAR_ITEMS{4};
     static constexpr ImGuiSelectableFlags SELECTABLE_FLAGS{
             ImGuiSelectableFlags_NoPadWithHalfSpacing};
-    static constexpr ImGuiButtonFlags BUTTON_FLAGS{
-            ImGuiButtonFlags_MouseButtonMiddle};
+    static constexpr ImGuiButtonFlags BUTTON_FLAGS{ImGuiButtonFlags_MouseButtonMiddle};
 
     ImGuiStyle const& style = ImGui::GetStyle();
 
     // Toolbar
     const ImVec2 toolbar_pos = ImGui::GetWindowPos() + ImGui::GetCursorPos();
 
-    const ImVec2 toolbar_size = {SIDE_TOOLBAR_ITEM_SIZE.x +
-                                         style.WindowPadding.x * 2.0f,//
+    const ImVec2 toolbar_size = {SIDE_TOOLBAR_ITEM_SIZE.x + style.WindowPadding.x * 2.0f,//
                                  SIDE_TOOLBAR_ITEM_SIZE.y * SIDE_TOOLBAR_ITEMS +
                                          style.WindowPadding.y * 2.0f};
     ImGui::SetNextWindowPos(toolbar_pos);
@@ -46,26 +44,21 @@ void RenderComponent::buildSideToolBar() {
     if (ImGui::Begin(SIDE_TOOLBAR_NAME.data(), nullptr, SIDE_TOOLBAR_FLAGS)) {
         // Bring the toolbar window always on top.
         ImGui::BringWindowToDisplayFront(ImGui::GetCurrentWindow());
-        ImGui::PushStyleVar(ImGuiStyleVar_SelectableTextAlign,
-                            SIDE_TOOLBAR_SELECTABLE_ALIGN);
+        ImGui::PushStyleVar(ImGuiStyleVar_SelectableTextAlign, SIDE_TOOLBAR_SELECTABLE_ALIGN);
 
         if (ImGui::Selectable(ICON_LC_MOUSE_POINTER_2,
-                              _view_model.moving_state ==
-                                      EnumMovingState::SELECT,
-                              SELECTABLE_FLAGS, SIDE_TOOLBAR_ITEM_SIZE)) {
-            _view_model.moving_state = EnumMovingState::SELECT;
+                              _view_model.moving_state == MovingState::SELECT, SELECTABLE_FLAGS,
+                              SIDE_TOOLBAR_ITEM_SIZE)) {
+            _view_model.moving_state = MovingState::SELECT;
         }
-        if (ImGui::Selectable(ICON_LC_MOVE,
-                              _view_model.moving_state ==
-                                      EnumMovingState::MOVING,
+        if (ImGui::Selectable(ICON_LC_MOVE, _view_model.moving_state == MovingState::MOVING,
                               SELECTABLE_FLAGS, SIDE_TOOLBAR_ITEM_SIZE)) {
-            _view_model.moving_state = EnumMovingState::MOVING;
+            _view_model.moving_state = MovingState::MOVING;
         }
 
         ImGui::Separator();
 
-        if (ImGui::ButtonEx(ICON_LC_PLAY, SIDE_TOOLBAR_ITEM_SIZE,
-                            BUTTON_FLAGS)) {}
+        if (ImGui::ButtonEx(ICON_LC_PLAY, SIDE_TOOLBAR_ITEM_SIZE, BUTTON_FLAGS)) {}
 
         ImGui::PopStyleVar();// ImGuiStyleVar_SelectableTextAlign
         ImGui::End();
@@ -92,8 +85,7 @@ void RenderComponent::update() {
     _render_rect.Max.y = _render_rect.Min.y + _render_size.y;
 
     if (_previous_size != _render_size) {
-        INFO_LOG("Resize the framebuffer: _width {}, _height {}",
-                 _render_size.x, _render_size.y);
+        INFO_LOG("Resize the framebuffer: _width {}, _height {}", _render_size.x, _render_size.y);
         _previous_size = _render_size;
         //            _view_model.framebuffer->resize(static_cast<int>(_render_size.x),
         //                                             static_cast<int>(_render_size.y));

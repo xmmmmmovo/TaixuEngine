@@ -26,7 +26,7 @@ private:
     /**
      * @brief Engine状态
      */
-    EnumEngineState _state{EnumEngineState::IDLEMODE};
+    EngineState _state{EngineState::IDLEMODE};
 
     /**
      * 保存engine的参数
@@ -78,12 +78,12 @@ public:
 
     EngineArgs const& getArgs();
 
-    void changeEngineState(EnumEngineState state);
+    void changeEngineState(EngineState state);
 
     bool                         loadProject(std::filesystem::path const& path);
     [[nodiscard]] Project const* getOpenedProject() const;
 };
 
-extern Engine g_engine;
+extern Engine g_engine;// NOLINT(cppcoreguidelines-avoid-non-const-global-variables)
 
 }// namespace taixu

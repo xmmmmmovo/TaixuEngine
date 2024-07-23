@@ -11,16 +11,18 @@
 
 #pragma once
 
+#include <vulkan/vulkan_raii.hpp>
+
 #include "common/designs/noncopyable.hpp"
+
 namespace taixu {
 
 class TXDevice final : public Noncopyable {
-    vk::Device         _device{VK_NULL_HANDLE};
-    vk::PhysicalDevice _physical_device{VK_NULL_HANDLE};
-    std::uint32_t      _graphicsFamilyIndex{0};
+    vk::raii::Device         _device{VK_NULL_HANDLE};
+    vk::raii::PhysicalDevice _physical_device{VK_NULL_HANDLE};
+    std::uint32_t            _graphicsFamilyIndex{0};
 
-
-    vk::Queue _graphics_queue{VK_NULL_HANDLE};
+    vk::raii::Queue _graphics_queue{VK_NULL_HANDLE};
 };
 
 }// namespace taixu

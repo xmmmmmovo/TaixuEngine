@@ -19,20 +19,19 @@ private:
     using creation_func_t = std::function<std::unique_ptr<ProductionT>()>;
 
 protected:
-    TX_INLINE static std::unordered_map<RegisterKeyT, creation_func_t>
-            _creation_func_map{};
+    TX_INLINE static std::unordered_map<RegisterKeyT, creation_func_t> creation_func_map{};
 
 public:
     static bool registerCreationFunc(RegisterKeyT key, creation_func_t func) {
         TX_ASSERT_MSG(func, "func is nullptr");
-        auto iter = _creation_func_map.find(key);
+        auto iter = creation_func_map.find(key);
 
-        if (iter != _creation_func_map.end()) {
+        if (iter != creation_func_map.end()) {
             WARN_LOG("This _window have already registered");
             iter->second = std::move(func);
             return true;
         } else {
-            _creation_func_map.emplace(key, std::move(func));
+            creation_func_map.emplace(key, std::move(func));
             return true;
         }
 
@@ -40,11 +39,10 @@ public:
     }
 
     static std::unique_ptr<ProductionT> createProduct(RegisterKeyT key) {
-        decltype(auto) iter = _creation_func_map.find(key);
+        decltype(auto) iter = creation_func_map.find(key);
 
-        if (_creation_func_map.end() == iter) {
-            FATAL_LOG("Cannot create the unsupported {}",
-                      typeid(RegisterKeyT).name());
+        if (creation_func_map.end() == iter) {
+            FATAL_LOG("Cannot create the unsupported {}", typeid(RegisterKeyT).name());
             return nullptr;
         }
         return iter->second();

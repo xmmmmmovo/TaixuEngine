@@ -9,12 +9,12 @@
 
 namespace taixu::editor {
 
-enum class EnumFileEntryType : uint8_t { FILE, DIRECTORY };
+enum class FileEntryType : uint8_t { FILE, DIRECTORY };
 
 struct FileEntryModel {
     std::string           filename{};
     std::filesystem::path filepath{};
-    EnumFileEntryType     filetype{};
+    FileEntryType         filetype{};
 };
 
 template<typename DataT>
@@ -23,12 +23,12 @@ struct FileChildrensHierarchyDataNode : public HierarchyDataNode<DataT> {
     std::vector<FileChildrensHierarchyDataNode> directory_childrens{};
 };
 
-enum class EnumOpenFileType { SCENE };
+enum class OpenFileType { SCENE };
 
 using FileTreeNodeT = FileChildrensHierarchyDataNode<FileEntryModel>;
 
 void recursiveLoadFileTree(FileTreeNodeT& entry);
 
-EnumOpenFileType openFileTypeChecker(std::filesystem::path const& path);
+OpenFileType openFileTypeChecker(std::filesystem::path const& path);
 
 }// namespace taixu::editor

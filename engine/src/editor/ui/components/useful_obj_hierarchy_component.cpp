@@ -13,46 +13,34 @@
 
 namespace taixu::editor {
 
-static constexpr ImGuiTreeNodeFlags PARENT_FLAGS =
-        ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_SpanFullWidth |
-        ImGuiTreeNodeFlags_DefaultOpen;
+static constexpr ImGuiTreeNodeFlags PARENT_FLAGS = ImGuiTreeNodeFlags_SpanAvailWidth |
+                                                   ImGuiTreeNodeFlags_SpanFullWidth |
+                                                   ImGuiTreeNodeFlags_DefaultOpen;
 static constexpr ImGuiTreeNodeFlags LEAF_FLAGS =
         ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_Leaf |
         ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_SpanFullWidth;
 
 static std::string_view constexpr USEFUL_OBJ_COMPONENT_NAME{"Useful Objects"};
 
-enum class EnumUsefulObject {
-    CUBE,
-    SPHERE,
-    POINTLIGHT,
-    DIRECTIONLIGHT,
-    ENVIROMENTLIGHT,
-    SPOTLIGHT
-};
+enum class UsefulObject { CUBE, SPHERE, POINTLIGHT, DIRECTIONLIGHT, ENVIROMENTLIGHT, SPOTLIGHT };
 
 struct UsefulObjectData {
-    std::string      name;
-    EnumUsefulObject enum_object;
+    std::string  name;
+    UsefulObject enum_object;
 };
 
 auto buildUsefulObject() {
-    std::array<ChildrensHierarchyDataNode<std::string,
-                                          HierarchyDataNode<UsefulObjectData>>,
-               2>
+    std::array<ChildrensHierarchyDataNode<std::string, HierarchyDataNode<UsefulObjectData>>, 2>
             objects;
 
     objects.at(0) = {ICON_LC_BOXES "Objects",
-                     {{{ICON_LC_BOX "Cube", EnumUsefulObject::CUBE},
-                       {ICON_LC_BOX "Sphere", EnumUsefulObject::SPHERE}}}};
-    objects.at(1) = {
-            ICON_LC_LAMP "Lights",
-            {{{ICON_LC_LIGHTBULB "PointLight", EnumUsefulObject::POINTLIGHT},
-              {ICON_LC_SUNSET "DirectionalLight",
-               EnumUsefulObject::DIRECTIONLIGHT},
-              {ICON_LC_SUN "EnviromentLight",
-               EnumUsefulObject::ENVIROMENTLIGHT},
-              {ICON_LC_CONE "SpotLight", EnumUsefulObject::SPOTLIGHT}}}};
+                     {{{ICON_LC_BOX "Cube", UsefulObject::CUBE},
+                       {ICON_LC_BOX "Sphere", UsefulObject::SPHERE}}}};
+    objects.at(1) = {ICON_LC_LAMP "Lights",
+                     {{{ICON_LC_LIGHTBULB "PointLight", UsefulObject::POINTLIGHT},
+                       {ICON_LC_SUNSET "DirectionalLight", UsefulObject::DIRECTIONLIGHT},
+                       {ICON_LC_SUN "EnviromentLight", UsefulObject::ENVIROMENTLIGHT},
+                       {ICON_LC_CONE "SpotLight", UsefulObject::SPOTLIGHT}}}};
 
     return objects;
 }
@@ -60,8 +48,7 @@ auto buildUsefulObject() {
 static const auto USEFUL_OBJS_HIERARCHY = buildUsefulObject();
 
 void UsefulObjectComponent::update() {
-    if (ImGui::Begin(USEFUL_OBJ_COMPONENT_NAME.data(), nullptr,
-                     ImGuiWindowFlags_None)) {
+    if (ImGui::Begin(USEFUL_OBJ_COMPONENT_NAME.data(), nullptr, ImGuiWindowFlags_None)) {
         ImGui::Unindent(ImGui::GetTreeNodeToLabelSpacing());
         for (auto&& obj : USEFUL_OBJS_HIERARCHY) {
             if (ImGui::TreeNodeEx(obj.data.c_str(), PARENT_FLAGS)) {

@@ -11,6 +11,7 @@
 
 #pragma once
 
+#include "common/base/core.hpp"
 #include "common/base/macro.hpp"
 #include "common/hal/tx_allocator.hpp"
 
@@ -41,6 +42,26 @@ public:
         txAllocatorT<T>::construct(ptr.get(), std::forward<ArgsT>(args)...);
         return ptr;
     }
+};
+
+/**
+ * @brief Concept type limit for EnumTXResult
+ *
+ * @tparam T
+ */
+template<typename T>
+concept ResultCodeConcept = std::is_enum_v<T> && std::is_same_v<T, ResultCode>;
+
+/**
+ * @brief
+ *
+ * @tparam T
+ * @tparam ResultCodeT
+ */
+template<typename T, ResultCodeConcept ResultCodeT>
+struct Result {
+    T           value;
+    ResultCodeT code{ResultCode::SUCCESS};
 };
 
 }// namespace taixu

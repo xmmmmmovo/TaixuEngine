@@ -8,21 +8,21 @@
 
 namespace taixu {
 
-enum class EnumTXBufferUsage : uint8_t {
+enum class TXBufferUsage : uint8_t {
     UNIFORM_TEXTEL  = 1 << 0,
     VERTEX_BUFFER   = 1 << 1,
     INDICIES_BUFFER = 1 << 2,
     CONSTANT_BUFFER = 1 << 3
 };
 
-enum class EnumTXBufferSharingMode : uint8_t {
+enum class TXBufferSharingMode : uint8_t {
     // 独享
     EXCLUSIVE  = 0,
     // 共享
     CONCURRENT = 1
 };
 
-enum class EnumTXBufferMemoryUsage : uint8_t {
+enum class TXBufferMemoryUsage : uint8_t {
     GPU_READ_WRITE,
     GPU_READ_ONLY,
     CPU_WRITE_GPU_READ,
@@ -31,16 +31,15 @@ enum class EnumTXBufferMemoryUsage : uint8_t {
 
 
 struct TXBufferCreateInfo {
-    uint64_t                size{0};
-    const void*             data_ptr{nullptr};
-    EnumTXBufferUsage       usage{};
-    EnumTXBufferMemoryUsage memory_usage{};
-    EnumTXBufferSharingMode sharing_mode{};
-    size_t                  stride{0};
+    uint64_t            size{0};
+    const void*         data_ptr{nullptr};
+    TXBufferUsage       usage{};
+    TXBufferMemoryUsage memory_usage{};
+    TXBufferSharingMode sharing_mode{};
+    size_t              stride{0};
 };
 
-class TXBuffer : public std::enable_shared_from_this<TXBuffer>,
-                 public Noncopyable {
+class TXBuffer : public std::enable_shared_from_this<TXBuffer>, public Noncopyable {
 public:
     ~TXBuffer() override = default;
 };

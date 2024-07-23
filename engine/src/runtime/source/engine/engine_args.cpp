@@ -4,18 +4,13 @@
 
 #include "engine/engine_args.hpp"
 
+#include "common/log/logger.hpp"
+
 #include <argparse/argparse.hpp>
 
-#include "management/scene/tx_renderer_factory.hpp"
 
 namespace taixu {
-void EngineArgs::registerRendererFactory() {
-    SceneRendererFactory::registerCreationFunc(EnumRenderAPI::VULKAN, [] {
-        return std::make_unique<TXSceneRenderer>();
-    });
-}
-
-void EngineArgs::registerWithArgs() { registerRendererFactory(); }
+void EngineArgs::registerWithArgs() {}
 
 void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
     INFO_LOG("Loading engine arguments...");
@@ -26,9 +21,7 @@ void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
             .default_value(false)
             .implicit_value(true);
 
-    program.add_argument(PROJECT_PATH_ARG)
-            .help("Load project path")
-            .default_value(std::string(""));
+    program.add_argument(PROJECT_PATH_ARG).help("Load project path").default_value(std::string(""));
 
     try {
         program.parse_args(args);

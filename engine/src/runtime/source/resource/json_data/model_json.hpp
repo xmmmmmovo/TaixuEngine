@@ -28,7 +28,7 @@ struct Material final {
     int twosided{0};
 };
 
-enum class EnumMeshType { TRIANGLE, QUAD, POINT };
+enum class MeshType { TRIANGLE, QUAD, POINT };
 
 struct Mesh final {
     std::vector<Vec3> vertices;
