@@ -11,17 +11,14 @@
 
 namespace taixu::editor {
 
-static const IGFD::FileDialogConfig DIRECTORY_CONFIG{
-        .path              = getRootPath().generic_string(),
-        .countSelectionMax = 1,
-        .flags             = ImGuiFileDialogFlags_Modal};
+static const IGFD::FileDialogConfig DIRECTORY_CONFIG{.path = getRootPath().generic_string(),
+                                                     .countSelectionMax = 1,
+                                                     .flags = ImGuiFileDialogFlags_Modal};
 
 
-void openFileDialog(std::string_view const&       key,
-                    IGFD::FileDialogConfig const& config);
+void openFileDialog(std::string_view const& key, IGFD::FileDialogConfig const& config);
 
-void displayAndProcessFileDialog(std::string_view const& key,
-                                 ViewModel&              view_model,
-                                 EnumCallbacks           callback_key);
+void displayAndProcessFileDialog(std::string_view const& key, ViewModel& view_model,
+                                 Callbacks callback_key);
 
 }// namespace taixu::editor

@@ -5,7 +5,7 @@
 
 #include "imgui.h"
 
-#include "management/scene/tx_scene_renderer.hpp"
+#include "engine/engine.hpp"
 #include "ui/common/dialog_helper.hpp"
 #include "ui/common/editor_context.hpp"
 
@@ -44,15 +44,14 @@ void MainWindow::init() {
     g_engine.renderer->enableImgui([this] { this->imguiUpdate(); });
 
     registerCallback(
-            EnumCallbacks::FILE_OPEN_PROJECT,
+            Callbacks::FILE_OPEN_PROJECT,
             Handler{+[](std::string const& file_path, ViewModel& view_model) {
                 g_engine.loadProject(file_path);
                 auto& node         = view_model.file_component_hierarchy;
                 node.data.filepath = "";
-                node.data.filename = g_engine.getOpenedProject()
-                                             ->project_path.filename()
-                                             .generic_string();
-                node.data.filetype       = EnumFileEntryType::DIRECTORY;
+                node.data.filename =
+                        g_engine.getOpenedProject()->project_path.filename().generic_string();
+                node.data.filetype       = FileEntryType::DIRECTORY;
                 view_model.selected_node = &node;
                 recursiveLoadFileTree(node);
             }});
@@ -103,14 +102,12 @@ void MainWindow::imguiUpdate() {
 
     if (g_engine.getOpenedProject() == nullptr) {
         if (g_engine.getArgs().project_path().empty()) {
-            openFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(),
-                           DIRECTORY_CONFIG);
-            displayAndProcessFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(),
-                                        _view_model,
-                                        EnumCallbacks::FILE_OPEN_PROJECT);
+            openFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(), DIRECTORY_CONFIG);
+            displayAndProcessFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(), _view_model,
+                                        Callbacks::FILE_OPEN_PROJECT);
         } else {
-            invokeCallback(EnumCallbacks::FILE_OPEN_PROJECT,
-                           g_engine.getArgs().project_path(), _view_model);
+            invokeCallback(Callbacks::FILE_OPEN_PROJECT, g_engine.getArgs().project_path(),
+                           _view_model);
         }
     } else {
         _menu_component.update();
@@ -135,8 +132,6 @@ void MainWindow::start() const {
 void MainWindow::destroy() const { _window_ptr->destroy(); }
 
 MainWindow::MainWindow(WindowInfo&& window_info)
-    : _window_ptr(
-              std::make_unique<Window>(std::forward<WindowInfo>(window_info))) {
-}
+    : _window_ptr(std::make_unique<Window>(std::forward<WindowInfo>(window_info))) {}
 
 }// namespace taixu::editor

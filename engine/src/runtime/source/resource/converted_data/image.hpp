@@ -11,7 +11,7 @@
 
 namespace taixu {
 
-enum class EnumTextureType : std::uint8_t {
+enum class TextureType : std::uint8_t {
     DIFFUSE,
     SPECULAR,
     NORMAL,
@@ -33,40 +33,40 @@ enum class EnumTextureType : std::uint8_t {
     COMMON
 };
 
-TX_INLINE EnumTextureType textureTypeFromAssimpType(const aiTextureType aitype) {
+TX_INLINE TextureType textureTypeFromAssimpType(const aiTextureType aitype) {
     switch (aitype) {
         case aiTextureType_DIFFUSE:
-            return EnumTextureType::DIFFUSE;
+            return TextureType::DIFFUSE;
         case aiTextureType_SPECULAR:
-            return EnumTextureType::SPECULAR;
+            return TextureType::SPECULAR;
         case aiTextureType_NORMALS:
-            return EnumTextureType::NORMAL;
+            return TextureType::NORMAL;
         case aiTextureType_HEIGHT:
-            return EnumTextureType::HEIGHT;
+            return TextureType::HEIGHT;
         case aiTextureType_DISPLACEMENT:
-            return EnumTextureType::DISPLACEMENT;
+            return TextureType::DISPLACEMENT;
         case aiTextureType_AMBIENT:
-            return EnumTextureType::AMBIENT;
+            return TextureType::AMBIENT;
         case aiTextureType_EMISSIVE:
-            return EnumTextureType::EMISSIVE;
+            return TextureType::EMISSIVE;
         case aiTextureType_SHININESS:
-            return EnumTextureType::SHININESS;
+            return TextureType::SHININESS;
         case aiTextureType_OPACITY:
-            return EnumTextureType::OPACITY;
+            return TextureType::OPACITY;
         case aiTextureType_LIGHTMAP:
-            return EnumTextureType::LIGHTMAP;
+            return TextureType::LIGHTMAP;
         case aiTextureType_BASE_COLOR:
-            return EnumTextureType::BASE_COLOR;
+            return TextureType::BASE_COLOR;
         case aiTextureType_METALNESS:
-            return EnumTextureType::METALLIC;
+            return TextureType::METALLIC;
         case aiTextureType_DIFFUSE_ROUGHNESS:
-            return EnumTextureType::ROUGHNESS;
+            return TextureType::ROUGHNESS;
         case aiTextureType_AMBIENT_OCCLUSION:
-            return EnumTextureType::AO;
+            return TextureType::AO;
         case aiTextureType_EMISSION_COLOR:
-            return EnumTextureType::EMISSIVE_FACTOR;
+            return TextureType::EMISSIVE_FACTOR;
         default:
-            return EnumTextureType::DIFFUSE;
+            return TextureType::DIFFUSE;
     }
 }
 

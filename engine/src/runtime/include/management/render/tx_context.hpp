@@ -1,17 +1,28 @@
-//
-// Created by xmmmmmovo on 1/19/2024.
-//
+/**
+ * @file tx_context.hpp
+ * @author xmmmmmovo (ma_fivezha@163.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-07-22
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 
 #pragma once
 
 #include "common/designs/noncopyable.hpp"
-
-#include <vulkan/vulkan_raii.hpp>
+#include "gameplay/gui/window.hpp"
+#include "tx_device.hpp"
 
 namespace taixu {
 
-class TXContext final : Noncopyable {
+class TXContext final : public Noncopyable {
     vk::raii::Instance _instance{VK_NULL_HANDLE};
+
+    TXDevice _device{};
 };
+
+std::optional<TXContext> createContext(Window* window);
 
 }// namespace taixu

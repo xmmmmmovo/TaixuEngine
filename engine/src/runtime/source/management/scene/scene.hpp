@@ -1,19 +1,20 @@
-//
-// Created by xmmmmmovo on 2023/5/2.
-//
+/**
+ * @file scene.hpp
+ * @author xmmmmmovo (ma_fivezha@163.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-07-23
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 
 #ifndef ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_SCENE_SCENE_HPP
 
-#include "management/components/camera/camera_component.hpp"
-#include "management/components/renderable/renderable_component.hpp"
-#include "management/components/transform/transform_component.hpp"
-
 #include <management/ecs/core/ecs_types.hpp>
 #include <management/ecs/ecs_coordinator.hpp>
 #include <management/ecs/object/game_object.hpp>
-
-#include <memory>
 
 namespace taixu {
 

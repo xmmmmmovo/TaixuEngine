@@ -84,7 +84,9 @@
 #if __cplusplus >= 201703L
     #include <any>
     #include <charconv>
-    // #include <execution>
+    #if __has_include(<execution>)
+        #include <execution>
+    #endif
     #include <filesystem>
     #include <memory_resource>
     #include <optional>

@@ -2,25 +2,25 @@
 // Created by xmmmmmovo on 1/7/2024.
 //
 
-#ifndef ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_SCENE_RENDERER_0906B2209CBE4868A97BEE1FF83AFD22
-#define ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_SCENE_RENDERER_0906B2209CBE4868A97BEE1FF83AFD22
+#pragma once
 
 #include "common/designs/noncopyable.hpp"
 #include "common/math/color.hpp"
 #include "gameplay/gui/window.hpp"
 #include "management/gpu/shader_manager.hpp"
+#include "management/render/tx_context.hpp"
 
 namespace taixu {
 
 class Scene;
 
-enum class EnumImguiComponentType : std::uint8_t { WIDGET, MENUBAR };
+enum class ImguiComponentType : std::uint8_t { WIDGET, MENUBAR };
 
 struct ImGuiComponentInfo {
     using ImGuiComponentCallbackT = std::function<void()>;
 
     std::string_view        name{};
-    EnumImguiComponentType  component_type{};
+    ImguiComponentType      component_type{};
     ImGuiComponentCallbackT update_func{nullptr};
     ImGuiComponentCallbackT end_call_back{nullptr};
     ImGuiWindowFlags        flags{0};
@@ -40,7 +40,8 @@ struct ImguiStyleGroup {
 };
 
 class TXSceneRenderer final : public Noncopyable {
-protected:
+private:
+    TXContext             _context;
     TXShaderModuleManager _shader_module_manager;
 
     ///
@@ -102,5 +103,3 @@ protected:
 };
 
 }// namespace taixu
-
-#endif// ENGINE_SRC_RUNTIME_MANAGEMENT_GRAPHICS_RHI_TX_SCENE_RENDERER_0906B2209CBE4868A97BEE1FF83AFD22

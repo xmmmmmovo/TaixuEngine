@@ -21,7 +21,6 @@
 static constexpr std::int32_t ZERO_VALUE_FLAG   = -1;
 static constexpr auto         STB_IMAGE_DELETER = [](void* img) { stbi_image_free(img); };
 
-
 namespace taixu {
 
 std::shared_ptr<Image> loadImage(std::filesystem::path const& path, const int desired_channels,

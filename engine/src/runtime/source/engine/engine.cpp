@@ -1,7 +1,6 @@
 #include "engine/engine.hpp"
 
 #include "common/log/logger.hpp"
-#include "management/scene/tx_renderer_factory.hpp"
 #include "management/scene/tx_scene_renderer.hpp"
 
 #include "management/scene/scene.hpp"
@@ -10,7 +9,7 @@
 
 namespace taixu {
 
-Engine g_engine;
+Engine g_engine;// NOLINT(cppcoreguidelines-avoid-non-const-global-variables)
 
 void Engine::initRuntime(std::vector<std::string> const& args) {
     Logger::init();
@@ -21,7 +20,7 @@ void Engine::initRuntime(std::vector<std::string> const& args) {
 void Engine::initWithWindow(Window* window) {
     this->_window = window;
 
-    renderer = SceneRendererFactory::createProduct(_engine_args.render_api());
+    renderer = std::make_shared<TXSceneRenderer>();
     renderer->init(window);
 
     asset_manager = std::make_shared<AssetManager>();
@@ -43,7 +42,7 @@ void Engine::destroy() const {
 
 EngineArgs const& Engine::getArgs() { return _engine_args; }
 
-void Engine::changeEngineState(const EnumEngineState state) { _state = state; }
+void Engine::changeEngineState(const EngineState state) { _state = state; }
 
 bool Engine::loadProject(std::filesystem::path const& path) {
     _opened_project = openProject(path);
@@ -54,8 +53,6 @@ bool Engine::loadProject(std::filesystem::path const& path) {
     return true;
 }
 
-Project const* Engine::getOpenedProject() const {
-    return _opened_project.get();
-}
+Project const* Engine::getOpenedProject() const { return _opened_project.get(); }
 
 }// namespace taixu

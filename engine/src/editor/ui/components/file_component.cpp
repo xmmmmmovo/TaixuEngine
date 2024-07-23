@@ -12,13 +12,11 @@
 
 namespace taixu::editor {
 
-static constexpr ImGuiWindowFlags WINDOW_FLAGS =
-        ImGuiWindowFlags_HorizontalScrollbar;
-static constexpr ImGuiTreeNodeFlags PARENT_FLAGS =
-        ImGuiTreeNodeFlags_SpanAvailWidth;
-static constexpr ImGuiTreeNodeFlags LEAF_FLAGS =
-        ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_Leaf |
-        ImGuiTreeNodeFlags_NoTreePushOnOpen;
+static constexpr ImGuiWindowFlags   WINDOW_FLAGS = ImGuiWindowFlags_HorizontalScrollbar;
+static constexpr ImGuiTreeNodeFlags PARENT_FLAGS = ImGuiTreeNodeFlags_SpanAvailWidth;
+static constexpr ImGuiTreeNodeFlags LEAF_FLAGS   = ImGuiTreeNodeFlags_SpanAvailWidth |
+                                                 ImGuiTreeNodeFlags_Leaf |
+                                                 ImGuiTreeNodeFlags_NoTreePushOnOpen;
 
 static std::string_view constexpr FILE_COMPONENT_NAME{"Files"};
 
@@ -30,19 +28,14 @@ void FileComponent::recursiveBuildFileTree(FileTreeNodeT& node) {
     ImGuiTreeNodeFlags flag = PARENT_FLAGS;
     if (node.directory_childrens.empty()) { flag = LEAF_FLAGS; }
 
-    if (_view_model.selected_node == &node) {
-        flag |= ImGuiTreeNodeFlags_Selected;
-    }
+    if (_view_model.selected_node == &node) { flag |= ImGuiTreeNodeFlags_Selected; }
 
     if (ImGui::TreeNodeEx(node.data.filename.c_str(), flag)) {
-        if (ImGui::IsMouseDoubleClicked(0) &&
-            ImGui::IsItemHovered(ImGuiHoveredFlags_None)) {
+        if (ImGui::IsMouseDoubleClicked(0) && ImGui::IsItemHovered(ImGuiHoveredFlags_None)) {
             _view_model.selected_node = &node;
         }
 
-        for (auto&& child : node.directory_childrens) {
-            recursiveBuildFileTree(child);
-        }
+        for (auto&& child : node.directory_childrens) { recursiveBuildFileTree(child); }
         if (!(flag & ImGuiTreeNodeFlags_Leaf)) { ImGui::TreePop(); }
     }
 }
@@ -54,12 +47,10 @@ void FileComponent::buildFileTree() {
 void FileComponent::buildShowItems(std::vector<FileTreeNodeT>& nodes) const {
     for (auto& entry : nodes) {
         ImGui::PushID(entry.data.filename.data());
-        ImGui::Button(entry.data.filename.data(),
-                      {THUMBNAIL_SIZE, THUMBNAIL_SIZE});
+        ImGui::Button(entry.data.filename.data(), {THUMBNAIL_SIZE, THUMBNAIL_SIZE});
 
-        if (ImGui::IsItemHovered() &&
-            ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
-            if (entry.data.filetype == EnumFileEntryType::DIRECTORY) {
+        if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
+            if (entry.data.filetype == FileEntryType::DIRECTORY) {
                 _view_model.selected_node = &entry;
             } else {
             }
@@ -86,13 +77,10 @@ void FileComponent::buildDirShowcase() const {
 }
 
 void FileComponent::update() {
-    if (ImGui::Begin(FILE_COMPONENT_NAME.data(), nullptr,
-                     ImGuiWindowFlags_None)) {
+    if (ImGui::Begin(FILE_COMPONENT_NAME.data(), nullptr, ImGuiWindowFlags_None)) {
         {
-            if (ImGui::BeginChild(
-                        "FileTree",
-                        ImVec2(ImGui::GetContentRegionAvail().x * 0.2f, 0.f),
-                        false, WINDOW_FLAGS)) {
+            if (ImGui::BeginChild("FileTree", ImVec2(ImGui::GetContentRegionAvail().x * 0.2f, 0.f),
+                                  false, WINDOW_FLAGS)) {
                 buildFileTree();
                 ImGui::EndChild();
             }
@@ -100,8 +88,7 @@ void FileComponent::update() {
 
         ImGui::SameLine();
         {
-            if (ImGui::BeginChild("DirShowCase", ImVec2(0, 0.f), false,
-                                  WINDOW_FLAGS)) {
+            if (ImGui::BeginChild("DirShowCase", ImVec2(0, 0.f), false, WINDOW_FLAGS)) {
                 buildDirShowcase();
                 ImGui::EndChild();
             }

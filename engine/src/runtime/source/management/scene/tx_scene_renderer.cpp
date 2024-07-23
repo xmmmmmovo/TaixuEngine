@@ -20,14 +20,10 @@ namespace taixu {
 using namespace literal;
 
 static constexpr ImguiStyleGroup DEFAULT_STYLE_GROUP{
-        Color{34_uc, 35, 42_uc, 255_uc},
-        Color{42_uc, 44_uc, 54_uc, 255_uc},
-        Color{230_uc, 175_uc, 137_uc, 255_uc},
-        Color{97_uc, 97_uc, 106_uc, 255_uc},
-        Color{47_uc, 179_uc, 135_uc, 255_uc},
-        Color{76_uc, 148_uc, 123_uc, 255_uc},
-        Color{76_uc, 48_uc, 67_uc, 255_uc},
-        Color{105_uc, 50_uc, 68_uc, 255_uc},
+        Color{34_uc, 35, 42_uc, 255_uc},       Color{42_uc, 44_uc, 54_uc, 255_uc},
+        Color{230_uc, 175_uc, 137_uc, 255_uc}, Color{97_uc, 97_uc, 106_uc, 255_uc},
+        Color{47_uc, 179_uc, 135_uc, 255_uc},  Color{76_uc, 148_uc, 123_uc, 255_uc},
+        Color{76_uc, 48_uc, 67_uc, 255_uc},    Color{105_uc, 50_uc, 68_uc, 255_uc},
         Color{0_uc, 0_uc, 0_uc, 255_uc}};
 
 void TXSceneRenderer::init(Window* window) {
@@ -60,22 +56,21 @@ void TXSceneRenderer::loadFont(DPIScale const& dpi_scale) const {
     // add source hans font
     // Default + Selection of 2500 Ideographs used by Simplified Chinese
     const auto             font = _io->Fonts->AddFontFromMemoryCompressedTTF(
-            source_han_sans_cn_font_compressed_data,
+            source_han_sans_cn_font_compressed_data,// NOLINT
             source_han_sans_cn_font_compressed_size, FONT_SIZE, nullptr,
             // 这里包括了Latin范围
             _io->Fonts->GetGlyphRangesChineseSimplifiedCommon());
     _io->FontDefault = font;
 
     // merge in icons from Font Awesome
-    static constexpr std::array<ImWchar, 3> K_ICONS_RANGES{ICON_MIN_LC,
-                                                           ICON_MAX_LC, 0};
+    static constexpr std::array<ImWchar, 3> K_ICONS_RANGES{ICON_MIN_LC, ICON_MAX_LC, 0};
     static constexpr float                  ICONFONT_SIZE{24.0f};
     ImFontConfig                            icons_config;
     icons_config.MergeMode  = true;
     icons_config.PixelSnapH = true;
     _io->Fonts->AddFontFromMemoryCompressedBase85TTF(
-            lucide_iconfont_compressed_data_base85, ICONFONT_SIZE,
-            &icons_config, K_ICONS_RANGES.data());
+            lucide_iconfont_compressed_data_base85,// NOLINT
+            ICONFONT_SIZE, &icons_config, K_ICONS_RANGES.data());
 
     _io->FontGlobalScale = dpi_scale.x_scale;
 }
@@ -109,19 +104,15 @@ void TXSceneRenderer::loadStyle(DPIScale const& dpi_scale) {
     _style->SeparatorTextPadding     = {20.0f, 10.0f};
     // NOLINTEND
 
-    constexpr ImVec4 BG      = DEFAULT_STYLE_GROUP.background.toImVec4();
-    constexpr ImVec4 FG      = DEFAULT_STYLE_GROUP.foreground.toImVec4();
-    constexpr ImVec4 TEXT    = DEFAULT_STYLE_GROUP.text.toImVec4();
-    constexpr ImVec4 TEXT_BG = DEFAULT_STYLE_GROUP.text_background.toImVec4();
-    constexpr ImVec4 HIGHLIGHT_PRIMARY =
-            DEFAULT_STYLE_GROUP.highlight_primary.toImVec4();
-    constexpr ImVec4 HOVER_PRIMARY =
-            DEFAULT_STYLE_GROUP.hover_primary.toImVec4();
-    constexpr ImVec4 HIGHLIGHT_SECONDARY =
-            DEFAULT_STYLE_GROUP.highlight_secondary.toImVec4();
-    constexpr ImVec4 HOVER_SECONDARY =
-            DEFAULT_STYLE_GROUP.hover_secondary.toImVec4();
-    constexpr ImVec4 MODAL_DIM = DEFAULT_STYLE_GROUP.modal_dim.toImVec4();
+    constexpr ImVec4 BG                  = DEFAULT_STYLE_GROUP.background.toImVec4();
+    constexpr ImVec4 FG                  = DEFAULT_STYLE_GROUP.foreground.toImVec4();
+    constexpr ImVec4 TEXT                = DEFAULT_STYLE_GROUP.text.toImVec4();
+    constexpr ImVec4 TEXT_BG             = DEFAULT_STYLE_GROUP.text_background.toImVec4();
+    constexpr ImVec4 HIGHLIGHT_PRIMARY   = DEFAULT_STYLE_GROUP.highlight_primary.toImVec4();
+    constexpr ImVec4 HOVER_PRIMARY       = DEFAULT_STYLE_GROUP.hover_primary.toImVec4();
+    constexpr ImVec4 HIGHLIGHT_SECONDARY = DEFAULT_STYLE_GROUP.highlight_secondary.toImVec4();
+    constexpr ImVec4 HOVER_SECONDARY     = DEFAULT_STYLE_GROUP.hover_secondary.toImVec4();
+    constexpr ImVec4 MODAL_DIM           = DEFAULT_STYLE_GROUP.modal_dim.toImVec4();
 
     _style->Colors[ImGuiCol_WindowBg]             = BG;
     _style->Colors[ImGuiCol_Border]               = FG;
@@ -163,11 +154,9 @@ void TXSceneRenderer::initImgui(const Window* window) {
     ImGui::CreateContext();
     _io = &ImGui::GetIO();
 
-    _io->ConfigFlags |=
-            ImGuiConfigFlags_NavEnableKeyboard;// Enable Keyboard Controls
-    _io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
-    _io->ConfigFlags |=
-            ImGuiConfigFlags_ViewportsEnable;          // Enable Multi-Viewport
+    _io->ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;// Enable Keyboard Controls
+    _io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;    // Enable Docking
+    _io->ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;  // Enable Multi-Viewport
     // Platform Windows
 
     loadFont(window->dpi_scale());

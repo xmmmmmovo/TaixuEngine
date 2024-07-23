@@ -13,14 +13,7 @@
 
 namespace taixu {
 
-enum class EnumCameraMovement : std::uint8_t {
-    FORWARD,
-    BACKWARD,
-    LEFT,
-    RIGHT,
-    UP,
-    DOWN
-};
+enum class CameraMovement : std::uint8_t { FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN };
 
 // Default camera values
 static constexpr float YAW          = -90.0f;
@@ -50,20 +43,19 @@ public:
 
     // constructor with vectors
     explicit EulerCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 5.5f),
-                         glm::vec3 up       = glm::vec3(0.0f, 1.0f, 0.0f),
-                         float yaw = YAW, float pitch = PITCH)
+                         glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW,
+                         float pitch = PITCH)
         : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(NORMAL_SPEED),
-          MouseSensitivity(SENSITIVITY), Zoom(ZOOM), Position(position),
-          WorldUp(up), Yaw(yaw), Pitch(pitch) {
+          MouseSensitivity(SENSITIVITY), Zoom(ZOOM), Position(position), WorldUp(up), Yaw(yaw),
+          Pitch(pitch) {
         updateCameraVectorsPerspective();
     }
 
     // constructor with scalar values
-    EulerCamera(float posX, float posY, float posZ, float upX, float upY,
-                float upZ, float yaw, float pitch)
+    EulerCamera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw,
+                float pitch)
         : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(NORMAL_SPEED),
-          MouseSensitivity(SENSITIVITY), Zoom(ZOOM),
-          Position(glm::vec3(posX, posY, posZ)),
+          MouseSensitivity(SENSITIVITY), Zoom(ZOOM), Position(glm::vec3(posX, posY, posZ)),
           WorldUp(glm::vec3(upX, upY, upZ)), Yaw(yaw), Pitch(pitch) {
         updateCameraVectorsPerspective();
     }
@@ -71,24 +63,14 @@ public:
     // processes input received from any keyboard-like input system. Accepts
     // input parameter in the form of camera defined ENUM (to abstract it from
     // windowing systems)
-    void processKeyboard(EnumCameraMovement direction, float deltaTime) {
+    void processKeyboard(CameraMovement direction, float deltaTime) {
         float const velocity = MovementSpeed * deltaTime;
-        if (direction == EnumCameraMovement::FORWARD) {
-            Position += Front * velocity;
-        }
-        if (direction == EnumCameraMovement::BACKWARD) {
-            Position -= Front * velocity;
-        }
-        if (direction == EnumCameraMovement::LEFT) {
-            Position -= Right * velocity;
-        }
-        if (direction == EnumCameraMovement::RIGHT) {
-            Position += Right * velocity;
-        }
-        if (direction == EnumCameraMovement::UP) { Position += Up * velocity; }
-        if (direction == EnumCameraMovement::DOWN) {
-            Position -= Up * velocity;
-        }
+        if (direction == CameraMovement::FORWARD) { Position += Front * velocity; }
+        if (direction == CameraMovement::BACKWARD) { Position -= Front * velocity; }
+        if (direction == CameraMovement::LEFT) { Position -= Right * velocity; }
+        if (direction == CameraMovement::RIGHT) { Position += Right * velocity; }
+        if (direction == CameraMovement::UP) { Position += Up * velocity; }
+        if (direction == CameraMovement::DOWN) { Position -= Up * velocity; }
     }
 
     void accelerate() { MovementSpeed = FASTS_PEED; }
@@ -98,8 +80,7 @@ public:
 
     // processes input received from a mouse input system. Expects the offset
     // value in both the x and y direction.
-    void processMouseMovement(float xoffset, float yoffset,
-                              bool constrainPitch = true) {
+    void processMouseMovement(float xoffset, float yoffset, bool constrainPitch = true) {
         xoffset *= MouseSensitivity;
         yoffset *= MouseSensitivity;
 
@@ -125,26 +106,20 @@ public:
         if (Zoom > 45.0f) { Zoom = 45.0f; }
     }
 
-    [[nodiscard]] glm::mat4 const& getViewMatrix() const {
-        return _view_matrix;
-    }
+    [[nodiscard]] glm::mat4 const& getViewMatrix() const { return _view_matrix; }
 
-    [[nodiscard]] glm::mat4 const& getProjectionMatrix() {
-        return _projection_matrix;
-    }
+    [[nodiscard]] glm::mat4 const& getProjectionMatrix() { return _projection_matrix; }
 
     void updateCameraVectorsOrtho(float width, float height) {
-        _projection_matrix =
-                glm::ortho(-width * 0.5f, width * 0.5f, -height * 0.5f,
-                           height * 0.5f, Z_NEAR, Z_FAR);
+        _projection_matrix = glm::ortho(-width * 0.5f, width * 0.5f, -height * 0.5f, height * 0.5f,
+                                        Z_NEAR, Z_FAR);
         updateViewMat();
     }
 
     // calculates the front vector from the Camera's (updated) Euler Angles
     void updateCameraVectorsPerspective() {
         // calculate the new Front vector
-        _projection_matrix = glm::perspective(glm::radians(_fov), _aspect_ratio,
-                                              Z_NEAR, Z_FAR);
+        _projection_matrix = glm::perspective(glm::radians(_fov), _aspect_ratio, Z_NEAR, Z_FAR);
         updateViewMat();
     }
 
@@ -156,11 +131,10 @@ private:
         front.z      = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
         Front        = glm::normalize(front);
         // also re-calculate the Right and Up vector
-        Right        = glm::normalize(glm::cross(
-                Front,
-                WorldUp));// normalize the vectors, because their length gets
-                          // closer to 0 the more you look up or down which
-                          // results in slower movement.
+        Right        = glm::normalize(glm::cross(Front,
+                                                 WorldUp));// normalize the vectors, because their length
+                                                    // gets closer to 0 the more you look up or down
+                                                    // which results in slower movement.
         Up           = glm::normalize(glm::cross(Right, Front));
         _view_matrix = glm::lookAt(Position, Position + Front, Up);
     }
