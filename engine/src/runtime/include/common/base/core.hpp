@@ -30,7 +30,7 @@ enum class WindowType : std::uint8_t { WINDOWED, FULLSCREEN, FULLSCREEN_DESKTOP 
 /**
  * @brief Whole return code / status code enum class.
  */
-enum class ResultCode : std::uint32_t {
+enum class RetCode : std::uint32_t {
     SUCCESS       = 0,// success
     UNKNOWN_ERROR = 1,// unknow error
 

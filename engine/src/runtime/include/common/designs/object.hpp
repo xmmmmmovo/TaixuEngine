@@ -50,18 +50,9 @@ public:
  * @tparam T
  */
 template<typename T>
-concept ResultCodeConcept = std::is_enum_v<T> && std::is_same_v<T, ResultCode>;
+concept RetCodeConcept = std::is_enum_v<T> && std::is_same_v<T, RetCode>;
 
-/**
- * @brief
- *
- * @tparam T
- * @tparam ResultCodeT
- */
-template<typename T, ResultCodeConcept ResultCodeT>
-struct Result {
-    T           value;
-    ResultCodeT code{ResultCode::SUCCESS};
-};
+template<typename T>
+using ResValT = std::expected<T, RetCode>;
 
 }// namespace taixu

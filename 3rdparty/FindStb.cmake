@@ -6,12 +6,13 @@ CPMAddPackage(
         DOWNLOAD_ONLY YES
 )
 
-if (stb_ADDED)
-    FILE(GLOB stb_headers CONFIGURE_DEPENDS
-            ${stb_SOURCE_DIR}/*.h)
-    add_library(stb INTERFACE ${stb_sources})
-    target_include_directories(stb
-            INTERFACE
-            $<BUILD_INTERFACE:${stb_SOURCE_DIR}>
-            )
-endif ()
+if(stb_ADDED)
+        FILE(GLOB stb_headers CONFIGURE_DEPENDS
+                ${stb_SOURCE_DIR}/*.h)
+        add_library(stb INTERFACE ${stb_sources})
+        set_target_properties(stb PROPERTIES CXX_STANDARD 23)
+        target_include_directories(stb
+                INTERFACE
+                $<BUILD_INTERFACE:${stb_SOURCE_DIR}>
+        )
+endif()

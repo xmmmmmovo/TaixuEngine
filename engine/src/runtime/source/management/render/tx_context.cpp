@@ -25,6 +25,27 @@ std::optional<TXContext> createContext(Window* window) {
         return std::nullopt;
     }
 
+    if (!window || !Window::isSupportVulkan()) {
+        FATAL_LOG("Window is not support vulkan");
+        return std::nullopt;
+    }
+
+    // Get Vulkan extensions and support layers
+    auto layers = vk::enumerateInstanceLayerProperties();
+    if (layers.result != vk::Result::eSuccess) {
+        FATAL_LOG("Failed to get Vulkan layers: {}", vk::to_string(layers.result));
+        return std::nullopt;
+    }
+
+    auto extensions = vk::enumerateInstanceExtensionProperties(nullptr);
+
+
+    VkGlfwExtensions exts = Window::getVulkanInstanceExtensions();
+    if (exts.count == 0) {
+        FATAL_LOG("Failed to get Vulkan extensions");
+        return std::nullopt;
+    }
+
     return {};
 }
 

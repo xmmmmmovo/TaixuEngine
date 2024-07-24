@@ -7,6 +7,7 @@
 
 #include <functional>
 
+#include "common/base/core.hpp"
 #include "common/base/macro.hpp"
 #include "common/designs/noncopyable.hpp"
 
@@ -25,6 +26,8 @@
     #include <GLFW/glfw3native.h>
 #endif
 
+namespace taixu {
+
 struct WindowInfo {
     std::string_view title{};
     int32_t          width{0};
@@ -41,7 +44,10 @@ struct WindowState {
     bool fullscreen{false};
 };
 
-namespace taixu {
+struct VkGlfwExtensions {
+    uint32_t                 count{0};
+    std::vector<const char*> names{};
+};
 
 class Window final : public Noncopyable {
 private:
@@ -97,6 +103,11 @@ public:
 
     static void        handleEvents();
     [[nodiscard]] bool shouldClose() const;
+
+    [[nodiscard]] static bool             isSupportVulkan();
+    [[nodiscard]] static VkGlfwExtensions getVulkanInstanceExtensions();
+
+    RetCode setTitle(std::string_view title);
 
 protected:
     // NOLINTBEGIN
