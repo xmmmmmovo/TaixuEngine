@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: taixu::Result&lt; T, ResultCodeT &gt; Struct Template Reference</title>
+<title>TaixuEngine: taixu::VkGlfwExtensions Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('structtaixu_1_1Result.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('structtaixu_1_1VkGlfwExtensions.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,68 +83,52 @@ $(document).ready(function(){initNavTree('structtaixu_1_1Result.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structtaixu_1_1Result-members.html">List of all members</a>  </div>
+<a href="structtaixu_1_1VkGlfwExtensions-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">taixu::Result&lt; T, ResultCodeT &gt; Struct Template Reference</div>  </div>
+<div class="title">taixu::VkGlfwExtensions Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="object_8hpp_source.html">object.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="window_8hpp_source.html">window.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for taixu::Result&lt; T, ResultCodeT &gt;:</div>
+Collaboration diagram for taixu::VkGlfwExtensions:</div>
 <div class="dyncontent">
-<div class="center"><img src="structtaixu_1_1Result__coll__graph.png" border="0" usemap="#ataixu_1_1Result_3_01T_00_01ResultCodeT_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="ataixu_1_1Result_3_01T_00_01ResultCodeT_01_4_coll__map" id="ataixu_1_1Result_3_01T_00_01ResultCodeT_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="5,145,181,237"/>
-<area shape="rect" title=" " alt="" coords="41,5,145,83"/>
+<div class="center"><img src="structtaixu_1_1VkGlfwExtensions__coll__graph.png" border="0" usemap="#ataixu_1_1VkGlfwExtensions_coll__map" alt="Collaboration graph"/></div>
+<map name="ataixu_1_1VkGlfwExtensions_coll__map" id="ataixu_1_1VkGlfwExtensions_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,185,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5d6b2475300fbaffcf438ed202170534"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1Result.html#a5d6b2475300fbaffcf438ed202170534">value</a></td></tr>
-<tr class="separator:a5d6b2475300fbaffcf438ed202170534"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a252520002cb77212a6bc202b38c0a1a6"><td class="memItemLeft" align="right" valign="top">ResultCodeT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1Result.html#a252520002cb77212a6bc202b38c0a1a6">code</a> {<a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dead0749aaba8b833466dfcbb0428e4f89c">ResultCode::SUCCESS</a>}</td></tr>
-<tr class="separator:a252520002cb77212a6bc202b38c0a1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacc71aa324b763915e40c36c537ba0a2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1VkGlfwExtensions.html#aacc71aa324b763915e40c36c537ba0a2">count</a> {0}</td></tr>
+<tr class="separator:aacc71aa324b763915e40c36c537ba0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5b134e37f92d243f9bba504c67cb5c7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1VkGlfwExtensions.html#aa5b134e37f92d243f9bba504c67cb5c7">names</a> {}</td></tr>
+<tr class="separator:aa5b134e37f92d243f9bba504c67cb5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, ResultCodeConcept ResultCodeT&gt;<br />
-struct taixu::Result&lt; T, ResultCodeT &gt;</h3>
-
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td></td></tr>
-    <tr><td class="paramname">ResultCodeT</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a252520002cb77212a6bc202b38c0a1a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a252520002cb77212a6bc202b38c0a1a6">&#9670;&nbsp;</a></span>code</h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aacc71aa324b763915e40c36c537ba0a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacc71aa324b763915e40c36c537ba0a2">&#9670;&nbsp;</a></span>count</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , ResultCodeConcept ResultCodeT&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">ResultCodeT <a class="el" href="structtaixu_1_1Result.html">taixu::Result</a>&lt; T, ResultCodeT &gt;::code {<a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dead0749aaba8b833466dfcbb0428e4f89c">ResultCode::SUCCESS</a>}</td>
+          <td class="memname">uint32_t taixu::VkGlfwExtensions::count {0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a5d6b2475300fbaffcf438ed202170534"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d6b2475300fbaffcf438ed202170534">&#9670;&nbsp;</a></span>value</h2>
+<a id="aa5b134e37f92d243f9bba504c67cb5c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5b134e37f92d243f9bba504c67cb5c7">&#9670;&nbsp;</a></span>names</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , ResultCodeConcept ResultCodeT&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="structtaixu_1_1Result.html">taixu::Result</a>&lt; T, ResultCodeT &gt;::value</td>
+          <td class="memname">std::vector&lt;const char*&gt; taixu::VkGlfwExtensions::names {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -152,14 +136,14 @@ template&lt;typename T , ResultCodeConcept ResultCodeT&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>engine/src/runtime/include/common/designs/<a class="el" href="object_8hpp_source.html">object.hpp</a></li>
+<li>engine/src/runtime/include/gameplay/gui/<a class="el" href="window_8hpp_source.html">window.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacetaixu.html">taixu</a></li><li class="navelem"><a class="el" href="structtaixu_1_1Result.html">Result</a></li>
+    <li class="navelem"><a class="el" href="namespacetaixu.html">taixu</a></li><li class="navelem"><a class="el" href="structtaixu_1_1VkGlfwExtensions.html">VkGlfwExtensions</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

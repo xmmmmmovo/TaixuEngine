@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"file__watcher_8hpp_source.html":[7,0,1,1,0,1,0,5],
 "files.html":[7,0],
 "forward__shader_8hpp.html":[7,0,1,1,1,1,4,2,1,0,0],
 "forward__shader_8hpp_source.html":[7,0,1,1,1,1,4,2,1,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "map__array_8hpp_source.html":[7,0,1,1,1,1,0,1,0],
 "materialInfo_8hpp.html":[7,0,1,1,1,1,4,2,0,2],
 "materialInfo_8hpp_source.html":[7,0,1,1,1,1,4,2,0,2],
-"math_8hpp.html":[7,0,1,1,1,0,0,4,5],
-"math_8hpp.html#ae71449b1cc6e6250b91f539153a7a0d3":[7,0,1,1,1,0,0,4,5,0]
+"math_8hpp.html":[7,0,1,1,1,0,0,4,5]
 };

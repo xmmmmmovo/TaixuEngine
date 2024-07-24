@@ -41,6 +41,7 @@ var classtaixu_1_1Window =
     [ "registerOnWindowCloseFn", "classtaixu_1_1Window.html#a1a41c4250ac71b912ac1bd31943c7897", null ],
     [ "registerOnWindowSizeFn", "classtaixu_1_1Window.html#a067e73608267591d9fa983d485825d58", null ],
     [ "setOnError", "classtaixu_1_1Window.html#aeed265515c4bd9e2e4b51cb172a89e8c", null ],
+    [ "setTitle", "classtaixu_1_1Window.html#a2139d0c42c1e5934388964c45fa3fd60", null ],
     [ "shouldClose", "classtaixu_1_1Window.html#a4e7f2107486fb1eab31ace13772f6a0d", null ],
     [ "showWindow", "classtaixu_1_1Window.html#a5bab32e8b303bcb8b5741ec2ae051cc4", null ],
     [ "_on_char_fns", "classtaixu_1_1Window.html#a22a78c4f2c6c0717352520cc8a153e92", null ],

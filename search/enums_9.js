@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resultcode_2048',['ResultCode',['../namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78de',1,'taixu']]]
+  ['retcode_2062',['RetCode',['../namespacetaixu.html#adc82b804e95a2e67f048520144633c28',1,'taixu']]]
 ];

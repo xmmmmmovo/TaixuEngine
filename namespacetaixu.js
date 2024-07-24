@@ -20,7 +20,6 @@ var namespacetaixu =
     [ "Noncopyable", "classtaixu_1_1Noncopyable.html", "classtaixu_1_1Noncopyable" ],
     [ "StructDataNoncopyable", "structtaixu_1_1StructDataNoncopyable.html", "structtaixu_1_1StructDataNoncopyable" ],
     [ "SharedPtrOnly", "classtaixu_1_1SharedPtrOnly.html", "classtaixu_1_1SharedPtrOnly" ],
-    [ "Result", "structtaixu_1_1Result.html", "structtaixu_1_1Result" ],
     [ "Handler", "structtaixu_1_1Handler.html", "structtaixu_1_1Handler" ],
     [ "Signal", "classtaixu_1_1Signal.html", "classtaixu_1_1Signal" ],
     [ "ThreadPool", "classtaixu_1_1ThreadPool.html", "classtaixu_1_1ThreadPool" ],
@@ -29,6 +28,10 @@ var namespacetaixu =
     [ "RandomNumberGenerator", "classtaixu_1_1RandomNumberGenerator.html", "classtaixu_1_1RandomNumberGenerator" ],
     [ "Engine", "classtaixu_1_1Engine.html", "classtaixu_1_1Engine" ],
     [ "EngineArgs", "classtaixu_1_1EngineArgs.html", "classtaixu_1_1EngineArgs" ],
+    [ "WindowInfo", "structtaixu_1_1WindowInfo.html", "structtaixu_1_1WindowInfo" ],
+    [ "DPIScale", "structtaixu_1_1DPIScale.html", "structtaixu_1_1DPIScale" ],
+    [ "WindowState", "structtaixu_1_1WindowState.html", "structtaixu_1_1WindowState" ],
+    [ "VkGlfwExtensions", "structtaixu_1_1VkGlfwExtensions.html", "structtaixu_1_1VkGlfwExtensions" ],
     [ "Window", "classtaixu_1_1Window.html", "classtaixu_1_1Window" ],
     [ "GameObject", "classtaixu_1_1GameObject.html", "classtaixu_1_1GameObject" ],
     [ "GuidGenerator", "classtaixu_1_1GuidGenerator.html", null ],
@@ -123,6 +126,7 @@ var namespacetaixu =
     [ "Mat4", "namespacetaixu.html#aa9f9b84c610273579fa1227cb591f43a", null ],
     [ "ParamIdType", "namespacetaixu.html#adbf0da1b7ab2606764005d4dd214b812", null ],
     [ "Quat", "namespacetaixu.html#a6dca352d0de3797730845f84c215d0e1", null ],
+    [ "ResValT", "namespacetaixu.html#a93db9f2e125472df17f6aa30a1c9a4b3", null ],
     [ "SameT", "namespacetaixu.html#a950736f82e2569fa8f180cc4e0368926", null ],
     [ "Signature", "namespacetaixu.html#ad371f7e524baea970b2515cc7e7a26f1", null ],
     [ "source_loc_t", "namespacetaixu.html#a19db053ad6cc5ad3944d7ecbb7b4e9cd", null ],
@@ -219,15 +223,15 @@ var namespacetaixu =
       [ "QUAD", "namespacetaixu.html#a18a007613b176a45706c4a3c08d7bd11ac88da92039291f825814816096db2ea2", null ],
       [ "POINT", "namespacetaixu.html#a18a007613b176a45706c4a3c08d7bd11aaebdbcb765394d25d6a604589a890f82", null ]
     ] ],
-    [ "ResultCode", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78de", [
-      [ "SUCCESS", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dead0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "UNKNOWN_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea9a10f345b0f755d461a8673a5e9ef6b4", null ],
-      [ "COMMON_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea8fb22f0e67423fe6f1220b9dac13af7b", null ],
-      [ "GAMEPLAY_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78deaaa3794fb61fa110f0567af9643124c34", null ],
-      [ "MANAGEMENT_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78deaeb77be10dbf43d838892f782ec27e6dc", null ],
-      [ "UNSUPPORT_VULKAN_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea3aebeb55d9c7103461461681be93f18d", null ],
-      [ "PLATFORM_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea155d48028d2f38dead5197570a098fed", null ],
-      [ "RESOURCE_ERROR", "namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78deae8f19147b1155bd2cc91003c9180d459", null ]
+    [ "RetCode", "namespacetaixu.html#adc82b804e95a2e67f048520144633c28", [
+      [ "SUCCESS", "namespacetaixu.html#adc82b804e95a2e67f048520144633c28ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "UNKNOWN_ERROR", "namespacetaixu.html#adc82b804e95a2e67f048520144633c28a9a10f345b0f755d461a8673a5e9ef6b4", null ],
+      [ "COMMON_ERROR", "namespacetaixu.html#adc82b804e95a2e67f048520144633c28a8fb22f0e67423fe6f1220b9dac13af7b", null ],
+      [ "GAMEPLAY_ERROR", "namespacetaixu.html#adc82b804e95a2e67f048520144633c28aaa3794fb61fa110f0567af9643124c34", null ],
+      [ "MANAGEMENT_ERROR", "namespacetaixu.html#adc82b804e95a2e67f048520144633c28aeb77be10dbf43d838892f782ec27e6dc", null ],
+      [ "UNSUPPORT_VULKAN_ERROR", "namespacetaixu.html#adc82b804e95a2e67f048520144633c28a3aebeb55d9c7103461461681be93f18d", null ],
+      [ "PLATFORM_ERROR", "namespacetaixu.html#adc82b804e95a2e67f048520144633c28a155d48028d2f38dead5197570a098fed", null ],
+      [ "RESOURCE_ERROR", "namespacetaixu.html#adc82b804e95a2e67f048520144633c28ae8f19147b1155bd2cc91003c9180d459", null ]
     ] ],
     [ "TextureType", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114c", [
       [ "DIFFUSE", "namespacetaixu.html#a05d8a226a21db70168dbe24f7762114ca84a9d8c4d046cae1f87af62f45f07e68", null ],
@@ -338,7 +342,7 @@ var namespacetaixu =
     [ "MAX_COMPONENTS", "namespacetaixu.html#a54ad07a8bbe7358da12d832a8cff8480", null ],
     [ "MAX_ENTITIES", "namespacetaixu.html#a3e37c102dac5224c41148ce598da3e79", null ],
     [ "packUnorm4x8", "namespacetaixu.html#a1f0e30d9cab101099c9245cf9186bdb9", null ],
-    [ "ResultCodeConcept", "namespacetaixu.html#aa833235611b6aa64191bd2d2b6fd0144", null ],
+    [ "RetCodeConcept", "namespacetaixu.html#a81d969f22db604ef1280c40f5fc4e2e8", null ],
     [ "toDegrees", "namespacetaixu.html#af55a151621da35599514b2ad56e09ab5", null ],
     [ "toRadians", "namespacetaixu.html#a7bc8d31d0ff0b5d33d40da13800f29f0", null ],
     [ "unpackUnorm4x8", "namespacetaixu.html#a865ec5a80b11b9c15083e94569a03e07", null ]

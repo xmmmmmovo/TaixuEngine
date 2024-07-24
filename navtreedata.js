@@ -74,12 +74,12 @@ var NAVTREEINDEX =
 [
 "about.html",
 "classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831",
-"classtaixu_1_1editor_1_1RenderComponent.html#a85f54e4b145f6e1d3ad15a34d4742f92",
-"files.html",
-"math_8hpp_source.html",
-"namespacetaixu_1_1editor.html#a27235577ac59dd3f1971d77bf77cefb8aaf5a690fd5ec6f789dbfc51ec6a891ba",
-"structtaixu_1_1Material.html#ac513b4a658834eed4cb39d0e9c45b4a6",
-"tx__shader_8hpp.html#af9bb023d8437da060011a580038288e3ad05d603c5884ae9ccc392513becba305"
+"classtaixu_1_1editor_1_1RenderComponent.html#a7fb23d3bcb3c5921bffa0793ba6c4aa2",
+"file__watcher_8hpp_source.html",
+"math_8hpp.html#ae71449b1cc6e6250b91f539153a7a0d3",
+"namespacetaixu_1_1editor.html#a27235577ac59dd3f1971d77bf77cefb8",
+"structtaixu_1_1Material.html#af0e59f109a4514689c22ba655f204fd7",
+"tx__shader_8hpp.html#af9bb023d8437da060011a580038288e3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,7 +1,8 @@
 <map id="engine/src/runtime/include/gameplay/gui/window.hpp" name="engine/src/runtime/include/gameplay/gui/window.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="247,5,413,61"/>
+<area shape="rect" id="node1" title=" " alt="" coords="325,5,492,61"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,109,92,136"/>
-<area shape="rect" id="node3" href="$macro_8hpp.html" title=" " alt="" coords="117,109,303,136"/>
-<area shape="rect" id="node4" href="$noncopyable_8hpp.html" title=" " alt="" coords="327,109,575,136"/>
-<area shape="rect" id="node5" title=" " alt="" coords="600,109,711,136"/>
+<area shape="rect" id="node3" href="$core_8hpp.html" title=" " alt="" coords="116,109,291,136"/>
+<area shape="rect" id="node4" href="$macro_8hpp.html" title=" " alt="" coords="315,109,502,136"/>
+<area shape="rect" id="node5" href="$noncopyable_8hpp.html" title=" " alt="" coords="526,109,774,136"/>
+<area shape="rect" id="node6" title=" " alt="" coords="799,109,909,136"/>
 </map>

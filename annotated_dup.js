@@ -26,7 +26,6 @@ var annotated_dup =
       [ "Noncopyable", "classtaixu_1_1Noncopyable.html", "classtaixu_1_1Noncopyable" ],
       [ "StructDataNoncopyable", "structtaixu_1_1StructDataNoncopyable.html", "structtaixu_1_1StructDataNoncopyable" ],
       [ "SharedPtrOnly", "classtaixu_1_1SharedPtrOnly.html", "classtaixu_1_1SharedPtrOnly" ],
-      [ "Result", "structtaixu_1_1Result.html", "structtaixu_1_1Result" ],
       [ "Handler", "structtaixu_1_1Handler.html", "structtaixu_1_1Handler" ],
       [ "Signal", "classtaixu_1_1Signal.html", "classtaixu_1_1Signal" ],
       [ "ThreadPool", "classtaixu_1_1ThreadPool.html", "classtaixu_1_1ThreadPool" ],
@@ -35,6 +34,10 @@ var annotated_dup =
       [ "RandomNumberGenerator", "classtaixu_1_1RandomNumberGenerator.html", "classtaixu_1_1RandomNumberGenerator" ],
       [ "Engine", "classtaixu_1_1Engine.html", "classtaixu_1_1Engine" ],
       [ "EngineArgs", "classtaixu_1_1EngineArgs.html", "classtaixu_1_1EngineArgs" ],
+      [ "WindowInfo", "structtaixu_1_1WindowInfo.html", "structtaixu_1_1WindowInfo" ],
+      [ "DPIScale", "structtaixu_1_1DPIScale.html", "structtaixu_1_1DPIScale" ],
+      [ "WindowState", "structtaixu_1_1WindowState.html", "structtaixu_1_1WindowState" ],
+      [ "VkGlfwExtensions", "structtaixu_1_1VkGlfwExtensions.html", "structtaixu_1_1VkGlfwExtensions" ],
       [ "Window", "classtaixu_1_1Window.html", "classtaixu_1_1Window" ],
       [ "GameObject", "classtaixu_1_1GameObject.html", "classtaixu_1_1GameObject" ],
       [ "GuidGenerator", "classtaixu_1_1GuidGenerator.html", null ],
@@ -115,8 +118,5 @@ var annotated_dup =
       [ "Mesh", "structtaixu_1_1Mesh.html", "structtaixu_1_1Mesh" ],
       [ "World", "structtaixu_1_1World.html", "structtaixu_1_1World" ],
       [ "AssetManager", "classtaixu_1_1AssetManager.html", null ]
-    ] ],
-    [ "DPIScale", "structDPIScale.html", "structDPIScale" ],
-    [ "WindowInfo", "structWindowInfo.html", "structWindowInfo" ],
-    [ "WindowState", "structWindowState.html", "structWindowState" ]
+    ] ]
 ];

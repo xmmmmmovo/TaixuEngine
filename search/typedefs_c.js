@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['tx_5fdeque_2016',['tx_deque',['../namespacetaixu.html#a0a49fe0f01004e8bb35b4643e4a251bc',1,'taixu']]],
-  ['tx_5flist_2017',['tx_list',['../namespacetaixu.html#a6499f26287644e54de8d6f493ea97ed5',1,'taixu']]],
-  ['tx_5fmap_2018',['tx_map',['../namespacetaixu.html#ac1120afe953501d985764b3559e9b334',1,'taixu']]],
-  ['tx_5fmultimap_2019',['tx_multimap',['../namespacetaixu.html#a8e6cd2d6a3b39368f7a5ae67c1177b38',1,'taixu']]],
-  ['tx_5funordered_5fmap_2020',['tx_unordered_map',['../namespacetaixu.html#aa8342291a91f904a60450ebf1427e883',1,'taixu']]],
-  ['tx_5fvector_2021',['tx_vector',['../namespacetaixu.html#a02d924bc8237d1369f9db804b99015c9',1,'taixu']]],
-  ['txallocatort_2022',['txAllocatorT',['../namespacetaixu.html#a7553befcf4188886fa56b7dd5cadeedd',1,'taixu']]],
-  ['txbuiltinshadercreateinfoarrt_2023',['TXBuiltinShaderCreateInfoArrT',['../namespacetaixu.html#abeae149b7f163f68414b725315b382cd',1,'taixu']]],
-  ['txbuiltinshadermoduleptrarrt_2024',['TXBuiltinShaderModulePtrArrT',['../namespacetaixu.html#addf6fb95b9be615457c63ef66a0874b4',1,'taixu']]]
+  ['samet_2024',['SameT',['../namespacetaixu_1_1editor.html#ab68f31e20392ffe7235c7ee80fff7b58',1,'taixu::editor::SameT()'],['../namespacetaixu.html#a950736f82e2569fa8f180cc4e0368926',1,'taixu::SameT()']]],
+  ['signature_2025',['Signature',['../namespacetaixu.html#ad371f7e524baea970b2515cc7e7a26f1',1,'taixu']]],
+  ['source_5floc_5ft_2026',['source_loc_t',['../namespacetaixu.html#a19db053ad6cc5ad3944d7ecbb7b4e9cd',1,'taixu']]],
+  ['stb_5fuchar_2027',['stb_uchar',['../binary__to__compressed__c_8cpp.html#aade163fe29a05e8b6333c814c771101a',1,'binary_to_compressed_c.cpp']]],
+  ['stb_5fuint_2028',['stb_uint',['../binary__to__compressed__c_8cpp.html#a6fe01ca1e7c8e7b941f14187549609c6',1,'binary_to_compressed_c.cpp']]],
+  ['systemidtype_2029',['SystemIdType',['../namespacetaixu.html#a39bd7c139707b4bef7ec9bf5eabf4bbb',1,'taixu']]]
 ];

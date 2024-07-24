@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('object_8hpp.html',''); initResizable()
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -113,13 +114,17 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1SharedPtrOnly.html">taixu::SharedPtrOnly&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">only can use in shared_ptr, only can construct by shared_ptr.  <a href="classtaixu_1_1SharedPtrOnly.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1Result.html">taixu::Result&lt; T, ResultCodeT &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacetaixu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html">taixu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a93db9f2e125472df17f6aa30a1c9a4b3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a93db9f2e125472df17f6aa30a1c9a4b3"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a93db9f2e125472df17f6aa30a1c9a4b3">taixu::ResValT</a> = std::expected&lt; T, RetCode &gt;</td></tr>
+<tr class="separator:a93db9f2e125472df17f6aa30a1c9a4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -129,10 +134,10 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aa833235611b6aa64191bd2d2b6fd0144"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aa833235611b6aa64191bd2d2b6fd0144"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa833235611b6aa64191bd2d2b6fd0144">taixu::ResultCodeConcept</a> = std::is_enum_v&lt;T&gt; &amp;&amp; std::is_same_v&lt;T, ResultCode&gt;</td></tr>
-<tr class="memdesc:aa833235611b6aa64191bd2d2b6fd0144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept type limit for EnumTXResult.  <a href="namespacetaixu.html#aa833235611b6aa64191bd2d2b6fd0144">More...</a><br /></td></tr>
-<tr class="separator:aa833235611b6aa64191bd2d2b6fd0144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81d969f22db604ef1280c40f5fc4e2e8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a81d969f22db604ef1280c40f5fc4e2e8"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a81d969f22db604ef1280c40f5fc4e2e8">taixu::RetCodeConcept</a> = std::is_enum_v&lt;T&gt; &amp;&amp; std::is_same_v&lt;T, RetCode&gt;</td></tr>
+<tr class="memdesc:a81d969f22db604ef1280c40f5fc4e2e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept type limit for EnumTXResult.  <a href="namespacetaixu.html#a81d969f22db604ef1280c40f5fc4e2e8">More...</a><br /></td></tr>
+<tr class="separator:a81d969f22db604ef1280c40f5fc4e2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>xmmmmmovo (<a href="#" onclick="location.href='mai'+'lto:'+'ma_'+'fi'+'vez'+'ha'+'@16'+'3.'+'com'; return false;">ma_fi<span style="display: none;">.nosp@m.</span>vezh<span style="display: none;">.nosp@m.</span>a@163<span style="display: none;">.nosp@m.</span>.com</a>) </dd></dl>

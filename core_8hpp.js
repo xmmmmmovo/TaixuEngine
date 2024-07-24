@@ -6,15 +6,15 @@ var core_8hpp =
       [ "IDLEMODE", "core_8hpp.html#a9c95242d407de137501f77058dc1790bae5cd59ce2a24c6954a3c67dfd4a6c2ed", null ],
       [ "GAMEMODE", "core_8hpp.html#a9c95242d407de137501f77058dc1790baa47c7e18b85dd065d02f75743d85947f", null ]
     ] ],
-    [ "ResultCode", "core_8hpp.html#a9176a40d5bf5d466c82ea86aaa5a78de", [
-      [ "SUCCESS", "core_8hpp.html#a9176a40d5bf5d466c82ea86aaa5a78dead0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "UNKNOWN_ERROR", "core_8hpp.html#a9176a40d5bf5d466c82ea86aaa5a78dea9a10f345b0f755d461a8673a5e9ef6b4", null ],
-      [ "COMMON_ERROR", "core_8hpp.html#a9176a40d5bf5d466c82ea86aaa5a78dea8fb22f0e67423fe6f1220b9dac13af7b", null ],
-      [ "GAMEPLAY_ERROR", "core_8hpp.html#a9176a40d5bf5d466c82ea86aaa5a78deaaa3794fb61fa110f0567af9643124c34", null ],
-      [ "MANAGEMENT_ERROR", "core_8hpp.html#a9176a40d5bf5d466c82ea86aaa5a78deaeb77be10dbf43d838892f782ec27e6dc", null ],
-      [ "UNSUPPORT_VULKAN_ERROR", "core_8hpp.html#a9176a40d5bf5d466c82ea86aaa5a78dea3aebeb55d9c7103461461681be93f18d", null ],
-      [ "PLATFORM_ERROR", "core_8hpp.html#a9176a40d5bf5d466c82ea86aaa5a78dea155d48028d2f38dead5197570a098fed", null ],
-      [ "RESOURCE_ERROR", "core_8hpp.html#a9176a40d5bf5d466c82ea86aaa5a78deae8f19147b1155bd2cc91003c9180d459", null ]
+    [ "RetCode", "core_8hpp.html#adc82b804e95a2e67f048520144633c28", [
+      [ "SUCCESS", "core_8hpp.html#adc82b804e95a2e67f048520144633c28ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "UNKNOWN_ERROR", "core_8hpp.html#adc82b804e95a2e67f048520144633c28a9a10f345b0f755d461a8673a5e9ef6b4", null ],
+      [ "COMMON_ERROR", "core_8hpp.html#adc82b804e95a2e67f048520144633c28a8fb22f0e67423fe6f1220b9dac13af7b", null ],
+      [ "GAMEPLAY_ERROR", "core_8hpp.html#adc82b804e95a2e67f048520144633c28aaa3794fb61fa110f0567af9643124c34", null ],
+      [ "MANAGEMENT_ERROR", "core_8hpp.html#adc82b804e95a2e67f048520144633c28aeb77be10dbf43d838892f782ec27e6dc", null ],
+      [ "UNSUPPORT_VULKAN_ERROR", "core_8hpp.html#adc82b804e95a2e67f048520144633c28a3aebeb55d9c7103461461681be93f18d", null ],
+      [ "PLATFORM_ERROR", "core_8hpp.html#adc82b804e95a2e67f048520144633c28a155d48028d2f38dead5197570a098fed", null ],
+      [ "RESOURCE_ERROR", "core_8hpp.html#adc82b804e95a2e67f048520144633c28ae8f19147b1155bd2cc91003c9180d459", null ]
     ] ],
     [ "WindowAPI", "core_8hpp.html#a31825871b1ba9d578d6301fe43dacfb9", [
       [ "GLFW", "core_8hpp.html#a31825871b1ba9d578d6301fe43dacfb9ab274032f1807b8cd2f7553d82555c73c", null ],

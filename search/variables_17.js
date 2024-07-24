@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['x_1969',['x',['../structtaixu_1_1TXViewport.html#ad20994a1d0e1fe33f83c7b600d36268b',1,'taixu::TXViewport']]],
-  ['x_5fscale_1970',['x_scale',['../structDPIScale.html#a623a8d1a18cbaef51797f49694a67e6f',1,'DPIScale']]]
+  ['x_1982',['x',['../structtaixu_1_1TXViewport.html#ad20994a1d0e1fe33f83c7b600d36268b',1,'taixu::TXViewport']]],
+  ['x_5fscale_1983',['x_scale',['../structtaixu_1_1DPIScale.html#aec1f40c42f4ccc733a36085636a3b659',1,'taixu::DPIScale']]]
 ];

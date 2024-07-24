@@ -19,7 +19,7 @@ var hierarchy =
     [ "taixu::ComponentManager", "classtaixu_1_1ComponentManager.html", null ],
     [ "taixu::CpuClock", "classtaixu_1_1CpuClock.html", null ],
     [ "taixu::DirLight", "structtaixu_1_1DirLight.html", null ],
-    [ "DPIScale", "structDPIScale.html", null ],
+    [ "taixu::DPIScale", "structtaixu_1_1DPIScale.html", null ],
     [ "taixu::ECSCoordinator", "classtaixu_1_1ECSCoordinator.html", null ],
     [ "taixu::editor::EditorContext", "structtaixu_1_1editor_1_1EditorContext.html", null ],
     [ "taixu::editor::EditorStyle", "structtaixu_1_1editor_1_1EditorStyle.html", null ],
@@ -119,7 +119,6 @@ var hierarchy =
       [ "taixu::InputSystem", "classtaixu_1_1InputSystem.html", null ]
     ] ],
     [ "taixu::RenderableComponent", "classtaixu_1_1RenderableComponent.html", null ],
-    [ "taixu::Result< T, ResultCodeT >", "structtaixu_1_1Result.html", null ],
     [ "std::runtime_error", null, [
       [ "taixu::TXRuntimeError", "classtaixu_1_1TXRuntimeError.html", null ]
     ] ],
@@ -148,7 +147,8 @@ var hierarchy =
     [ "taixu::TXViewport", "structtaixu_1_1TXViewport.html", null ],
     [ "taixu::editor::UsefulObjectData", "structtaixu_1_1editor_1_1UsefulObjectData.html", null ],
     [ "taixu::editor::ViewModel", "structtaixu_1_1editor_1_1ViewModel.html", null ],
-    [ "WindowInfo", "structWindowInfo.html", null ],
-    [ "WindowState", "structWindowState.html", null ],
+    [ "taixu::VkGlfwExtensions", "structtaixu_1_1VkGlfwExtensions.html", null ],
+    [ "taixu::WindowInfo", "structtaixu_1_1WindowInfo.html", null ],
+    [ "taixu::WindowState", "structtaixu_1_1WindowState.html", null ],
     [ "taixu::World", "structtaixu_1_1World.html", null ]
 ];

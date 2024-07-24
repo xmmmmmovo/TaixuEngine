@@ -115,8 +115,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1SharedPtrOnly.html">SharedPtrOnly</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">only can use in shared_ptr, only can construct by shared_ptr.  <a href="classtaixu_1_1SharedPtrOnly.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1Result.html">Result</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1Handler.html">Handler</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler，用于回调和事件处理  <a href="structtaixu_1_1Handler.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,6 +133,14 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Engine.html">Engine</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1EngineArgs.html">EngineArgs</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1WindowInfo.html">WindowInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1DPIScale.html">DPIScale</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1WindowState.html">WindowState</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtaixu_1_1VkGlfwExtensions.html">VkGlfwExtensions</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Window.html">Window</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -309,6 +315,9 @@ Typedefs</h2></td></tr>
 <tr class="separator:ae4d27392644e1176de5b669d389e3c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a158bbb2b977278cd5123cc8e353a86e7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a158bbb2b977278cd5123cc8e353a86e7">hash64_t</a> = std::uint64_t</td></tr>
 <tr class="separator:a158bbb2b977278cd5123cc8e353a86e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93db9f2e125472df17f6aa30a1c9a4b3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a93db9f2e125472df17f6aa30a1c9a4b3"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a93db9f2e125472df17f6aa30a1c9a4b3">ResValT</a> = std::expected&lt; T, <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28">RetCode</a> &gt;</td></tr>
+<tr class="separator:a93db9f2e125472df17f6aa30a1c9a4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19db053ad6cc5ad3944d7ecbb7b4e9cd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a19db053ad6cc5ad3944d7ecbb7b4e9cd">source_loc_t</a> = spdlog::source_loc</td></tr>
 <tr class="separator:a19db053ad6cc5ad3944d7ecbb7b4e9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dca352d0de3797730845f84c215d0e1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a6dca352d0de3797730845f84c215d0e1">Quat</a> = glm::quat</td></tr>
@@ -398,20 +407,20 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a730716e6b624149c8bb7c812523877d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">window type supported  <a href="namespacetaixu.html#a730716e6b624149c8bb7c812523877d3">More...</a><br /></td></tr>
 <tr class="separator:a730716e6b624149c8bb7c812523877d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9176a40d5bf5d466c82ea86aaa5a78de"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78de">ResultCode</a> : std::uint32_t { <br />
-&#160;&#160;<a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dead0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a> = 0
-, <a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea9a10f345b0f755d461a8673a5e9ef6b4">UNKNOWN_ERROR</a> = 1
-, <a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea8fb22f0e67423fe6f1220b9dac13af7b">COMMON_ERROR</a> = (1 &lt;&lt; 10)
-, <a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78deaaa3794fb61fa110f0567af9643124c34">GAMEPLAY_ERROR</a> = (1 &lt;&lt; 10) * 2
+<tr class="memitem:adc82b804e95a2e67f048520144633c28"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28">RetCode</a> : std::uint32_t { <br />
+&#160;&#160;<a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a> = 0
+, <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28a9a10f345b0f755d461a8673a5e9ef6b4">UNKNOWN_ERROR</a> = 1
+, <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28a8fb22f0e67423fe6f1220b9dac13af7b">COMMON_ERROR</a> = (1 &lt;&lt; 10)
+, <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28aaa3794fb61fa110f0567af9643124c34">GAMEPLAY_ERROR</a> = (1 &lt;&lt; 10) * 2
 , <br />
-&#160;&#160;<a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78deaeb77be10dbf43d838892f782ec27e6dc">MANAGEMENT_ERROR</a> = (1 &lt;&lt; 10) * 3
-, <a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea3aebeb55d9c7103461461681be93f18d">UNSUPPORT_VULKAN_ERROR</a>
-, <a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78dea155d48028d2f38dead5197570a098fed">PLATFORM_ERROR</a> = (1 &lt;&lt; 10) * 4
-, <a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78deae8f19147b1155bd2cc91003c9180d459">RESOURCE_ERROR</a> = (1 &lt;&lt; 10) * 5
+&#160;&#160;<a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28aeb77be10dbf43d838892f782ec27e6dc">MANAGEMENT_ERROR</a> = (1 &lt;&lt; 10) * 3
+, <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28a3aebeb55d9c7103461461681be93f18d">UNSUPPORT_VULKAN_ERROR</a>
+, <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28a155d48028d2f38dead5197570a098fed">PLATFORM_ERROR</a> = (1 &lt;&lt; 10) * 4
+, <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28ae8f19147b1155bd2cc91003c9180d459">RESOURCE_ERROR</a> = (1 &lt;&lt; 10) * 5
 <br />
  }</td></tr>
-<tr class="memdesc:a9176a40d5bf5d466c82ea86aaa5a78de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whole return code / status code enum class.  <a href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78de">More...</a><br /></td></tr>
-<tr class="separator:a9176a40d5bf5d466c82ea86aaa5a78de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:adc82b804e95a2e67f048520144633c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whole return code / status code enum class.  <a href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28">More...</a><br /></td></tr>
+<tr class="separator:adc82b804e95a2e67f048520144633c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb92fef6445ea6e93fe05700634ee069"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#abb92fef6445ea6e93fe05700634ee069">CallbackResult</a> : uint8_t { <a class="el" href="namespacetaixu.html#abb92fef6445ea6e93fe05700634ee069a2f453cfe638e57e27bb0c9512436111e">CONTINUE</a>
 , <a class="el" href="namespacetaixu.html#abb92fef6445ea6e93fe05700634ee069a14d6a3e0201f58bfe7c01e775973e80e">BREAK</a>
 , <a class="el" href="namespacetaixu.html#abb92fef6445ea6e93fe05700634ee069a615a46af313786fc4e349f34118be111">STOP</a>
@@ -654,10 +663,10 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aa833235611b6aa64191bd2d2b6fd0144"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aa833235611b6aa64191bd2d2b6fd0144"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa833235611b6aa64191bd2d2b6fd0144">ResultCodeConcept</a> = std::is_enum_v&lt;T&gt; &amp;&amp; std::is_same_v&lt;T, <a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78de">ResultCode</a>&gt;</td></tr>
-<tr class="memdesc:aa833235611b6aa64191bd2d2b6fd0144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept type limit for EnumTXResult.  <a href="namespacetaixu.html#aa833235611b6aa64191bd2d2b6fd0144">More...</a><br /></td></tr>
-<tr class="separator:aa833235611b6aa64191bd2d2b6fd0144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81d969f22db604ef1280c40f5fc4e2e8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a81d969f22db604ef1280c40f5fc4e2e8"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a81d969f22db604ef1280c40f5fc4e2e8">RetCodeConcept</a> = std::is_enum_v&lt;T&gt; &amp;&amp; std::is_same_v&lt;T, <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28">RetCode</a>&gt;</td></tr>
+<tr class="memdesc:a81d969f22db604ef1280c40f5fc4e2e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept type limit for EnumTXResult.  <a href="namespacetaixu.html#a81d969f22db604ef1280c40f5fc4e2e8">More...</a><br /></td></tr>
+<tr class="separator:a81d969f22db604ef1280c40f5fc4e2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f0e30d9cab101099c9245cf9186bdb9"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a1f0e30d9cab101099c9245cf9186bdb9">packUnorm4x8</a> = glm::packUnorm4x8</td></tr>
 <tr class="separator:a1f0e30d9cab101099c9245cf9186bdb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a865ec5a80b11b9c15083e94569a03e07"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a865ec5a80b11b9c15083e94569a03e07">unpackUnorm4x8</a> = glm::unpackUnorm4x8</td></tr>
@@ -897,6 +906,22 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespacetaixu.html#a6dca352d0de3797730845f84c215d0e1">taixu::Quat</a> = typedef glm::quat</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93db9f2e125472df17f6aa30a1c9a4b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93db9f2e125472df17f6aa30a1c9a4b3">&#9670;&nbsp;</a></span>ResValT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacetaixu.html#a93db9f2e125472df17f6aa30a1c9a4b3">taixu::ResValT</a> = typedef std::expected&lt;T, <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28">RetCode</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1553,8 +1578,8 @@ template&lt;typename ParentT , typename HandleT &gt; </div>
 
 </div>
 </div>
-<a id="a9176a40d5bf5d466c82ea86aaa5a78de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9176a40d5bf5d466c82ea86aaa5a78de">&#9670;&nbsp;</a></span>ResultCode</h2>
+<a id="adc82b804e95a2e67f048520144633c28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc82b804e95a2e67f048520144633c28">&#9670;&nbsp;</a></span>RetCode</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1563,7 +1588,7 @@ template&lt;typename ParentT , typename HandleT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78de">taixu::ResultCode</a> : std::uint32_t</td>
+          <td class="memname">enum <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28">taixu::RetCode</a> : std::uint32_t</td>
         </tr>
       </table>
   </td>
@@ -1575,14 +1600,14 @@ template&lt;typename ParentT , typename HandleT &gt; </div>
 
 <p>Whole return code / status code enum class. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9176a40d5bf5d466c82ea86aaa5a78dead0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a9176a40d5bf5d466c82ea86aaa5a78dea9a10f345b0f755d461a8673a5e9ef6b4"></a>UNKNOWN_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a9176a40d5bf5d466c82ea86aaa5a78dea8fb22f0e67423fe6f1220b9dac13af7b"></a>COMMON_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a9176a40d5bf5d466c82ea86aaa5a78deaaa3794fb61fa110f0567af9643124c34"></a>GAMEPLAY_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a9176a40d5bf5d466c82ea86aaa5a78deaeb77be10dbf43d838892f782ec27e6dc"></a>MANAGEMENT_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a9176a40d5bf5d466c82ea86aaa5a78dea3aebeb55d9c7103461461681be93f18d"></a>UNSUPPORT_VULKAN_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a9176a40d5bf5d466c82ea86aaa5a78dea155d48028d2f38dead5197570a098fed"></a>PLATFORM_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a9176a40d5bf5d466c82ea86aaa5a78deae8f19147b1155bd2cc91003c9180d459"></a>RESOURCE_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adc82b804e95a2e67f048520144633c28ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc82b804e95a2e67f048520144633c28a9a10f345b0f755d461a8673a5e9ef6b4"></a>UNKNOWN_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc82b804e95a2e67f048520144633c28a8fb22f0e67423fe6f1220b9dac13af7b"></a>COMMON_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc82b804e95a2e67f048520144633c28aaa3794fb61fa110f0567af9643124c34"></a>GAMEPLAY_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc82b804e95a2e67f048520144633c28aeb77be10dbf43d838892f782ec27e6dc"></a>MANAGEMENT_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc82b804e95a2e67f048520144633c28a3aebeb55d9c7103461461681be93f18d"></a>UNSUPPORT_VULKAN_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc82b804e95a2e67f048520144633c28a155d48028d2f38dead5197570a098fed"></a>PLATFORM_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc82b804e95a2e67f048520144633c28ae8f19147b1155bd2cc91003c9180d459"></a>RESOURCE_ERROR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -3325,8 +3350,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="aa833235611b6aa64191bd2d2b6fd0144"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa833235611b6aa64191bd2d2b6fd0144">&#9670;&nbsp;</a></span>ResultCodeConcept</h2>
+<a id="a81d969f22db604ef1280c40f5fc4e2e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81d969f22db604ef1280c40f5fc4e2e8">&#9670;&nbsp;</a></span>RetCodeConcept</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3334,7 +3359,7 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept taixu::ResultCodeConcept = std::is_enum_v&lt;T&gt; &amp;&amp; std::is_same_v&lt;T, <a class="el" href="namespacetaixu.html#a9176a40d5bf5d466c82ea86aaa5a78de">ResultCode</a>&gt;</td>
+          <td class="memname">concept taixu::RetCodeConcept = std::is_enum_v&lt;T&gt; &amp;&amp; std::is_same_v&lt;T, <a class="el" href="namespacetaixu.html#adc82b804e95a2e67f048520144633c28">RetCode</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
