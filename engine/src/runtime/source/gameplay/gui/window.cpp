@@ -67,6 +67,21 @@ void Window::handleEvents() { glfwPollEvents(); }
 
 bool Window::shouldClose() const { return glfwWindowShouldClose(_window); }
 
+bool Window::isSupportVulkan() { return glfwVulkanSupported() == GLFW_TRUE; }
+
+VkGlfwExtensions Window::getVulkanInstanceExtensions() {
+    VkGlfwExtensions ext;
+    const char**     ret = glfwGetRequiredInstanceExtensions(&ext.count);
+    ext.names.reserve(ext.count);
+    std::copy(ret, std::next(ret, ext.count), std::back_inserter(ext.names));
+    return ext;
+}
+
+RetCode Window::setTitle(std::string_view title) {
+    _window_info.title = title;
+    glfwSetWindowTitle(_window, _window_info.title.data());
+    return RetCode::SUCCESS;
+}
 
 void Window::errorCallBack(int error, const char* description) {
     FATAL_LOG("GLFW Error: {}, {}", error, description);
