@@ -3,10 +3,10 @@ name: Documentation
 on:
   push:
     branches:
-      - main
+      - dev
 
 env:
-  CPM_SOURCE_CACHE: ${{ github.workspace }}/cpm_modules
+  CPM_SOURCE_CACHE: ${{ github.workspace }}/.cpm_cache
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/cache@v3
         name: Configure CPM caching
         with:
-          path: "**/cpm_modules"
+          path: "**/.cpm_cache"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
 
       - name: Install dependencies
@@ -30,8 +30,9 @@ jobs:
           cmake -Sdocs -Bbuild
           cmake --build build --target TaixuApiDocs
 
-      - name: Publish
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.TAIXU_GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/doxygen/html
+          cname: taixuengine.fivezha.cn

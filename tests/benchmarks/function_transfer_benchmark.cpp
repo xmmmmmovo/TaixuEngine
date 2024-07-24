@@ -5,6 +5,8 @@
 #include <catch2/catch_test_macros.hpp>
 #include <functional>
 
+namespace {
+
 void transferFunction(std::function<void()> func) { func(); }
 
 void transferFunctionRef(std::function<void()> const &func) { func(); }
@@ -73,4 +75,6 @@ TEST_CASE("Benchmark function transfer") {
             transferFunctionTemplateRval(simpleFunction);
         return 0;
     };
+}
+
 }

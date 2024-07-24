@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <vector>
 
+namespace {
 template<typename T>
 void addData(std::unordered_map<T, int> &map, std::vector<T> const &vec) {
     for (auto &i : vec) { map[i] = 0; }
@@ -56,3 +57,6 @@ TEST_CASE("Benchmark unordered_map count and find") {
         return 0;
     };
 }
+
+}
+

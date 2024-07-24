@@ -4,8 +4,6 @@ set(ENGINE_SHADER_DIR "shaders")
 
 # accelerate the msvc project
 if (MSVC)
-    add_compile_options("/MP")
-    add_compile_options("/utf-8")
     set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT TaixuEngineEditor)
 endif ()
 
@@ -22,62 +20,56 @@ endif ()
 
 # ------ third-party -------
 
-# add Vulkan
-# include(../3rdparty/FindVolk.cmake)
-include(../3rdparty/FindGlad.cmake)
+if (USE_VULKAN)
+    # add Vulkan
+    include(FindVulkanLib)
+endif ()
 
+# add HarfBuzz
+include(FindHarfBuzz)
 # add freetype
-include(../3rdparty/FindFreetype.cmake)
-
+include(FindFreetype)
 # add glfw3
-include(../3rdparty/FindGlfw3.cmake)
-
+include(FindGlfw3)
 # add glm
-include(../3rdparty/FindGLM.cmake)
-
+include(FindGLM)
 # add stb
-include(../3rdparty/FindStb.cmake)
-
+include(FindStb)
 # add imgui
-include(../3rdparty/Findimgui.cmake)
-
+include(FindImgui)
 # add fmt
-include(../3rdparty/Findfmt.cmake)
-
+include(FindFmt)
 # add spdlog
-include(../3rdparty/FindSpdlog.cmake)
-
+include(FindSpdlog)
 # add assimp
-include(../3rdparty/FindAssimp.cmake)
-
+include(FindAssimp)
 # add jsoncpp
-include(../3rdparty/FindJsoncpp.cmake)
-
+include(FindSimdjson)
 # add refl cpp
-include(../3rdparty/FindReflCpp.cmake)
-
+include(FindReflCpp)
 # add magic enum
-include(../3rdparty/FindMagicEnum.cmake)
-
+include(FindMagicEnum)
 # add argparse
-include(../3rdparty/FindArgparse.cmake)
-
+include(FindArgparse)
 # add joltpyhsics
-include(../3rdparty/FindJoltPhysics.cmake)
+include(FindJoltPhysics)
+# add mimalloc
+include(FindMimalloc)
 
+# add threads
 find_package(Threads REQUIRED)
 
 # ------- sub-directories --------
 
-# for SPIR_V
-set(SPIR_V_ENABLE OFF)
-
-# shaders
-# add glsl validator
-set(glslangValidator_executable ${Vulkan_GLSLANG_VALIDATOR_EXECUTABLE})
 set(SHADER_COMPILE_TARGET TaixuShaderCompile)
+set(SCRIPT_COMPILE_TARGET TaixuScriptLib)
+set(INSTALL_DIR TaixuEngine)
+
+set(PCH_DIR ${ENGINE_ROOT_DIR}/precompile)
+
 add_subdirectory(shaders)
+add_subdirectory(tools)
 
 # editor and runtime
-add_subdirectory(editor)
-add_subdirectory(runtime)
+add_subdirectory(src/editor)
+add_subdirectory(src/runtime)

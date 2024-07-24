@@ -1,7 +1,7 @@
 CPMAddPackage(
         NAME JoltPhysics
         GIT_REPOSITORY "https://github.com/jrouwe/JoltPhysics"
-        GIT_TAG "364071164528f173539d49c7043e94798a40473d"
+        GIT_TAG "d50bee9d983303d77c1a8ae6b2380a77203cfc52"
         SOURCE_SUBDIR "Build"
 )
 

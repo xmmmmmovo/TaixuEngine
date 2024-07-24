@@ -1,3 +1,4 @@
+---
 Language: Cpp
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
@@ -34,14 +35,14 @@ BreakInheritanceList: BeforeColon
 CompactNamespaces: false
 ContinuationIndentWidth: 8
 IndentCaseLabels: true
-IndentPPDirectives: None
+IndentPPDirectives: BeforeHash
 IndentWidth: 4
 KeepEmptyLinesAtTheStartOfBlocks: true
 MaxEmptyLinesToKeep: 2
 ObjCSpaceAfterProperty: false
 ObjCSpaceBeforeProtocolList: true
-PointerAlignment: Right
-ReflowComments: false
+PointerAlignment: Left
+ReflowComments: true
 SpaceAfterCStyleCast: true
 SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: false
@@ -64,7 +65,7 @@ AlignConsecutiveAssignments: AcrossComments
 AlignConsecutiveDeclarations: AcrossComments
 AlignTrailingComments: true
 # limit, 0 for unlimited
-ColumnLimit: 80
+ColumnLimit: 100
 IncludeCategories: # headers sort，<>,"" sort by alphabeat
   - Regex: "glad"
     Priority: 0
