@@ -62,12 +62,20 @@ add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 set(PCH_FILES "${PCH_DIR}/pch_std.hpp" "${PCH_DIR}/pch_runtime.hpp")
 
 # add options
+set_target_properties(${TARGET_NAME} PROPERTIES CXX_STANDARD 23)
+
 if(MSVC AND CMAKE_BUILD_TYPE STREQUAL "Debug")
         target_compile_options(${TARGET_NAME} PRIVATE "/DEBUG" "/Zf" "/nologo" "/W3" "/Od")
 endif()
 
 if(WARNINGS)
         target_compile_definitions(${TARGET_NAME} PRIVATE TAIXU_WARNINGS_DEF)
+endif()
+
+# accelerate the msvc project
+if(MSVC)
+        target_compile_options(${TARGET_NAME} PRIVATE "/MP" "/utf-8")
+        target_compile_definitions(${TARGET_NAME} PRIVATE UNICODE _UNICODE)
 endif()
 
 # public link

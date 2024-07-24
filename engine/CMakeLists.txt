@@ -18,13 +18,6 @@ if (USE_CCACHE)
     )
 endif ()
 
-# accelerate the msvc project
-if (MSVC)
-    add_compile_options("/MP")
-    add_compile_options("/utf-8")
-    add_compile_definitions(UNICODE _UNICODE)
-endif ()
-
 # ------ third-party -------
 
 if (USE_VULKAN)
