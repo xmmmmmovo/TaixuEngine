@@ -27,13 +27,10 @@ template<typename K, typename V, typename Pr = std::less<K>>
 using tx_map = std::map<K, V, Pr, txAllocatorT<std::pair<const K, V>>>;
 
 template<typename K, typename V, typename Pr = std::less<K>>
-using tx_multimap =
-        std::multimap<K, V, Pr, txAllocatorT<std::pair<const K, V>>>;
+using tx_multimap = std::multimap<K, V, Pr, txAllocatorT<std::pair<const K, V>>>;
 
-template<typename K, typename V, typename Hasher = std::hash<K>,
-         typename KeyEq = std::equal_to<K>>
+template<typename K, typename V, typename Hasher = std::hash<K>, typename KeyEq = std::equal_to<K>>
 using tx_unordered_map =
-        std::unordered_map<K, V, Hasher, KeyEq,
-                           txAllocatorT<std::pair<const K, V>>>;
+        std::unordered_map<K, V, Hasher, KeyEq, txAllocatorT<std::pair<const K, V>>>;
 
 }// namespace taixu

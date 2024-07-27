@@ -1,6 +1,5 @@
 ---
-Checks:
-  cppcoreguidelines-*,
+Checks: cppcoreguidelines-*,
   performance-*,
   portability-*,
 
@@ -187,6 +186,8 @@ Checks:
   clang-analyzer-unix.Vfork,
   clang-analyzer-unix.cstring.BadSizeArg,
   clang-analyzer-unix.cstring.NullArg
+
+  -cppcoreguidelines-macro-usage
 
 # Turn all the warnings from the checks above into errors.
 WarningsAsErrors: "*"

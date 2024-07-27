@@ -39,7 +39,8 @@ enum class RetCode : std::uint32_t {
     GAMEPLAY_ERROR = (1 << 10) * 2,
 
     MANAGEMENT_ERROR = (1 << 10) * 3,
-    UNSUPPORT_VULKAN_ERROR,
+    UNSUPPORTED_VULKAN_ERROR,
+    VULKAN_INIT_ERROR,
 
     PLATFORM_ERROR = (1 << 10) * 4,
 

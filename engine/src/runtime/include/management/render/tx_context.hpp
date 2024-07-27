@@ -12,6 +12,7 @@
 #pragma once
 
 #include "common/designs/noncopyable.hpp"
+#include "common/designs/object.hpp"
 #include "gameplay/gui/window.hpp"
 #include "tx_device.hpp"
 
@@ -23,6 +24,8 @@ class TXContext final : public Noncopyable {
     TXDevice _device{};
 };
 
-std::optional<TXContext> createContext(Window* window);
+vk::raii::Instance createInstance();
+
+ResValT<TXContext> createTXContext(Window* window);
 
 }// namespace taixu

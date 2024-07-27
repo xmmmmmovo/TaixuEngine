@@ -55,7 +55,7 @@ FIND_GLOB_RECURSE(HEADER_FILES "include/*.hpp")
 
 set(SOURCE_FILES ${SOURCE_FILES} ${PLATFORM_FILES} ${HEADER_FILES})
 
-source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SOURCE_FILES})
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SOURCE_FILES} ${PLATFORM_FILES} ${HEADER_FILES})
 
 add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 
@@ -83,8 +83,8 @@ target_link_libraries(${TARGET_NAME} PRIVATE stb)
 target_link_libraries(${TARGET_NAME} PRIVATE simdjson Threads::Threads freetype glfw)
 target_link_libraries(${TARGET_NAME} PRIVATE assimp)
 target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
-target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static)
 
+target_link_libraries(${TARGET_NAME} PUBLIC mimalloc-static)
 target_link_libraries(${TARGET_NAME} PUBLIC refl-cpp::refl-cpp imgui
         spdlog::spdlog fmt::fmt magic_enum::magic_enum glm)
 

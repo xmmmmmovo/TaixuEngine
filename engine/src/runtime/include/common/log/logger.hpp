@@ -7,7 +7,8 @@
 
 #include <common/base/macro.hpp>
 
-#include <spdlog/fmt/fmt.h>
+#include <fmt/core.h>
+#include <fmt/format.h>
 #include <spdlog/spdlog.h>
 
 namespace taixu {

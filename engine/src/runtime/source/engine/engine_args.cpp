@@ -33,12 +33,12 @@ void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
 
     registerWithArgs();
 
-#ifdef NDEBUG
-    this->_is_debug = false;
-    Logger::setLevel(Logger::LogLevel::INFO);// Set global log level to debug
-#else
+#ifdef TX_DEBUG
     this->_is_debug = true;
-    Logger::setLevel(Logger::LogLevel::DEBUG);// Set global log level to info
+    Logger::setLevel(Logger::LogLevel::DEBUG);// Set global log level to debug
+#else
+    this->_is_debug = false;
+    Logger::setLevel(Logger::LogLevel::INFO);// Set global log level to info
 #endif
 
     _is_immediate_render_mode = program.get<bool>(IMMEDIATE_RENDER_ARG);

@@ -18,7 +18,7 @@ endif()
 CPMAddPackage(
     NAME volk
     GITHUB_REPOSITORY zeux/volk
-    GIT_TAG 1.3.270
+    GIT_TAG 1fc4d6fd1b9555a168acc7f4ed7445fea1167d58
     OPTIONS
     "VOLK_STATIC_DEFINES ${VOLK_STATIC_DEFINES_OPT}"
 )
@@ -26,8 +26,7 @@ CPMAddPackage(
 CPMAddPackage(
     NAME vulkan-memory-allocator
     GITHUB_REPOSITORY GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator
-    GIT_TAG v3.0.1
-    GIT_SHALLOW TRUE
+    GIT_TAG v3.1.0
     OPTIONS
     "VMA_BUILD_TESTS OFF"
     "VMA_BUILD_DOCS OFF"

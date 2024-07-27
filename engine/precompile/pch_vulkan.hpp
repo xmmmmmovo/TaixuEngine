@@ -7,7 +7,10 @@
 
 #define USE_VULKAN
 
+
 #include <volk.h>
+// TODO: Check whether undefine the VK_NO_PROTOTYPES is correctly.
+#undef VK_NO_PROTOTYPES
 
 #include <vk_mem_alloc.h>
 

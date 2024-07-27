@@ -7,11 +7,13 @@
 #include "common/math/literal.hpp"
 #include "engine/engine.hpp"
 #include "gameplay/gui/window.hpp"
+#include "management/render/tx_context.hpp"
 
 #include "generated/fonts/lucide_iconfont.hpp"
 #include "generated/fonts/source_han_sans_cn_font.hpp"
 
 #include "backends/imgui_impl_glfw.h"
+#include "backends/imgui_impl_vulkan.h"
 #include "imgui.h"
 #include "imgui/icons/IconsLucide.h"
 
@@ -196,7 +198,9 @@ void TXSceneRenderer::updateScene(float delta_time, Scene* scene) {}
 
 void TXSceneRenderer::imguiForGraphicsAPIInit() {}
 
-void TXSceneRenderer::initForGraphicsAPI(Window* window) {}
+void TXSceneRenderer::initForGraphicsAPI(Window* window) {
+    ResValT<TXContext> res = createTXContext(window);
+}
 
 void TXSceneRenderer::imguiGraphicsPreUpdate() {}
 

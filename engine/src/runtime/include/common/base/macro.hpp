@@ -2,16 +2,18 @@
 
 /* If we are we on Windows, we want a single define for it.
  */
-#if !defined(_WIN32) &&                                                        \
-        (defined(__WIN32__) || defined(WIN32) || defined(__MINGW32__))
+#if !defined(_WIN32) && (defined(__WIN32__) || defined(WIN32) || defined(__MINGW32__))
     #define _WIN32
 #endif /* _WIN32 */
 
-#if defined(__WIN32__) || defined(WIN32) || defined(_WIN32) ||                 \
-        defined(__WIN64__) || defined(WIN64) || defined(_WIN64) ||             \
-        defined(_MSC_VER) || defined(WINCE) || defined(__MINGW32__) ||         \
-        defined(__CYWIN__)
+#if defined(__WIN32__) || defined(WIN32) || defined(_WIN32) || defined(__WIN64__) ||               \
+        defined(WIN64) || defined(_WIN64) || defined(_MSC_VER) || defined(WINCE) ||                \
+        defined(__MINGW32__) || defined(__CYWIN__)
     #define TX_WINDOWS
+#endif
+
+#if defined(__APPLE__)
+    #define TX_APPLE
 #endif
 
 #if defined(__GNUC__)
@@ -22,7 +24,7 @@
     #define TX_MSVC
 #endif
 
-#if !defined(_DEBUG) && defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
     #define TX_DEBUG
 #endif
 
@@ -79,71 +81,70 @@
     #define TX_UNLIKELY(x) (!!(x))
 #endif
 
-#define TX_UNREACHABLE_IF(x)                                                   \
+#define TX_UNREACHABLE_IF(x)                                                                       \
     if (TX_UNLIKELY(x)) { TX_UNREACHABLE(); }
-#define TX_UNREACHABLE_IF_MSG(x, msg)                                          \
+#define TX_UNREACHABLE_IF_MSG(x, msg)                                                              \
     if (TX_UNLIKELY(x)) { TX_UNREACHABLE_MSG(msg); }
 
 // NOLINTBEGIN
 
-#define PROTOTYPE_GETTER_REF(type, name, ref)                                  \
-public:                                                                        \
+#define PROTOTYPE_GETTER_REF(type, name, ref)                                                      \
+public:                                                                                            \
     [[nodiscard]] type ref name() { return _##name; }
 
-#define PROTOTYPE_GETTER_VAL(type, name)                                       \
-public:                                                                        \
+#define PROTOTYPE_GETTER_VAL(type, name)                                                           \
+public:                                                                                            \
     [[nodiscard]] type name() const { return _##name; }
 
 
-#define PROTOTYPE_CONST_GETTER_REF(type, name, ref)                            \
-public:                                                                        \
+#define PROTOTYPE_CONST_GETTER_REF(type, name, ref)                                                \
+public:                                                                                            \
     [[nodiscard]] type const ref name() const { return _##name; }
 
-#define PROTOTYPE_SETTER(type, name, ref)                                      \
-public:                                                                        \
+#define PROTOTYPE_SETTER(type, name, ref)                                                          \
+public:                                                                                            \
     void set_##name(type const ref value) { _##name = value; }
 
 /**
  * @brief 简化const getter
  */
-#define PROTOTYPE_DFT_ONLY_GETTER_CONST(access, type, name, default_val)       \
-    access:                                                                    \
-    type _##name{default_val};                                                 \
-                                                                               \
+#define PROTOTYPE_DFT_ONLY_GETTER_CONST(access, type, name, default_val)                           \
+    access:                                                                                        \
+    type _##name{default_val};                                                                     \
+                                                                                                   \
     PROTOTYPE_CONST_GETTER_REF(type, name, &)
 
 /**
  * @brief 简化getter
  */
-#define PROTOTYPE_DFT_ONLY_GETTER(access, type, name, default_val)             \
-    PROTOTYPE_DFT_ONLY_GETTER_CONST(access, type, name, default_val)           \
+#define PROTOTYPE_DFT_ONLY_GETTER(access, type, name, default_val)                                 \
+    PROTOTYPE_DFT_ONLY_GETTER_CONST(access, type, name, default_val)                               \
     PROTOTYPE_GETTER_REF(type, name, &)
 
 
 /**
  * @brief 简化getter
  */
-#define PROTOTYPE_ONLY_GETTER_CONST(access, type, name)                        \
+#define PROTOTYPE_ONLY_GETTER_CONST(access, type, name)                                            \
     PROTOTYPE_DFT_ONLY_GETTER_CONST(access, type, name, )
 
 /**
  * @brief 简化getter
  */
-#define PROTOTYPE_ONLY_GETTER(access, type, name)                              \
-    PROTOTYPE_DFT_ONLY_GETTER(access, type, name, )
+#define PROTOTYPE_ONLY_GETTER(access, type, name) PROTOTYPE_DFT_ONLY_GETTER(access, type, name, )
 
 /**
  * @brief 简化getter setter
  */
-#define PROTOTYPE_DFT(access, type, name, default_val)                         \
-    PROTOTYPE_DFT_ONLY_GETTER(access, type, name, default_val)                 \
+#define PROTOTYPE_DFT(access, type, name, default_val)                                             \
+    PROTOTYPE_DFT_ONLY_GETTER(access, type, name, default_val)                                     \
     PROTOTYPE_SETTER(type, name, &)
 
 /**
  * @brief 简化getter setter
  */
-#define PROTOTYPE(access, type, name)                                          \
-    PROTOTYPE_DFT_ONLY_GETTER(access, type, name, )                            \
+#define PROTOTYPE(access, type, name)                                                              \
+    PROTOTYPE_DFT_ONLY_GETTER(access, type, name, )                                                \
     PROTOTYPE_SETTER(type, name, &)
 
 ///
@@ -153,29 +154,29 @@ public:                                                                        \
 /**
  * @brief 简化const getter
  */
-#define PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, default_val)     \
-    access:                                                                    \
-    type _##name{default_val};                                                 \
-                                                                               \
+#define PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, default_val)                         \
+    access:                                                                                        \
+    type _##name{default_val};                                                                     \
+                                                                                                   \
     PROTOTYPE_GETTER_VAL(type, name)
 /**
  * @brief 简化getter
  */
-#define PROTOTYPE_ONLY_GETTER_VALPASS(access, type, name)                      \
+#define PROTOTYPE_ONLY_GETTER_VALPASS(access, type, name)                                          \
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, )
 
 /**
  * @brief 简化getter setter
  */
-#define PROTOTYPE_DFT_VALPASS(access, type, name, default_val)                 \
-    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, default_val)         \
+#define PROTOTYPE_DFT_VALPASS(access, type, name, default_val)                                     \
+    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, default_val)                             \
     PROTOTYPE_SETTER(type, name, )
 
 /**
  * @brief 简化getter setter
  */
-#define PROTOTYPE_VALPASS(access, type, name)                                  \
-    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, )                    \
+#define PROTOTYPE_VALPASS(access, type, name)                                                      \
+    PROTOTYPE_DFT_ONLY_GETTER_VALPASS(access, type, name, )                                        \
     PROTOTYPE_SETTER(type, name, )
 
 
@@ -184,36 +185,35 @@ public:                                                                        \
 /**
  * @brief 使用delete copy trait
  */
-#define DELETE_COPY_TRAIT(classname)                                           \
-public:                                                                        \
-    classname(const classname& other)              = delete;                   \
+#define DELETE_COPY_TRAIT(classname)                                                               \
+public:                                                                                            \
+    classname(const classname& other)              = delete;                                       \
     (classname)& operator=(const classname& other) = delete;
 
 /**
  * @brief
  * @param MS 毫秒
  */
-#define TX_SLEEP_FOR(MS)                                                       \
-    std::this_thread::sleep_for(std::chrono::milliseconds(MS));
+#define TX_SLEEP_FOR(MS) std::this_thread::sleep_for(std::chrono::milliseconds(MS));
 
 /**
  * @brief
  * @param TIME duration time
  */
-#define TX_SLEEP_UNTIL(TIME)                                                   \
+#define TX_SLEEP_UNTIL(TIME)                                                                       \
     std::this_thread::sleep_until(std::chrono::system_clock::now() + (TIME));
 
 /**
  * @brief
  * @param NAME name存放的变量
  */
-#define TX_THREAD_NAME(NAME)                                                   \
-    {                                                                          \
-        std::stringstream ss;                                                  \
-        ss << (NAME);                                                          \
-        std::string     name    = ss.str();                                    \
-        std::thread::id this_id = std::this_thread::get_id();                  \
-        pthread_setname_np(pthread_self(), name.c_str());                      \
+#define TX_THREAD_NAME(NAME)                                                                       \
+    {                                                                                              \
+        std::stringstream ss;                                                                      \
+        ss << (NAME);                                                                              \
+        std::string     name    = ss.str();                                                        \
+        std::thread::id this_id = std::this_thread::get_id();                                      \
+        pthread_setname_np(pthread_self(), name.c_str());                                          \
     }
 
 /**
@@ -221,16 +221,16 @@ public:                                                                        \
  * @brief
  *
  */
-#define TX_THREAD_NAME_DEFAULT                                                 \
-    {                                                                          \
-        std::stringstream ss;                                                  \
-        ss << "Thread " << std::this_thread::get_id();                         \
-        std::string name = ss.str();                                           \
-        pthread_setname_np(pthread_self(), name.c_str());                      \
+#define TX_THREAD_NAME_DEFAULT                                                                     \
+    {                                                                                              \
+        std::stringstream ss;                                                                      \
+        ss << "Thread " << std::this_thread::get_id();                                             \
+        std::string name = ss.str();                                                               \
+        pthread_setname_np(pthread_self(), name.c_str());                                          \
     }
 
-#define TX_THREAD_NAME_DEFAULT_WITH_ID(ID)                                     \
-    std::stringstream ss;                                                      \
-    ss << "Thread " << (ID);                                                   \
-    std::string name = ss.str();                                               \
+#define TX_THREAD_NAME_DEFAULT_WITH_ID(ID)                                                         \
+    std::stringstream ss;                                                                          \
+    ss << "Thread " << (ID);                                                                       \
+    std::string name = ss.str();                                                                   \
     pthread_setname_np(pthread_self(), name.c_str());
