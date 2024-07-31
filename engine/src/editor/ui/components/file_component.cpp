@@ -18,7 +18,7 @@ static constexpr ImGuiTreeNodeFlags LEAF_FLAGS   = ImGuiTreeNodeFlags_SpanAvailW
                                                  ImGuiTreeNodeFlags_Leaf |
                                                  ImGuiTreeNodeFlags_NoTreePushOnOpen;
 
-static std::string_view constexpr FILE_COMPONENT_NAME{"Files"};
+static tx_string_view constexpr FILE_COMPONENT_NAME{"Files"};
 
 static constexpr float PADDING        = 16.0f;
 static constexpr float THUMBNAIL_SIZE = 128.0f;

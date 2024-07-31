@@ -2,13 +2,14 @@
 // Created by xmmmmmovo on 11/12/2023.
 //
 
-#ifndef ENGINE_SRC_RUNTIME_RESOURCE_HELPER_ASSET_HELPER_5EEA3287A5964C3185EB6F0F11B371A4
-#define ENGINE_SRC_RUNTIME_RESOURCE_HELPER_ASSET_HELPER_5EEA3287A5964C3185EB6F0F11B371A4
+#pragma once
+
+#include "common/hal/tx_string.hpp"
 
 namespace taixu {
 
-constexpr std::string_view ASSET_MAGIC_NUMBER = "MURASAME";
-constexpr std::uint32_t    ASSET_VERSION      = 1;
+constexpr tx_string_view ASSET_MAGIC_NUMBER = "MURASAME";
+constexpr std::uint32_t  ASSET_VERSION      = 1;
 
 enum class AssetType : std::uint8_t {
     TEXTURE,
@@ -29,5 +30,3 @@ struct AssetHeader {
 };
 
 }// namespace taixu
-
-#endif// ENGINE_SRC_RUNTIME_RESOURCE_HELPER_ASSET_HELPER_5EEA3287A5964C3185EB6F0F11B371A4

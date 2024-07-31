@@ -15,15 +15,15 @@ namespace taixu {
 
 struct World {
     struct Level {
-        std::string level_name{};
-        std::string level_path{};
+        tx_string level_name{};
+        tx_string level_path{};
     };
 
     struct Global {
-        std::string render{};
+        tx_string render{};
     };
 
-    std::string        name{};
+    tx_string          name{};
     Global             global{};
     std::vector<Level> levels{};
 };
@@ -31,11 +31,9 @@ struct World {
 }// namespace taixu
 
 REFL_AUTO(type(taixu::World), field(name, taixu::ISerializableStr()),
-          field(global, taixu::ISerializableObject()),
-          field(levels, taixu::ISerializableList()))
+          field(global, taixu::ISerializableObject()), field(levels, taixu::ISerializableList()))
 
-REFL_AUTO(type(taixu::World::Level),
-          field(level_name, taixu::ISerializableStr()),
+REFL_AUTO(type(taixu::World::Level), field(level_name, taixu::ISerializableStr()),
           field(level_path, taixu::ISerializableStr()))
 
 REFL_AUTO(type(taixu::World::Global), field(render, taixu::ISerializableStr()))

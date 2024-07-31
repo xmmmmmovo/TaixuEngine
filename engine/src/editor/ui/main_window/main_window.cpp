@@ -45,7 +45,7 @@ void MainWindow::init() {
 
     registerCallback(
             Callbacks::FILE_OPEN_PROJECT,
-            Handler{+[](std::string const& file_path, ViewModel& view_model) {
+            Handler{+[](tx_string const& file_path, ViewModel& view_model) {
                 g_engine.loadProject(file_path);
                 auto& node         = view_model.file_component_hierarchy;
                 node.data.filepath = "";

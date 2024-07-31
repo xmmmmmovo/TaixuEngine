@@ -12,7 +12,7 @@
 
 namespace taixu::editor {
 
-TX_INLINE bool buildVec3Slider(const std::string& label, glm::vec3& values,
+TX_INLINE bool buildVec3Slider(const tx_string& label, glm::vec3& values,
                                const glm::vec3 reset_values = glm::vec3{0.f},
                                float           column_width = 100.0f) {
     bool           b_value_changed = false;
@@ -29,16 +29,14 @@ TX_INLINE bool buildVec3Slider(const std::string& label, glm::vec3& values,
     ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth());
     ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{0.f, 0.f});
 
-    float const line_height = (GImGui->Font->FontSize * bold_font->Scale) +
-                              GImGui->Style.FramePadding.y * 2.f;
+    float const line_height =
+            (GImGui->Font->FontSize * bold_font->Scale) + GImGui->Style.FramePadding.y * 2.f;
     ImVec2 const button_size = {line_height + 3.f, line_height};
 
     // X
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{0.8f, 0.1f, 0.15f, 1.f});
-    ImGui::PushStyleColor(ImGuiCol_ButtonHovered,
-                          ImVec4{0.9f, 0.2f, 0.2f, 1.f});
-    ImGui::PushStyleColor(ImGuiCol_ButtonActive,
-                          ImVec4{0.8f, 0.1f, 0.15f, 1.f});
+    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{0.9f, 0.2f, 0.2f, 1.f});
+    ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{0.8f, 0.1f, 0.15f, 1.f});
     ImGui::PushFont(bold_font);
     if (ImGui::Button("X", button_size)) {
         values.x        = reset_values.x;
@@ -55,8 +53,7 @@ TX_INLINE bool buildVec3Slider(const std::string& label, glm::vec3& values,
 
     // Y
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{0.2f, 0.7f, 0.2f, 1.f});
-    ImGui::PushStyleColor(ImGuiCol_ButtonHovered,
-                          ImVec4{0.3f, 0.8f, 0.3f, 1.f});
+    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{0.3f, 0.8f, 0.3f, 1.f});
     ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{0.2f, 0.7f, 0.2f, 1.f});
     ImGui::PushFont(bold_font);
     if (ImGui::Button("Y", button_size)) {
@@ -74,10 +71,8 @@ TX_INLINE bool buildVec3Slider(const std::string& label, glm::vec3& values,
 
     // Z
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{0.1f, 0.25f, 0.8f, 1.f});
-    ImGui::PushStyleColor(ImGuiCol_ButtonHovered,
-                          ImVec4{0.2f, 0.35f, 0.9f, 1.f});
-    ImGui::PushStyleColor(ImGuiCol_ButtonActive,
-                          ImVec4{0.1f, 0.25f, 0.8f, 1.f});
+    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{0.2f, 0.35f, 0.9f, 1.f});
+    ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{0.1f, 0.25f, 0.8f, 1.f});
     ImGui::PushFont(bold_font);
     if (ImGui::Button("Z", button_size)) {
         values.z        = reset_values.z;

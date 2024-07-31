@@ -17,7 +17,7 @@ enum class EnumTextureFormat : uint8_t {
 enum class EnumTextureBindingFlags { SHADER_BINDING };
 
 struct TXTexture2DCreateInfo {
-    std::string             name{};
+    tx_string               name{};
     uint32_t                width{0};
     uint32_t                height{0};
     EnumTextureFormat       format{};

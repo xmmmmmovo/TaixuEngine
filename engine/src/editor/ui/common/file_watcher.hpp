@@ -12,7 +12,7 @@ namespace taixu::editor {
 enum class FileEntryType : uint8_t { FILE, DIRECTORY };
 
 struct FileEntryModel {
-    std::string           filename{};
+    tx_string             filename{};
     std::filesystem::path filepath{};
     FileEntryType         filetype{};
 };

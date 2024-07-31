@@ -10,6 +10,8 @@
 #include "management/gpu/shader_manager.hpp"
 #include "management/render/tx_context.hpp"
 
+#include "common/hal/tx_string.hpp"
+
 namespace taixu {
 
 class Scene;
@@ -19,7 +21,7 @@ enum class ImguiComponentType : std::uint8_t { WIDGET, MENUBAR };
 struct ImGuiComponentInfo {
     using ImGuiComponentCallbackT = std::function<void()>;
 
-    std::string_view        name{};
+    tx_string_view          name{};
     ImguiComponentType      component_type{};
     ImGuiComponentCallbackT update_func{nullptr};
     ImGuiComponentCallbackT end_call_back{nullptr};

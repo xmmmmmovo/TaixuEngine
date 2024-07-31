@@ -6,15 +6,15 @@
 /**
  * @brief Main window width
  */
-static constexpr int32_t          MAIN_WINDOW_WIDTH  = 2560;
+static constexpr int32_t        MAIN_WINDOW_WIDTH  = 2560;
 /**
  * @brief Main window height
  */
-static constexpr int32_t          MAIN_WINDOW_HEIGHT = 1440;
+static constexpr int32_t        MAIN_WINDOW_HEIGHT = 1440;
 /**
  * @brief Main window title
  */
-static constexpr std::string_view MAIN_WINDOW_TITLE  = "TaixuEngineEditor";
+static constexpr tx_string_view MAIN_WINDOW_TITLE  = "TaixuEngineEditor";
 
 int main(const int argc, char* argv[]) try {
 
@@ -22,7 +22,7 @@ int main(const int argc, char* argv[]) try {
     using namespace taixu::editor;
 
     // avoid c-style array
-    std::vector<std::string> const args(argv, argv + argc);
+    std::vector<tx_string> const args(argv, argv + argc);
 
     taixu::g_engine.initRuntime(args);
 

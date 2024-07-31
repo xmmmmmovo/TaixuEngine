@@ -11,7 +11,7 @@
 namespace taixu {
 class GameObject {
     PROTOTYPE_DFT(private, GUID, guid, GuidGenerator::generateNewGuid());
-    PROTOTYPE_DFT(private, std::string, name, "NoName");
+    PROTOTYPE_DFT(private, tx_string, name, "NoName");
     PROTOTYPE_DFT(private, bool, active, true);
     PROTOTYPE_DFT(private, Entity, entity, true);
 };

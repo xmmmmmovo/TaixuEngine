@@ -7,7 +7,7 @@
 
 namespace taixu {
 
-std::string getDateString();
+tx_string getDateString();
 
 }// namespace taixu
 

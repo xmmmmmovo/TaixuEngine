@@ -62,7 +62,7 @@ public:
      * 在最开始传递参数化表的初始化，用于初始化比如Logger之类的
      * @param args 初始化参数表
      */
-    void initRuntime(std::vector<std::string> const& args);
+    void initRuntime(std::vector<tx_string> const& args);
     /**
      * 用于初始化渲染器和资源管理器等
      * @param window

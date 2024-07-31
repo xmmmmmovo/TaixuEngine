@@ -19,8 +19,8 @@ static constexpr ImGuiWindowFlags SIDE_TOOLBAR_FLAGS{
         ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove |
         ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoSavedSettings |
         ImGuiWindowFlags_NoBringToFrontOnFocus};
-static constexpr std::string_view RENDER_COMPONENT_NAME{"Scene"};
-static constexpr std::string_view SIDE_TOOLBAR_NAME{"##ViewportSideToolbar"};
+static constexpr tx_string_view RENDER_COMPONENT_NAME{"Scene"};
+static constexpr tx_string_view SIDE_TOOLBAR_NAME{"##ViewportSideToolbar"};
 
 void RenderComponent::buildSideToolBar() {
     static constexpr ImVec2               SIDE_TOOLBAR_ITEM_SIZE{60, 60};

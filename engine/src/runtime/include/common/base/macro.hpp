@@ -63,6 +63,9 @@
 #define TX_ASSERT(x) assert((x))
 #define TX_ASSERT_MSG(x, msg) assert((x) && (msg))
 
+#define TX_STATIC_ASSERT(x) static_assert(x)
+#define TX_STATIC_ASSERT_MSG(x, msg) static_assert(x, msg)
+
 #define NOT_IMPL_ASSERT() assert(false && "Not implemented!");
 
 #define TX_UNREACHABLE() assert(false)
@@ -209,9 +212,9 @@ public:                                                                         
  */
 #define TX_THREAD_NAME(NAME)                                                                       \
     {                                                                                              \
-        std::stringstream ss;                                                                      \
+        tx_stringstream ss;                                                                        \
         ss << (NAME);                                                                              \
-        std::string     name    = ss.str();                                                        \
+        tx_string       name    = ss.str();                                                        \
         std::thread::id this_id = std::this_thread::get_id();                                      \
         pthread_setname_np(pthread_self(), name.c_str());                                          \
     }
@@ -223,14 +226,14 @@ public:                                                                         
  */
 #define TX_THREAD_NAME_DEFAULT                                                                     \
     {                                                                                              \
-        std::stringstream ss;                                                                      \
+        tx_stringstream ss;                                                                        \
         ss << "Thread " << std::this_thread::get_id();                                             \
-        std::string name = ss.str();                                                               \
+        tx_string name = ss.str();                                                                 \
         pthread_setname_np(pthread_self(), name.c_str());                                          \
     }
 
 #define TX_THREAD_NAME_DEFAULT_WITH_ID(ID)                                                         \
-    std::stringstream ss;                                                                          \
+    tx_stringstream ss;                                                                            \
     ss << "Thread " << (ID);                                                                       \
-    std::string name = ss.str();                                                                   \
+    tx_string name = ss.str();                                                                     \
     pthread_setname_np(pthread_self(), name.c_str());

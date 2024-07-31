@@ -14,7 +14,8 @@ option(USE_VULKAN "use vulkan" ON)
 option(USE_HLSL "use hlsl" OFF)
 
 # for project properties
-set(ENGINE_VERSION 0.1.1)
+set(TX_ENGINE_NAME "TaixuEngine")
+set(TX_ENGINE_VERSION "0.1.1")
 
 # add dirs to module path to make include more convenient
 list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
@@ -33,8 +34,8 @@ set(TAIXU_WARNINGS_DEF "-Wall -Wextra -Weffc++ -Werror=uninitialized -Werror=ret
                         -Werror=suggest-override -Wzero-as-null-pointer-constant -Wmissing-declarations -Wold-style-cast -Wnon-virtual-dtor")
 
 project(
-    TaixuEngine
-    VERSION ${ENGINE_VERSION}
+    ${TX_ENGINE_NAME}
+    VERSION ${TX_ENGINE_VERSION}
     DESCRIPTION "A Game Engine."
     HOMEPAGE_URL "https://github.com/TaixuEngineGroup/TaixuEngine"
     LANGUAGES CXX C

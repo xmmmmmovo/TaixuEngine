@@ -16,9 +16,9 @@ static const IGFD::FileDialogConfig DIRECTORY_CONFIG{.path = getRootPath().gener
                                                      .flags = ImGuiFileDialogFlags_Modal};
 
 
-void openFileDialog(std::string_view const& key, IGFD::FileDialogConfig const& config);
+void openFileDialog(tx_string_view const& key, IGFD::FileDialogConfig const& config);
 
-void displayAndProcessFileDialog(std::string_view const& key, ViewModel& view_model,
+void displayAndProcessFileDialog(tx_string_view const& key, ViewModel& view_model,
                                  Callbacks callback_key);
 
 }// namespace taixu::editor

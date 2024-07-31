@@ -10,7 +10,9 @@
  */
 
 #include "management/render/tx_context.hpp"
+#include "common/base/lib_info.hpp"
 #include "common/base/macro.hpp"
+#include "common/hal/tx_container.hpp"
 #include "common/log/logger.hpp"
 
 #define VOLK_IMPLEMENTATION
@@ -21,7 +23,15 @@
 
 namespace taixu {
 
-vk::raii::Instance createInstance() { return nullptr; }
+vk::raii::Instance createInstance() {
+    vk::ApplicationInfo app_info{
+            LIB_INFO.name.data(), LIB_INFO.version,   LIB_INFO.name.data(),
+            LIB_INFO.version,     VK_API_VERSION_1_0,
+    };
+
+
+    return nullptr;
+}
 
 ResValT<TXContext> createTXContext(Window* window) {
     if (auto const res = volkInitialize(); res != VK_SUCCESS) {
@@ -34,6 +44,9 @@ ResValT<TXContext> createTXContext(Window* window) {
         ERROR_LOG("Window is not support vulkan");
         return UNEXPECTED(RetCode::UNSUPPORTED_VULKAN_ERROR);
     }
+
+    tx_vector<tx_string_view> enabled_layers;
+    tx_vector<tx_string_view> enabled_extensions;
 
     // Get Vulkan extensions and support layers
     auto layers = vk::enumerateInstanceLayerProperties();
@@ -50,15 +63,17 @@ ResValT<TXContext> createTXContext(Window* window) {
 
     bool enable_debug_utils = false;
 
+
 #if !defined(TX_DEBUG)
 
 #endif
 
-    VkGlfwExtensions exts = Window::getVulkanInstanceExtensions();
-    if (exts.count == 0) {
+    VkGlfwExtensions glfwexts = Window::getVulkanInstanceExtensions();
+    if (glfwexts.count == 0) {
         ERROR_LOG("Failed to get Vulkan extensions");
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
     }
+
 
     return {};
 }

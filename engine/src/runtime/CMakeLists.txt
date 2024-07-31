@@ -51,6 +51,9 @@ else()
         list(APPEND PLATFORM_FILES ${PLATFORM_LINUX_FILES})
 endif()
 
+# configure lib information headers for runtime
+configure_file("${TAIXUENGINE_ROOT_DIR}/cmake/configure_hpp/lib_info.hpp.in" "${CMAKE_CURRENT_SOURCE_DIR}/include/common/base/lib_info.hpp" @ONLY)
+
 FIND_GLOB_RECURSE(HEADER_FILES "include/*.hpp")
 
 set(SOURCE_FILES ${SOURCE_FILES} ${PLATFORM_FILES} ${HEADER_FILES})

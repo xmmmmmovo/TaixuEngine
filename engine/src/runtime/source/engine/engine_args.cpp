@@ -21,7 +21,7 @@ void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
             .default_value(false)
             .implicit_value(true);
 
-    program.add_argument(PROJECT_PATH_ARG).help("Load project path").default_value(std::string(""));
+    program.add_argument(PROJECT_PATH_ARG).help("Load project path").default_value(tx_string(""));
 
     try {
         program.parse_args(args);

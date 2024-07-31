@@ -77,7 +77,7 @@ VkGlfwExtensions Window::getVulkanInstanceExtensions() {
     return ext;
 }
 
-RetCode Window::setTitle(std::string_view title) {
+RetCode Window::setTitle(tx_string_view title) {
     _window_info.title = title;
     glfwSetWindowTitle(_window, _window_info.title.data());
     return RetCode::SUCCESS;

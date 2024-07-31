@@ -29,9 +29,9 @@
 namespace taixu {
 
 struct WindowInfo {
-    std::string_view title{};
-    int32_t          width{0};
-    int32_t          height{0};
+    tx_string_view title{};
+    int32_t        width{0};
+    int32_t        height{0};
 };
 
 struct DPIScale {
@@ -107,7 +107,7 @@ public:
     [[nodiscard]] static bool             isSupportVulkan();
     [[nodiscard]] static VkGlfwExtensions getVulkanInstanceExtensions();
 
-    RetCode setTitle(std::string_view title);
+    RetCode setTitle(tx_string_view title);
 
 protected:
     // NOLINTBEGIN

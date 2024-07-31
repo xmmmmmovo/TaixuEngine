@@ -9,6 +9,7 @@
 
 #include "common/base/macro.hpp"
 #include "common/designs/noncopyable.hpp"
+#include "common/hal/tx_string.hpp"
 
 namespace taixu {
 
@@ -32,16 +33,15 @@ enum class EnumAttributeFormat : uint8_t {
 };
 
 struct TXShaderModuleCreateInfo {
-    std::string_view     name{};
+    tx_string_view       name{};
     const uint8_t*       binaries{nullptr};
     size_t               binaries_size{0};
     EnumShaderSourceType source_type{EnumShaderSourceType::NONE};
     EnumShaderStage      stage{};
 };
 
-class TXShaderModule : public std::enable_shared_from_this<TXShaderModule>,
-                       public Noncopyable {
-    PROTOTYPE_ONLY_GETTER_VALPASS(protected, std::string_view, name);
+class TXShaderModule : public std::enable_shared_from_this<TXShaderModule>, public Noncopyable {
+    PROTOTYPE_ONLY_GETTER_VALPASS(protected, tx_string_view, name);
     PROTOTYPE_ONLY_GETTER_VALPASS(protected, EnumShaderStage, stage);
 
 public:

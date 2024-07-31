@@ -6,8 +6,8 @@
 #define TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP
 
 
-#include "common/base/core.hpp"
 #include "common/base/macro.hpp"
+#include "common/hal/tx_string.hpp"
 
 #include <string_view>
 
@@ -24,9 +24,9 @@ class EngineArgs {
 
 
 public:
-    static constexpr std::string_view LOCALE_ARG           = "--locale"sv;
-    static constexpr std::string_view PROJECT_PATH_ARG     = "--proj"sv;
-    static constexpr std::string_view IMMEDIATE_RENDER_ARG = "--immediate-render"sv;
+    static constexpr tx_string_view LOCALE_ARG           = "--locale"sv;
+    static constexpr tx_string_view PROJECT_PATH_ARG     = "--proj"sv;
+    static constexpr tx_string_view IMMEDIATE_RENDER_ARG = "--immediate-render"sv;
 
 private:
     static void registerWithArgs();

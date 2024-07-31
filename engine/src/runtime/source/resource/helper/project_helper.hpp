@@ -10,10 +10,8 @@ struct Project;
 
 std::unique_ptr<Project> openProject(std::filesystem::path const& path);
 
-std::unique_ptr<Project> createProject(std::filesystem::path const& path,
-                                       std::string const&           name,
-                                       std::string const&           author,
-                                       std::string const& description);
+std::unique_ptr<Project> createProject(std::filesystem::path const& path, tx_string const& name,
+                                       tx_string const& author, tx_string const& description);
 
 bool saveProject();
 

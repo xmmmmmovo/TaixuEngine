@@ -11,15 +11,14 @@
 namespace taixu {
 
 struct Manifest {
-    std::string name{};
-    std::string version{};
-    std::string author{};
-    std::string description{};
+    tx_string name{};
+    tx_string version{};
+    tx_string author{};
+    tx_string description{};
 };
 
 }// namespace taixu
 
 REFL_AUTO(type(taixu::Manifest), field(name, taixu::ISerializableStr()),
-          field(version, taixu::ISerializableStr()),
-          field(author, taixu::ISerializableStr()),
+          field(version, taixu::ISerializableStr()), field(author, taixu::ISerializableStr()),
           field(description, taixu::ISerializableStr()))

@@ -33,4 +33,8 @@ template<typename K, typename V, typename Hasher = std::hash<K>, typename KeyEq 
 using tx_unordered_map =
         std::unordered_map<K, V, Hasher, KeyEq, txAllocatorT<std::pair<const K, V>>>;
 
+template<typename K, typename V, typename Hasher = std::hash<K>, typename KeyEq = std::equal_to<K>>
+using tx_unordered_multimap =
+        std::unordered_multimap<K, V, Hasher, KeyEq, txAllocatorT<std::pair<const K, V>>>;
+
 }// namespace taixu

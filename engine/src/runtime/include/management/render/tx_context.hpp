@@ -12,7 +12,6 @@
 #pragma once
 
 #include "common/designs/noncopyable.hpp"
-#include "common/designs/object.hpp"
 #include "gameplay/gui/window.hpp"
 #include "tx_device.hpp"
 
