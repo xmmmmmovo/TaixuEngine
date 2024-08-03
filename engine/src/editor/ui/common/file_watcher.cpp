@@ -4,16 +4,19 @@
 
 #include "file_watcher.hpp"
 
+#include "common/hal/tx_container.hpp"
+#include "common/hal/tx_string.hpp"
 #include "common/log/logger.hpp"
 #include "engine/engine.hpp"
 #include "platform/os/path.hpp"
 
 #include <imgui/icons/IconsLucide.h>
 
-
 namespace taixu::editor {
 
-static std::unordered_set IGNORE_TABLE{".git"sv, ".gitignore"sv};
+using namespace taixu::literals;
+
+static const tx_unordered_set<tx_string_view> IGNORE_TABLE{".git"_txsv, ".gitignore"_txsv};
 
 void recursiveLoadFileTree(FileTreeNodeT& entry) {
     for (const auto full_path = g_engine.getOpenedProject()->project_path / entry.data.filepath;
@@ -25,11 +28,13 @@ void recursiveLoadFileTree(FileTreeNodeT& entry) {
         FileEntryType type{FileEntryType::FILE};
         if (directory_entry.is_directory()) { type = FileEntryType::DIRECTORY; }
 
-        FileTreeNodeT node{path.filename().string(),
-                           getRelativePath(g_engine.getOpenedProject()->project_path, path),
-                           type,
-                           {},
-                           {}};
+        FileTreeNodeT node{
+                path.filename().string<char, tx_string::traits_type, tx_string::allocator_type>(
+                        tx_string::allocator_type()),
+                getRelativePath(g_engine.getOpenedProject()->project_path, path),
+                type,
+                {},
+                {}};
 
         if (type == FileEntryType::DIRECTORY) {
             node.data.filename = fmt::format("{} {}", ICON_LC_FOLDER, node.data.filename);

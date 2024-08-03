@@ -9,11 +9,9 @@
 #include "common/base/macro.hpp"
 #include "common/hal/tx_string.hpp"
 
-#include <string_view>
-
 namespace taixu {
 
-using namespace std::literals;
+using namespace taixu::literals;
 
 class EngineArgs {
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, bool, is_debug, true);
@@ -22,11 +20,10 @@ class EngineArgs {
 
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, bool, is_immediate_render_mode, false);
 
-
 public:
-    static constexpr tx_string_view LOCALE_ARG           = "--locale"sv;
-    static constexpr tx_string_view PROJECT_PATH_ARG     = "--proj"sv;
-    static constexpr tx_string_view IMMEDIATE_RENDER_ARG = "--immediate-render"sv;
+    static constexpr tx_string_view LOCALE_ARG           = "--locale"_txsv;
+    static constexpr tx_string_view PROJECT_PATH_ARG     = "--proj"_txsv;
+    static constexpr tx_string_view IMMEDIATE_RENDER_ARG = "--immediate-render"_txsv;
 
 private:
     static void registerWithArgs();

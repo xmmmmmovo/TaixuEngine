@@ -11,7 +11,7 @@ namespace taixu {
 
 Engine g_engine;// NOLINT(cppcoreguidelines-avoid-non-const-global-variables)
 
-void Engine::initRuntime(std::vector<tx_string> const& args) {
+void Engine::initRuntime(std::vector<std::string> const& args) {
     Logger::init();
     INFO_LOG("Logger inited, start init engine");
     _engine_args.initWithArgs(args);

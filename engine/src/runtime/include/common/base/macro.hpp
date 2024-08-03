@@ -76,6 +76,19 @@
 
 #define TX_UNUSED_MSG(msg) (void) (msg)
 
+#define NODISCARD [[nodiscard]]
+
+/**
+ * @brief Export macro
+ */
+#ifdef TX_WINDOWS
+    #define TX_EXPORT __declspec(dllexport)
+    #define TX_IMPORT __declspec(dllimport)
+#else
+    #define TX_EXPORT __attribute__((visibility("default")))
+    #define TX_IMPORT __attribute__((visibility("default")))
+#endif
+
 #ifdef TX_GCC
     #define TX_LIKELY(x) __builtin_expect(!!(x), 1)
     #define TX_UNLIKELY(x) __builtin_expect(!!(x), 0)
@@ -220,7 +233,6 @@ public:                                                                         
     }
 
 /**
- * @todo
  * @brief
  *
  */
@@ -231,9 +243,3 @@ public:                                                                         
         tx_string name = ss.str();                                                                 \
         pthread_setname_np(pthread_self(), name.c_str());                                          \
     }
-
-#define TX_THREAD_NAME_DEFAULT_WITH_ID(ID)                                                         \
-    tx_stringstream ss;                                                                            \
-    ss << "Thread " << (ID);                                                                       \
-    tx_string name = ss.str();                                                                     \
-    pthread_setname_np(pthread_self(), name.c_str());

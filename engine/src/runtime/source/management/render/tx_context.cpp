@@ -33,7 +33,7 @@ vk::raii::Instance createInstance() {
     return nullptr;
 }
 
-ResValT<TXContext> createTXContext(Window* window) {
+ResValT<TXContext> createTXContext(const Window* window) {
     if (auto const res = volkInitialize(); res != VK_SUCCESS) {
         ERROR_LOG("Failed to initialize volk: {}", string_VkResult(res));
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
@@ -49,14 +49,14 @@ ResValT<TXContext> createTXContext(Window* window) {
     tx_vector<tx_string_view> enabled_extensions;
 
     // Get Vulkan extensions and support layers
-    auto layers = vk::enumerateInstanceLayerProperties();
-    if (layers.result != vk::Result::eSuccess) {
+    if (const auto layers = vk::enumerateInstanceLayerProperties();
+        layers.result != vk::Result::eSuccess) {
         ERROR_LOG("Failed to get Vulkan layers: {}", vk::to_string(layers.result));
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
     }
 
-    auto extensions = vk::enumerateInstanceExtensionProperties();
-    if (extensions.result != vk::Result::eSuccess) {
+    if (const auto extensions = vk::enumerateInstanceExtensionProperties();
+        extensions.result != vk::Result::eSuccess) {
         ERROR_LOG("Failed to get Vulkan extensions: {}", vk::to_string(extensions.result));
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
     }

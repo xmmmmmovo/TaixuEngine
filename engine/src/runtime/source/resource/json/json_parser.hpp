@@ -5,6 +5,8 @@
 #ifndef ENGINE_RUNTIME_RESOURCE_JSON_JSON_PARSER_HPP
 #define ENGINE_RUNTIME_RESOURCE_JSON_JSON_PARSER_HPP
 
+#include <filesystem>
+
 #include <magic_enum.hpp>
 #include <simdjson.h>
 

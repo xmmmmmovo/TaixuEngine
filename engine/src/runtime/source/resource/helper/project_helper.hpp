@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "common/hal/tx_string.hpp"
 
 namespace taixu {
 

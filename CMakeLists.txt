@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 
 set(CMAKE_C_STANDARD 11)
+# This line for precompile headers
+set(CMAKE_CXX_STANDARD 23)
 
 # compile config
 option(USE_CCACHE "ccache accelerate the compile" OFF)
@@ -13,7 +15,7 @@ option(USE_HLSL "use hlsl" OFF)
 
 # for project properties
 set(TX_ENGINE_NAME "TaixuEngine")
-set(TX_ENGINE_VERSION "0.1.1")
+set(TX_ENGINE_VERSION 0.1.1)
 
 # add dirs to module path to make include more convenient
 list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)

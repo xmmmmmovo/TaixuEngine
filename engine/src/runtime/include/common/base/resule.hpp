@@ -8,6 +8,9 @@
  * @copyright Copyright (c) 2024
  *
  */
+#pragma once
+
+#include <expected>
 
 #include "common/base/core.hpp"
 

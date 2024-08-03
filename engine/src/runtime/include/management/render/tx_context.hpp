@@ -26,6 +26,6 @@ class TXContext final : public Noncopyable {
 
 vk::raii::Instance createInstance();
 
-ResValT<TXContext> createTXContext(Window* window);
+ResValT<TXContext> createTXContext(const Window* window);
 
 }// namespace taixu

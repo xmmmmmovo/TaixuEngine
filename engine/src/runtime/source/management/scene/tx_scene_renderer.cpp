@@ -5,7 +5,7 @@
 
 #include "common/base/resule.hpp"
 #include "common/log/logger.hpp"
-#include "common/math/literal.hpp"
+#include "common/math/math.hpp"
 #include "engine/engine.hpp"
 #include "gameplay/gui/window.hpp"
 #include "management/render/tx_context.hpp"
@@ -20,7 +20,7 @@
 
 namespace taixu {
 
-using namespace literal;
+using namespace literals;
 
 static constexpr ImguiStyleGroup DEFAULT_STYLE_GROUP{
         Color{34_uc, 35, 42_uc, 255_uc},       Color{42_uc, 44_uc, 54_uc, 255_uc},

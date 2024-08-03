@@ -4,13 +4,12 @@
 
 #pragma once
 
-#include "literal.hpp"
-#include "vec.hpp"
-
-#include "common/base/macro.hpp"
-
 #include <glm/gtc/type_ptr.hpp>
 #include <imgui.h>
+
+#include "common/base/macro.hpp"
+#include "math.hpp"
+#include "vec.hpp"
 
 namespace taixu {
 
@@ -18,18 +17,16 @@ class Color {
 private:
     static constexpr uint8_t MAX_COLOR = 255;
 
-    Vec4 value{};
+    Vec4 _value{};
 
 public:
-    explicit constexpr Color(const Vec4 color_val) : value(color_val) {}
+    explicit constexpr Color(const Vec4 color_val) : _value(color_val) {}
 
-    explicit constexpr Color(const float r, const float g, const float b,
-                             const float a)
-        : value{r, g, b, a} {}
+    explicit constexpr Color(const float r, const float g, const float b, const float a)
+        : _value{r, g, b, a} {}
 
-    explicit constexpr Color(const uint8_t r, const uint8_t g, const uint8_t b,
-                             const uint8_t a)
-        : value{
+    explicit constexpr Color(const uint8_t r, const uint8_t g, const uint8_t b, const uint8_t a)
+        : _value{
                   static_cast<float>(r) / MAX_COLOR,
                   static_cast<float>(g) / MAX_COLOR,
                   static_cast<float>(b) / MAX_COLOR,
@@ -37,27 +34,23 @@ public:
           } {}
 
     constexpr friend bool operator==(const Color& lhs, const Color& rhs) {
-        return lhs.value == rhs.value;
+        return lhs._value == rhs._value;
     }
-    constexpr friend bool operator!=(const Color& lhs, const Color& rhs) {
-        return !(lhs == rhs);
-    }
+    constexpr friend bool operator!=(const Color& lhs, const Color& rhs) { return !(lhs == rhs); }
 
-    constexpr Vec4& operator()() { return value; }
+    constexpr Vec4& operator()() { return _value; }
 
-    [[nodiscard]] float const* value_ptr() const {
-        return glm::value_ptr(value);
-    }
+    [[nodiscard]] float const* value_ptr() const { return glm::value_ptr(_value); }
 
     [[nodiscard]] constexpr ImVec4 toImVec4() const {
-        return {value.x, value.y, value.z, value.w};
+        return {_value.x, _value.y, _value.z, _value.w};
     }
 
     [[nodiscard]] constexpr uint32_t toUint32() const;
 };
 
 namespace color {
-    using namespace taixu::literal;
+    using namespace taixu::literals;
 
     TX_INLINE constexpr Color WHITE_COLOR{1.0f, 1.0f, 1.0f, 1.0f};
     TX_INLINE constexpr Color BLACK_COLOR{0.0f, 0.0f, 0.0f, 1.0f};
@@ -67,8 +60,7 @@ namespace color {
     TX_INLINE constexpr Color GRASS_COLOR{110_uc, 138_uc, 92_uc, 255_uc};
 
     TX_INLINE constexpr Color BACKGROUND_COLOR{42_uc, 44_uc, 53_uc, 255_uc};
-    TX_INLINE constexpr Color BACKGROUND_DARK_COLOR{30_uc, 31_uc, 38_uc,
-                                                    255_uc};
+    TX_INLINE constexpr Color BACKGROUND_DARK_COLOR{30_uc, 31_uc, 38_uc, 255_uc};
 }// namespace color
 
 }// namespace taixu

@@ -5,6 +5,8 @@
 #ifndef TAIXUENGINE_DATE_UTILS_HPP
 #define TAIXUENGINE_DATE_UTILS_HPP
 
+#include "common/hal/tx_string.hpp"
+
 namespace taixu {
 
 tx_string getDateString();
