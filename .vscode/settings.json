@@ -5,10 +5,9 @@
         "**/bower_components": true,
         "**/*.code-search": true,
         "**/build": true,
-        "**/3rdparty": true
+        "**/3rdparty": true,
+        "**/.cpm_cache": true
     },
-    "C_Cpp.errorSquiggles": "disabled",
-    "C_Cpp.intelliSenseEngineFallback": "disabled",
     "C_Cpp.intelliSenseEngine": "disabled",
     "clangd.onConfigChanged": "restart",
     "clangd.arguments": [
@@ -28,7 +27,7 @@
         // 启用 Clang-Tidy 以提供「静态检查」
         "--clang-tidy",
         // 同时开启的任务数量
-        "-j=8",
+        "-j=16",
         // pch优化的位置(memory 或 disk，选择memory会增加内存开销，但会提升性能) 推荐在板子上使用disk
         "--pch-storage=memory",
         // 启用这项时，补全函数时，将会给参数提供占位符，键入后按 Tab 可以切换到下一占位符，乃至函数末
@@ -36,8 +35,5 @@
         // compelie_commands.json 文件的目录位置(相对于工作区，由于 CMake 生成的该文件默认在 build 文件夹中，故设置为 build)
         "--compile-commands-dir=build"
     ],
-    "cmake.generator": "Ninja",
-    "cmake.configureSettings": {
-        "CMAKE_EXPORT_COMPILE_COMMANDS": 1,
-    },
+    "cmake.generator": "Ninja"
 }

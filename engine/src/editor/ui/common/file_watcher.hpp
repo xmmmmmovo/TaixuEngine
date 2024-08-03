@@ -5,6 +5,7 @@
 #pragma once
 
 #include "common/base/macro.hpp"
+#include "common/hal/tx_string.hpp"
 #include "hierarchy_struct.hpp"
 
 namespace taixu::editor {

@@ -11,6 +11,7 @@
 
 #pragma once
 
+#include "common/base/resule.hpp"
 #include "common/designs/noncopyable.hpp"
 #include "gameplay/gui/window.hpp"
 #include "tx_device.hpp"

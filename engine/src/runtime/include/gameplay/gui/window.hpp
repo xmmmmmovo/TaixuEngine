@@ -10,6 +10,7 @@
 #include "common/base/core.hpp"
 #include "common/base/macro.hpp"
 #include "common/designs/noncopyable.hpp"
+#include "common/hal/tx_string.hpp"
 
 #ifdef TX_WINDOWS
     #include "platform/windows/windows_min.hpp"

@@ -5,9 +5,6 @@
 #ifndef ENGINE_RUNTIME_RESOURCE_JSON_JSON_PARSER_HPP
 #define ENGINE_RUNTIME_RESOURCE_JSON_JSON_PARSER_HPP
 
-#include <filesystem>
-#include <string>
-
 #include <magic_enum.hpp>
 #include <simdjson.h>
 
@@ -18,7 +15,7 @@
 namespace taixu {
 
 template<typename T>
-TX_INLINE void jsonDump(tx_stringstream& strstream, T&& value) {
+TX_INLINE void jsonDump(std::stringstream& strstream, T&& value) {
     auto const  member_size = refl::reflect(value).members.size;
     std::size_t cnt         = 0;
 
@@ -67,7 +64,7 @@ TX_INLINE void jsonDump(tx_stringstream& strstream, T&& value) {
 
 template<typename T>
 TX_INLINE tx_string dumpToJsonStr(T&& value) {
-    tx_stringstream strstream;
+    std::stringstream strstream;
     strstream << "{";
     jsonDump(strstream, value);
     strstream << "}";
