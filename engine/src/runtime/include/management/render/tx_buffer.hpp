@@ -4,6 +4,9 @@
 
 #pragma once
 
+#include <cstdint>
+#include <memory>
+
 #include "common/designs/noncopyable.hpp"
 
 namespace taixu {

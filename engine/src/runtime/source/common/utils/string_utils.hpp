@@ -42,7 +42,7 @@ constexpr uint32_t str2uint32Version(tx_string_view version) {
     constexpr uint8_t MAJOR_SHIFT = 22;
     constexpr uint8_t MINOR_SHIFT = 12;
 
-    for (auto c : version) {
+    for (const auto c : version) {
         if (c == '.') {
             assert((idx < 3) && "version string is invalid");
             idx++;

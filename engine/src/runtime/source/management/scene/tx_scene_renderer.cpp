@@ -200,7 +200,12 @@ void TXSceneRenderer::updateScene(float delta_time, Scene* scene) {}
 void TXSceneRenderer::imguiForGraphicsAPIInit() {}
 
 void TXSceneRenderer::initForGraphicsAPI(Window* window) {
-    ResValT<TXContext> res = createTXContext(window);
+    ResValT<std::unique_ptr<TXContext>> res = createTXContext(window);
+    if (!res.has_value()) {
+        FATAL_LOG("Failed to create TXContext");
+        return;
+    }
+    this->_context = std::move(res.value());
 }
 
 void TXSceneRenderer::imguiGraphicsPreUpdate() {}

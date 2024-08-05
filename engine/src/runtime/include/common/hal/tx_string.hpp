@@ -15,8 +15,8 @@
 
 namespace taixu {
 
-template<typename Char, typename Traits = std::char_traits<Char>>
-using tx_basic_string = ::std::basic_string<Char, Traits, txAllocatorT<Char>>;
+template<typename Elem, typename Traits = std::char_traits<Elem>>
+using tx_basic_string = ::std::basic_string<Elem, Traits, txAllocatorT<Elem>>;
 
 using tx_string = tx_basic_string<char>;
 
@@ -34,6 +34,11 @@ template<typename Elem, typename Traits>
 using tx_basic_stringstream = ::std::basic_stringstream<Elem, Traits, txAllocatorT<Elem>>;
 
 using tx_stringstream = tx_basic_stringstream<char, ::std::char_traits<char>>;
+
+template<typename Elem, typename Traits>
+using tx_basic_ostringstream = ::std::basic_ostringstream<Elem, Traits, txAllocatorT<Elem>>;
+
+using tx_ostringstream = tx_basic_ostringstream<char, ::std::char_traits<char>>;
 
 namespace literals {
     NODISCARD TX_INLINE tx_string operator""_txs(const char* str, size_t len) {

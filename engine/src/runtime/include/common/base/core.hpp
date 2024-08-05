@@ -41,6 +41,7 @@ enum class RetCode : std::uint32_t {
     MANAGEMENT_ERROR = (1 << 10) * 3,
     UNSUPPORTED_VULKAN_ERROR,
     VULKAN_INIT_ERROR,
+    VULKAN_INSTANCE_CREATE_ERROR,
 
     PLATFORM_ERROR = (1 << 10) * 4,
 
