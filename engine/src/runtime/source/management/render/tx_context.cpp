@@ -66,17 +66,23 @@ ResValT<vk::raii::Instance>
 createInstance(tx_vector<const char*> const&                        enabled_layers,
                tx_vector<const char*> const&                        enabled_extensions,
                std::optional<vk::DebugUtilsMessengerCreateInfoEXT>& debug_info) {
-    INFO_LOG("Creating Vulkan instance Begin");
+    // Log layers and extensions
+    for (auto&& layer : enabled_layers) { INFO_LOG("Enabled layer: {}", layer); }
+    for (auto&& extension : enabled_extensions) { INFO_LOG("Enabled extension: {}", extension); }
+
     vk::ApplicationInfo app_info{
             LIB_INFO.name.data(), LIB_INFO.version,   LIB_INFO.name.data(),
             LIB_INFO.version,     VK_API_VERSION_1_3,
     };
 
-    const vk::InstanceCreateInfo create_info{
-            vk::InstanceCreateFlagBits::eEnumeratePortabilityKHR,  &app_info,
-            static_cast<uint32_t>(enabled_layers.size()),          enabled_layers.data(),
-            static_cast<uint32_t>(enabled_extensions.size()),      enabled_extensions.data(),
-            debug_info.has_value() ? &debug_info.value() : nullptr};
+    const vk::InstanceCreateInfo create_info{{},
+                                             &app_info,
+                                             static_cast<uint32_t>(enabled_layers.size()),
+                                             enabled_layers.data(),
+                                             static_cast<uint32_t>(enabled_extensions.size()),
+                                             enabled_extensions.data(),
+                                             debug_info.has_value() ? &debug_info.value()
+                                                                    : nullptr};
 
     const auto instance = vk::createInstance(create_info);
 
@@ -211,10 +217,8 @@ ResValT<std::unique_ptr<TXContext>> createTXContext(const Window* window) {
         debug_messenger = std::move(debug_messenger_expt.value());
     }
 
-    vk::SurfaceKHR surface;
-    VkSurfaceKHR   surface_strct{VK_NULL_HANDLE};
-
-    VkInstance instance_c_ptr = *(instance.value());
+    VkSurfaceKHR surface_strct{VK_NULL_HANDLE};
+    VkInstance   instance_c_ptr = *(instance.value());
 
     if (auto const res = glfwCreateWindowSurface(instance_c_ptr, window->getRawWindow(), nullptr,
                                                  &surface_strct);
@@ -223,7 +227,9 @@ ResValT<std::unique_ptr<TXContext>> createTXContext(const Window* window) {
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
     }
 
-    auto physical_devices = createTXDevice(instance.value());
+    vk::raii::SurfaceKHR surface{instance.value(), surface_strct};
+
+    auto physical_devices = createTXDevice(instance.value(), surface);
 
     return {};
 }
