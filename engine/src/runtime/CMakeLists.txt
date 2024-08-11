@@ -95,7 +95,7 @@ if(USE_VULKAN)
         add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)
 
         list(APPEND PCH_FILES "${PCH_DIR}/pch_vulkan.hpp")
-        target_link_libraries(${TARGET_NAME} PUBLIC Vulkan::Vulkan volk VulkanMemoryAllocator)
+        target_link_libraries(${TARGET_NAME} PUBLIC Vulkan::Vulkan VulkanMemoryAllocator)
         target_include_directories(${TARGET_NAME} PRIVATE ${Vulkan_INCLUDE_DIRS})
 endif()
 

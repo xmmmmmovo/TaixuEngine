@@ -1,6 +1,6 @@
 /**
  * @file tx_context.hpp
- * @author xmmmmmovo (ma_fivezha@163.com)
+ * @author xmmmmmovo
  * @brief
  * @version 0.1
  * @date 2024-07-22
@@ -11,7 +11,7 @@
 
 #pragma once
 
-#include "common/base/resule.hpp"
+#include "common/base/result.hpp"
 #include "common/designs/noncopyable.hpp"
 #include "common/hal/tx_container.hpp"
 #include "gameplay/gui/window.hpp"
@@ -23,6 +23,7 @@ class TXContext final : public Noncopyable {
 public:
     vk::raii::Instance               _instance{VK_NULL_HANDLE};
     vk::raii::DebugUtilsMessengerEXT _debug_messenger{VK_NULL_HANDLE};
+    vk::raii::SurfaceKHR             _surface{VK_NULL_HANDLE};
 
     TXDevice _device{};
 };
@@ -31,14 +32,14 @@ public:
  *
  * @return get all supported layers and unique them to unordered_set
  */
-ResValT<tx_unordered_set<const char*>> getInstanceSupportedLayers();
+ResValT<tx_unordered_set<tx_string>> getInstanceSupportedLayers();
 
 
 /**
  *
  * @return get all supported extensions and unique them to unordered_set
  */
-ResValT<tx_unordered_set<const char*>> getInstanceSupportedExtensions();
+ResValT<tx_unordered_set<tx_string>> getInstanceSupportedExtensions();
 
 
 ResValT<vk::raii::Instance>
