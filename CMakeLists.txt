@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
 set(CMAKE_C_STANDARD 11)
-# This line for precompile headers
-set(CMAKE_CXX_STANDARD 23)
 
 # compile config
 option(USE_CCACHE "ccache accelerate the compile" OFF)
@@ -12,6 +10,8 @@ option(WARNINGS "warnings" OFF)
 
 option(USE_VULKAN "use vulkan" ON)
 option(USE_HLSL "use hlsl" OFF)
+
+option(USE_NOEXCEPT "use noexcept" ON)
 
 # for project properties
 set(TX_ENGINE_NAME "TaixuEngine")

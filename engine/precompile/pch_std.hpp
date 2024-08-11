@@ -2,8 +2,7 @@
 // Created by xmmmmmovo on 2023/7/22.
 //
 
-#ifndef ENGINE_PRECOMPILE_PCH_COMMON_HPP
-#define ENGINE_PRECOMPILE_PCH_COMMON_HPP
+#pragma once
 
 // C
 #include <cassert>
@@ -81,45 +80,37 @@
 #include <valarray>
 #include <vector>
 
-#if __cplusplus >= 201703L
-    #include <any>
-    #include <charconv>
-    #if __has_include(<execution>)
-        #include <execution>
-    #endif
-    #include <filesystem>
-    #include <memory_resource>
-    #include <optional>
-    #include <variant>
+#include <any>
+#include <charconv>
+#if __has_include(<execution>)
+    #include <execution>
 #endif
+#include <filesystem>
+#include <memory_resource>
+#include <optional>
+#include <variant>
 
-#if __cplusplus >= 202002L
-    #include <barrier>
-    #include <bit>
-    #include <compare>
-    #include <concepts>
-    #include <format>
-    #include <latch>
-    #include <numbers>
-    #include <ranges>
-    #include <semaphore>
-    #include <source_location>
-    #include <span>
-    #include <stop_token>
-    #if __has_include(<syncstream>)
-        #include <syncstream>
-    #endif
-    #include <version>
+#include <barrier>
+#include <bit>
+#include <compare>
+#include <concepts>
+#include <format>
+#include <latch>
+#include <numbers>
+#include <ranges>
+#include <semaphore>
+#include <source_location>
+#include <span>
+#include <stop_token>
+#if __has_include(<syncstream>)
+    #include <syncstream>
 #endif
+#include <version>
 
-#if __cplusplus >= 202302L
-    #include <expected>
-    #include <spanstream>
-    #if __has_include(<stacktrace>)
-        #include <stacktrace>
-    #endif
-    #include <stdatomic.h>
-    #include <stdfloat>
+#include <expected>
+#include <spanstream>
+#if __has_include(<stacktrace>)
+    #include <stacktrace>
 #endif
-
-#endif// ENGINE_PRECOMPILE_PCH_COMMON_HPP
+#include <stdatomic.h>
+#include <stdfloat>

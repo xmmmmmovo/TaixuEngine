@@ -1,6 +1,6 @@
 /**
- * @file resule.hpp
- * @author xmmmmmovo (ma_fivezha@163.com)
+ * @file result.hpp
+ * @author xmmmmmovo
  * @brief
  * @version 0.1
  * @date 2024-07-29

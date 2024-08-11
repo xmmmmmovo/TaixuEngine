@@ -11,6 +11,7 @@
 #include <simdjson.h>
 
 #include "common/base/macro.hpp"
+#include "common/hal/tx_string.hpp"
 #include "common/log/logger.hpp"
 #include "resource/json/json_serializable.hpp"
 

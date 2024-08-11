@@ -1,11 +1,11 @@
 /**
  * @file tx_device.hpp
- * @author xmmmmmovo (ma_fivezha@163.com)
+ * @author xmmmmmovo
  * @brief
  * @version 0.1
  * @date 2024-07-12
  *
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2024 xmmmmmovo
  *
  */
 
@@ -13,7 +13,10 @@
 
 #include <vulkan/vulkan_raii.hpp>
 
+#include "common/base/result.hpp"
 #include "common/designs/noncopyable.hpp"
+#include "common/hal/tx_container.hpp"
+#include "common/hal/tx_string.hpp"
 
 namespace taixu {
 
@@ -24,5 +27,9 @@ class TXDevice final : public Noncopyable {
 
     vk::raii::Queue _graphics_queue{VK_NULL_HANDLE};
 };
+
+tx_unordered_set<tx_string> getDeviceExtensions(vk::raii::PhysicalDevice const& physical_device);
+
+ResValT<TXDevice> createTXDevice(vk::raii::Instance const& instance);
 
 }// namespace taixu

@@ -1,6 +1,6 @@
 /**
  * @file tx_object.hpp
- * @author xmmmmmovo (ma_fivezha@163.com)
+ * @author xmmmmmovo
  * @brief
  * @version 0.1
  * @date 2024-07-14
@@ -26,13 +26,11 @@ using vkDestroyFn = void (*)(ParentT, HandleT, vk::AllocationCallbacks const*);
  * @tparam HandleT
  * @tparam DestroyFnT Delete function, can find them in `volk.h`
  */
-template<typename ParentT, typename HandleT,
-         vkDestroyFn<ParentT, HandleT> DestroyFnT>
+template<typename ParentT, typename HandleT, vkDestroyFn<ParentT, HandleT> DestroyFnT>
 class TXObject final : public Noncopyable {
 public:
     explicit TXObject() = default;
-    explicit TXObject(HandleT handle, ParentT parent)
-        : _handle{handle}, _parent{parent} {}
+    explicit TXObject(HandleT handle, ParentT parent) : _handle{handle}, _parent{parent} {}
     ~TXObject() override {
         if (_handle != VK_NULL_HANDLE) {
             TX_ASSERT(_parent != VK_NULL_HANDLE);

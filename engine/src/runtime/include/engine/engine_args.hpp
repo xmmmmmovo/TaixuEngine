@@ -11,6 +11,7 @@
 
 namespace taixu {
 
+using namespace std::literals;
 using namespace taixu::literals;
 
 class EngineArgs {
@@ -21,9 +22,9 @@ class EngineArgs {
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, bool, is_immediate_render_mode, false);
 
 public:
-    static constexpr tx_string_view LOCALE_ARG           = "--locale"_txsv;
-    static constexpr tx_string_view PROJECT_PATH_ARG     = "--proj"_txsv;
-    static constexpr tx_string_view IMMEDIATE_RENDER_ARG = "--immediate-render"_txsv;
+    static constexpr auto LOCALE_ARG           = "--locale"sv;
+    static constexpr auto PROJECT_PATH_ARG     = "--proj"sv;
+    static constexpr auto IMMEDIATE_RENDER_ARG = "--immediate"sv;
 
 private:
     static void registerWithArgs();

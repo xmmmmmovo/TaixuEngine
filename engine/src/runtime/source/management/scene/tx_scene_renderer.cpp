@@ -3,7 +3,7 @@
 //
 #include "management/scene/tx_scene_renderer.hpp"
 
-#include "common/base/resule.hpp"
+#include "common/base/result.hpp"
 #include "common/log/logger.hpp"
 #include "common/math/math.hpp"
 #include "engine/engine.hpp"

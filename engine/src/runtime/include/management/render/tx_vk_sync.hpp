@@ -1,6 +1,6 @@
 /**
  * @file tx_vk_sync.hpp
- * @author xmmmmmovo (ma_fivezha@163.com)
+ * @author xmmmmmovo
  * @brief
  * @version 0.1
  * @date 2024-07-13

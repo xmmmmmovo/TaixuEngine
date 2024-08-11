@@ -36,4 +36,7 @@ int main(const int argc, char* argv[]) try {
 } catch (std::exception const& e_err) {
     std::cerr << "\n" << fmt::format("Error: {}\n", e_err.what());
     return 1;
+} catch (...) {
+    std::cerr << "\nUnknown error\n";
+    return 1;
 }
