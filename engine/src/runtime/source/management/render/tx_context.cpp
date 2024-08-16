@@ -180,16 +180,16 @@ ResValT<std::unique_ptr<TXContext>> createTXContext(const Window* window) {
                 [](VkDebugUtilsMessageSeverityFlagBitsEXT      message_severity,
                    VkDebugUtilsMessageTypeFlagsEXT             message_type,
                    VkDebugUtilsMessengerCallbackDataEXT const* p_callback_data, void*) -> VkBool32 {
-            auto level = Logger::LogLevel::INFO;
+            auto level = Logger::LogLevel::DEBUG;
             if (message_severity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT) {
-                level = Logger::LogLevel::INFO;
+                level = Logger::LogLevel::DEBUG;
             } else if (message_severity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT) {
                 level = Logger::LogLevel::WARN;
             } else if (message_severity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT) {
                 level = Logger::LogLevel::ERR;
             }
             // use info warn error log by level variable
-            Logger::log(LOG_SOURCE_LOC, level, "{}: {} ({})\n{}",
+            Logger::log(LOG_SOURCE_LOC, level, "{}: {} ({})\n\t{}",
                         vk::to_string(static_cast<vk::DebugUtilsMessageTypeFlagsEXT>(message_type)),
                         p_callback_data->pMessageIdName, p_callback_data->messageIdNumber,
                         p_callback_data->pMessage);

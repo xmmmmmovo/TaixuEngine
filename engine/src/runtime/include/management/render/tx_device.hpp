@@ -1,8 +1,6 @@
 /**
  * @file tx_device.hpp
  * @author xmmmmmovo
- * @brief
- * @version 0.1
  * @date 2024-07-12
  *
  * @copyright Copyright (c) 2024 xmmmmmovo
@@ -30,6 +28,7 @@ class TXDevice final : public Noncopyable {
 
 tx_unordered_set<tx_string> getDeviceExtensions(vk::raii::PhysicalDevice const& physical_device);
 
-ResValT<TXDevice> createTXDevice(vk::raii::Instance const& instance);
+ResValT<TXDevice> createTXDevice(vk::raii::Instance const&   instance,
+                                 vk::raii::SurfaceKHR const& surface);
 
 }// namespace taixu
