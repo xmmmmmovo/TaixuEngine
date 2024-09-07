@@ -5,6 +5,7 @@
 build
 .idea
 .cpm_cache
+.venv
 
 # Created by https://www.toptal.com/developers/gitignore/api/cmake,visualstudio,visualstudiocode,c++,c,jetbrains,clion
 # Edit at https://www.toptal.com/developers/gitignore?templates=cmake,visualstudio,visualstudiocode,c++,c,jetbrains,clion

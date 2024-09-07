@@ -11,7 +11,8 @@
 #include "imgui_internal.h"
 
 // "" headers
-#include "gameplay/gui/window.hpp"
+#include <taixu/gameplay/gui/window.hpp>
+
 #include "ui/common/view_model.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
@@ -47,13 +48,12 @@ private:
     static constexpr ImGuiWindowFlags IMGUI_WINDOW_FLAG{
             ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoTitleBar |
             ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
-            ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus |
-            ImGuiWindowFlags_NoBackground};
+            ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground};
     /**
      * DockSpace相关flag
      */
-    static constexpr ImGuiDockNodeFlags IMGUI_DOCKSPACE_FLAGS{
-            ImGuiDockNodeFlags_None ^ ImGuiDockNodeFlags_PassthruCentralNode};
+    static constexpr ImGuiDockNodeFlags IMGUI_DOCKSPACE_FLAGS{ImGuiDockNodeFlags_None ^
+                                                              ImGuiDockNodeFlags_PassthruCentralNode};
 
     static constexpr tx_string_view VIEW_HOLDER_NAME{"#TaixuEditorViewHolder"};
     static constexpr tx_string_view DOCK_SPACE_NAME{"TaixuEditorDock"};

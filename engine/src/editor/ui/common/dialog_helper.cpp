@@ -5,14 +5,11 @@
 #include "dialog_helper.hpp"
 
 namespace taixu::editor {
-
-
 void openFileDialog(tx_string_view const& key, IGFD::FileDialogConfig const& config) {
     ImGuiFileDialog::Instance()->OpenDialog(key.data(), "Choose a Directory", nullptr, config);
 }
 
-void displayAndProcessFileDialog(tx_string_view const& key, ViewModel& view_model,
-                                 const Callbacks callback_key) {
+void displayAndProcessFileDialog(tx_string_view const& key, ViewModel& view_model, const Callbacks callback_key) {
     if (ImGuiFileDialog::Instance()->Display(key.data())) {
         // action if OK
         if (ImGuiFileDialog::Instance()->IsOk()) {

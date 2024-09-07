@@ -5,21 +5,23 @@
 #ifndef ENGINE_EDITOR_UI_COMPONENTS_GO_HIERARCHY_COMPONENT_HPP
 #define ENGINE_EDITOR_UI_COMPONENTS_GO_HIERARCHY_COMPONENT_HPP
 
-#include "ui/common/ui_component.hpp"
 #include <array>
 #include <string>
 #include <string_view>
+
+#include "ui/common/ui_component.hpp"
 
 namespace taixu::editor {
 
 class SceneGraphComponent : public AbstractUIComponent {
 private:
-    static constexpr std::array<tx_string_view, 3> ENTITY_MENU_COMBO_ITEM_NAME = {
-            "Add Empty Entity", "Delete Entity", "Rename Game Object"};
+    static constexpr std::array<tx_string_view, 3> ENTITY_MENU_COMBO_ITEM_NAME = {"Add Empty Entity", "Delete Entity",
+                                                                                  "Rename Game Object"};
     static tx_string_view constexpr WORLD_OBJ_COMPONENT_NAME{"World Objects"};
 
 public:
-    explicit SceneGraphComponent(ViewModel& view_model) : AbstractUIComponent(view_model) {}
+    explicit SceneGraphComponent(ViewModel& view_model) : AbstractUIComponent(view_model) {
+    }
 
     void update() {
         if (ImGui::Begin(WORLD_OBJ_COMPONENT_NAME.data(), nullptr, ImGuiWindowFlags_None)) {

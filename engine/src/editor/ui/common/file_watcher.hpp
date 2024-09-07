@@ -6,7 +6,8 @@
 
 #include <filesystem>
 
-#include "common/hal/tx_string.hpp"
+#include <taixu/common/hal/tx_string.hpp>
+
 #include "hierarchy_struct.hpp"
 
 namespace taixu::editor {

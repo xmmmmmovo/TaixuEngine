@@ -4,11 +4,11 @@
 
 #include "file_watcher.hpp"
 
-#include "common/hal/tx_container.hpp"
-#include "common/hal/tx_string.hpp"
-#include "common/log/logger.hpp"
-#include "engine/engine.hpp"
-#include "platform/os/path.hpp"
+#include <taixu/common/hal/tx_container.hpp>
+#include <taixu/common/hal/tx_string.hpp>
+#include <taixu/common/log/logger.hpp>
+#include <taixu/engine/engine.hpp>
+#include <taixu/platform/os/path.hpp>
 
 #include <imgui/icons/IconsLucide.h>
 
@@ -23,18 +23,21 @@ void recursiveLoadFileTree(FileTreeNodeT& entry) {
          auto&      directory_entry : std::filesystem::directory_iterator(full_path)) {
         const auto& path = directory_entry.path();
 
-        if (IGNORE_TABLE.contains(path.filename().string())) { continue; }
+        if (IGNORE_TABLE.contains(path.filename().string())) {
+            continue;
+        }
 
         FileEntryType type{FileEntryType::FILE};
-        if (directory_entry.is_directory()) { type = FileEntryType::DIRECTORY; }
+        if (directory_entry.is_directory()) {
+            type = FileEntryType::DIRECTORY;
+        }
 
-        FileTreeNodeT node{
-                path.filename().string<char, tx_string::traits_type, tx_string::allocator_type>(
-                        tx_string::allocator_type()),
-                getRelativePath(g_engine.getOpenedProject()->project_path, path),
-                type,
-                {},
-                {}};
+        FileTreeNodeT node{path.filename().string<char, tx_string::traits_type, tx_string::allocator_type>(
+                                   tx_string::allocator_type()),
+                           getRelativePath(g_engine.getOpenedProject()->project_path, path),
+                           type,
+                           {},
+                           {}};
 
         if (type == FileEntryType::DIRECTORY) {
             node.data.filename = fmt::format("{} {}", ICON_LC_FOLDER, node.data.filename);
@@ -43,7 +46,9 @@ void recursiveLoadFileTree(FileTreeNodeT& entry) {
             entry.file_childrens.emplace_back(node);
         }
     }
-    for (auto&& child : entry.directory_childrens) { recursiveLoadFileTree(child); }
+    for (auto&& child : entry.directory_childrens) {
+        recursiveLoadFileTree(child);
+    }
 }
 
 }// namespace taixu::editor

@@ -1,6 +1,7 @@
 #include <fmt/format.h>
 
-#include "engine/engine.hpp"
+#include <taixu/engine/engine.hpp>
+
 #include "ui/main_window/main_window.hpp"
 
 /**

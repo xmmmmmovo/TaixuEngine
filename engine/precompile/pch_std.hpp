@@ -80,37 +80,43 @@
 #include <valarray>
 #include <vector>
 
-#include <any>
-#include <charconv>
-#if __has_include(<execution>)
-    #include <execution>
+#if __cplusplus >= 201703L
+    #include <any>
+    #include <charconv>
+    #if __has_include(<execution>)
+        #include <execution>
+    #endif
+    #include <filesystem>
+    #include <memory_resource>
+    #include <optional>
+    #include <variant>
 #endif
-#include <filesystem>
-#include <memory_resource>
-#include <optional>
-#include <variant>
 
-#include <barrier>
-#include <bit>
-#include <compare>
-#include <concepts>
-#include <format>
-#include <latch>
-#include <numbers>
-#include <ranges>
-#include <semaphore>
-#include <source_location>
-#include <span>
-#include <stop_token>
-#if __has_include(<syncstream>)
-    #include <syncstream>
+#if __cplusplus >= 202002L
+    #include <barrier>
+    #include <bit>
+    #include <compare>
+    #include <concepts>
+    #include <format>
+    #include <latch>
+    #include <numbers>
+    #include <ranges>
+    #include <semaphore>
+    #include <source_location>
+    #include <span>
+    #include <stop_token>
+    #if __has_include(<syncstream>)
+        #include <syncstream>
+    #endif
+    #include <version>
 #endif
-#include <version>
 
-#include <expected>
-#include <spanstream>
-#if __has_include(<stacktrace>)
-    #include <stacktrace>
+#if __cplusplus >= 202302L
+    #include <expected>
+    #include <spanstream>
+    #if __has_include(<stacktrace>)
+        #include <stacktrace>
+    #endif
+    #include <stdatomic.h>
+    #include <stdfloat>
 #endif
-#include <stdatomic.h>
-#include <stdfloat>

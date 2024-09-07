@@ -1,8 +1,7 @@
 //
 // Created by xmmmmmovo on 1/19/2024.
 //
-
-#include "gameplay/gui/window.hpp"
+#include "taixu/gameplay/gui/window.hpp"
 
 #include "common/log/logger.hpp"
 
@@ -15,19 +14,21 @@
 
 namespace taixu {
 
-Window::Window(WindowInfo const& window_info) : _window_info(window_info) {}
+Window::Window(WindowInfo const& window_info) : _window_info(window_info) {
+}
 
 void Window::init() {
     glfwSetErrorCallback(errorCallBack);
 
-    if (GLFW_TRUE != glfwInit()) { FATAL_LOG("GLFW init failed!"); }
+    if (GLFW_TRUE != glfwInit()) {
+        FATAL_LOG("GLFW init failed!");
+    }
 
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 }
 
 void Window::showWindow() {
-    _window = glfwCreateWindow(_window_info.width, _window_info.height, _window_info.title.data(),
-                               nullptr, nullptr);
+    _window = glfwCreateWindow(_window_info.width, _window_info.height, _window_info.title.data(), nullptr, nullptr);
 
     if (!_window) {
         glfwTerminate();
@@ -57,17 +58,29 @@ void Window::showWindow() {
     _dpi_scale.y_scale = y_scale;
 }
 
-void Window::update() { handleEvents(); }
+void Window::update() {
+    handleEvents();
+}
 
-void Window::destroy() { glfwTerminate(); }
+void Window::destroy() {
+    glfwTerminate();
+}
 
-GLFWwindow* Window::getRawWindow() const { return _window; }
+GLFWwindow* Window::getRawWindow() const {
+    return _window;
+}
 
-void Window::handleEvents() { glfwPollEvents(); }
+void Window::handleEvents() {
+    glfwPollEvents();
+}
 
-bool Window::shouldClose() const { return glfwWindowShouldClose(_window); }
+bool Window::shouldClose() const {
+    return glfwWindowShouldClose(_window);
+}
 
-bool Window::isSupportVulkan() { return glfwVulkanSupported() == GLFW_TRUE; }
+bool Window::isSupportVulkan() {
+    return glfwVulkanSupported() == GLFW_TRUE;
+}
 
 VkGlfwExtensions Window::getVulkanInstanceExtensions() {
     VkGlfwExtensions ext;
@@ -87,8 +100,7 @@ void Window::errorCallBack(int error, const char* description) {
     FATAL_LOG("GLFW Error: {}, {}", error, description);
 }
 
-void Window::keyCallback(GLFWwindow* window, const int key, const int scancode, const int action,
-                         const int mods) {
+void Window::keyCallback(GLFWwindow* window, const int key, const int scancode, const int action, const int mods) {
     const auto* context = static_cast<Window*>(glfwGetWindowUserPointer(window));
     context->onKey(key, scancode, action, mods);
 }
@@ -104,8 +116,7 @@ void Window::charModsCallback(GLFWwindow* window, const unsigned codepoint, cons
     context->onCharMods(codepoint, mods);
 }
 
-void Window::mouseButtonCallback(GLFWwindow* window, const int button, const int action,
-                                 const int mods) {
+void Window::mouseButtonCallback(GLFWwindow* window, const int button, const int action, const int mods) {
     const auto* context = static_cast<Window*>(glfwGetWindowUserPointer(window));
     context->onMouseButton(button, action, mods);
 }

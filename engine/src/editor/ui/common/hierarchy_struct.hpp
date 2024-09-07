@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include <string>
 #include <vector>
 
 namespace taixu::editor {
@@ -20,13 +19,11 @@ struct ChildrensHierarchyNode {
 };
 
 template<typename DataT, typename ChildT>
-struct ChildrensHierarchyDataNode : public HierarchyDataNode<DataT>,
-                                    public ChildrensHierarchyNode<ChildT> {};
+struct ChildrensHierarchyDataNode : public HierarchyDataNode<DataT>, public ChildrensHierarchyNode<ChildT> {};
 
 template<typename DataT>
-struct ChildrensSameHierarchyNode
-    : public HierarchyDataNode<DataT>,
-      public ChildrensHierarchyNode<ChildrensSameHierarchyNode<DataT>> {};
+struct ChildrensSameHierarchyNode : public HierarchyDataNode<DataT>,
+                                    public ChildrensHierarchyNode<ChildrensSameHierarchyNode<DataT>> {};
 
 template<typename DataT, typename ChildT, size_t ArrSize>
 struct ChildrensArrayHierarchyDataNode : public HierarchyDataNode<DataT> {
