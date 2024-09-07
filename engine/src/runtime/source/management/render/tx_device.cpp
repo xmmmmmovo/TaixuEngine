@@ -45,8 +45,7 @@ tx_string getDriverVersionStr(uint32_t vendorID, uint32_t driverVersion) {
     else {
         // (Old) Vulkan convention, prior to the introduction of the
         // VK_API_VERSION_VARIANT bits at the top.
-        oss << (driverVersion >> 22) << "." << ((driverVersion >> 12) & 0x3ff) << "."
-            << (driverVersion & 0xfff);
+        oss << (driverVersion >> 22) << "." << ((driverVersion >> 12) & 0x3ff) << "." << (driverVersion & 0xfff);
     }
 
     return oss.str();
@@ -59,14 +58,11 @@ float scoreDevice(vk::raii::PhysicalDevice const& device, vk::raii::SurfaceKHR c
     uint32_t minor = VK_API_VERSION_MINOR(props.apiVersion);
     uint32_t patch = VK_API_VERSION_PATCH(props.apiVersion);
 
-    INFO_LOG("Find GPU: {}(Vulkan {}.{}.{});Driver: {};Type: {}",
-             tx_string(props.deviceName.data()), major, minor, patch,
-             getDriverVersionStr(props.vendorID, props.driverVersion),
-             vk::to_string(props.deviceType));
+    INFO_LOG("Find GPU: {}(Vulkan {}.{}.{});Driver: {};Type: {}", tx_string(props.deviceName.data()), major, minor,
+             patch, getDriverVersionStr(props.vendorID, props.driverVersion), vk::to_string(props.deviceType));
 
     if (major < 1 || (major == 1 && minor < 2)) {
-        INFO_LOG("Discarding device '{}': insufficient vulkan version",
-                 tx_string_view(props.deviceName.data()));
+        INFO_LOG("Discarding device '{}': insufficient vulkan version", tx_string_view(props.deviceName.data()));
         return -1.0f;
     }
 
@@ -98,39 +94,24 @@ float scoreDevice(vk::raii::PhysicalDevice const& device, vk::raii::SurfaceKHR c
 
     INFO_LOG("Memory: {} types", mem_props.memoryHeapCount);
     for (size_t i = 0; i < mem_props.memoryHeapCount; i++) {
-        INFO_LOG("\tType {}: {} (heap {})", i,
-                 vk::to_string(mem_props.memoryTypes[i].propertyFlags),
+        INFO_LOG("\tType {}: {} (heap {})", i, vk::to_string(mem_props.memoryTypes[i].propertyFlags),
                  mem_props.memoryTypes[i].heapIndex);
     }
 
-    static constexpr vk::QueueFlags REQUIRED_QUEUE_FLAGS = vk::QueueFlagBits::eGraphics |
-                                                           vk::QueueFlagBits::eCompute |
-                                                           vk::QueueFlagBits::eTransfer;
+    static constexpr vk::QueueFlags REQUIRED_QUEUE_FLAGS =
+            vk::QueueFlagBits::eGraphics | vk::QueueFlagBits::eCompute | vk::QueueFlagBits::eTransfer;
 
     for (size_t i = 0; i < queue_family_props.size(); i++) {
-        if ((queue_family_props.at(i).queueCount > 0) &&
-            (queue_family_props.at(i).queueFlags & REQUIRED_QUEUE_FLAGS)) {
+        if ((queue_family_props.at(i).queueCount > 0) && (queue_family_props.at(i).queueFlags & REQUIRED_QUEUE_FLAGS)) {
             if (auto const support = device.getSurfaceSupportKHR(i, *surface); !support) {
-                INFO_LOG("Discarding device '{}': surface not supported",
-                         tx_string(props.deviceName.data()));
+                INFO_LOG("Discarding device '{}': surface not supported", tx_string(props.deviceName.data()));
                 return -1.f;
             }
         }
     }
 
-    for (auto&& family : queue_family_props) {
-        if ((family.queueCount > 0) && (family.queueFlags & REQUIRED_QUEUE_FLAGS)) {
-            auto support = device.getSurfaceSupportKHR(0, *surface);
-
-
-            INFO_LOG("Found a queue family that supports graphics, compute, and transfer");
-            return 1.0f;
-        }
-    }
-
     if (auto const features = device.getFeatures(); !features.samplerAnisotropy) {
-        INFO_LOG("Discarding device '{}': samplerAnisotropy not supported",
-                 tx_string(props.deviceName.data()));
+        INFO_LOG("Discarding device '{}': samplerAnisotropy not supported", tx_string(props.deviceName.data()));
         return -1.f;
     }
 
@@ -178,10 +159,17 @@ ResValT<vk::raii::Device> createDevice(vk::raii::PhysicalDevice const& physical_
 
 
     tx_vector<uint32_t> queue_family_indices{};
+
+    tx_vector<char const*> const enabled_dev_exts{};
+    enabled_dev_extensions.emplace_back(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
+#if defined(TX_APPLE)
+    enabled_dev_exts.emplace_back("VK_KHR_portability_subset");
+#endif
+    INFO_LOG("Enabled device extensions:");
+    for (auto const& ext : enabled_dev_extensions) { INFO_LOG("\t{}", ext); }
 }
 
-ResValT<TXDevice> createTXDevice(vk::raii::Instance const&   instance,
-                                 vk::raii::SurfaceKHR const& surface) {
+ResValT<TXDevice> createTXDevice(vk::raii::Instance const& instance, vk::raii::SurfaceKHR const& surface) {
     auto device = selectDevice(instance, surface);
 
     if (!device.has_value()) { return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR); }

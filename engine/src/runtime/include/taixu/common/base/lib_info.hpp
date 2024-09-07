@@ -6,7 +6,7 @@
  * @copyright Copyright (c) 2024 xmmmmmovo
  *
  */
- #pragma once
+#pragma once
 
 #include "common/utils/string_utils.hpp"
 
@@ -18,9 +18,9 @@ struct LibInfo {
     uint32_t         version;
 };
 
-static constexpr LibInfo LIB_INFO{.name           = "@TX_ENGINE_NAME@",
-                                  .string_version = "@TX_ENGINE_VERSION@",
-                                  .version        = str2uint32Version("@TX_ENGINE_VERSION@")};
+static constexpr LibInfo LIB_INFO{.name           = "TaixuEngine",
+                                  .string_version = "0.1.1",
+                                  .version        = str2uint32Version("0.1.1")};
 
 
 }// namespace taixu

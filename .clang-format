@@ -65,7 +65,7 @@ AlignConsecutiveAssignments: AcrossComments
 AlignConsecutiveDeclarations: AcrossComments
 AlignTrailingComments: true
 # limit, 0 for unlimited
-ColumnLimit: 100
+ColumnLimit: 120
 IncludeCategories: # headers sort，<>,"" sort by alphabeat
   - Regex: "glad"
     Priority: 0
