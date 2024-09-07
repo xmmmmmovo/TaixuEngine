@@ -6,6 +6,16 @@ A simple 3D game engine.
 
 Note: This is in OpenGL version in [main branch](https://github.com/xmmmmmovo/TaixuEngine/tree/main)
 
+## Roadmap
+
+- [ ] Vulkan Support
+- [ ] Resource Manager
+- [ ] Scene
+- [ ] TaskQueue
+- [ ] Audio
+- [ ] Animation
+- [ ] Script
+
 ## How to build
 
 **Prerequisites:**
@@ -51,3 +61,8 @@ flowchart TD
     platform --> common;
     resource --> common;
 ```
+
+## Designs
+
+- No Exception Design
+- Constructor Exception Safe
