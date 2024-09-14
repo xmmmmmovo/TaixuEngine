@@ -25,7 +25,7 @@ namespace taixu::editor {
 
 class MainWindow {
 private:
-    static constexpr tx_string_view STARTUP_OPEN_PROJECT_DLG_KEY = "startup_open_project_file_dlg";
+    static constexpr std::string_view STARTUP_OPEN_PROJECT_DLG_KEY = "startup_open_project_file_dlg";
 
 private:
     ViewModel _view_model{};
@@ -55,8 +55,8 @@ private:
     static constexpr ImGuiDockNodeFlags IMGUI_DOCKSPACE_FLAGS{ImGuiDockNodeFlags_None ^
                                                               ImGuiDockNodeFlags_PassthruCentralNode};
 
-    static constexpr tx_string_view VIEW_HOLDER_NAME{"#TaixuEditorViewHolder"};
-    static constexpr tx_string_view DOCK_SPACE_NAME{"TaixuEditorDock"};
+    static constexpr std::string_view VIEW_HOLDER_NAME{"#TaixuEditorViewHolder"};
+    static constexpr std::string_view DOCK_SPACE_NAME{"TaixuEditorDock"};
 
     ImGuiID _dock_space_id{0};
 

@@ -28,7 +28,8 @@ if(WARNINGS)
 endif()
 
 # link libraries
-target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime argparse)
+target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime)
+target_link_libraries(${TARGET_NAME} PRIVATE argparse glm)
 
 if(USE_PCH)
     target_precompile_headers(${TARGET_NAME} PRIVATE ${PCH_DIR}/pch_std.hpp)

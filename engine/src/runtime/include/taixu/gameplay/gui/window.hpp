@@ -7,13 +7,12 @@
 
 #include <functional>
 
-#include "common/base/core.hpp"
-#include "common/base/macro.hpp"
-#include "common/designs/noncopyable.hpp"
-#include "common/hal/tx_string.hpp"
+#include "taixu/common/base/core.hpp"
+#include "taixu/common/base/macro.hpp"
+#include "taixu/common/designs/noncopyable.hpp"
 
 #ifdef TX_WINDOWS
-    #include "platform/windows/windows_min.hpp"
+    #include "taixu/platform/windows/windows_min.hpp"
 #endif
 
 #define GLFW_INCLUDE_NONE
@@ -30,9 +29,9 @@
 namespace taixu {
 
 struct WindowInfo {
-    tx_string_view title{};
-    int32_t        width{0};
-    int32_t        height{0};
+    std::string_view title{};
+    int32_t          width{0};
+    int32_t          height{0};
 };
 
 struct DPIScale {
@@ -97,9 +96,13 @@ public:
     [[nodiscard]] GLFWwindow* getRawWindow() const;
 
 #ifdef TX_WINDOWS
-    [[nodiscard]] HWND getHWND() const { return glfwGetWin32Window(_window); }
+    [[nodiscard]] HWND getHWND() const {
+        return glfwGetWin32Window(_window);
+    }
 
-    [[nodiscard]] static HINSTANCE getHINSTANCE() { return GetModuleHandle(nullptr); }
+    [[nodiscard]] static HINSTANCE getHINSTANCE() {
+        return GetModuleHandle(nullptr);
+    }
 #endif
 
     static void        handleEvents();
@@ -108,56 +111,80 @@ public:
     [[nodiscard]] static bool             isSupportVulkan();
     [[nodiscard]] static VkGlfwExtensions getVulkanInstanceExtensions();
 
-    RetCode setTitle(tx_string_view title);
+    RetCode setTitle(std::string_view title);
 
 protected:
     // NOLINTBEGIN
     void onReset() const {
-        for (auto const& func : _on_reset_fns) { func(); }
+        for (auto const& func : _on_reset_fns) {
+            func();
+        }
     }
 
     void onKey(const int key, const int scancode, const int action, const int mods) const {
-        for (auto const& func : _on_key_fns) { func(key, scancode, action, mods); }
+        for (auto const& func : _on_key_fns) {
+            func(key, scancode, action, mods);
+        }
     }
 
     void onChar(const unsigned int codepoint) const {
-        for (auto const& func : _on_char_fns) { func(codepoint); }
+        for (auto const& func : _on_char_fns) {
+            func(codepoint);
+        }
     }
 
     void onCharMods(const unsigned int codepoint, const int mods) const {
-        for (auto const& func : _on_char_mods_fns) { func(codepoint, mods); }
+        for (auto const& func : _on_char_mods_fns) {
+            func(codepoint, mods);
+        }
     }
 
     void onMouseButton(const int button, const int action, const int mods) const {
-        for (auto const& func : _on_mouse_button_fns) { func(button, action, mods); }
+        for (auto const& func : _on_mouse_button_fns) {
+            func(button, action, mods);
+        }
     }
 
     void onCursorPos(const double xpos, const double ypos) const {
-        for (auto const& func : _on_cursor_pos_fns) { func(xpos, ypos); }
+        for (auto const& func : _on_cursor_pos_fns) {
+            func(xpos, ypos);
+        }
     }
 
     void onCursorEnter(const int entered) const {
-        for (auto const& func : _on_cursor_enter_fns) { func(entered); }
+        for (auto const& func : _on_cursor_enter_fns) {
+            func(entered);
+        }
     }
 
     void onScroll(const double xoffset, const double yoffset) const {
-        for (auto const& func : _on_scroll_fns) { func(xoffset, yoffset); }
+        for (auto const& func : _on_scroll_fns) {
+            func(xoffset, yoffset);
+        }
     }
 
     void onDrop(const int count, const char** paths) const {
-        for (auto const& func : _on_drop_fns) { func(count, paths); }
+        for (auto const& func : _on_drop_fns) {
+            func(count, paths);
+        }
     }
 
     void onWindowSize(const int width, const int height) const {
-        for (auto const& func : _on_window_size_fns) { func(width, height); }
+        for (auto const& func : _on_window_size_fns) {
+            func(width, height);
+        }
     }
 
     void onWindowDPIChanged(const float xscale, const float yscale) const {
-        for (auto const& func : _on_window_dpi_changed_fns) { func(xscale, yscale); }
+        for (auto const& func : _on_window_dpi_changed_fns) {
+            func(xscale, yscale);
+        }
     }
 
     void onWindowClose() const {
-        for (auto const& func : _on_window_close_fns) { func(); }
+        for (auto const& func : _on_window_close_fns) {
+            func();
+        }
     }
 
     // NOLINTEND
@@ -177,29 +204,53 @@ protected:
     static void windowCloseCallback(GLFWwindow* window);
 
 public:
-    void registerOnResetFn(on_reset_fn const& func) { _on_reset_fns.push_back(func); }
+    void registerOnResetFn(on_reset_fn const& func) {
+        _on_reset_fns.push_back(func);
+    }
 
-    void registerOnKeyFn(on_key_fn const& func) { _on_key_fns.push_back(func); }
+    void registerOnKeyFn(on_key_fn const& func) {
+        _on_key_fns.push_back(func);
+    }
 
-    void registerOnCharFn(on_char_fn const& func) { _on_char_fns.push_back(func); }
+    void registerOnCharFn(on_char_fn const& func) {
+        _on_char_fns.push_back(func);
+    }
 
-    void registerOnCharModsFn(on_char_mods_fn const& func) { _on_char_mods_fns.push_back(func); }
+    void registerOnCharModsFn(on_char_mods_fn const& func) {
+        _on_char_mods_fns.push_back(func);
+    }
 
-    void registerOnMouseButtonFn(on_mouse_button_fn const& func) { _on_mouse_button_fns.push_back(func); }
+    void registerOnMouseButtonFn(on_mouse_button_fn const& func) {
+        _on_mouse_button_fns.push_back(func);
+    }
 
-    void registerOnCursorPosFn(on_cursor_pos_fn const& func) { _on_cursor_pos_fns.push_back(func); }
+    void registerOnCursorPosFn(on_cursor_pos_fn const& func) {
+        _on_cursor_pos_fns.push_back(func);
+    }
 
-    void registerOnCursorEnterFn(on_cursor_enter_fn const& func) { _on_cursor_enter_fns.push_back(func); }
+    void registerOnCursorEnterFn(on_cursor_enter_fn const& func) {
+        _on_cursor_enter_fns.push_back(func);
+    }
 
-    void registerOnScrollFn(on_scroll_fn const& func) { _on_scroll_fns.push_back(func); }
+    void registerOnScrollFn(on_scroll_fn const& func) {
+        _on_scroll_fns.push_back(func);
+    }
 
-    void registerOnDropFn(on_drop_fn const& func) { _on_drop_fns.push_back(func); }
+    void registerOnDropFn(on_drop_fn const& func) {
+        _on_drop_fns.push_back(func);
+    }
 
-    void registerOnWindowSizeFn(on_window_size_fn const& func) { _on_window_size_fns.push_back(func); }
+    void registerOnWindowSizeFn(on_window_size_fn const& func) {
+        _on_window_size_fns.push_back(func);
+    }
 
-    void registerOnWindowCloseFn(on_window_close_fn const& func) { _on_window_close_fns.push_back(func); }
+    void registerOnWindowCloseFn(on_window_close_fn const& func) {
+        _on_window_close_fns.push_back(func);
+    }
 
-    void setOnError(on_error_fn const&& func) { this->_on_error = func; }
+    void setOnError(on_error_fn const&& func) {
+        this->_on_error = func;
+    }
 };
 
 }// namespace taixu

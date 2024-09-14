@@ -15,9 +15,9 @@ namespace taixu::editor {
 
 class SceneGraphComponent : public AbstractUIComponent {
 private:
-    static constexpr std::array<tx_string_view, 3> ENTITY_MENU_COMBO_ITEM_NAME = {"Add Empty Entity", "Delete Entity",
-                                                                                  "Rename Game Object"};
-    static tx_string_view constexpr WORLD_OBJ_COMPONENT_NAME{"World Objects"};
+    static constexpr std::array<std::string_view, 3> ENTITY_MENU_COMBO_ITEM_NAME = {"Add Empty Entity", "Delete Entity",
+                                                                                    "Rename Game Object"};
+    static constexpr std::string_view                WORLD_OBJ_COMPONENT_NAME{"World Objects"};
 
 public:
     explicit SceneGraphComponent(ViewModel& view_model) : AbstractUIComponent(view_model) {

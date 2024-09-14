@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include "taixu/platform/os/path.hpp"
-
 #include "editor_context.hpp"
 #include "imgui/file_dialog/ImGuiFileDialog.h"
 #include "view_model.hpp"
@@ -17,8 +15,8 @@ static const IGFD::FileDialogConfig DIRECTORY_CONFIG{.path              = getRoo
                                                      .flags             = ImGuiFileDialogFlags_Modal};
 
 
-void openFileDialog(tx_string_view const& key, IGFD::FileDialogConfig const& config);
+void openFileDialog(std::string_view const& key, IGFD::FileDialogConfig const& config);
 
-void displayAndProcessFileDialog(tx_string_view const& key, ViewModel& view_model, Callbacks callback_key);
+void displayAndProcessFileDialog(std::string_view const& key, ViewModel& view_model, Callbacks callback_key);
 
 }// namespace taixu::editor

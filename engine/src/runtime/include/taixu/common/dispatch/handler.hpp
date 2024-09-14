@@ -6,8 +6,8 @@
 
 #include <cassert>
 
-#include "common/base/macro.hpp"
-#include "common/log/logger.hpp"
+#include "taixu/common/base/macro.hpp"
+#include "taixu/common/log/logger.hpp"
 
 namespace taixu {
 
@@ -29,7 +29,8 @@ struct Handler {
     const std::type_info& info;
 
     template<typename T>
-    explicit Handler(T fn) : f(reinterpret_cast<void (*)()>(fn)), info(typeid(T)) {}
+    explicit Handler(T fn) : f(reinterpret_cast<void (*)()>(fn)), info(typeid(T)) {
+    }
 
     template<typename... Args>
     void operator()(Args&&... args) {

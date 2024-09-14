@@ -5,7 +5,7 @@
 #ifndef ENGINE_SRC_COMMON_LOG_LOGGER_E9C1FBD2F1524E5A81CDE784368C4FA4
 #define ENGINE_SRC_COMMON_LOG_LOGGER_E9C1FBD2F1524E5A81CDE784368C4FA4
 
-#include <common/base/macro.hpp>
+#include <taixu/common/base/macro.hpp>
 
 #include <fmt/core.h>
 #include <fmt/format.h>
@@ -16,7 +16,9 @@ namespace taixu {
 using source_loc_t = spdlog::source_loc;
 
 #define LOG_SOURCE_LOC                                                                                                 \
-    spdlog::source_loc { __FILE__, __LINE__, __FUNCTION__ }
+    spdlog::source_loc {                                                                                               \
+        __FILE__, __LINE__, __FUNCTION__                                                                               \
+    }
 
 // NOLINTBEGIN
 
@@ -127,7 +129,9 @@ public:
      */
     static void log(spdlog::source_loc const&& loc, LogLevel level, std::string_view const& msg) {
         logger->log(loc, static_cast<spdlog::level::level_enum>(level), msg);
-        if (level == LogLevel::FATAL) { fatalError(msg); }
+        if (level == LogLevel::FATAL) {
+            fatalError(msg);
+        }
     }
 
     /**
@@ -154,7 +158,9 @@ public:
      * @exception std::runtime_error unknow error throw when fatal error occurs.
      * @param msg Throw error message
      */
-    static void fatalError(std::basic_string_view<char> const& msg) { throw std::runtime_error(msg.data()); }
+    static void fatalError(std::basic_string_view<char> const& msg) {
+        throw std::runtime_error(msg.data());
+    }
 
 private:
     Logger() = default;

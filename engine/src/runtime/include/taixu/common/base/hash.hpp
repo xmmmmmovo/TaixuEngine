@@ -1,8 +1,6 @@
 #ifndef ENGINE_RUNTIME_CORE_BASE_HASH
 #define ENGINE_RUNTIME_CORE_BASE_HASH
 
-#include "common/base/macro.hpp"
-
 #include <cstddef>
 #include <cstdint>
 #include <functional>
@@ -31,7 +29,9 @@ void hashCombine(std::size_t& seed, const T& v) {
 template<typename T, typename... Ts>
 void hashCombine(std::size_t& seed, const T& v, Ts... rest) {
     hashCombine(seed, v);
-    if constexpr (sizeof...(Ts) > 1) { hashCombine(seed, rest...); }
+    if constexpr (sizeof...(Ts) > 1) {
+        hashCombine(seed, rest...);
+    }
 }
 
 using hash32_t = std::uint32_t;
@@ -63,9 +63,13 @@ constexpr hash64_t fnv1a_64(char const* s, const std::size_t count) {
            1099511628211ULL;// NOLINT (hicpp-signed-bitwise)
 }
 
-constexpr hash32_t operator"" _hash32(char const* s, const std::size_t count) { return fnv1a_32(s, count); }
+constexpr hash32_t operator"" _hash32(char const* s, const std::size_t count) {
+    return fnv1a_32(s, count);
+}
 
-constexpr hash64_t operator"" _hash64(char const* s, const std::size_t count) { return fnv1a_64(s, count); }
+constexpr hash64_t operator"" _hash64(char const* s, const std::size_t count) {
+    return fnv1a_64(s, count);
+}
 
 }// namespace taixu
 

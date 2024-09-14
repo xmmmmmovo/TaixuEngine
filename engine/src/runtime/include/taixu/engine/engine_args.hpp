@@ -6,13 +6,11 @@
 #define TAIXUENGINE_RUNTIME_ENGINE_ARGS_HPP
 
 
-#include "common/base/macro.hpp"
-#include "common/hal/tx_string.hpp"
+#include <taixu/common/base/macro.hpp>
 
 namespace taixu {
 
 using namespace std::literals;
-using namespace taixu::literals;
 
 class EngineArgs {
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, bool, is_debug, true);

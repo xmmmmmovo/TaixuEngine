@@ -5,16 +5,16 @@
 #ifndef ENGINE_EDITOR_UI_WIDGETS_SLIDER_HPP
 #define ENGINE_EDITOR_UI_WIDGETS_SLIDER_HPP
 
-#include "tooltip.hpp"
-
 #include <glm/glm.hpp>
 
 #include <taixu/common/base/macro.hpp>
 
+#include "tooltip.hpp"
+
 namespace taixu::editor {
 
-TX_INLINE bool buildVec3Slider(const tx_string& label, glm::vec3& values, const glm::vec3 reset_values = glm::vec3{0.f},
-                               float column_width = 100.0f) {
+TX_INLINE bool buildVec3Slider(const std::string& label, glm::vec3& values,
+                               const glm::vec3 reset_values = glm::vec3{0.f}, float column_width = 100.0f) {
     bool           b_value_changed = false;
     ImGuiIO const& io              = ImGui::GetIO();
     auto           bold_font       = io.Fonts->Fonts[0];

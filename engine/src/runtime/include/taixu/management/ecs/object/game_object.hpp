@@ -5,8 +5,8 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_ECS_OBJECT_GAME_OBJECT_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_OBJECT_GAME_OBJECT_HPP
 
-#include <common/base/macro.hpp>
-#include <management/ecs/object/guid_genenrator.hpp>
+#include <taixu/common/base/macro.hpp>
+#include <taixu/management/ecs/object/guid_genenrator.hpp>
 
 namespace taixu {
 class GameObject {

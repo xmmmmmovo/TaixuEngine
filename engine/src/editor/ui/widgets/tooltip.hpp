@@ -8,6 +8,8 @@
 #include <imgui.h>
 #include <imgui_internal.h>
 
+#include <taixu/common/base/macro.hpp>
+
 namespace taixu::editor {
 
 constexpr float TOOLTIP_TRESH_HOLD = 0.5f;

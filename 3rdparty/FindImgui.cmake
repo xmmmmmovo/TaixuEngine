@@ -36,15 +36,15 @@ if(imgui_ADDED)
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${imgui_SOURCE_DIR}>)
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${ADDON_PATH}>)
 
-    target_link_libraries(imgui PUBLIC freetype glfw)
+    target_link_libraries(imgui PRIVATE freetype glfw)
 
     if(USE_VULKAN)
-        target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${Vulkan_INCLUDE_DIR}>)
-        target_link_libraries(imgui PUBLIC Vulkan::Vulkan)
+        target_include_directories(imgui PRIVATE $<BUILD_INTERFACE:${Vulkan_INCLUDE_DIR}>)
+        target_link_libraries(imgui PRIVATE Vulkan::Vulkan)
     endif()
 
     if(USE_DX11)
-        target_link_libraries(imgui PUBLIC ${DX11_LIB})
+        target_link_libraries(imgui PRIVATE ${DX11_LIB})
     endif()
 
     set_target_properties(imgui PROPERTIES LINKER_LANGUAGE CXX)

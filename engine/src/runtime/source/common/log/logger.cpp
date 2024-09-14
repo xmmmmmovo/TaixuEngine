@@ -2,7 +2,7 @@
 // Created by xmmmmmovo on 11/13/2023.
 //
 
-#include "common/log/logger.hpp"
+#include <taixu/common/log/logger.hpp>
 
 #include <spdlog/async.h>
 #include <spdlog/sinks/basic_file_sink.h>
@@ -22,9 +22,8 @@ void Logger::init() {
 
     spdlog::init_thread_pool(SIZE, 1);
 
-    logger = std::make_shared<spdlog::async_logger>("muggle_logger", sink_list.begin(),
-                                                    sink_list.end(), spdlog::thread_pool(),
-                                                    spdlog::async_overflow_policy::block);
+    logger = std::make_shared<spdlog::async_logger>("muggle_logger", sink_list.begin(), sink_list.end(),
+                                                    spdlog::thread_pool(), spdlog::async_overflow_policy::block);
     logger->set_level(spdlog::level::trace);
 
     spdlog::register_logger(logger);

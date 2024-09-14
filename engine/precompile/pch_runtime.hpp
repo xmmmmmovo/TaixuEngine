@@ -62,5 +62,16 @@
 #include <imgui/tools/imgui_freetype.h>
 #include <imgui_internal.h>
 
+#include <magic_enum.hpp>
+
+#include <refl.hpp>
+
+#include <freetype/freetype.h>
+
+#include <assimp/Exporter.hpp>
+#include <assimp/Importer.hpp>
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
+
 
 #endif// ENGINE_PRECOMPILE_PCH_RUNTIME_0A0D878DBB714C9499D420BF61F1C4D8

@@ -1,6 +1,14 @@
+<p align="center">
+  <a href="taixuengine.fivezha.cn"><img src="./docs/assets/icon.webp" width="200" height="200" alt="nonebot"></a>
+</p>
+
+<div align="center">
+
 # TaixuEngine
 
-A simple 3D game engine.
+_✨ A simple 3D game engine. ✨_
+
+</div>
 
 ![Cover](.github/images/cover.png)
 
@@ -61,6 +69,10 @@ flowchart TD
     platform --> common;
     resource --> common;
 ```
+
+## Third Parties
+
+[Copyrights](./3rdparty/README.md)
 
 ## Designs
 

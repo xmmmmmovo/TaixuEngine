@@ -10,10 +10,10 @@
 #include <magic_enum.hpp>
 #include <simdjson.h>
 
-#include "common/base/macro.hpp"
 #include "common/hal/tx_string.hpp"
-#include "common/log/logger.hpp"
 #include "resource/json/json_serializable.hpp"
+#include "taixu/common/base/macro.hpp"
+#include "taixu/common/log/logger.hpp"
 
 namespace taixu {
 
@@ -26,7 +26,9 @@ TX_INLINE void jsonDump(std::stringstream& strstream, T&& value) {
     for_each(refl::reflect(value).members, [&](auto member) {
         // is_readable checks if the member is a non-const field
         // or a 0-arg const-qualified function marked with property attribute
-        if constexpr (!is_readable(member)) { return; }
+        if constexpr (!is_readable(member)) {
+            return;
+        }
 
         // get_display_name prefers the friendly_name of the property over
         // the function name
@@ -55,13 +57,17 @@ TX_INLINE void jsonDump(std::stringstream& strstream, T&& value) {
             auto& member_ref = member(value);
             for (auto i = 0; i < member_ref.size(); i++) {
                 jsonDump(strstream, member_ref[i]);
-                if (i != member_ref.size() - 1) { strstream << ","; }
+                if (i != member_ref.size() - 1) {
+                    strstream << ",";
+                }
             }
             strstream << "]";
         } else {
             strstream << "\"" << member(value) << "\"";
         }
-        if (++cnt != member_size) { strstream << ","; }
+        if (++cnt != member_size) {
+            strstream << ",";
+        }
     });
 }
 
@@ -86,7 +92,9 @@ TX_INLINE void jsonLoad(simdjson::ondemand::document& json_object, T& value) {
     for_each(refl::reflect(value).members, [&](auto member) {
         // is_readable checks if the member is a non-const field
         // or a 0-arg const-qualified function marked with property attribute
-        if constexpr (!is_readable(member)) { return; }
+        if constexpr (!is_readable(member)) {
+            return;
+        }
 
         if constexpr (refl::descriptor::has_attribute<taixu::ISerializableStr>(member)) {
             member(value) = tx_string(json_object[get_display_name(member)].get_string().value());
@@ -103,7 +111,9 @@ TX_INLINE void jsonLoad(simdjson::ondemand::document& json_object, T& value) {
             auto&                     member_ref = member(value);
             member_ref.resize(cnt);
             std::size_t idx = 0;
-            for (auto sub_data : data) { member_ref[idx++] = jsonLoad(sub_data, member(value)); }
+            for (auto sub_data : data) {
+                member_ref[idx++] = jsonLoad(sub_data, member(value));
+            }
         } else if constexpr (refl::descriptor::has_attribute<taixu::ISerializableNULL>(member)) {
             throw std::runtime_error("not support null");
         } else {
@@ -144,8 +154,7 @@ TX_INLINE auto loadFromJsonFile(std::filesystem::path const& file_path) -> std::
     simdjson::padded_string json_str;
     if (auto const err = simdjson::padded_string::load(file_path.generic_string()).get(json_str);
         err != simdjson::SUCCESS) {
-        ERROR_LOG("Cannot load json: {}, error: {}", file_path.filename().generic_string(),
-                  magic_enum::enum_name(err));
+        ERROR_LOG("Cannot load json: {}, error: {}", file_path.filename().generic_string(), magic_enum::enum_name(err));
         return std::nullopt;
     }
     return loadFromJsonStr<T>(json_str);

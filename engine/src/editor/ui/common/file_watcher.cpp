@@ -8,15 +8,12 @@
 #include <taixu/common/hal/tx_string.hpp>
 #include <taixu/common/log/logger.hpp>
 #include <taixu/engine/engine.hpp>
-#include <taixu/platform/os/path.hpp>
 
 #include <imgui/icons/IconsLucide.h>
 
 namespace taixu::editor {
 
-using namespace taixu::literals;
-
-static const tx_unordered_set<tx_string_view> IGNORE_TABLE{".git"_txsv, ".gitignore"_txsv};
+static const std::unordered_set<std::string_view> IGNORE_TABLE{".git"sv, ".gitignore"sv};
 
 void recursiveLoadFileTree(FileTreeNodeT& entry) {
     for (const auto full_path = g_engine.getOpenedProject()->project_path / entry.data.filepath;

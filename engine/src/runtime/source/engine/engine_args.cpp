@@ -2,15 +2,14 @@
 // Created by xmmmmmovo on 1/24/2024.
 //
 
-#include "engine/engine_args.hpp"
-
-#include "common/log/logger.hpp"
+#include "taixu/engine/engine_args.hpp"
+#include "taixu/common/log/logger.hpp"
 
 #include <argparse/argparse.hpp>
 
-
 namespace taixu {
-void EngineArgs::registerWithArgs() {}
+void EngineArgs::registerWithArgs() {
+}
 
 void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
     INFO_LOG("Loading engine arguments...");

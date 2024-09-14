@@ -52,7 +52,7 @@ else()
 endif()
 
 # configure lib information headers for runtime
-configure_file("${TAIXUENGINE_ROOT_DIR}/cmake/configure_hpp/lib_info.hpp.in" "${CMAKE_CURRENT_SOURCE_DIR}/taixu/include/common/base/lib_info.hpp" @ONLY)
+configure_file("${TAIXUENGINE_ROOT_DIR}/cmake/configure_hpp/lib_info.hpp.in" "${CMAKE_CURRENT_SOURCE_DIR}/include/taixu/common/base/lib_info.hpp" @ONLY)
 
 FIND_GLOB_RECURSE(HEADER_FILES "include/*.hpp")
 
@@ -82,14 +82,11 @@ if(MSVC)
 endif()
 
 # public link
-target_link_libraries(${TARGET_NAME} PRIVATE stb)
-target_link_libraries(${TARGET_NAME} PRIVATE simdjson Threads::Threads freetype glfw)
-target_link_libraries(${TARGET_NAME} PRIVATE assimp)
-target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
+target_link_libraries(${TARGET_NAME} PUBLIC spdlog::spdlog fmt::fmt imgui mimalloc-static)
 
-target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static)
-target_link_libraries(${TARGET_NAME} PRIVATE refl-cpp::refl-cpp imgui
-        spdlog::spdlog fmt::fmt magic_enum::magic_enum glm)
+target_link_libraries(${TARGET_NAME} PRIVATE simdjson Threads::Threads freetype)
+target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
+target_link_libraries(${TARGET_NAME} PRIVATE assimp stb refl-cpp::refl-cpp magic_enum::magic_enum glm glfw)
 
 if(USE_VULKAN)
         add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)
