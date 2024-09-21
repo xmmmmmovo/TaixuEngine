@@ -3,7 +3,10 @@
 
 #include <string>
 
-#include <taixu/engine/engine_args.hpp>
+#include "taixu/common/base/core.hpp"
+#include "taixu/common/designs/noncopyable.hpp"
+#include "taixu/engine/engine_args.hpp"
+#include "taixu/gameplay/gui/window.hpp"
 
 namespace taixu {
 

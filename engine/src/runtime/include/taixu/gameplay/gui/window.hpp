@@ -2,8 +2,7 @@
 // Created by xmmmmmovo on 2023/2/12.
 //
 
-#ifndef TAIXUENGINE_WINDOW_HPP_499239DA41144D1D9535ADB888492EF1
-#define TAIXUENGINE_WINDOW_HPP_499239DA41144D1D9535ADB888492EF1
+#pragma once
 
 #include <functional>
 
@@ -13,17 +12,6 @@
 
 #ifdef TX_WINDOWS
     #include "taixu/platform/windows/windows_min.hpp"
-#endif
-
-#define GLFW_INCLUDE_NONE
-#ifdef USE_VULKAN
-    #define GLFW_INCLUDE_VULKAN
-#endif
-#include <GLFW/glfw3.h>
-
-#ifdef TX_WINDOWS
-    #define GLFW_EXPOSE_NATIVE_WIN32
-    #include <GLFW/glfw3native.h>
 #endif
 
 namespace taixu {
@@ -44,26 +32,28 @@ struct WindowState {
     bool fullscreen{false};
 };
 
-struct VkGlfwExtensions {
-    uint32_t                 count{0};
-    std::vector<const char*> names{};
-};
+class GLFWWindow;
 
-class Window final : public Noncopyable {
+/**
+ * @brief Window base class, for processing events and window utils
+ */
+class Window : public Noncopyable {
+    friend class GLFWWindow;
+
 private:
-    using on_reset_fn              = std::function<void()>;
-    using on_key_fn                = std::function<void(int, int, int, int)>;
-    using on_char_fn               = std::function<void(unsigned int)>;
-    using on_char_mods_fn          = std::function<void(unsigned int, int)>;
-    using on_mouse_button_fn       = std::function<void(int, int, int)>;
-    using on_cursor_pos_fn         = std::function<void(double, double)>;
-    using on_cursor_enter_fn       = std::function<void(int)>;
-    using on_scroll_fn             = std::function<void(double, double)>;
-    using on_drop_fn               = std::function<void(int, const char**)>;
-    using on_window_size_fn        = std::function<void(int, int)>;
-    using on_window_dpi_changed_fn = std::function<void(float, float)>;
-    using on_window_close_fn       = std::function<void()>;
-    using on_error_fn              = std::function<void(int, char const*)>;
+    using on_reset_fn              = std::function<void(Window*)>;
+    using on_key_fn                = std::function<void(Window*, int, int, int, int)>;
+    using on_char_fn               = std::function<void(Window*, unsigned int)>;
+    using on_char_mods_fn          = std::function<void(Window*, unsigned int, int)>;
+    using on_mouse_button_fn       = std::function<void(Window*, int, int, int)>;
+    using on_cursor_pos_fn         = std::function<void(Window*, double, double)>;
+    using on_cursor_enter_fn       = std::function<void(Window*, int)>;
+    using on_scroll_fn             = std::function<void(Window*, double, double)>;
+    using on_drop_fn               = std::function<void(Window*, int, const char**)>;
+    using on_window_size_fn        = std::function<void(Window*, int, int)>;
+    using on_window_dpi_changed_fn = std::function<void(Window*, float, float)>;
+    using on_window_close_fn       = std::function<void(Window*)>;
+    using on_error_fn              = std::function<void(Window*, int, char const*)>;
 
     std::vector<on_reset_fn>              _on_reset_fns{};
     std::vector<on_key_fn>                _on_key_fns{};
@@ -80,128 +70,103 @@ private:
     on_error_fn                           _on_error{};
 
 private:
-    GLFWwindow* _window{nullptr};
-
     PROTOTYPE_ONLY_GETTER_CONST(protected, DPIScale, dpi_scale);
     PROTOTYPE_ONLY_GETTER_CONST(protected, WindowInfo, window_info);
+    PROTOTYPE_ONLY_GETTER_CONST(protected, WindowState, window_state);
 
 public:
     explicit Window(WindowInfo const& window_info);
 
-    static void init();
-    void        showWindow();
-    static void update();
-    static void destroy();
+    virtual void init()       = 0;
+    virtual void showWindow() = 0;
 
-    [[nodiscard]] GLFWwindow* getRawWindow() const;
+    void update();
 
-#ifdef TX_WINDOWS
-    [[nodiscard]] HWND getHWND() const {
-        return glfwGetWin32Window(_window);
-    }
+    virtual void               destroy()           = 0;
+    virtual void               handleEvents()      = 0;
+    [[nodiscard]] virtual bool shouldClose() const = 0;
 
-    [[nodiscard]] static HINSTANCE getHINSTANCE() {
-        return GetModuleHandle(nullptr);
-    }
-#endif
-
-    static void        handleEvents();
-    [[nodiscard]] bool shouldClose() const;
-
-    [[nodiscard]] static bool             isSupportVulkan();
-    [[nodiscard]] static VkGlfwExtensions getVulkanInstanceExtensions();
 
     RetCode setTitle(std::string_view title);
 
 protected:
+    virtual void updateTitle(const char* title) = 0;
+
+protected:
     // NOLINTBEGIN
-    void onReset() const {
-        for (auto const& func : _on_reset_fns) {
-            func();
+    void onReset(Window* window) const {
+        for (auto&& func : _on_reset_fns) {
+            func(window);
         }
     }
 
-    void onKey(const int key, const int scancode, const int action, const int mods) const {
-        for (auto const& func : _on_key_fns) {
-            func(key, scancode, action, mods);
+    void onKey(Window* window, const int key, const int scancode, const int action, const int mods) const {
+        for (auto&& func : _on_key_fns) {
+            func(window, key, scancode, action, mods);
         }
     }
 
-    void onChar(const unsigned int codepoint) const {
-        for (auto const& func : _on_char_fns) {
-            func(codepoint);
+    void onChar(Window* window, const unsigned int codepoint) const {
+        for (auto&& func : _on_char_fns) {
+            func(window, codepoint);
         }
     }
 
-    void onCharMods(const unsigned int codepoint, const int mods) const {
-        for (auto const& func : _on_char_mods_fns) {
-            func(codepoint, mods);
+    void onCharMods(Window* window, const unsigned int codepoint, const int mods) const {
+        for (auto&& func : _on_char_mods_fns) {
+            func(window, codepoint, mods);
         }
     }
 
-    void onMouseButton(const int button, const int action, const int mods) const {
-        for (auto const& func : _on_mouse_button_fns) {
-            func(button, action, mods);
+    void onMouseButton(Window* window, const int button, const int action, const int mods) const {
+        for (auto&& func : _on_mouse_button_fns) {
+            func(window, button, action, mods);
         }
     }
 
-    void onCursorPos(const double xpos, const double ypos) const {
-        for (auto const& func : _on_cursor_pos_fns) {
-            func(xpos, ypos);
+    void onCursorPos(Window* window, const double xpos, const double ypos) const {
+        for (auto&& func : _on_cursor_pos_fns) {
+            func(window, xpos, ypos);
         }
     }
 
-    void onCursorEnter(const int entered) const {
-        for (auto const& func : _on_cursor_enter_fns) {
-            func(entered);
+    void onCursorEnter(Window* window, const int entered) const {
+        for (auto&& func : _on_cursor_enter_fns) {
+            func(window, entered);
         }
     }
 
-    void onScroll(const double xoffset, const double yoffset) const {
-        for (auto const& func : _on_scroll_fns) {
-            func(xoffset, yoffset);
+    void onScroll(Window* window, const double xoffset, const double yoffset) const {
+        for (auto&& func : _on_scroll_fns) {
+            func(window, xoffset, yoffset);
         }
     }
 
-    void onDrop(const int count, const char** paths) const {
-        for (auto const& func : _on_drop_fns) {
-            func(count, paths);
+    void onDrop(Window* window, const int count, const char** paths) const {
+        for (auto&& func : _on_drop_fns) {
+            func(window, count, paths);
         }
     }
 
-    void onWindowSize(const int width, const int height) const {
-        for (auto const& func : _on_window_size_fns) {
-            func(width, height);
+    void onWindowSize(Window* window, const int width, const int height) const {
+        for (auto&& func : _on_window_size_fns) {
+            func(window, width, height);
         }
     }
 
-    void onWindowDPIChanged(const float xscale, const float yscale) const {
-        for (auto const& func : _on_window_dpi_changed_fns) {
-            func(xscale, yscale);
+    void onWindowDPIChanged(Window* window, const float xscale, const float yscale) const {
+        for (auto&& func : _on_window_dpi_changed_fns) {
+            func(window, xscale, yscale);
         }
     }
 
-    void onWindowClose() const {
-        for (auto const& func : _on_window_close_fns) {
-            func();
+    void onWindowClose(Window* window) const {
+        for (auto&& func : _on_window_close_fns) {
+            func(window);
         }
     }
 
     // NOLINTEND
-
-protected:
-    static void errorCallBack(int error, const char* description);
-    static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-    static void charCallback(GLFWwindow* window, unsigned int codepoint);
-    static void charModsCallback(GLFWwindow* window, unsigned int codepoint, int mods);
-    static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
-    static void cursorPosCallback(GLFWwindow* window, double xpos, double ypos);
-    static void cursorEnterCallback(GLFWwindow* window, int entered);
-    static void scrollCallback(GLFWwindow* window, double xoffset, double yoffset);
-    static void dropCallback(GLFWwindow* window, int count, const char** paths);
-    static void windowSizeCallback(GLFWwindow* window, int width, int height);
-    static void windowDPIChangedCallback(GLFWwindow* window, float xscale, float yscale);
-    static void windowCloseCallback(GLFWwindow* window);
 
 public:
     void registerOnResetFn(on_reset_fn const& func) {
@@ -254,5 +219,3 @@ public:
 };
 
 }// namespace taixu
-
-#endif// TAIXUENGINE_WINDOW_HPP_499239DA41144D1D9535ADB888492EF1

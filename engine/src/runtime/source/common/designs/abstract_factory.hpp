@@ -5,8 +5,8 @@
 #ifndef ENGINE_SRC_COMMON_DESIGNS_FACTORY_FC367611E24C4563B569D839E1FD8984
 #define ENGINE_SRC_COMMON_DESIGNS_FACTORY_FC367611E24C4563B569D839E1FD8984
 
-#include "common/base/macro.hpp"
-#include "common/log/logger.hpp"
+#include "taixu/common/base/macro.hpp"
+#include "taixu/common/log/logger.hpp"
 
 #include <functional>
 #include <memory>

@@ -10,13 +10,11 @@
 
 namespace taixu {
 
-std::filesystem::path getRelativePath(const std::filesystem::path& directory, const std::filesystem::path& file_path);
-
-std::filesystem::path fromRelativePath(const std::filesystem::path& directory,
-                                       const std::filesystem::path& relative_path);
-
-std::filesystem::path fromRelativePath(const std::filesystem::path& relative_path);
-
+/*
+ * @brief get path segments
+ * @param file_path
+ * @return
+ */
 std::vector<tx_string> getPathSegments(const std::filesystem::path& file_path);
 
 /**
@@ -38,10 +36,4 @@ tx_string getLastExtension(const std::filesystem::path& file_path);
 
 tx_string getFilePureName(const tx_string& file_path);
 
-std::filesystem::path getRootPath();
-
-/**
- * @brief get parent directory of file path.
- */
-[[maybe_unused]] std::filesystem::path getDirectoryPath(const std::filesystem::path& file_path);
 }// namespace taixu

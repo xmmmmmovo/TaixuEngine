@@ -41,12 +41,4 @@ struct Handler {
     }
 };
 
-enum class CallbackResult : uint8_t { CONTINUE, BREAK, STOP };
-
-template<typename... Args>
-class Signal final {
-private:
-    std::vector<Handler> _handlers;
-};
-
 }// namespace taixu

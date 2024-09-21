@@ -13,7 +13,7 @@
 
 #include <vulkan/vk_enum_string_helper.h>
 
-#include "common/log/logger.hpp"
+#include "taixu/common/log/logger.hpp"
 
 namespace taixu {
 
@@ -166,13 +166,17 @@ ResValT<vk::raii::Device> createDevice(vk::raii::PhysicalDevice const& physical_
     enabled_dev_exts.emplace_back("VK_KHR_portability_subset");
 #endif
     INFO_LOG("Enabled device extensions:");
-    for (auto const& ext : enabled_dev_extensions) { INFO_LOG("\t{}", ext); }
+    for (auto const& ext : enabled_dev_extensions) {
+        INFO_LOG("\t{}", ext);
+    }
 }
 
 ResValT<TXDevice> createTXDevice(vk::raii::Instance const& instance, vk::raii::SurfaceKHR const& surface) {
     auto device = selectDevice(instance, surface);
 
-    if (!device.has_value()) { return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR); }
+    if (!device.has_value()) {
+        return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR);
+    }
 
 
     return {};

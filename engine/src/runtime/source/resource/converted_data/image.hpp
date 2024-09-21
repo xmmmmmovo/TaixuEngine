@@ -7,7 +7,7 @@
 #include <assimp/material.h>
 #include <stb_image.h>
 
-#include "common/base/macro.hpp"
+#include "taixu/common/base/macro.hpp"
 
 namespace taixu {
 

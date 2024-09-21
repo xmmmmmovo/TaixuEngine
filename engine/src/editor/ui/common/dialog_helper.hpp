@@ -4,8 +4,11 @@
 
 #pragma once
 
+#include <imgui/file_dialog/ImGuiFileDialog.h>
+
+#include "taixu/platform/os/path_utils.hpp"
+
 #include "editor_context.hpp"
-#include "imgui/file_dialog/ImGuiFileDialog.h"
 #include "view_model.hpp"
 
 namespace taixu::editor {

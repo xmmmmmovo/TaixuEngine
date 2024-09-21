@@ -4,10 +4,9 @@
 
 #include "file_watcher.hpp"
 
-#include <taixu/common/hal/tx_container.hpp>
-#include <taixu/common/hal/tx_string.hpp>
 #include <taixu/common/log/logger.hpp>
 #include <taixu/engine/engine.hpp>
+#include <taixu/platform/os/path_utils.hpp>
 
 #include <imgui/icons/IconsLucide.h>
 
@@ -29,8 +28,7 @@ void recursiveLoadFileTree(FileTreeNodeT& entry) {
             type = FileEntryType::DIRECTORY;
         }
 
-        FileTreeNodeT node{path.filename().string<char, tx_string::traits_type, tx_string::allocator_type>(
-                                   tx_string::allocator_type()),
+        FileTreeNodeT node{path.filename().string(),
                            getRelativePath(g_engine.getOpenedProject()->project_path, path),
                            type,
                            {},

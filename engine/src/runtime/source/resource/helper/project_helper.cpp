@@ -4,10 +4,10 @@
 
 #include "project_helper.hpp"
 
-#include "common/log/logger.hpp"
 #include "resource/json/json_parser.hpp"
-#include "resource/json_data/manifest_json.hpp"
-#include "resource/json_data/project_json.hpp"
+#include "taixu/common/log/logger.hpp"
+#include "taixu/resource/json_data/manifest_json.hpp"
+#include "taixu/resource/json_data/project_json.hpp"
 
 namespace taixu {
 
@@ -18,8 +18,7 @@ std::unique_ptr<Project> openProject(std::filesystem::path const& path) {
 
     const std::filesystem::path manifest_path = path / MANIFEST_NAME;
     project->project_path                     = path;
-    if (std::optional<Manifest> const manifest = loadFromJsonFile<Manifest>(manifest_path);
-        manifest.has_value()) {
+    if (std::optional<Manifest> const manifest = loadFromJsonFile<Manifest>(manifest_path); manifest.has_value()) {
         project->manifest = manifest.value();
     } else {
         return nullptr;
@@ -34,6 +33,8 @@ std::unique_ptr<Project> createProject(std::filesystem::path const& path, tx_str
     return nullptr;
 }
 
-bool saveProject() { return true; }
+bool saveProject() {
+    return true;
+}
 
 }// namespace taixu

@@ -16,7 +16,9 @@ void ThreadPool::createThreads(std::size_t thread_count) {
                     std::unique_lock<std::mutex> lock(this->_mutex);
                     this->_cv.wait(lock, [this] { return this->_stop || !this->_tasks.empty(); });
 
-                    if (this->_stop && this->_tasks.empty()) { return; }
+                    if (this->_stop && this->_tasks.empty()) {
+                        return;
+                    }
 
                     task = std::move(this->_tasks.front());
                     this->_tasks.pop();
@@ -36,7 +38,9 @@ void ThreadPool::destroyThreads() {
 
     _cv.notify_all();
 
-    for (auto& thread : _threads) { thread.join(); }
+    for (auto& thread : _threads) {
+        thread.join();
+    }
 }
 
 }// namespace taixu

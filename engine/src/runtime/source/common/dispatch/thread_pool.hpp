@@ -32,7 +32,9 @@ private:
 
 public:
     explicit ThreadPool(size_t thread_count = 0) {
-        if (thread_count == 0) { thread_count = std::thread::hardware_concurrency(); }
+        if (thread_count == 0) {
+            thread_count = std::thread::hardware_concurrency();
+        }
         createThreads(thread_count);
     }
 
@@ -59,7 +61,9 @@ public:
 
     void clear() {
         std::unique_lock<std::mutex> const lock(_mutex);
-        while (!_tasks.empty()) { _tasks.pop(); }
+        while (!_tasks.empty()) {
+            _tasks.pop();
+        }
     }
 
     size_t size() {

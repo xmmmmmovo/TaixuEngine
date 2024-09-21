@@ -47,6 +47,7 @@
 #include <glm/glm.hpp>
 
 #include <fmt/format.h>
+
 #include <spdlog/spdlog.h>
 
 #include <argparse/argparse.hpp>
@@ -73,5 +74,7 @@
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
 
+#include <generated/fonts/lucide_iconfont.hpp>
+#include <generated/fonts/source_han_sans_cn_font.hpp>
 
 #endif// ENGINE_PRECOMPILE_PCH_RUNTIME_0A0D878DBB714C9499D420BF61F1C4D8

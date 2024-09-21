@@ -2,12 +2,13 @@
 // Created by xmmmmmovo on 2023/2/18.
 //
 
+#include <taixu/platform/os/path_utils.hpp>
+
 #include "platform/os/path.hpp"
 
 namespace taixu {
 
-std::filesystem::path getRelativePath(const std::filesystem::path& directory,
-                                      const std::filesystem::path& file_path) {
+std::filesystem::path getRelativePath(const std::filesystem::path& directory, const std::filesystem::path& file_path) {
     return file_path.lexically_relative(directory);
 }
 
@@ -36,13 +37,14 @@ tx_string getLastExtension(const std::filesystem::path& file_path) {
 tx_string getFilePureName(const tx_string& file_full_name) {
     tx_string file_pure_name = file_full_name;
     auto      pos            = file_full_name.find_first_of('.');
-    if (pos != std::string::npos) { file_pure_name = file_full_name.substr(0, pos); }
+    if (pos != std::string::npos) {
+        file_pure_name = file_full_name.substr(0, pos);
+    }
 
     return file_pure_name;
 }
 
-std::filesystem::path fromRelativePath(const std::filesystem::path& directory,
-                                       const std::filesystem::path& file_path) {
+std::filesystem::path fromRelativePath(const std::filesystem::path& directory, const std::filesystem::path& file_path) {
     return directory / file_path;
 }
 
@@ -51,7 +53,6 @@ std::filesystem::path fromRelativePath(const std::filesystem::path& relative_pat
 }
 
 std::filesystem::path getRootPath() {
-    // 根据不同os获取磁盘根目录
     return std::filesystem::current_path().root_path();
 }
 

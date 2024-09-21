@@ -18,17 +18,17 @@ static constexpr ImGuiTreeNodeFlags PARENT_FLAGS =
 static constexpr ImGuiTreeNodeFlags LEAF_FLAGS = ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_Leaf |
                                                  ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_SpanFullWidth;
 
-static tx_string_view constexpr USEFUL_OBJ_COMPONENT_NAME{"Useful Objects"};
+static std::string_view constexpr USEFUL_OBJ_COMPONENT_NAME{"Useful Objects"};
 
 enum class UsefulObject { CUBE, SPHERE, POINTLIGHT, DIRECTIONLIGHT, ENVIROMENTLIGHT, SPOTLIGHT };
 
 struct UsefulObjectData {
-    tx_string    name;
+    std::string  name;
     UsefulObject enum_object;
 };
 
 auto buildUsefulObject() {
-    std::array<ChildrensHierarchyDataNode<tx_string, HierarchyDataNode<UsefulObjectData>>, 2> objects;
+    std::array<ChildrensHierarchyDataNode<std::string, HierarchyDataNode<UsefulObjectData>>, 2> objects;
 
     objects.at(0) = {ICON_LC_BOXES "Objects",
                      {{{ICON_LC_BOX "Cube", UsefulObject::CUBE}, {ICON_LC_BOX "Sphere", UsefulObject::SPHERE}}}};

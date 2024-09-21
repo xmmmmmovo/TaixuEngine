@@ -2,19 +2,28 @@
 
 /* If we are we on Windows, we want a single define for it.
  */
-#if !defined(_WIN32) && (defined(__WIN32__) || defined(WIN32) || defined(__MINGW32__))
-    #define _WIN32
-#endif /* _WIN32 */
-
 #if defined(__WIN32__) || defined(WIN32) || defined(_WIN32) || defined(__WIN64__) || defined(WIN64) ||                 \
         defined(_WIN64) || defined(_MSC_VER) || defined(WINCE) || defined(__MINGW32__) || defined(__CYWIN__)
     #define TX_WINDOWS
 #endif
 
+/*
+ * If we are on Apple, we want a single define for it.
+ */
 #if defined(__APPLE__)
     #define TX_APPLE
 #endif
 
+/*
+ * If we are on Linux, we want a single define for it.
+ */
+#if defined(__linux__) || defined(__linux) || defined(linux) || defined(__gnu_linux__)
+    #define TX_LINUX
+#endif
+
+/*
+ * If we are on GCC, we want a single define for it.
+ */
 #if defined(__GNUC__)
     #define TX_GCC
 #endif
@@ -50,6 +59,16 @@
     #define TX_INLINE inline
     #define TX_NEVER_INLINE
 #endif
+
+// define export macro
+#ifdef TX_WINDOWS
+    #define TX_EXPORT_API __declspec(dllexport)
+    #define TX_IMPORT_API __declspec(dllimport)
+#else
+    #define TX_EXPORT_API __attribute__((visibility("default")))
+    #define TX_IMPORT_API __attribute__((visibility("default")))
+#endif
+
 
 #define TX_NO_RETURN __attribute__((noreturn))
 #define TX_NO_ESCAPE __attribute__((noescape))
@@ -97,28 +116,40 @@
 #endif
 
 #define TX_UNREACHABLE_IF(x)                                                                                           \
-    if (TX_UNLIKELY(x)) { TX_UNREACHABLE(); }
+    if (TX_UNLIKELY(x)) {                                                                                              \
+        TX_UNREACHABLE();                                                                                              \
+    }
 #define TX_UNREACHABLE_IF_MSG(x, msg)                                                                                  \
-    if (TX_UNLIKELY(x)) { TX_UNREACHABLE_MSG(msg); }
+    if (TX_UNLIKELY(x)) {                                                                                              \
+        TX_UNREACHABLE_MSG(msg);                                                                                       \
+    }
 
 // NOLINTBEGIN
 
 #define PROTOTYPE_GETTER_REF(type, name, ref)                                                                          \
 public:                                                                                                                \
-    [[nodiscard]] type ref name() { return _##name; }
+    [[nodiscard]] type ref name() {                                                                                    \
+        return _##name;                                                                                                \
+    }
 
 #define PROTOTYPE_GETTER_VAL(type, name)                                                                               \
 public:                                                                                                                \
-    [[nodiscard]] type name() const { return _##name; }
+    [[nodiscard]] type name() const {                                                                                  \
+        return _##name;                                                                                                \
+    }
 
 
 #define PROTOTYPE_CONST_GETTER_REF(type, name, ref)                                                                    \
 public:                                                                                                                \
-    [[nodiscard]] type const ref name() const { return _##name; }
+    [[nodiscard]] type const ref name() const {                                                                        \
+        return _##name;                                                                                                \
+    }
 
 #define PROTOTYPE_SETTER(type, name, ref)                                                                              \
 public:                                                                                                                \
-    void set_##name(type const ref value) { _##name = value; }
+    void set_##name(type const ref value) {                                                                            \
+        _##name = value;                                                                                               \
+    }
 
 /**
  * @brief 简化const getter

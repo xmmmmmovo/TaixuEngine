@@ -82,9 +82,9 @@ if(MSVC)
 endif()
 
 # public link
-target_link_libraries(${TARGET_NAME} PUBLIC spdlog::spdlog fmt::fmt imgui mimalloc-static)
+target_link_libraries(${TARGET_NAME} PUBLIC spdlog::spdlog fmt::fmt imgui)
 
-target_link_libraries(${TARGET_NAME} PRIVATE simdjson Threads::Threads freetype)
+target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static simdjson Threads::Threads freetype)
 target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
 target_link_libraries(${TARGET_NAME} PRIVATE assimp stb refl-cpp::refl-cpp magic_enum::magic_enum glm glfw)
 
