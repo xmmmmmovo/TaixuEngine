@@ -69,3 +69,5 @@ ColumnLimit: 120
 IncludeCategories: # headers sort，<>,"" sort by alphabeat
   - Regex: "glad"
     Priority: 0
+  - Regex: "taixu" # header start with taixu
+    Priority: 1
