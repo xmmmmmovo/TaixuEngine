@@ -14,7 +14,7 @@
     #include "taixu/platform/windows/windows_min.hpp"
 #endif
 
-namespace taixu {
+TX_NAMESPACE_BEGIN
 
 struct WindowInfo {
     std::string_view title{};
@@ -77,16 +77,14 @@ private:
 public:
     explicit Window(WindowInfo const& window_info);
 
-    virtual void init()       = 0;
-    virtual void showWindow() = 0;
+    virtual void                    init()               = 0;
+    virtual void                    showWindow()         = 0;
+    virtual void                    destroy()            = 0;
+    virtual void                    handleEvents()       = 0;
+    virtual [[nodiscard]] bool      shouldClose() const  = 0;
+    virtual [[nodiscard]] WindowAPI getWindowAPI() const = 0;
 
-    void update();
-
-    virtual void               destroy()           = 0;
-    virtual void               handleEvents()      = 0;
-    [[nodiscard]] virtual bool shouldClose() const = 0;
-
-
+    void    update();
     RetCode setTitle(std::string_view title);
 
 protected:
@@ -218,4 +216,4 @@ public:
     }
 };
 
-}// namespace taixu
+TX_NAMESPACE_END

@@ -168,6 +168,7 @@ ResValT<vk::raii::Device> createDevice(vk::raii::PhysicalDevice const& physical_
     for (auto const& ext : enabled_dev_extensions) {
         INFO_LOG("\t{}", ext);
     }
+    return UNEXPECTED(RetCode::UNIMPL_ERROR);
 }
 
 ResValT<TXDevice> createTXDevice(vk::raii::Instance const& instance, vk::raii::SurfaceKHR const& surface) {

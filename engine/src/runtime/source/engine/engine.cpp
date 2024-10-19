@@ -14,12 +14,12 @@ Engine g_engine;// NOLINT(cppcoreguidelines-avoid-non-const-global-variables)
 
 struct EnginePrivate {
     /**
-     * @brief Engine×´Ì¬
+     * @brief EngineçŠ¶æ€
      */
     EngineState _state{EngineState::IDLEMODE};
 
     /**
-     * ÒÑ¾­´ò¿ªµÄÏîÄ¿£¬Èç¹ûÃ»ÓĞ¾ÍÊÇnull
+     * å·²ç»æ‰“å¼€çš„é¡¹ç›®ï¼Œå¦‚æœæ²¡æœ‰å°±æ˜¯null
      */
     std::unique_ptr<Project> _opened_project{nullptr};
 
@@ -30,11 +30,11 @@ struct EnginePrivate {
 
 public:
     /**
-     * äÖÈ¾Æ÷
+     * æ¸²æŸ“å™¨
      */
     std::unique_ptr<TXSceneRenderer> renderer{nullptr};
     /**
-     * ×ÊÔ´¹ÜÀíÆ÷
+     * èµ„æºç®¡ç†å™¨
      */
     std::unique_ptr<AssetManager>    asset_manager{nullptr};
 };
@@ -92,6 +92,10 @@ bool Engine::loadProject(std::filesystem::path const& path) {
 
 Project const* Engine::getOpenedProject() const {
     return _p->_opened_project.get();
+}
+
+void Engine::enableImgui(std::function<void()>&& update_func) {
+    _p->renderer->enableImgui(std::forward<std::function<void()>>(update_func));
 }
 
 }// namespace taixu

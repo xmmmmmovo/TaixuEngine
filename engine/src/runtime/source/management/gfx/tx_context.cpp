@@ -19,6 +19,8 @@
 #include <vulkan/vk_enum_string_helper.h>
 #include <vulkan/vulkan.hpp>
 
+#include "gameplay/gui/glfw_window.hpp"
+
 /**
  * @brief Globale dynamic dispatch loader, only need write once
  */
@@ -113,7 +115,7 @@ void initDynamicDispatchLoader() {
 ResValT<std::unique_ptr<TXContext>> createTXContext(const Window* window) {
     initDynamicDispatchLoader();
 
-    if (!window || !Window::isSupportVulkan()) {
+    if (!window) {
         ERROR_LOG("Window is not support vulkan");
         return UNEXPECTED(RetCode::UNSUPPORTED_VULKAN_ERROR);
     }
@@ -151,7 +153,7 @@ ResValT<std::unique_ptr<TXContext>> createTXContext(const Window* window) {
     enabled_extensions.emplace_back(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME);
 #endif
 
-    VkGlfwExtensions glfwexts = Window::getVulkanInstanceExtensions();
+    VkGlfwExtensions glfwexts = GLFWWindow::getVulkanInstanceExtensions();
     if (glfwexts.count == 0) {
         ERROR_LOG("Failed to get Vulkan extensions");
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
@@ -219,7 +221,8 @@ ResValT<std::unique_ptr<TXContext>> createTXContext(const Window* window) {
     VkSurfaceKHR surface_strct{VK_NULL_HANDLE};
     VkInstance   instance_c_ptr = *(instance.value());
 
-    if (auto const res = glfwCreateWindowSurface(instance_c_ptr, window->getRawWindow(), nullptr, &surface_strct);
+    if (auto const res = glfwCreateWindowSurface(instance_c_ptr, static_cast<const GLFWWindow*>(window)->getRawWindow(),
+                                                 nullptr, &surface_strct);
         res != VK_SUCCESS) {
         ERROR_LOG("Failed to create window surface: {}", string_VkResult(res));
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);

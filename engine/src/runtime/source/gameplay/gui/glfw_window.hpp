@@ -35,13 +35,13 @@ public:
     void init() override;
     void showWindow() override;
 
-    void                       destroy() override;
-    void                       handleEvents();
-    [[nodiscard]] virtual bool shouldClose() const override;
+    void                    destroy() override;
+    void                    handleEvents() override;
+    [[nodiscard]] bool      shouldClose() const override;
+    [[nodiscard]] WindowAPI getWindowAPI() const override;
 
-    [[nodiscard]] GLFWwindow* getRawWindow() const;
-
-    [[nodiscard]] static bool             isSupportVulkan();
+    [[nodiscard]] GLFWwindow*             getRawWindow() const;
+    [[nodiscard]] static bool             isSupportVulkanImpl();
     [[nodiscard]] static VkGlfwExtensions getVulkanInstanceExtensions();
 
 #ifdef TX_WINDOWS

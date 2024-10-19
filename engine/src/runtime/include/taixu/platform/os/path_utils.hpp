@@ -23,7 +23,7 @@ std::filesystem::path fromRelativePath(const std::filesystem::path& directory,
 std::filesystem::path fromRelativePath(const std::filesystem::path& relative_path);
 
 /**
- * @brief ¸ù¾İ²»Í¬os»ñÈ¡´ÅÅÌ¸ùÄ¿Â¼
+ * @brief æ ¹æ®ä¸åŒosè·å–ç£ç›˜æ ¹ç›®å½•
  */
 std::filesystem::path getRootPath();
 

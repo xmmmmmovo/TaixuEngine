@@ -42,13 +42,13 @@ void MainWindow::init() {
 
     g_engine.initWithWindow(_window_ptr.get());
 
-    g_engine.renderer->enableImgui([this] { this->imguiUpdate(); });
+    g_engine.enableImgui([this] { this->imguiUpdate(); });
 
-    registerCallback(Callbacks::FILE_OPEN_PROJECT, Handler{+[](tx_string const& file_path, ViewModel& view_model) {
+    registerCallback(Callbacks::FILE_OPEN_PROJECT, Handler{+[](std::string const& file_path, ViewModel& view_model) {
                          g_engine.loadProject(file_path);
                          auto& node         = view_model.file_component_hierarchy;
                          node.data.filepath = "";
-                         node.data.filename = g_engine.getOpenedProject()->project_path.filename().generic_string();
+                         node.data.filename = g_engine.getOpenedProject()->raw.project_path.filename().generic_string();
                          node.data.filetype = FileEntryType::DIRECTORY;
                          view_model.selected_node = &node;
                          recursiveLoadFileTree(node);
@@ -130,8 +130,7 @@ void MainWindow::destroy() const {
     _window_ptr->destroy();
 }
 
-MainWindow::MainWindow(WindowInfo&& window_info)
-    : _window_ptr(std::make_unique<Window>(std::forward<WindowInfo>(window_info))) {
+MainWindow::MainWindow(WindowInfo&& window_info) : _window_ptr(nullptr) {
 }
 
 }// namespace taixu::editor

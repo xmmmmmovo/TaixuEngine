@@ -50,11 +50,14 @@ public:
     void destroy() const;
 
     EngineArgs const& getArgs();
+    void              changeEngineState(EngineState state);
 
-    void changeEngineState(EngineState state);
-
+    /// Project management
     bool                         loadProject(std::filesystem::path const& path);
     [[nodiscard]] Project const* getOpenedProject() const;
+
+    /// Render management
+    void enableImgui(std::function<void()>&& update_func);
 };
 
 extern Engine g_engine;// NOLINT(cppcoreguidelines-avoid-non-const-global-variables)

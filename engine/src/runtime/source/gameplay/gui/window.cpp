@@ -7,11 +7,8 @@
 #include "taixu/common/log/logger.hpp"
 
 #include <backends/imgui_impl_glfw.h>
-#ifdef USE_VULKAN
-    #include <backends/imgui_impl_vulkan.h>
-#endif
 
-namespace taixu {
+TX_NAMESPACE_BEGIN
 
 Window::Window(WindowInfo const& window_info) : _window_info(window_info) {
 }
@@ -26,4 +23,4 @@ RetCode Window::setTitle(std::string_view title) {
     return RetCode::SUCCESS;
 }
 
-}// namespace taixu
+TX_NAMESPACE_END

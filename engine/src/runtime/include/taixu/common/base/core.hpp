@@ -20,7 +20,7 @@ enum class EngineState : std::uint8_t {
 /**
  * @brief window API supported
  */
-enum class WindowAPI : std::uint8_t { GLFW, WINDOWSAPI, NONE };
+enum class WindowAPI : std::uint8_t { GLFW, EMSCRIPTEN, NONE };
 
 /**
  * @brief window type supported
@@ -33,6 +33,7 @@ enum class WindowType : std::uint8_t { WINDOWED, FULLSCREEN, FULLSCREEN_DESKTOP 
 enum class RetCode : std::uint32_t {
     SUCCESS       = 0,// success
     UNKNOWN_ERROR = 1,// unknow error
+    UNIMPL_ERROR  = 2,// unimplement error
 
     COMMON_ERROR = (1 << 10),
 

@@ -1,6 +1,7 @@
 #include "glfw_window.hpp"
 
 #include "taixu/common/log/logger.hpp"
+#include "taixu/gameplay/gui/window.hpp"
 
 namespace taixu {
 
@@ -57,6 +58,10 @@ bool GLFWWindow::shouldClose() const {
     return glfwWindowShouldClose(_window);
 }
 
+WindowAPI GLFWWindow::getWindowAPI() const {
+    return WindowAPI::GLFW;
+}
+
 void GLFWWindow::updateTitle(const char* title) {
     glfwSetWindowTitle(_window, title);
 }
@@ -65,7 +70,7 @@ GLFWwindow* GLFWWindow::getRawWindow() const {
     return _window;
 }
 
-bool GLFWWindow::isSupportVulkan() {
+bool GLFWWindow::isSupportVulkanImpl() {
     return glfwVulkanSupported() == GLFW_TRUE;
 }
 
