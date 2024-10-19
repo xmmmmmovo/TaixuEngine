@@ -2,16 +2,14 @@
 // Created by xmmmmmovo on 2023/7/23.
 //
 
-#ifndef ENGINE_SRC_RUNTIME_RESOURCE_JSON_WORLD_JSON_HPP
-#define ENGINE_SRC_RUNTIME_RESOURCE_JSON_WORLD_JSON_HPP
-
-#include <refl.hpp>
+#pragma once
 
 #include <vector>
 
-#include "resource/json/json_serializable.hpp"
+#include "common/hal/tx_string.hpp"
+#include "taixu/common/base/macro.hpp"
 
-namespace taixu {
+TX_NAMESPACE_BEGIN
 
 struct World {
     struct Level {
@@ -28,14 +26,4 @@ struct World {
     std::vector<Level> levels{};
 };
 
-}// namespace taixu
-
-REFL_AUTO(type(taixu::World), field(name, taixu::ISerializableStr()),
-          field(global, taixu::ISerializableObject()), field(levels, taixu::ISerializableList()))
-
-REFL_AUTO(type(taixu::World::Level), field(level_name, taixu::ISerializableStr()),
-          field(level_path, taixu::ISerializableStr()))
-
-REFL_AUTO(type(taixu::World::Global), field(render, taixu::ISerializableStr()))
-
-#endif// ENGINE_SRC_RUNTIME_RESOURCE_JSON_WORLD_JSON_HPP
+TX_NAMESPACE_END

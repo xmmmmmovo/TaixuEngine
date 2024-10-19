@@ -7,7 +7,7 @@
 
 #include <magic_enum.hpp>
 
-#include "management/render/tx_shader.hpp"
+#include "management/gfx/tx_shader.hpp"
 #include "taixu/common/base/hash.hpp"
 
 namespace taixu {

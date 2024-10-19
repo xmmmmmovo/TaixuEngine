@@ -84,9 +84,9 @@ endif()
 # public link
 target_link_libraries(${TARGET_NAME} PUBLIC spdlog::spdlog fmt::fmt imgui)
 
-target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static simdjson Threads::Threads freetype)
+target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static reflectcpp Threads::Threads freetype)
 target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
-target_link_libraries(${TARGET_NAME} PRIVATE assimp stb refl-cpp::refl-cpp magic_enum::magic_enum glm glfw)
+target_link_libraries(${TARGET_NAME} PRIVATE assimp stb magic_enum::magic_enum glm glfw)
 
 if(USE_VULKAN)
         add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)

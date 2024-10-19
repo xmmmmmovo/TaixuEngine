@@ -50,8 +50,7 @@ make
 | :----: | :------------------------------------: |
 | OpenGL | Deprecated(old version in main branch) |
 | Vulkan |                  WIP                  |
-
-Note: New RHI design, others api will be implemented by `Mesa` project.
+|  WGPU  |               In Future                |
 
 ## Architecture
 

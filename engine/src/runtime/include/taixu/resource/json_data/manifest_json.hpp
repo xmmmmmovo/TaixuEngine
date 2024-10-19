@@ -6,7 +6,7 @@
 
 #include <string>
 
-#include "resource/json/json_serializable.hpp"
+#include "common/hal/tx_string.hpp"
 
 namespace taixu {
 
@@ -18,6 +18,3 @@ struct Manifest {
 };
 
 }// namespace taixu
-
-REFL_AUTO(type(taixu::Manifest), field(name, taixu::ISerializableStr()), field(version, taixu::ISerializableStr()),
-          field(author, taixu::ISerializableStr()), field(description, taixu::ISerializableStr()))

@@ -5,11 +5,12 @@
 #pragma once
 
 #include "tx_shader.hpp"
+
 #include <cstdint>
 
-#include "common/base/macro.hpp"
-#include "common/designs/noncopyable.hpp"
 #include "common/math/vec.hpp"
+#include "taixu/common/base/macro.hpp"
+#include "taixu/common/designs/noncopyable.hpp"
 
 #include <memory>
 

@@ -15,12 +15,14 @@
 
 
 namespace taixu::editor {
+
 class DetailComponent : public AbstractUIComponent {
 private:
-    static tx_string_view constexpr DETAILS_COMPONENT_NAME{"Components Details"};
+    static std::string_view constexpr DETAILS_COMPONENT_NAME{"Components Details"};
 
 public:
-    explicit DetailComponent(ViewModel& view_model) : AbstractUIComponent(view_model) {}
+    explicit DetailComponent(ViewModel& view_model) : AbstractUIComponent(view_model) {
+    }
 
 
     void update() {

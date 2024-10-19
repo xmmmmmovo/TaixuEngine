@@ -4,15 +4,33 @@
 #include <string>
 
 #include "taixu/common/base/core.hpp"
+#include "taixu/common/base/cpu_clock.hpp"
 #include "taixu/common/designs/noncopyable.hpp"
 #include "taixu/engine/engine_args.hpp"
 #include "taixu/gameplay/gui/window.hpp"
+#include "taixu/management/project/project.hpp"
 
-namespace taixu {
+TX_NAMESPACE_BEGIN
+
+struct EnginePrivate;
 
 class Engine final : public Noncopyable {
 private:
+    std::unique_ptr<EnginePrivate> _p;
+
+    /**
+     * @brief engine clock
+     */
+    CpuClock _clock{};
+
+    /**
+     * 保存engine的参数
+     */
+    EngineArgs _engine_args{};
+
 public:
+    Engine();
+
     /**
      * 在最开始传递参数化表的初始化，用于初始化比如Logger之类的
      * @param args 初始化参数表
@@ -41,4 +59,4 @@ public:
 
 extern Engine g_engine;// NOLINT(cppcoreguidelines-avoid-non-const-global-variables)
 
-}// namespace taixu
+TX_NAMESPACE_END

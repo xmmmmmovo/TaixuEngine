@@ -9,8 +9,8 @@
 
 #include "common/hal/tx_string.hpp"
 #include "common/math/color.hpp"
+#include "management/gfx/tx_context.hpp"
 #include "management/gpu/shaders/shader_manager.hpp"
-#include "management/render/tx_context.hpp"
 
 namespace taixu {
 

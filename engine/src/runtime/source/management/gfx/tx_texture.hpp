@@ -4,7 +4,9 @@
 
 #pragma once
 
-#include "common/designs/noncopyable.hpp"
+#include "common/hal/tx_string.hpp"
+#include "taixu/common/designs/noncopyable.hpp"
+
 #include <memory>
 
 namespace taixu {

@@ -2,7 +2,7 @@
 CPMAddPackage(
     NAME imgui
     GIT_REPOSITORY https://github.com/ocornut/imgui
-    GIT_TAG fcdd58757a60b459a8ec057ec9d5123cd99ff76c
+    GIT_TAG c71e4e8c7cb9b42b460bbaedfa4bc443f885b05b
     DOWNLOAD_ONLY YES
 )
 
@@ -25,7 +25,7 @@ if(imgui_ADDED)
     file(GLOB_RECURSE imgui_ext_sources CONFIGURE_DEPENDS ${ADDON_PATH}/*.cpp)
 
     add_library(imgui STATIC ${imgui_sources} ${imgui_impl} ${imgui_ext_sources})
-    set_target_properties(imgui PROPERTIES CXX_STANDARD 23)
+    set_target_properties(imgui PROPERTIES CXX_STANDARD 20)
 
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${imgui_SOURCE_DIR}>)
     target_include_directories(imgui PUBLIC $<BUILD_INTERFACE:${ADDON_PATH}>)

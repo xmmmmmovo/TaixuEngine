@@ -1,5 +1,5 @@
 /**
- * @file window_factory.hpp
+ * @file tx_renderer_factory.hpp
  * @author xmmmmmovo (ma_fivezha@163.com)
  * @brief
  * @date 2024-09-16
@@ -11,11 +11,11 @@
 #pragma once
 
 #include "common/designs/abstract_factory.hpp"
+#include "management/scene/tx_scene_renderer.hpp"
 #include "taixu/common/base/core.hpp"
-#include "taixu/gameplay/gui/window.hpp"
 
 TX_NAMESPACE_BEGIN
 
-class WindowFactory : public AbstractFactory<WindowAPI, Window> {};
+class WindowFactory : public AbstractFactory<WindowAPI, TXSceneRenderer> {};
 
 TX_NAMESPACE_END

@@ -9,10 +9,9 @@
  *
  */
 
-#include "management/render/tx_device.hpp"
-
 #include <vulkan/vk_enum_string_helper.h>
 
+#include "management/gfx/tx_device.hpp"
 #include "taixu/common/log/logger.hpp"
 
 namespace taixu {

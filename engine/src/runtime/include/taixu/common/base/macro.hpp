@@ -1,3 +1,12 @@
+/**
+ * @file macro.hpp
+ * @author xmmmmmovo (ma_fivezha@163.com)
+ * @brief
+ *
+ * Copyright (c) 2024 xmmmmmovo
+ *
+ */
+
 #pragma once
 
 /* If we are we on Windows, we want a single define for it.
@@ -60,16 +69,6 @@
     #define TX_NEVER_INLINE
 #endif
 
-// define export macro
-#ifdef TX_WINDOWS
-    #define TX_EXPORT_API __declspec(dllexport)
-    #define TX_IMPORT_API __declspec(dllimport)
-#else
-    #define TX_EXPORT_API __attribute__((visibility("default")))
-    #define TX_IMPORT_API __attribute__((visibility("default")))
-#endif
-
-
 #define TX_NO_RETURN __attribute__((noreturn))
 #define TX_NO_ESCAPE __attribute__((noescape))
 #define TX_NO_INLINE __attribute__((noinline))
@@ -95,6 +94,17 @@
 #define TX_UNUSED_MSG(msg) (void) (msg)
 
 #define NODISCARD [[nodiscard]]
+
+#define TX_NAMESPACE_BEGIN namespace taixu {
+#define TX_NAMESPACE_END }
+#define TX_NAMESPACE_USING using namespace taixu;
+#define TX_NAMESPACE_USING_ALIAS using namespace taixu::detail;
+#define TX_NAMESPACE_USING_ALL                                                                                         \
+    using namespace taixu;                                                                                             \
+    using namespace taixu::detail;
+#define TX_NAMESPACE_USING_ALL_FROM(ns)                                                                                \
+    using namespace ns;                                                                                                \
+    using namespace ns::detail;
 
 /**
  * @brief Export macro

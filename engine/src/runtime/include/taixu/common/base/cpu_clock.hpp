@@ -2,12 +2,13 @@
 // Created by xmmmmmovo on 2023/3/2.
 //
 
-#ifndef TAIXUENGINE_CLOCK_HPP_7AAF21E5E5DB40FEA443453F3D77703A
-#define TAIXUENGINE_CLOCK_HPP_7AAF21E5E5DB40FEA443453F3D77703A
+#pragma once
 
 #include <chrono>
 
-namespace taixu {
+#include "taixu/common/base/macro.hpp"
+
+TX_NAMESPACE_BEGIN
 
 class CpuClock {
 private:
@@ -33,6 +34,4 @@ public:
     [[nodiscard]] float getFPS() const;
 };
 
-}// namespace taixu
-
-#endif// TAIXUENGINE_CLOCK_HPP_7AAF21E5E5DB40FEA443453F3D77703A
+TX_NAMESPACE_END

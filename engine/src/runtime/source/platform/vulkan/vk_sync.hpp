@@ -10,6 +10,3 @@
  */
 
 #pragma once
-
-
-namespace taixu {}

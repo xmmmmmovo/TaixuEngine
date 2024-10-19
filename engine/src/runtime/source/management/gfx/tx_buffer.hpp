@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <memory>
 
-#include "common/designs/noncopyable.hpp"
+#include "taixu/common/designs/noncopyable.hpp"
 
 namespace taixu {
 

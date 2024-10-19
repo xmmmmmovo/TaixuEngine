@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "common/designs/noncopyable.hpp"
+#include "taixu/common/designs/noncopyable.hpp"
 #include "tx_buffer.hpp"
 #include "tx_pipeline.hpp"
 #include "tx_renderpass.hpp"

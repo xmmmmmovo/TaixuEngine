@@ -8,7 +8,6 @@
 
 #include <taixu/common/log/logger.hpp>
 #include <taixu/engine/engine.hpp>
-#include <taixu/platform/os/path.hpp>
 
 namespace taixu::editor {
 
@@ -17,7 +16,7 @@ static constexpr ImGuiTreeNodeFlags PARENT_FLAGS = ImGuiTreeNodeFlags_SpanAvailW
 static constexpr ImGuiTreeNodeFlags LEAF_FLAGS =
         ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
 
-static tx_string_view constexpr FILE_COMPONENT_NAME{"Files"};
+static std::string_view constexpr FILE_COMPONENT_NAME{"Files"};
 
 static constexpr float PADDING        = 16.0f;
 static constexpr float THUMBNAIL_SIZE = 128.0f;

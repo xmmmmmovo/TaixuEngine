@@ -5,8 +5,9 @@
 #ifndef TX_RENDERPASS_HPP_47FA985BC7AF4FCE8F53970861177E7D
 #define TX_RENDERPASS_HPP_47FA985BC7AF4FCE8F53970861177E7D
 
-#include "common/designs/noncopyable.hpp"
 #include <memory>
+
+#include "taixu/common/designs/noncopyable.hpp"
 
 namespace taixu {
 

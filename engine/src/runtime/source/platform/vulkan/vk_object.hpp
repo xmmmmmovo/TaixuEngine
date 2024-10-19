@@ -1,5 +1,5 @@
 /**
- * @file tx_object.hpp
+ * @file vk_object.hpp
  * @author xmmmmmovo
  * @brief
  * @version 0.1
@@ -8,8 +8,6 @@
  * @copyright Copyright (c) 2024
  *
  */
-
-#pragma once
 
 #include "common/designs/noncopyable.hpp"
 

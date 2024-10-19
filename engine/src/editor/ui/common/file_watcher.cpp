@@ -15,7 +15,7 @@ namespace taixu::editor {
 static const std::unordered_set<std::string_view> IGNORE_TABLE{".git"sv, ".gitignore"sv};
 
 void recursiveLoadFileTree(FileTreeNodeT& entry) {
-    for (const auto full_path = g_engine.getOpenedProject()->project_path / entry.data.filepath;
+    for (const auto full_path = g_engine.getOpenedProject()->raw.project_path / entry.data.filepath;
          auto&      directory_entry : std::filesystem::directory_iterator(full_path)) {
         const auto& path = directory_entry.path();
 
@@ -29,7 +29,7 @@ void recursiveLoadFileTree(FileTreeNodeT& entry) {
         }
 
         FileTreeNodeT node{path.filename().string(),
-                           getRelativePath(g_engine.getOpenedProject()->project_path, path),
+                           getRelativePath(g_engine.getOpenedProject()->raw.project_path, path),
                            type,
                            {},
                            {}};

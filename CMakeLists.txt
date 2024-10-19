@@ -11,6 +11,7 @@ option(USE_PCH "pre compile" ON)
 option(WARNINGS "warnings" OFF)
 
 option(USE_VULKAN "use vulkan" ON)
+option(USE_WGPU "use webgpu" ON)
 option(USE_HLSL "use hlsl" OFF)
 
 option(USE_NOEXCEPT "use noexcept" ON)
