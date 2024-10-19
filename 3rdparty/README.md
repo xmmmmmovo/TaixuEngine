@@ -13,6 +13,6 @@
 - [imgui](https://github.com/ocornut/imgui)
 - [JoltPhysics](https://github.com/jrouwe/JoltPhysics)
 - [MagicEnum](https://github.com/Neargye/magic_enum)
-- [refl-cpp](https://github.com/TartanLlama/refl-cpp)
 - [simdjson](https://github.com/simdjson/simdjson)
+- [reflect-cpp](https://github.com/getml/reflect-cpp)
 - [spdlog](https://github.com/gabime/spdlog)
