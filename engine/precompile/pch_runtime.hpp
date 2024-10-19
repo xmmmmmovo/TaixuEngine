@@ -38,11 +38,10 @@
 
 #include <magic_enum.hpp>
 
-#include <simdjson/simdjson.h>
-
 #include <Jolt/Jolt.h>
 
-#include <refl.hpp>
+#include <rfl.hpp>
+#include <rfl/json.hpp>
 
 #include <glm/glm.hpp>
 
@@ -53,19 +52,14 @@
 #include <argparse/argparse.hpp>
 
 #define IMGUI_ENABLE_FREETYPE
-#ifndef IMGUI_DEFINE_PLACEMENT_NEW
-    #define IMGUI_DEFINE_PLACEMENT_NEW
-#endif
-#ifndef IMGUI_DEFINE_MATH_OPERATORS
-    #define IMGUI_DEFINE_MATH_OPERATORS
-#endif
+#define IMGUI_DEFINE_PLACEMENT_NEW
+#define IMGUI_DEFINE_MATH_OPERATORS
 #include <imgui.h>
-#include <imgui/tools/imgui_freetype.h>
 #include <imgui_internal.h>
 
-#include <magic_enum.hpp>
+#include <imgui/tools/imgui_freetype.h>
 
-#include <refl.hpp>
+#include <magic_enum.hpp>
 
 #include <freetype/freetype.h>
 
