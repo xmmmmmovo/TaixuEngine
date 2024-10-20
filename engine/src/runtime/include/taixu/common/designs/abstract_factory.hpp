@@ -2,8 +2,7 @@
 // Created by xmmmmmovo on 11/21/2023.
 //
 
-#ifndef ENGINE_SRC_COMMON_DESIGNS_FACTORY_FC367611E24C4563B569D839E1FD8984
-#define ENGINE_SRC_COMMON_DESIGNS_FACTORY_FC367611E24C4563B569D839E1FD8984
+#pragma once
 
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/log/logger.hpp"
@@ -11,12 +10,12 @@
 #include <functional>
 #include <memory>
 
-namespace taixu {
+TX_NAMESPACE_BEGIN
 
-template<typename RegisterKeyT, typename ProductionT>
+template<typename RegisterKeyT, typename ProductionT, typename... CreateArgsT>
 class AbstractFactory {
 private:
-    using creation_func_t = std::function<std::unique_ptr<ProductionT>()>;
+    using creation_func_t = std::function<std::unique_ptr<ProductionT>(CreateArgsT...)>;
 
 protected:
     TX_INLINE static std::unordered_map<RegisterKeyT, creation_func_t> creation_func_map{};
@@ -38,17 +37,15 @@ public:
         return false;
     }
 
-    static std::unique_ptr<ProductionT> createProduct(RegisterKeyT key) {
+    static std::unique_ptr<ProductionT> createProduct(RegisterKeyT key, CreateArgsT&&... args) {
         decltype(auto) iter = creation_func_map.find(key);
 
         if (creation_func_map.end() == iter) {
             FATAL_LOG("Cannot create the unsupported {}", typeid(RegisterKeyT).name());
             return nullptr;
         }
-        return iter->second();
+        return iter->second(std::forward<CreateArgsT>(args)...);
     }
 };
 
-}// namespace taixu
-
-#endif// ENGINE_SRC_COMMON_DESIGNS_FACTORY_FC367611E24C4563B569D839E1FD8984
+TX_NAMESPACE_END

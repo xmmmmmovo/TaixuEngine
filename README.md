@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="taixuengine.fivezha.cn"><img src="./docs/assets/icon.webp" width="200" height="200" alt="nonebot"></a>
+  <a href="taixuengine.fivezha.cn"><img src="" width="200" height="200" alt="taixuengine"></a>
 </p>
 
 <div align="center">

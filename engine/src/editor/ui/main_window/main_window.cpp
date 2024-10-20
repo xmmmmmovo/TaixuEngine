@@ -5,7 +5,8 @@
 
 #include "imgui.h"
 
-#include <taixu/engine/engine.hpp>
+#include "taixu/engine/engine.hpp"
+#include "taixu/gameplay/gui/window_factory.hpp"
 
 #include "ui/common/dialog_helper.hpp"
 #include "ui/common/editor_context.hpp"
@@ -130,7 +131,8 @@ void MainWindow::destroy() const {
     _window_ptr->destroy();
 }
 
-MainWindow::MainWindow(WindowInfo&& window_info) : _window_ptr(nullptr) {
+MainWindow::MainWindow(WindowInfo&& window_info)
+    : _window_ptr(WindowFactory::createProduct(WindowAPI::GLFW, std::move(window_info))) {
 }
 
 }// namespace taixu::editor

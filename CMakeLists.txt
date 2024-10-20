@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
+# default for cxx23 feature
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_C_STANDARD 11)
 # This line used for cross platform compilation
 set(CMAKE_CXX_EXTENSIONS OFF)

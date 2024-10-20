@@ -73,7 +73,8 @@ private:
     void        updateTitle(const char* title) override;
 
 public:
-    GLFWWindow() = default;
+    GLFWWindow(WindowInfo const& window_info) : Window(window_info) {
+    }
 };
 
 }// namespace taixu

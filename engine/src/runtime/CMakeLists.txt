@@ -84,7 +84,7 @@ endif()
 # public link
 target_link_libraries(${TARGET_NAME} PUBLIC spdlog::spdlog fmt::fmt imgui)
 
-target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static reflectcpp Threads::Threads freetype)
+target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static reflectcpp Threads::Threads freetype Taskflow)
 target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
 target_link_libraries(${TARGET_NAME} PRIVATE assimp stb magic_enum::magic_enum glm glfw)
 

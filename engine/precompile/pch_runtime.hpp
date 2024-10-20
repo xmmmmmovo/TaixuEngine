@@ -63,10 +63,14 @@
 
 #include <freetype/freetype.h>
 
+// assimp
 #include <assimp/Exporter.hpp>
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
+
+// taskflow
+#include <taskflow/taskflow.hpp>
 
 #include <generated/fonts/lucide_iconfont.hpp>
 #include <generated/fonts/source_han_sans_cn_font.hpp>

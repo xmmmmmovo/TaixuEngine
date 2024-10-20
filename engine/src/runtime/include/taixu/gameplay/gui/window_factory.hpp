@@ -10,12 +10,12 @@
 
 #pragma once
 
-#include "common/designs/abstract_factory.hpp"
 #include "taixu/common/base/core.hpp"
+#include "taixu/common/designs/abstract_factory.hpp"
 #include "taixu/gameplay/gui/window.hpp"
 
 TX_NAMESPACE_BEGIN
 
-class WindowFactory : public AbstractFactory<WindowAPI, Window> {};
+class WindowFactory : public AbstractFactory<WindowAPI, Window, WindowInfo> {};
 
 TX_NAMESPACE_END
