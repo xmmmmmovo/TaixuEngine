@@ -10,10 +10,6 @@
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/designs/noncopyable.hpp"
 
-#ifdef TX_WINDOWS
-    #include "taixu/platform/windows/windows_min.hpp"
-#endif
-
 TX_NAMESPACE_BEGIN
 
 struct WindowInfo {
@@ -81,8 +77,8 @@ public:
     virtual void                    showWindow()         = 0;
     virtual void                    destroy()            = 0;
     virtual void                    handleEvents()       = 0;
-    virtual [[nodiscard]] bool      shouldClose() const  = 0;
-    virtual [[nodiscard]] WindowAPI getWindowAPI() const = 0;
+    [[nodiscard]] virtual bool      shouldClose() const  = 0;
+    [[nodiscard]] virtual WindowAPI getWindowAPI() const = 0;
 
     void    update();
     RetCode setTitle(std::string_view title);

@@ -32,6 +32,8 @@
 #define NOSCROLL
 #define NOSERVICE
 
-#define NOMINMAX
+#ifndef NOMINMAX
+    #define NOMINMAX
+#endif
 
 #include <windows.h>

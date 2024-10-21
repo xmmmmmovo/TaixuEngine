@@ -16,8 +16,7 @@
 #include "taixu/gameplay/gui/window.hpp"
 
 #include "common/hal/tx_container.hpp"
-
-#include "tx_device.hpp"
+#include "common/hal/tx_string.hpp"
 
 namespace taixu {
 
@@ -26,27 +25,7 @@ private:
     RenderAPI _api{RenderAPI::VULKAN};
 
 public:
-    static std::unique_ptr<TXContext> create(const Window* window);
+    static std::unique_ptr<TXContext> create(const Window* window, RenderAPI api);
 };
-
-/**
- *
- * @return get all supported layers and unique them to unordered_set
- */
-ResValT<tx_unordered_set<tx_string>> getInstanceSupportedLayers();
-
-
-/**
- *
- * @return get all supported extensions and unique them to unordered_set
- */
-ResValT<tx_unordered_set<tx_string>> getInstanceSupportedExtensions();
-
-
-ResValT<vk::raii::Instance> createInstance(tx_vector<const char*> const&                        enabled_layers,
-                                           tx_vector<const char*> const&                        enabled_extensions,
-                                           std::optional<vk::DebugUtilsMessengerCreateInfoEXT>& info);
-
-ResValT<std::unique_ptr<TXContext>> createTXContext(const Window* window);
 
 }// namespace taixu

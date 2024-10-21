@@ -12,6 +12,10 @@
 
 #include "taixu/gameplay/gui/window.hpp"
 
+#ifdef TX_WINDOWS
+    #include "taixu/platform/windows/windows_min.hpp"
+#endif
+
 #define GLFW_INCLUDE_NONE
 #ifdef USE_VULKAN
     #define GLFW_INCLUDE_VULKAN
