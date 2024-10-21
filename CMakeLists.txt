@@ -10,7 +10,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 option(USE_CCACHE "ccache accelerate the compile" OFF)
 option(USE_VCPKG "vcpkg manager" OFF)
 option(USE_PCH "pre compile" ON)
-option(WARNINGS "warnings" OFF)
+option(WARNINGS "warnings" ON)
 
 option(USE_VULKAN "use vulkan" ON)
 option(USE_WGPU "use webgpu" ON)
@@ -35,8 +35,14 @@ if(USE_VCPKG)
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 endif()
 
-set(TAIXU_WARNINGS_DEF "-Wall -Wextra -Weffc++ -Werror=uninitialized -Werror=return-type -Wconversion -Wsign-compare -Werror=unused-result
-                        -Werror=suggest-override -Wzero-as-null-pointer-constant -Wmissing-declarations -Wold-style-cast -Wnon-virtual-dtor")
+if(MSVC)
+    set(TAIXU_WARNINGS_DEF "/W4 /WX /permissive- /RTCc")
+else()
+    set(TAIXU_WARNINGS_DEF
+        "-Wall -Wextra -Weffc++ -Werror=uninitialized -Werror=return-type -Wconversion -Wsign-compare -Werror=unused-result
+                        -Werror=suggest-override -Wzero-as-null-pointer-constant -Wmissing-declarations -Wold-style-cast -Wnon-virtual-dtor"
+    )
+endif()
 
 project(
     ${TX_ENGINE_NAME}

@@ -31,7 +31,7 @@ if(USE_VULKAN)
 endif()
 
 # adapt os
-if(MSVC)
+if(WIN32)
         FIND_GLOB_RECURSE(PLATFORM_WIN_FILES
                 "source/platform/windows/*.cpp"
                 "source/platform/windows/*.hpp"
@@ -68,7 +68,7 @@ set(PCH_FILES "${PCH_DIR}/pch_std.hpp" "${PCH_DIR}/pch_runtime.hpp")
 set_target_properties(${TARGET_NAME} PROPERTIES CXX_STANDARD 23)
 
 if(MSVC AND CMAKE_BUILD_TYPE STREQUAL "Debug")
-        target_compile_options(${TARGET_NAME} PRIVATE "/DEBUG" "/Zf" "/nologo" "/W3" "/Od")
+        target_compile_options(${TARGET_NAME} PRIVATE "/DEBUG" "/Zf" "/nologo" "/Od")
 endif()
 
 if(WARNINGS)
@@ -79,6 +79,15 @@ endif()
 if(MSVC)
         target_compile_options(${TARGET_NAME} PRIVATE "/MP" "/utf-8")
         target_compile_definitions(${TARGET_NAME} PRIVATE UNICODE _UNICODE)
+else()
+        target_compile_options(${TARGET_NAME} PRIVATE "-fdiagnostics-color=always")
+endif()
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        target_compile_options(${TARGET_NAME} PRIVATE "-ffast-math -flto=thin")
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+        add_definitions("-fPIC")
+        target_compile_options(${TARGET_NAME} PRIVATE "-Wa,-mbig-obj")
 endif()
 
 # public link
