@@ -23,6 +23,11 @@ enum class EngineState : std::uint8_t {
 enum class WindowAPI : std::uint8_t { GLFW, EMSCRIPTEN, NONE };
 
 /**
+ * @brief render API supported
+ */
+enum class RenderAPI : std::uint8_t { VULKAN, WGPU };
+
+/**
  * @brief window type supported
  */
 enum class WindowType : std::uint8_t { WINDOWED, FULLSCREEN, FULLSCREEN_DESKTOP };

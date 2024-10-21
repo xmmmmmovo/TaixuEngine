@@ -21,13 +21,12 @@
 
 namespace taixu {
 
-class TXContext final : public Noncopyable {
-public:
-    vk::raii::Instance               _instance{VK_NULL_HANDLE};
-    vk::raii::DebugUtilsMessengerEXT _debug_messenger{VK_NULL_HANDLE};
-    vk::raii::SurfaceKHR             _surface{VK_NULL_HANDLE};
+class TXContext : public Noncopyable, public std::enable_shared_from_this<TXContext> {
+private:
+    RenderAPI _api{RenderAPI::VULKAN};
 
-    TXDevice _device{};
+public:
+    static std::unique_ptr<TXContext> create(const Window* window);
 };
 
 /**

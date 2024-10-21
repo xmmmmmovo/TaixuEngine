@@ -235,4 +235,8 @@ ResValT<std::unique_ptr<TXContext>> createTXContext(const Window* window) {
     return {};
 }
 
+std::unique_ptr<TXContext> TXContext::create(const Window* window) {
+    return std::unique_ptr<TXContext>();
+}
+
 }// namespace taixu

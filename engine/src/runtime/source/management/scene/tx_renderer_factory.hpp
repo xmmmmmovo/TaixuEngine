@@ -10,12 +10,12 @@
 
 #pragma once
 
-#include "common/designs/abstract_factory.hpp"
 #include "management/scene/tx_scene_renderer.hpp"
 #include "taixu/common/base/core.hpp"
+#include "taixu/common/designs/abstract_factory.hpp"
 
 TX_NAMESPACE_BEGIN
 
-class WindowFactory : public AbstractFactory<WindowAPI, TXSceneRenderer> {};
+class WindowFactory : public AbstractFactory<RenderAPI, TXSceneRenderer> {};
 
 TX_NAMESPACE_END
