@@ -6,31 +6,26 @@
 
 #include <common/utils/binary_utils.hpp>
 
-#define STB_DXT_IMPLEMENTATION
-#define STB_IMAGE_IMPLEMENTATION
-#define STB_IMAGE_RESIZE_IMPLEMENTATION
-
 #include <stb_dxt.h>
 #include <stb_image.h>
 #include <stb_image_resize2.h>
 
 #include <mimalloc-override.h>
 
-#include "common/log/logger.hpp"
+#include "taixu/common/log/logger.hpp"
 
 static constexpr std::int32_t ZERO_VALUE_FLAG   = -1;
 static constexpr auto         STB_IMAGE_DELETER = [](void* img) { stbi_image_free(img); };
 
 namespace taixu {
 
-std::shared_ptr<Image> loadImage(std::filesystem::path const& path, const int desired_channels,
-                                 const bool is_srgb, const bool flip_vertically) {
+std::shared_ptr<Image> loadImage(std::filesystem::path const& path, const int desired_channels, const bool is_srgb,
+                                 const bool flip_vertically) {
     stbi_set_flip_vertically_on_load(flip_vertically);
 
     int32_t width{0}, height{0}, channels{0};
 
-    uint8_t* data =
-            stbi_load(path.generic_string().c_str(), &width, &height, &channels, desired_channels);
+    uint8_t* data = stbi_load(path.generic_string().c_str(), &width, &height, &channels, desired_channels);
     if (nullptr == data || width < 0 || height < 0) {
         ERROR_LOG("Read Image data failed!");
         return nullptr;
@@ -41,8 +36,7 @@ std::shared_ptr<Image> loadImage(std::filesystem::path const& path, const int de
     image->desired_channels      = desired_channels;
     image->is_srgb               = is_srgb;
 
-    if (width == height && isPowerOfTwo(static_cast<uint32_t>(width)) &&
-        isPowerOfTwo(static_cast<uint32_t>(height))) {
+    if (width == height && isPowerOfTwo(static_cast<uint32_t>(width)) && isPowerOfTwo(static_cast<uint32_t>(height))) {
         image->data = std::shared_ptr<uint8_t[]>(data, STB_IMAGE_DELETER);// NOLINT
         image->size = width * height;
         image->w    = width;
@@ -67,8 +61,8 @@ std::shared_ptr<Image> loadImage(std::filesystem::path const& path, const int de
     if (new_size != width || new_size != height) {
         // call stb resize
         auto*          out_data = static_cast<uint8_t*>(malloc(new_data_size));
-        const uint8_t* ret = stbir_resize_uint8_linear(data, width, height, 0, out_data, new_size,
-                                                       new_size, 0, STBIR_RGBA);
+        const uint8_t* ret =
+                stbir_resize_uint8_linear(data, width, height, 0, out_data, new_size, new_size, 0, STBIR_RGBA);
         // free origin data
         free(data);
         if (nullptr == ret) {
@@ -84,6 +78,15 @@ std::shared_ptr<Image> loadImage(std::filesystem::path const& path, const int de
     image->h    = new_size;
 
     return image;
+}
+
+bool compressImage(std::shared_ptr<Image> const& image, int width, int height, int channels) {
+    return false;
+}
+
+std::unique_ptr<uint8_t> combineImages(uint8_t* red, uint8_t* green, uint8_t* blue, uint8_t* alpha, int width,
+                                       int height) {
+    return nullptr;
 }
 
 }// namespace taixu

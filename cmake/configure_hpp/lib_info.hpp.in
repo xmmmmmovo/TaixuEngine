@@ -1,0 +1,57 @@
+/**
+ * @file lib_info.hpp
+ * @author xmmmmmovo
+ * @date 2024-07-27
+ *
+ * @copyright Copyright (c) 2024 xmmmmmovo
+ *
+ */
+#pragma once
+
+#include <array>
+#include <cassert>
+#include <cstdint>
+#include <string_view>
+
+namespace taixu {
+
+struct LibInfo {
+    std::string_view name;
+    std::string_view string_version;
+    uint32_t         version;
+};
+
+/**
+ * @brief string verion to uint32_t version. eg.: "1.0.0" -> (major, minor, patch)
+ *
+ * @param version
+ * @return uint32_t
+ */
+constexpr uint32_t str2uint32Version(std::string_view version) {
+    std::array<uint32_t, 3> ver_arr{0, 0, 0};
+    uint8_t                 idx = 0;
+
+    constexpr uint8_t SHIFT       = 10;
+    constexpr uint8_t MAJOR_SHIFT = 22;
+    constexpr uint8_t MINOR_SHIFT = 12;
+
+    for (const auto c : version) {
+        if (c == '.') {
+            assert((idx < 3) && "version string is invalid");
+            idx++;
+            continue;
+        }
+        ver_arr.at(idx) = ver_arr.at(idx) * SHIFT + (c - '0');
+    }
+    return (ver_arr[0] << MAJOR_SHIFT) | (ver_arr[1] << MINOR_SHIFT) | (ver_arr[2]);
+}
+
+/**
+ * @brief Global library info
+ */
+static constexpr LibInfo LIB_INFO{.name           = "@TX_ENGINE_NAME@",
+                                  .string_version = "@TX_ENGINE_VERSION@",
+                                  .version        = str2uint32Version("@TX_ENGINE_VERSION@")};
+
+
+}// namespace taixu

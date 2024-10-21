@@ -28,10 +28,11 @@ if(WARNINGS)
 endif()
 
 # link libraries
-target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime argparse)
+target_link_libraries(${TARGET_NAME} PRIVATE TaixuRuntime)
+target_link_libraries(${TARGET_NAME} PRIVATE argparse glm magic_enum::magic_enum)
 
 if(USE_PCH)
-    target_precompile_headers(${TARGET_NAME} PRIVATE ${PCH_DIR}/pch_std.hpp)
+    target_precompile_headers(${TARGET_NAME} PRIVATE ${PCH_DIR}/pch_std.hpp ${PCH_DIR}/pch_editor.hpp)
 endif()
 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD

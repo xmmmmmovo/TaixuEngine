@@ -6,12 +6,12 @@ AlignOperands: true
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortBlocksOnASingleLine: Always
+AllowShortBlocksOnASingleLine: Empty
 AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: All
-AllowShortIfStatementsOnASingleLine: Always
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
 AllowShortLambdasOnASingleLine: All
-AllowShortLoopsOnASingleLine: true
+AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
 AlwaysBreakTemplateDeclarations: Yes
 BreakBeforeBraces: Custom
@@ -65,7 +65,9 @@ AlignConsecutiveAssignments: AcrossComments
 AlignConsecutiveDeclarations: AcrossComments
 AlignTrailingComments: true
 # limit, 0 for unlimited
-ColumnLimit: 100
+ColumnLimit: 120
 IncludeCategories: # headers sort，<>,"" sort by alphabeat
   - Regex: "glad"
     Priority: 0
+  - Regex: "taixu" # header start with taixu
+    Priority: 1

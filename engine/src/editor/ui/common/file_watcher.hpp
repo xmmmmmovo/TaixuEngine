@@ -4,7 +4,8 @@
 
 #pragma once
 
-#include "common/base/macro.hpp"
+#include <filesystem>
+
 #include "hierarchy_struct.hpp"
 
 namespace taixu::editor {
@@ -23,7 +24,7 @@ struct FileChildrensHierarchyDataNode : public HierarchyDataNode<DataT> {
     std::vector<FileChildrensHierarchyDataNode> directory_childrens{};
 };
 
-enum class OpenFileType { SCENE };
+enum class OpenFileType : uint8_t { SCENE };
 
 using FileTreeNodeT = FileChildrensHierarchyDataNode<FileEntryModel>;
 

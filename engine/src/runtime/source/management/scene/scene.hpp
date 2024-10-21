@@ -1,6 +1,6 @@
 /**
  * @file scene.hpp
- * @author xmmmmmovo (ma_fivezha@163.com)
+ * @author xmmmmmovo
  * @brief
  * @version 0.1
  * @date 2024-07-23
@@ -14,7 +14,8 @@
 
 #include <management/ecs/core/ecs_types.hpp>
 #include <management/ecs/ecs_coordinator.hpp>
-#include <management/ecs/object/game_object.hpp>
+
+#include "taixu/management/ecs/object/game_object.hpp"
 
 namespace taixu {
 
@@ -40,7 +41,9 @@ private:
 public:
     ECSCoordinator _ecs_coordinator{};
 
-    explicit Scene() { _ecs_coordinator.init(); }
+    explicit Scene() {
+        _ecs_coordinator.init();
+    }
 };
 
 }// namespace taixu

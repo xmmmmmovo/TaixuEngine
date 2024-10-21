@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(TaixuEngineTestFramework LANGUAGES CXX)
-
 # ---- Options ----
 option(ENABLE_TEST_COVERAGE "Enable test coverage" OFF)
 option(TEST_INSTALLED_VERSION "Test the version found by find_package" OFF)

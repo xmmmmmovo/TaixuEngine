@@ -8,10 +8,8 @@
 #include <filesystem>
 
 #include <imgui.h>
+#include <imgui/imzmo/ImGuizmo.h>
 
-#include "imgui/imzmo/ImGuizmo.h"
-
-#include "common/base/hash.hpp"
 #include "file_watcher.hpp"
 #include "hierarchy_struct.hpp"
 

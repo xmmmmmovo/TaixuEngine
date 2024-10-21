@@ -1,0 +1,16 @@
+format:
+  tab_size: 4
+  line_width: 120
+  dangle_parens: true
+
+  # Format keywords consistently as 'lower' or 'upper' case
+  # unchanged is valid too
+  keyword_case: "upper"
+
+  # If true, the argument lists which are known to be sortable
+  # will be sorted lexicographically
+  enable_sort: true
+
+  # If true, the parsers may infer whether or not an argument
+  # list is sortable (without annotation).
+  autosort: false

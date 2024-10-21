@@ -4,14 +4,16 @@
 
 #include "binary_utils.hpp"
 
-#include "common/base/macro.hpp"
+#include "taixu/common/base/macro.hpp"
 
 constexpr std::int32_t const ZERO_VALUE_FLAG = -1;
 
 namespace taixu {
 
 std::int32_t bitScanForward32(std::uint32_t const value) {
-    if (value == 0) { return ZERO_VALUE_FLAG; }
+    if (value == 0) {
+        return ZERO_VALUE_FLAG;
+    }
 
 #ifdef _MSC_VER
     unsigned long index{0};
@@ -26,7 +28,9 @@ std::int32_t bitScanForward32(std::uint32_t const value) {
 }
 
 std::int32_t bitScanReverse32(std::uint32_t const value) {
-    if (value == 0) { return ZERO_VALUE_FLAG; }
+    if (value == 0) {
+        return ZERO_VALUE_FLAG;
+    }
 
 #ifdef _MSC_VER
     unsigned long index{0};
@@ -40,6 +44,8 @@ std::int32_t bitScanReverse32(std::uint32_t const value) {
 #endif
 }
 
-bool isPowerOfTwo(uint32_t const x) { return x != 0 && (x & ~x + 1) == x; }
+bool isPowerOfTwo(uint32_t const x) {
+    return x != 0 && (x & ~x + 1) == x;
+}
 
 }// namespace taixu

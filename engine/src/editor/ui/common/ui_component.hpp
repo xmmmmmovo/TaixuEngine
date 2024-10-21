@@ -5,7 +5,8 @@
 #ifndef TAIXUENGINE_UI_COMPONENT_HPP
 #define TAIXUENGINE_UI_COMPONENT_HPP
 
-#include "common/designs/noncopyable.hpp"
+#include <taixu/common/designs/noncopyable.hpp>
+
 #include "view_model.hpp"
 
 namespace taixu::editor {
@@ -20,8 +21,8 @@ protected:
     ViewModel& _view_model;
 
 public:
-    explicit AbstractUIComponent(ViewModel& view_model)
-        : _view_model(view_model) {}
+    explicit AbstractUIComponent(ViewModel& view_model) : _view_model(view_model) {
+    }
 };
 
 }// namespace taixu::editor

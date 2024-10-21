@@ -5,11 +5,12 @@
 #ifndef ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_HPP
 #define ENGINE_RUNTIME_MANAGEMENT_ECS_CATEGORY_CATEGORY_HPP
 
-#include <common/base/macro.hpp>
-#include <management/ecs/core/ecs_types.hpp>
-
 #include <unordered_set>
 #include <vector>
+
+#include <taixu/common/base/macro.hpp>
+
+#include "management/ecs/core/ecs_types.hpp"
 
 namespace taixu {
 

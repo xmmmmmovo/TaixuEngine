@@ -5,8 +5,7 @@
 #ifndef TAIXUENGINE_RENDER_COMPONENT_HPP
 #define TAIXUENGINE_RENDER_COMPONENT_HPP
 
-#define IMGUI_DEFINE_MATH_OPERATORS
-#include "imgui_internal.h"
+#include <imgui.h>
 
 #include "ui/common/ui_component.hpp"
 #include "ui/common/view_model.hpp"
@@ -28,8 +27,7 @@ public:
     float _aspect_ratio{0.0f};
 
 public:
-    explicit RenderComponent(ViewModel& view_model)
-        : AbstractUIComponent(view_model) {
+    explicit RenderComponent(ViewModel& view_model) : AbstractUIComponent(view_model) {
         _window_class.DockNodeFlagsOverrideSet = ImGuiDockNodeFlags_NoTabBar;
     }
 

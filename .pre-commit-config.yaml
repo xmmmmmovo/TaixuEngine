@@ -7,6 +7,15 @@ repos:
       - id: check-merge-conflict
       - id: end-of-file-fixer
 
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.8
+    hooks:
+      - id: ruff
+        types_or: [ python, pyi ]
+        args: [--fix]
+      - id: ruff-format
+        types_or: [ python, pyi ]
+
   - repo: https://github.com/pocc/pre-commit-hooks
     rev: v1.3.5
     hooks:

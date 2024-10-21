@@ -2,12 +2,17 @@
 // Created by xmmmmmovo on 1/24/2024.
 //
 
-#include "common/base/cpu_clock.hpp"
+#include "taixu/common/base/cpu_clock.hpp"
 
-namespace taixu {
-float CpuClock::getDeltaTime() const { return _delta_time; }
+TX_NAMESPACE_BEGIN
 
-float CpuClock::getTimeSinceStart() const { return _time_since_start; }
+float CpuClock::getDeltaTime() const {
+    return _delta_time;
+}
+
+float CpuClock::getTimeSinceStart() const {
+    return _time_since_start;
+}
 
 void CpuClock::reset() {
     _start_time   = std::chrono::high_resolution_clock::now();
@@ -28,6 +33,8 @@ void CpuClock::update() {
     _time_since_start += _delta_time;
 }
 
-float CpuClock::getFPS() const { return 1.0f / _delta_time; }
+float CpuClock::getFPS() const {
+    return 1.0f / _delta_time;
+}
 
-}// namespace taixu
+TX_NAMESPACE_END

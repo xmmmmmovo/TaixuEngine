@@ -4,29 +4,32 @@
 
 #include "file_watcher.hpp"
 
-#include "common/log/logger.hpp"
-#include "engine/engine.hpp"
-#include "platform/os/path.hpp"
+#include <taixu/common/log/logger.hpp>
+#include <taixu/engine/engine.hpp>
+#include <taixu/platform/os/path_utils.hpp>
 
 #include <imgui/icons/IconsLucide.h>
 
-
 namespace taixu::editor {
 
-static std::unordered_set IGNORE_TABLE{".git"sv, ".gitignore"sv};
+static const std::unordered_set<std::string_view> IGNORE_TABLE{".git"sv, ".gitignore"sv};
 
 void recursiveLoadFileTree(FileTreeNodeT& entry) {
-    for (const auto full_path = g_engine.getOpenedProject()->project_path / entry.data.filepath;
+    for (const auto full_path = g_engine.getOpenedProject()->raw.project_path / entry.data.filepath;
          auto&      directory_entry : std::filesystem::directory_iterator(full_path)) {
         const auto& path = directory_entry.path();
 
-        if (IGNORE_TABLE.contains(path.filename().string())) { continue; }
+        if (IGNORE_TABLE.contains(path.filename().string())) {
+            continue;
+        }
 
         FileEntryType type{FileEntryType::FILE};
-        if (directory_entry.is_directory()) { type = FileEntryType::DIRECTORY; }
+        if (directory_entry.is_directory()) {
+            type = FileEntryType::DIRECTORY;
+        }
 
         FileTreeNodeT node{path.filename().string(),
-                           getRelativePath(g_engine.getOpenedProject()->project_path, path),
+                           getRelativePath(g_engine.getOpenedProject()->raw.project_path, path),
                            type,
                            {},
                            {}};
@@ -38,7 +41,9 @@ void recursiveLoadFileTree(FileTreeNodeT& entry) {
             entry.file_childrens.emplace_back(node);
         }
     }
-    for (auto&& child : entry.directory_childrens) { recursiveLoadFileTree(child); }
+    for (auto&& child : entry.directory_childrens) {
+        recursiveLoadFileTree(child);
+    }
 }
 
 }// namespace taixu::editor

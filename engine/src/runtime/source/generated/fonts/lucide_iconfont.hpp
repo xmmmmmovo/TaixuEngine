@@ -1,5 +1,6 @@
 // File: '.\lucide.ttf' (624116 bytes)
 // Exported using binary_to_compressed_c.cpp
+#pragma once
 static const char lucide_iconfont_compressed_data_base85[498010 + 1] =
         "7])#######QU#Ur'/###[),##.f1$#Q6>##CExF>6pY(/I->>#q?'o/"
         "I[n425IQT:%)m<-IP4U%'vA0FYW2]_;^+##>-&###QOkEG/"
