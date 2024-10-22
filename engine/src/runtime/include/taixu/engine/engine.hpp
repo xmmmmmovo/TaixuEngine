@@ -68,6 +68,8 @@ public:
 
     /// Render management
     void enableImgui(std::function<void()>&& update_func);
+
+    [[nodiscard]] EngineArgs const& getEngineArgs() const;
 };
 
 extern Engine g_engine;// NOLINT(cppcoreguidelines-avoid-non-const-global-variables)

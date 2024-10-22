@@ -98,4 +98,8 @@ void Engine::enableImgui(std::function<void()>&& update_func) {
     _p->renderer->enableImgui(std::forward<std::function<void()>>(update_func));
 }
 
+EngineArgs const& Engine::getEngineArgs() const {
+    return _engine_args;
+}
+
 }// namespace taixu

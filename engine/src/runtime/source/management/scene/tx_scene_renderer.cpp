@@ -156,7 +156,7 @@ void TXSceneRenderer::loadStyle(DPIScale const& dpi_scale) {
 
 void TXSceneRenderer::initImguiForWindow(const Window* window) {
     if (window->getWindowAPI() == WindowAPI::GLFW) {
-        ImGui_ImplGlfw_InitForVulkan(static_cast<const GLFWWindow*>(window)->getRawWindow(), true);
+        ImGui_ImplGlfw_InitForVulkan(dynamic_cast<const GLFWWindow*>(window)->getRawWindow(), true);
     }
 }
 
@@ -210,7 +210,7 @@ void TXSceneRenderer::imguiForGraphicsAPIInit() {
 }
 
 void TXSceneRenderer::initForGraphicsAPI(Window* window) {
-    ResValT<std::unique_ptr<TXContext>> res = createTXContext(window);
+    ResValT<std::unique_ptr<TXContext>> res = TXContext::create(window, g_engine.getEngineArgs().render_api());
     if (!res.has_value()) {
         FATAL_LOG("Failed to create TXContext");
         return;

@@ -11,6 +11,7 @@
 
 #include "common/hal/tx_container.hpp"
 
+#include "common/hal/tx_string.hpp"
 #include "common/log/custom_fmt.hpp"
 #include "taixu/common/base/lib_info.hpp"
 #include "taixu/common/base/macro.hpp"
@@ -45,14 +46,16 @@ tx_unordered_set<tx_string> getDeviceExtensions(vk::raii::PhysicalDevice const& 
  * https://github.com/SaschaWillems/vulkan.gpuinfo.org/blob/1e6ca6e3c0763daabd6a101b860ab4354a07f5d3/functions.php#L294
  */
 tx_string getDriverVersionStr(uint32_t vendorID, uint32_t driverVersion) {
-    tx_ostringstream oss;
-
-    if (4318 /* NVIDIA*/ == vendorID) {
+    static constexpr uint32_t NVIDIA_VENDOR_ID = 4318;
+    static constexpr uint32_t INTEL_VENDOR_ID  = 0x8086;
+    tx_ostringstream          oss;
+    // NOLINTBEGIN
+    if (NVIDIA_VENDOR_ID /* NVIDIA*/ == vendorID) {
         oss << ((driverVersion >> 22) & 0x3ff) << "." << ((driverVersion >> 14) & 0xff) << "."
             << ((driverVersion >> 6) & 0xff) << "." << (driverVersion & 0x3f);
     }
 #if defined(TX_WINDOWS)// Windows only
-    else if (0x8086 /* Intel, obviously */ == vendorID) {
+    else if (INTEL_VENDOR_ID /* Intel, obviously */ == vendorID) {
         oss << (driverVersion >> 14) << "." << (driverVersion & 0x3fff);
     }
 #endif// ~ Windows only
@@ -61,11 +64,14 @@ tx_string getDriverVersionStr(uint32_t vendorID, uint32_t driverVersion) {
         // VK_API_VERSION_VARIANT bits at the top.
         oss << (driverVersion >> 22) << "." << ((driverVersion >> 12) & 0x3ff) << "." << (driverVersion & 0xfff);
     }
-
+    // NOLINTEND
     return oss.str();
 }
 
 float scoreDevice(vk::raii::PhysicalDevice const& device, vk::raii::SurfaceKHR const& surface) {
+    static constexpr float HIGH_SCORE = 500.0f;
+    static constexpr float LOW_SCORE  = 500.0f;
+
     vk::PhysicalDeviceProperties props = device.getProperties();
 
     uint32_t major = VK_API_VERSION_MAJOR(props.apiVersion);
@@ -131,9 +137,9 @@ float scoreDevice(vk::raii::PhysicalDevice const& device, vk::raii::SurfaceKHR c
 
     float score = 0.0f;
     if (props.deviceType == vk::PhysicalDeviceType::eDiscreteGpu) {
-        score += 500.0f;
+        score += HIGH_SCORE;
     } else if (props.deviceType == vk::PhysicalDeviceType::eIntegratedGpu) {
-        score += 100.0f;
+        score += LOW_SCORE;
     }
 
     return score;
@@ -142,6 +148,7 @@ float scoreDevice(vk::raii::PhysicalDevice const& device, vk::raii::SurfaceKHR c
 ResValT<vk::raii::PhysicalDevice> selectDevice(vk::raii::Instance const&   instance,
                                                vk::raii::SurfaceKHR const& surface) {
     auto devices = instance.enumeratePhysicalDevices();
+
     if (!devices.has_value()) {
         ERROR_LOG("Failed to enumerate physical devices: {}", vk::to_string(devices.error()));
         return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR);
@@ -186,15 +193,15 @@ ResValT<vk::raii::Device> createDevice(vk::raii::PhysicalDevice const& physical_
     return UNEXPECTED(RetCode::UNIMPL_ERROR);
 }
 
-ResValT<TXDevice> createTXDevice(vk::raii::Instance const& instance, vk::raii::SurfaceKHR const& surface) {
+ResValT<vk::raii::PhysicalDevice> createPhysicsDevice(vk::raii::Instance const&   instance,
+                                                      vk::raii::SurfaceKHR const& surface) {
     auto device = selectDevice(instance, surface);
 
     if (!device.has_value()) {
         return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR);
     }
 
-
-    return {};
+    return UNEXPECTED(RetCode::UNIMPL_ERROR);
 }
 
 ResValT<tx_unordered_set<tx_string>> getInstanceSupportedLayers() {
@@ -276,12 +283,11 @@ void initDynamicDispatchLoader() {
     VULKAN_HPP_DEFAULT_DISPATCHER.init(dl);
 
     // the same initialization, now with explicitly providing the initial function pointer
-    PFN_vkGetInstanceProcAddr getInstanceProcAddr =
-            dl.getProcAddress<PFN_vkGetInstanceProcAddr>("vkGetInstanceProcAddr");
-    VULKAN_HPP_DEFAULT_DISPATCHER.init(getInstanceProcAddr);
+    auto get_instance_proc_addr = dl.getProcAddress<PFN_vkGetInstanceProcAddr>("vkGetInstanceProcAddr");
+    VULKAN_HPP_DEFAULT_DISPATCHER.init(get_instance_proc_addr);
 }
 
-ResValT<std::unique_ptr<VKContext>> createVulkanContext(const Window* window) {
+ResValT<std::unique_ptr<VKContext>> VKContext::createVulkanContext(const Window* window) {
     initDynamicDispatchLoader();
 
     if (!window) {
@@ -390,8 +396,8 @@ ResValT<std::unique_ptr<VKContext>> createVulkanContext(const Window* window) {
     VkSurfaceKHR surface_strct{VK_NULL_HANDLE};
     VkInstance   instance_c_ptr = *(instance.value());
 
-    if (auto const res = glfwCreateWindowSurface(instance_c_ptr, static_cast<const GLFWWindow*>(window)->getRawWindow(),
-                                                 nullptr, &surface_strct);
+    if (auto const res = glfwCreateWindowSurface(
+                instance_c_ptr, dynamic_cast<const GLFWWindow*>(window)->getRawWindow(), nullptr, &surface_strct);
         res != VK_SUCCESS) {
         ERROR_LOG("Failed to create window surface: {}", string_VkResult(res));
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
@@ -399,9 +405,14 @@ ResValT<std::unique_ptr<VKContext>> createVulkanContext(const Window* window) {
 
     vk::raii::SurfaceKHR surface{instance.value(), surface_strct};
 
-    auto physical_devices = createTXDevice(instance.value(), surface);
+    auto physical_devices = createPhysicsDevice(instance.value(), surface);
 
-    return {};
+    std::unique_ptr context   = std::make_unique<VKContext>();
+    context->_instance        = std::move(instance.value());
+    context->_debug_messenger = std::move(debug_messenger);
+    context->_surface         = std::move(surface);
+
+    return context;
 }
 
 TX_NAMESPACE_END

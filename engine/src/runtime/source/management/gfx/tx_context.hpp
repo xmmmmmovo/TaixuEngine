@@ -11,12 +11,8 @@
 
 #pragma once
 
-#include "taixu/common/base/result.hpp"
 #include "taixu/common/designs/noncopyable.hpp"
 #include "taixu/gameplay/gui/window.hpp"
-
-#include "common/hal/tx_container.hpp"
-#include "common/hal/tx_string.hpp"
 
 namespace taixu {
 

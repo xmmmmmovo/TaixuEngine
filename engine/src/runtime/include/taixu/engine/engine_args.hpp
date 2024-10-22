@@ -23,6 +23,7 @@ class EngineArgs {
     PROTOTYPE_DFT_ONLY_GETTER_CONST(private, std::string, locale, "zh_CN");
     PROTOTYPE_DFT_ONLY_GETTER_CONST(private, std::string, project_path, "");
     PROTOTYPE_DFT_ONLY_GETTER_CONST(private, WindowAPI, window_api, WindowAPI::GLFW);
+    PROTOTYPE_DFT_ONLY_GETTER_CONST(private, RenderAPI, render_api, RenderAPI::VULKAN);
 
     PROTOTYPE_DFT_ONLY_GETTER_VALPASS(private, bool, is_immediate_render_mode, false);
 

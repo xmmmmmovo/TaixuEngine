@@ -22,7 +22,7 @@ TX_NAMESPACE_BEGIN
 std::unique_ptr<TXContext> TXContext::create(const Window* window, RenderAPI api) {
     switch (api) {
         case RenderAPI::VULKAN: {
-            auto res = createVulkanContext(window);
+            auto res = VKContext::createVulkanContext(window);
             if (res.has_value()) {
                 ERROR_LOG("Failed to create vulkan context: {}", res.error());
             }
