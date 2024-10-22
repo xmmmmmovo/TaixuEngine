@@ -3,21 +3,25 @@
 //
 #include "management/scene/tx_scene_renderer.hpp"
 
-#include "common/log/logger.hpp"
-#include "common/math/literal.hpp"
-#include "engine/engine.hpp"
-#include "gameplay/gui/window.hpp"
+#include "common/math/math.hpp"
+#include "gameplay/gui/glfw_window.hpp"
+#include "management/gfx/tx_context.hpp"
+#include "taixu/common/base/result.hpp"
+#include "taixu/common/log/logger.hpp"
+#include "taixu/engine/engine.hpp"
+#include "taixu/gameplay/gui/window.hpp"
 
 #include "generated/fonts/lucide_iconfont.hpp"
 #include "generated/fonts/source_han_sans_cn_font.hpp"
 
 #include "backends/imgui_impl_glfw.h"
+#include "backends/imgui_impl_vulkan.h"
 #include "imgui.h"
 #include "imgui/icons/IconsLucide.h"
 
 namespace taixu {
 
-using namespace literal;
+using namespace literals;
 
 static constexpr ImguiStyleGroup DEFAULT_STYLE_GROUP{
         Color{34_uc, 35, 42_uc, 255_uc},       Color{42_uc, 44_uc, 54_uc, 255_uc},
@@ -33,8 +37,12 @@ void TXSceneRenderer::init(Window* window) {
 
 void TXSceneRenderer::update(const float delta_time, Scene* scene) {
     clearWindow();
-    if (scene != nullptr) { updateScene(delta_time, scene); }
-    if (_enable_imgui) { imguiUpdate(); }
+    if (scene != nullptr) {
+        updateScene(delta_time, scene);
+    }
+    if (_enable_imgui) {
+        imguiUpdate();
+    }
     presentToWindow();
 }
 
@@ -47,7 +55,9 @@ void TXSceneRenderer::enableImgui(const std::function<void()>& update_func) {
     _enable_imgui = true;
     _imgui_update = update_func;
 }
-void TXSceneRenderer::disableImgui() { _enable_imgui = false; }
+void TXSceneRenderer::disableImgui() {
+    _enable_imgui = false;
+}
 
 void TXSceneRenderer::loadFont(DPIScale const& dpi_scale) const {
     _io->Fonts->AddFontDefault();
@@ -55,11 +65,11 @@ void TXSceneRenderer::loadFont(DPIScale const& dpi_scale) const {
     static constexpr float FONT_SIZE{24.0f};
     // add source hans font
     // Default + Selection of 2500 Ideographs used by Simplified Chinese
-    const auto             font = _io->Fonts->AddFontFromMemoryCompressedTTF(
-            source_han_sans_cn_font_compressed_data,// NOLINT
-            source_han_sans_cn_font_compressed_size, FONT_SIZE, nullptr,
-            // 这里包括了Latin范围
-            _io->Fonts->GetGlyphRangesChineseSimplifiedCommon());
+    const auto             font =
+            _io->Fonts->AddFontFromMemoryCompressedTTF(source_han_sans_cn_font_compressed_data,// NOLINT
+                                                       source_han_sans_cn_font_compressed_size, FONT_SIZE, nullptr,
+                                                       // 这里包括了Latin范围
+                                                       _io->Fonts->GetGlyphRangesChineseSimplifiedCommon());
     _io->FontDefault = font;
 
     // merge in icons from Font Awesome
@@ -68,9 +78,8 @@ void TXSceneRenderer::loadFont(DPIScale const& dpi_scale) const {
     ImFontConfig                            icons_config;
     icons_config.MergeMode  = true;
     icons_config.PixelSnapH = true;
-    _io->Fonts->AddFontFromMemoryCompressedBase85TTF(
-            lucide_iconfont_compressed_data_base85,// NOLINT
-            ICONFONT_SIZE, &icons_config, K_ICONS_RANGES.data());
+    _io->Fonts->AddFontFromMemoryCompressedBase85TTF(lucide_iconfont_compressed_data_base85,// NOLINT
+                                                     ICONFONT_SIZE, &icons_config, K_ICONS_RANGES.data());
 
     _io->FontGlobalScale = dpi_scale.x_scale;
 }
@@ -90,7 +99,7 @@ void TXSceneRenderer::loadStyle(DPIScale const& dpi_scale) {
     _style->WindowPadding            = {5.0f, 5.0f};
     _style->ItemSpacing              = {4.0f, 4.0f};
     _style->ItemInnerSpacing         = {3.0f, 3.0f};
-    _style->WindowMenuButtonPosition = 0;
+    _style->WindowMenuButtonPosition = ImGuiDir::ImGuiDir_Left;
     _style->WindowTitleAlign         = {0.5f, 0.5f};
     _style->GrabMinSize              = 6.5f;
     _style->ScrollbarSize            = 12.0f;
@@ -146,7 +155,9 @@ void TXSceneRenderer::loadStyle(DPIScale const& dpi_scale) {
 }
 
 void TXSceneRenderer::initImguiForWindow(const Window* window) {
-    ImGui_ImplGlfw_InitForVulkan(window->getRawWindow(), true);
+    if (window->getWindowAPI() == WindowAPI::GLFW) {
+        ImGui_ImplGlfw_InitForVulkan(dynamic_cast<const GLFWWindow*>(window)->getRawWindow(), true);
+    }
 }
 
 void TXSceneRenderer::initImgui(const Window* window) {
@@ -192,22 +203,37 @@ void TXSceneRenderer::imguiDestroy() {
     ImGui::DestroyContext();
 }
 
-void TXSceneRenderer::updateScene(float delta_time, Scene* scene) {}
+void TXSceneRenderer::updateScene(float delta_time, Scene* scene) {
+}
 
-void TXSceneRenderer::imguiForGraphicsAPIInit() {}
+void TXSceneRenderer::imguiForGraphicsAPIInit() {
+}
 
-void TXSceneRenderer::initForGraphicsAPI(Window* window) {}
+void TXSceneRenderer::initForGraphicsAPI(Window* window) {
+    ResValT<std::unique_ptr<TXContext>> res = TXContext::create(window, g_engine.getEngineArgs().render_api());
+    if (!res.has_value()) {
+        FATAL_LOG("Failed to create TXContext");
+        return;
+    }
+    this->_context = std::move(res.value());
+}
 
-void TXSceneRenderer::imguiGraphicsPreUpdate() {}
+void TXSceneRenderer::imguiGraphicsPreUpdate() {
+}
 
-void TXSceneRenderer::imguiGraphicsUpdate() {}
+void TXSceneRenderer::imguiGraphicsUpdate() {
+}
 
-void TXSceneRenderer::imguiGraphicsDestroy() {}
+void TXSceneRenderer::imguiGraphicsDestroy() {
+}
 
-void TXSceneRenderer::clearWindow() {}
+void TXSceneRenderer::clearWindow() {
+}
 
-void TXSceneRenderer::presentToWindow() {}
+void TXSceneRenderer::presentToWindow() {
+}
 
-void TXSceneRenderer::destroyGraphicsAPI() {}
+void TXSceneRenderer::destroyGraphicsAPI() {
+}
 
 }// namespace taixu

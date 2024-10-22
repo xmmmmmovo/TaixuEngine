@@ -10,7 +10,7 @@
 #include <cstddef>
 #include <unordered_map>
 
-#include "common/base/macro.hpp"
+#include <taixu/common/base/macro.hpp>
 
 namespace taixu {
 
@@ -64,10 +64,9 @@ public:
         if (idx_of_removed_element == idx_of_last_element) {
             _values[idx_of_removed_element].~Value();
         } else {
-            _values[idx_of_removed_element] =
-                    std::move(_values[idx_of_last_element]);
+            _values[idx_of_removed_element] = std::move(_values[idx_of_last_element]);
 
-            Key key_of_last_element = _index_to_key_map[idx_of_last_element];
+            Key key_of_last_element                   = _index_to_key_map[idx_of_last_element];
             _key_to_index_map[key_of_last_element]    = idx_of_removed_element;
             _index_to_key_map[idx_of_removed_element] = key_of_last_element;
         }
@@ -88,14 +87,18 @@ public:
         return _values[_key_to_index_map[key]];
     }
 
-    [[nodiscard]] std::size_t size() const { return _size; }
+    [[nodiscard]] std::size_t size() const {
+        return _size;
+    }
 
     bool contains(const Key& key) const {
         return _key_to_index_map.find(key) != _key_to_index_map.end();
     }
 
     void clear() {
-        for (std::size_t i = 0; i < _size; ++i) { _values[i].~Value(); }
+        for (std::size_t i = 0; i < _size; ++i) {
+            _values[i].~Value();
+        }
         _key_to_index_map.clear();
         _index_to_key_map.clear();
         _size = 0;

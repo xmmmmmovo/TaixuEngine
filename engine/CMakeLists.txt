@@ -43,10 +43,6 @@ include(FindFmt)
 include(FindSpdlog)
 # add assimp
 include(FindAssimp)
-# add jsoncpp
-include(FindSimdjson)
-# add refl cpp
-include(FindReflCpp)
 # add magic enum
 include(FindMagicEnum)
 # add argparse
@@ -55,6 +51,10 @@ include(FindArgparse)
 include(FindJoltPhysics)
 # add mimalloc
 include(FindMimalloc)
+# add reflcpp
+include(FindReflcpp)
+#add taskflow
+include(FindTaskflow)
 
 # add threads
 find_package(Threads REQUIRED)

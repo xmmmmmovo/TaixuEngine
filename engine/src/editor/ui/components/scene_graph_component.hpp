@@ -5,27 +5,26 @@
 #ifndef ENGINE_EDITOR_UI_COMPONENTS_GO_HIERARCHY_COMPONENT_HPP
 #define ENGINE_EDITOR_UI_COMPONENTS_GO_HIERARCHY_COMPONENT_HPP
 
-#include "ui/common/ui_component.hpp"
 #include <array>
 #include <string>
 #include <string_view>
+
+#include "ui/common/ui_component.hpp"
 
 namespace taixu::editor {
 
 class SceneGraphComponent : public AbstractUIComponent {
 private:
-    static constexpr std::array<std::string_view, 3>
-            ENTITY_MENU_COMBO_ITEM_NAME = {"Add Empty Entity", "Delete Entity",
-                                           "Rename Game Object"};
-    static std::string_view constexpr WORLD_OBJ_COMPONENT_NAME{"World Objects"};
+    static constexpr std::array<std::string_view, 3> ENTITY_MENU_COMBO_ITEM_NAME = {"Add Empty Entity", "Delete Entity",
+                                                                                    "Rename Game Object"};
+    static constexpr std::string_view                WORLD_OBJ_COMPONENT_NAME{"World Objects"};
 
 public:
-    explicit SceneGraphComponent(ViewModel& view_model)
-        : AbstractUIComponent(view_model) {}
+    explicit SceneGraphComponent(ViewModel& view_model) : AbstractUIComponent(view_model) {
+    }
 
     void update() {
-        if (ImGui::Begin(WORLD_OBJ_COMPONENT_NAME.data(), nullptr,
-                         ImGuiWindowFlags_None)) {
+        if (ImGui::Begin(WORLD_OBJ_COMPONENT_NAME.data(), nullptr, ImGuiWindowFlags_None)) {
             ImGui::End();
         }
         //        if (_view_model.engine_runtime_ptr->getScene() == nullptr) {
@@ -62,7 +61,7 @@ public:
         //
         //            bool open_modal{false};
         //            if (ImGui::BeginPopup(go_popup_name.c_str())) {
-        //                const std::string go_menu_name =
+        //                const tx_string go_menu_name =
         //                        "Game Object Menu " + go.name();
         //                for (int i = 0; i < 3; i++) {
         //                    const auto key =
@@ -93,7 +92,7 @@ public:
         //                ImGui::Text("Rename the object in the follow edit
         //                line!\n\n"); ImGui::Separator();
         //
-        //                static std::string buf(64, '\0');
+        //                static tx_string buf(64, '\0');
         //                ImGui::InputText("##edit", buf.data(), 64,
         //                                 ImGuiInputTextFlags_CharsNoBlank);
         //

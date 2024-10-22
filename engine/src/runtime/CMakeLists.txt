@@ -31,7 +31,7 @@ if(USE_VULKAN)
 endif()
 
 # adapt os
-if(MSVC)
+if(WIN32)
         FIND_GLOB_RECURSE(PLATFORM_WIN_FILES
                 "source/platform/windows/*.cpp"
                 "source/platform/windows/*.hpp"
@@ -51,11 +51,14 @@ else()
         list(APPEND PLATFORM_FILES ${PLATFORM_LINUX_FILES})
 endif()
 
+# configure lib information headers for runtime
+configure_file("${TAIXUENGINE_ROOT_DIR}/cmake/configure_hpp/lib_info.hpp.in" "${CMAKE_CURRENT_SOURCE_DIR}/include/taixu/common/base/lib_info.hpp" @ONLY)
+
 FIND_GLOB_RECURSE(HEADER_FILES "include/*.hpp")
 
 set(SOURCE_FILES ${SOURCE_FILES} ${PLATFORM_FILES} ${HEADER_FILES})
 
-source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SOURCE_FILES})
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SOURCE_FILES} ${PLATFORM_FILES} ${HEADER_FILES})
 
 add_library(${TARGET_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 
@@ -65,7 +68,7 @@ set(PCH_FILES "${PCH_DIR}/pch_std.hpp" "${PCH_DIR}/pch_runtime.hpp")
 set_target_properties(${TARGET_NAME} PROPERTIES CXX_STANDARD 23)
 
 if(MSVC AND CMAKE_BUILD_TYPE STREQUAL "Debug")
-        target_compile_options(${TARGET_NAME} PRIVATE "/DEBUG" "/Zf" "/nologo" "/W3" "/Od")
+        target_compile_options(${TARGET_NAME} PRIVATE "/DEBUG" "/Zf" "/nologo" "/Od")
 endif()
 
 if(WARNINGS)
@@ -76,23 +79,29 @@ endif()
 if(MSVC)
         target_compile_options(${TARGET_NAME} PRIVATE "/MP" "/utf-8")
         target_compile_definitions(${TARGET_NAME} PRIVATE UNICODE _UNICODE)
+else()
+        target_compile_options(${TARGET_NAME} PRIVATE "-fdiagnostics-color=always")
+endif()
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        target_compile_options(${TARGET_NAME} PRIVATE "-ffast-math -flto=thin")
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+        add_definitions("-fPIC")
+        target_compile_options(${TARGET_NAME} PRIVATE "-Wa,-mbig-obj")
 endif()
 
 # public link
-target_link_libraries(${TARGET_NAME} PRIVATE stb)
-target_link_libraries(${TARGET_NAME} PRIVATE simdjson Threads::Threads freetype glfw)
-target_link_libraries(${TARGET_NAME} PRIVATE assimp)
-target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
-target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static)
+target_link_libraries(${TARGET_NAME} PUBLIC spdlog::spdlog fmt::fmt imgui)
 
-target_link_libraries(${TARGET_NAME} PUBLIC refl-cpp::refl-cpp imgui
-        spdlog::spdlog fmt::fmt magic_enum::magic_enum glm)
+target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static reflectcpp Threads::Threads freetype Taskflow)
+target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)
+target_link_libraries(${TARGET_NAME} PRIVATE assimp stb magic_enum::magic_enum glm glfw)
 
 if(USE_VULKAN)
         add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET}_VK)
 
         list(APPEND PCH_FILES "${PCH_DIR}/pch_vulkan.hpp")
-        target_link_libraries(${TARGET_NAME} PUBLIC Vulkan::Vulkan volk VulkanMemoryAllocator)
+        target_link_libraries(${TARGET_NAME} PRIVATE Vulkan::Vulkan VulkanMemoryAllocator)
         target_include_directories(${TARGET_NAME} PRIVATE ${Vulkan_INCLUDE_DIRS})
 endif()
 

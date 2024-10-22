@@ -11,7 +11,8 @@
 #include "imgui_internal.h"
 
 // "" headers
-#include "gameplay/gui/window.hpp"
+#include <taixu/gameplay/gui/window.hpp>
+
 #include "ui/common/view_model.hpp"
 #include "ui/components/detail_component.hpp"
 #include "ui/components/file_component.hpp"
@@ -24,8 +25,7 @@ namespace taixu::editor {
 
 class MainWindow {
 private:
-    static constexpr std::string_view STARTUP_OPEN_PROJECT_DLG_KEY =
-            "startup_open_project_file_dlg";
+    static constexpr std::string_view STARTUP_OPEN_PROJECT_DLG_KEY = "startup_open_project_file_dlg";
 
 private:
     ViewModel _view_model{};
@@ -46,19 +46,16 @@ private:
      * window相关flag
      */
     static constexpr ImGuiWindowFlags IMGUI_WINDOW_FLAG{
-            ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking |
-            ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse |
-            ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
-            ImGuiWindowFlags_NoBringToFrontOnFocus |
-            ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground};
+            ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoTitleBar |
+            ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
+            ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground};
     /**
      * DockSpace相关flag
      */
-    static constexpr ImGuiDockNodeFlags IMGUI_DOCKSPACE_FLAGS{
-            ImGuiDockNodeFlags_None ^ ImGuiDockNodeFlags_PassthruCentralNode};
+    static constexpr ImGuiDockNodeFlags IMGUI_DOCKSPACE_FLAGS{ImGuiDockNodeFlags_None ^
+                                                              ImGuiDockNodeFlags_PassthruCentralNode};
 
-    static constexpr std::string_view VIEW_HOLDER_NAME{
-            "#TaixuEditorViewHolder"};
+    static constexpr std::string_view VIEW_HOLDER_NAME{"#TaixuEditorViewHolder"};
     static constexpr std::string_view DOCK_SPACE_NAME{"TaixuEditorDock"};
 
     ImGuiID _dock_space_id{0};

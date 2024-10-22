@@ -1,6 +1,7 @@
 #include <fmt/format.h>
 
-#include "engine/engine.hpp"
+#include <taixu/engine/engine.hpp>
+
 #include "ui/main_window/main_window.hpp"
 
 /**
@@ -35,5 +36,8 @@ int main(const int argc, char* argv[]) try {
     return EXIT_SUCCESS;
 } catch (std::exception const& e_err) {
     std::cerr << "\n" << fmt::format("Error: {}\n", e_err.what());
+    return 1;
+} catch (...) {
+    std::cerr << "\nUnknown error\n";
     return 1;
 }

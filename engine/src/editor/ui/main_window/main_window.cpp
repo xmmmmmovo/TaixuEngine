@@ -5,7 +5,9 @@
 
 #include "imgui.h"
 
-#include "engine/engine.hpp"
+#include "taixu/engine/engine.hpp"
+#include "taixu/gameplay/gui/window_factory.hpp"
+
 #include "ui/common/dialog_helper.hpp"
 #include "ui/common/editor_context.hpp"
 
@@ -41,20 +43,17 @@ void MainWindow::init() {
 
     g_engine.initWithWindow(_window_ptr.get());
 
-    g_engine.renderer->enableImgui([this] { this->imguiUpdate(); });
+    g_engine.enableImgui([this] { this->imguiUpdate(); });
 
-    registerCallback(
-            Callbacks::FILE_OPEN_PROJECT,
-            Handler{+[](std::string const& file_path, ViewModel& view_model) {
-                g_engine.loadProject(file_path);
-                auto& node         = view_model.file_component_hierarchy;
-                node.data.filepath = "";
-                node.data.filename =
-                        g_engine.getOpenedProject()->project_path.filename().generic_string();
-                node.data.filetype       = FileEntryType::DIRECTORY;
-                view_model.selected_node = &node;
-                recursiveLoadFileTree(node);
-            }});
+    registerCallback(Callbacks::FILE_OPEN_PROJECT, Handler{+[](std::string const& file_path, ViewModel& view_model) {
+                         g_engine.loadProject(file_path);
+                         auto& node         = view_model.file_component_hierarchy;
+                         node.data.filepath = "";
+                         node.data.filename = g_engine.getOpenedProject()->raw.project_path.filename().generic_string();
+                         node.data.filetype = FileEntryType::DIRECTORY;
+                         view_model.selected_node = &node;
+                         recursiveLoadFileTree(node);
+                     }});
 
     //    _window_ptr->registerOnMouseButtonFn(
     //            [this](int button, int action, int /*mods*/) {
@@ -93,7 +92,8 @@ bool MainWindow::isCursorInRenderComponent() const {
     return true;
 }
 
-void MainWindow::update() {}
+void MainWindow::update() {
+}
 
 void MainWindow::imguiUpdate() {
     ImGui::Begin(VIEW_HOLDER_NAME.data(), nullptr, IMGUI_WINDOW_FLAG);
@@ -103,11 +103,9 @@ void MainWindow::imguiUpdate() {
     if (g_engine.getOpenedProject() == nullptr) {
         if (g_engine.getArgs().project_path().empty()) {
             openFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(), DIRECTORY_CONFIG);
-            displayAndProcessFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(), _view_model,
-                                        Callbacks::FILE_OPEN_PROJECT);
+            displayAndProcessFileDialog(STARTUP_OPEN_PROJECT_DLG_KEY.data(), _view_model, Callbacks::FILE_OPEN_PROJECT);
         } else {
-            invokeCallback(Callbacks::FILE_OPEN_PROJECT, g_engine.getArgs().project_path(),
-                           _view_model);
+            invokeCallback(Callbacks::FILE_OPEN_PROJECT, g_engine.getArgs().project_path(), _view_model);
         }
     } else {
         _menu_component.update();
@@ -129,9 +127,12 @@ void MainWindow::start() const {
     }
 }
 
-void MainWindow::destroy() const { _window_ptr->destroy(); }
+void MainWindow::destroy() const {
+    _window_ptr->destroy();
+}
 
 MainWindow::MainWindow(WindowInfo&& window_info)
-    : _window_ptr(std::make_unique<Window>(std::forward<WindowInfo>(window_info))) {}
+    : _window_ptr(WindowFactory::createProduct(WindowAPI::GLFW, std::move(window_info))) {
+}
 
 }// namespace taixu::editor

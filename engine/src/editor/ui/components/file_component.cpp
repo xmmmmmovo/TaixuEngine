@@ -4,19 +4,17 @@
 
 #include "file_component.hpp"
 
-#include "common/log/logger.hpp"
-#include "engine/engine.hpp"
-#include "platform/os/path.hpp"
-
 #include <imgui/icons/IconsLucide.h>
+
+#include <taixu/common/log/logger.hpp>
+#include <taixu/engine/engine.hpp>
 
 namespace taixu::editor {
 
 static constexpr ImGuiWindowFlags   WINDOW_FLAGS = ImGuiWindowFlags_HorizontalScrollbar;
 static constexpr ImGuiTreeNodeFlags PARENT_FLAGS = ImGuiTreeNodeFlags_SpanAvailWidth;
-static constexpr ImGuiTreeNodeFlags LEAF_FLAGS   = ImGuiTreeNodeFlags_SpanAvailWidth |
-                                                 ImGuiTreeNodeFlags_Leaf |
-                                                 ImGuiTreeNodeFlags_NoTreePushOnOpen;
+static constexpr ImGuiTreeNodeFlags LEAF_FLAGS =
+        ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
 
 static std::string_view constexpr FILE_COMPONENT_NAME{"Files"};
 
@@ -26,17 +24,25 @@ static constexpr float CELL_SIZE      = THUMBNAIL_SIZE + PADDING;
 
 void FileComponent::recursiveBuildFileTree(FileTreeNodeT& node) {
     ImGuiTreeNodeFlags flag = PARENT_FLAGS;
-    if (node.directory_childrens.empty()) { flag = LEAF_FLAGS; }
+    if (node.directory_childrens.empty()) {
+        flag = LEAF_FLAGS;
+    }
 
-    if (_view_model.selected_node == &node) { flag |= ImGuiTreeNodeFlags_Selected; }
+    if (_view_model.selected_node == &node) {
+        flag |= ImGuiTreeNodeFlags_Selected;
+    }
 
     if (ImGui::TreeNodeEx(node.data.filename.c_str(), flag)) {
         if (ImGui::IsMouseDoubleClicked(0) && ImGui::IsItemHovered(ImGuiHoveredFlags_None)) {
             _view_model.selected_node = &node;
         }
 
-        for (auto&& child : node.directory_childrens) { recursiveBuildFileTree(child); }
-        if (!(flag & ImGuiTreeNodeFlags_Leaf)) { ImGui::TreePop(); }
+        for (auto&& child : node.directory_childrens) {
+            recursiveBuildFileTree(child);
+        }
+        if (!(flag & ImGuiTreeNodeFlags_Leaf)) {
+            ImGui::TreePop();
+        }
     }
 }
 
@@ -66,7 +72,9 @@ void FileComponent::buildShowItems(std::vector<FileTreeNodeT>& nodes) const {
 void FileComponent::buildDirShowcase() const {
     float const panel_width  = ImGui::GetContentRegionAvail().x;
     int         column_count = static_cast<int>(panel_width / CELL_SIZE);
-    if (column_count < 1) { column_count = 1; }
+    if (column_count < 1) {
+        column_count = 1;
+    }
 
     ImGui::Columns(column_count, nullptr, false);
 
@@ -79,8 +87,8 @@ void FileComponent::buildDirShowcase() const {
 void FileComponent::update() {
     if (ImGui::Begin(FILE_COMPONENT_NAME.data(), nullptr, ImGuiWindowFlags_None)) {
         {
-            if (ImGui::BeginChild("FileTree", ImVec2(ImGui::GetContentRegionAvail().x * 0.2f, 0.f),
-                                  false, WINDOW_FLAGS)) {
+            if (ImGui::BeginChild("FileTree", ImVec2(ImGui::GetContentRegionAvail().x * 0.2f, 0.f), false,
+                                  WINDOW_FLAGS)) {
                 buildFileTree();
                 ImGui::EndChild();
             }

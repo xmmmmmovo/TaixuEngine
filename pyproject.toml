@@ -1,0 +1,9 @@
+[project]
+name = "taixu_rt"
+description = "Taixu engine runtime python bindings."
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "xmmmmmovo", email = "ma_fivezha@163.com" }]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true

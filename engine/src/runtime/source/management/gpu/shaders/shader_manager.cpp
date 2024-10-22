@@ -2,11 +2,12 @@
 // Created by xmmmmmovo on 1/28/2024.
 //
 
-#include "management/gpu/shader_manager.hpp"
+#include "shader_manager.hpp"
 
 namespace taixu {
 
-void TXShaderModuleManager::init() {}
+void TXShaderModuleManager::init() {
+}
 
 std::shared_ptr<TXShaderModule>
 TXShaderModuleManager::createShaderModuleInner(const TXShaderModuleCreateInfo& info) const {
@@ -19,11 +20,10 @@ TXShaderModuleManager::createCustomShaderModule(const TXShaderModuleCreateInfo& 
     return createShaderModuleInner(info);
 }
 
-std::shared_ptr<TXShaderModule>
-TXShaderModuleManager::getBuiltinShaderModule(TXBuiltinShader builtin_shader) const {
+std::shared_ptr<TXShaderModule> TXShaderModuleManager::getBuiltinShaderModule(TXBuiltinShader builtin_shader) const {
     if (builtin_modules[static_cast<size_t>(builtin_shader)] == nullptr) {
-        std::shared_ptr<TXShaderModule> module = createShaderModuleInner(
-                builtin_shader_create_infos[static_cast<size_t>(builtin_shader)]);
+        std::shared_ptr<TXShaderModule> module =
+                createShaderModuleInner(builtin_shader_create_infos[static_cast<size_t>(builtin_shader)]);
         builtin_modules[static_cast<size_t>(builtin_shader)] = module;
         return module;
     }

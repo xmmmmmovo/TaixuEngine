@@ -1,7 +1,6 @@
 # Add HarfBuzz
 CPMAddPackage(
         NAME harfbuzz
-        GIT_TAG 8.3.0
-        GIT_SHALLOW TRUE
+        GIT_TAG 9.0.0
         GITHUB_REPOSITORY harfbuzz/harfbuzz
 )

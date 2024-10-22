@@ -1,10 +1,28 @@
+<p align="center">
+  <a href="taixuengine.fivezha.cn"><img src="" width="200" height="200" alt="taixuengine"></a>
+</p>
+
+<div align="center">
+
 # TaixuEngine
 
-A simple 3D game engine.
+_✨ A simple 3D game engine. ✨_
+
+</div>
 
 ![Cover](.github/images/cover.png)
 
 Note: This is in OpenGL version in [main branch](https://github.com/xmmmmmovo/TaixuEngine/tree/main)
+
+## Roadmap
+
+- [ ] Vulkan Support
+- [ ] Resource Manager
+- [ ] Scene
+- [ ] TaskQueue
+- [ ] Audio
+- [ ] Animation
+- [ ] Script
 
 ## How to build
 
@@ -32,8 +50,7 @@ make
 | :----: | :------------------------------------: |
 | OpenGL | Deprecated(old version in main branch) |
 | Vulkan |                  WIP                  |
-
-Note: New RHI design, others api will be implemented by `Mesa` project.
+|  WGPU  |               In Future                |
 
 ## Architecture
 
@@ -51,3 +68,12 @@ flowchart TD
     platform --> common;
     resource --> common;
 ```
+
+## Third Parties
+
+[Copyrights](./3rdparty/README.md)
+
+## Designs
+
+- No Exception Design
+- Constructor Exception Safe

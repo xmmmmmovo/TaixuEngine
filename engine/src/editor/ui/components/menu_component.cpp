@@ -19,8 +19,7 @@ static constexpr std::string_view FILE_NEW_PROJECT_DLG_KEY  = "file_new_project"
 static constexpr std::string_view FILE_OPEN_PROJECT_DLG_KEY = "file_open_project";
 
 MenuComponent::MenuComponent(ViewModel& view_model) : AbstractUIComponent(view_model) {
-    registerCallback(Callbacks::MENU_FILE_NEW_PROJECT,
-                     Handler{+[](std::string const& file_path) {}});
+    registerCallback(Callbacks::MENU_FILE_NEW_PROJECT, Handler{+[](std::string const& file_path) {}});
     registerCallback(Callbacks::MENU_FILE_SAVE_PROJECT, Handler{+[] {}});
     registerCallback(Callbacks::MENU_FILE_EXIT, Handler{+[] {}});
 }
@@ -89,10 +88,8 @@ void MenuComponent::update() const {
 
 void MenuComponent::endUpdate() const {
     // display
-    displayAndProcessFileDialog(FILE_NEW_PROJECT_DLG_KEY, _view_model,
-                                Callbacks::MENU_FILE_NEW_PROJECT);
-    displayAndProcessFileDialog(FILE_OPEN_PROJECT_DLG_KEY, _view_model,
-                                Callbacks::FILE_OPEN_PROJECT);
+    displayAndProcessFileDialog(FILE_NEW_PROJECT_DLG_KEY, _view_model, Callbacks::MENU_FILE_NEW_PROJECT);
+    displayAndProcessFileDialog(FILE_OPEN_PROJECT_DLG_KEY, _view_model, Callbacks::FILE_OPEN_PROJECT);
 }
 
 }// namespace taixu::editor

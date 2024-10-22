@@ -15,19 +15,18 @@
 
 
 namespace taixu::editor {
+
 class DetailComponent : public AbstractUIComponent {
 private:
-    static std::string_view constexpr DETAILS_COMPONENT_NAME{
-            "Components Details"};
+    static std::string_view constexpr DETAILS_COMPONENT_NAME{"Components Details"};
 
 public:
-    explicit DetailComponent(ViewModel& view_model)
-        : AbstractUIComponent(view_model) {}
+    explicit DetailComponent(ViewModel& view_model) : AbstractUIComponent(view_model) {
+    }
 
 
     void update() {
-        if (ImGui::Begin(DETAILS_COMPONENT_NAME.data(), nullptr,
-                         ImGuiWindowFlags_None)) {
+        if (ImGui::Begin(DETAILS_COMPONENT_NAME.data(), nullptr, ImGuiWindowFlags_None)) {
             if (!_view_model.is_entity_selected) {
                 ImGui::End();
                 return;

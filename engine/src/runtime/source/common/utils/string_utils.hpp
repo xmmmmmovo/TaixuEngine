@@ -8,13 +8,25 @@
 
 #include <string>
 
+#include "common/hal/tx_string.hpp"
+
 namespace taixu {
 
-// Convert a wide Unicode string to an UTF8 string
-std::string utf8Encode(const std::wstring& wstr);
+/**
+ * @brief Convert a wide Unicode string to an UTF8 string
+ *
+ * @param wstr
+ * @return tx_string
+ */
+tx_string utf8Encode(const tx_wstring& wstr);
 
-// Convert an UTF8 string to a wide Unicode String
-std::wstring utf8Decode(const std::string& str);
+/**
+ * @brief Convert an UTF8 string to a wide Unicode String
+ *
+ * @param str
+ * @return tx_wstring
+ */
+tx_wstring utf8Decode(const tx_string& str);
 
 }// namespace taixu
 

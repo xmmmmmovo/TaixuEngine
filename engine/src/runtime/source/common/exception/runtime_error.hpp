@@ -12,12 +12,11 @@ namespace taixu {
 
 class TXRuntimeError : public std::runtime_error {
 private:
-    std::string _err_msg{};
+    tx_string _err_msg{};
 
 public:
     template<typename... Args>
-    explicit TXRuntimeError(const std::string& message, Args... args)
-        : std::runtime_error(message) {
+    explicit TXRuntimeError(const tx_string& message, Args... args) : std::runtime_error(message) {
         _err_msg = std::format(message, args...);
     }
 

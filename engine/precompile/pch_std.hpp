@@ -2,8 +2,7 @@
 // Created by xmmmmmovo on 2023/7/22.
 //
 
-#ifndef ENGINE_PRECOMPILE_PCH_COMMON_HPP
-#define ENGINE_PRECOMPILE_PCH_COMMON_HPP
+#pragma once
 
 // C
 #include <cassert>
@@ -121,5 +120,3 @@
     #include <stdatomic.h>
     #include <stdfloat>
 #endif
-
-#endif// ENGINE_PRECOMPILE_PCH_COMMON_HPP

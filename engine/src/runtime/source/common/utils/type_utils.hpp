@@ -2,8 +2,7 @@
 // Created by xmmmmmovo on 1/19/2024.
 //
 
-#ifndef TYPE_UTILS_HPP_F632F579D1484A6BB335C3B82355AAB3
-#define TYPE_UTILS_HPP_F632F579D1484A6BB335C3B82355AAB3
+#pragma once
 
 #include <array>
 #include <type_traits>
@@ -51,6 +50,31 @@ concept IsUnion = std::is_union_v<T>;
 template<typename T>
 using SameT = T;
 
-}// namespace taixu
+/**
+ * @brief iterable type
+ *
+ * @tparam T
+ */
+template<typename T>
+concept IterableNotStrT =
+        requires(T t) {
+            { std::begin(t) } -> std::input_or_output_iterator;
+            { std::end(t) } -> std::input_or_output_iterator;
+        } &&
+        !std::is_same_v<std::decay_t<T>, std::basic_string<typename T::value_type, typename T::traits_type,
+                                                           typename T::allocator_type>>// Exclude std::string
+        && !std::is_same_v<std::decay_t<T>, std::basic_string_view<typename T::value_type,
+                                                                   typename T::traits_type>>// Exclude std::string_view
+        && !std::is_same_v<std::decay_t<T>, const char*>                                    // Exclude const char*
+        && !std::is_same_v<std::decay_t<T>, char*>                                          // Exclude char*
+        && !std::is_array_v<std::decay_t<T>>;// Exclude char[] and other arrays;
 
-#endif// TYPE_UTILS_HPP_F632F579D1484A6BB335C3B82355AAB3
+// Concept to check if a container has key-value pairs (i.e., maps)
+template<typename T>
+concept KeyValueContainerT = requires(T t) {
+    typename T::value_type;
+    // Ensure that value_type is a pair (key-value pair)
+    requires std::is_same_v<typename T::value_type, std::pair<const typename T::key_type, typename T::mapped_type>>;
+};
+
+}// namespace taixu
