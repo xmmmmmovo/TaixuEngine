@@ -32,6 +32,8 @@ private:
      * @brief engine clock
      */
     CpuClock _clock{};
+    CpuClock _virtual_clock{};
+    float    _fixed_clock_delta_time{0.0f};
 
     /**
      * 保存engine的参数

@@ -10,11 +10,11 @@
         }
     ],
     "skybox_specular": {
-        "negx": "assets/textures/skybox/split_skybox_sky_cloud/left.png",
-        "negy": "assets/textures/skybox/split_skybox_sky_cloud/bottom.png",
-        "negz": "assets/textures/skybox/split_skybox_sky_cloud/back.png",
-        "posx": "assets/textures/skybox/split_skybox_sky_cloud/right.png",
-        "posy": "assets/textures/skybox/split_skybox_sky_cloud/top.png",
-        "posz": "assets/textures/skybox/split_skybox_sky_cloud/front.png"
+        "negx_path": "assets/textures/skybox/split_skybox_sky_cloud/left.png",
+        "negy_path": "assets/textures/skybox/split_skybox_sky_cloud/bottom.png",
+        "negz_path": "assets/textures/skybox/split_skybox_sky_cloud/back.png",
+        "posx_path": "assets/textures/skybox/split_skybox_sky_cloud/right.png",
+        "posy_path": "assets/textures/skybox/split_skybox_sky_cloud/top.png",
+        "posz_path": "assets/textures/skybox/split_skybox_sky_cloud/front.png"
     }
 }

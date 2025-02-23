@@ -11,11 +11,14 @@
 
 #include "taixu/common/base/macro.hpp"
 
+#include "vk_framebuffer.hpp"
+
 TX_NAMESPACE_BEGIN
 
 class VulkanRenderPass {
 private:
     vk::raii::RenderPass _render_pass{VK_NULL_HANDLE};
+    VulkanFramebuffer    _framebuffer{};
 
 public:
     [[nodiscard]] vk::raii::RenderPass const& getVulkanRenderPass() const noexcept {
