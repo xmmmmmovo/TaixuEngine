@@ -95,17 +95,18 @@
 
 #define NODISCARD [[nodiscard]]
 
-#define TX_NAMESPACE_BEGIN namespace taixu {
+#define TX_NAMESPACE taixu
+#define TX_NAMESPACE_BEGIN namespace TX_NAMESPACE {
 #define TX_NAMESPACE_END }
-#define TX_NAMESPACE_USING using namespace taixu;
-#define TX_NAMESPACE_USING_ALIAS using namespace taixu::detail;
+#define TX_NAMESPACE_USING using namespace TX_NAMESPACE;
+#define TX_NAMESPACE_USING_ALIAS using namespace TX_NAMESPACE::detail;
 #define TX_NAMESPACE_USING_ALL                                                                                         \
-    using namespace taixu;                                                                                             \
-    using namespace taixu::detail;
+    using namespace TX_NAMESPACE;                                                                                      \
+    using namespace TX_NAMESPACE::detail;
 #define TX_NAMESPACE_USING_ALL_FROM(ns)                                                                                \
     using namespace ns;                                                                                                \
     using namespace ns::detail;
-#define TX_NAMESPACE_LIMIT taixu::
+#define TX_NAMESPACE_LIMIT TX_NAMESPACE::
 
 /**
  * @brief Export macro

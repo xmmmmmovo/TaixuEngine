@@ -91,7 +91,7 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 endif()
 
 # public link
-target_link_libraries(${TARGET_NAME} PUBLIC spdlog::spdlog fmt::fmt imgui)
+target_link_libraries(${TARGET_NAME} PUBLIC quill fmt::fmt imgui)
 
 target_link_libraries(${TARGET_NAME} PRIVATE mimalloc-static reflectcpp Threads::Threads freetype Taskflow msft_proxy)
 target_link_libraries(${TARGET_NAME} PRIVATE Jolt argparse)

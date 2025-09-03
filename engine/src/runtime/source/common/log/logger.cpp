@@ -2,40 +2,47 @@
 // Created by xmmmmmovo on 11/13/2023.
 //
 
-#include <taixu/common/log/logger.hpp>
+#include "taixu/common/log/logger.hpp"
 
-#include <spdlog/async.h>
-#include <spdlog/sinks/basic_file_sink.h>
-#include <spdlog/sinks/stdout_color_sinks.h>
-#include <spdlog/spdlog.h>
+#include "quill/Backend.h"
+#include "quill/Frontend.h"
+#include "quill/Logger.h"
+#include "quill/sinks/ConsoleSink.h"
+#include "quill/sinks/FileSink.h"
 
 namespace taixu {
 
-void Logger::init() {
+void Logger::init(LogConfiguration const& config) {
     constexpr uint32_t SIZE = 8192;
 
-    auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
-    console_sink->set_level(spdlog::level::trace);
-    console_sink->set_pattern("%^[%l] [%! line:%#] %v %$");
+    quill::BackendOptions backend_options;
+    backend_options.thread_name = "Quill Log Thread";
+    quill::Backend::start(backend_options);
 
-    const spdlog::sinks_init_list sink_list = {console_sink};
+    std::vector<std::shared_ptr<quill::Sink>> sinks;
 
-    spdlog::init_thread_pool(SIZE, 1);
+    if (config.console_sink_config.has_value()) {
+        auto console_sink = quill::Frontend::create_or_get_sink<quill::ConsoleSink>("console_sink_1");
+        sinks.emplace_back(std::move(console_sink));
+    }
 
-    logger = std::make_shared<spdlog::async_logger>("muggle_logger", sink_list.begin(), sink_list.end(),
-                                                    spdlog::thread_pool(), spdlog::async_overflow_policy::block);
-    logger->set_level(spdlog::level::trace);
+    if (config.file_sink_config.has_value()) {
+        auto file_sink = quill::Frontend::create_or_get_sink<quill::FileSink>(
+                "file_sink_1", config.file_sink_config->log_file_path, SIZE);
+    }
 
-    spdlog::register_logger(logger);
+    auto pattern = quill::PatternFormatterOptions{"%(time) [%(log_level:<9)] %(short_source_location:<12) %(message)"};
+    logger       = quill::Frontend::create_or_get_logger("TaixuLogger", sinks);
+    logger->set_log_level(quill::LogLevel::Info);
 }
 
 void Logger::destroy() {
-    logger->flush();
-    spdlog::drop_all();
+    logger->flush_log();
+    logger->mark_invalid();
 }
 
 void Logger::setLevel(Logger::LogLevel level) {
-    logger->set_level(static_cast<spdlog::level::level_enum>(level));
+    logger->set_log_level(static_cast<quill::LogLevel>(level));
 }
 
 }// namespace taixu

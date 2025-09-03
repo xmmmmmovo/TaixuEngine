@@ -47,7 +47,7 @@
 
 #include <fmt/format.h>
 
-#include <spdlog/spdlog.h>
+#include <quill/Logger.h>
 
 #include <argparse/argparse.hpp>
 
@@ -77,8 +77,5 @@
 
 #include <generated/fonts/lucide_iconfont.hpp>
 #include <generated/fonts/source_han_sans_cn_font.hpp>
-
-// 待验证，全局macro
-#include <taixu/common/base/macro.hpp>
 
 #endif// ENGINE_PRECOMPILE_PCH_RUNTIME_0A0D878DBB714C9499D420BF61F1C4D8

@@ -39,8 +39,8 @@ include(FindStb)
 include(FindImgui)
 # add fmt
 include(FindFmt)
-# add spdlog
-include(FindSpdlog)
+# add quill
+include(FindQuill)
 # add assimp
 include(FindAssimp)
 # add magic enum

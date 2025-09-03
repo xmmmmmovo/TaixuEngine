@@ -1,10 +1,14 @@
-//
-// Created by xmmmmmovo on 2023/7/9.
-//
+/**
+ * @file manifest_json.hpp
+ * @author xmmmmmovo (ma_fivezha@163.com)
+ * @brief
+ * @date 2025-02-24
+ *
+ * Copyright (c) 2025 xmmmmmovo
+ *
+ */
 
 #pragma once
-
-#include <string>
 
 #include "common/hal/tx_string.hpp"
 
