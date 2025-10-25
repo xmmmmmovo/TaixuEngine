@@ -59,7 +59,6 @@ public:
     [[nodiscard]] std::shared_ptr<TXShaderModule> createShaderModule(TXShaderModuleCreateInfo const&) const;
 };
 
-TX_GFX_CONTEXT_FACTORY_REGISTER(VulkanContext,// NOLINT(cppcoreguidelines-rvalue-reference-param-not-moved)
-                                RenderAPI::VULKAN);
+TX_GFX_CONTEXT_FACTORY_REGISTER(VulkanContext, RenderAPI::VULKAN);
 
 TX_NAMESPACE_END

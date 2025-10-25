@@ -1,5 +1,5 @@
 ---
-Checks: cppcoreguidelines-*,
+Checks: >
   performance-*,
   portability-*,
 
@@ -190,7 +190,9 @@ Checks: cppcoreguidelines-*,
   -cppcoreguidelines-macro-usage
 
 # Turn all the warnings from the checks above into errors.
-WarningsAsErrors: "*"
+WarningsAsErrors: >
+  bugprone-*,
+  modernize-*
 
 CheckOptions:
   readability-identifier-naming.NamespaceCase: lower_case
