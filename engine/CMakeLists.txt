@@ -64,7 +64,6 @@ find_package(Threads REQUIRED)
 # ------- sub-directories --------
 
 set(SHADER_COMPILE_TARGET TaixuShaderCompile)
-set(SCRIPT_COMPILE_TARGET TaixuScriptLib)
 set(INSTALL_DIR TaixuEngine)
 
 set(PCH_DIR ${ENGINE_ROOT_DIR}/precompile)
