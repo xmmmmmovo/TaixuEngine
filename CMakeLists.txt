@@ -3,19 +3,15 @@ cmake_minimum_required(VERSION 3.20)
 # default for cxx23 feature
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_C_STANDARD 11)
+
 # This line used for cross platform compilation
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # compile config
-option(USE_CCACHE "ccache accelerate the compile" OFF)
 option(USE_VCPKG "vcpkg manager" OFF)
 option(USE_PCH "pre compile" ON)
 option(WARNINGS "warnings" ON)
-
 option(USE_VULKAN "use vulkan" ON)
-option(USE_WGPU "use webgpu" ON)
-option(USE_HLSL "use hlsl" OFF)
-
 option(USE_NOEXCEPT "use noexcept" ON)
 
 # for project properties
@@ -47,7 +43,7 @@ endif()
 project(
     ${TX_ENGINE_NAME}
     VERSION ${TX_ENGINE_VERSION}
-    DESCRIPTION "A Game Engine."
+    DESCRIPTION "A Simple Game Engine."
     HOMEPAGE_URL "https://github.com/TaixuEngineGroup/TaixuEngine"
     LANGUAGES CXX C
 )

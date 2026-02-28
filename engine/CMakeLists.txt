@@ -7,17 +7,6 @@ if (MSVC)
     set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT TaixuEngineEditor)
 endif ()
 
-# enables CCACHE support through the USE_CCACHE flag possible values are: YES, NO or equivalent
-if (USE_CCACHE)
-    CPMAddPackage(
-            NAME ccache
-            GITHUB_REPOSITORY "TheLartians/Ccache.cmake"
-            VERSION 1.2.4
-            OPTIONS
-            "USE_CCACHE ${USE_CCACHE}"
-    )
-endif ()
-
 # ------ third-party -------
 
 if (USE_VULKAN)
@@ -30,7 +19,7 @@ include(FindHarfBuzz)
 # add freetype
 include(FindFreetype)
 # add glfw3
-include(FindGlfw3)
+include(FindGLFW3)
 # add glm
 include(FindGLM)
 # add stb
@@ -55,8 +44,6 @@ include(FindMimalloc)
 include(FindReflcpp)
 # add taskflow
 include(FindTaskflow)
-# add proxy
-include(FindProxy)
 
 # add threads
 find_package(Threads REQUIRED)

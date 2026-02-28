@@ -1,7 +1,6 @@
 CPMAddPackage(
         NAME freetype
-        GIT_REPOSITORY https://github.com/aseprite/freetype2.git
-        GIT_TAG e8ebfe988b5f57bfb9a3ecb13c70d9791bce9ecf
+        URL https://download.savannah.gnu.org/releases/freetype/freetype-2.14.1.tar.gz
 )
 
 if (freetype_ADDED)
